@@ -19,7 +19,8 @@
           "name": "wind"
         }
       ],
-      "melody": "intro"
+      "melody": "intro",
+      "voice_seed": 1000
     },
     {
       "narration": "कहानी शुरू होती है अयोध्या से — धन-धान्य से भरी, सुखी प्रजा, और धर्म के पक्के राजा दशरथ। उनके पास सब कुछ था।",
@@ -35,7 +36,8 @@
           "name": "birds"
         }
       ],
-      "melody": "calm"
+      "melody": "calm",
+      "voice_seed": 1010
     },
     {
       "narration": "सब कुछ... बस एक पुत्र नहीं, जो उनका वंश आगे बढ़ाए। राजा हर रात प्रार्थना करते थे।",
@@ -51,7 +53,8 @@
           "name": "wind"
         }
       ],
-      "melody": "grief"
+      "melody": "grief",
+      "voice_seed": 1020
     },
     {
       "narration": "तब उन्होंने सबसे बड़ा राजयज्ञ करने का निश्चय किया — अश्वमेध यज्ञ।",
@@ -59,13 +62,15 @@
         "अश्वमेध"
       ],
       "emphasis": "अश्वमेध यज्ञ",
-      "visual": "a majestic white horse with royal ornaments standing before a sacrificial altar with priests, vertical composition, subject in the center of the frame, empty dark chalkboard space at the top and bottom, no border, no frame",
+      "visual": "a majestic white horse with royal ornaments standing before a sacrificial fire altar with two priests, palace courtyard, full scene filling the frame, vertical composition, dark chalkboard background edge to edge, no border, no frame, no white margin",
       "pause": 0.35,
       "sfx": [
         {
           "name": "birds"
         }
-      ]
+      ],
+      "voice_seed": 1031,
+      "seed": 3303
     },
     {
       "narration": "यज्ञ की अग्नि जलाने के लिए युवा ऋषि ऋष्यशृंग को बुलाया गया।",
@@ -76,7 +81,9 @@
       "visual": "the young sage Rishyashringa, slender with matted hair in a topknot, bare chest with a white sacred thread, ochre dhoti, holding a ladle over a sacred fire, chanting before a great blazing sacrificial fire in a yajna pavilion, vertical composition, subject in the center of the frame, empty dark chalkboard space at the top and bottom, no border, no frame",
       "pause": 0.35,
       "sfx": [],
-      "swell": true
+      "swell": true,
+      "tts": "यज्ञ की अग्नि जलाने के लिए, युवा ऋषि, ऋष्य श्रृंग को बुलाया गया।",
+      "voice_seed": 1041
     },
     {
       "narration": "उधर देवता रावण से भयभीत थे। ब्रह्मा जी के वरदान से वो देवताओं और दानवों से अजेय था... पर मनुष्यों से उसने कभी डर ही नहीं माना।",
@@ -85,14 +92,16 @@
         "मनुष्यों"
       ],
       "emphasis": "रावण",
-      "visual": "landscape only, no people: a menacing dark silhouette of a ten-headed demon king against a stormy red sky over an island fortress, vertical composition, subject in the center of the frame, empty dark chalkboard space at the top and bottom, no border, no frame",
+      "visual": "landscape only, no figures, no deities: a golden island fortress city of Lanka on rocky cliffs above a dark sea under a stormy red sky, a huge ominous shadow of a crowned head with many heads looming across the clouds, vertical composition, subject in the center of the frame, empty dark chalkboard space at the top and bottom, no border, no frame",
       "pause": 0.35,
       "sfx": [
         {
           "name": "wind"
         }
       ],
-      "swell": true
+      "swell": true,
+      "voice_seed": 1050,
+      "seed": 3305
     },
     {
       "narration": "तब भगवान विष्णु ने मनुष्य रूप में जन्म लेने का वचन दिया — राजा दशरथ के पुत्र बनकर।",
@@ -105,7 +114,8 @@
       "pause": 0.35,
       "sfx": [],
       "melody": "rise",
-      "swell": true
+      "swell": true,
+      "voice_seed": 1061
     },
     {
       "narration": "यज्ञ की अग्नि से एक तेजस्वी पुरुष प्रकट हुआ, हाथ में देवताओं की बनाई खीर का स्वर्ण पात्र लिए।",
@@ -113,7 +123,7 @@
         "खीर"
       ],
       "emphasis": "",
-      "visual": "a radiant divine being rising from a sacred fire holding a golden vessel of sweet rice pudding, King Dasharatha, a dignified middle-aged Indian king with a short grey beard and moustache, ornate golden crown, gold jewellery, rich saffron and white royal garments kneeling before it with folded hands, vertical composition, subject in the center of the frame, empty dark chalkboard space at the top and bottom, no border, no frame",
+      "visual": "a tall glowing figure made of golden light rising out of the flames of a sacred fire altar, holding a golden bowl of sweet rice pudding in both hands, King Dasharatha, a dignified middle-aged Indian king with a short grey beard and moustache, ornate golden crown, gold jewellery, rich saffron and white royal garments kneeling before the fire with folded hands, vertical composition, subject in the center of the frame, empty dark chalkboard space at the top and bottom, no border, no frame",
       "pause": 0.35,
       "sfx": [
         {
@@ -122,7 +132,9 @@
           "offset": -0.25
         }
       ],
-      "swell": true
+      "swell": true,
+      "voice_seed": 1070,
+      "seed": 3307
     },
     {
       "narration": "राजा ने आधी खीर कौशल्या को दी, बची हुई का आधा सुमित्रा को, उसका आधा कैकेयी को, और आख़िरी हिस्सा फिर से सुमित्रा को।",
@@ -142,7 +154,8 @@
         "अर्धादर्धं ददौ चापि",
         "सुमित्रायै नराधिपः॥"
       ],
-      "source": "वाल्मीकि रामायण  1.16.27"
+      "source": "वाल्मीकि रामायण  1.16.27",
+      "voice_seed": 1080
     },
     {
       "narration": "फिर चैत्र मास की नवमी तिथि को, महारानी कौशल्या की गोद में श्रीराम का जन्म हुआ। इसीलिए हम मनाते हैं राम नवमी।",
@@ -158,7 +171,8 @@
           "name": "birds"
         }
       ],
-      "melody": "love"
+      "melody": "love",
+      "voice_seed": 1090
     },
     {
       "narration": "कैकेयी से भरत जन्मे। और सुमित्रा, जिन्हें दो हिस्से मिले थे, उन्होंने जुड़वाँ पुत्रों को जन्म दिया — लक्ष्मण और शत्रुघ्न।",
@@ -167,13 +181,15 @@
         "जुड़वाँ"
       ],
       "emphasis": "चार राजकुमार",
-      "visual": "Queen Kaikeyi, a striking Indian queen in a deep red and gold silk sari with an ornate gold crown and Queen Sumitra, a gentle Indian queen in a green and gold silk sari with a small gold crown each seen from the side holding newborn babies wrapped in cloth, Sumitra holding twins, warm palace light, vertical composition, subject in the center of the frame, empty dark chalkboard space at the top and bottom, no border, no frame",
+      "visual": "two Indian queens standing side by side in a palace: on the left Queen Kaikeyi, a striking Indian queen in a deep red and gold silk sari with an ornate gold crown holding exactly ONE newborn baby wrapped in cloth; on the right Queen Sumitra, a gentle Indian queen in a green and gold silk sari with a small gold crown holding TWO newborn twin babies wrapped in cloth, warm palace light, vertical composition, subjects in the center of the frame, empty dark chalkboard space at the top and bottom, no border, no frame",
       "pause": 0.35,
       "sfx": [
         {
           "name": "birds"
         }
-      ]
+      ],
+      "voice_seed": 1100,
+      "seed": 3310
     },
     {
       "narration": "चार राजकुमार... और ख़ुशियों से झूम उठी अयोध्या।",
@@ -189,7 +205,8 @@
           "name": "birds"
         }
       ],
-      "melody": "calm"
+      "melody": "calm",
+      "voice_seed": 1110
     },
     {
       "narration": "पर एक दिन, एक तेजस्वी ऋषि राजमहल के द्वार पर आए... और राजा से वो पुत्र माँग बैठे, जिसे देना राजा के लिए सबसे कठिन था।",
@@ -198,14 +215,16 @@
         "पुत्र"
       ],
       "emphasis": "अगला भाग: विश्वामित्र",
-      "visual": "a tall stern elderly sage with a long white beard and a staff, seen from behind, walking toward the gates of Ayodhya at dusk, vertical composition, subject in the center of the frame, empty dark chalkboard space at the top and bottom, no border, no frame",
+      "visual": "the sage Vishvamitra, a tall fierce ascetic with intense eyes, long dark-and-grey matted hair and beard, a deerskin over one shoulder, rudraksha beads, holding a wooden staff, striding toward an ancient Indian carved stone city gateway with pillars and a stepped stone tower (no domes, no minarets) at dusk, vertical composition, subject in the center of the frame, empty dark chalkboard space at the top and bottom, no border, no frame",
       "pause": 0.35,
       "sfx": [
         {
           "name": "wind"
         }
       ],
-      "swell": true
+      "swell": true,
+      "voice_seed": 1121,
+      "seed": 3312
     }
   ],
   "description": "",
@@ -227,5 +246,11 @@
     "1.18.8 Chaitra Navami birth (verified)",
     "1.18.13–14 Bharata; Lakshmana and Shatrughna (verified)",
     "1.19–1.20 Vishvamitra arrives (teaser)"
-  ]
+  ],
+  "style_overrides": {
+    "caption_font": "/System/Library/Fonts/Kohinoor.ttc",
+    "caption_font_index": 2,
+    "caption_size": 80,
+    "caption_max_chars": 24
+  }
 }

@@ -664,7 +664,12 @@ def thumbnail(script, raw_path, out_path, seed):
     board = make_board(seed + 3)
     chalk = chalk_from_image(Image.open(raw_path), seed)
     comp = board + chalk
-    M = cam_matrix(0.92, CW / 2, CH / 2 - 330)
+    lum = chalk.max(axis=2)
+    ys, xs = np.nonzero(lum[::8, ::8] > 0.15)
+    cy = float(ys.mean() * 8) if len(ys) else CH / 2
+    z = 0.92
+    fy = cy + (H / 2 - 0.64 * H) / z
+    M = cam_matrix(z, CW / 2, fy)
     comp = cv2.warpAffine(comp, M, (W, H), borderMode=cv2.BORDER_REFLECT)
     lin = np.linspace(0, 1, H)
     grad = np.maximum(np.clip(1 - lin / 0.3, 0, 1), np.clip((lin - 0.8) / 0.12, 0, 1))[:, None, None] * 0.8

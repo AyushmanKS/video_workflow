@@ -41,11 +41,18 @@
     "rishyashringa": {
       "prompt": "the young sage Rishyashringa, slender with matted hair in a topknot, bare chest with a white sacred thread, ochre dhoti, holding a ladle over a sacred fire",
       "source_episode": "C0003"
+    },
+    "vishvamitra": {
+      "prompt": "the sage Vishvamitra, a tall fierce ascetic with intense eyes, long dark-and-grey matted hair and beard, a deerskin over one shoulder, rudraksha beads, holding a wooden staff",
+      "source_episode": "C0003",
+      "notes": "Distinct from Valmiki (white beard, saffron). Ep04 lead."
     }
   },
   "rules": [
     "Reuse prompts verbatim",
     "Brahma and deities: symbolic depiction (radiant lotus/light) unless owner approves figurative depiction",
-    "Composition: subject centred, title headroom top 12%, captions lower 25% clear"
+    "Composition: subject centred, title headroom top 12%, captions lower 25% clear",
+    "Ravana: symbolic only (Lanka fortress / looming crowned shadow). Never a multi-armed or third-eyed dark figure, which reads as a Hindu deity form (Bhairava/Kali). Ep03 lesson.",
+    "Architecture: ancient Indian (carved stone gateways, stepped shikhara towers, pillared halls). No onion domes or minarets (Mughal-era). Ep03 lesson."
   ]
 }

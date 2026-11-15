@@ -227,7 +227,7 @@ shorts-studio/
   - The hook was switched after the rubric and the vendored hookscore second opinion.
 - **Deep research done:** `reports/Shorts studio voices and tools.md`. **Applied from it (2026-11-16):**
   - QA normalization: numbers to words (`pipeline/numwords.py`), nukta and chandrabindu folding.
-  - Veena lead-in "... " after the voice prompt (first-word slur).
+  - ~~Veena lead-in "... "~~ **reverted 2026-11-16.** C0003 evidence: it adds a spurious syllable before the first word ("साट, राम नवमी", "सब" for "तब", "सहर" for "उधर"). The earlier test's "स्किरोध" showed the same artifact. Default is `lead_in=False`.
   - `engagedViews` in analytics.
   - Post-upload privacy and schedule read-back in `publish.py`.
   - Git pre-commit hook blocking secrets and media (`scripts/pre-commit`, installed in `.git/hooks`).

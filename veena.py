@@ -36,7 +36,7 @@ class Veena:
         ids = self.tok.encode(f"<spk_{speaker}> {text}", add_special_tokens=False)
         self.prompt = [START_OF_HUMAN, *ids, END_OF_HUMAN, START_OF_AI, START_OF_SPEECH, *toks, END_OF_SPEECH, END_OF_AI]
 
-    def _chunk(self, text, speaker, temperature, seed, lead_in=True):
+    def _chunk(self, text, speaker, temperature, seed, lead_in=False):
         torch.manual_seed(seed)
         spoken = f"... {text}" if lead_in and self.prompt else text
         ids = self.tok.encode(f"<spk_{speaker}> {spoken}", add_special_tokens=False)
