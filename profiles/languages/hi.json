@@ -34,7 +34,8 @@
       "18:30",
       "20:30"
     ],
-    "basis": "Hypotheses only, to be ranked by channel 48h data via pipeline.schedule; check YouTube Studio 'When your viewers are on YouTube'."
+    "basis": "Hypotheses only, to be ranked by channel 48h data via pipeline.schedule; check YouTube Studio 'When your viewers are on YouTube'.",
+    "evidence": "2026-11-16: PostEverywhere (9,500+ scheduled videos) reports India best 8–11 PM IST (+13%); other vendor blogs vary (5–9 PM, 7–9 PM). Unverified against YouTube data; rank via own 48h results."
   },
   "festivals_and_seasons": [
     "Ram Navami (Mar/Apr)",

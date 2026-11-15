@@ -94,6 +94,34 @@
       "status": "done",
       "at": "2026-11-16T01:36:57+0530",
       "note": "linted with yt-package; titles shortened"
+    },
+    "gate:final": {
+      "status": "approved",
+      "at": "2026-11-16T01:44:45+0530",
+      "note": "Owner: 'proceed with ep2 publishing' (2026-11-16)",
+      "langs": [
+        "en",
+        "hi"
+      ]
+    },
+    "gate:publish": {
+      "status": "approved",
+      "at": "2026-11-16T01:44:45+0530",
+      "note": "Owner approved publishing at best-reach time; HI 20:30 IST, EN 21:30 IST on 2026-11-16",
+      "langs": [
+        "en",
+        "hi"
+      ]
+    },
+    "published:hi": {
+      "status": "done",
+      "at": "2026-11-16T01:45:21+0530",
+      "note": "2026-11-16T20:30:00+05:30"
+    },
+    "published:en": {
+      "status": "done",
+      "at": "2026-11-16T01:45:45+0530",
+      "note": "2026-11-16T21:30:00+05:30"
     }
   }
 }

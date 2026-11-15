@@ -232,6 +232,8 @@ def cmd_publish(a):
     args = [sys.executable, str(ROOT / "publish.py"), "youtube", str(work / f"{a.id}-{a.lang}.mp4"), "--meta", str(meta), "--thumbnail", str(work / "thumbnail.png"), "--variant", f"{a.id}-{a.lang}", "--slot", a.slot or sched.get("slot", "")]
     if when:
         args += ["--publish-at", when]
+    if a.yes:
+        args.append("--yes")
     subprocess.run(args, check=True, cwd=ROOT)
     mark(m, "published", a.lang, note=when or "private")
 
@@ -322,7 +324,7 @@ def main():
     p = sp.add_parser("produce"); p.add_argument("id"); p.add_argument("--lang", required=True); p.add_argument("--steps", default="voice,images,render"); p.set_defaults(fn=cmd_produce)
     p = sp.add_parser("qa"); p.add_argument("id"); p.add_argument("--lang", required=True); p.set_defaults(fn=cmd_qa)
     p = sp.add_parser("schedule"); p.add_argument("--id"); p.add_argument("--lang", required=True); p.set_defaults(fn=cmd_schedule)
-    p = sp.add_parser("publish"); p.add_argument("id"); p.add_argument("--lang", required=True); p.add_argument("--at"); p.add_argument("--slot"); p.set_defaults(fn=cmd_publish)
+    p = sp.add_parser("publish"); p.add_argument("id"); p.add_argument("--lang", required=True); p.add_argument("--at"); p.add_argument("--slot"); p.add_argument("--yes", action="store_true", help="owner already approved in chat; skip the interactive prompt"); p.set_defaults(fn=cmd_publish)
     p = sp.add_parser("takes"); p.add_argument("id"); p.add_argument("--lang", required=True); p.add_argument("--scenes", help="comma list of 1-based scene numbers (default all)"); p.add_argument("--n", type=int, default=3); p.set_defaults(fn=cmd_takes)
     p = sp.add_parser("progress", help="live progress, per-step ETA and finish time"); p.add_argument("id"); p.add_argument("--watch", type=int, default=0, help="refresh every N seconds until done"); p.add_argument("--oneline", action="store_true"); p.set_defaults(fn=cmd_progress)
     p = sp.add_parser("retention-csv", help="export API retention curve for .claude/skills/yt-retention"); p.add_argument("variant"); p.set_defaults(fn=cmd_retention_csv)
