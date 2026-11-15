@@ -1,0 +1,143 @@
+{
+  "id": "C0001",
+  "series": "RAMAYANA — The Epic in Chalk",
+  "episode": 1,
+  "topic": "Maharishi Valmiki: The Birth of the Ramayana",
+  "category": "mythology",
+  "style": "chalk",
+  "languages": [
+    "en",
+    "hi"
+  ],
+  "primary_language": "en",
+  "legacy_folder": "out/ramayana-ep-01-maharishi-valmiki-the-birth-of-the-ramayana",
+  "stages": {
+    "research": {
+      "status": "done",
+      "at": "2026-11-15",
+      "note": "pre-pipeline"
+    },
+    "strategy": {
+      "status": "done",
+      "at": "2026-11-15",
+      "note": "pre-pipeline"
+    },
+    "script:en": {
+      "status": "done",
+      "at": "2026-11-15",
+      "note": "pre-pipeline"
+    },
+    "script:hi": {
+      "status": "done",
+      "at": "2026-11-15",
+      "note": "pre-pipeline"
+    },
+    "voice:en": {
+      "status": "done",
+      "at": "2026-11-15",
+      "note": "pre-pipeline"
+    },
+    "voice:hi": {
+      "status": "done",
+      "at": "2026-11-15",
+      "note": "pre-pipeline"
+    },
+    "voice_qa:en": {
+      "status": "done",
+      "at": "2026-11-15",
+      "note": "pre-pipeline"
+    },
+    "voice_qa:hi": {
+      "status": "done",
+      "at": "2026-11-15",
+      "note": "pre-pipeline"
+    },
+    "images:en": {
+      "status": "done",
+      "at": "2026-11-15",
+      "note": "pre-pipeline"
+    },
+    "images:hi": {
+      "status": "done",
+      "at": "2026-11-15",
+      "note": "pre-pipeline"
+    },
+    "render:en": {
+      "status": "done",
+      "at": "2026-11-15",
+      "note": "pre-pipeline"
+    },
+    "render:hi": {
+      "status": "done",
+      "at": "2026-11-15",
+      "note": "pre-pipeline"
+    },
+    "video_qa:en": {
+      "status": "done",
+      "at": "2026-11-15",
+      "note": "pre-pipeline"
+    },
+    "video_qa:hi": {
+      "status": "done",
+      "at": "2026-11-15",
+      "note": "pre-pipeline"
+    },
+    "metadata:en": {
+      "status": "done",
+      "at": "2026-11-15",
+      "note": "pre-pipeline"
+    },
+    "metadata:hi": {
+      "status": "done",
+      "at": "2026-11-15",
+      "note": "pre-pipeline"
+    },
+    "published:en": {
+      "status": "done",
+      "at": "2026-11-15",
+      "note": "pre-pipeline"
+    },
+    "published:hi": {
+      "status": "done",
+      "at": "2026-11-15",
+      "note": "pre-pipeline"
+    },
+    "gate:script": {
+      "status": "approved",
+      "at": "2026-11-15",
+      "note": "owner approved in chat",
+      "langs": [
+        "en",
+        "hi"
+      ]
+    },
+    "gate:final": {
+      "status": "approved",
+      "at": "2026-11-15",
+      "note": "owner approved in chat",
+      "langs": [
+        "en",
+        "hi"
+      ]
+    },
+    "gate:publish": {
+      "status": "approved",
+      "at": "2026-11-15",
+      "note": "owner approved in chat",
+      "langs": [
+        "en",
+        "hi"
+      ]
+    },
+    "schedule:en": {
+      "status": "done",
+      "at": "2026-11-15T22:45:55+0530",
+      "note": "manual (pre-pipeline)"
+    },
+    "schedule:hi": {
+      "status": "done",
+      "at": "2026-11-15T22:45:55+0530",
+      "note": "manual (pre-pipeline)"
+    }
+  }
+}

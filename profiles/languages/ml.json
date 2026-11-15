@@ -1,0 +1,46 @@
+{
+  "code": "ml",
+  "name": "Malayalam",
+  "script": "Malayalam",
+  "status": "draft — needs native-speaker review",
+  "wikipedia": "ml",
+  "youtube_relevance_language": "ml",
+  "whisper_language": "ml",
+  "audience": {
+    "size": "35 million first-language speakers (Census 2011)",
+    "size_source": "Census of India 2011, Language Paper 1 of 2018 (first-language speakers); verify exact figures before publishing claims",
+    "demographics_note": "No reliable free per-language YouTube demographics; use channel analytics (country, traffic source) once videos exist."
+  },
+  "ramayana_traditions": [
+    "Adhyatma Ramayanam Kilippattu (Thunchaththu Ezhuthachan, 16th c.)",
+    "Karkidakam month (Jul–Aug) is observed as 'Ramayana masam' with daily Ramayana reading — strong seasonal window"
+  ],
+  "localization_guidance": [
+    "Standard Malayalam; Sanskrit-derived vocabulary is natural in Malayalam devotional register.",
+    "Plan Ramayana pushes around Karkidakam.",
+    "Every script is written originally for this audience, never translated sentence by sentence.",
+    "Sanskrit verses stay in Sanskrit (in this script), followed by a natural explanation."
+  ],
+  "style_overrides": {
+    "caption_font": "/System/Library/Fonts/Supplemental/Malayalam Sangam MN.ttc",
+    "caption_font_index": 1,
+    "caption_size": 80,
+    "caption_max_chars": 24
+  },
+  "publishing": {
+    "candidate_slots_ist": [
+      "12:30",
+      "18:30",
+      "20:30"
+    ],
+    "basis": "Hypotheses only, to be ranked by channel 48h data via pipeline.schedule; check YouTube Studio 'When your viewers are on YouTube'."
+  },
+  "festivals_and_seasons": [
+    "Ram Navami (Mar/Apr)",
+    "Dussehra / Vijayadashami (Sep/Oct)",
+    "Diwali (Oct/Nov)",
+    "Valmiki Jayanti (Sharad Purnima, Oct)",
+    "Vivah Panchami (Nov/Dec)",
+    "Karkidakam / Ramayana masam (Jul/Aug)"
+  ]
+}

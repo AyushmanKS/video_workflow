@@ -1,0 +1,44 @@
+{
+  "code": "bn",
+  "name": "Bengali",
+  "script": "Bengali",
+  "status": "draft — needs native-speaker review",
+  "wikipedia": "bn",
+  "youtube_relevance_language": "bn",
+  "whisper_language": "bn",
+  "audience": {
+    "size": "97 million first-language speakers in India (Census 2011); large audience in Bangladesh too",
+    "size_source": "Census of India 2011, Language Paper 1 of 2018 (first-language speakers); verify exact figures before publishing claims",
+    "demographics_note": "No reliable free per-language YouTube demographics; use channel analytics (country, traffic source) once videos exist."
+  },
+  "ramayana_traditions": [
+    "Krittivasi Ramayan (Krittibas Ojha, 15th c.)"
+  ],
+  "localization_guidance": [
+    "Standard colloquial Bengali (চলিত ভাষা), not sadhu bhasha.",
+    "Consider both Indian and Bangladeshi viewers; avoid region-specific slang.",
+    "Every script is written originally for this audience, never translated sentence by sentence.",
+    "Sanskrit verses stay in Sanskrit (in this script), followed by a natural explanation."
+  ],
+  "style_overrides": {
+    "caption_font": "/System/Library/Fonts/KohinoorBangla.ttc",
+    "caption_font_index": 1,
+    "caption_size": 80,
+    "caption_max_chars": 24
+  },
+  "publishing": {
+    "candidate_slots_ist": [
+      "12:30",
+      "18:30",
+      "20:30"
+    ],
+    "basis": "Hypotheses only, to be ranked by channel 48h data via pipeline.schedule; check YouTube Studio 'When your viewers are on YouTube'."
+  },
+  "festivals_and_seasons": [
+    "Ram Navami (Mar/Apr)",
+    "Dussehra / Vijayadashami (Sep/Oct)",
+    "Diwali (Oct/Nov)",
+    "Valmiki Jayanti (Sharad Purnima, Oct)",
+    "Vivah Panchami (Nov/Dec)"
+  ]
+}

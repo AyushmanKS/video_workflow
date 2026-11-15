@@ -1,0 +1,66 @@
+{
+  "_policy": "A voice is usable for monetized videos only if its license allows commercial use AND it passed native-speaker QA. macOS system voices are excluded (Apple SLA: personal, non-commercial use).",
+  "en": {
+    "status": "approved",
+    "voice": "af_heart",
+    "engine": "Kokoro-82M (Apache-2.0) via mlx-audio",
+    "speed": 1.04,
+    "evidence": "Episode 01 English approved by owner (2026-11-15)"
+  },
+  "hi": {
+    "status": "approved",
+    "voice": "veena:kavya",
+    "engine": "Veena 3B (maya-research/Veena, Apache-2.0)",
+    "speed": null,
+    "evidence": "Best of 6 voices by Whisper-turbo CER incl. Sanskrit; Episode 01 Hindi published by owner",
+    "qa": "best-of-3 takes per scene; rephrase lines the model garbles"
+  },
+  "mr": {
+    "status": "untested",
+    "voice": null,
+    "candidate": "ai4bharat/indic-parler-tts (Apache-2.0, gated: free Hugging Face login + accept terms)",
+    "next": "owner creates HF token → evaluate speakers with tools in PROJECT_CONTEXT.md §Voice QA → native-speaker listen"
+  },
+  "bn": {
+    "status": "untested",
+    "voice": null,
+    "candidate": "ai4bharat/indic-parler-tts (Apache-2.0, gated: free Hugging Face login + accept terms)",
+    "next": "owner creates HF token → evaluate speakers with tools in PROJECT_CONTEXT.md §Voice QA → native-speaker listen"
+  },
+  "te": {
+    "status": "untested",
+    "voice": null,
+    "candidate": "ai4bharat/indic-parler-tts (Apache-2.0, gated: free Hugging Face login + accept terms)",
+    "next": "owner creates HF token → evaluate speakers with tools in PROJECT_CONTEXT.md §Voice QA → native-speaker listen"
+  },
+  "ta": {
+    "status": "untested",
+    "voice": null,
+    "candidate": "ai4bharat/indic-parler-tts (Apache-2.0, gated: free Hugging Face login + accept terms)",
+    "next": "owner creates HF token → evaluate speakers with tools in PROJECT_CONTEXT.md §Voice QA → native-speaker listen"
+  },
+  "gu": {
+    "status": "untested",
+    "voice": null,
+    "candidate": "ai4bharat/indic-parler-tts (Apache-2.0, gated: free Hugging Face login + accept terms)",
+    "next": "owner creates HF token → evaluate speakers with tools in PROJECT_CONTEXT.md §Voice QA → native-speaker listen"
+  },
+  "kn": {
+    "status": "untested",
+    "voice": null,
+    "candidate": "ai4bharat/indic-parler-tts (Apache-2.0, gated: free Hugging Face login + accept terms)",
+    "next": "owner creates HF token → evaluate speakers with tools in PROJECT_CONTEXT.md §Voice QA → native-speaker listen"
+  },
+  "ml": {
+    "status": "untested",
+    "voice": null,
+    "candidate": "ai4bharat/indic-parler-tts (Apache-2.0, gated: free Hugging Face login + accept terms)",
+    "next": "owner creates HF token → evaluate speakers with tools in PROJECT_CONTEXT.md §Voice QA → native-speaker listen"
+  },
+  "pa": {
+    "status": "untested",
+    "voice": null,
+    "candidate": "ai4bharat/indic-parler-tts (Apache-2.0, gated: free Hugging Face login + accept terms)",
+    "next": "owner creates HF token → evaluate speakers with tools in PROJECT_CONTEXT.md §Voice QA → native-speaker listen"
+  }
+}

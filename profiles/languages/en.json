@@ -1,0 +1,45 @@
+{
+  "code": "en",
+  "name": "English (Indian audience)",
+  "script": "Latin",
+  "status": "in use",
+  "wikipedia": "en",
+  "youtube_relevance_language": "en",
+  "whisper_language": "en",
+  "audience": {
+    "size": "~129 million total speakers incl. second/third language (Census 2011); first-language speakers ~0.26 million",
+    "size_source": "Census of India 2011, Language Paper 1 of 2018 (first-language speakers); verify exact figures before publishing claims",
+    "demographics_note": "No reliable free per-language YouTube demographics; use channel analytics (country, traffic source) once videos exist."
+  },
+  "ramayana_traditions": [
+    "Valmiki Ramayana in translation (e.g. Bibek Debroy's Penguin translation of the critical edition)"
+  ],
+  "localization_guidance": [
+    "Simple, vivid, globally understandable English; explain Sanskrit terms in-line once (shoka = grief).",
+    "Avoid exoticising tone; treat the material as living tradition.",
+    "Indian-English idioms are fine; avoid American slang.",
+    "Every script is written originally for this audience, never translated sentence by sentence.",
+    "Sanskrit verses stay in Sanskrit (in this script), followed by a natural explanation."
+  ],
+  "style_overrides": {
+    "caption_font": "/System/Library/Fonts/Supplemental/ChalkboardSE.ttc",
+    "caption_font_index": 2,
+    "caption_size": 76,
+    "caption_max_chars": 24
+  },
+  "publishing": {
+    "candidate_slots_ist": [
+      "12:30",
+      "18:30",
+      "20:30"
+    ],
+    "basis": "Hypotheses only, to be ranked by channel 48h data via pipeline.schedule; check YouTube Studio 'When your viewers are on YouTube'."
+  },
+  "festivals_and_seasons": [
+    "Ram Navami (Mar/Apr)",
+    "Dussehra / Vijayadashami (Sep/Oct)",
+    "Diwali (Oct/Nov)",
+    "Valmiki Jayanti (Sharad Purnima, Oct)",
+    "Vivah Panchami (Nov/Dec)"
+  ]
+}

@@ -1,0 +1,86 @@
+[
+  {
+    "text": "One question. Sixteen qualities. And only one man alive who had them all.",
+    "scores": {
+      "curiosity": 5,
+      "emotion": 3,
+      "specificity": 5,
+      "speed": 5,
+      "resonance": 4,
+      "accuracy": 5
+    },
+    "total": 27,
+    "selected": true,
+    "reasoning": "Highest total; concrete number + curiosity gap + pays off Ep01 cliffhanger"
+  },
+  {
+    "text": "Even the gods feared this prince, and yet he had conquered his own anger.",
+    "scores": {
+      "curiosity": 5,
+      "emotion": 4,
+      "specificity": 4,
+      "speed": 4,
+      "resonance": 4,
+      "accuracy": 5
+    },
+    "total": 26,
+    "selected": false,
+    "reasoning": "Used inside the story (scene 9)"
+  },
+  {
+    "text": "Valmiki listed sixteen qualities. Narada said only one man had them all.",
+    "scores": {
+      "curiosity": 4,
+      "emotion": 2,
+      "specificity": 5,
+      "speed": 4,
+      "resonance": 4,
+      "accuracy": 5
+    },
+    "total": 24,
+    "selected": false,
+    "reasoning": ""
+  },
+  {
+    "text": "The first question of the Ramayana had sixteen parts.",
+    "scores": {
+      "curiosity": 4,
+      "emotion": 2,
+      "specificity": 4,
+      "speed": 5,
+      "resonance": 3,
+      "accuracy": 5
+    },
+    "total": 23,
+    "selected": false,
+    "reasoning": ""
+  },
+  {
+    "text": "Before the Ramayana was written, a sage asked: is there a perfect man alive today?",
+    "scores": {
+      "curiosity": 4,
+      "emotion": 3,
+      "specificity": 3,
+      "speed": 3,
+      "resonance": 4,
+      "accuracy": 5
+    },
+    "total": 22,
+    "selected": false,
+    "reasoning": ""
+  },
+  {
+    "text": "Who was Shri Ram, really? The answer is in the Ramayana's very first verses.",
+    "scores": {
+      "curiosity": 3,
+      "emotion": 2,
+      "specificity": 3,
+      "speed": 4,
+      "resonance": 4,
+      "accuracy": 5
+    },
+    "total": 21,
+    "selected": false,
+    "reasoning": ""
+  }
+]

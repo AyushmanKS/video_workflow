@@ -1,0 +1,29 @@
+{
+  "series": "RAMAYANA — The Epic in Chalk",
+  "style": "chalk",
+  "characters": {
+    "valmiki": {
+      "prompt": "Maharishi Valmiki, an elderly Indian sage with a long flowing white beard and long white hair tied in a topknot, lean bare chest with a saffron cloth draped over one shoulder, saffron dhoti, a string of rudraksha beads",
+      "source_episode": "C0001",
+      "notes": "Consistent across 6 scenes in Ep01"
+    },
+    "narada": {
+      "prompt": "the sage Narada, a youthful sage with a black topknot, white dhoti and white shawl, carrying a long-necked veena",
+      "source_episode": "C0001"
+    },
+    "bharadvaja": {
+      "prompt": "a young disciple with a shaven head and a small tuft of hair, white dhoti, carrying folded bark-cloth garments",
+      "source_episode": "C0001"
+    },
+    "rama_teaser": {
+      "prompt": "a young prince Rama seen from behind, standing tall holding a great bow, wearing a simple crown and dhoti",
+      "source_episode": "C0001",
+      "notes": "Shown from behind; avoid stylised blue skin unless deliberately chosen"
+    }
+  },
+  "rules": [
+    "Reuse prompts verbatim",
+    "Brahma and deities: symbolic depiction (radiant lotus/light) unless owner approves figurative depiction",
+    "Composition: subject centred, title headroom top 12%, captions lower 25% clear"
+  ]
+}

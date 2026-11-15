@@ -1,0 +1,45 @@
+{
+  "code": "pa",
+  "name": "Punjabi",
+  "script": "Gurmukhi",
+  "status": "draft — needs native-speaker review",
+  "wikipedia": "pa",
+  "youtube_relevance_language": "pa",
+  "whisper_language": "pa",
+  "audience": {
+    "size": "33 million first-language speakers in India (Census 2011)",
+    "size_source": "Census of India 2011, Language Paper 1 of 2018 (first-language speakers); verify exact figures before publishing claims",
+    "demographics_note": "No reliable free per-language YouTube demographics; use channel analytics (country, traffic source) once videos exist."
+  },
+  "ramayana_traditions": [
+    "Bhagwan Valmiki is especially revered by the Valmiki (Balmiki) community; Valmiki Jayanti is widely observed in Punjab — verify local customs",
+    "Ram Tirath (near Amritsar) is traditionally associated with Valmiki's ashram — verify"
+  ],
+  "localization_guidance": [
+    "Write in Gurmukhi script, standard (Majhi-based) Punjabi.",
+    "Be especially careful and respectful with Valmiki-related content; avoid caste-related framing.",
+    "Every script is written originally for this audience, never translated sentence by sentence.",
+    "Sanskrit verses stay in Sanskrit (in this script), followed by a natural explanation."
+  ],
+  "style_overrides": {
+    "caption_font": "/System/Library/Fonts/Supplemental/Gurmukhi Sangam MN.ttc",
+    "caption_font_index": 1,
+    "caption_size": 80,
+    "caption_max_chars": 24
+  },
+  "publishing": {
+    "candidate_slots_ist": [
+      "12:30",
+      "18:30",
+      "20:30"
+    ],
+    "basis": "Hypotheses only, to be ranked by channel 48h data via pipeline.schedule; check YouTube Studio 'When your viewers are on YouTube'."
+  },
+  "festivals_and_seasons": [
+    "Ram Navami (Mar/Apr)",
+    "Dussehra / Vijayadashami (Sep/Oct)",
+    "Diwali (Oct/Nov)",
+    "Valmiki Jayanti (Sharad Purnima, Oct)",
+    "Vivah Panchami (Nov/Dec)"
+  ]
+}

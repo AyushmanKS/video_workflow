@@ -1,0 +1,29 @@
+# Secrets & credentials — never commit
+secrets/
+.env
+*.token.json
+client_secret*.json
+
+# Local data (private analytics, caches)
+data/
+!data/.gitkeep
+
+# Model weights & caches
+models/
+*.safetensors
+*.gguf
+
+# Generated media (stored outside git; see PROJECT_CONTEXT.md §Storage)
+out/
+content/**/*.mp4
+content/**/*.wav
+content/**/*.png
+content/**/*.aiff
+content/**/audio/
+content/**/img/
+
+# Python / OS
+.venv/
+__pycache__/
+*.pyc
+.DS_Store

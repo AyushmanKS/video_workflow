@@ -1,0 +1,17 @@
+faster-whisper==1.2.1
+google-api-python-client==2.202.0
+google-auth==2.62.2
+google-auth-oauthlib==1.5.0
+mflux==0.24.0
+misaki==0.9.4
+mlx==0.32.4
+mlx-audio==0.6.5
+numpy==2.5.4
+opencv-python==5.0.0.93
+pillow==13.0.0
+requests==2.34.2
+scipy==1.18.1
+snac==1.2.1
+torch==2.15.0
+transformers==5.23.0
+en-core-web-sm @ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.8.0/en_core_web_sm-3.8.0-py3-none-any.whl

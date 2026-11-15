@@ -1,0 +1,45 @@
+{
+  "code": "ta",
+  "name": "Tamil",
+  "script": "Tamil",
+  "status": "draft — needs native-speaker review",
+  "wikipedia": "ta",
+  "youtube_relevance_language": "ta",
+  "whisper_language": "ta",
+  "audience": {
+    "size": "69 million first-language speakers in India (Census 2011); global diaspora",
+    "size_source": "Census of India 2011, Language Paper 1 of 2018 (first-language speakers); verify exact figures before publishing claims",
+    "demographics_note": "No reliable free per-language YouTube demographics; use channel analytics (country, traffic source) once videos exist."
+  },
+  "ramayana_traditions": [
+    "Kamba Ramayanam (Kambar, ~12th c.) — dominant in Tamil literary memory; differs from Valmiki in places"
+  ],
+  "localization_guidance": [
+    "Prefer natural Tamil vocabulary; avoid heavy Sanskritised or Hindi-derived words where Tamil equivalents are common.",
+    "Spoken-standard narration (not highly literary centamil) for Shorts.",
+    "Clearly label Valmiki vs Kamban where they differ.",
+    "Every script is written originally for this audience, never translated sentence by sentence.",
+    "Sanskrit verses stay in Sanskrit (in this script), followed by a natural explanation."
+  ],
+  "style_overrides": {
+    "caption_font": "/System/Library/Fonts/Supplemental/Tamil Sangam MN.ttc",
+    "caption_font_index": 2,
+    "caption_size": 80,
+    "caption_max_chars": 24
+  },
+  "publishing": {
+    "candidate_slots_ist": [
+      "12:30",
+      "18:30",
+      "20:30"
+    ],
+    "basis": "Hypotheses only, to be ranked by channel 48h data via pipeline.schedule; check YouTube Studio 'When your viewers are on YouTube'."
+  },
+  "festivals_and_seasons": [
+    "Ram Navami (Mar/Apr)",
+    "Dussehra / Vijayadashami (Sep/Oct)",
+    "Diwali (Oct/Nov)",
+    "Valmiki Jayanti (Sharad Purnima, Oct)",
+    "Vivah Panchami (Nov/Dec)"
+  ]
+}
