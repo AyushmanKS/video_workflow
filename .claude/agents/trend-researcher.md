@@ -15,6 +15,7 @@ tools: Read, Write, Bash, Grep, Glob, WebSearch, WebFetch
 1. `python -m pipeline trending --region IN` → `data/reports/trending-IN-<date>.md` (note: Education has no regional chart).
 2. For each candidate topic run `python -m pipeline research <ID> --query '{"en":"…","hi":"…"}' --wiki "<English Wikipedia title>" --langs en,hi,…` (≈200 YouTube quota units per language; daily budget 10,000).
 3. Use WebSearch only for qualitative context (festival dates, news, community discussion). Cite URLs.
+3b. Outlier analysis (method from vendored `.claude/skills/yt-viral`): judge a competitor video by its multiple of its *own channel's* median views, never by raw views. Collect at least 4 recent videos per channel (YouTube Data API) into the `swipe.py` input format, then run `python3 -I .claude/skills/yt-viral/swipe.py collected.json`. Its formula labels are judgements about titles, not causes.
 4. Instagram/TikTok trends have no free API: mark as "not measured" unless the owner supplies observations.
 
 ## Output: `content/<ID>/research/report.md`

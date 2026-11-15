@@ -262,6 +262,27 @@ def cmd_progress(a):
         _t.sleep(a.watch)
 
 
+def cmd_retention_csv(a):
+    import csv
+    from . import analytics
+
+    with db.connect() as con:
+        pub = con.execute("SELECT id FROM publications WHERE variant_id=? ORDER BY id DESC LIMIT 1", (a.variant,)).fetchone()
+        m = analytics.latest(con, pub["id"]) if pub else None
+    curve = (m or {}).get("retention")
+    if not isinstance(curve, list) or not curve:
+        sys.exit(f"No retention curve yet for {a.variant} (needs an analytics snapshot; data lags 1-3 days).")
+    out = DATA / "reports" / f"retention-{a.variant}.csv"
+    out.parent.mkdir(parents=True, exist_ok=True)
+    with open(out, "w", newline="") as fh:
+        w = csv.writer(fh)
+        w.writerow(["position_percent", "audience_percent"])
+        for r in sorted(curve, key=lambda r: float(r["elapsedVideoTimeRatio"])):
+            w.writerow([round(float(r["elapsedVideoTimeRatio"]) * 100, 1), round(float(r["audienceWatchRatio"]) * 100, 1)])
+    print(out)
+    print(f"Analyse with: python3 -I .claude/skills/yt-retention/retention.py {out}")
+
+
 def cmd_link(a):
     with db.connect() as con:
         con.execute("INSERT OR REPLACE INTO publications (variant_id, platform, platform_id, url, privacy, scheduled_for, published_at, slot, metadata, created_at) VALUES (?,?,?,?,?,?,?,?,?,?)",
@@ -304,6 +325,7 @@ def main():
     p = sp.add_parser("publish"); p.add_argument("id"); p.add_argument("--lang", required=True); p.add_argument("--at"); p.add_argument("--slot"); p.set_defaults(fn=cmd_publish)
     p = sp.add_parser("takes"); p.add_argument("id"); p.add_argument("--lang", required=True); p.add_argument("--scenes", help="comma list of 1-based scene numbers (default all)"); p.add_argument("--n", type=int, default=3); p.set_defaults(fn=cmd_takes)
     p = sp.add_parser("progress", help="live progress, per-step ETA and finish time"); p.add_argument("id"); p.add_argument("--watch", type=int, default=0, help="refresh every N seconds until done"); p.add_argument("--oneline", action="store_true"); p.set_defaults(fn=cmd_progress)
+    p = sp.add_parser("retention-csv", help="export API retention curve for .claude/skills/yt-retention"); p.add_argument("variant"); p.set_defaults(fn=cmd_retention_csv)
     p = sp.add_parser("link"); p.add_argument("--variant", required=True); p.add_argument("--video-id", required=True); p.add_argument("--published-at", required=True); p.add_argument("--slot"); p.set_defaults(fn=cmd_link)
     p = sp.add_parser("analytics"); p.add_argument("--force", action="store_true"); p.add_argument("--label"); p.set_defaults(fn=cmd_analytics)
     p = sp.add_parser("report"); p.add_argument("variant"); p.set_defaults(fn=cmd_report)

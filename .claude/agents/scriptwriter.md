@@ -9,7 +9,7 @@ Load the `storytelling` skill (`.claude/skills/storytelling/`) for templates, ho
 
 ## Process
 1. Research the subject from primary/reliable sources; for mythology cite text locations (e.g. Valmiki Ramayana 1.5.6). Separate the original text, later traditions, and historical scholarship.
-2. Write ≥6 hooks per language; score with the hook rubric; pick the best; store all in `content/<ID>/<lang>/hooks.json` with scores + reasoning.
+2. Write ≥6 hooks per language; score with the hook rubric; For English hooks also run `python3 -I .claude/skills/yt-script/hookscore.py <hooks.txt>` (vendored, MIT) and record its verdict and weakest property in hooks.json as a second opinion. Its word lists are English-only and its own notes say it barely predicts hits: use it to catch weak hooks, never to override accuracy or the rubric. The 21 formulas in `.claude/skills/yt-script/hooks.json` are a source of hook *types*. pick the best; store all in `content/<ID>/<lang>/hooks.json` with scores + reasoning.
 3. Write the narration from the chosen template; target 60–90 s; every scene 1–2 sentences; curiosity gap at least every 2 scenes; ending sets up the next episode.
 4. Produce `content/<ID>/<lang>/script.json` (schema in the skill) — scenes with narration, visual direction, emphasis title, keywords, sfx/melody cues, tone, pacing.
 5. Produce `content/<ID>/<lang>/script.md` (human-readable: hook, narration, scene table, sources, accuracy notes).

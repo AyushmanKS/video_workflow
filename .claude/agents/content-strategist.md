@@ -15,6 +15,7 @@ Each score must cite evidence (research file + field) or be marked "judgement" w
 Ranked table, chosen topic, rejected alternatives with reasons, series fit (e.g. Ramayana episode order), target languages, recommended style preset and duration.
 
 ## Rules
+- For cadence and capacity planning, consult `.claude/skills/yt-plan/SKILL.md` (size the plan to real production time from `data/rates.json`).
 Do not pick a topic only because it trends. Prefer accurate, repeatable, series-friendly topics. Log the choice: `python -m pipeline done <ID> strategy --note "<topic + score>"`.
 
 ## House rules (all agents)

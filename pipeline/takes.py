@@ -18,6 +18,15 @@ def best_of(work_dir, language, speaker, scenes=None, n=3, threshold=0.0):
     script = json.loads((work / "script.json").read_text())
     asr = WhisperModel("small" if language == "en" else "large-v3-turbo", device="cpu", compute_type="int8")
     engine = Veena()
+    vp = json.loads((ROOT / "profiles" / "voices.json").read_text()).get(language, {}).get("voice_prompt")
+    if vp:
+        engine.set_voice_prompt(ROOT / vp["wav"], vp["text"], speaker)
+    from . import speaker as spk
+
+    ref_path = spk.reference_path(language, speaker)
+    ref = np.load(ref_path) if ref_path.exists() else None
+    if ref is None:
+        print(f"WARNING: no speaker reference at {ref_path}; voice consistency is not enforced", flush=True)
     log_path = work / "voice_qa.json"
     log = json.loads(log_path.read_text()) if log_path.exists() else {}
     for i, sc in enumerate(script["scenes"]):
@@ -26,7 +35,7 @@ def best_of(work_dir, language, speaker, scenes=None, n=3, threshold=0.0):
         best = None
         for k in range(n):
             seed = 1000 + i * 10 + k
-            a = engine.speak(sc.get("tts", sc["narration"]), speaker, seed=seed)
+            a = engine.speak(sc.get("tts", sc["narration"]), speaker, seed=seed, ref=ref, log=lambda m: print(m, flush=True))
             a16 = np.interp(np.arange(0, len(a), studio.SR / 16000), np.arange(len(a)), a).astype(np.float32)
             heard = " ".join(s.text.strip() for s in asr.transcribe(a16, language=language, beam_size=5)[0])
             cer, ratio = char_error(sc["narration"], heard)

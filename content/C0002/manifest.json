@@ -46,8 +46,8 @@
     },
     "voice:hi": {
       "status": "done",
-      "at": "2026-11-16T00:10:42+0530",
-      "note": "best-of-4 scenes 10"
+      "at": "2026-11-16T01:24:57+0530",
+      "note": "best-of-4 scenes 7,9,10"
     },
     "images:en": {
       "status": "done",
@@ -63,7 +63,7 @@
     },
     "render:hi": {
       "status": "done",
-      "at": "2026-11-16T00:19:19+0530"
+      "at": "2026-11-16T01:26:35+0530"
     },
     "video_qa:en": {
       "status": "done",
@@ -72,7 +72,7 @@
     },
     "video_qa:hi": {
       "status": "done",
-      "at": "2026-11-16T00:21:43+0530",
+      "at": "2026-11-16T01:36:22+0530",
       "note": "pass"
     },
     "voice_qa:en": {
@@ -82,18 +82,18 @@
     },
     "voice_qa:hi": {
       "status": "done",
-      "at": "2026-11-16T00:22:48+0530",
-      "note": "best-of-3 all scenes; scene 3 take 4 chosen manually for Sanskrit; scene 10 best-of-4"
+      "at": "2026-11-16T01:36:57+0530",
+      "note": "re-done with voice priming; speaker_consistency PASS; scenes 9/10 flagged for ear check"
     },
     "metadata:en": {
       "status": "done",
-      "at": "2026-11-16T00:22:48+0530",
-      "note": "publish.json"
+      "at": "2026-11-16T01:36:57+0530",
+      "note": "linted with yt-package; titles shortened"
     },
     "metadata:hi": {
       "status": "done",
-      "at": "2026-11-16T00:22:48+0530",
-      "note": "publish.json"
+      "at": "2026-11-16T01:36:57+0530",
+      "note": "linted with yt-package; titles shortened"
     }
   }
 }

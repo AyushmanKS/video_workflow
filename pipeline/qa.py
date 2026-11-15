@@ -131,6 +131,48 @@ def check_captions(work_dir, script, style_name="chalk"):
     return {"name": "captions", "ok": not issues, "issues": issues, "data": {"groups": groups}}
 
 
+def check_speaker(work_dir, script, language, voice=None, win=2.5, min_window_sim=0.5, min_scene_sim=0.7):
+    sys.path.insert(0, str(ROOT))
+    import numpy as np
+    import studio
+    from . import speaker as spk
+
+    ref = None
+    if voice and ":" in voice:
+        rp = spk.reference_path(language, voice.split(":", 1)[1])
+        ref = np.load(rp) if rp.exists() else None
+    issues, wsims, scene_sims, f0s = [], [], [], []
+    for i in range(len(script["scenes"])):
+        a = studio.read_wav(Path(work_dir) / "audio" / f"{i:02d}.wav")
+        whole = spk.embed(a)
+        if ref is None:
+            ref = whole
+        ss = float(whole @ ref)
+        scene_sims.append(ss)
+        if ss < min_scene_sim:
+            issues.append(f"scene {i + 1}: whole-scene speaker similarity {ss:.2f} < {min_scene_sim}")
+        n, step = int(win * spk.SR), int(win * spk.SR / 2)
+        for s0 in range(0, max(1, len(a) - n + 1), step):
+            seg = a[s0:s0 + n]
+            if len(seg) < n or np.sqrt(np.mean(seg ** 2)) < 0.02:
+                continue
+            ws = float(spk.embed(seg) @ ref)
+            f0 = spk.f0_median(seg)
+            wsims.append(ws)
+            if f0:
+                f0s.append((i, s0, f0))
+            if ws < min_window_sim:
+                issues.append(f"scene {i + 1} @{s0 / spk.SR:.1f}s: {win}s-window speaker similarity {ws:.2f} < {min_window_sim} (possible different voice)")
+    med = float(np.median([f for _, _, f in f0s])) if f0s else None
+    for i, s0, f in f0s:
+        if med and abs(12 * np.log2(f / med)) > 7:
+            issues.append(f"scene {i + 1} @{s0 / spk.SR:.1f}s: pitch {round(f)} Hz is >7 semitones from median {round(med)} Hz (possible different voice)")
+    return {"name": "speaker_consistency", "ok": not issues, "issues": issues,
+            "data": {"windows": len(wsims), "window_median": round(float(np.median(wsims)), 3) if wsims else None, "window_min": round(min(wsims), 3) if wsims else None,
+                     "scene_min": round(min(scene_sims), 3) if scene_sims else None, "median_f0": med and round(med),
+                     "calibration": "2026-11-16: 2.5s windows — consistent voice min 0.61 / known-mixed median 0.46 (50% < 0.5); 1s clips are unreliable (same voice down to 0.57)"}}
+
+
 def contact_sheet(video, out_png, n=12):
     p = probe(video)
     dur = float(p["format"]["duration"])
@@ -145,8 +187,10 @@ def run(video, work_dir=None, script_path=None, language="en", variant_id=None, 
     if work_dir and script_path:
         script = json.loads(Path(script_path).read_text())
         checks += [check_narration(work_dir, script, language), check_captions(work_dir, script, style)]
+        voices = json.loads((ROOT / "profiles" / "voices.json").read_text())
+        checks.append(check_speaker(work_dir, script, language, voices.get(language, {}).get("voice")))
     sheet = contact_sheet(video, Path(video).with_suffix(".qa.png"))
-    failed = [c for c in checks if not c["ok"] and c["name"] in ("format", "loudness", "black_freeze")]
+    failed = [c for c in checks if not c["ok"] and c["name"] in ("format", "loudness", "black_freeze", "speaker_consistency")]
     warned = [c for c in checks if not c["ok"] and c not in failed]
     verdict = "fail" if failed else ("warn" if warned else "pass")
     report = {"video": str(video), "verdict": verdict, "checks": checks, "contact_sheet": sheet,

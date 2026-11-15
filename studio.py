@@ -228,10 +228,18 @@ def step_voice(script, voice, speed, out):
         from veena import Veena
 
         engine = Veena()
+        vpp = json.loads((ROOT / "profiles" / "voices.json").read_text()).get(script.get("language", "hi"), {}).get("voice_prompt")
+        if vpp:
+            engine.set_voice_prompt(ROOT / vpp["wav"], vpp["text"], voice.split(":", 1)[1])
         for i in todo:
             sc = script["scenes"][i]
             log(f"voice: scene {i + 1}/{len(script['scenes'])} (Veena)")
-            write_wav(d / f"{i:02d}.wav", engine.speak(sc.get("tts", sc["narration"]), voice.split(":", 1)[1], seed=sc.get("voice_seed", i)))
+            spk_name = voice.split(":", 1)[1]
+            from pipeline import speaker as spk
+
+            refp = spk.reference_path(script.get("language", "hi"), spk_name)
+            ref = np.load(refp) if refp.exists() else None
+            write_wav(d / f"{i:02d}.wav", engine.speak(sc.get("tts", sc["narration"]), spk_name, seed=sc.get("voice_seed", i), ref=ref))
         return
     model = None
     try:

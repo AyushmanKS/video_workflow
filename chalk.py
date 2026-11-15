@@ -672,7 +672,12 @@ def thumbnail(script, raw_path, out_path, seed):
     img = np.clip(comp, 0, 1)
     meta = script["thumbnail"]
     layers = []
-    big = font_for(meta["title"], 150)
+    size = 150
+    big = font_for(meta["title"], size)
+    probe = ImageDraw.Draw(Image.new("L", (10, 10)))
+    while size > 60 and probe.textlength(meta["title"], font=big) > W - 100:
+        size -= 6
+        big = font_for(meta["title"], size)
     dev = ImageFont.truetype(DEVANAGARI, 120, layout_engine=ImageFont.Layout.RAQM)
     mid = font_for(meta["episode"] + meta["subtitle"], 58)
     sm = font_for(meta["series"], 44)

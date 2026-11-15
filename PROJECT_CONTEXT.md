@@ -66,6 +66,7 @@ The full table is in `.claude/skills/content-pipeline/SKILL.md`. Summary: `new �
 |---|---|---|
 | `storytelling` | `.claude/skills/storytelling/` | Principles, 7 genre templates, hook rubric, script JSON schema, review checklist |
 | `content-pipeline` | `.claude/skills/content-pipeline/` | Runbook: stages, commands, agents, memory rules, recovery |
+| `yt-script`, `yt-package`, `yt-retention`, `yt-viral`, `yt-seo`, `yt-plan`, `yt-audit`, `yt-comment` | `.claude/skills/yt-*` (vendored from Jakeschincariol/youtube-agent-skill @ a2feb21, MIT; see `.claude/skills/_vendor/youtube-agent-skill/VENDORED.md`) | Second-opinion hook scoring, title + thumbnail lint, retention leak analysis (`python -m pipeline retention-csv`), outlier-multiple research, SEO/plan/audit/comment guidance. Skipped: yt-edit, yt-shorts, yt-chapters (long-form only) |
 | `skill-creator` | Built into Claude Code (anthropic-skills) | Extend or create skills; not vendored |
 
 Ecosystem review (2026-11-15): the official `anthropics/skills` repository has 19 skills. None cover research, storytelling, video or analytics, so none were installed. Licenses there are per skill, and docx/pdf/pptx/xlsx are source-available, not open source. No MCP server is needed: the YouTube APIs are called directly.
@@ -78,6 +79,7 @@ Ecosystem review (2026-11-15): the official `anthropics/skills` repository has 1
 | English voice | Kokoro-82M (`af_heart`) via mlx-audio | Apache-2.0 | Speed 1.04 |
 | Hindi voice | Veena 3B (`maya-research/Veena`, speaker kavya) | Apache-2.0 | About 5× slower than real time, 9.4 GB peak on MPS bf16; stochastic, so use best-of-3 takes |
 | Other Indic voices | ai4bharat/indic-parler-tts (candidate) | Apache-2.0, gated (free HF login) | Untested; needs `HF_TOKEN` |
+| Speaker verification | speechbrain ECAPA (spkrec-ecapa-voxceleb) | Apache-2.0 | `pipeline/speaker.py`; voice-consistency guard and QA |
 | ASR / QA / caption timing | faster-whisper small (EN), large-v3-turbo (other languages) | MIT | |
 | Fonts | macOS system fonts (Chalkduster, Chalkboard SE, Kohinoor, ITF Devanagari, Sangam MN) + libraqm | System / LGPL | Text shaping requires `DYLD_FALLBACK_LIBRARY_PATH=/opt/homebrew/lib`; `studio.py` re-execs automatically |
 | Video | ffmpeg + VideoToolbox | LGPL/GPL | Render is about 1 min per 75–95 s video |
@@ -182,7 +184,7 @@ shorts-studio/
 - **`chalk.py`**: board and palette, reveal order (connected-component trace), `plan()` timing, `render()`, `text_scene()` (verse/shloka), `font_for()` for all scripts, `music()` and `sound()` SFX, `thumbnail()`.
 - **`veena.py`**: phrase chunking with punctuation pauses, SNAC decode.
 - **`publish.py`**: OAuth (`google_credentials`, separate upload and analytics tokens), `youtube_upload` (publishAt, playlist, thumbnail, DB record), `instagram_publish` (resumable; disabled by policy).
-- **`pipeline/__main__.py`**: commands `new status trending research approve done produce takes progress qa schedule publish link analytics report`.
+- **`pipeline/__main__.py`**: commands `new status trending research approve done produce takes progress qa schedule publish link analytics report retention-csv`.
 
 ## 19. Completed implementation
 - 2026-11-15: original pipeline and 6 styles; pixel-art demo.
@@ -204,6 +206,12 @@ shorts-studio/
 - Optional: YouTube API compliance audit application.
 
 ## 21. Known limitations
+- **Incident 2026-11-16, Hindi speaker drift:** Veena was called once per short phrase, and short prompts made the speaker identity drift. The result was different female voices and some male voices inside one narration (C0002-hi: 42 of 56 phrases off; published Ep01-hi: 38 of 47 off). Word-level QA could not detect it.
+  - **Fix:** scene/sentence-level generation, a stored ECAPA reference for kavya, a speaker guard (similarity ≥0.72, pitch 150–320 Hz) and a QA `speaker_consistency` check that fails the video.
+  - **Measured after the fix:** whole-scene takes score 0.81–0.84 against the reference.
+  - **Final mechanism: voice-prompt priming.** Veena gets the kavya reference recording (`profiles/voices/hi_kavya_ref.wav` + text) as context before each scene. Drift-prone lines went from 0.26–0.36 to 0.78–0.85 similarity.
+  - **QA calibration:** speaker checks use 2.5 s windows, failing on any window below 0.5 or any scene below 0.7. Measured: consistent voice minimum 0.61; known-mixed Ep01-hi median 0.46 with 50% of windows below 0.5. One-second clips are unreliable (the same voice scores as low as 0.57).
+  - **Episode 01 Hindi (published) still has the drift.** Re-producing it needs an owner decision (new upload; YouTube can't replace a video file).
 - **Data the APIs can't provide:** no Google Trends or Instagram/TikTok trend APIs; YouTube Analytics has no hour-of-day data; Shorts impressions/CTR may be missing from the API.
 - **Image model:** Z-Image renders shaded pastel-like chalk, not sparse line art. The stroke reveal is algorithmic, not true artist stroke order.
 - **Voice QA is limited:** Whisper CER is a proxy, inflated by digits and spelling quirks. Native listening is the real accent check.
@@ -213,25 +221,24 @@ shorts-studio/
 - **Network:** occasional timeouts to googleapis/wikipedia; research uses retries.
 
 ## 22. Current status (update every session)
-- **Phase:** 1–6 complete; 7 done except the analytics live test (owner sign-in pending). **8 pilot: C0002 produced and QA-passed; waiting at G2 (final approval) and G3 (publish approval).**
-- **C0002 deliverables:**
-  - `content/C0002/en/C0002-en.mp4` (77.5 s) and `content/C0002/hi/C0002-hi.mp4` (94.9 s), both automated QA PASS plus manual review
-  - thumbnails, `publish.json` (metadata) and `schedule.json` in each language folder
-  - recommended slot: 12:30 IST (exploring)
-- **Pilot findings, now encoded in the system:**
-  - Narada character drift → character bible updated.
-  - `takes` overwrote concurrent script edits → fixed.
-  - `takes` didn't create `audio/` → fixed.
-  - Caption QA postposition false positives → fixed.
-  - Whole-scene CER can pick the wrong take when a scene mixes Sanskrit and Hindi → review the verse portion manually; future improvement: score segments separately.
-  - Progress/ETA command added (`python -m pipeline progress`).
-- **Waiting on owner:** G2 + G3 approval for C0002 (video + metadata + time), the analytics sign-in, optional HF token, optional fix of the Hindi Episode 01 title.
+- **Phase 8 pilot, C0002 (Ramayana Episode 02, "Who was Shri Ram? The 16 qualities"):** produced and QA **PASS** in both languages. **Waiting at G2 (final approval) and G3 (publish approval).**
+  - EN: `content/C0002/en/C0002-en.mp4` (77.5 s).
+  - HI: `content/C0002/hi/C0002-hi.mp4` (101.6 s), regenerated after the owner rejected the first Hindi render for mixed voices. Now one consistent kavya voice (voice-prompt priming); QA speaker_consistency passes (scene min 0.75).
+  - Metadata linted with the vendored `yt-package` (EN title 50 chars, score 98). Thumbnails use the "ONLY ONE MAN" / "सिर्फ़ एक इंसान" headline. Recommended slot 12:30 IST (exploring).
+- **Owner to check by ear (HI):**
+  - scene 9: क्रोध / धनुष. Whisper hears "जनुश" in every take, which may be the voice's aspirated ध or an ASR bias.
+  - scene 10: हर प्राणी / गुह.
+- **Known pattern:** the first word of a scene is often slurred right after the voice prompt. A leading "... " in `tts` improved CER 0.15 → 0.10 in a test. Not yet applied by default.
+- **Waiting on owner:** G2 + G3 for C0002, the analytics read-only sign-in, an optional HF token (other Indic voices), an optional fix of the Hindi Episode 01 title, and a decision on re-producing Episode 01 Hindi (it has the old voice drift).
+- **Sessions:** the owner continues work in Claude Code opened in the `shorts-studio` folder (`CLAUDE.md` + project memory exist there).
 
 ## 23. Exact next steps
-1. Owner approves: `python -m pipeline approve C0002 final` and `python -m pipeline approve C0002 publish` (with any time changes noted).
-2. `python -m pipeline publish C0002 --lang en` and `--lang hi`. Uploads go up private with `publishAt` at the approved time. Verify via the API, then set the pinned comments and Related-video links in Studio.
-3. Analytics windows: after the owner's sign-in, run `python -m pipeline analytics` daily, then `python -m pipeline report C0002-en|hi`. The optimization-strategist writes recommendations after 48 h.
-4. Next episode candidate: Episode 03 "Dasharatha's longing for a son" (topic A from the C0002 research; Ram Navami seasonal peak Mar/Apr).
+1. Owner reviews both videos (listen to Hindi scenes 9 and 10).
+   - If they want fixes: try a leading "... " in `tts` for scenes 9 and 10 and/or rephrase (e.g. "धनुष-बाण"), then `python -m pipeline takes C0002 --lang hi --scenes 9,10 --n 4`, then render and QA.
+2. On approval: `python -m pipeline approve C0002 final` and `python -m pipeline approve C0002 publish`, then `python -m pipeline publish C0002 --lang en` and `--lang hi` (private + publishAt). Verify via the API; set the pinned comment and Related video in Studio.
+3. Analytics: once the owner has signed in, run `python -m pipeline analytics` daily, then `python -m pipeline report C0002-en|hi` and `python -m pipeline retention-csv <variant>` → `yt-retention`.
+4. Optionally re-produce Episode 01 Hindi with the fixed voice (owner decision).
+5. Next episode: Episode 03, "Dasharatha's longing for a son".
 
 ## 24. Testing
 - `python -m pytest -q tests` (unit tests: captions, DB, scheduler, QA scoring, fonts, profiles).

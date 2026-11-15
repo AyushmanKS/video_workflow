@@ -20,11 +20,26 @@ class Veena:
         self.tok = AutoTokenizer.from_pretrained("maya-research/Veena", trust_remote_code=True)
         self.model = AutoModelForCausalLM.from_pretrained("maya-research/Veena", torch_dtype=torch.bfloat16, trust_remote_code=True).to(self.device).eval()
         self.snac = SNAC.from_pretrained("hubertsiuzdak/snac_24khz").eval().to("cpu")
+        self.prompt = []
+
+    def set_voice_prompt(self, wav_path, text, speaker="kavya"):
+        import wave
+
+        with wave.open(str(wav_path)) as w:
+            a = np.frombuffer(w.readframes(w.getnframes()), np.int16).astype(np.float32) / 32767
+        with torch.no_grad():
+            l0, l1, l2 = [c.squeeze(0).tolist() for c in self.snac.encode(torch.from_numpy(a).float().view(1, 1, -1))]
+        toks = []
+        for i in range(len(l0)):
+            toks += [l0[i] + AUDIO_BASE, l1[2 * i] + AUDIO_BASE + 4096, l2[4 * i] + AUDIO_BASE + 2 * 4096, l2[4 * i + 1] + AUDIO_BASE + 3 * 4096,
+                     l1[2 * i + 1] + AUDIO_BASE + 4 * 4096, l2[4 * i + 2] + AUDIO_BASE + 5 * 4096, l2[4 * i + 3] + AUDIO_BASE + 6 * 4096]
+        ids = self.tok.encode(f"<spk_{speaker}> {text}", add_special_tokens=False)
+        self.prompt = [START_OF_HUMAN, *ids, END_OF_HUMAN, START_OF_AI, START_OF_SPEECH, *toks, END_OF_SPEECH, END_OF_AI]
 
     def _chunk(self, text, speaker, temperature, seed):
         torch.manual_seed(seed)
         ids = self.tok.encode(f"<spk_{speaker}> {text}", add_special_tokens=False)
-        inp = torch.tensor([[START_OF_HUMAN, *ids, END_OF_HUMAN, START_OF_AI, START_OF_SPEECH]], device=self.device)
+        inp = torch.tensor([[*self.prompt, START_OF_HUMAN, *ids, END_OF_HUMAN, START_OF_AI, START_OF_SPEECH]], device=self.device)
         max_new = min(int(len(text) * 1.3) * 7 + 21, 1400)
         with torch.no_grad():
             out = self.model.generate(
@@ -49,35 +64,51 @@ class Veena:
         return audio.astype(np.float32), truncated
 
     @staticmethod
-    def phrases(text):
-        parts = re.split(r"(\.\.\.|।|॥|!|\?|—|,|:)", text)
-        res, cur = [], ""
-        for p in parts:
-            if p in PAUSES:
-                cur = cur.strip()
-                if cur:
-                    res.append((cur + ("" if p in ("—", "...") else p), PAUSES[p]))
-                elif res:
-                    res[-1] = (res[-1][0], max(res[-1][1], PAUSES[p]))
-                cur = ""
-            else:
-                cur += p
-        if cur.strip():
-            res.append((cur.strip(), 0.0))
-        merged = []
-        for t, pause in res:
-            if merged and len(merged[-1][0]) < 18 and merged[-1][1] <= 0.14:
-                merged[-1] = (merged[-1][0] + ", " + t, pause)
-            else:
-                merged.append((t, pause))
-        return merged
-
-    def speak(self, text, speaker="kavya", temperature=0.4, seed=0):
+    def sentences(text, max_chars=140):
+        parts = re.split(r"(?<=[।॥!?])\s+", text.strip())
         out = []
-        for k, (phrase, pause) in enumerate(self.phrases(text)):
-            audio, _ = self._chunk(phrase, speaker, temperature, seed + k)
-            out.append(trim(audio))
-            out.append(np.zeros(int(pause * SR), np.float32))
+        for p in parts:
+            if out and len(out[-1]) + 1 + len(p) <= max_chars:
+                out[-1] = out[-1] + " " + p
+            else:
+                out.append(p)
+        final = []
+        for p in out:
+            while len(p) > max_chars:
+                cut = max(p.rfind(",", 0, max_chars), p.rfind("—", 0, max_chars))
+                cut = cut if cut > 40 else max_chars
+                final.append(p[:cut + 1].strip())
+                p = p[cut + 1:].strip()
+            if p:
+                final.append(p)
+        return final
+
+    def speak(self, text, speaker="kavya", temperature=0.4, seed=0, ref=None, min_sim=0.72, f0_range=(150, 320), max_tries=4, log=None):
+        out = []
+        chunks = self.sentences(text)
+        for k, chunk in enumerate(chunks):
+            best = None
+            for t in range(max_tries if ref is not None else 1):
+                audio, _ = self._chunk(chunk, speaker, temperature, seed + k * 100 + t)
+                audio = trim(audio)
+                if ref is None:
+                    best = (1.0, audio)
+                    break
+                from pipeline import speaker as spk
+
+                sim = float(spk.embed(audio) @ ref)
+                f0 = spk.f0_median(audio)
+                ok = sim >= min_sim and f0 is not None and f0_range[0] <= f0 <= f0_range[1]
+                if log:
+                    log(f"    chunk {k + 1}/{len(chunks)} try {t + 1}: speaker sim {sim:.2f}, F0 {f0 and round(f0)} Hz {'ok' if ok else 'rejected'}")
+                if best is None or sim > best[0]:
+                    best = (sim, audio)
+                if ok:
+                    break
+            out.append(best[1])
+            end = chunk.rstrip()[-1:] if chunk.strip() else ""
+            if k < len(chunks) - 1:
+                out.append(np.zeros(int(PAUSES.get(end, 0.25) * SR), np.float32))
         return np.concatenate(out) if out else np.zeros(SR // 10, np.float32)
 
 

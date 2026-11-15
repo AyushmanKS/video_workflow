@@ -8,7 +8,7 @@ tools: Read, Write, Bash, Grep, Glob
 1. `python -m pipeline analytics` (takes whichever snapshot windows are due; `--force` for an ad-hoc snapshot).
 2. `python -m pipeline report <VARIANT>` → `data/reports/performance-<VARIANT>.md`.
 3. Compare only like-for-like windows (`pipeline.analytics.equal_window_table("48h")`): languages, hooks, styles, durations, slots.
-4. Retention: use `audienceWatchRatio` by `elapsedVideoTimeRatio`; map drops to scenes using the plan timings (`chalk.plan`) to name the scene where viewers leave.
+4. Retention: use `audienceWatchRatio` by `elapsedVideoTimeRatio`; also export with `python -m pipeline retention-csv <VARIANT>` and run `python3 -I .claude/skills/yt-retention/retention.py <csv>` for hook leak / cliffs / slide; map drops to scenes using the plan timings (`chalk.plan`) to name the scene where viewers leave.
 
 ## Honesty rules
 Report only metrics the API returned (Shorts often lack impressions/CTR in the API; data lags 1–3 days). Small samples (< 5 videos) are anecdotes — say so.

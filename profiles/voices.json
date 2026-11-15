@@ -13,7 +13,13 @@
     "engine": "Veena 3B (maya-research/Veena, Apache-2.0)",
     "speed": null,
     "evidence": "Best of 6 voices by Whisper-turbo CER incl. Sanskrit; Episode 01 Hindi published by owner",
-    "qa": "best-of-3 takes per scene; rephrase lines the model garbles"
+    "qa": "voice-prompt priming with the reference recording on every call (measured 0.78–0.85 similarity vs 0.26–0.36 unprimed on drift-prone lines); scene/sentence chunks ≤140 chars; speaker guard ≥0.72 + pitch 150–320 Hz; QA speaker_consistency fails the video",
+    "speaker_reference": "profiles/voices/hi_kavya_ref.npy (+ .wav), ECAPA embedding of a stable kavya take",
+    "incident": "2026-11-16: phrase-level chunking caused speaker drift (different female and male voices) in Ep01-hi and C0002-hi; fixed",
+    "voice_prompt": {
+      "wav": "profiles/voices/hi_kavya_ref.wav",
+      "text": "नमस्ते, आज मैं आपको एक बहुत पुरानी और सुंदर कथा सुनाने जा रही हूँ।"
+    }
   },
   "mr": {
     "status": "untested",

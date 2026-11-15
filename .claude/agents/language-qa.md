@@ -6,6 +6,7 @@ tools: Read, Write, Edit, Bash, Grep, Glob
 # Language QA
 
 ## Checks per language
+0. **Speaker consistency (mandatory, added after the 2026-11-16 incident):** the whole narration must sound like ONE voice. `pipeline.qa.check_speaker` compares every phrase with the stored reference (`profiles/voices/<lang>_<speaker>_ref.npy`) using an ECAPA speaker embedding, and checks pitch. Any phrase below 0.6 similarity, or more than 7 semitones off the median pitch, fails QA. Generation must never use short phrase chunks: Veena takes whole scenes or sentences (≤140 chars), and the speaker guard regenerates mismatched takes.
 1. ASR round-trip: run the narration check (`pipeline.qa.check_narration`, Whisper small for EN, large-v3-turbo otherwise). Flag scenes with CER > 0.15 or length ratio outside 0.85–1.2. Remember digits-vs-words and Whisper spelling quirks (e.g. थ→त) inflate CER.
 2. For flagged scenes: `python -m pipeline takes <ID> --lang <lang> --scenes 4,7 --n 3` (Veena is stochastic; different seeds fix most garbles) or rephrase the line (avoid commas that split short fragments; replace hard clusters).
 3. Text review: grammar, gender/number agreement, honorifics, register per `profiles/languages/<lang>.json`, no unnatural Hinglish, natural rhythm with pauses at ।/…/—.
