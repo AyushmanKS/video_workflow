@@ -192,6 +192,9 @@ def cmd_produce(a):
                             (str(final.relative_to(ROOT)), str((work / "thumbnail.png").relative_to(ROOT)), vp["voice"], db.now(), f"{a.id}-{a.lang}"))
             print(f"Rendered {final}")
         mark(m, "render", a.lang)
+    from . import progress as _pg
+
+    _pg.learn_from(a.id)
 
 
 def cmd_qa(a):
@@ -247,6 +250,18 @@ def cmd_takes(a):
     mark(m, "voice", a.lang, note=f"best-of-{a.n}{' scenes ' + a.scenes if a.scenes else ''}")
 
 
+def cmd_progress(a):
+    import time as _t
+    from . import progress
+
+    while True:
+        snap = progress.snapshot(a.id)
+        print(progress.oneline(snap) if a.oneline else progress.render_table(snap), flush=True)
+        if not a.watch or all(r["status"] == "done" for r in snap["steps"]):
+            break
+        _t.sleep(a.watch)
+
+
 def cmd_link(a):
     with db.connect() as con:
         con.execute("INSERT OR REPLACE INTO publications (variant_id, platform, platform_id, url, privacy, scheduled_for, published_at, slot, metadata, created_at) VALUES (?,?,?,?,?,?,?,?,?,?)",
@@ -288,6 +303,7 @@ def main():
     p = sp.add_parser("schedule"); p.add_argument("--id"); p.add_argument("--lang", required=True); p.set_defaults(fn=cmd_schedule)
     p = sp.add_parser("publish"); p.add_argument("id"); p.add_argument("--lang", required=True); p.add_argument("--at"); p.add_argument("--slot"); p.set_defaults(fn=cmd_publish)
     p = sp.add_parser("takes"); p.add_argument("id"); p.add_argument("--lang", required=True); p.add_argument("--scenes", help="comma list of 1-based scene numbers (default all)"); p.add_argument("--n", type=int, default=3); p.set_defaults(fn=cmd_takes)
+    p = sp.add_parser("progress", help="live progress, per-step ETA and finish time"); p.add_argument("id"); p.add_argument("--watch", type=int, default=0, help="refresh every N seconds until done"); p.add_argument("--oneline", action="store_true"); p.set_defaults(fn=cmd_progress)
     p = sp.add_parser("link"); p.add_argument("--variant", required=True); p.add_argument("--video-id", required=True); p.add_argument("--published-at", required=True); p.add_argument("--slot"); p.set_defaults(fn=cmd_link)
     p = sp.add_parser("analytics"); p.add_argument("--force", action="store_true"); p.add_argument("--label"); p.set_defaults(fn=cmd_analytics)
     p = sp.add_parser("report"); p.add_argument("variant"); p.set_defaults(fn=cmd_report)

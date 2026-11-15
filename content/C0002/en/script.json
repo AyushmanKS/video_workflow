@@ -28,14 +28,15 @@
         "question."
       ],
       "emphasis": "The Question",
-      "visual": "the sage Narada, a youthful sage with a black topknot, white dhoti and white shawl, carrying a long-necked veena arriving at a thatched forest hermitage, greeted by Maharishi Valmiki, an elderly Indian sage with a long flowing white beard and long white hair tied in a topknot, lean bare chest with a saffron cloth draped over one shoulder, saffron dhoti, a string of rudraksha beads with folded hands, vertical composition, subject in the center of the frame, empty dark chalkboard space at the top and bottom",
+      "visual": "the sage Narada, an adult youthful sage with a clean-shaven youthful face, black hair in a topknot, white dhoti and white shawl, carrying a long-necked veena arriving at a thatched forest hermitage, greeted by Maharishi Valmiki, an elderly Indian sage with a long flowing white beard and long white hair tied in a topknot, lean bare chest with a saffron cloth draped over one shoulder, saffron dhoti, a string of rudraksha beads with folded hands, vertical composition, subject in the center of the frame, empty dark chalkboard space at the top and bottom, no border, no frame",
       "pause": 0.35,
       "sfx": [
         {
           "name": "birds"
         }
       ],
-      "melody": "calm"
+      "melody": "calm",
+      "seed": 2301
     },
     {
       "narration": "Is there anyone alive today who is virtuous, mighty, knows dharma, is grateful, truthful, and firm in his vows?",
@@ -63,13 +64,14 @@
         "master"
       ],
       "emphasis": "Sixteen Qualities",
-      "visual": "Maharishi Valmiki, an elderly Indian sage with a long flowing white beard and long white hair tied in a topknot, lean bare chest with a saffron cloth draped over one shoulder, saffron dhoti, a string of rudraksha beads speaking and counting on his fingers while the sage Narada, a youthful sage with a black topknot, white dhoti and white shawl, carrying a long-necked veena listens, small glowing chalk symbols of a lotus, balance scales, a flame and a sun floating around them, vertical composition, subject in the center of the frame, empty dark chalkboard space at the top and bottom",
+      "visual": "Maharishi Valmiki, an elderly Indian sage with a long flowing white beard and long white hair tied in a topknot, lean bare chest with a saffron cloth draped over one shoulder, saffron dhoti, a string of rudraksha beads speaking and counting on his fingers while the sage Narada, an adult youthful sage with a clean-shaven youthful face, black hair in a topknot, white dhoti and white shawl, carrying a long-necked veena sits facing him and listens, small glowing chalk symbols of a lotus, balance scales, a flame and a sun floating between them, vertical composition, subject in the center of the frame, empty dark chalkboard space at the top and bottom, no border, no frame",
       "pause": 0.35,
       "sfx": [
         {
           "name": "birds"
         }
-      ]
+      ],
+      "seed": 2203
     },
     {
       "narration": "One who has conquered anger, is free of envy, and whom even the gods fear when he is roused in battle.",
@@ -78,14 +80,15 @@
         "gods"
       ],
       "emphasis": "",
-      "visual": "dramatic storm clouds over distant Himalayan peaks with lightning, the faint outline of a great bow drawn in the clouds, vertical composition, subject in the center of the frame, empty dark chalkboard space at the top and bottom",
+      "visual": "landscape only, no people, no figures: dramatic storm clouds over distant Himalayan peaks with forked lightning, the faint chalk outline of a great bow drawn in the clouds, vertical composition, subject in the center of the frame, empty dark chalkboard space at the top and bottom, no border, no frame",
       "pause": 0.35,
       "sfx": [
         {
           "name": "wind"
         }
       ],
-      "swell": true
+      "swell": true,
+      "seed": 2204
     },
     {
       "narration": "Narada smiled. Such qualities are many and rare, he said. But listen. There is one.",
@@ -94,14 +97,15 @@
         "one."
       ],
       "emphasis": "",
-      "visual": "close-up of the sage Narada, a youthful sage with a black topknot, white dhoti and white shawl, carrying a long-necked veena smiling warmly and raising one finger, veena on his shoulder, vertical composition, subject in the center of the frame, empty dark chalkboard space at the top and bottom",
+      "visual": "close-up portrait of the sage Narada, an adult youthful sage with a clean-shaven youthful face, black hair in a topknot, white dhoti and white shawl, carrying a long-necked veena, smiling warmly and raising one finger, veena resting on his shoulder, vertical composition, subject in the center of the frame, empty dark chalkboard space at the top and bottom, no border, no frame",
       "pause": 0.35,
       "sfx": [
         {
           "name": "birds"
         }
       ],
-      "melody": "calm"
+      "melody": "calm",
+      "seed": 2205
     },
     {
       "narration": "Born in the line of Ikshvaku, known to the people as Rama.",
@@ -157,14 +161,15 @@
         "friend."
       ],
       "emphasis": "",
-      "visual": "a young prince Rama seen from behind, tall and graceful, long dark hair, simple dhoti, carrying a great bow, seen from behind, embracing a forest chieftain with a bow on his back on the bank of the Ganga river at dusk, vertical composition, subject in the center of the frame, empty dark chalkboard space at the top and bottom",
+      "visual": "two men in a warm brotherly embrace on the bank of the Ganga river at dusk: a young prince with long dark hair, simple dhoti and a bow on his back, seen from behind, hugging a sturdy forest chieftain with a headband and tribal ornaments who faces the viewer smiling, boats on the river, vertical composition, subject in the center of the frame, empty dark chalkboard space at the top and bottom, no border, no frame",
       "pause": 0.35,
       "sfx": [
         {
           "name": "river"
         }
       ],
-      "melody": "love"
+      "melody": "love",
+      "seed": 2309
     },
     {
       "narration": "Narada told the whole story in a few verses, and left. Valmiki walked to the Tamasa river... and you know what happened next.",
@@ -209,7 +214,7 @@
     "Shorts"
   ],
   "thumbnail": {
-    "scene": 5,
+    "scene": 8,
     "devanagari": "सोलह गुण",
     "title": "RAMAYANA",
     "series": "The Epic in Chalk",

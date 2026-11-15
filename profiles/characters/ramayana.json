@@ -8,8 +8,9 @@
       "notes": "Consistent across 6 scenes in Ep01"
     },
     "narada": {
-      "prompt": "the sage Narada, a youthful sage with a black topknot, white dhoti and white shawl, carrying a long-necked veena",
-      "source_episode": "C0001"
+      "prompt": "the sage Narada, an adult youthful sage with a clean-shaven youthful face, black hair in a topknot, white dhoti and white shawl, carrying a long-necked veena",
+      "source_episode": "C0001",
+      "notes": "Ep02: add 'clean-shaven youthful face' and 'adult' — model otherwise drifts to bearded or child Narada"
     },
     "bharadvaja": {
       "prompt": "a young disciple with a shaven head and a small tuft of hair, white dhoti, carrying folded bark-cloth garments",

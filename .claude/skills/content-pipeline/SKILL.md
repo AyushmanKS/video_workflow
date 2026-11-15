@@ -28,6 +28,11 @@ Always start: read `PROJECT_CONTEXT.md` (§Status, §Next steps), then `python -
 | 13 | Analytics | `performance-analyst` | `pipeline analytics`, `pipeline report <VARIANT>` at 24h/48h/7d/14d/30d | — |
 | 14 | Optimize | `optimization-strategist` | `data/reports/recommendations.md` | — |
 
+## Progress reporting (required during long runs)
+- Before starting production, show the plan with estimates: `python -m pipeline progress <ID>`. This gives per-step done/total, measured seconds per unit, time left per step, and total time left with finish time.
+- While voice, images or render run, post an update to the owner every 3–5 minutes. Use `python -m pipeline progress <ID> --oneline` (or `--watch 240 --oneline` in a monitor). Each update covers the current step, its time left, steps done, total time left and finish time.
+- Rates are measured live from produced files and learned into `data/rates.json` after each run, so estimates improve over time.
+
 ## Memory rules (MacBook Air 16 GB)
 Never run two heavy models at once: Qwen (5 GB), Z-Image 4-bit (8 GB peak), Veena (9.4 GB), Whisper turbo (~1.5 GB). Stop Ollama models before image/voice generation (`ollama stop qwen3:8b`).
 

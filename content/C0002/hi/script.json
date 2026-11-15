@@ -19,7 +19,8 @@
           "name": "wind"
         }
       ],
-      "melody": "intro"
+      "melody": "intro",
+      "voice_seed": 1000
     },
     {
       "narration": "क्रौंच पक्षी वाली घटना से पहले, देवर्षि नारद वाल्मीकि के आश्रम आए थे... और वाल्मीकि ने उनसे एक सवाल पूछा।",
@@ -35,7 +36,8 @@
           "name": "birds"
         }
       ],
-      "melody": "calm"
+      "melody": "calm",
+      "voice_seed": 1010
     },
     {
       "narration": "को न्वस्मिन् साम्प्रतं लोके गुणवान् कश्च वीर्यवान्। धर्मज्ञश्च कृतज्ञश्च सत्यवाक्यो दृढव्रतः॥ क्या आज इस संसार में कोई ऐसा है, जो गुणवान हो, पराक्रमी हो, धर्म को जानता हो, कृतज्ञ हो, सच बोलता हो, और अपने संकल्प पर अटल रहता हो?",
@@ -54,7 +56,9 @@
         "धर्मज्ञश्च कृतज्ञश्च",
         "सत्यवाक्यो दृढव्रतः॥"
       ],
-      "source": "वाल्मीकि रामायण  1.1.2"
+      "source": "वाल्मीकि रामायण  1.1.2",
+      "voice_seed": 1023,
+      "tts": "को न्वस्मिन्, साम्प्रतं लोके, गुणवान्, कश्च वीर्यवान्। धर्मज्ञश्च, कृतज्ञश्च, सत्यवाक्यो, दृढव्रतः॥ क्या आज इस संसार में कोई ऐसा है, जो गुणवान हो, पराक्रमी हो, धर्म को जानता हो, कृतज्ञ हो, सच बोलता हो, और अपने संकल्प पर अटल रहता हो?"
     },
     {
       "narration": "जिसका आचरण पवित्र हो, जो हर प्राणी का भला चाहे, ज्ञानी हो, समर्थ हो, देखने में मनमोहक हो, और जिसने ख़ुद को साध लिया हो।",
@@ -69,7 +73,8 @@
         {
           "name": "birds"
         }
-      ]
+      ],
+      "voice_seed": 1032
     },
     {
       "narration": "जिसने क्रोध को जीत लिया हो, जिसमें ईर्ष्या न हो... और युद्ध में जिसके रोष से देवता भी डरते हों।",
@@ -85,7 +90,8 @@
           "name": "wind"
         }
       ],
-      "swell": true
+      "swell": true,
+      "voice_seed": 1041
     },
     {
       "narration": "नारद मुस्कुराए। बोले — ये गुण बहुत हैं, और दुर्लभ भी। पर सुनो... एक ऐसा मनुष्य है।",
@@ -101,7 +107,8 @@
           "name": "birds"
         }
       ],
-      "melody": "calm"
+      "melody": "calm",
+      "voice_seed": 1050
     },
     {
       "narration": "इक्ष्वाकु वंश में जन्मे, जिन्हें लोग राम के नाम से जानते हैं।",
@@ -118,7 +125,8 @@
           "word": "राम",
           "offset": -0.25
         }
-      ]
+      ],
+      "voice_seed": 1060
     },
     {
       "narration": "सत्य के पक्के, वचन के धनी। एक दिन, पिता के वचन की ख़ातिर, वो राजसिंहासन तक छोड़ देंगे।",
@@ -130,7 +138,8 @@
       "visual": "a young prince Rama seen from behind, tall and graceful, long dark hair, simple dhoti, carrying a great bow, walking away from an empty royal throne in a palace hall toward an open doorway that shows a forest path, wearing simple bark garments, vertical composition, subject in the center of the frame, empty dark chalkboard space at the top and bottom",
       "pause": 0.35,
       "sfx": [],
-      "melody": "grief"
+      "melody": "grief",
+      "voice_seed": 1070
     },
     {
       "narration": "क्रोध पर उनका पूरा अधिकार था... पर जब युद्ध में वो धनुष उठाते, तो देवता भी काँप उठते।",
@@ -148,7 +157,8 @@
           "offset": -0.3
         }
       ],
-      "swell": true
+      "swell": true,
+      "voice_seed": 1082
     },
     {
       "narration": "हर प्राणी के लिए करुणा... निषादराज गुह को उन्होंने गले लगाकर अपना प्रिय मित्र बनाया।",
@@ -164,7 +174,8 @@
           "name": "river"
         }
       ],
-      "melody": "love"
+      "melody": "love",
+      "voice_seed": 1093
     },
     {
       "narration": "नारद ने कुछ ही श्लोकों में पूरी कथा सुना दी, और चले गए। वाल्मीकि तमसा नदी की ओर निकल पड़े... आगे क्या हुआ, आप जानते हैं।",
@@ -181,7 +192,8 @@
         {
           "name": "birds"
         }
-      ]
+      ],
+      "voice_seed": 1100
     },
     {
       "narration": "पर हर नायक की एक शुरुआत होती है। श्रीराम की कहानी शुरू होती है एक ऐसे राजा से, जिसके पास सब कुछ था... बस एक पुत्र नहीं।",
@@ -197,7 +209,8 @@
           "name": "wind"
         }
       ],
-      "melody": "rise"
+      "melody": "rise",
+      "voice_seed": 1110
     }
   ],
   "description": "रामायण लिखने से पहले वाल्मीकि ने नारद से एक सवाल पूछा, जिसमें सोलह गुण थे। ऐसा मनुष्य कौन था?",
@@ -209,7 +222,7 @@
     "Shorts"
   ],
   "thumbnail": {
-    "scene": 5,
+    "scene": 8,
     "devanagari": "सोलह गुण",
     "title": "रामायण",
     "series": "The Epic in Chalk",
@@ -226,5 +239,11 @@
     "1.1 Narada's summary: Guha, king of the Nishadas",
     "1.2.1–3 (Narada departs; Valmiki goes to the Tamasa)",
     "1.8.1 (Dasharatha had no son)"
-  ]
+  ],
+  "style_overrides": {
+    "caption_font": "/System/Library/Fonts/Kohinoor.ttc",
+    "caption_font_index": 2,
+    "caption_size": 80,
+    "caption_max_chars": 24
+  }
 }

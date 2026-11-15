@@ -43,6 +43,57 @@
     "voice:en": {
       "status": "done",
       "at": "2026-11-15T23:05:41+0530"
+    },
+    "voice:hi": {
+      "status": "done",
+      "at": "2026-11-16T00:10:42+0530",
+      "note": "best-of-4 scenes 10"
+    },
+    "images:en": {
+      "status": "done",
+      "at": "2026-11-16T00:17:40+0530"
+    },
+    "render:en": {
+      "status": "done",
+      "at": "2026-11-16T00:18:26+0530"
+    },
+    "images:hi": {
+      "status": "done",
+      "at": "2026-11-16T00:18:26+0530"
+    },
+    "render:hi": {
+      "status": "done",
+      "at": "2026-11-16T00:19:19+0530"
+    },
+    "video_qa:en": {
+      "status": "done",
+      "at": "2026-11-16T00:19:46+0530",
+      "note": "pass"
+    },
+    "video_qa:hi": {
+      "status": "done",
+      "at": "2026-11-16T00:21:43+0530",
+      "note": "pass"
+    },
+    "voice_qa:en": {
+      "status": "done",
+      "at": "2026-11-16T00:22:48+0530",
+      "note": "ASR pass; Kokoro deterministic"
+    },
+    "voice_qa:hi": {
+      "status": "done",
+      "at": "2026-11-16T00:22:48+0530",
+      "note": "best-of-3 all scenes; scene 3 take 4 chosen manually for Sanskrit; scene 10 best-of-4"
+    },
+    "metadata:en": {
+      "status": "done",
+      "at": "2026-11-16T00:22:48+0530",
+      "note": "publish.json"
+    },
+    "metadata:hi": {
+      "status": "done",
+      "at": "2026-11-16T00:22:48+0530",
+      "note": "publish.json"
     }
   }
 }

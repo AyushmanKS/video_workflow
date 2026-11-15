@@ -41,6 +41,10 @@ def best_of(work_dir, language, speaker, scenes=None, n=3, threshold=0.0):
         sc["voice_seed"] = best[1]
         log[str(i + 1)] = {"score": round(best[0], 3), "seed": best[1], "heard": best[3], "at": db.now()}
         print(f"==> scene {i + 1}: kept seed {best[1]} (score {best[0]:.3f})", flush=True)
-    (work / "script.json").write_text(json.dumps(script, indent=2, ensure_ascii=False))
+    fresh = json.loads((work / "script.json").read_text())
+    for i, sc in enumerate(script["scenes"]):
+        if "voice_seed" in sc and i < len(fresh["scenes"]):
+            fresh["scenes"][i]["voice_seed"] = sc["voice_seed"]
+    (work / "script.json").write_text(json.dumps(fresh, indent=2, ensure_ascii=False))
     log_path.write_text(json.dumps(log, indent=2, ensure_ascii=False))
     return log

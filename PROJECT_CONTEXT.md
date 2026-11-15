@@ -105,6 +105,13 @@ For credentials, follow `docs/PUBLISHING.md`: create your own GCP project, enabl
 - **Memory (16 GB):** never run Qwen, Z-Image, Veena and Whisper-turbo at the same time. Run `ollama stop qwen3:8b` before images or voice. The fanless Air throttles on long runs, so keep it plugged in.
 - **Disk:** 92 GB free at the time of writing. `~/.cache/huggingface/hub/models--Tongyi-MAI--Z-Image-Turbo` (~25 GB of bf16 blobs) can be deleted once `models/z-image-turbo-4bit` exists. The owner decides.
 
+## 8b. Progress & ETA reporting
+`python -m pipeline progress <ID>` derives progress from the files each step produces (works for runs already in progress):
+- per-step status, done/total, measured seconds per unit, time left
+- total time left and clock finish time
+
+Use `--watch N --oneline` for periodic updates; the owner wants an update every few minutes during long runs. Rates are learned into `data/rates.json`. Measured so far: Veena best-of-3 about 2 min per scene, Z-Image 768×1344 about 100 s per image, Kokoro about 1 s per scene, render about 1.5 min per video.
+
 ## 9. Production standards (defaults)
 - **Format:** 1080×1920, 30 fps, H.264 (VideoToolbox, 12 Mb/s), AAC 192 k.
 - **Loudness:** −14 LUFS target (loudnorm); QA accepts −16.5 to −13, true peak ≤ −1 dBFS.
@@ -162,6 +169,12 @@ shorts-studio/
   tests/test_pipeline.py
   out/ models/ data/ secrets/ .venv/   # gitignored
 ```
+**Git:**
+- Repository: https://github.com/AyushmanKS/video_workflow (public, branch `main`).
+- Commit author for this repo only: `AyushmanKS <AyushmanKS@users.noreply.github.com>`.
+- Push auth uses a repo-local credential helper (`!gh auth git-credential`, GitHub CLI logged in as AyushmanKS). The Keychain helper is blanked for this repo only, because the Mac's Keychain holds a different GitHub account.
+- Before every commit, scan staged files for secrets (`git diff --cached`) and confirm no media or DB files are staged.
+
 **Storage strategy:** videos, audio and images stay out of git (content/** media and out/ are gitignored). Back them up to a cloud drive or external disk, or use Git LFS later if needed. Scripts, manifests and reports are small and versioned.
 
 ## 18. Key files
@@ -169,7 +182,7 @@ shorts-studio/
 - **`chalk.py`**: board and palette, reveal order (connected-component trace), `plan()` timing, `render()`, `text_scene()` (verse/shloka), `font_for()` for all scripts, `music()` and `sound()` SFX, `thumbnail()`.
 - **`veena.py`**: phrase chunking with punctuation pauses, SNAC decode.
 - **`publish.py`**: OAuth (`google_credentials`, separate upload and analytics tokens), `youtube_upload` (publishAt, playlist, thumbnail, DB record), `instagram_publish` (resumable; disabled by policy).
-- **`pipeline/__main__.py`**: commands `new status trending research approve done produce takes qa schedule publish link analytics report`.
+- **`pipeline/__main__.py`**: commands `new status trending research approve done produce takes progress qa schedule publish link analytics report`.
 
 ## 19. Completed implementation
 - 2026-11-15: original pipeline and 6 styles; pixel-art demo.
@@ -188,7 +201,6 @@ shorts-studio/
 - Indic Parler-TTS evaluation for mr, bn, te, ta, gu, kn, ml, pa (needs a free HF token from the owner), then native-speaker listens.
 - Scheduled analytics: a launchd plist to run `python -m pipeline analytics` daily. The template is not installed yet; the owner decides.
 - Instagram auto-upload (deferred by owner).
-- Git: the repository is not initialised or pushed yet. The owner will create the GitHub repo.
 - Optional: YouTube API compliance audit application.
 
 ## 21. Known limitations
@@ -201,32 +213,25 @@ shorts-studio/
 - **Network:** occasional timeouts to googleapis/wikipedia; research uses retries.
 
 ## 22. Current status (update every session)
-- **Phase:** 1–6 complete. 7: unit tests and real research/QA tests done; analytics test waiting on the owner's sign-in. **8 (pilot) in progress: C0002 is at gate G1 (script approval).**
-- **Tests done:**
-  - unit tests (7/7)
-  - real trending report (`data/reports/trending-IN-2026-11-15.md`)
-  - QA on both Episode 01 finals (WARN: EN caption width, fixed for future via `caption_max_chars`; scene 12 is a number-format false positive, now auto-labelled)
-  - C0001 backfill with publications EN `iAOekr93Rwc`, HI `ATBD85fpgwY`
-  - pilot research on 3 candidates (real API data)
-- **C0002** (Ramayana Episode 02, "Who was Shri Ram? The 16 qualities", Valmiki 1.1.2–8, verses verified on sa.wikisource):
-  - `research/report.md`, `audience.md`, `strategy.md` (B = 82/100)
-  - `en|hi/hooks.json`, `en|hi/script.json`, `en|hi/script.md`
-- **Waiting on owner:**
-  - (1) analytics read-only sign-in (the command `python -m pipeline analytics --force --label 24h` was started and waits for consent; rerun it if it timed out)
-  - (2) review and approve the C0002 scripts
-  - (3) optional free HF token for the Indic Parler-TTS evaluation
-  - (4) optional fix of the Hindi Episode 01 YouTube title prefix
+- **Phase:** 1–6 complete; 7 done except the analytics live test (owner sign-in pending). **8 pilot: C0002 produced and QA-passed; waiting at G2 (final approval) and G3 (publish approval).**
+- **C0002 deliverables:**
+  - `content/C0002/en/C0002-en.mp4` (77.5 s) and `content/C0002/hi/C0002-hi.mp4` (94.9 s), both automated QA PASS plus manual review
+  - thumbnails, `publish.json` (metadata) and `schedule.json` in each language folder
+  - recommended slot: 12:30 IST (exploring)
+- **Pilot findings, now encoded in the system:**
+  - Narada character drift → character bible updated.
+  - `takes` overwrote concurrent script edits → fixed.
+  - `takes` didn't create `audio/` → fixed.
+  - Caption QA postposition false positives → fixed.
+  - Whole-scene CER can pick the wrong take when a scene mixes Sanskrit and Hindi → review the verse portion manually; future improvement: score segments separately.
+  - Progress/ETA command added (`python -m pipeline progress`).
+- **Waiting on owner:** G2 + G3 approval for C0002 (video + metadata + time), the analytics sign-in, optional HF token, optional fix of the Hindi Episode 01 title.
 
 ## 23. Exact next steps
-1. Owner approves the scripts: `python -m pipeline approve C0002 script --note "…"`. If the owner requests changes, edit `content/C0002/<lang>/script.json` and regenerate `script.md`.
-2. `ollama stop qwen3:8b`, then:
-   - `python -m pipeline produce C0002 --lang en --steps voice`
-   - `python -m pipeline produce C0002 --lang hi --steps voice`
-   - language-qa: the Hindi narration check plus best-of-3 regeneration for flagged scenes (`python -m pipeline takes C0002 --lang hi` = best-of-3 Veena takes scored by Whisper-turbo; `--scenes 4,7` for flagged scenes only)
-3. `python -m pipeline produce C0002 --lang en --steps images`. The Hindi version reuses the images automatically. Then render en and hi (`--steps render`).
-4. `python -m pipeline qa C0002 --lang en|hi`, plus the video-qa manual review, then G2.
-5. publishing-manager writes `en|hi/publish.json`, then `python -m pipeline schedule --id C0002 --lang en|hi`, then G3, then `python -m pipeline publish C0002 --lang …`.
-6. Analytics: `python -m pipeline analytics` daily (consider installing the launchd job), then `python -m pipeline report C0002-en`.
+1. Owner approves: `python -m pipeline approve C0002 final` and `python -m pipeline approve C0002 publish` (with any time changes noted).
+2. `python -m pipeline publish C0002 --lang en` and `--lang hi`. Uploads go up private with `publishAt` at the approved time. Verify via the API, then set the pinned comments and Related-video links in Studio.
+3. Analytics windows: after the owner's sign-in, run `python -m pipeline analytics` daily, then `python -m pipeline report C0002-en|hi`. The optimization-strategist writes recommendations after 48 h.
+4. Next episode candidate: Episode 03 "Dasharatha's longing for a son" (topic A from the C0002 research; Ram Navami seasonal peak Mar/Apr).
 
 ## 24. Testing
 - `python -m pytest -q tests` (unit tests: captions, DB, scheduler, QA scoring, fonts, profiles).

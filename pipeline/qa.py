@@ -118,12 +118,15 @@ def check_captions(work_dir, script, style_name="chalk"):
         toks = studio.caption_tokens(sc["narration"])
         if not wts[i] or len(wts[i]) != len(toks):
             issues.append(f"scene {i + 1}: word timing not aligned (captions fall back to estimated timing)")
+        prev_end = "."
         for g in studio.caption_groups(sc["narration"], 0, 5, st.get("caption_words", 3), wts[i], st.get("caption_max_chars")):
             groups += 1
+            phrase_start = prev_end[-1] in ".,?!:;।॥—"
+            prev_end = g["words"][-1]
             w = sum(dr.textlength(x, font=cap.font) for x in g["words"]) + 22 * (len(g["words"]) - 1)
             if w > studio.W - 120:
                 issues.append(f"scene {i + 1}: caption '{' '.join(g['words'])}' too wide ({int(w)}px)")
-            if len(g["words"]) > 1 and g["words"][0] in studio.POSTPOSITIONS:
+            if len(g["words"]) > 1 and g["words"][0] in studio.POSTPOSITIONS and not phrase_start:
                 issues.append(f"scene {i + 1}: caption line starts with postposition '{g['words'][0]}'")
     return {"name": "captions", "ok": not issues, "issues": issues, "data": {"groups": groups}}
 
