@@ -6,7 +6,7 @@ from . import db
 from .research import retry
 
 WINDOWS = [("24h", 1), ("48h", 2), ("7d", 7), ("14d", 14), ("30d", 30)]
-CORE = "views,estimatedMinutesWatched,averageViewDuration,averageViewPercentage,likes,comments,shares,subscribersGained,subscribersLost"
+CORE = "views,engagedViews,estimatedMinutesWatched,averageViewDuration,averageViewPercentage,likes,comments,shares,subscribersGained,subscribersLost"
 
 
 def services():
@@ -46,6 +46,13 @@ def fetch_metrics(yt, ya, video_id, published):
         try:
             out[key] = table(retry(lambda: ya.reports().query(**q, **extra).execute()))
         except Exception as e:
+            if key == "totals" and "engagedViews" in extra["metrics"]:
+                try:
+                    out[key] = table(retry(lambda: ya.reports().query(**q, metrics=extra["metrics"].replace("engagedViews,", "")).execute()))
+                    out["note_engaged"] = "engagedViews not accepted for this query: " + str(e)[:160]
+                    continue
+                except Exception as e2:
+                    e = e2
             out[key] = {"unavailable": str(e)[:240]}
     out["note"] = "YouTube Analytics data typically lags 1-3 days; empty tables right after publishing are expected."
     return out

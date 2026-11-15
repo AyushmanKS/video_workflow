@@ -1,0 +1,233 @@
+{
+  "title": "How Shri Ram Was Born | Ramayana Ep 3",
+  "topic": "Dasharatha's longing and the birth of four princes (Valmiki Ramayana 1.8–1.18)",
+  "style": "chalk",
+  "language": "en",
+  "character": "",
+  "scenes": [
+    {
+      "narration": "You know Shri Ram was born on Ram Navami. But do you know his birth began with one bowl of divine pudding?",
+      "keywords": [
+        "Ram",
+        "Navami.",
+        "pudding?"
+      ],
+      "emphasis": "",
+      "visual": "a golden vessel of sweet rice pudding glowing on a stone altar, four lotus flowers around it, soft divine light, vertical composition, subject in the center of the frame, empty dark chalkboard space at the top and bottom, no border, no frame",
+      "pause": 0.35,
+      "sfx": [
+        {
+          "name": "wind"
+        }
+      ],
+      "melody": "intro"
+    },
+    {
+      "narration": "It begins in Ayodhya, rich, peaceful and just. Its king, Dasharatha, was devoted to dharma, and had everything.",
+      "keywords": [
+        "Ayodhya,",
+        "Dasharatha,",
+        "dharma,"
+      ],
+      "emphasis": "Ayodhya",
+      "visual": "the ancient city of Ayodhya at sunrise with grand palaces and temple spires by the Sarayu river, and King Dasharatha, a dignified middle-aged Indian king with a short grey beard and moustache, ornate golden crown, gold jewellery, rich saffron and white royal garments standing on a palace balcony, vertical composition, subject in the center of the frame, empty dark chalkboard space at the top and bottom, no border, no frame",
+      "pause": 0.35,
+      "sfx": [
+        {
+          "name": "birds"
+        }
+      ],
+      "melody": "calm"
+    },
+    {
+      "narration": "Everything, except a son to carry on his line. Night after night, the king prayed.",
+      "keywords": [
+        "son",
+        "prayed."
+      ],
+      "emphasis": "No Heir",
+      "visual": "King Dasharatha, a dignified middle-aged Indian king with a short grey beard and moustache, ornate golden crown, gold jewellery, rich saffron and white royal garments, seated alone on a golden throne in a vast moonlit palace hall, gazing at an empty cradle, sorrowful, vertical composition, subject in the center of the frame, empty dark chalkboard space at the top and bottom, no border, no frame",
+      "pause": 0.35,
+      "sfx": [
+        {
+          "name": "wind"
+        }
+      ],
+      "melody": "grief"
+    },
+    {
+      "narration": "So he resolved to perform the greatest royal rite of all, the Ashvamedha, the horse sacrifice.",
+      "keywords": [
+        "Ashvamedha,"
+      ],
+      "emphasis": "The Ashvamedha",
+      "visual": "a majestic white horse with royal ornaments standing before a sacrificial altar with priests, vertical composition, subject in the center of the frame, empty dark chalkboard space at the top and bottom, no border, no frame",
+      "pause": 0.35,
+      "sfx": [
+        {
+          "name": "birds"
+        }
+      ]
+    },
+    {
+      "narration": "The young sage Rishyashringa was invited to lead the sacred fire.",
+      "keywords": [
+        "Rishyashringa"
+      ],
+      "emphasis": "",
+      "visual": "the young sage Rishyashringa, slender with matted hair in a topknot, bare chest with a white sacred thread, ochre dhoti, holding a ladle over a sacred fire, chanting before a great blazing sacrificial fire in a yajna pavilion, vertical composition, subject in the center of the frame, empty dark chalkboard space at the top and bottom, no border, no frame",
+      "pause": 0.35,
+      "sfx": [],
+      "swell": true
+    },
+    {
+      "narration": "Meanwhile, the gods were terrified of Ravana. Brahma's boon had made him safe from gods and demons. But he never thought to fear humans.",
+      "keywords": [
+        "Ravana.",
+        "humans."
+      ],
+      "emphasis": "Ravana",
+      "visual": "landscape only, no people: a menacing dark silhouette of a ten-headed demon king against a stormy red sky over an island fortress, vertical composition, subject in the center of the frame, empty dark chalkboard space at the top and bottom, no border, no frame",
+      "pause": 0.35,
+      "sfx": [
+        {
+          "name": "wind"
+        }
+      ],
+      "swell": true
+    },
+    {
+      "narration": "So Vishnu agreed to be born as a man, as the sons of King Dasharatha.",
+      "keywords": [
+        "Vishnu",
+        "man,"
+      ],
+      "emphasis": "A Divine Promise",
+      "visual": "a radiant celestial light shaped like a lotus with a conch and discus glowing within it, rays of gold and pale blue chalk spreading across a starry sky, no human figure, vertical composition, subject in the center of the frame, empty dark chalkboard space at the top and bottom, no border, no frame",
+      "pause": 0.35,
+      "sfx": [],
+      "melody": "rise",
+      "swell": true
+    },
+    {
+      "narration": "From the fire rose a radiant being, holding a golden vessel of divine payasa, sweet rice pudding.",
+      "keywords": [
+        "payasa,"
+      ],
+      "emphasis": "",
+      "visual": "a radiant divine being rising from a sacred fire holding a golden vessel of sweet rice pudding, King Dasharatha, a dignified middle-aged Indian king with a short grey beard and moustache, ornate golden crown, gold jewellery, rich saffron and white royal garments kneeling before it with folded hands, vertical composition, subject in the center of the frame, empty dark chalkboard space at the top and bottom, no border, no frame",
+      "pause": 0.35,
+      "sfx": [
+        {
+          "name": "bell",
+          "word": "radiant",
+          "offset": -0.25
+        }
+      ],
+      "swell": true
+    },
+    {
+      "narration": "The king gave half to Kausalya, half of the rest to Sumitra, half of what remained to Kaikeyi, and the last share to Sumitra again.",
+      "keywords": [
+        "Kausalya,",
+        "Sumitra,",
+        "Kaikeyi,"
+      ],
+      "emphasis": "",
+      "visual": "the verse written in chalk",
+      "pause": 0.6,
+      "sfx": [],
+      "kind": "verse",
+      "devanagari": [
+        "कौसल्यायै नरपतिः",
+        "पायसार्धं ददौ तदा।",
+        "अर्धादर्धं ददौ चापि",
+        "सुमित्रायै नराधिपः॥"
+      ],
+      "source": "Valmiki Ramayana  1.16.27"
+    },
+    {
+      "narration": "Then, in the month of Chaitra, on the ninth day, Rama was born to Kausalya. That is why we celebrate Ram Navami.",
+      "keywords": [
+        "Rama",
+        "Navami."
+      ],
+      "emphasis": "Ram Navami",
+      "visual": "Queen Kausalya, a graceful Indian queen in a white and gold silk sari with a gold crown and long braided hair seen from the side, tenderly holding a softly glowing newborn wrapped in white cloth, palace chamber with oil lamps, vertical composition, subject in the center of the frame, empty dark chalkboard space at the top and bottom, no border, no frame",
+      "pause": 0.35,
+      "sfx": [
+        {
+          "name": "birds"
+        }
+      ],
+      "melody": "love"
+    },
+    {
+      "narration": "Bharata was born to Kaikeyi. And Sumitra, who had received two shares, gave birth to twins, Lakshmana and Shatrughna.",
+      "keywords": [
+        "Bharata",
+        "twins,"
+      ],
+      "emphasis": "Four Princes",
+      "visual": "Queen Kaikeyi, a striking Indian queen in a deep red and gold silk sari with an ornate gold crown and Queen Sumitra, a gentle Indian queen in a green and gold silk sari with a small gold crown each seen from the side holding newborn babies wrapped in cloth, Sumitra holding twins, warm palace light, vertical composition, subject in the center of the frame, empty dark chalkboard space at the top and bottom, no border, no frame",
+      "pause": 0.35,
+      "sfx": [
+        {
+          "name": "birds"
+        }
+      ]
+    },
+    {
+      "narration": "Four princes. One kingdom overflowing with joy.",
+      "keywords": [
+        "Four",
+        "joy."
+      ],
+      "emphasis": "",
+      "visual": "four young princes as small children seen from behind, playing together in a palace courtyard, King Dasharatha, a dignified middle-aged Indian king with a short grey beard and moustache, ornate golden crown, gold jewellery, rich saffron and white royal garments watching with joy, vertical composition, subject in the center of the frame, empty dark chalkboard space at the top and bottom, no border, no frame",
+      "pause": 0.35,
+      "sfx": [
+        {
+          "name": "birds"
+        }
+      ],
+      "melody": "calm"
+    },
+    {
+      "narration": "But one day, a fierce sage arrived at the palace gates, asking the king for the one son he could never bear to give.",
+      "keywords": [
+        "sage",
+        "son"
+      ],
+      "emphasis": "Next: Vishvamitra",
+      "visual": "a tall stern elderly sage with a long white beard and a staff, seen from behind, walking toward the gates of Ayodhya at dusk, vertical composition, subject in the center of the frame, empty dark chalkboard space at the top and bottom, no border, no frame",
+      "pause": 0.35,
+      "sfx": [
+        {
+          "name": "wind"
+        }
+      ],
+      "swell": true
+    }
+  ],
+  "description": "",
+  "hashtags": [],
+  "thumbnail": {
+    "scene": 7,
+    "devanagari": "",
+    "title": "ONE BOWL OF KHEER",
+    "series": "The Epic in Chalk",
+    "episode": "Episode 3",
+    "subtitle": ""
+  },
+  "sources": [
+    "Valmiki Ramayana 1.8.1–2 (no heir; Ashvamedha resolved), verified sa.wikisource",
+    "1.9–1.14 Rishyashringa leads the rites",
+    "1.15–1.16 gods, Ravana's boon, Vishnu agrees to be born as Dasharatha's sons",
+    "1.16.19 divine payasa (verified)",
+    "1.16.27–29 distribution among queens (verified)",
+    "1.18.8 Chaitra Navami birth (verified)",
+    "1.18.13–14 Bharata; Lakshmana and Shatrughna (verified)",
+    "1.19–1.20 Vishvamitra arrives (teaser)"
+  ]
+}

@@ -38,7 +38,7 @@ def best_of(work_dir, language, speaker, scenes=None, n=3, threshold=0.0):
             a = engine.speak(sc.get("tts", sc["narration"]), speaker, seed=seed, ref=ref, log=lambda m: print(m, flush=True))
             a16 = np.interp(np.arange(0, len(a), studio.SR / 16000), np.arange(len(a)), a).astype(np.float32)
             heard = " ".join(s.text.strip() for s in asr.transcribe(a16, language=language, beam_size=5)[0])
-            cer, ratio = char_error(sc["narration"], heard)
+            cer, ratio = char_error(sc["narration"], heard, language)
             score = cer + max(0, ratio - 1.08)
             print(f"scene {i + 1} take {k + 1} seed {seed}: {len(a) / studio.SR:.1f}s score {score:.3f} | {heard}", flush=True)
             if best is None or score < best[0]:

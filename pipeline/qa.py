@@ -71,12 +71,17 @@ def check_silence(video, max_gap=1.6):
     return {"name": "silence", "ok": not issues, "issues": issues, "data": {"gaps": len(gaps)}}
 
 
-def normalize(text):
-    return re.sub(r"[\W_]+", "", unicodedata.normalize("NFC", text).replace("\u093c", "").lower())
+def normalize(text, language=None):
+    from .numwords import spell_numbers
+
+    if language:
+        text = spell_numbers(text, language)
+    text = unicodedata.normalize("NFC", text).replace("\u093c", "").replace("\u0901", "\u0902").lower()
+    return re.sub(r"[\W_]+", "", text)
 
 
-def char_error(ref, hyp):
-    r, h = normalize(ref), normalize(hyp)
+def char_error(ref, hyp, language=None):
+    r, h = normalize(ref, language), normalize(hyp, language)
     m = sum(b.size for b in difflib.SequenceMatcher(None, r, h, autojunk=False).get_matching_blocks())
     return round(1 - m / max(1, len(r)), 3), round(len(h) / max(1, len(r)), 2)
 
@@ -95,7 +100,7 @@ def check_narration(work_dir, script, language, threshold=0.15):
         a16 = np.interp(np.arange(0, len(a), studio.SR / 16000), np.arange(len(a)), a).astype(np.float32)
         segs, _ = model.transcribe(a16, language=language, beam_size=5)
         heard = " ".join(s.text.strip() for s in segs)
-        cer, ratio = char_error(sc["narration"], heard)
+        cer, ratio = char_error(sc["narration"], heard, language)
         scenes.append({"scene": i + 1, "cer": cer, "length_ratio": ratio, "heard": heard})
         if cer > threshold or not 0.85 <= ratio <= 1.2:
             hint = "Whisper wrote digits where the script has number words; likely a false positive" if re.search(r"\d", heard) and not re.search(r"\d", sc["narration"]) else "listen and regenerate if mispronounced"

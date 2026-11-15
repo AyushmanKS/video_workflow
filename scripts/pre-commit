@@ -1,0 +1,11 @@
+#!/bin/sh
+bad=$(git diff --cached --name-only | grep -E '(^|/)(secrets|data|models|out)/|\.db$|client_secret|token|\.mp4$|\.mov$|\.safetensors$' | grep -v '^data/.gitkeep$')
+if [ -n "$bad" ]; then
+  echo "pre-commit: blocked files staged:"; echo "$bad"; exit 1
+fi
+if git diff --cached -U0 -- . ':(exclude)scripts/pre-commit' | grep -E '^\+.*(GOCSPX-|ya29\.|hf_[A-Za-z0-9]{20,}|"refresh_token"|-----BEGIN [A-Z ]*PRIVATE KEY)' >/dev/null; then
+  echo "pre-commit: possible secret in staged changes"; exit 1
+fi
+big=$(git diff --cached --name-only -z | xargs -0 -I{} sh -c 'test -f "{}" && find "{}" -size +5M' 2>/dev/null)
+if [ -n "$big" ]; then echo "pre-commit: files over 5 MB:"; echo "$big"; exit 1; fi
+exit 0

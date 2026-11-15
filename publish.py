@@ -115,6 +115,12 @@ def youtube_upload(video, meta, thumb, privacy, assume_yes, publish_at=None):
     vid = resp["id"]
     result = {"platform": "youtube", "id": vid, "url": f"https://www.youtube.com/shorts/{vid}", "privacy": resp["status"]["privacyStatus"], "scheduled_for": resp["status"].get("publishAt"), "time": time.strftime("%Y-%m-%d %H:%M:%S")}
     print(f"  uploaded: {result['url']} (privacy reported: {result['privacy']})")
+    check = svc.videos().list(part="status", id=vid).execute()["items"][0]["status"]
+    result["verified"] = {"privacy": check.get("privacyStatus"), "publishAt": check.get("publishAt")}
+    if publish_at and not check.get("publishAt"):
+        print("  WARNING: YouTube did not keep the scheduled time; set it in Studio")
+    if privacy == "public" and check.get("privacyStatus") != "public":
+        print(f"  WARNING: requested public but YouTube reports {check.get('privacyStatus')} (possible unaudited-project lock)")
     if yt.get("playlist"):
         pid = find_playlist(svc, yt["playlist"])
         if pid:

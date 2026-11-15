@@ -1,0 +1,1346 @@
+{
+  "topic": "The birth of Shri Ram (Dasharatha's yajna, Valmiki Bala Kanda 8-18)",
+  "generated_at": "2026-11-15T22:52:12+0530",
+  "wikipedia_interest": {
+    "source": "Wikimedia REST pageviews (user agents, monthly)",
+    "en_title": "Dasharatha",
+    "captured_at": "2026-11-15T22:52:20+0530",
+    "languages": {
+      "en": {
+        "title": "Dasharatha",
+        "monthly": [
+          [
+            "202604",
+            11279
+          ],
+          [
+            "202605",
+            8322
+          ],
+          [
+            "202606",
+            7532
+          ],
+          [
+            "202607",
+            11405
+          ],
+          [
+            "202608",
+            13971
+          ],
+          [
+            "202609",
+            9511
+          ],
+          [
+            "202610",
+            13971
+          ]
+        ],
+        "last_month": 13971,
+        "change_vs_prior_avg": 0.35
+      },
+      "hi": {
+        "title": "दशरथ",
+        "monthly": [
+          [
+            "202604",
+            2100
+          ],
+          [
+            "202605",
+            1974
+          ],
+          [
+            "202606",
+            2451
+          ],
+          [
+            "202607",
+            3498
+          ],
+          [
+            "202608",
+            2623
+          ],
+          [
+            "202609",
+            2263
+          ],
+          [
+            "202610",
+            2270
+          ]
+        ],
+        "last_month": 2270,
+        "change_vs_prior_avg": -0.09
+      }
+    }
+  },
+  "youtube_competition": {
+    "en": {
+      "source": "YouTube Data API search.list + videos.list",
+      "query": "birth of lord rama story",
+      "region": "IN",
+      "language": "en",
+      "captured_at": "2026-11-15T22:51:09+0530",
+      "approx_total_results": 1000000,
+      "top_by_views": [
+        {
+          "id": "RheifZMDzeY",
+          "title": "Famous Rama Lali One Hour Song",
+          "channel": "Bhakthi Visheshalu",
+          "published": "2024-04-30T13:17:48Z",
+          "language": "te",
+          "category": "People & Blogs",
+          "seconds": 3780,
+          "views": 15699340,
+          "likes": 32143,
+          "comments": 2033
+        },
+        {
+          "id": "3kF4_HEiFY8",
+          "title": "தீபாவளி பாடல் - ராமர் கதை NEW Deepavali Song - Lord Rama Story - ChuChu TV Tamil Rhymes For Children",
+          "channel": "ChuChuTV Tamil",
+          "published": "2018-10-18T05:20:54Z",
+          "language": "ta",
+          "category": "Education",
+          "seconds": 353,
+          "views": 15246020,
+          "likes": 32188,
+          "comments": 0
+        },
+        {
+          "id": "MxXAkU5iSio",
+          "title": "रावण ने शनिदेव को सिंहासन के नीचे क्यों कैद किया? 😱 #facts",
+          "channel": "Real Yash",
+          "published": "2026-08-19T12:47:43Z",
+          "language": "hi",
+          "category": "Education",
+          "seconds": 98,
+          "views": 13483953,
+          "likes": 388514,
+          "comments": 308
+        },
+        {
+          "id": "3PPe4Ey6fWI",
+          "title": "Did Lord Rama Rule for 11000 years?🕉️😱🤯😨🚩",
+          "channel": "Tarkshya Yatra | Sonu Surag",
+          "published": "2023-07-10T06:01:59Z",
+          "language": "en",
+          "category": "People & Blogs",
+          "seconds": 60,
+          "views": 6692312,
+          "likes": 431412,
+          "comments": 4495
+        },
+        {
+          "id": "Gl-bQn7e2M0",
+          "title": "Ramayan’s Sacred Geography: Jambudweep to Ayodhya, Prabhu Ram’s Birthplace #ramayan #ancienthistory",
+          "channel": "Snappy Tales Hindi",
+          "published": "2025-09-09T15:03:32Z",
+          "language": "hi",
+          "category": "Entertainment",
+          "seconds": 16,
+          "views": 16149036,
+          "likes": 320933,
+          "comments": 1898
+        },
+        {
+          "id": "SWNuE3DF9x8",
+          "title": "Luv - Kush (The Warrior Twins) Animated Movie With Subtitles | Animated Movies For Kids In Hindi",
+          "channel": "Pen Movies",
+          "published": "2014-04-17T04:51:00Z",
+          "language": "en",
+          "category": "Film & Animation",
+          "seconds": 5242,
+          "views": 5474506,
+          "likes": 31043,
+          "comments": 0
+        },
+        {
+          "id": "msB2VjXB4Og",
+          "title": "Ramachandraya Janaka Mangalam | Cute Rama Song for Kids",
+          "channel": "Mythical Legends",
+          "published": "2025-07-23T03:40:08Z",
+          "language": "te",
+          "category": "Music",
+          "seconds": 321,
+          "views": 4479832,
+          "likes": 5024,
+          "comments": 90
+        },
+        {
+          "id": "gj-4eZKIUh8",
+          "title": "When Hanuman Stopped Yamraj | Lord Rama’s Infinite Rings",
+          "channel": "Sanatan Legends AI",
+          "published": "2026-03-10T12:30:00Z",
+          "language": "hi",
+          "category": "Film & Animation",
+          "seconds": 772,
+          "views": 4286557,
+          "likes": 44264,
+          "comments": 1343
+        },
+        {
+          "id": "FwWSnf-RtxQ",
+          "title": "हनुमान जी का पुत्र कौन था? 😱 मकरध्वज की रहस्यमयी जन्म कथा | Hanuman Makardhwaj Story",
+          "channel": "YamlokKing",
+          "published": "2026-11-09T09:29:42Z",
+          "language": "hi",
+          "category": "Entertainment",
+          "seconds": 173,
+          "views": 6349511,
+          "likes": 142547,
+          "comments": 154
+        },
+        {
+          "id": "_cwhsUROQn4",
+          "title": "Ravana Kidnapped Lord Rama's Mother Kaushalya Before His Birth! | Untold Ramayana Story",
+          "channel": "Stack Bhakti",
+          "published": "2026-11-03T09:37:07Z",
+          "language": "zxx",
+          "category": "Education",
+          "seconds": 179,
+          "views": 6666639,
+          "likes": 124660,
+          "comments": 678
+        },
+        {
+          "id": "0tL2omnJ4PM",
+          "title": "Bala Ramayanam Full Movie | Jr. NTR Ramayanam Movie |  Smitha Madhav, Swathi Baalineni | TelguuOne",
+          "channel": "TeluguOne",
+          "published": "2012-03-11T09:11:48Z",
+          "language": "te",
+          "category": "Film & Animation",
+          "seconds": 8654,
+          "views": 3697783,
+          "likes": 22150,
+          "comments": 947
+        },
+        {
+          "id": "Q2U7mWrjgOs",
+          "title": "Sri Rama Charitham Part-1 || Lord Sri Rama Devotional Songs",
+          "channel": "Disco Recording Company - Telangana Folks",
+          "published": "2016-03-16T14:44:13Z",
+          "language": "te",
+          "category": "Music",
+          "seconds": 5537,
+          "views": 3552422,
+          "likes": 17926,
+          "comments": 754
+        },
+        {
+          "id": "TN0gbzCCsG8",
+          "title": "11 Demons Killed by lord Rama ⚔️ || #shoorveer #short #mythology #history",
+          "channel": "Shoorveer",
+          "published": "2023-03-17T08:32:53Z",
+          "language": "en",
+          "category": "Film & Animation",
+          "seconds": 38,
+          "views": 3494762,
+          "likes": 181815,
+          "comments": 2924
+        },
+        {
+          "id": "QeyH9UqYMnA",
+          "title": "Ravan Ki Asli Kahani 😱 Jai Vijay Ka Rahasya! #Ravan #Ramayan #Vishnu #godvishnu #dushehra #ram",
+          "channel": "AI Wonder Lab",
+          "published": "2026-10-18T13:37:46Z",
+          "language": "en-IN",
+          "category": "Entertainment",
+          "seconds": 59,
+          "views": 5033884,
+          "likes": null,
+          "comments": 249
+        },
+        {
+          "id": "cvCv7kTcRXI",
+          "title": "Story of Ramayana | Why is Diwali called the Festival of Light? | Diwali Mythology | The Dr. Binocs",
+          "channel": "Peekaboo Kidz",
+          "published": "2024-11-01T12:30:30Z",
+          "language": "en",
+          "category": "Education",
+          "seconds": 319,
+          "views": 3132017,
+          "likes": 11253,
+          "comments": 0
+        },
+        {
+          "id": "xN16ZBEbP1o",
+          "title": "श्री राम की मृत्यु  कैसे हुई  | Death of Lord Rama | Kahani | Hindi Stories | Hindi Kahaniyan",
+          "channel": "HINDU STORIES",
+          "published": "2022-06-22T01:30:10Z",
+          "language": "hi",
+          "category": "Film & Animation",
+          "seconds": 501,
+          "views": 2279445,
+          "likes": 18225,
+          "comments": 309
+        },
+        {
+          "id": "inbAAQMK8vs",
+          "title": "Lord Ram's elder sister 🤔 #shorts #shreeram #factsinhindi",
+          "channel": "Ravin docx",
+          "published": "2026-10-27T10:00:49Z",
+          "language": "en",
+          "category": "People & Blogs",
+          "seconds": 110,
+          "views": 3595080,
+          "likes": 96019,
+          "comments": 405
+        },
+        {
+          "id": "5CcHSdMtjbw",
+          "title": "The Majestic Appearance of Shri Ram & Lakshman | Yashodeep Deodhar Shares #shorts",
+          "channel": "BeerBiceps",
+          "published": "2024-10-29T17:15:00Z",
+          "language": "en",
+          "category": "People & Blogs",
+          "seconds": 25,
+          "views": 2135424,
+          "likes": 114754,
+          "comments": 1211
+        },
+        {
+          "id": "-DdH_HM2qpY",
+          "title": "60,000 Years Old & Broke Ravana’s Chariot! Unfolding the Untold Power of Jatayu! 🚨",
+          "channel": "Abhay Xaom",
+          "published": "2026-11-09T03:47:39Z",
+          "language": "hi",
+          "category": "Education",
+          "seconds": 56,
+          "views": 3816207,
+          "likes": 81718,
+          "comments": 640
+        },
+        {
+          "id": "u3lNe_Q9Oiw",
+          "title": "Ram Navami Special | Why Lord Rama Killed Vali? | Kishkindha Tragedy",
+          "channel": "Dharmo Sanatan ",
+          "published": "2026-03-26T15:56:41Z",
+          "language": "en",
+          "category": "Entertainment",
+          "seconds": 702,
+          "views": 1890123,
+          "likes": 18297,
+          "comments": 682
+        },
+        {
+          "id": "MGMVA_mhajs",
+          "title": "Why Tamilnadu Burnt Rama’s Statue?",
+          "channel": "Keerthi",
+          "published": "2025-10-18T14:34:58Z",
+          "language": "en",
+          "category": "People & Blogs",
+          "seconds": 62,
+          "views": 3338681,
+          "likes": 73988,
+          "comments": 1322
+        },
+        {
+          "id": "teB0aursYQk",
+          "title": "ರಾಮನ ಅಂತ್ಯ ಹೇಗಾಯಿತು ಗೊತ್ತಾ| How lord sri rama left earth explained in Kannada| story fellow",
+          "channel": "Story Fellow",
+          "published": "2025-04-14T12:23:46Z",
+          "language": "kn",
+          "category": "Education",
+          "seconds": 541,
+          "views": 1860310,
+          "likes": 31916,
+          "comments": 1068
+        },
+        {
+          "id": "kKbox3y7UGQ",
+          "title": "Top 5 Proof Of Ramayana 🚩 #ramayana #hanuman #hinduism #sanatandharma #bajrangdal #anandbhakti23",
+          "channel": "Anand 29",
+          "published": "2022-09-06T17:26:16Z",
+          "language": "hi",
+          "category": "Entertainment",
+          "seconds": 21,
+          "views": 2076996,
+          "likes": 75021,
+          "comments": 772
+        },
+        {
+          "id": "6LnEbjzdx_c",
+          "title": "Chhota Bheem - The Ravan's Attack | Rama Navami in Dholakpur | Cartoons for Kids in English",
+          "channel": "Green Gold - English",
+          "published": "2022-04-10T04:30:01Z",
+          "language": "en",
+          "category": "People & Blogs",
+          "seconds": 587,
+          "views": 1369037,
+          "likes": 4963,
+          "comments": 0
+        },
+        {
+          "id": "74jx5_JQUMA",
+          "title": "EP- 03 - हुआ प्रभु Shree Ram का जन्म, झूम उठा अयोध्या का कण कण | Shrimad Ramayan | श्रीमद् रामायण",
+          "channel": "Divya Ramayan",
+          "published": "2025-04-06T13:15:00Z",
+          "language": "hi",
+          "category": "Entertainment",
+          "seconds": 2877,
+          "views": 1300790,
+          "likes": 14467,
+          "comments": 240
+        }
+      ],
+      "recent_30d": [
+        {
+          "id": "57nu0JNICPA",
+          "title": "🚩 श्रीराम की पूरी कहानी 60 सेकंड में | जन्म से रावण वध तक | जय श्रीराम 🙏#ytshorts #jaishreeram",
+          "channel": "🌺 दिव्य भक्ति धाम _मंत्र और कथा",
+          "published": "2026-11-15T14:45:18Z",
+          "language": "hi",
+          "category": "Education",
+          "seconds": 49,
+          "views": 7,
+          "likes": 0,
+          "comments": 0
+        },
+        {
+          "id": "EOmLolS4LDg",
+          "title": "The Inspiring Story of Maharishi Valmiki | Birth of the Ramayana",
+          "channel": "Celestial Gatha",
+          "published": "2026-11-15T14:30:03Z",
+          "language": "en-IN",
+          "category": "Education",
+          "seconds": 485,
+          "views": 8,
+          "likes": 1,
+          "comments": 0
+        },
+        {
+          "id": "ZIkNuMY9b0g",
+          "title": "What Was Ayodhya Like Before Lord Rama Was Born? Ramayana. | Episode - 2. #ramayana #episode2",
+          "channel": "Ravi Purohit",
+          "published": "2026-11-15T12:30:29Z",
+          "language": "hi",
+          "category": "Education",
+          "seconds": 104,
+          "views": 7,
+          "likes": 1,
+          "comments": 0
+        },
+        {
+          "id": "WYUcLJOxdvM",
+          "title": "😱 రావణుడి తండ్రి ఒక మహర్షి! అసలు జన్మ రహస్యం ఇదే | Ravana Birth Story in Telugu 🚩#trending",
+          "channel": "Elhan AI కథావనం",
+          "published": "2026-11-15T12:15:32Z",
+          "language": "te",
+          "category": "Film & Animation",
+          "seconds": 33,
+          "views": 1214,
+          "likes": 54,
+          "comments": 0
+        },
+        {
+          "id": "aRBbjRkZ9vw",
+          "title": "JATAYU – THE LAST FLIGHT | The Ramayana Story Nobody Told You",
+          "channel": "ApsVibeX",
+          "published": "2026-11-15T11:00:14Z",
+          "language": "hi",
+          "category": "Film & Animation",
+          "seconds": 205,
+          "views": 362,
+          "likes": 4,
+          "comments": 0
+        },
+        {
+          "id": "7xxn7cvkiAs",
+          "title": "The story of  lord Ram birth #shorts #ram #Hanuman",
+          "channel": "SUPREME DIVINE STORIES",
+          "published": "2026-11-15T08:50:30Z",
+          "language": "hi",
+          "category": "People & Blogs",
+          "seconds": 51,
+          "views": 1,
+          "likes": 1,
+          "comments": 0
+        },
+        {
+          "id": "Z73EDZuEYpI",
+          "title": "ராமாயணத்தின் முழு வரலாறு | ஸ்ரீராமர் முதல் ராவணன் வதம் வரை | Tamil Ramayanam 3D Cartoon Story",
+          "channel": "Kuttystory Tamizha",
+          "published": "2026-11-15T07:13:50Z",
+          "language": "ta",
+          "category": "People & Blogs",
+          "seconds": 81,
+          "views": 1437,
+          "likes": 32,
+          "comments": 0
+        },
+        {
+          "id": "6qyHoTF7o14",
+          "title": "മണ്ഡോദരിക്ക് ഇത്രയും സൗന്ദര്യം ലഭിച്ചത് എങ്ങനെ? | The Untold Story of Mandodari | Ramayana",
+          "channel": "The Churul",
+          "published": "2026-11-15T02:59:26Z",
+          "language": "ml",
+          "category": "Entertainment",
+          "seconds": 817,
+          "views": 17331,
+          "likes": 83,
+          "comments": 15
+        },
+        {
+          "id": "VxiG82MeXIw",
+          "title": "ராவணன் பிறந்த கதை! | Ravanan birth Story #ravanan #ramayan #ram #birth #ramana",
+          "channel": "RKto7",
+          "published": "2026-11-15T01:30:19Z",
+          "language": "zxx",
+          "category": "Film & Animation",
+          "seconds": 137,
+          "views": 1516,
+          "likes": 78,
+          "comments": 2
+        },
+        {
+          "id": "h5di1kccIUc",
+          "title": "Why Lord Vishnu Took Human Form as Rama! 🙏✨ | Ramayana Ep 1 #Shorts",
+          "channel": "CharyaBodha ADMT",
+          "published": "2026-11-15T01:00:33Z",
+          "language": "ta",
+          "category": "Entertainment",
+          "seconds": 15,
+          "views": 236,
+          "likes": 19,
+          "comments": 0
+        },
+        {
+          "id": "T9LrPcL8w-U",
+          "title": "The Untold Story of Lord Rama's Birth #Rama #Ramayana #RamaNavami #Ayodhya #LordRama #SanatanDharma",
+          "channel": "Anant Yatra ",
+          "published": "2026-11-14T14:01:51Z",
+          "language": "hi",
+          "category": "Education",
+          "seconds": 38,
+          "views": 173,
+          "likes": 7,
+          "comments": 0
+        },
+        {
+          "id": "WlO44nIHlrQ",
+          "title": "A crow saw Lord Rama's story again and again..!!! #ramayana #hindumythology #puranas #timelesstales",
+          "channel": "Timeless Tales",
+          "published": "2026-11-14T13:28:48Z",
+          "language": "en",
+          "category": "Education",
+          "seconds": 53,
+          "views": 2072,
+          "likes": 74,
+          "comments": 2
+        },
+        {
+          "id": "UFnMC8_BXXw",
+          "title": "🔥 The Untold Mystery of Jatayu's Previous Birth! | Ramayana Story",
+          "channel": "CID GuptDastak",
+          "published": "2026-11-14T13:09:23Z",
+          "language": "en-US",
+          "category": "Gaming",
+          "seconds": 19,
+          "views": 122,
+          "likes": 0,
+          "comments": null
+        },
+        {
+          "id": "VIc8FbnbxnA",
+          "title": "Ramayana Chapter 1 – The Divine Birth of Lord Rama | Cinematic Manga Story for Kids | Jai Shri Ram 🙏",
+          "channel": "Krishna🙏 Says... ",
+          "published": "2026-11-14T12:45:04Z",
+          "language": "te",
+          "category": "People & Blogs",
+          "seconds": 291,
+          "views": 20,
+          "likes": 5,
+          "comments": 1
+        },
+        {
+          "id": "MYYHDvuMyFo",
+          "title": "श्रीराम की बड़ी बहन माता शांता की अनसुनी कहानी | रामायण का छिपा हुआ रहस्य 🙏🚩#shorts",
+          "channel": "Bhakti_Sargam",
+          "published": "2026-11-14T12:45:06Z",
+          "language": "hi",
+          "category": "People & Blogs",
+          "seconds": 151,
+          "views": 20128,
+          "likes": 755,
+          "comments": 19
+        },
+        {
+          "id": "pLirn09u28g",
+          "title": "How Was Lord Shri Ram Born? 😱🚩 | भगवान श्री राम के जन्म की कहानी | Ramayan #shorts#ramayan #ram",
+          "channel": "Cosmic Katha",
+          "published": "2026-11-14T12:38:19Z",
+          "language": "hi",
+          "category": "People & Blogs",
+          "seconds": 53,
+          "views": 1119,
+          "likes": null,
+          "comments": 1
+        },
+        {
+          "id": "yreRr6GmBpc",
+          "title": "| How Were Lord Rama's 3 Brothers Born? | #ram #shorts #ramayan #ram #hanuman",
+          "channel": "Bhakti world 3D",
+          "published": "2026-11-14T12:34:59Z",
+          "language": "hi",
+          "category": "Education",
+          "seconds": 30,
+          "views": 1332,
+          "likes": 53,
+          "comments": 1
+        },
+        {
+          "id": "ppssC9U0nPA",
+          "title": "Lord Rama Had a Sister? 😱 The Untold Story of Princess Shanta #shorts #animation",
+          "channel": "VedNi Uncovered",
+          "published": "2026-11-14T06:30:20Z",
+          "language": "hi",
+          "category": "Film & Animation",
+          "seconds": 52,
+          "views": 1740,
+          "likes": 33,
+          "comments": 0
+        },
+        {
+          "id": "cE_ODtBzKJc",
+          "title": "Old Shabari's Love and Devotion for Lord Rama | Ramayana Story #ramayana #ram",
+          "channel": "Heyy Heyy",
+          "published": "2026-11-14T06:02:28Z",
+          "language": "hi",
+          "category": "People & Blogs",
+          "seconds": 11,
+          "views": 127,
+          "likes": 6,
+          "comments": 0
+        },
+        {
+          "id": "2QxmO7JUXMw",
+          "title": "సీతమ్మ పుట్టుక ,స్వయంవరం అసలు నిజం! #SitaSwayamvaram #LordRama #SitaDevi #ValmikiRamayana #Ravana",
+          "channel": "Brahma UnCut",
+          "published": "2026-11-13T13:15:15Z",
+          "language": "te",
+          "category": "People & Blogs",
+          "seconds": 170,
+          "views": 45443,
+          "likes": 1232,
+          "comments": 16
+        },
+        {
+          "id": "lhRpPOOU2Gg",
+          "title": "Lord Rama wasn't born through an ordinary birth #ramayan",
+          "channel": "Hazz fps",
+          "published": "2026-11-13T11:42:38Z",
+          "language": "en",
+          "category": "Entertainment",
+          "seconds": 56,
+          "views": 413,
+          "likes": 7,
+          "comments": 0
+        },
+        {
+          "id": "n2rGg7NofTY",
+          "title": "त्रिजटा का संपूर्ण जीवन परिचय | Biography of Trijata | Ramayan #ramayan #shorts #biography#trijata",
+          "channel": "studygk3.0",
+          "published": "2026-11-13T01:57:21Z",
+          "language": "hi",
+          "category": "Education",
+          "seconds": 6,
+          "views": 114418,
+          "likes": 176,
+          "comments": 1
+        },
+        {
+          "id": "_essS9RKhSk",
+          "title": "Ramayana Movie Explained In HINDI | Ramayan Full Story Explained | Ramayana 2026 Movie In HINDI",
+          "channel": "Movies 24x7",
+          "published": "2026-11-12T15:21:13Z",
+          "language": "hi",
+          "category": "Entertainment",
+          "seconds": 1195,
+          "views": 84348,
+          "likes": 1493,
+          "comments": 191
+        },
+        {
+          "id": "KnG08brk7yk",
+          "title": "The Entire Ramayana in 60 Seconds ⏱️ | Ram, Sita, Hanuman & Ravan | Valmiki Ramayana",
+          "channel": "Claude the Narrator",
+          "published": "2026-11-12T15:18:08Z",
+          "language": "en",
+          "category": "Education",
+          "seconds": 61,
+          "views": 136276,
+          "likes": 1876,
+          "comments": 31
+        },
+        {
+          "id": "QYStSTDk4xU",
+          "title": "Sri Rama Jananam | Ramayanam Part 1 | Birth of Lord Rama | Telugu Ramayana",
+          "channel": "Manasara Music Official",
+          "published": "2026-11-09T14:22:10Z",
+          "language": "en",
+          "category": "Music",
+          "seconds": 573,
+          "views": 122,
+          "likes": 1,
+          "comments": 0
+        }
+      ],
+      "summary": {
+        "top_median_views": 3697783,
+        "top_max_views": 16149036,
+        "share_shorts_in_top": 0.48,
+        "recent_30d_uploads_sampled": 25,
+        "recent_30d_median_views": 1119,
+        "distinct_channels_top": 25
+      },
+      "quota_units": 202
+    },
+    "hi": {
+      "source": "YouTube Data API search.list + videos.list",
+      "query": "श्री राम का जन्म कथा",
+      "region": "IN",
+      "language": "hi",
+      "captured_at": "2026-11-15T22:52:12+0530",
+      "approx_total_results": 1000000,
+      "top_by_views": [
+        {
+          "id": "Tl4bQBfOtbg",
+          "title": "Ram Siya Ram (Lyrical) Adipurush | Prabhas | Sachet-Parampara,Manoj Muntashir S |Om Raut | Bhushan K",
+          "channel": "T-Series",
+          "published": "2023-06-07T12:30:20Z",
+          "language": "hi",
+          "category": "Music",
+          "seconds": 251,
+          "views": 594239321,
+          "likes": 2997491,
+          "comments": 108655
+        },
+        {
+          "id": "NisfIUglozc",
+          "title": "रामायण कथा - सीता स्वयंवर। शिव धनुष। श्री राम परशुराम संवाद। Sita Swayamvar - Sri Ram & Parshuram Ji",
+          "channel": "Tilak",
+          "published": "2020-11-21T12:30:02Z",
+          "language": "hi",
+          "category": "Film & Animation",
+          "seconds": 3365,
+          "views": 304985632,
+          "likes": 1725626,
+          "comments": 51557
+        },
+        {
+          "id": "M1YzJ3cRZpo",
+          "title": "कथा राम भक्त हनुमान की Katha Ram Bhakt Hanuman Ki I HARIHARAN I Full Audio Songs",
+          "channel": "T-Series Bhakti Sagar",
+          "published": "2014-04-15T02:30:00Z",
+          "language": "hi",
+          "category": "Music",
+          "seconds": 6728,
+          "views": 59936431,
+          "likes": 365053,
+          "comments": 28985
+        },
+        {
+          "id": "6PcjU_Idg2k",
+          "title": "Ramayana: लव-कुश का जन्म रहस्य क्या है? 😱 Shocking Story",
+          "channel": "Katha Manthan",
+          "published": "2026-01-09T15:29:12Z",
+          "language": "en-US",
+          "category": "Entertainment",
+          "seconds": 80,
+          "views": 87903036,
+          "likes": 1220299,
+          "comments": 1344
+        },
+        {
+          "id": "vIh99bkSc_w",
+          "title": "रामायण - EP 1 - राजा दशरथ का पुत्रेष्टि यज्ञ व श्री राम का जन्म",
+          "channel": "Tilak",
+          "published": "2020-10-17T04:30:02Z",
+          "language": "hi",
+          "category": "Film & Animation",
+          "seconds": 2097,
+          "views": 41762248,
+          "likes": 446348,
+          "comments": 17751
+        },
+        {
+          "id": "8aMgFjH0gDQ",
+          "title": "एक राम भक्त की कहानी 🚩🙏🏼 || जय श्री राम || राम नवम || राम जी स्टेटस #shorts #ram",
+          "channel": "Chiku life vlogs",
+          "published": "2024-11-02T08:39:59Z",
+          "language": "hi",
+          "category": "People & Blogs",
+          "seconds": 46,
+          "views": 38623551,
+          "likes": 430511,
+          "comments": 38
+        },
+        {
+          "id": "wRa4HNAePEY",
+          "title": "👹 रावण की गुप्त जन्म कथा!👶 #ram #jaishreeram #ravan #ramayan #sanatandharma #hinduism #shorts #short",
+          "channel": "Celestial Chronicles - Hindi",
+          "published": "2024-05-03T18:00:47Z",
+          "language": "hi",
+          "category": "People & Blogs",
+          "seconds": 48,
+          "views": 32143161,
+          "likes": 582774,
+          "comments": 1539
+        },
+        {
+          "id": "h8TcpbMra3Y",
+          "title": "रामायण - EP 2 - राजा दशरथ के चारों पुत्र का गुरुकुल को प्रस्थान",
+          "channel": "Tilak",
+          "published": "2020-10-17T04:30:02Z",
+          "language": "hi",
+          "category": "Film & Animation",
+          "seconds": 1941,
+          "views": 23405653,
+          "likes": 208562,
+          "comments": 7170
+        },
+        {
+          "id": "yPtCh3OdAYo",
+          "title": "रामायण कथा | राम सिया दिव्य दंपत्ति (भाग -1)",
+          "channel": "Tilak",
+          "published": "2022-12-20T12:00:30Z",
+          "language": "hi",
+          "category": "Film & Animation",
+          "seconds": 5957,
+          "views": 22985819,
+          "likes": 137668,
+          "comments": 3322
+        },
+        {
+          "id": "gQ0seuzHyvU",
+          "title": "राजा भरथरी की कथा | Raja Bharthari Ki Katha | Rajasthani Bhajan | Ram Niwas Rao",
+          "channel": "Bhakti Dhara",
+          "published": "2011-11-05T23:13:08Z",
+          "language": "en",
+          "category": "Music",
+          "seconds": 3599,
+          "views": 19448576,
+          "likes": 67062,
+          "comments": 1708
+        },
+        {
+          "id": "U6OI0kWksIU",
+          "title": "Hum Katha Sunaate Ram Sakal Gun Dhaam Ki",
+          "channel": "Ravindra Jain - Topic",
+          "published": "2023-10-31T10:02:37Z",
+          "language": "en",
+          "category": "Music",
+          "seconds": 878,
+          "views": 11841049,
+          "likes": 77179,
+          "comments": 0
+        },
+        {
+          "id": "nN3NLSoOJ98",
+          "title": "मर्यादा की महागाथा राम-कथा के कुछ परम पावन प्रसंग। Dr Kumar Vishwas | Ram Katha",
+          "channel": "Kumar Vishwas",
+          "published": "2023-10-23T04:30:09Z",
+          "language": "hi",
+          "category": "Entertainment",
+          "seconds": 2770,
+          "views": 11231186,
+          "likes": 93220,
+          "comments": 1094
+        },
+        {
+          "id": "37jgPNUWvME",
+          "title": "रामायण चित्र ~ राम लल्ला। श्री राम की बाल लीला - Ram Lalla - Baal Kaand Film",
+          "channel": "Tilak",
+          "published": "2020-11-16T14:30:01Z",
+          "language": "hi",
+          "category": "Film & Animation",
+          "seconds": 5958,
+          "views": 9668960,
+          "likes": 62612,
+          "comments": 1540
+        },
+        {
+          "id": "AO8AZ73isPg",
+          "title": "SADHANA BAGHEL // राम जन्म भागवत कथा VR STUDIO",
+          "channel": "भक्ति संसार TV",
+          "published": "2019-02-11T02:59:21Z",
+          "language": "hi",
+          "category": "Music",
+          "seconds": 2392,
+          "views": 9391532,
+          "likes": 27230,
+          "comments": 926
+        },
+        {
+          "id": "y5SWq_B3IPE",
+          "title": "राम केवट संवाद पूज्य सुरेश अवस्थी जी  9984072111 9415000089",
+          "channel": "Suresh Awasthi",
+          "published": "2017-12-09T20:08:27Z",
+          "language": "hi",
+          "category": "Entertainment",
+          "seconds": 3938,
+          "views": 9116387,
+          "likes": 30279,
+          "comments": 1367
+        },
+        {
+          "id": "FOxbdiy7IKM",
+          "title": "Shri Ram Katha\nDAMOH, M.P.\nSRI SITARAM VIVAH\nDay-05\nPart-02",
+          "channel": "Pujya Rajan Jee",
+          "published": "2019-09-08T15:00:40Z",
+          "language": "hi",
+          "category": "People & Blogs",
+          "seconds": 9295,
+          "views": 8634217,
+          "likes": 58698,
+          "comments": 3141
+        },
+        {
+          "id": "7qnrHs9tZxw",
+          "title": "रामायण कथा | श्री राम ने किया तड़का का वध",
+          "channel": "Tilak",
+          "published": "2021-08-01T02:30:15Z",
+          "language": "hi",
+          "category": "Film & Animation",
+          "seconds": 355,
+          "views": 8568096,
+          "likes": 38581,
+          "comments": 766
+        },
+        {
+          "id": "M0CisEq0uFY",
+          "title": "रामायण कथा | श्री राम मित्र विभीषण (भाग -1)",
+          "channel": "Tilak",
+          "published": "2022-06-14T12:00:13Z",
+          "language": "hi",
+          "category": "Film & Animation",
+          "seconds": 3780,
+          "views": 8418047,
+          "likes": 52089,
+          "comments": 1168
+        },
+        {
+          "id": "AxZ09F5068k",
+          "title": "Raam Janam Katha : आज के दिन प्रभु राम जी की यह चमत्कारी कथा सुनने से सभी मनोकामना पूर्ण हो जाती है",
+          "channel": "Trimurti Bhakti",
+          "published": "2021-12-11T22:15:01Z",
+          "language": "hi",
+          "category": "Music",
+          "seconds": 1474,
+          "views": 7045960,
+          "likes": 48243,
+          "comments": 2261
+        },
+        {
+          "id": "ZU0ynJah1CM",
+          "title": "Shri Ram Katha\nCOLONELGANJ, U.P.\nSRI RAM JANM\nDay-02",
+          "channel": "Pujya Rajan Jee",
+          "published": "2019-07-24T00:43:48Z",
+          "language": "hi",
+          "category": "People & Blogs",
+          "seconds": 9552,
+          "views": 5772452,
+          "likes": 43640,
+          "comments": 2343
+        },
+        {
+          "id": "1MojXDXsKkc",
+          "title": "राम नवमी स्पेशल - राम जन्म कथा | Tapeshwar Chauhan, Bijender Giri | Bhojpuri Ramayan Birha 2021",
+          "channel": "Chanda Birha Mukabla",
+          "published": "2021-04-20T12:15:00Z",
+          "language": "hi",
+          "category": "Music",
+          "seconds": 3262,
+          "views": 4863078,
+          "likes": 24757,
+          "comments": 518
+        },
+        {
+          "id": "BERQfFIS0p4",
+          "title": "रामायण कथा | राम जनम कथा | राम नवमी स्पेशल",
+          "channel": "Tilak",
+          "published": "2022-04-09T12:00:11Z",
+          "language": "hi",
+          "category": "Film & Animation",
+          "seconds": 911,
+          "views": 4131939,
+          "likes": 29130,
+          "comments": 775
+        },
+        {
+          "id": "ZpSEncCWqRo",
+          "title": "D-LIVE | SRI RAM JANM MAHOTSAV | PUJYA RAJAN JEE | HEER MAKARIYAR, SIWAN, BIHAR | PART- 03",
+          "channel": "Pujya Rajan Jee",
+          "published": "2022-06-18T14:30:12Z",
+          "language": "zxx",
+          "category": "People & Blogs",
+          "seconds": 3978,
+          "views": 3941756,
+          "likes": 28798,
+          "comments": 1117
+        },
+        {
+          "id": "uUEoA81PQLg",
+          "title": "श्री राम जनम कथा | Shri Ram Janam Katha | Sangeeta | Dharmik Prasang | Kissa | Ramayan Katha",
+          "channel": "Rathore Cassettes",
+          "published": "2022-09-24T13:30:13Z",
+          "language": "zxx",
+          "category": "Entertainment",
+          "seconds": 3237,
+          "views": 3855625,
+          "likes": 13106,
+          "comments": 267
+        },
+        {
+          "id": "J8CzO3o-Jrk",
+          "title": "Shri Ram Birth Story? श्री राम जन्म की कहानी? प्रभु श्री राम के जन्म की कथा  RAM JANAM KATHA Full HD",
+          "channel": "Shri Kamadgiri Dham",
+          "published": "2020-08-12T13:30:10Z",
+          "language": "hi",
+          "category": "People & Blogs",
+          "seconds": 6733,
+          "views": 3750158,
+          "likes": 19703,
+          "comments": 1050
+        }
+      ],
+      "recent_30d": [
+        {
+          "id": "fvld1bBNlvc",
+          "title": "रामायण भाग 1 | राजा दशरथ से प्रभु श्रीराम के जन्म तक | Ramayana Part 1 | Hindi Animated Katha",
+          "channel": "Krish Trish And Baltiboy",
+          "published": "2026-11-15T17:15:36Z",
+          "language": "hi",
+          "category": "People & Blogs",
+          "seconds": 91,
+          "views": 3,
+          "likes": 3,
+          "comments": 0
+        },
+        {
+          "id": "NCPJTCo0z0I",
+          "title": "रामायण अध्याय 1 | भगवान श्रीराम का जन्म कैसे हुआ? 🙏 | Ramayan Katha",
+          "channel": "Rahi'sCartoonVerse",
+          "published": "2026-11-15T16:30:26Z",
+          "language": "hi",
+          "category": "Entertainment",
+          "seconds": 43,
+          "views": 6,
+          "likes": null,
+          "comments": 0
+        },
+        {
+          "id": "FS7ti1Ma48Y",
+          "title": "रामायण भाग 1 | राजा दशरथ से प्रभु श्रीराम के जन्म तक | Ramayana Part 1 | Hindi Animated Katha",
+          "channel": "AGI Explains",
+          "published": "2026-11-15T14:44:41Z",
+          "language": "hi",
+          "category": "Entertainment",
+          "seconds": 91,
+          "views": 124,
+          "likes": 8,
+          "comments": 0
+        },
+        {
+          "id": "uHnTp0dUsns",
+          "title": "श्री राम कथा दिवस 1 — बालकांड : सहजता का सूत्र और सुखी गृहस्थी | लक्ष्मणगढ़ | पं. विजयशंकर मेहता",
+          "channel": "Pt. Vijayshankar Mehta",
+          "published": "2026-11-15T14:30:10Z",
+          "language": "hi",
+          "category": "People & Blogs",
+          "seconds": 10149,
+          "views": 253,
+          "likes": 5,
+          "comments": 0
+        },
+        {
+          "id": "YKYcMv36Rsc",
+          "title": "रामायण भाग 1: राम जन्म | Ramayan Part 1 | Animated Ram Katha #shorts",
+          "channel": "Historicvideos",
+          "published": "2026-11-15T13:51:31Z",
+          "language": "hi",
+          "category": "People & Blogs",
+          "seconds": 45,
+          "views": 231,
+          "likes": 5,
+          "comments": 0
+        },
+        {
+          "id": "KJ4fsAr2tf8",
+          "title": "भगवान विष्णु का सातवाँ अवतार | श्रीराम की पूरी कहानी |#ramavatar #newpost#viral #devotional #reels",
+          "channel": "HOOT WITH BHAKTI",
+          "published": "2026-11-15T13:02:42Z",
+          "language": "hi",
+          "category": "Entertainment",
+          "seconds": 115,
+          "views": 730,
+          "likes": 29,
+          "comments": 2
+        },
+        {
+          "id": "9if9eD99DFs",
+          "title": "श्री मद्भागवत कथा बालकाण्ड दोहा सहित राम जन्म कथा #trending #ramayan #बालकाण्ड #viralvideo #viral ",
+          "channel": "रामायण अमृत कथा",
+          "published": "2026-11-15T12:53:13Z",
+          "language": "hi",
+          "category": "Entertainment",
+          "seconds": 261,
+          "views": 1,
+          "likes": 1,
+          "comments": 0
+        },
+        {
+          "id": "XFb7XgOrtYs",
+          "title": "हनुमान जी की संपूर्ण कथा 🚩 | जन्म से लेकर श्रीराम भक्ति तक | Hanuman Ji Story in Hindi",
+          "channel": "Official SK Creator",
+          "published": "2026-11-15T12:32:37Z",
+          "language": "hi",
+          "category": "Film & Animation",
+          "seconds": 121,
+          "views": 1295,
+          "likes": 41,
+          "comments": 0
+        },
+        {
+          "id": "66gRmnUVXoA",
+          "title": "भगवान श्रीराम का जन्म कैसे हुआ? 🙏 जन्म से रामराज्य तक की पूरी कहानी  | AI 3D Animation",
+          "channel": " VR (3D stories)",
+          "published": "2026-11-15T11:38:05Z",
+          "language": "hi",
+          "category": "Film & Animation",
+          "seconds": 652,
+          "views": 20,
+          "likes": 3,
+          "comments": 0
+        },
+        {
+          "id": "Hs2uvPHxaYs",
+          "title": "दिव्य खीर से राम जन्म की अद्भुत कथा।",
+          "channel": "succes_Education ",
+          "published": "2026-11-15T10:52:43Z",
+          "language": "hi",
+          "category": "People & Blogs",
+          "seconds": 11,
+          "views": 17,
+          "likes": 2,
+          "comments": 0
+        },
+        {
+          "id": "v2xVzQp1-AY",
+          "title": "🔴 Live - Shri Ram Katha | Day 02 | Venue - Manas Manch, Lormi | Shri Rajiv Lochandas Ji Maharaj",
+          "channel": "Shri Rajiv Lochan Das Ji Maharaj",
+          "published": "2026-11-15T10:42:34Z",
+          "language": "hi",
+          "category": "People & Blogs",
+          "seconds": 10988,
+          "views": 3835,
+          "likes": 46,
+          "comments": 5
+        },
+        {
+          "id": "cxFSRFwWbSw",
+          "title": "श्री राम कथा तृतीय दिवस कथा | राम जन्म, चित्रकूट धाम",
+          "channel": "Kunj Bihari Barua Ji",
+          "published": "2026-11-15T10:30:37Z",
+          "language": "hi",
+          "category": "People & Blogs",
+          "seconds": 38,
+          "views": 116,
+          "likes": 8,
+          "comments": 0
+        },
+        {
+          "id": "GP6WSu2WKZc",
+          "title": "श्री राम का जन्म कब हुआ था? 😱 नासा (NASA) और विज्ञान का ये सच आपके होश उड़ा देगा! | मानस Episode 1",
+          "channel": "Samadhan_BKOPT",
+          "published": "2026-11-15T10:30:01Z",
+          "language": "hi",
+          "category": "Education",
+          "seconds": 121,
+          "views": 1257,
+          "likes": 49,
+          "comments": 5
+        },
+        {
+          "id": "yD1mF2AmjX8",
+          "title": "🚩 अयोध्या में गूंजा श्री राम जन्म का जयकारा! 😍 चारों राजकुमारों का दिव्य जन्म | Episode 3 #shorts",
+          "channel": "Debashish Hub",
+          "published": "2026-11-15T06:45:37Z",
+          "language": "hi",
+          "category": "Entertainment",
+          "seconds": 39,
+          "views": 310,
+          "likes": null,
+          "comments": 2
+        },
+        {
+          "id": "Ifll-sV8RXs",
+          "title": "Why was shree ram born?🤔 #shorts #likes #mythology #fypシ゚viral #viral #shortvideo",
+          "channel": "Stickman Stories",
+          "published": "2026-11-15T06:24:59Z",
+          "language": "hi",
+          "category": "People & Blogs",
+          "seconds": 72,
+          "views": 997,
+          "likes": null,
+          "comments": 0
+        },
+        {
+          "id": "JiS36G0_gAA",
+          "title": "मर्यादा पुरुषोत्तम श्री राम कथा 𝐩𝐚𝐫𝐭 𝟏| 𝐒𝐡𝐫𝐞𝐞 𝐑𝐚𝐦 # 𝐑𝐚𝐦𝐜𝐡𝐚𝐫𝐢𝐭𝐦𝐚𝐧𝐚𝐬#𝐫𝐚𝐦𝐧𝐚𝐯𝐦𝐢𝟐𝟎𝟐𝟔",
+          "channel": "Divya Katha Facts AI🧿",
+          "published": "2026-11-15T06:14:36Z",
+          "language": "hi",
+          "category": "Entertainment",
+          "seconds": 7552,
+          "views": 7,
+          "likes": 1,
+          "comments": 0
+        },
+        {
+          "id": "jZLIz_r5f2I",
+          "title": "भगवान राम की जन्म की कथा #trending #shortvideo #youtubeshorts #sanatandharma #viral #ram #shorts",
+          "channel": "Ajay Dangi",
+          "published": "2026-11-15T06:02:02Z",
+          "language": "hi",
+          "category": "Howto & Style",
+          "seconds": 11,
+          "views": 20,
+          "likes": 3,
+          "comments": 1
+        },
+        {
+          "id": "mCn6Utdu8jc",
+          "title": "रामायण कथा: श्रीराम के 3 भाइयों का रहस्य | Ramayan Story in Hindi",
+          "channel": "Rudraya",
+          "published": "2026-11-15T05:14:26Z",
+          "language": "hi",
+          "category": "Film & Animation",
+          "seconds": 58,
+          "views": 4,
+          "likes": 0,
+          "comments": 1
+        },
+        {
+          "id": "1y-MqhTiBlM",
+          "title": "राजा दशरथ के घर कैसे हुआ प्रभु श्रीराम का जन्म? 😍 | श्रीराम जन्म की अद्भुत कथा | Ramayan Episode  2",
+          "channel": "Prem Bhakti Parivar ",
+          "published": "2026-11-15T03:58:53Z",
+          "language": "hi",
+          "category": "People & Blogs",
+          "seconds": 138,
+          "views": 18,
+          "likes": 3,
+          "comments": 2
+        },
+        {
+          "id": "_NzSKBmil6g",
+          "title": "हनुमान जी का जन्म कैसे हुआ? 😱 | Hanuman Janam Katha",
+          "channel": "Sanatan Kathayein",
+          "published": "2026-11-15T03:57:06Z",
+          "language": "hi",
+          "category": "People & Blogs",
+          "seconds": 54,
+          "views": 61,
+          "likes": 8,
+          "comments": 0
+        },
+        {
+          "id": "vhjRnOwD1pI",
+          "title": "संपूर्ण रामायण कथा 🚩 श्री राम जन्म से रावण वध और श्रीराम राज्याभिषेक तक | Full Ramayan Katha | सम्प",
+          "channel": "☀ Sanatan Gyan Jyoti ☀ ",
+          "published": "2026-11-15T03:52:33Z",
+          "language": "hi",
+          "category": "Education",
+          "seconds": 1051,
+          "views": 104,
+          "likes": 1,
+          "comments": 0
+        },
+        {
+          "id": "sNfBfZTQAM0",
+          "title": "संपूर्ण रामायण कथा 🚩 श्री राम जन्म से रावण वध और श्रीराम राज्याभिषेक तक | Full Ramayan Katha",
+          "channel": "☀ Sanatan Gyan Jyoti ☀ ",
+          "published": "2026-11-15T03:35:32Z",
+          "language": "hi",
+          "category": "Education",
+          "seconds": 295,
+          "views": 9,
+          "likes": 0,
+          "comments": 0
+        },
+        {
+          "id": "zkmMcG0OnPg",
+          "title": "राम जी का जन्म कैसे हुआ था? 🙏 अयोध्या में क्यों गूंजी खुशियां? | राम जन्म कथा 🚩",
+          "channel": "🔥 History Empire",
+          "published": "2026-11-15T03:21:17Z",
+          "language": "hi",
+          "category": "Film & Animation",
+          "seconds": 59,
+          "views": 159,
+          "likes": 10,
+          "comments": 0
+        },
+        {
+          "id": "aGPjRRWIMTQ",
+          "title": "एक पक्षी की मृत्यु से कैसे हुआ रामायण का जन्म? 😱 | वाल्मीकि रामायण कथा #Shorts",
+          "channel": "ramayan mahabharat story ",
+          "published": "2026-11-15T03:15:00Z",
+          "language": "hi",
+          "category": "Entertainment",
+          "seconds": 52,
+          "views": 229,
+          "likes": 15,
+          "comments": 0
+        },
+        {
+          "id": "de3PEBRafYQ",
+          "title": "ग्राम ताजपुर जिला कासगंज में श्री राम जन्म कथा  आनंद कुमार शास्त्री भजन",
+          "channel": "AMIT KUMAR",
+          "published": "2026-11-14T05:23:35Z",
+          "language": "ar",
+          "category": "People & Blogs",
+          "seconds": 450,
+          "views": 11,
+          "likes": 2,
+          "comments": 0
+        }
+      ],
+      "summary": {
+        "top_median_views": 9668960,
+        "top_max_views": 594239321,
+        "share_shorts_in_top": 0.12,
+        "recent_30d_uploads_sampled": 25,
+        "recent_30d_median_views": 104,
+        "distinct_channels_top": 16
+      },
+      "quota_units": 202
+    }
+  },
+  "search_suggestions": {
+    "en": {
+      "source": "Google autocomplete (YouTube, unofficial endpoint; may change)",
+      "query": "birth of lord rama story",
+      "lang": "en",
+      "suggestions": [
+        "birth story of lord rama"
+      ]
+    },
+    "hi": {
+      "source": "Google autocomplete (YouTube, unofficial endpoint; may change)",
+      "query": "श्री राम का जन्म कथा",
+      "lang": "hi",
+      "suggestions": [
+        "श्री राम जन्म कथा",
+        "श्री राम जन्म कथा राजन जी महाराज",
+        "shri ram janam katha",
+        "shri ram janam katha kumar vishwas"
+      ]
+    }
+  }
+}

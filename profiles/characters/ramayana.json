@@ -20,6 +20,27 @@
       "prompt": "a young prince Rama seen from behind, standing tall holding a great bow, wearing a simple crown and dhoti",
       "source_episode": "C0001",
       "notes": "Shown from behind; avoid stylised blue skin unless deliberately chosen"
+    },
+    "dasharatha": {
+      "prompt": "King Dasharatha, a dignified middle-aged Indian king with a short grey beard and moustache, ornate golden crown, gold jewellery, rich saffron and white royal garments",
+      "source_episode": "C0003",
+      "notes": "Reuse verbatim; Ep02 scene 12 showed an aged king on a throne"
+    },
+    "kausalya": {
+      "prompt": "Queen Kausalya, a graceful Indian queen in a white and gold silk sari with a gold crown and long braided hair",
+      "source_episode": "C0003"
+    },
+    "sumitra": {
+      "prompt": "Queen Sumitra, a gentle Indian queen in a green and gold silk sari with a small gold crown",
+      "source_episode": "C0003"
+    },
+    "kaikeyi": {
+      "prompt": "Queen Kaikeyi, a striking Indian queen in a deep red and gold silk sari with an ornate gold crown",
+      "source_episode": "C0003"
+    },
+    "rishyashringa": {
+      "prompt": "the young sage Rishyashringa, slender with matted hair in a topknot, bare chest with a white sacred thread, ochre dhoti, holding a ladle over a sacred fire",
+      "source_episode": "C0003"
     }
   },
   "rules": [

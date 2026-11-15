@@ -36,9 +36,10 @@ class Veena:
         ids = self.tok.encode(f"<spk_{speaker}> {text}", add_special_tokens=False)
         self.prompt = [START_OF_HUMAN, *ids, END_OF_HUMAN, START_OF_AI, START_OF_SPEECH, *toks, END_OF_SPEECH, END_OF_AI]
 
-    def _chunk(self, text, speaker, temperature, seed):
+    def _chunk(self, text, speaker, temperature, seed, lead_in=True):
         torch.manual_seed(seed)
-        ids = self.tok.encode(f"<spk_{speaker}> {text}", add_special_tokens=False)
+        spoken = f"... {text}" if lead_in and self.prompt else text
+        ids = self.tok.encode(f"<spk_{speaker}> {spoken}", add_special_tokens=False)
         inp = torch.tensor([[*self.prompt, START_OF_HUMAN, *ids, END_OF_HUMAN, START_OF_AI, START_OF_SPEECH]], device=self.device)
         max_new = min(int(len(text) * 1.3) * 7 + 21, 1400)
         with torch.no_grad():

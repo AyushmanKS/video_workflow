@@ -1,0 +1,92 @@
+[
+  {
+    "text": "He ruled the mightiest kingdom on earth. Yet King Dasharatha prayed every night for the one thing he did not have.",
+    "scores": {
+      "curiosity": 5,
+      "emotion": 4,
+      "specificity": 4,
+      "speed": 3,
+      "resonance": 4,
+      "accuracy": 5
+    },
+    "total": 25,
+    "selected": false,
+    "reasoning": "Former pick (25/30), demoted after the rubric and hookscore second opinion; reused as scenes 2–3.",
+    "hookscore": 36
+  },
+  {
+    "text": "You know Shri Ram was born on Ram Navami. But do you know his birth began with one bowl of divine pudding?",
+    "scores": {
+      "curiosity": 5,
+      "emotion": 3,
+      "specificity": 5,
+      "speed": 4,
+      "resonance": 5,
+      "accuracy": 5
+    },
+    "total": 27,
+    "selected": true,
+    "reasoning": "Selected: highest rubric total (27/30; tie broken on resonance). Vendored hookscore agrees for EN (48, top of 6). The king's longing moves to scenes 2–3 to keep the Ep02 continuity.",
+    "hookscore": 48
+  },
+  {
+    "text": "One bowl of divine pudding, shared four ways, gave the world Shri Ram.",
+    "scores": {
+      "curiosity": 5,
+      "emotion": 3,
+      "specificity": 5,
+      "speed": 5,
+      "resonance": 4,
+      "accuracy": 5
+    },
+    "total": 27,
+    "selected": false,
+    "reasoning": "",
+    "hookscore": 35
+  },
+  {
+    "text": "The gods had a problem no god could solve. The answer was a human prince.",
+    "scores": {
+      "curiosity": 5,
+      "emotion": 3,
+      "specificity": 3,
+      "speed": 4,
+      "resonance": 4,
+      "accuracy": 5
+    },
+    "total": 24,
+    "selected": false,
+    "reasoning": "",
+    "hookscore": 34
+  },
+  {
+    "text": "A king with everything, except an heir.",
+    "scores": {
+      "curiosity": 4,
+      "emotion": 4,
+      "specificity": 3,
+      "speed": 5,
+      "resonance": 3,
+      "accuracy": 5
+    },
+    "total": 24,
+    "selected": false,
+    "reasoning": "",
+    "hookscore": 33
+  },
+  {
+    "text": "Why did one queen give birth to twins? The answer is in a bowl of kheer.",
+    "scores": {
+      "curiosity": 5,
+      "emotion": 3,
+      "specificity": 5,
+      "speed": 4,
+      "resonance": 4,
+      "accuracy": 4
+    },
+    "total": 25,
+    "selected": false,
+    "reasoning": "Accuracy −1: the text gives Sumitra two shares and twins, but does not explicitly state cause and effect.",
+    "hookscore": 36
+  }
+]

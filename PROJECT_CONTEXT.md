@@ -221,24 +221,25 @@ shorts-studio/
 - **Network:** occasional timeouts to googleapis/wikipedia; research uses retries.
 
 ## 22. Current status (update every session)
-- **Phase 8 pilot, C0002 (Ramayana Episode 02, "Who was Shri Ram? The 16 qualities"):** produced and QA **PASS** in both languages. **Waiting at G2 (final approval) and G3 (publish approval).**
-  - EN: `content/C0002/en/C0002-en.mp4` (77.5 s).
-  - HI: `content/C0002/hi/C0002-hi.mp4` (101.6 s), regenerated after the owner rejected the first Hindi render for mixed voices. Now one consistent kavya voice (voice-prompt priming); QA speaker_consistency passes (scene min 0.75).
-  - Metadata linted with the vendored `yt-package` (EN title 50 chars, score 98). Thumbnails use the "ONLY ONE MAN" / "सिर्फ़ एक इंसान" headline. Recommended slot 12:30 IST (exploring).
-- **Owner to check by ear (HI):**
-  - scene 9: क्रोध / धनुष. Whisper hears "जनुश" in every take, which may be the voice's aspirated ध or an ASR bias.
-  - scene 10: हर प्राणी / गुह.
-- **Known pattern:** the first word of a scene is often slurred right after the voice prompt. A leading "... " in `tts` improved CER 0.15 → 0.10 in a test. Not yet applied by default.
-- **Waiting on owner:** G2 + G3 for C0002, the analytics read-only sign-in, an optional HF token (other Indic voices), an optional fix of the Hindi Episode 01 title, and a decision on re-producing Episode 01 Hindi (it has the old voice drift).
-- **Sessions:** the owner continues work in Claude Code opened in the `shorts-studio` folder (`CLAUDE.md` + project memory exist there).
+- **C0002 (Episode 02):** scheduled. HI `nJNSDaSoHCk` goes public 2026-11-16 20:30 IST; EN `QpmoDeVOMAo` at 21:30 IST. The slot choice is based on PostEverywhere evidence (8–11 PM IST best for India) and is logged as an experiment.
+- **C0003 (Episode 03, "How Shri Ram was born", 1.8–1.18, verses verified):** research, strategy, audience, hooks and scripts EN+HI done. **Waiting at G1 (script approval).**
+  - New characters (Dasharatha, the three queens, Rishyashringa) are in the character bible.
+  - The hook was switched after the rubric and the vendored hookscore second opinion.
+- **Deep research done:** `reports/Shorts studio voices and tools.md`. **Applied from it (2026-11-16):**
+  - QA normalization: numbers to words (`pipeline/numwords.py`), nukta and chandrabindu folding.
+  - Veena lead-in "... " after the voice prompt (first-word slur).
+  - `engagedViews` in analytics.
+  - Post-upload privacy and schedule read-back in `publish.py`.
+  - Git pre-commit hook blocking secrets and media (`scripts/pre-commit`, installed in `.git/hooks`).
+- **Pending (needs owner's free HF token + accepted terms):** the Indic-Speak voice test (all 10 languages + Sanskrit) against Veena, and IndicConformer QA + CTC script alignment + an aspiration check.
+- **Pending (needs owner approval before changing the approved style):** ACE-Step music, depth parallax, FLUX.2 klein reference-image character sheets.
+- **Waiting on owner:** C0003 G1, analytics sign-in, HF token, a decision on re-producing Episode 01 Hindi (voice drift), and the Hindi Episode 01 title fix.
 
 ## 23. Exact next steps
-1. Owner reviews both videos (listen to Hindi scenes 9 and 10).
-   - If they want fixes: try a leading "... " in `tts` for scenes 9 and 10 and/or rephrase (e.g. "धनुष-बाण"), then `python -m pipeline takes C0002 --lang hi --scenes 9,10 --n 4`, then render and QA.
-2. On approval: `python -m pipeline approve C0002 final` and `python -m pipeline approve C0002 publish`, then `python -m pipeline publish C0002 --lang en` and `--lang hi` (private + publishAt). Verify via the API; set the pinned comment and Related video in Studio.
-3. Analytics: once the owner has signed in, run `python -m pipeline analytics` daily, then `python -m pipeline report C0002-en|hi` and `python -m pipeline retention-csv <variant>` → `yt-retention`.
-4. Optionally re-produce Episode 01 Hindi with the fixed voice (owner decision).
-5. Next episode: Episode 03, "Dasharatha's longing for a son".
+1. G1 for C0003: `python -m pipeline approve C0003 script`. Then produce: EN voice; HI `takes` (best-of-2, primed); images (EN, shared); render en/hi; `qa` (must pass speaker_consistency); manual review; G2.
+2. Metadata (lint with yt-package), schedule in the evening window (stagger languages), G3, publish with `--yes`.
+3. After the owner provides `HF_TOKEN`, run the adoption plan in `reports/Shorts studio voices and tools.md` §plan: IndicConformer QA first, then Indic-Speak A/B.
+4. Analytics snapshots for C0001/C0002 after sign-in.
 
 ## 24. Testing
 - `python -m pytest -q tests` (unit tests: captions, DB, scheduler, QA scoring, fonts, profiles).
