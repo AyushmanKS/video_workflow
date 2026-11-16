@@ -47,6 +47,134 @@
         "gu",
         "te"
       ]
+    },
+    "voice:en": {
+      "status": "done",
+      "at": "2026-11-16T10:58:53+0530"
+    },
+    "images:en": {
+      "status": "done",
+      "at": "2026-11-16T11:23:38+0530"
+    },
+    "render:en": {
+      "status": "done",
+      "at": "2026-11-16T11:28:39+0530"
+    },
+    "voice:hi": {
+      "status": "done",
+      "at": "2026-11-16T11:30:12+0530"
+    },
+    "images:hi": {
+      "status": "done",
+      "at": "2026-11-16T11:30:13+0530"
+    },
+    "render:hi": {
+      "status": "done",
+      "at": "2026-11-16T12:10:12+0530"
+    },
+    "voice:gu": {
+      "status": "done",
+      "at": "2026-11-16T11:35:15+0530"
+    },
+    "images:gu": {
+      "status": "done",
+      "at": "2026-11-16T11:35:16+0530"
+    },
+    "render:gu": {
+      "status": "done",
+      "at": "2026-11-16T12:06:14+0530"
+    },
+    "voice:te": {
+      "status": "done",
+      "at": "2026-11-16T11:43:29+0530"
+    },
+    "images:te": {
+      "status": "done",
+      "at": "2026-11-16T11:43:30+0530"
+    },
+    "render:te": {
+      "status": "done",
+      "at": "2026-11-16T11:46:52+0530"
+    },
+    "video_qa:en": {
+      "status": "done",
+      "at": "2026-11-16T12:12:52+0530",
+      "note": "auto QA PASS; manual image review: scene 1 regenerated (frontal four-armed goddess-like Tataka -> shadow silhouette), scene 4 regenerated (border + full figure) and cropped, scene 10 regenerated (still Rama profile), scene 13 regenerated (Rama face) and cropped; scenes 6, 7, 12 edge-cropped"
+    },
+    "video_qa:hi": {
+      "status": "done",
+      "at": "2026-11-16T12:12:52+0530",
+      "note": "auto QA PASS; shared images"
+    },
+    "video_qa:gu": {
+      "status": "done",
+      "at": "2026-11-16T12:12:52+0530",
+      "note": "auto QA WARN (ASR only); captions and verse card render in Gujarati script"
+    },
+    "video_qa:te": {
+      "status": "done",
+      "at": "2026-11-16T12:12:52+0530",
+      "note": "auto QA WARN (ASR + 2 captions 976/984 px, inside frame); captions and verse card render in Telugu script"
+    },
+    "voice_qa:en": {
+      "status": "done",
+      "at": "2026-11-16T12:12:52+0530",
+      "note": "ASR + speaker_consistency pass; owner listen at G2"
+    },
+    "voice_qa:hi": {
+      "status": "done",
+      "at": "2026-11-16T12:12:52+0530",
+      "note": "scenes 12 and 13 regenerated for pitch spikes; ASR + speaker_consistency pass"
+    },
+    "voice_qa:gu": {
+      "status": "done",
+      "at": "2026-11-16T12:12:52+0530",
+      "note": "scene 10 regenerated (pitch), scene 12 regenerated per sentence (stutter); speaker_consistency pass vs gu_Malini_ref; ASR flags are Whisper Gujarati truncation/spelling, endings verified; no native listen"
+    },
+    "voice_qa:te": {
+      "status": "done",
+      "at": "2026-11-16T12:12:52+0530",
+      "note": "speaker_consistency pass vs te_Malini_ref; ASR flags scenes 6/12/13 Whisper spelling, endings verified; no native listen"
+    },
+    "metadata:en": {
+      "status": "done",
+      "at": "2026-11-16T12:12:52+0530",
+      "note": "publish.json drafted, C0004 format"
+    },
+    "schedule:en": {
+      "status": "done",
+      "at": "2026-11-16T12:12:52+0530",
+      "note": "proposed Thu 2026-11-19 TE 18:30 GU 19:30 HI 20:30 EN 21:30 IST (hypothesis)"
+    },
+    "metadata:hi": {
+      "status": "done",
+      "at": "2026-11-16T12:12:52+0530",
+      "note": "publish.json drafted, C0004 format"
+    },
+    "schedule:hi": {
+      "status": "done",
+      "at": "2026-11-16T12:12:52+0530",
+      "note": "proposed Thu 2026-11-19 TE 18:30 GU 19:30 HI 20:30 EN 21:30 IST (hypothesis)"
+    },
+    "metadata:gu": {
+      "status": "done",
+      "at": "2026-11-16T12:12:52+0530",
+      "note": "publish.json drafted, C0004 format"
+    },
+    "schedule:gu": {
+      "status": "done",
+      "at": "2026-11-16T12:12:52+0530",
+      "note": "proposed Thu 2026-11-19 TE 18:30 GU 19:30 HI 20:30 EN 21:30 IST (hypothesis)"
+    },
+    "metadata:te": {
+      "status": "done",
+      "at": "2026-11-16T12:12:52+0530",
+      "note": "publish.json drafted, C0004 format"
+    },
+    "schedule:te": {
+      "status": "done",
+      "at": "2026-11-16T12:12:52+0530",
+      "note": "proposed Thu 2026-11-19 TE 18:30 GU 19:30 HI 20:30 EN 21:30 IST (hypothesis)"
     }
   }
 }

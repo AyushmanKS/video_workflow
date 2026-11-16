@@ -13,7 +13,7 @@
         "मारना"
       ],
       "emphasis": "",
-      "visual": "a towering Indian rakshasi drawn like an ancient Indian temple mural, seen only as a huge dark looming silhouette, wild flowing hair, glinting fangs, heavy bangles and ornaments, human-shaped, no wings, no horns, not a dragon, not a gargoyle, rising above a dark tangled ancient Indian forest at twilight, and small in the foreground a teenage prince Rama about fifteen, seen from behind, long dark hair tied back, simple dhoti and sash, a bow on his shoulder, facing her, vertical composition, subject in the center of the frame, empty dark chalkboard space at the top and bottom, full-bleed chalkboard edge to edge, no border, no frame, no white margin",
+      "visual": "a huge solid black shadow silhouette of a rakshasi with wild flowing hair and glinting fangs, only two arms, no facial detail, not a goddess, no crown, no extra arms, no wings, no horns, not a dragon, not a gargoyle, looming between the trees of a dark tangled ancient Indian forest at twilight, and small in the foreground a teenage prince Rama about fifteen, seen from behind, long dark hair tied back, simple dhoti and sash, a bow on his shoulder, with his back to the viewer, facing her, vertical composition, subject in the center of the frame, empty dark chalkboard space at the top and bottom, full-bleed chalkboard edge to edge, no border, no frame, no white margin",
       "pause": 0.35,
       "sfx": [
         {
@@ -21,7 +21,8 @@
         }
       ],
       "melody": "intro",
-      "swell": true
+      "swell": true,
+      "seed": 5300
     },
     {
       "narration": "विश्वामित्र दोनों राजकुमारों को नाव से गंगा पार ले चले। बीच धारा में लहरें गरज रही थीं।",
@@ -62,14 +63,15 @@
         "उजाड़"
       ],
       "emphasis": "ताटका",
-      "visual": "landscape only, no people visible: a wasted barren land with cracked earth and broken ancient Indian thatched huts, across the ground falls the long dark shadow of a towering rakshasi with wild flowing hair, ancient Indian setting, no wings, no horns, no domes, vertical composition, subject in the center of the frame, empty dark chalkboard space at the top and bottom, full-bleed chalkboard edge to edge, no border, no frame, no white margin",
+      "visual": "landscape only, absolutely no people and no figures: a wasted barren land with cracked earth and broken ancient Indian thatched huts under a dark stormy sky, a long dark shadow with wild flowing hair stretched across the cracked ground, ancient Indian setting, no wings, no horns, no domes, vertical composition, subject in the center of the frame, empty dark chalkboard space at the top and bottom, full-bleed chalkboard edge to edge, no border, no frame, no white margin",
       "pause": 0.35,
       "sfx": [
         {
           "name": "wind"
         }
       ],
-      "swell": true
+      "swell": true,
+      "seed": 5303
     },
     {
       "narration": "राम को आश्चर्य हुआ — एक यक्षिणी में इतना बल कैसे?",
@@ -162,10 +164,11 @@
         "स्त्री"
       ],
       "emphasis": "",
-      "visual": "a teenage prince Rama about fifteen, seen from behind, long dark hair tied back, simple dhoti and sash, a bow on his shoulder, lowering his bow slightly and turning toward a teenage prince Lakshmana about fourteen, fair complexion, alert eyes, simple dhoti, carrying a bow and quiver, beside him, a huge dark silhouette with wild flowing hair approaching between distant trees, ancient Indian setting, no wings, no horns, no domes, vertical composition, subject in the center of the frame, empty dark chalkboard space at the top and bottom, full-bleed chalkboard edge to edge, no border, no frame, no white margin",
+      "visual": "a teenage prince Rama about fifteen, seen from behind, long dark hair tied back, simple dhoti and sash, a bow on his shoulder, with his back to the viewer and his face not visible, lowering his bow slightly, standing beside a teenage prince Lakshmana about fourteen, fair complexion, alert eyes, simple dhoti, carrying a bow and quiver, both looking toward a huge dark shadow with wild flowing hair between distant trees, ancient Indian setting, no wings, no horns, no domes, vertical composition, subject in the center of the frame, empty dark chalkboard space at the top and bottom, full-bleed chalkboard edge to edge, no border, no frame, no white margin",
       "pause": 0.35,
       "sfx": [],
-      "melody": "grief"
+      "melody": "grief",
+      "seed": 5309
     },
     {
       "narration": "ताटका ने धूल का तूफ़ान उठाया, पत्थरों की वर्षा की, और माया से अदृश्य हो गई।",
@@ -209,14 +212,15 @@
         "अस्त्र।"
       ],
       "emphasis": "अगला भाग: दिव्य अस्त्र",
-      "visual": "a forest blooming with flowers and light streaming through the trees, the sage Vishvamitra, a tall fierce ascetic with intense eyes, long dark-and-grey matted hair and beard, a deerskin over one shoulder, rudraksha beads, holding a wooden staff, blessing a teenage prince Rama about fifteen, seen from behind, long dark hair tied back, simple dhoti and sash, a bow on his shoulder, above them glowing divine weapons, a radiant discus and arrows of light floating in the air, vertical composition, subject in the center of the frame, empty dark chalkboard space at the top and bottom, full-bleed chalkboard edge to edge, no border, no frame, no white margin",
+      "visual": "a forest blooming with flowers and light streaming through the trees, the sage Vishvamitra, a tall fierce ascetic with intense eyes, long dark-and-grey matted hair and beard, a deerskin over one shoulder, rudraksha beads, holding a wooden staff, blessing a teenage prince Rama about fifteen, seen from behind, long dark hair tied back, simple dhoti and sash, a bow on his shoulder, with his back to the viewer and his face not visible, above them glowing divine weapons, a radiant discus and arrows of light floating in the air, vertical composition, subject in the center of the frame, empty dark chalkboard space at the top and bottom, full-bleed chalkboard edge to edge, no border, no frame, no white margin",
       "pause": 0.35,
       "sfx": [
         {
           "name": "birds"
         }
       ],
-      "melody": "rise"
+      "melody": "rise",
+      "seed": 5312
     }
   ],
   "description": "",
