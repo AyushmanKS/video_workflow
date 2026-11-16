@@ -1,0 +1,86 @@
+[
+  {
+    "text": "శ్రీరాముడి మొదటి శత్రువు — వెయ్యి ఏనుగుల బలం ఉన్న ఒక రాక్షసి. కానీ రాముడు ఆమెను చంపాలనుకోలేదు.",
+    "scores": {
+      "curiosity": 5,
+      "emotion": 5,
+      "specificity": 5,
+      "speed": 4,
+      "resonance": 4,
+      "accuracy": 5
+    },
+    "total": 28,
+    "selected": true,
+    "reasoning": "Selected: highest rubric total. Resonance scored 4, not 5: no native review yet of how Telugu viewers frame this episode."
+  },
+  {
+    "text": "ఆమె కనిపించకుండా పోయింది. రాముడు శబ్దం విని మాత్రమే బాణం వేశాడు.",
+    "scores": {
+      "curiosity": 4,
+      "emotion": 4,
+      "specificity": 5,
+      "speed": 5,
+      "resonance": 4,
+      "accuracy": 5
+    },
+    "total": 27,
+    "selected": false,
+    "reasoning": "Spectacle, but it reveals the ending (curiosity 4)."
+  },
+  {
+    "text": "ఆమె బలం బ్రహ్మ వరం, ఆమె క్రోధం ఒక మహర్షి శాపం.",
+    "scores": {
+      "curiosity": 5,
+      "emotion": 4,
+      "specificity": 5,
+      "speed": 4,
+      "resonance": 4,
+      "accuracy": 5
+    },
+    "total": 27,
+    "selected": false,
+    "reasoning": ""
+  },
+  {
+    "text": "పదహారేళ్లు కూడా నిండని రాముడు, మొదటి యుద్ధంలోనే ఎందుకు ఆగిపోయాడు?",
+    "scores": {
+      "curiosity": 5,
+      "emotion": 4,
+      "specificity": 4,
+      "speed": 4,
+      "resonance": 4,
+      "accuracy": 5
+    },
+    "total": 26,
+    "selected": false,
+    "reasoning": ""
+  },
+  {
+    "text": "రావణుడి కంటే ముందు తాటక. ఆమెతో పోరాడటానికి రాముడు దాదాపు నిరాకరించాడు.",
+    "scores": {
+      "curiosity": 5,
+      "emotion": 4,
+      "specificity": 4,
+      "speed": 4,
+      "resonance": 4,
+      "accuracy": 3
+    },
+    "total": 24,
+    "selected": false,
+    "reasoning": "Overstates the text."
+  },
+  {
+    "text": "ఎవరూ అడుగుపెట్టడానికి సాహసించని అడవిలో ఉండే యక్షిణి.",
+    "scores": {
+      "curiosity": 4,
+      "emotion": 3,
+      "specificity": 3,
+      "speed": 4,
+      "resonance": 3,
+      "accuracy": 5
+    },
+    "total": 22,
+    "selected": false,
+    "reasoning": ""
+  }
+]

@@ -1,0 +1,146 @@
+[
+  {
+    "voice": "maya2:Malini",
+    "line": 1,
+    "file": "maya2_Malini_line1.wav",
+    "seconds_audio": 5.8,
+    "gen_seconds": 11.0,
+    "cer": 0.049,
+    "heard": "વિશ્વામિત્ર રુશી રામ અને લક્ષમણને લઈને ગંગા પાર કરી એક ભહ્યાનક જંગલમાં પહુચ્યા."
+  },
+  {
+    "voice": "maya2:Malini",
+    "line": 2,
+    "file": "maya2_Malini_line2.wav",
+    "seconds_audio": 4.7,
+    "gen_seconds": 4.5,
+    "cer": 0.097,
+    "heard": "એ જંગલમાં તાટકા રેતી હતી જનામાં એ ખજાર હાથીઓ જેટલું બળહતું."
+  },
+  {
+    "voice": "maya2:Malini",
+    "line": 3,
+    "file": "maya2_Malini_line3.wav",
+    "seconds_audio": 5.3,
+    "gen_seconds": 5.3,
+    "cer": 0.171,
+    "heard": "અગસ્ત્ય રુશીના શાથી તે સુંદર યક્શિનિ માથી ભહયંકર રાક્શસી બની ગઈ હતી."
+  },
+  {
+    "voice": "maya2:Malini",
+    "line": 4,
+    "file": "maya2_Malini_line4.wav",
+    "seconds_audio": 8.2,
+    "gen_seconds": 7.4,
+    "cer": 0.125,
+    "heard": "રામ અટકી ગયા એક સ્ત્રી પર બાણ કે વી રીતે ચલાવું ત્યારે ગુરુએ કહું પ્રજાની રક્ષા એજ રાજ"
+  },
+  {
+    "voice": "maya2:Vaidehi",
+    "line": 1,
+    "file": "maya2_Vaidehi_line1.wav",
+    "seconds_audio": 6.6,
+    "gen_seconds": 6.3,
+    "cer": 0.049,
+    "heard": "વિશ્વા મિત્ર રોશી રામ અને લક્ષમણને લઈને ગંગા પાર કરી એક ભયાનક જંગલમાં પહુચ્યા"
+  },
+  {
+    "voice": "maya2:Vaidehi",
+    "line": 2,
+    "file": "maya2_Vaidehi_line2.wav",
+    "seconds_audio": 4.6,
+    "gen_seconds": 4.4,
+    "cer": 0.194,
+    "heard": "એ જંગલમાં તાટકા રેતીયતી જેનામાં એખ જાર હાથ્યો જેટલું બળાતું"
+  },
+  {
+    "voice": "maya2:Vaidehi",
+    "line": 3,
+    "file": "maya2_Vaidehi_line3.wav",
+    "seconds_audio": 5.0,
+    "gen_seconds": 4.7,
+    "cer": 0.086,
+    "heard": "અગસ્ત્ય રુશિના શાપથી તે સુંદર યક્ષિનિમાથી ભયંકર રાક્ષસી બની ગઈ હતી"
+  },
+  {
+    "voice": "maya2:Vaidehi",
+    "line": 4,
+    "file": "maya2_Vaidehi_line4.wav",
+    "seconds_audio": 8.4,
+    "gen_seconds": 7.5,
+    "cer": 0.167,
+    "heard": "રામ અટકી ગયા એક સ્ત્રી પરબાણ કીવી રીતે ચલાવું ત્યારે ગુરુયે કહું પ્રજાની રક્ષા એજ રા�"
+  },
+  {
+    "voice": "maya2:Ahana",
+    "line": 1,
+    "file": "maya2_Ahana_line1.wav",
+    "seconds_audio": 5.8,
+    "gen_seconds": 5.9,
+    "cer": 0.073,
+    "heard": "વિશ્વા મિત્ર રુશી રામ અને લક્ષમણને લઈને ગંગા પાર કરી એક ભહ્યાનક જંગલમાં પહુચા"
+  },
+  {
+    "voice": "maya2:Ahana",
+    "line": 2,
+    "file": "maya2_Ahana_line2.wav",
+    "seconds_audio": 5.6,
+    "gen_seconds": 5.3,
+    "cer": 0.161,
+    "heard": "એ જંગલમાં તાટકા રેતી આતી જેનામાં એખ જાર હાથ્યો જેટલું બળહતું"
+  },
+  {
+    "voice": "maya2:Ahana",
+    "line": 3,
+    "file": "maya2_Ahana_line3.wav",
+    "seconds_audio": 5.7,
+    "gen_seconds": 5.1,
+    "cer": 0.143,
+    "heard": "અગસ્ત્ય રુશીના શાપથી તે સુંદર યક્શીની માથી ભયંકર રાક્શસી બની ગઈ હતી"
+  },
+  {
+    "voice": "maya2:Ahana",
+    "line": 4,
+    "file": "maya2_Ahana_line4.wav",
+    "seconds_audio": 8.0,
+    "gen_seconds": 7.8,
+    "cer": 0.167,
+    "heard": "રા મટકી ગયા એક સ્ત્રી પર બાણ કે વી રીતે ચલાઓ ત્યારી ગુરુયે કહું પ્રજાની રક્ષા એજ રાજાન"
+  },
+  {
+    "voice": "svara:Gujarati (Female)",
+    "line": 1,
+    "file": "svara_Gujarati (Female)_line1.wav",
+    "seconds_audio": 8.5,
+    "gen_seconds": 15.8,
+    "cer": 0.098,
+    "heard": "વિશ્વામિત્ર રુશી રામ અને લક્ષમણને લઈને ગંગા પાર કરી એક ભહયાનત જંગલમાં પોંચ્યા"
+  },
+  {
+    "voice": "svara:Gujarati (Female)",
+    "line": 2,
+    "file": "svara_Gujarati (Female)_line2.wav",
+    "seconds_audio": 7.1,
+    "gen_seconds": 11.1,
+    "cer": 0.0,
+    "heard": "એ જંગલમાં તાટકા રહીતી હતી જેનામાં એક હજાર હાથીઓ જેટલું બળહતું"
+  },
+  {
+    "voice": "svara:Gujarati (Female)",
+    "line": 3,
+    "file": "svara_Gujarati (Female)_line3.wav",
+    "seconds_audio": 7.5,
+    "gen_seconds": 12.0,
+    "cer": 0.229,
+    "heard": "અગસ્થે રુશીના શાથ્કી તે સુંદર યક્શેની માથી ભયનકર રાક્શસી બની ગઈ હતી"
+  },
+  {
+    "voice": "svara:Gujarati (Female)",
+    "line": 4,
+    "file": "svara_Gujarati (Female)_line4.wav",
+    "seconds_audio": 10.1,
+    "gen_seconds": 17.1,
+    "cer": 0.167,
+    "heard": "રામ અટકી ગયા એક સ્વી પર બાણ કેવી રીતે ચલાવુ તારી ગુરુરુએ કહીં પ્રજાની રક્ષા એજ રાજાનો �"
+  }
+]

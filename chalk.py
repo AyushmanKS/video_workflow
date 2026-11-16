@@ -33,8 +33,9 @@ def is_devanagari(text):
 
 
 def font_for(text, size, latin=CHALKDUSTER):
+    letters = text.replace("।", "").replace("॥", "")
     for lo, hi, path, idx in SCRIPT_FONTS:
-        if any(lo <= ch <= hi for ch in text):
+        if any(lo <= ch <= hi for ch in letters):
             return ImageFont.truetype(path, int(size * 1.15), index=idx, layout_engine=ImageFont.Layout.RAQM)
     return ImageFont.truetype(latin, size)
 
@@ -179,9 +180,9 @@ def text_scene(sc, path, seed):
     img = np.zeros((CH, CW, 3), np.float32)
     layers = []
     if sc["kind"] == "verse":
-        dev = ImageFont.truetype(DEVANAGARI, 92, layout_engine=ImageFont.Layout.RAQM)
-        small = font_for(sc["source"], 40)
         lines = sc["devanagari"]
+        dev = font_for("".join(lines), 80)
+        small = font_for(sc["source"], 40)
         y0 = 560
         for i, line in enumerate(lines):
             col = (0.96, 0.66, 0.32) if i < 2 else (0.95, 0.94, 0.9)

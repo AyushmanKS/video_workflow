@@ -1,0 +1,86 @@
+[
+  {
+    "text": "श्रीराम का पहला शत्रु — एक राक्षसी, जिसमें हज़ार हाथियों का बल था। पर राम उसे मारना नहीं चाहते थे।",
+    "scores": {
+      "curiosity": 5,
+      "emotion": 5,
+      "specificity": 5,
+      "speed": 4,
+      "resonance": 5,
+      "accuracy": 5
+    },
+    "total": 29,
+    "selected": true,
+    "reasoning": "Selected: highest rubric total. Hindi viewers know Tataka-vadh from TV; Rama's hesitation (1.26.12) is the surprise."
+  },
+  {
+    "text": "वो अदृश्य हो गई। और श्रीराम ने सिर्फ़ आवाज़ सुनकर बाण चलाया।",
+    "scores": {
+      "curiosity": 4,
+      "emotion": 4,
+      "specificity": 5,
+      "speed": 5,
+      "resonance": 4,
+      "accuracy": 5
+    },
+    "total": 27,
+    "selected": false,
+    "reasoning": "Spectacle, but it reveals the ending (curiosity 4)."
+  },
+  {
+    "text": "उसका बल ब्रह्मा का वरदान था, और उसका क्रोध एक ऋषि का शाप।",
+    "scores": {
+      "curiosity": 5,
+      "emotion": 4,
+      "specificity": 5,
+      "speed": 4,
+      "resonance": 4,
+      "accuracy": 5
+    },
+    "total": 27,
+    "selected": false,
+    "reasoning": ""
+  },
+  {
+    "text": "सोलह बरस के भी नहीं थे राम, और पहले ही युद्ध में ठिठक गए। क्यों?",
+    "scores": {
+      "curiosity": 5,
+      "emotion": 4,
+      "specificity": 4,
+      "speed": 4,
+      "resonance": 4,
+      "accuracy": 5
+    },
+    "total": 26,
+    "selected": false,
+    "reasoning": "Echoes Ep04's verse 1.20.2."
+  },
+  {
+    "text": "रावण से पहले थी ताटका, और राम लड़ने से लगभग मना कर चुके थे।",
+    "scores": {
+      "curiosity": 5,
+      "emotion": 4,
+      "specificity": 4,
+      "speed": 4,
+      "resonance": 4,
+      "accuracy": 3
+    },
+    "total": 24,
+    "selected": false,
+    "reasoning": "Overstates: Rama agreed (1.26.4) and only hesitated to kill."
+  },
+  {
+    "text": "एक ऐसी यक्षिणी, जिसके वन में कोई कदम रखने का साहस नहीं करता था।",
+    "scores": {
+      "curiosity": 4,
+      "emotion": 3,
+      "specificity": 3,
+      "speed": 4,
+      "resonance": 3,
+      "accuracy": 5
+    },
+    "total": 22,
+    "selected": false,
+    "reasoning": ""
+  }
+]

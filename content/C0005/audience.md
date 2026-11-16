@@ -1,0 +1,27 @@
+# Audience brief: C0005 (audience-localizer)
+
+- **EN:**
+  - Explain "yakshi" in context (a nature spirit who becomes a rakshasi, a demoness).
+  - The universal core is compassion versus duty.
+  - Keep "Ganga", "Brahma" and "Agastya" unexplained; they read as names.
+- **HI:**
+  - Viewers know ताटका-वध from TV and the Ramcharitmanas.
+  - The surprises are the Valmiki details: Brahma's boon, Agastya's curse, the hesitation (स्त्री है), "बस करो ये दया", dusk making rakshasas stronger, and the arrow shot by sound.
+  - Use respectful forms: श्रीराम, महर्षि/ऋषि.
+- **GU (pilot, no native review):**
+  - Standard Gujarati as used in Ahmedabad/Vadodara media, written natively and not transliterated from Hindi.
+  - Wikipedia names Premanand's 17th-century Gujarati Ramayana; the script does not reference it.
+  - Numbers are written as words (હજાર).
+  - The Sanskrit verse is shown in Gujarati script.
+- **TE (pilot, no native review):**
+  - Neutral standard Telugu, in natural SOV order.
+  - Viewers know the story through the Ranganatha and Molla Ramayanams, and through films.
+  - Honorific plural for the sage (మహర్షి … చెప్పారు). Numbers are words (వెయ్యి).
+  - The Sanskrit verse is shown in Telugu script.
+- **Native review:** gu and te scripts and voices need a native speaker. Without one, the evidence is Whisper CER plus a `language-qa` review, which is weaker and not a native-level guarantee.
+- **Depiction:**
+  - Tataka appears as a looming temple-mural silhouette or shadow, never in close-up.
+  - No wings, horns or gargoyles.
+  - Rama is a teenage prince seen from behind. Lakshmana and Vishvamitra use the character bible prompts.
+  - Brahma is symbolic (a radiant lotus of light).
+  - No gore.

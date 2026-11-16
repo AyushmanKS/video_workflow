@@ -1,0 +1,146 @@
+[
+  {
+    "voice": "maya2:Malini",
+    "line": 1,
+    "file": "maya2_Malini_line1.wav",
+    "seconds_audio": 8.6,
+    "gen_seconds": 11.9,
+    "cer": 0.059,
+    "heard": "విస్వామిత్రా మహర్షి రాముడిని లక్ష్మనుడిని వెంటబెటుకుని గంగను దాటి ఒక భయంకరమైన అడవికి చేరుకున్నారు."
+  },
+  {
+    "voice": "maya2:Malini",
+    "line": 2,
+    "file": "maya2_Malini_line2.wav",
+    "seconds_audio": 5.8,
+    "gen_seconds": 5.4,
+    "cer": 0.129,
+    "heard": "ఆడవిలో తాటకా అనే రాక్షసి ఉండేది. ఆమికు వెయి ఎనుగుల బలంముంది."
+  },
+  {
+    "voice": "maya2:Malini",
+    "line": 3,
+    "file": "maya2_Malini_line3.wav",
+    "seconds_audio": 6.6,
+    "gen_seconds": 6.5,
+    "cer": 0.075,
+    "heard": "అగస్థ్య మహార్షి సాపంవల్ల ఆమే అందమైన యక్షినినుండి భయంకరమైన రాక్షసిగా మారింది."
+  },
+  {
+    "voice": "maya2:Malini",
+    "line": 4,
+    "file": "maya2_Malini_line4.wav",
+    "seconds_audio": 7.5,
+    "gen_seconds": 6.8,
+    "cer": 0.021,
+    "heard": "రామడు ఆగి పొయాడు ఒక స్త్రిమీద బాణ మిలావేయాలి అప్పుడు గురువు అన్నారు ప్రజలను కాపాడటమే రాజు ధర్మం."
+  },
+  {
+    "voice": "maya2:Vaidehi",
+    "line": 1,
+    "file": "maya2_Vaidehi_line1.wav",
+    "seconds_audio": 7.6,
+    "gen_seconds": 6.7,
+    "cer": 0.059,
+    "heard": "విష్వామిత్ర మహర్షి రాముడిని లక్ష్మనుడిని వెంటబేక్టుకుని గంగను దాటి ఒక భయం కరమైన అడవికి చేరుకున్నారు."
+  },
+  {
+    "voice": "maya2:Vaidehi",
+    "line": 2,
+    "file": "maya2_Vaidehi_line2.wav",
+    "seconds_audio": 5.9,
+    "gen_seconds": 6.6,
+    "cer": 0.097,
+    "heard": "ఆ అడవిలో తాటకానే రాక్షసి ఉండేది. ఆమేకు వెయి ఎనుగుల బలం ఉంది."
+  },
+  {
+    "voice": "maya2:Vaidehi",
+    "line": 3,
+    "file": "maya2_Vaidehi_line3.wav",
+    "seconds_audio": 6.5,
+    "gen_seconds": 6.6,
+    "cer": 0.05,
+    "heard": "అగస్తియ మహర్షి స్యాపం వల్లా ఆమే అందమైన యక్షనినుండి భయంకరమైన రాక్షసిగా మారింది."
+  },
+  {
+    "voice": "maya2:Vaidehi",
+    "line": 4,
+    "file": "maya2_Vaidehi_line4.wav",
+    "seconds_audio": 8.4,
+    "gen_seconds": 7.9,
+    "cer": 0.021,
+    "heard": "రాముడు ఆగి పోయాడు ఒక స్త్రిమీద బాణ మెలా వేయాలి అప్పుడు గురువు అన్నారు ప్రజలను కాపాడటమీ రాజు ధర్మం"
+  },
+  {
+    "voice": "maya2:Sreekar",
+    "line": 1,
+    "file": "maya2_Sreekar_line1.wav",
+    "seconds_audio": 7.9,
+    "gen_seconds": 7.0,
+    "cer": 0.098,
+    "heard": "బిస్వామిత్ర మహర్షీ రాముడిని లక్ష్మణని వెంటబెటుకుని గంగను దాటి ఒక భయంకరమైన అడవికి చేరుకునారు"
+  },
+  {
+    "voice": "maya2:Sreekar",
+    "line": 2,
+    "file": "maya2_Sreekar_line2.wav",
+    "seconds_audio": 5.4,
+    "gen_seconds": 4.8,
+    "cer": 0.065,
+    "heard": "ఆడవి లో తాటకా అనే రాక్షసి ఉండేది ఆమేకు వెయి ఏనుగిల బలం ఉంది"
+  },
+  {
+    "voice": "maya2:Sreekar",
+    "line": 3,
+    "file": "maya2_Sreekar_line3.wav",
+    "seconds_audio": 6.6,
+    "gen_seconds": 5.7,
+    "cer": 0.025,
+    "heard": "అగస్త్య మహర్షి శాపం వల్లా ఆమే అందమైన యక్షనినుండి భయంకరమైన రాక్షసిగా మారింది"
+  },
+  {
+    "voice": "maya2:Sreekar",
+    "line": 4,
+    "file": "maya2_Sreekar_line4.wav",
+    "seconds_audio": 7.3,
+    "gen_seconds": 6.3,
+    "cer": 0.083,
+    "heard": "రాముడ ఆగిపో ఎడు ఒక స్త్రిమిద బాణ మెలావేయాలి అప్పుడు గురు అన్నారు ప్రజలను కాపాట్టమే రాజు ధర్మం"
+  },
+  {
+    "voice": "svara:Telugu (Female)",
+    "line": 1,
+    "file": "svara_Telugu (Female)_line1.wav",
+    "seconds_audio": 8.1,
+    "gen_seconds": 15.1,
+    "cer": 0.137,
+    "heard": "రిస్వామీత్ర మహర్షే రాముడిని నక్ష్మా నుడిని వెంతబెట్టుకుని గందను దాటి ఒక భాయంకారమైన అడవికి చేరు కుంనారు"
+  },
+  {
+    "voice": "svara:Telugu (Female)",
+    "line": 2,
+    "file": "svara_Telugu (Female)_line2.wav",
+    "seconds_audio": 6.5,
+    "gen_seconds": 10.6,
+    "cer": 0.097,
+    "heard": "ఆ అడవిలో తాటకా అనే రాక్షసి ఉండేది ఆమేకు వెయి ఎనుగుల బలంముంది"
+  },
+  {
+    "voice": "svara:Telugu (Female)",
+    "line": 3,
+    "file": "svara_Telugu (Female)_line3.wav",
+    "seconds_audio": 6.9,
+    "gen_seconds": 11.3,
+    "cer": 0.125,
+    "heard": "అగస్త్య మహర్షి స్యాపం వల్లా ఆమే ఆందమైన యక్షనినుంది బాయం కరమైన రాక్షసిగా మారింది"
+  },
+  {
+    "voice": "svara:Telugu (Female)",
+    "line": 4,
+    "file": "svara_Telugu (Female)_line4.wav",
+    "seconds_audio": 8.8,
+    "gen_seconds": 14.3,
+    "cer": 0.104,
+    "heard": "రాముళు ఆజి పోయడు ఒక స్రి మీదా బాణం యలావేయాలి ఆప్పుడు గురువు అన్నారు ప్రజలను కాపాడటమే రాజు ధర్మం"
+  }
+]

@@ -1,0 +1,86 @@
+[
+  {
+    "text": "શ્રીરામનો પહેલો શત્રુ — એક રાક્ષસી, જેનામાં હજાર હાથીઓ જેટલું બળ હતું. પણ રામ તેને મારવા નહોતા માગતા.",
+    "scores": {
+      "curiosity": 5,
+      "emotion": 5,
+      "specificity": 5,
+      "speed": 4,
+      "resonance": 4,
+      "accuracy": 5
+    },
+    "total": 28,
+    "selected": true,
+    "reasoning": "Selected: highest rubric total. Resonance scored 4, not 5: no native review yet of how Gujarati viewers frame this episode."
+  },
+  {
+    "text": "તે અદૃશ્ય થઈ ગઈ. અને રામે માત્ર અવાજ સાંભળીને બાણ છોડ્યું.",
+    "scores": {
+      "curiosity": 4,
+      "emotion": 4,
+      "specificity": 5,
+      "speed": 5,
+      "resonance": 4,
+      "accuracy": 5
+    },
+    "total": 27,
+    "selected": false,
+    "reasoning": "Spectacle, but it reveals the ending (curiosity 4)."
+  },
+  {
+    "text": "તેનું બળ બ્રહ્માનું વરદાન હતું, અને તેનો ક્રોધ એક ઋષિનો શાપ.",
+    "scores": {
+      "curiosity": 5,
+      "emotion": 4,
+      "specificity": 5,
+      "speed": 4,
+      "resonance": 4,
+      "accuracy": 5
+    },
+    "total": 27,
+    "selected": false,
+    "reasoning": ""
+  },
+  {
+    "text": "સોળ વર્ષના પણ નહોતા રામ, અને પહેલા જ યુદ્ધમાં અટકી ગયા. કેમ?",
+    "scores": {
+      "curiosity": 5,
+      "emotion": 4,
+      "specificity": 4,
+      "speed": 4,
+      "resonance": 4,
+      "accuracy": 5
+    },
+    "total": 26,
+    "selected": false,
+    "reasoning": ""
+  },
+  {
+    "text": "રાવણ પહેલાં હતી તાટકા, અને રામે લડવાની લગભગ ના પાડી દીધી.",
+    "scores": {
+      "curiosity": 5,
+      "emotion": 4,
+      "specificity": 4,
+      "speed": 4,
+      "resonance": 4,
+      "accuracy": 3
+    },
+    "total": 24,
+    "selected": false,
+    "reasoning": "Overstates the text."
+  },
+  {
+    "text": "એવી યક્ષિણી, જેના વનમાં પગ મૂકવાની કોઈની હિંમત નહોતી.",
+    "scores": {
+      "curiosity": 4,
+      "emotion": 3,
+      "specificity": 3,
+      "speed": 4,
+      "resonance": 3,
+      "accuracy": 5
+    },
+    "total": 22,
+    "selected": false,
+    "reasoning": ""
+  }
+]

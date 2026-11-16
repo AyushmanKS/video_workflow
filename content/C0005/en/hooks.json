@@ -1,0 +1,86 @@
+[
+  {
+    "text": "Rama's first enemy had the strength of a thousand elephants. And he did not want to kill her.",
+    "scores": {
+      "curiosity": 5,
+      "emotion": 5,
+      "specificity": 5,
+      "speed": 4,
+      "resonance": 5,
+      "accuracy": 5
+    },
+    "total": 29,
+    "selected": true,
+    "reasoning": "Selected: highest rubric total; pays off the Ep04 teaser (a thousand elephants) and opens the moral conflict (1.26.12)."
+  },
+  {
+    "text": "She vanished into thin air. Rama shot her by sound alone.",
+    "scores": {
+      "curiosity": 4,
+      "emotion": 4,
+      "specificity": 5,
+      "speed": 5,
+      "resonance": 4,
+      "accuracy": 5
+    },
+    "total": 27,
+    "selected": false,
+    "reasoning": "Strong spectacle (1.26.24), but it gives away the ending, so the curiosity gap is smaller; less emotional than the hesitation."
+  },
+  {
+    "text": "Her strength was a gift from Brahma. Her rage was a curse from a sage.",
+    "scores": {
+      "curiosity": 5,
+      "emotion": 4,
+      "specificity": 5,
+      "speed": 4,
+      "resonance": 4,
+      "accuracy": 5
+    },
+    "total": 27,
+    "selected": false,
+    "reasoning": ""
+  },
+  {
+    "text": "Why did a prince, not yet sixteen, hesitate in his very first battle?",
+    "scores": {
+      "curiosity": 5,
+      "emotion": 4,
+      "specificity": 4,
+      "speed": 4,
+      "resonance": 4,
+      "accuracy": 5
+    },
+    "total": 26,
+    "selected": false,
+    "reasoning": "Uses the Ep04 'not yet sixteen' verse (1.20.2); slower to parse."
+  },
+  {
+    "text": "Before Ravana, there was Tataka. And Rama almost refused to fight her.",
+    "scores": {
+      "curiosity": 5,
+      "emotion": 4,
+      "specificity": 4,
+      "speed": 4,
+      "resonance": 4,
+      "accuracy": 3
+    },
+    "total": 24,
+    "selected": false,
+    "reasoning": "'Almost refused' overstates: he agreed (1.26.4) and only hesitated to kill (1.26.12)."
+  },
+  {
+    "text": "A yakshi so strong that no one dared enter her forest.",
+    "scores": {
+      "curiosity": 4,
+      "emotion": 3,
+      "specificity": 3,
+      "speed": 4,
+      "resonance": 3,
+      "accuracy": 5
+    },
+    "total": 22,
+    "selected": false,
+    "reasoning": ""
+  }
+]

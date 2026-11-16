@@ -58,6 +58,15 @@
     "lakshmana_teen": {
       "prompt": "a teenage prince Lakshmana about fourteen, fair complexion, alert eyes, simple dhoti, carrying a bow and quiver",
       "source_episode": "C0004"
+    },
+    "tataka": {
+      "prompt": "a towering Indian rakshasi drawn like an ancient Indian temple mural, seen only as a huge dark looming silhouette, wild flowing hair, glinting fangs, heavy bangles and ornaments, human-shaped, no wings, no horns, not a dragon, not a gargoyle",
+      "source_episode": "C0005",
+      "notes": "Silhouette or shadow only, never a monster close-up. Ep04 scene 4 drifted to Western bat-winged gargoyles; keep the explicit negatives."
+    },
+    "agastya": {
+      "prompt": "the sage Agastya, a short sturdy elderly sage with a white beard and a topknot, saffron cloth over one shoulder, holding a kamandalu water pot",
+      "source_episode": "C0005"
     }
   },
   "rules": [

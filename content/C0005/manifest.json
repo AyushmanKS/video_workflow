@@ -1,0 +1,41 @@
+{
+  "id": "C0005",
+  "series": "RAMAYANA — The Epic in Chalk",
+  "episode": 5,
+  "topic": "Ramayana Episode 05: Tataka",
+  "category": "mythology",
+  "style": "chalk",
+  "languages": [
+    "en",
+    "hi",
+    "gu",
+    "te"
+  ],
+  "primary_language": "en",
+  "stages": {
+    "research": {
+      "status": "done",
+      "at": "2026-11-16T10:53:23+0530"
+    },
+    "strategy": {
+      "status": "done",
+      "at": "2026-11-16T10:53:23+0530"
+    },
+    "script:en": {
+      "status": "done",
+      "at": "2026-11-16T10:53:23+0530"
+    },
+    "script:hi": {
+      "status": "done",
+      "at": "2026-11-16T10:53:23+0530"
+    },
+    "script:gu": {
+      "status": "done",
+      "at": "2026-11-16T10:53:23+0530"
+    },
+    "script:te": {
+      "status": "done",
+      "at": "2026-11-16T10:53:23+0530"
+    }
+  }
+}
