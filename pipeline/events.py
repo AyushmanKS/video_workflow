@@ -303,6 +303,13 @@ def _derive(con, ev):
         for r in rows:
             con.execute("UPDATE issues SET status='resolved', resolved_at=?, resolution=? WHERE id=?", (ev["ts"], f"resolved by {ev['kind']} event {ev['id']}: {ev['message'][:200]}", r["id"]))
             info["resolved"].append(dict(r))
+    if ev["kind"] == "approved" and ev["variant_id"] and (ev["stage"] or "").startswith("gate:publish"):
+        plat = ev["stage"].split(":")[2] if ev["stage"].count(":") >= 2 else (ev["platform"] or "")
+        rows = con.execute("SELECT * FROM issues WHERE status IN ('open','acknowledged') AND stage='publish' AND error_code='gate_refused' AND variant_id=? "
+                           "AND (?='' OR COALESCE(platform,'')='' OR platform=?) AND COALESCE(last_t,0) <= ?", (ev["variant_id"], plat, plat, ev["t"])).fetchall()
+        for r in rows:
+            con.execute("UPDATE issues SET status='resolved', resolved_at=?, resolution=? WHERE id=?", (ev["ts"], f"resolved by a new posting approval (event {ev['id']})", r["id"]))
+            info["resolved"].append(dict(r))
     return info
 
 

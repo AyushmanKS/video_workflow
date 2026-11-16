@@ -120,6 +120,11 @@ def pending_approvals(con=None):
     return out
 
 
+FAILED_OPEN_SQL = ("SELECT COUNT(*) FROM task_state t WHERE t.status='Failed' AND NOT EXISTS (SELECT 1 FROM issues i WHERE i.status IN ('acknowledged','resolved') "
+                   "AND COALESCE(i.variant_id,'')=COALESCE(t.variant_id,'') AND COALESCE(i.content_id,'')=COALESCE(t.content_id,'') AND i.stage=t.stage "
+                   "AND NOT EXISTS (SELECT 1 FROM issues j WHERE j.status='open' AND COALESCE(j.variant_id,'')=COALESCE(t.variant_id,'') AND j.stage=t.stage))")
+
+
 def _future(s):
     if not s:
         return False
@@ -154,7 +159,7 @@ def overview(con):
     for p in pubs:
         d = o["published"].setdefault(p["platform"], {"live": 0, "scheduled": 0})
         d["scheduled" if _future(p["scheduled_for"]) else "live"] += 1
-    o["failed_tasks"] = con.execute("SELECT COUNT(*) FROM task_state WHERE status='Failed'").fetchone()[0]
+    o["failed_tasks"] = con.execute(FAILED_OPEN_SQL).fetchone()[0]
     o["needs_attention_tasks"] = con.execute("SELECT COUNT(*) FROM task_state WHERE status='Needs Attention'").fetchone()[0]
     o["open_issues"] = {r[0]: r[1] for r in con.execute("SELECT severity, COUNT(*) FROM issues WHERE status IN ('open','acknowledged') GROUP BY severity")}
     o["outbox_pending"] = con.execute("SELECT COUNT(*) FROM outbox WHERE status='pending'").fetchone()[0]

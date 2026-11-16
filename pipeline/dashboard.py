@@ -20,7 +20,7 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import parse_qs, quote, urlsplit
 
-from . import DATA, ROOT, db, events, explain, monitor, notify
+from . import DATA, ROOT, dashui, db, events, explain, monitor, notify
 
 PORT = 8765
 KEYFILE = ROOT / "secrets" / "dashboard.json"
@@ -35,10 +35,13 @@ POLL_S = 3
 SSE_MAX = 8
 SSE_LIFE_S = 600
 TUNNEL_RX = re.compile(r"https://[a-z0-9-]+\.trycloudflare\.com")
-NAV = [("/", "Overview"), ("/projects", "Projects"), ("/queue", "Queue"), ("/uploads", "Uploads"), ("/issues", "Issues"), ("/timeline", "Timeline"), ("/analytics", "Analytics")]
 CSP = "default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src 'self'; manifest-src 'self'; worker-src 'self'; frame-ancestors 'none'; base-uri 'none'; form-action 'self'; object-src 'none'"
 SEV_ORDER = {"critical": 0, "recoverable": 1, "warning": 2, "info": 3}
 BUCKETS = ("failed", "processing", "waiting", "queued", "completed", "in production")
+NOT_FOUND = ('<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Not found · Studio</title>'
+             '<link rel="stylesheet" href="/static/app.css"></head><body><main><h1>Page not found</h1><section class="card"><p class="lead">This page does not exist.</p><p><a href="/">Go to Home</a></p></section></main></body></html>')
+OLD_ROUTES = {"/projects": "/progress", "/queue": "/progress", "/timeline": "/progress", "/issues": "/problems", "/analytics": "/results"}
+EPISODE_RX = re.compile(r"/episode/(C\d{4,})")
 
 
 def log(msg):
@@ -277,6 +280,9 @@ def variants(con):
     iss = {}
     for r in con.execute("SELECT variant_id, severity FROM issues WHERE status IN ('open','acknowledged') AND variant_id IS NOT NULL"):
         iss.setdefault(r["variant_id"], []).append(r["severity"])
+    quiet, loud = set(), set()
+    for r in con.execute("SELECT variant_id, stage, status FROM issues WHERE variant_id IS NOT NULL"):
+        (loud if r["status"] == "open" else quiet).add((r["variant_id"], r["stage"]))
     stale = time.time() - 6 * 3600
     now = time.time()
     out = []
@@ -287,7 +293,8 @@ def variants(con):
         job = jobs.get(v)
         plist = pubs.get(v, [])
         status = t["status"] if t else "Not Started"
-        if status in ("Failed", "Needs Attention"):
+        known = t is not None and (v, t["stage"]) in quiet and (v, t["stage"]) not in loud
+        if status in ("Failed", "Needs Attention") and not known:
             bucket = "failed"
         elif status == "Running" and t["t"] >= stale:
             bucket = "processing"
@@ -418,192 +425,6 @@ def query_events(after=0, limit=100, video=None):
         con.close()
 
 
-def badge(text, cls=None):
-    return f'<span class="b {e(cls or str(text).lower().replace(" ", "-"))}">{e(text)}</span>'
-
-
-def page(title, body, active="/", live_after=None, video=""):
-    nav = "".join(f'<a href="{h}"{" class=on" if h == active else ""}>{n}</a>' for h, n in NAV)
-    live = f' data-live="1" data-sse="1" data-after="{int(live_after)}" data-video="{e(video)}"' if live_after is not None else ""
-    return f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#1d2b24"><title>{e(title)} · Studio</title><link rel="manifest" href="/manifest.webmanifest">
-<link rel="icon" href="/icon-192.png"><link rel="apple-touch-icon" href="/icon-192.png"><link rel="stylesheet" href="/static/app.css"></head>
-<body{live}><header><div class="top"><b>Shorts Studio</b><span id="live" class="live">read-only</span></div><nav>{nav}</nav></header>
-<div id="banner" class="banner" hidden><a href="">New activity — tap to refresh</a></div><main><h1>{e(title)}</h1>{body}</main>
-<script src="/static/app.js"></script></body></html>"""
-
-
-def tile(label, value, sub=None, cls=""):
-    return f'<div class="tile {cls}"><div class="v">{e(value)}</div><div class="l">{e(label)}</div>{f"<div class=s>{e(sub)}</div>" if sub else ""}</div>'
-
-
-def ev_li(x):
-    prog = f" {x['progress'] * 100:.0f}%" if x["progress"] is not None else ""
-    code = f" [{x['error_code']}]" if x["error_code"] else ""
-    return (f'<li class="ev k-{e(x["kind"])}"><span class="tm">{e(x["time"])}</span> <span class="ic">{e(x["icon"])}</span> '
-            f'<a href="/timeline?video={quote(x["variant"])}">{e(x["who"])}</a> <span class="st">{e(x["stage"])}</span> '
-            f'<span class="msg">{e(x["message"])}{e(prog)}{e(code)}</span></li>')
-
-
-def system_health():
-    info = read_url()
-    beat = None
-    try:
-        beat = json.loads((DATA / "bot_state.json").read_text()).get("beat_t")
-    except (OSError, ValueError):
-        pass
-    tg = notify.configured()
-    return {"tunnel_since": info.get("since"), "tunnel_checked": info.get("checked_at"), "bot_beat": beat, "telegram": "paired" if tg[1] else "token only" if tg[0] else "not set up"}
-
-
-def render_overview(con):
-    o = monitor.overview(con)
-    iss = o["open_issues"]
-    pub = " · ".join(f"{k}: {v['live']} live, {v['scheduled']} scheduled" for k, v in sorted(o["published"].items())) or "none"
-    tiles = [tile("Active projects", o["active_projects"]), tile("In production", o["videos_in_production"], f"of {o['videos_total']} videos"),
-             tile("Running now", o["running"], f"+{o['running_stale']} silent >6 h" if o["running_stale"] else None, "run" if o["running"] else ""),
-             tile("Waiting approval", o["waiting_approval"], None, "wait" if o["waiting_approval"] else ""),
-             tile("YouTube queue", o["queued_uploads_youtube"]), tile("Instagram jobs", o["scheduled_instagram_jobs"] if o["scheduled_instagram_jobs"] is not None else "?"),
-             tile("Failed tasks", o["failed_tasks"], None, "bad" if o["failed_tasks"] else ""),
-             tile("Open issues", sum(iss.values()), ", ".join(f"{v} {k}" for k, v in sorted(iss.items(), key=lambda kv: SEV_ORDER.get(kv[0], 9))) or None,
-                  "bad" if iss.get("critical") else "warn" if iss else ""),
-             tile("Telegram pending", o["outbox_pending"])]
-    waits = "".join(f"<li>{e(v)} <span class=st>{e(notify.GATE_NAMES.get(g, g))}</span></li>" for v, g in o["waiting_approval_list"][:20])
-    h = system_health()
-    beat = f"{int((time.time() - h['bot_beat']) / 60)} min ago" if h["bot_beat"] else "never"
-    recent = query_events(limit=12)
-    body = (f'<div class="tiles">{"".join(tiles)}</div><section><h2>Published</h2><p>{e(pub)}</p><p class=muted>Last live event: {e(o["last_live_event"] or "none")}</p></section>'
-            + (f"<section><h2>Waiting for approval</h2><ul class=plain>{waits}</ul><p class=muted>Approvals happen in the Claude chat.</p></section>" if waits else "")
-            + f'<section><h2>Latest activity</h2><ul id="feed" class="feed">{"".join(ev_li(x) for x in reversed(recent))}</ul><p><a href="/timeline">Full timeline →</a></p></section>'
-            + f'<section><h2>System</h2><p>Telegram: {e(h["telegram"])} · bot heartbeat {e(beat)}<br>Tunnel up since {e(fmt_ts(h["tunnel_since"]))}, last check {e(fmt_ts(h["tunnel_checked"]))}</p></section>')
-    return page("Overview", body, "/", live_after=recent[-1]["rowid"] if recent else 0)
-
-
-def render_projects(con):
-    cards = []
-    for p in projects_summary(con):
-        c = p["counts"]
-        nxt = f"{fmt_t(p['next'][0])} · {p['next_variant']} on {p['next'][1]}" if p["next"] else "nothing scheduled"
-        cards.append(f'<div class="card"><h2>{e(p["name"])}</h2><p class=muted>{e(p["id"])} · {p["videos"]} episodes · languages {e(", ".join(p["languages"]) or "-")}</p>'
-                     f'<div class="tiles small">{tile("Total", p["total"])}{tile("Completed", c["completed"])}{tile("Processing", c["processing"], None, "run" if c["processing"] else "")}'
-                     f'{tile("Queued", c["queued"])}{tile("Waiting", c["waiting"], None, "wait" if c["waiting"] else "")}{tile("Failed", c["failed"], None, "bad" if c["failed"] else "")}'
-                     f'{tile("In production", c["in production"])}</div><p>Next scheduled: <b>{e(nxt)}</b></p>'
-                     f'<p><a href="/queue?project={quote(p["id"])}">Videos →</a></p></div>')
-    return page("Projects", "".join(cards) or "<p>No projects.</p>", "/projects")
-
-
-def _opts(name, values, cur, label):
-    o = "".join(f'<option value="{e(v)}"{" selected" if v == cur else ""}>{e(v)}</option>' for v in values)
-    return f'<label>{e(label)}<select name="{name}"><option value="">all</option>{o}</select></label>'
-
-
-def render_queue(con, q):
-    vs = variants(con)
-    f = {k: (q.get(k) or [""])[0] for k in ("project", "lang", "stage", "status", "date")}
-    since = None
-    if f["date"]:
-        try:
-            since = datetime.strptime(f["date"], "%Y-%m-%d").timestamp()
-        except ValueError:
-            f["date"] = ""
-    sel = [v for v in vs if (not f["project"] or v["project_id"] == f["project"]) and (not f["lang"] or v["language"] == f["lang"])
-           and (not f["stage"] or v["stage"] == f["stage"]) and (not f["status"] or f["status"] in (v["bucket"], v["status"]))
-           and (since is None or (v["t"] or 0) >= since)]
-    form = (f'<form class="filters" method="get">{_opts("project", sorted({v["project_id"] for v in vs}), f["project"], "Project")}'
-            f'{_opts("lang", sorted({v["language"] for v in vs}), f["lang"], "Language")}{_opts("stage", sorted({v["stage"] for v in vs}), f["stage"], "Stage")}'
-            f'{_opts("status", list(BUCKETS) + sorted({v["status"] for v in vs}), f["status"], "Status")}'
-            f'<label>Updated since<input type="date" name="date" value="{e(f["date"])}"></label><button>Filter</button> <a href="/queue">reset</a></form>')
-    rows = []
-    for v in sorted(sel, key=lambda v: -(v["t"] or 0)):
-        prog = f' · {v["progress"] * 100:.0f}% (measured)' if v["progress"] is not None and v["status"] == "Running" else ""
-        nxt = f' · next: {fmt_t(v["next"][0])} {v["next"][1]}' if v["next"] else ""
-        iss = f' · {len(v["issues"])} open issue(s)' if v["issues"] else ""
-        rows.append(f'<div class="row"><div><a href="/timeline?video={quote(v["id"])}"><b>{e(v["id"])}</b></a> {badge(v["bucket"])} <span class=muted>{e(v["project"])} Ep{e(v["episode"] or "?")} · {e(v["language"])}</span></div>'
-                    f'<div>{e(v["stage"])} — {badge(v["status"])}{e(prog)}</div><div class="muted">{e(v["message"])} · {e(fmt_t(v["t"]))}{e(nxt)}{e(iss)}'
-                    f'{" · on " + e(", ".join(v["platforms"])) if v["platforms"] else ""}</div></div>')
-    return page("Queue", form + f"<p class=muted>{len(sel)} of {len(vs)} videos</p>" + ("".join(rows) or "<p>No videos match.</p>"), "/queue")
-
-
-def render_uploads(con):
-    last = {}
-    for r in con.execute("SELECT variant_id, platform, MAX(t) AS t FROM events WHERE stage='publish' GROUP BY variant_id, platform"):
-        last[(r["variant_id"], r["platform"])] = r["t"]
-    live = con.execute("SELECT * FROM task_state WHERE stage='publish' AND status='Running' AND progress IS NOT NULL AND t >= ?", (time.time() - 3600,)).fetchall()
-    inflight = "".join(f'<div class="row"><b>{e(t["variant_id"])}</b> {e(t["platform"])} <progress max="1" value="{t["progress"]}"></progress> {t["progress"] * 100:.0f}% '
-                       f'<span class=muted>{e(scrub(t["message"]))} · {fmt_t(t["t"])}</span></div>' for t in live)
-    qrows = []
-    for r in con.execute("SELECT * FROM publish_queue ORDER BY CASE status WHEN 'done' THEN 1 ELSE 0 END, priority DESC, id"):
-        v = f"{r['content_id']}-{r['lang']}"
-        err = f'<div class="err">{e(scrub(r["last_error"]))}</div>' if r["last_error"] else ""
-        nt = f" · next try {fmt_ts(r['next_try_at'])}" if r["next_try_at"] else ""
-        qrows.append(f'<div class="row"><b>{e(v)}</b> {badge(r["status"])} <span class=muted>publish at {e(fmt_ts(r["publish_at"]))} · attempts {r["attempts"]}{e(nt)} · '
-                     f'last activity {e(fmt_t(last.get((v, r["platform"]))))}</span>{err}</div>')
-    pubs = {(r["variant_id"], r["platform"]) for r in con.execute("SELECT variant_id, platform FROM publications")}
-    jrows = []
-    for j in ig_jobs():
-        st = "posted" if (j["variant"], "instagram") in pubs else ("dry run" if j["dry_run"] else "scheduled")
-        if st == "scheduled" and j.get("t") and j["t"] < time.time():
-            st = "overdue"
-        jrows.append(f'<div class="row"><b>{e(j["variant"])}</b> {badge(st)} <span class=muted>at {e(fmt_t(j.get("t")) if j.get("t") else j["when"])} · last activity '
-                     f'{e(fmt_t(last.get((j["variant"], "instagram"))))} · log {e(j["log"])}</span></div>')
-    prow = []
-    for r in con.execute("SELECT * FROM publications ORDER BY id DESC LIMIT 40"):
-        sched = ts_epoch(r["scheduled_for"])
-        st = "scheduled" if sched and sched > time.time() else "live"
-        link = f' <a href="{e(r["url"])}" rel="noreferrer" target="_blank">open</a>' if r["url"] and str(r["url"]).startswith("https://") else ""
-        prow.append(f'<div class="row"><b>{e(r["variant_id"])}</b> {e(r["platform"])} {badge(st)} <span class=muted>{e(fmt_ts(r["scheduled_for"] or r["published_at"]))}</span>{link}</div>')
-    iss = con.execute("SELECT * FROM issues WHERE stage='publish' AND status IN ('open','acknowledged') ORDER BY last_t DESC").fetchall()
-    irows = "".join(f'<div class="row">{badge(i["severity"])} <b>{e(i["variant_id"] or "-")}</b> {e(i["platform"])} — {e(i["title"])} (×{i["occurrences"]})<div class=muted>{e(i["suggestion"])} · '
-                    f'retry safe: {"yes" if i["retry_safe"] == 1 else "no" if i["retry_safe"] == 0 else "unknown"}</div></div>' for i in iss)
-    body = ((f"<section><h2>Uploading now</h2>{inflight}</section>" if inflight else "")
-            + (f"<section><h2>Upload problems</h2>{irows}</section>" if irows else "")
-            + f"<section><h2>YouTube queue</h2>{''.join(qrows) or '<p>Empty.</p>'}</section>"
-            + f"<section><h2>Instagram jobs</h2>{''.join(jrows) or '<p>None scheduled.</p>'}</section>"
-            + f"<section><h2>Publications</h2>{''.join(prow) or '<p>None yet.</p>'}</section><p class=muted>Progress bars appear only when the uploader measured progress.</p>")
-    return page("Uploads", body, "/uploads", live_after=0)
-
-
-def render_issues(con, csrf, q):
-    show_all = (q.get("all") or [""])[0] == "1"
-    rows = monitor.issues(con, only_open=not show_all)
-    cards = []
-    for r in rows[:200]:
-        retry = "yes" if r["retry_safe"] == 1 else "no" if r["retry_safe"] == 0 else "unknown"
-        ack = (f'<form method="post" action="/issues/{r["id"]}/ack"><input type="hidden" name="csrf" value="{e(csrf)}"><button>Acknowledge</button></form>'
-               if r["status"] == "open" else "")
-        logl = f"<div class=muted>Log: {e(rel(r['log_ref']))}</div>" if r["log_ref"] else ""
-        res = f"<div class=muted>Resolved {e(fmt_ts(r['resolved_at']))}: {e(scrub(r['resolution']))}</div>" if r["status"] == "resolved" else ""
-        cards.append(f'<div class="card sev-{e(r["severity"])}"><div>{badge(r["severity"])} {badge(r["status"])} <b>#{r["id"]} {e(r["title"])}</b></div>'
-                     f'<div class=muted>{e(r["variant_id"] or r["content_id"] or r["project_id"] or "workspace")} · {e(r["platform"] or "-")} · {e(r["stage"])} · ×{r["occurrences"]} · last {e(fmt_ts(r["last_seen"]))}</div>'
-                     f'<p>{e(r["explanation"])}</p><p><b>What to do:</b> {e(r["suggestion"])}</p><p>Retry safe: <b>{retry}</b></p>'
-                     f'<details><summary>Technical detail</summary><pre>{e(scrub(r["technical"])[:2000])}</pre></details>{logl}{res}{ack}</div>')
-    toggle = '<a href="/issues">open only</a>' if show_all else '<a href="/issues?all=1">show resolved too</a>'
-    return page("Issues", f"<p>{toggle}</p>" + ("".join(cards) or "<p>No open issues.</p>"), "/issues")
-
-
-def render_timeline(con, q):
-    video = (q.get("video") or [""])[0].strip()
-    if video and not re.fullmatch(r"C\d{4,}(-[a-z]{2,3})?", video):
-        video = ""
-    kind = (q.get("kind") or [""])[0]
-    rows = query_events(limit=200, video=video or None)
-    if kind:
-        rows = [x for x in rows if x["kind"] == kind]
-    form = (f'<form class="filters" method="get"><label>Video<input name="video" value="{e(video)}" placeholder="C0006-hi"></label>'
-            f'{_opts("kind", list(events.KINDS), kind, "Kind")}<button>Show</button> <a href="/timeline">all</a></form>')
-    title = f"History of {video}" if video else "Timeline"
-    after = max([x["rowid"] for x in rows], default=0)
-    return page(title, form + f'<ul id="feed" class="feed">{"".join(ev_li(x) for x in reversed(rows))}</ul>', "/timeline", live_after=after, video=video)
-
-
-def _num(x):
-    if x is None or x == "":
-        return "-"
-    if isinstance(x, float):
-        return f"{x:,.1f}" if x % 1 else f"{int(x):,}"
-    return f"{x:,}" if isinstance(x, int) else str(x)
-
-
 def analytics_rows(con):
     out = []
     q = ("SELECT s.*, p.variant_id, p.platform AS pplat, p.url FROM analytics_snapshots s JOIN publications p ON p.id=s.publication_id "
@@ -643,90 +464,15 @@ def next_collection():
     return nxt, plist
 
 
-def render_analytics(con):
-    rows = analytics_rows(con)
-    head = "<tr><th>Video</th><th>Platform</th><th>Age</th><th>Views</th><th>Reach</th><th>Likes</th><th>Comments</th><th>Shares</th><th>Saves</th><th>Avg watch s</th></tr>"
-    trs = "".join(f'<tr><td><a href="/timeline?video={quote(r["variant"])}">{e(r["variant"])}</a></td><td>{e(r["platform"])}</td><td>{e(r["label"])}</td>'
-                  f'<td>{_num(r.get("views"))}</td><td>{_num(r.get("reach"))}</td><td>{_num(r.get("likes"))}</td><td>{_num(r.get("comments"))}</td><td>{_num(r.get("shares"))}</td>'
-                  f'<td>{_num(r.get("saves"))}</td><td>{_num(r.get("watch"))}</td></tr>' for r in rows)
-    ins = {}
-    try:
-        ins = json.loads((DATA / "reports" / "latest_insights.json").read_text())
-    except (OSError, ValueError):
-        pass
-    finds = "".join(f'<li>{badge(f.get("tier", "?"))} <b>{e(f.get("id"))}</b> {e(f.get("text"))} <span class=muted>(n={e(f.get("n"))})</span></li>' for f in ins.get("findings", []))
-    acts = "".join(f'<li><b>{e(a.get("id"))}</b> {e(a.get("text"))}</li>' for a in ins.get("actions", []))
-    nxt, has_job = next_collection()
-    body = (f'<p>Next collection: <b>{nxt.strftime("%a %d %b %H:%M")}</b> {"(daily job installed)" if has_job else "(daily job NOT installed)"}</p>'
-            f'<section><h2>Latest snapshot per video</h2><div class="scroll"><table>{head}{trs}</table></div>'
-            '<p class=muted>YouTube: public counters unless Analytics totals exist. Instagram: lifetime insights; average watch converted from ms. Numbers come straight from the stored snapshots.</p></section>'
-            f'<section><h2>Insights {e(ins.get("date", ""))}{" (stale)" if ins.get("stale") else ""}</h2><ul class=plain>{finds or "<li>No insights yet.</li>"}</ul>'
-            + (f"<h2>Script actions</h2><ul class=plain>{acts}</ul>" if acts else "") + "</section>")
-    return page("Analytics", body, "/analytics")
-
-
-def offline_html():
-    return ("<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content='width=device-width,initial-scale=1'><title>Offline · Studio</title>"
-            "<link rel=stylesheet href=/static/app.css></head><body><main><h1>Mac unreachable</h1><p>The dashboard runs on the Mac. It is asleep, offline, or the tunnel address changed.</p>"
-            "<p>Send <b>/link</b> to the Telegram bot for the current address, then open it here.</p></main></body></html>")
-
-
-CSS = """:root{--bg:#10151a;--fg:#e8ede9;--mut:#93a09a;--card:#18211d;--line:#2a3832;--acc:#7fd1a8;--bad:#ff7b72;--warn:#f2cc60;--run:#79c0ff}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.45 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
-header{position:sticky;top:0;background:#1d2b24;z-index:5;border-bottom:1px solid var(--line)}.top{display:flex;justify-content:space-between;padding:10px 16px}
-nav{display:flex;overflow-x:auto;gap:4px;padding:0 10px 8px}nav a{color:var(--mut);text-decoration:none;padding:6px 10px;border-radius:16px;white-space:nowrap}
-nav a.on{background:var(--acc);color:#0b1410}main{padding:12px 16px 40px;max-width:980px;margin:auto}h1{font-size:1.35rem;margin:.3em 0 .6em}h2{font-size:1.05rem;margin:1em 0 .4em}
-a{color:var(--acc)}.muted{color:var(--mut);font-size:.9em}.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px}
-.tiles.small{grid-template-columns:repeat(auto-fill,minmax(96px,1fr))}.tile{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px}
-.tile .v{font-size:1.5rem;font-weight:600}.tile .l{color:var(--mut);font-size:.85em}.tile .s{font-size:.8em;color:var(--mut)}
-.tile.bad .v{color:var(--bad)}.tile.warn .v,.tile.wait .v{color:var(--warn)}.tile.run .v{color:var(--run)}
-.card,.row{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:8px 0;overflow-wrap:anywhere}
-.card.sev-critical{border-left:4px solid var(--bad)}.card.sev-recoverable{border-left:4px solid var(--warn)}
-.b{display:inline-block;font-size:.75em;padding:1px 7px;border-radius:9px;background:#2a3832;color:var(--fg)}
-.b.critical,.b.failed,.b.needs-attention,.b.overdue{background:#5c1f1b}.b.recoverable,.b.waiting,.b.waiting-for-approval,.b.backoff{background:#5a4a16}
-.b.running,.b.processing{background:#173a5c}.b.completed,.b.live,.b.posted,.b.done,.b.resolved{background:#1f4a33}
-.feed{list-style:none;padding:0;margin:0}.feed li{padding:6px 0;border-bottom:1px solid var(--line);overflow-wrap:anywhere}.feed .tm{color:var(--mut);font-variant-numeric:tabular-nums}
-.ev.k-failed .ic,.ev.k-unknown_outcome .ic{color:var(--bad)}.ev.k-completed .ic{color:var(--acc)}.st{color:var(--mut);font-size:.9em}
-.filters{display:flex;flex-wrap:wrap;gap:8px;align-items:end;margin-bottom:8px}.filters label{display:flex;flex-direction:column;font-size:.8em;color:var(--mut)}
-select,input,button{font:inherit;background:#0d1215;color:var(--fg);border:1px solid var(--line);border-radius:8px;padding:6px 8px}button{background:var(--acc);color:#0b1410;border:0;cursor:pointer}
-.err{color:var(--bad);font-size:.9em}pre{white-space:pre-wrap;font-size:.8em;background:#0d1215;padding:8px;border-radius:8px}
-.scroll{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:.88em}td,th{padding:5px 6px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}
-td:first-child,th:first-child,td:nth-child(2),th:nth-child(2){text-align:left}ul.plain{padding-left:18px}.live{font-size:.8em;color:var(--mut)}.live.on{color:var(--acc)}.live.poll{color:var(--warn)}
-.banner{background:var(--warn);text-align:center;padding:8px}.banner a{color:#111;font-weight:600}progress{width:120px}"""
-
-JS = """(function(){var b=document.body,live=document.getElementById('live'),feed=document.getElementById('feed'),banner=document.getElementById('banner');
-if('serviceWorker' in navigator){navigator.serviceWorker.register('/sw.js').catch(function(){});}
-if(!b.dataset.live)return;var last=parseInt(b.dataset.after||'0',10),video=b.dataset.video||'',es=null,timer=null,seen=Date.now(),mode='';
-function setMode(m,t){mode=m;live.className='live '+m;live.textContent=t;}
-function add(x){if(x.rowid<=last)return;last=x.rowid;if(video&&x.variant!==video&&x.who.indexOf(video)!==0)return;
-if(feed){var li=document.createElement('li');li.className='ev k-'+x.kind;var s=function(c,t){var e=document.createElement('span');e.className=c;e.textContent=t;li.appendChild(e);li.appendChild(document.createTextNode(' '));};
-s('tm',x.time);s('ic',x.icon);var a=document.createElement('a');a.href='/timeline?video='+encodeURIComponent(x.variant);a.textContent=x.who;li.appendChild(a);li.appendChild(document.createTextNode(' '));
-s('st',x.stage);s('msg',x.message+(x.progress!=null?' '+Math.round(x.progress*100)+'%':'')+(x.error_code?' ['+x.error_code+']':''));feed.insertBefore(li,feed.firstChild);
-while(feed.children.length>300)feed.removeChild(feed.lastChild);}if(!feed||location.pathname!=='/timeline'){banner.hidden=false;}}
-function poll(){fetch('/api/events?after='+last,{credentials:'same-origin',cache:'no-store'}).then(function(r){if(r.status===401){setMode('','signed out');return null;}return r.json();})
-.then(function(d){if(!d)return;(d.events||[]).forEach(add);setMode('poll','live (polling)');}).catch(function(){setMode('','offline');});}
-function startPoll(){if(es){es.close();es=null;}if(!timer){timer=setInterval(poll,10000);poll();}}
-function startSSE(){if(!window.EventSource){startPoll();return;}es=new EventSource('/events/stream?after='+last);
-es.addEventListener('ev',function(m){seen=Date.now();try{add(JSON.parse(m.data));}catch(e){}setMode('on','live');});
-es.addEventListener('ping',function(){seen=Date.now();if(mode!=='on')setMode('on','live');});es.onerror=function(){if(Date.now()-seen>20000)startPoll();};}
-setInterval(function(){if(es&&Date.now()-seen>25000)startPoll();},5000);setMode('','connecting');if(b.dataset.sse==='1'){startSSE();}else{startPoll();}})();"""
-
-SW = """const C='ss-shell-v1';const SHELL=['/offline.html','/static/app.css','/static/app.js','/icon-192.png'];
-self.addEventListener('install',e=>{e.waitUntil(caches.open(C).then(c=>c.addAll(SHELL)));self.skipWaiting();});
-self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k!==C).map(k=>caches.delete(k)))));self.clients.claim();});
-self.addEventListener('fetch',e=>{const r=e.request;if(r.method!=='GET')return;const u=new URL(r.url);if(u.origin!==location.origin)return;
-if(r.mode==='navigate'){e.respondWith(fetch(r).catch(()=>caches.match('/offline.html')));return;}
-if(SHELL.includes(u.pathname)){e.respondWith(fetch(r).catch(()=>caches.match(r)));}});"""
-
-MANIFEST = json.dumps({"name": "Shorts Studio", "short_name": "Studio", "start_url": "/", "scope": "/", "display": "standalone", "background_color": "#10151a",
-                       "theme_color": "#1d2b24", "icons": [{"src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable"},
+MANIFEST = json.dumps({"name": "Shorts Studio", "short_name": "Studio", "start_url": "/", "scope": "/", "display": "standalone", "background_color": "#14191c",
+                       "theme_color": "#14191c", "icons": [{"src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable"},
                                                            {"src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable"}]})
 
 
 def png_icon(n):
-    bg, fg = (29, 43, 36), (232, 237, 233)
+    bg, fg = (20, 25, 28), (232, 190, 110)
     rows = []
-    cx, cy = n * 0.54, n * 0.5
+    cy = n * 0.5
     h = n * 0.36
     for y in range(n):
         row = bytearray([0])
@@ -749,9 +495,9 @@ _static = {}
 def static_files():
     if not _static:
         _static.update({
-            "/static/app.css": ("text/css; charset=utf-8", CSS.encode()), "/static/app.js": ("text/javascript; charset=utf-8", JS.encode()),
-            "/sw.js": ("text/javascript; charset=utf-8", SW.encode()), "/manifest.webmanifest": ("application/manifest+json", MANIFEST.encode()),
-            "/offline.html": ("text/html; charset=utf-8", offline_html().encode()), "/icon-192.png": ("image/png", png_icon(192)),
+            "/static/app.css": ("text/css; charset=utf-8", dashui.CSS.encode()), "/static/app.js": ("text/javascript; charset=utf-8", dashui.JS.encode()),
+            "/sw.js": ("text/javascript; charset=utf-8", dashui.SW.encode()), "/manifest.webmanifest": ("application/manifest+json", MANIFEST.encode()),
+            "/offline.html": ("text/html; charset=utf-8", dashui.offline_html().encode()), "/icon-192.png": ("image/png", png_icon(192)),
             "/icon-512.png": ("image/png", png_icon(512)),
         })
         _static["/favicon.ico"] = _static["/icon-192.png"]
@@ -831,12 +577,7 @@ class Handler(BaseHTTPRequestHandler):
     def unauthorized(self, api=False):
         if api:
             return self.send(401, json.dumps({"error": "sign-in required"}), "application/json")
-        body = ('<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Sign in · Studio</title>'
-                '<link rel=stylesheet href=/static/app.css></head><body><main><h1>Sign-in needed</h1><p>Open the dashboard link from the Telegram bot '
-                '(send <b>/link</b> to the bot to get it again).</p>'
-                '<p>Using the home-screen app? Long-press the link in Telegram, copy it, and paste it here:</p>'
-                '<form method=post action=/login><input name=link autocomplete=off style="width:100%;padding:10px" placeholder="https://…/login?k=…">'
-                '<p><button type=submit style="padding:10px 16px">Sign in</button></p></form></main></body></html>')
+        body = dashui.signin_html()
         self.send(401, body)
 
     def do_HEAD(self):
@@ -869,11 +610,14 @@ class Handler(BaseHTTPRequestHandler):
             return self.send(303, "", extra={"Location": "/", "Set-Cookie": f"{COOKIE}=; Path=/; Max-Age=0; HttpOnly; Secure; SameSite=Lax"})
         nonce = self.session()
         api = path.startswith("/api/") or path == "/events/stream"
-        routes = {"/": render_overview, "/projects": render_projects, "/analytics": render_analytics}
-        if path not in routes and path not in ("/queue", "/uploads", "/issues", "/timeline", "/api/events", "/api/overview", "/events/stream"):
-            return self.send(404, "<h1>Not found</h1>")
+        pages = ("/", "/progress", "/uploads", "/problems", "/results")
+        episode = EPISODE_RX.fullmatch(path)
+        if path not in pages and path not in OLD_ROUTES and not episode and path not in ("/api/events", "/api/overview", "/events/stream"):
+            return self.send(404, NOT_FOUND)
         if not nonce:
             return self.unauthorized(api)
+        if path in OLD_ROUTES:
+            return self.send(302, "", extra={"Location": OLD_ROUTES[path]})
         if path == "/events/stream":
             if self.tunneled():
                 return self.send(409, json.dumps({"error": "streaming is buffered by the quick tunnel; poll /api/events"}), "application/json")
@@ -888,16 +632,19 @@ class Handler(BaseHTTPRequestHandler):
                 self.html_fix = ('data-sse="1"', 'data-sse="0"')
             if path == "/api/overview":
                 return self.send(200, json.dumps(monitor.overview(con), default=str), "application/json")
-            if path in routes:
-                return self.send(200, routes[path](con))
-            if path == "/queue":
-                return self.send(200, render_queue(con, q))
+            if path == "/":
+                return self.send(200, dashui.render_home(con))
+            if path == "/progress":
+                return self.send(200, dashui.render_progress(con, q))
             if path == "/uploads":
-                return self.send(200, render_uploads(con))
-            if path == "/issues":
-                return self.send(200, render_issues(con, csrf_for(nonce), q))
-            if path == "/timeline":
-                return self.send(200, render_timeline(con, q))
+                return self.send(200, dashui.render_uploads(con))
+            if path == "/problems":
+                return self.send(200, dashui.render_problems(con, csrf_for(nonce), q))
+            if path == "/results":
+                return self.send(200, dashui.render_results(con, q))
+            if episode:
+                body = dashui.render_episode(con, episode.group(1))
+                return self.send(200, body) if body else self.send(404, NOT_FOUND)
         finally:
             con.close()
 
@@ -993,14 +740,19 @@ class Handler(BaseHTTPRequestHandler):
         token = (form.get("csrf") or [""])[0]
         if not hmac.compare_digest(token.encode(), csrf_for(nonce).encode()):
             return self.send(403, "<h1>Form expired</h1><p>Reload the page and try again.</p>")
+        ids = [int(m.group(1))]
+        for part in (form.get("ids") or [""])[0].split(",")[:50]:
+            if part.strip().isdigit() and int(part) not in ids:
+                ids.append(int(part))
         con = events.connect()
         try:
-            r = con.execute("SELECT status FROM issues WHERE id=?", (int(m.group(1)),)).fetchone()
-            if r and r["status"] == "open":
-                monitor.resolve_issue(con, int(m.group(1)), "acknowledged on the dashboard", "acknowledged")
+            for iid in ids:
+                r = con.execute("SELECT status FROM issues WHERE id=?", (iid,)).fetchone()
+                if r and r["status"] == "open":
+                    monitor.resolve_issue(con, iid, "acknowledged on the dashboard", "acknowledged")
         finally:
             con.close()
-        return self.send(303, "", extra={"Location": "/issues"})
+        return self.send(303, "", extra={"Location": "/problems"})
 
 
 class Server(ThreadingHTTPServer):
@@ -1163,10 +915,10 @@ def rotate_log():
         pass
 
 
-def run(port=PORT, tunnel=True):
+def run(port=PORT, tunnel=False):
     rotate_log()
     srv = make_server(port)
-    log(f"dashboard on http://127.0.0.1:{port} (tunnel {'on' if tunnel else 'off'})")
+    log(f"dashboard on http://127.0.0.1:{port} (tunnel {'in this process' if tunnel else 'run separately: pipeline dashboard tunnel'})")
     tun = Tunnel(port).start() if tunnel else None
 
     def stop(*_):
@@ -1184,3 +936,21 @@ def run(port=PORT, tunnel=True):
         if tun:
             tun.close()
         srv.server_close()
+
+
+def run_tunnel(port=PORT):
+    log(f"tunnel for http://127.0.0.1:{port}; the web server can restart without changing the address")
+    tun = Tunnel(port).start()
+    done = threading.Event()
+
+    def stop(*_):
+        log("tunnel stopping")
+        done.set()
+
+    signal.signal(signal.SIGTERM, stop)
+    signal.signal(signal.SIGINT, stop)
+    try:
+        while not done.wait(1):
+            pass
+    finally:
+        tun.close()

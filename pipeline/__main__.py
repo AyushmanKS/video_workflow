@@ -902,6 +902,30 @@ def cmd_projects(a):
             monitor.add_project(con, a.slug, a.name, a.languages.split(",") if a.languages else [], a.description, a.objective, a.workflow.split(",") if a.workflow else None)
             print(f"project {a.slug} saved")
             return
+        if a.action in ("set-goal", "milestones", "set-milestones"):
+            from . import episodes
+
+            if not a.slug:
+                sys.exit(f"projects {a.action} <slug>")
+            cfg = episodes.get_config(con, a.slug)
+            if cfg is None:
+                sys.exit(f"no project {a.slug}")
+            if a.action == "set-goal":
+                if not a.episodes or a.episodes < 1:
+                    sys.exit("projects set-goal <slug> --episodes N (N >= 1)")
+                cfg = episodes.update_config(con, a.slug, goal_episodes=a.episodes)
+            elif a.action == "set-milestones":
+                if not a.file:
+                    sys.exit("projects set-milestones <slug> --file plan.json (a list, or an object with milestones, goal_episodes and note)")
+                data = json.loads(Path(a.file).read_text())
+                body = data if isinstance(data, dict) else {"milestones": data}
+                try:
+                    episodes.valid_milestones(body.get("milestones"))
+                except ValueError as ex:
+                    sys.exit(str(ex))
+                cfg = episodes.update_config(con, a.slug, milestones=body["milestones"], **{k: body[k] for k in ("goal_episodes", "note") if k in body})
+            print(episodes.fmt_plan(a.slug, cfg))
+            return
         rows = monitor.projects(con)
     if not rows:
         print("no projects")
@@ -968,7 +992,9 @@ def cmd_dashboard(a):
     from . import dashboard, notify
 
     if a.action == "run":
-        dashboard.run(a.port, tunnel=not a.no_tunnel)
+        dashboard.run(a.port, tunnel=a.with_tunnel)
+    elif a.action == "tunnel":
+        dashboard.run_tunnel(a.port)
     elif a.action == "rotate-key":
         dashboard.rotate_key()
         print("New login key and cookie secret saved in secrets/dashboard.json; every phone must sign in again.")
@@ -994,12 +1020,16 @@ def cmd_service(a):
     names = a.names or None
     bad = [n for n in (names or []) if n not in service.SERVICES]
     if bad:
-        sys.exit(f"unknown service(s): {', '.join(bad)} (choose from queue, bot, dashboard)")
+        sys.exit(f"unknown service(s): {', '.join(bad)} (choose from {', '.join(service.SERVICES)})")
     if a.action == "install":
         service.install(names, restart=a.restart)
+    elif a.action == "restart":
+        if not names:
+            sys.exit("Name the services to restart, e.g. dashboard (restarting tunnel changes the address)")
+        service.restart(names)
     elif a.action == "remove":
         if not names:
-            sys.exit("Name the services to remove: queue, bot, dashboard")
+            sys.exit("Name the services to remove: queue, bot, dashboard, tunnel")
         service.remove(names)
     for st in service.status(names):
         print(service.fmt(st))
@@ -1039,12 +1069,12 @@ def main():
     p = sp.add_parser("events", help="event timeline (newest last); --backfill derives history once from runs, QA, decisions, publications, queue and logs"); p.add_argument("--video", help="variant (C0006-hi) or content id (C0006)"); p.add_argument("--since", type=float, help="hours back"); p.add_argument("--project"); p.add_argument("--kind", help="comma list, e.g. failed,unknown_outcome"); p.add_argument("--limit", type=int, default=200); p.add_argument("--backfill", action="store_true"); p.add_argument("--force", action="store_true"); p.set_defaults(fn=cmd_events)
     p = sp.add_parser("issues", help="problems with plain-language explanation, suggestion and retry safety"); p.add_argument("--open", action="store_true"); p.add_argument("--full", action="store_true"); p.set_defaults(fn=cmd_issues)
     p = sp.add_parser("issue", help="issue show|resolve|ack <id>"); p.add_argument("action", choices=["show", "resolve", "ack"]); p.add_argument("issue_id", type=int); p.add_argument("--note"); p.set_defaults(fn=cmd_issue)
-    p = sp.add_parser("projects", help="list projects, or add <slug> --name ... --languages en,hi"); p.add_argument("action", nargs="?", choices=["list", "add"], default="list"); p.add_argument("slug", nargs="?"); p.add_argument("--name"); p.add_argument("--languages"); p.add_argument("--description"); p.add_argument("--objective"); p.add_argument("--workflow", help="comma list of stage names in order"); p.set_defaults(fn=cmd_projects)
+    p = sp.add_parser("projects", help="list projects; add <slug> --name ...; set-goal <slug> --episodes N; milestones <slug>; set-milestones <slug> --file plan.json"); p.add_argument("action", nargs="?", choices=["list", "add", "set-goal", "milestones", "set-milestones"], default="list"); p.add_argument("slug", nargs="?"); p.add_argument("--name"); p.add_argument("--episodes", type=int, help="set-goal: total episodes planned"); p.add_argument("--file", help="set-milestones: JSON file with the milestone list"); p.add_argument("--languages"); p.add_argument("--description"); p.add_argument("--objective"); p.add_argument("--workflow", help="comma list of stage names in order"); p.set_defaults(fn=cmd_projects)
     p = sp.add_parser("overview", help="workspace counts from the database and manifests (no estimates)"); p.add_argument("--json", action="store_true"); p.set_defaults(fn=cmd_overview)
     p = sp.add_parser("telegram", help="private Telegram bot: setup (token from stdin or TELEGRAM_BOT_TOKEN), pair, status, test, drain"); p.add_argument("action", choices=["setup", "pair", "status", "test", "drain"]); p.add_argument("--token-from-stdin", action="store_true"); p.add_argument("--minutes", type=int, default=10); p.set_defaults(fn=cmd_telegram)
     p = sp.add_parser("bot", help="run the Telegram bot daemon (launchd com.shortsstudio.bot)"); p.add_argument("action", choices=["run"]); p.set_defaults(fn=cmd_bot)
-    p = sp.add_parser("dashboard", help="read-only mobile dashboard: run (127.0.0.1 + quick tunnel), rotate-key, link"); p.add_argument("action", choices=["run", "rotate-key", "link"]); p.add_argument("--port", type=int, default=8765); p.add_argument("--no-tunnel", action="store_true"); p.add_argument("--show", action="store_true", help="link: print the secret sign-in link in this terminal"); p.set_defaults(fn=cmd_dashboard)
-    p = sp.add_parser("service", help="launchd services queue, bot, dashboard: install|remove|status [names]"); p.add_argument("action", choices=["install", "remove", "status"]); p.add_argument("names", nargs="*", help="queue, bot, dashboard (install default: bot dashboard)"); p.add_argument("--restart", action="store_true", help="rewrite and restart even if loaded (needed to touch the queue)"); p.set_defaults(fn=cmd_service)
+    p = sp.add_parser("dashboard", help="read-only mobile dashboard: run (web server on 127.0.0.1), tunnel (quick tunnel, separate so web restarts keep the address), rotate-key, link"); p.add_argument("action", choices=["run", "tunnel", "rotate-key", "link"]); p.add_argument("--port", type=int, default=8765); p.add_argument("--with-tunnel", action="store_true", help="run: also start the tunnel in this process"); p.add_argument("--no-tunnel", action="store_true", help=argparse.SUPPRESS); p.add_argument("--show", action="store_true", help="link: print the secret sign-in link in this terminal"); p.set_defaults(fn=cmd_dashboard)
+    p = sp.add_parser("service", help="launchd services queue, bot, dashboard, tunnel: install|restart|remove|status [names]"); p.add_argument("action", choices=["install", "restart", "remove", "status"]); p.add_argument("names", nargs="*", help="queue, bot, dashboard, tunnel (install default: bot dashboard tunnel)"); p.add_argument("--restart", action="store_true", help="rewrite and restart even if loaded (needed to touch the queue)"); p.set_defaults(fn=cmd_service)
     a = ap.parse_args()
     a.fn(a)
 

@@ -2,6 +2,7 @@ import os
 import plistlib
 import subprocess
 import sys
+import time
 
 from . import ROOT
 from .igschedule import AGENTS, LOGS, domain
@@ -9,9 +10,10 @@ from .igschedule import AGENTS, LOGS, domain
 SERVICES = {
     "queue": {"label": "com.shortsstudio.queue", "args": ["publish-queue", "run"], "log": "queue.log", "throttle": 60},
     "bot": {"label": "com.shortsstudio.bot", "args": ["bot", "run"], "log": "bot.log", "throttle": 30},
-    "dashboard": {"label": "com.shortsstudio.dashboard", "args": ["dashboard", "run"], "log": "dashboard.log", "throttle": 30},
+    "dashboard": {"label": "com.shortsstudio.dashboard", "args": ["dashboard", "run"], "log": "dashboard.log", "throttle": 10},
+    "tunnel": {"label": "com.shortsstudio.tunnel", "args": ["dashboard", "tunnel"], "log": "tunnel.log", "throttle": 30},
 }
-DEFAULT_INSTALL = ("bot", "dashboard")
+DEFAULT_INSTALL = ("bot", "dashboard", "tunnel")
 
 
 def python():
@@ -56,8 +58,11 @@ def state(name):
     return out
 
 
-def bootout(name):
+def bootout(name, wait_s=15):
     subprocess.run(["launchctl", "bootout", f"{domain()}/{SERVICES[name]['label']}"], capture_output=True)
+    deadline = time.time() + wait_s
+    while time.time() < deadline and state(name)["loaded"]:
+        time.sleep(0.5)
 
 
 def install(names=None, restart=False, log=print):
@@ -84,6 +89,16 @@ def install(names=None, restart=False, log=print):
             log(f"{name}: bootstrap failed: {r.stderr.strip()}")
             continue
         log(f"{name}: installed {p} (log {SERVICES[name]['log']})")
+
+
+def restart(names, log=print):
+    for name in names:
+        st = state(name)
+        if not st["loaded"]:
+            log(f"{name}: not loaded; install it first")
+            continue
+        r = subprocess.run(["launchctl", "kickstart", "-k", f"{domain()}/{SERVICES[name]['label']}"], capture_output=True, text=True)
+        log(f"{name}: {'restarted' if r.returncode == 0 else 'restart failed: ' + r.stderr.strip()}")
 
 
 def remove(names, log=print):

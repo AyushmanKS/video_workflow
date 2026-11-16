@@ -330,15 +330,17 @@ Hierarchy: workspace → `projects` → videos (`contents`/`variants`) → tasks
 |---|---|---|---|
 | `com.shortsstudio.queue` | `python -m pipeline publish-queue run` | `data/logs/queue.log` | YouTube upload queue. `service install` leaves it alone unless you pass `queue --restart` |
 | `com.shortsstudio.bot` | `python -m pipeline bot run` | `data/logs/bot.log` | Long polling only (outbound HTTPS, no webhook, no open port). Drains the outbox every 5 s and writes a heartbeat to `data/bot_state.json`. Without a token it idles and logs once |
-| `com.shortsstudio.dashboard` | `python -m pipeline dashboard run` | `data/logs/dashboard.log` | `ThreadingHTTPServer` on `127.0.0.1:8765` plus a supervised `cloudflared tunnel --url` child process |
+| `com.shortsstudio.dashboard` | `python -m pipeline dashboard run` | `data/logs/dashboard.log` | `ThreadingHTTPServer` on `127.0.0.1:8765` (web pages only) |
+| `com.shortsstudio.tunnel` | `python -m pipeline dashboard tunnel` | `data/logs/tunnel.log` | Supervises `cloudflared tunnel --url http://127.0.0.1:8765`. Split from the web server on 2026-11-17 so UI updates (`service restart dashboard`) keep the same address |
 
-All three use `KeepAlive`, `RunAtLoad`, `PYTHONUNBUFFERED` and the repo working directory. Measured at idle: about 0 % CPU and 30–35 MB RSS each.
+All four use `KeepAlive`, `RunAtLoad`, `PYTHONUNBUFFERED` and the repo working directory. Measured at idle: about 0 % CPU and 30–35 MB RSS each.
 
 ### Commands
 ```
-python -m pipeline service status                  # all three services
-python -m pipeline service install                 # bot + dashboard (queue untouched)
-python -m pipeline service install bot --restart   # restart one service
+python -m pipeline service status                  # all services
+python -m pipeline service install                 # bot + dashboard + tunnel (queue untouched)
+python -m pipeline service restart dashboard       # reload the web UI; the tunnel and its address stay
+python -m pipeline service install bot --restart   # rewrite and restart one service
 python -m pipeline service install queue --restart # only when you really want to restart the queue
 python -m pipeline service remove bot dashboard
 python -m pipeline telegram status | test | drain  # drain only works while the bot service is stopped
@@ -369,12 +371,20 @@ python -m pipeline dashboard rotate-key            # new key + cookie secret; si
 - **Bot commands:** `/status`, `/overview`, `/issues`, `/queue`, `/uploads`, `/timeline [C0006-hi]`, `/link`, `/ack <id>` (acknowledge only) and `/help`.
 
 ### Dashboard
-- **Pages:** Overview, Projects, Queue (filters for project, language, stage, status and date), Uploads (YouTube queue, measured upload progress only, Instagram jobs, publications, upload problems), Issues (with an Acknowledge button), Timeline (per-video history with `?video=`) and Analytics (latest snapshot per video, latest insights findings and actions, next 20:00 collection).
+- **Pages (redesigned 2026-11-17 for a non-technical reader; plain words only, no internal ids or stage keys):** four bottom tabs.
+  - **Home:** "All good" or "N things need you", a Needs you card (approvals waiting, problems that need the owner), Happening now (a bar only when progress is measured), Coming up next (next 3 posts) and the project goal ring.
+  - **Progress:** project picker, overall goal bar (posted everywhere / made, posting under way / being made / not started), one row per milestone with its own bar, and episode rows with a status pill and per-language dots (YouTube, Instagram).
+  - **Episode** (`/episode/<ID>`): status, a combined step tracker (Script → Your OK → Voice → Pictures → Video → Quality check → Your OK → Scheduled → Live; tap for each language), each language's posting times and a plain-English history.
+  - **Uploads:** Needs fixing, Coming up and Posted, grouped by day.
+  - **Problems:** problems that need the owner (What happened / What to do / Safe to try again / Mark as seen), Sorting itself out (retried automatically), Probably already sorted, Known, no action needed (acknowledged, collapsed) and Fixed.
+  - **How videos are doing** (`/results`, linked from Home and Episode): views, likes, shares, average watch time and one takeaway from `latest_insights.json`, labelled "Early sign" for anecdote-tier findings.
+  - Old paths (`/projects`, `/queue`, `/timeline`, `/issues`, `/analytics`) redirect to the new pages.
+- **Episode status:** `pipeline/episodes.py` is the single source: Idea → Writing → Waiting for your OK (script) → Making video → Waiting for your OK (video) → Ready to post → Scheduled → Live, or Problem. An episode is done when every language is live on every planned platform. Project goal and milestones live in `projects.config` (`python -m pipeline projects set-goal <slug> --episodes N`, `projects milestones <slug>`, `projects set-milestones <slug> --file plan.json`); episodes map to milestones by an optional manifest `milestone` field, otherwise by episode number against cumulative planned counts.
 - **Server-rendered:** HTML with one small vanilla-JS file; no new dependencies.
 - **Paths:** absolute paths are cut back to repo-relative paths, and home directories become `~`.
 - **Sign-in:**
   - `secrets/dashboard.json` (mode 600) holds a random 32-byte `login_key` and `cookie_secret`.
-  - `/login?k=<key>` is compared in constant time, then sets `ss_session`: HMAC-signed, expiry 30 days, `HttpOnly; Secure; SameSite=Strict`. It then redirects to `/` so the key leaves the address bar.
+  - `/login?k=<key>` is compared in constant time, then sets `ss_session`: HMAC-signed, expiry 30 days, `HttpOnly; Secure; SameSite=Lax`. It then redirects to `/` so the key leaves the address bar.
   - Failed logins are limited to 5 per IP (from `CF-Connecting-IP`) and 30 in total per 15 min, then return 429.
   - Every page and API requires the cookie; without it you get a 401 page.
   - Only a fixed set of static files is public: CSS, JS, manifest, service worker, icons, offline page and `/healthz`. Everything else returns 404; there is no file serving and no directory listing.
@@ -385,7 +395,7 @@ python -m pipeline dashboard rotate-key            # new key + cookie secret; si
 - **Live updates:** one shared poller reads `events` every 3 s, and only while someone is watching.
   - Local browsers get Server-Sent Events (`/events/stream`).
   - **Measured on 2026-11-16:** the quick tunnel buffers streamed responses until they close. SSE and chunked plain text behaved the same with 2 KB and 70 KB padding. So pages opened through the tunnel automatically use **polling** of `/api/events` every 10 s, and `/events/stream` answers 409 to tunnel requests.
-- **Tunnel manager:**
+- **Tunnel manager (its own launchd service, `com.shortsstudio.tunnel`):**
   - It starts `cloudflared tunnel --no-autoupdate --url http://127.0.0.1:8765`, reads the `*.trycloudflare.com` address from stderr, and confirms `/healthz` from outside.
   - It stores the address in `data/dashboard_url.json`. When the address changes it queues a Telegram message with the sign-in link.
   - It checks the address every 5 min, restarts cloudflared after 3 failed checks or if it exits (backoff 10 s → 5 min), and stops a stale child process from a previous run.
@@ -408,6 +418,6 @@ python -m pipeline dashboard rotate-key            # new key + cookie secret; si
 
 ### Troubleshooting
 - **No messages:** run `python -m pipeline service status` and `tail data/logs/bot.log`, then `python -m pipeline telegram status` to see outbox counts. `telegram test` sends one message.
-- **Dashboard link dead:** send `/link`. If there's still no address, `tail data/logs/dashboard.log` and `python -m pipeline service install dashboard --restart`.
+- **Dashboard link dead:** send `/link`. If there's still no address, `tail data/logs/tunnel.log` and `python -m pipeline service restart tunnel` (this gives a new address).
 - **"Link not valid":** the key was rotated, so use the newest link. **"Too many attempts":** wait 15 min.
 - **A leaked link:** run `python -m pipeline dashboard rotate-key`. **A leaked bot token:** `/revoke` it in BotFather, then run `telegram setup` again.
