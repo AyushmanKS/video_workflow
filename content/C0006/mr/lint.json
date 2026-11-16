@@ -1,0 +1,29 @@
+{
+  "language": "mr",
+  "verdict": "pass",
+  "estimate": {
+    "rate": 2.3,
+    "letter_rate": null,
+    "basis": "words",
+    "scene_seconds": [
+      1.3,
+      4.35,
+      2.61,
+      2.61,
+      3.04,
+      4.78,
+      3.48,
+      5.22,
+      4.35,
+      3.48,
+      5.22
+    ],
+    "pauses": 2.94,
+    "total": 44.52,
+    "words": 93
+  },
+  "rate_source": "given",
+  "findings": [],
+  "at": "2026-11-16T21:24:48+0530",
+  "script_sha256": "51a0571ec1f6aefbff1ba0e4a5b7611c0ee3706494dc03680bb3c23484cd2991"
+}

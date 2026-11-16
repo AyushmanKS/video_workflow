@@ -1,0 +1,110 @@
+[
+  {
+    "text": "श्रीराम के आगे झुके अस्त्र।",
+    "type": "in medias res / forbidden detail",
+    "spoken_s": 2.11,
+    "scores": {
+      "curiosity": 5,
+      "emotion": 4,
+      "specificity": 5,
+      "speed": 5,
+      "resonance": 5,
+      "accuracy": 5
+    },
+    "total": 29,
+    "selected": true,
+    "visual_hook": true,
+    "hook_to_payoff": "closes at scene 9 (about 80%)",
+    "reasoning": "Selected: highest rubric total. Frame 0 (embodied weapons bowing, palms joined) reads muted; the hook pays off the Ep05 teaser (divine weapons) and the image returns at the payoff (scene 9, 1.28.12 'bowing, palms joined') at about 80% of runtime. Sources 1.27.25 (palms joined, 'we are your servants') and 1.28.12 (prahva, bowing)."
+  },
+  {
+    "text": "देवों को भी दुर्लभ अस्त्र, श्रीराम को मिले।",
+    "type": "bold claim",
+    "spoken_s": 3.09,
+    "scores": {
+      "curiosity": 4,
+      "emotion": 3,
+      "specificity": 4,
+      "speed": 2,
+      "resonance": 5,
+      "accuracy": 5
+    },
+    "total": 23,
+    "selected": false,
+    "visual_hook": false,
+    "hook_to_payoff": "closes at scene 5–6",
+    "reasoning": "1.27.23 'hard to obtain even for the gods'. True, but a claim without an image; weaker muted frame 0."
+  },
+  {
+    "text": "अस्त्र मिल गए, फिर भी राम ने कुछ और माँगा।",
+    "type": "request with a twist",
+    "spoken_s": 3.25,
+    "scores": {
+      "curiosity": 4,
+      "emotion": 3,
+      "specificity": 4,
+      "speed": 2,
+      "resonance": 4,
+      "accuracy": 5
+    },
+    "total": 22,
+    "selected": false,
+    "visual_hook": false,
+    "hook_to_payoff": "closes at scene 8–10",
+    "reasoning": "The real turn (1.28.2), but spoken over the 3.0 s hard limit and it spends the Turn in the first second."
+  },
+  {
+    "text": "उपहार के बाद राम ने क्या माँगा?",
+    "type": "question",
+    "spoken_s": 2.28,
+    "scores": {
+      "curiosity": 4,
+      "emotion": 2,
+      "specificity": 2,
+      "speed": 4,
+      "resonance": 3,
+      "accuracy": 5
+    },
+    "total": 20,
+    "selected": false,
+    "visual_hook": false,
+    "hook_to_payoff": "closes at scene 8–10",
+    "reasoning": "Generic question; no concrete image for frame 0."
+  },
+  {
+    "text": "एक सुबह, दर्जनों दिव्य अस्त्र।",
+    "type": "number",
+    "spoken_s": 2.6,
+    "scores": {
+      "curiosity": 3,
+      "emotion": 3,
+      "specificity": 4,
+      "speed": 4,
+      "resonance": 3,
+      "accuracy": 4
+    },
+    "total": 21,
+    "selected": false,
+    "visual_hook": false,
+    "hook_to_payoff": "closes at scene 5–6",
+    "reasoning": "'Dozens' is safe (more than forty weapons are named in 1.27.4–20, counted by the scriptwriter) but vague, and a count invites nitpicking about which items are weapons."
+  },
+  {
+    "text": "अंगारे, धुआँ, सूर्य-चंद्र — सब राम के आगे झुके।",
+    "type": "sensory in medias res",
+    "spoken_s": 3.25,
+    "scores": {
+      "curiosity": 4,
+      "emotion": 4,
+      "specificity": 5,
+      "speed": 2,
+      "resonance": 3,
+      "accuracy": 5
+    },
+    "total": 23,
+    "selected": false,
+    "visual_hook": true,
+    "hook_to_payoff": "closes at scene 9 (about 80%)",
+    "reasoning": "1.28.12 (embers, smoke, sun and moon). Strong sensory image, but it describes the withdrawal powers, so used as the hook it is confusing before context; kept for the payoff scene."
+  }
+]

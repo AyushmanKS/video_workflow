@@ -1,0 +1,220 @@
+{
+  "engine_version": 2,
+  "fps": 30,
+  "total": 56.05,
+  "frames": 1681,
+  "first_word": 0.15,
+  "hook_end": 2.31,
+  "verses": [
+    {
+      "index": 7,
+      "start": 28.85,
+      "end": 34.73
+    }
+  ],
+  "scenes": [
+    {
+      "start": 0.0,
+      "cut": 0.0,
+      "end": 1.94,
+      "draw_end": 0.8,
+      "reveal": "hybrid",
+      "transition": "start",
+      "start_drawn": 0.72,
+      "index": 0,
+      "narration_start": 0.15,
+      "narration_end": 2.31,
+      "kind": "story",
+      "image": 0,
+      "shot": "WS",
+      "move": "push",
+      "accent": "divine",
+      "overlay": [
+        "godrays"
+      ]
+    },
+    {
+      "start": 1.94,
+      "cut": 2.49,
+      "end": 7.95,
+      "draw_end": 3.29,
+      "reveal": "fast",
+      "transition": "erase",
+      "start_drawn": 0.0,
+      "index": 1,
+      "narration_start": 2.49,
+      "narration_end": 7.77,
+      "kind": "story",
+      "image": 1,
+      "shot": "WS",
+      "accent": "forest",
+      "emphasis": "ऋषि का उपहार"
+    },
+    {
+      "start": 7.95,
+      "cut": 7.95,
+      "end": 11.01,
+      "draw_end": 8.562,
+      "reveal": "fast",
+      "transition": "cut",
+      "start_drawn": 0.0,
+      "index": 2,
+      "narration_start": 7.95,
+      "narration_end": 10.83,
+      "kind": "story",
+      "image": 2,
+      "move": {
+        "type": "tilt",
+        "dir": "down"
+      },
+      "accent": "divine",
+      "emphasis": "दिव्य अस्त्र"
+    },
+    {
+      "start": 11.01,
+      "cut": 11.01,
+      "end": 15.68,
+      "draw_end": 11.81,
+      "reveal": "fast",
+      "transition": "cut",
+      "start_drawn": 0.0,
+      "index": 3,
+      "narration_start": 11.01,
+      "narration_end": 16.05,
+      "kind": "story",
+      "image": 3,
+      "move": {
+        "type": "truck",
+        "dir": "right"
+      },
+      "accent": "divine"
+    },
+    {
+      "start": 15.68,
+      "cut": 16.23,
+      "end": 20.41,
+      "draw_end": 17.03,
+      "reveal": "fast",
+      "transition": "erase",
+      "start_drawn": 0.0,
+      "index": 4,
+      "narration_start": 16.23,
+      "narration_end": 20.23,
+      "kind": "story",
+      "image": 4,
+      "shot": "MS",
+      "accent": "ashram",
+      "overlay": [
+        "smoke"
+      ]
+    },
+    {
+      "start": 20.41,
+      "cut": 20.41,
+      "end": 25.23,
+      "draw_end": 21.21,
+      "reveal": "fast",
+      "transition": "flash",
+      "start_drawn": 0.0,
+      "index": 5,
+      "narration_start": 20.41,
+      "narration_end": 25.05,
+      "kind": "story",
+      "image": 5,
+      "shot": "WS",
+      "move": "push",
+      "accent": "divine",
+      "overlay": [
+        "godrays"
+      ]
+    },
+    {
+      "start": 25.23,
+      "cut": 25.23,
+      "end": 28.3,
+      "draw_end": 25.844,
+      "reveal": "fast",
+      "transition": "cut",
+      "start_drawn": 0.0,
+      "index": 6,
+      "narration_start": 25.23,
+      "narration_end": 28.35,
+      "kind": "story",
+      "image": 6,
+      "shot": "insert",
+      "move": "push",
+      "accent": "divine"
+    },
+    {
+      "start": 28.3,
+      "cut": 28.85,
+      "end": 34.73,
+      "draw_end": 32.966,
+      "reveal": "draw",
+      "transition": "erase",
+      "start_drawn": 0.0,
+      "index": 7,
+      "narration_start": 28.85,
+      "narration_end": 34.13,
+      "kind": "verse",
+      "image": 7
+    },
+    {
+      "start": 34.73,
+      "cut": 34.73,
+      "end": 41.42,
+      "draw_end": 35.53,
+      "reveal": "fast",
+      "transition": "flash",
+      "start_drawn": 0.0,
+      "index": 8,
+      "narration_start": 34.73,
+      "narration_end": 41.37,
+      "kind": "story",
+      "image": 8,
+      "shot": "WS",
+      "move": "push",
+      "accent": "divine",
+      "overlay": [
+        "embers",
+        "smoke"
+      ],
+      "emphasis": "लौटाने की विद्या"
+    },
+    {
+      "start": 41.42,
+      "cut": 41.55,
+      "end": 47.66,
+      "draw_end": 42.35,
+      "reveal": "fast",
+      "transition": "whip",
+      "start_drawn": 0.0,
+      "index": 9,
+      "narration_start": 41.55,
+      "narration_end": 47.71,
+      "kind": "story",
+      "image": 9,
+      "shot": "WS",
+      "move": "pull",
+      "accent": "divine"
+    },
+    {
+      "start": 47.66,
+      "cut": 48.11,
+      "end": 56.05,
+      "draw_end": 48.91,
+      "reveal": "fast",
+      "transition": "black",
+      "start_drawn": 0.0,
+      "index": 10,
+      "narration_start": 48.11,
+      "narration_end": 55.07,
+      "kind": "story",
+      "image": 10,
+      "shot": "WS",
+      "move": "push",
+      "accent": "forest",
+      "emphasis": "आगे: मारीच, सुबाहु"
+    }
+  ]
+}

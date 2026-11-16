@@ -1,0 +1,110 @@
+[
+  {
+    "text": "Rama's new weapons bowed before him.",
+    "type": "in medias res / forbidden detail",
+    "spoken_s": 2.07,
+    "scores": {
+      "curiosity": 5,
+      "emotion": 4,
+      "specificity": 5,
+      "speed": 5,
+      "resonance": 4,
+      "accuracy": 5
+    },
+    "total": 28,
+    "selected": true,
+    "visual_hook": true,
+    "hook_to_payoff": "closes at scene 9 (about 80%)",
+    "reasoning": "Selected: highest rubric total. Frame 0 (embodied weapons bowing, palms joined) reads muted; the hook pays off the Ep05 teaser (divine weapons) and the image returns at the payoff (scene 9, 1.28.12 'bowing, palms joined') at about 80% of runtime. Sources 1.27.25 (palms joined, 'we are your servants') and 1.28.12 (prahva, bowing). hookscore.py (English-only second opinion, 2026-11-16): all six WEAK, 30–37/100 (question hook highest at 37, selected hook 30); weakest property STAKES for every line. Not used to override the rubric or accuracy."
+  },
+  {
+    "text": "Gods rarely get these weapons. Rama did.",
+    "type": "bold claim",
+    "spoken_s": 2.65,
+    "scores": {
+      "curiosity": 4,
+      "emotion": 3,
+      "specificity": 4,
+      "speed": 4,
+      "resonance": 4,
+      "accuracy": 5
+    },
+    "total": 24,
+    "selected": false,
+    "visual_hook": false,
+    "hook_to_payoff": "closes at scene 5–6",
+    "reasoning": "1.27.23 'hard to obtain even for the gods'. True, but a claim without an image; weaker muted frame 0."
+  },
+  {
+    "text": "Rama got the weapons. Then he asked how to call them back.",
+    "type": "request with a twist",
+    "spoken_s": 3.73,
+    "scores": {
+      "curiosity": 4,
+      "emotion": 3,
+      "specificity": 4,
+      "speed": 2,
+      "resonance": 4,
+      "accuracy": 5
+    },
+    "total": 22,
+    "selected": false,
+    "visual_hook": false,
+    "hook_to_payoff": "closes at scene 8–10",
+    "reasoning": "The real turn (1.28.2), but spoken over the 3.0 s hard limit and it spends the Turn in the first second."
+  },
+  {
+    "text": "What did Rama ask for after the gift?",
+    "type": "question",
+    "spoken_s": 2.4,
+    "scores": {
+      "curiosity": 4,
+      "emotion": 2,
+      "specificity": 2,
+      "speed": 4,
+      "resonance": 3,
+      "accuracy": 5
+    },
+    "total": 20,
+    "selected": false,
+    "visual_hook": false,
+    "hook_to_payoff": "closes at scene 8–10",
+    "reasoning": "Generic question; no concrete image for frame 0."
+  },
+  {
+    "text": "One morning. Dozens of divine weapons.",
+    "type": "number",
+    "spoken_s": 2.57,
+    "scores": {
+      "curiosity": 3,
+      "emotion": 3,
+      "specificity": 4,
+      "speed": 4,
+      "resonance": 3,
+      "accuracy": 4
+    },
+    "total": 21,
+    "selected": false,
+    "visual_hook": false,
+    "hook_to_payoff": "closes at scene 5–6",
+    "reasoning": "'Dozens' is safe (more than forty weapons are named in 1.27.4–20, counted by the scriptwriter) but vague, and a count invites nitpicking about which items are weapons."
+  },
+  {
+    "text": "Embers. Smoke. Sun and moon. All bowing to Rama.",
+    "type": "sensory in medias res",
+    "spoken_s": 2.98,
+    "scores": {
+      "curiosity": 4,
+      "emotion": 4,
+      "specificity": 5,
+      "speed": 4,
+      "resonance": 3,
+      "accuracy": 5
+    },
+    "total": 25,
+    "selected": false,
+    "visual_hook": true,
+    "hook_to_payoff": "closes at scene 9 (about 80%)",
+    "reasoning": "1.28.12 (embers, smoke, sun and moon). Strong sensory image, but it describes the withdrawal powers, so used as the hook it is confusing before context; kept for the payoff scene."
+  }
+]

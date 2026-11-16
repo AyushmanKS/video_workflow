@@ -1,0 +1,110 @@
+# जेव्हा दिव्य अस्त्रे श्रीरामांपुढे झुकली | रामायण भाग 6
+
+- Language: mr · scenes: 11 · words: 94 · lint estimate **44.96 s** (basis words; target 35–55 s, hard limit < 60 s)
+- Edition: vulgate (southern recension), sa.wikisource; verse numbers cross-checked on valmikiramayan.net
+- Loop type: composition (scene 11 reuses frame 0's framing) · Next card: scene 11 emphasis
+- Silences: 0.5 s after scene 7 (before the Turn), 0.6 s after scene 8 (verse card, before the Payoff), 0.4 s after scene 10 (before Next)
+- Engagement line: none in video; pinned-comment idea: "Which of these weapons does Rama use on Maricha?" (Manava, 1.27.16 → 1.30.17, revealed in Ep07)
+- Thumbnail: scene 1 image, headline "श्रीरामांपुढे झुकली अस्त्रे"
+
+**Review status: not native-reviewed.** This is the series' first Marathi script, and `profiles/languages/mr.json` is a draft with no reviewer. A model wrote it in the standard Pune/Mumbai register, originally rather than from the Hindi, with honorifics श्रीराम (plural verbs) and विश्वामित्र ऋषी / ऋषींनी. It quotes no Geet Ramayan lyrics. It still needs a native read and listen before publishing.
+
+**Duration caveat:** Marathi has no calibrated rate, so lint uses the 2.3 words/s fallback, which gives a low estimate for long Marathi words. At the Hindi Malini letter rate (6.151 letters/s), this script comes to about 55.5 s, which is the more realistic figure. The text was trimmed against that conservative figure so the render stays under 60 s.
+
+## Hook: selected
+
+**अस्त्रे श्रीरामांपुढे झुकली.** (in medias res / forbidden detail, spoken 1.3 s, 29/30)
+
+## Hooks (rubric /30: Curiosity, Emotion, Specificity, Speed, Resonance, Accuracy)
+
+| # | Hook | Type | s | C | E | S | Sp | R | A | Total |
+|---|---|---|---|---|---|---|---|---|---|---|
+| 1 ✔ | अस्त्रे श्रीरामांपुढे झुकली. | in medias res / forbidden detail | 1.3 | 5 | 4 | 5 | 5 | 5 | 5 | 29 |
+| 2 | देवांनाही दुर्लभ अस्त्रे श्रीरामांना मिळाली. | bold claim | 2.17 | 4 | 3 | 4 | 5 | 5 | 5 | 26 |
+| 3 | अस्त्रे मिळाली, तरी श्रीरामांनी आणखी काही मागितले. | request with a twist | 3.04 | 4 | 3 | 4 | 2 | 5 | 5 | 23 |
+| 4 | भेटीनंतर श्रीरामांनी काय मागितले? | question | 1.74 | 4 | 2 | 2 | 5 | 4 | 5 | 22 |
+| 5 | एक सकाळ, डझनावारी दिव्य अस्त्रे. | number | 2.17 | 3 | 3 | 4 | 5 | 3 | 4 | 22 |
+| 6 | निखारे, धूर, सूर्य-चंद्र — सारे श्रीरामांपुढे झुकले. | sensory in medias res | 2.61 | 4 | 4 | 5 | 4 | 4 | 5 | 26 |
+
+## Narration
+
+1. अस्त्रे श्रीरामांपुढे झुकली.
+2. सकाळी विश्वामित्र ऋषी हसून म्हणाले — रामा, माझी सारी अस्त्रे तुझी.
+3. त्यांनी नावे घेतली — धर्मचक्र, कालचक्र, वज्रास्त्र.
+4. ब्रह्मास्त्र, अग्नी-वायूची अस्त्रे, आणि झोप आणणारेही.
+5. पूर्वेकडे तोंड करून ऋषींनी देवदुर्लभ मंत्र दिले.
+6. जपातच अस्त्रे प्रकट झाली. हात जोडून म्हणाली — आम्ही आपले सेवक आहोत.
+7. श्रीरामांनी स्पर्श करून सांगितले — माझ्या मनात वास करा.
+8. श्रीराम म्हणाले — आता देवही मला हरवू शकत नाहीत. पण परत बोलावायलाही शिकवा.
+9. ऋषींनी तेही शिकवले. त्या शक्तीही निखारे, धूर, सूर्य-चंद्रासारख्या येऊन झुकल्या.
+10. श्रीराम म्हणाले — आता जा. गरजेला मनातून साथ द्या.
+11. पुढे होता सिद्धाश्रम. ऋषी म्हणाले — इथे येणाऱ्या राक्षसांचा वध तुलाच करायचा आहे.
+
+## Scene table
+
+| # | Beat | Est. s | Pause | Title card | Locator (vulgate) |
+|---|---|---|---|---|---|
+| 1 | H1/H2 hook | 1.3 | 0.18 |  | VR 1.27.25, 1.28.12 |
+| 2 | C (Ep05 teaser payoff) | 4.35 | 0.18 | ऋषींची भेट | VR 1.27.1–2 |
+| 3 | C | 3.04 | 0.18 | दिव्य अस्त्रे | VR 1.27.4–6 |
+| 4 | E | 2.61 | 0.18 |  | VR 1.27.7, 1.27.10–11, 1.27.15 |
+| 5 | E | 3.04 | 0.18 |  | VR 1.27.22–23 |
+| 6 | E (hook answered) | 4.78 | 0.18 |  | VR 1.27.24–26 |
+| 7 | E | 3.48 | 0.5 |  | VR 1.27.27 |
+| 8 | T (verse card) | 5.22 | 0.6 |  | VR 1.28.2 |
+| 9 | P (main loop closes) | 4.35 | 0.18 | परत बोलावण्याची विद्या | VR 1.28.3–12 |
+| 10 | P | 3.48 | 0.4 |  | VR 1.28.14–15 |
+| 11 | N (teaser 1.29.23) | 5.22 | 0.18 | पुढे: मारीच, सुबाहू | VR 1.29.3–4, 1.29.23; card 1.30.12 |
+
+## Verse card (scene 8)
+
+> गृहीतास्त्रोऽस्मि भगवन् / दुराधर्षः सुरैरपि। / अस्त्राणां त्वहमिच्छामि / संहारान् मुनिपुङ्गव॥
+> वाल्मीकि रामायण 1.28.2 (दाक्षिणात्य पाठ)
+
+Meaning: "I have received the weapons, lord, and am unassailable even by the gods. Now I wish for their withdrawals." The narration gives the meaning while the card is on screen; the verse is not recited.
+
+## Sources (edition: vulgate, sa.wikisource; numbers cross-checked on valmikiramayan.net)
+
+- VR 1.27.1–2 (vulgate (sa.wikisource)): next morning Vishvamitra smiles and says he is pleased; gives Rama all the weapons
+- VR 1.27.4–7 (vulgate (sa.wikisource)): discus of danda, dharma, kala, Vishnu, Indra; vajra; Brahma weapon (brahmastra 1.27.7)
+- VR 1.27.10–11 (vulgate (sa.wikisource)): Agneya (fire) and Vayavya (wind) weapons
+- VR 1.27.15 (vulgate (sa.wikisource)): prasvapana (the sleep-bringing weapon)
+- VR 1.27.22–23 (vulgate (sa.wikisource)): facing east, the sage gives the mantras; weapons hard to obtain even for gods
+- VR 1.27.24–26 (vulgate (sa.wikisource)): as he chants, the weapons stand before Rama, palms joined: 'we are your servants'
+- VR 1.27.27 (vulgate (sa.wikisource)): Rama touches them with his hand: 'be present in my mind'
+- VR 1.28.2 (vulgate (sa.wikisource)): on-screen verse: 'I have the weapons, unassailable even by gods; I wish for their withdrawals (samhara)'
+- VR 1.28.3–12 (vulgate (sa.wikisource)): the sage teaches the withdrawals; they appear bowing, like embers, smoke, sun and moon
+- VR 1.28.14–15 (vulgate (sa.wikisource)): 'go as you wish; in my mind, help me when needed'; they circle him and depart
+- VR 1.29.3–4, 1.29.23 (vulgate (sa.wikisource)): Siddhashrama; teaser verse 1.29.23: rakshasas come to this hermitage, here you must kill them
+- VR 1.30.12 (vulgate (sa.wikisource)): Maricha and Subahu attack the sacrifice (named on the Next card only)
+- https://sa.wikisource.org/wiki/रामायणम्/बालकाण्डम्/सर्गः_२७ (accessed 2026-11-16)
+- https://sa.wikisource.org/wiki/रामायणम्/बालकाण्डम्/सर्गः_२८ (accessed 2026-11-16)
+- https://www.valmikiramayan.net/utf8/baala/sarga29/balasans29.htm (accessed 2026-11-16)
+
+## Accuracy notes
+
+- Every narrated fact maps to a verse in `research/report.md`. No invented dialogue: the spoken lines are reported speech condensed from 1.27.2, 1.27.25, 1.27.27, 1.28.2, 1.28.14 and 1.29.23 (`quote_src` set on those scenes).
+- Lakshmana and the weapon names beyond those narrated are omitted for length. Rama's request for the withdrawals is given no motive (the text gives none).
+- "Bowed" in the hook: 1.27.25 says palms joined, and 1.28.12 says bowing with palms joined (the withdrawal powers). The hook image returns at scene 9.
+- Sarga 29 numbering on sa.wikisource is broken; 1.29.23 is from valmikiramayan.net. The CE and Goldman were not checked, so there are no `[CE]` tags.
+- Estimated seconds: 44.96 (lint, scene seconds [1.3, 4.35, 3.04, 2.61, 3.04, 4.78, 3.48, 5.22, 4.35, 3.48, 5.22], pauses 2.94 s, lead/tail 1.15 s).
+
+## Applied learnings
+Source: `data/reports/latest_insights.json` (generated 2026-11-16T20:00:05+0530).
+
+- **A1** (anecdote, n=4): Prefer the 35 s beat shape (turn T at 18–25 s) unless the story needs 45/55 s, and state the stakes by H2 — viewers currently leave around 17 s; avg watch 5–25 s on 75–111 s videos (instagram <12h) (anecdote, n=4; F1)
+  - Not applied as a shape change: the episode needs the 55 s shape (Turn at about 29 s) to fit the named weapons and the withdrawal request; the hook still carries the stakes (the weapons bowing).
+- **A2** (anecdote, n=1): Keep the hook ≤3.0 s with the stakes in the first sentence and frame 0 ≥70% drawn; in gu, te write the first line natively short, not translated — C0001-gu avg watch 4.8 s of 102 s (F2), C0001-te avg watch 13.4 s of 111 s (F3) (instagram <12h) (anecdote, n=1; F2)
+  - Applied: hook spoken 2.1–2.2 s, written natively short in each language; frame 0 is the bowing image.
+- **A3** (anecdote, n=4): Stay inside 35–55 s and aim for the lower half unless density needs 55 s — longer videos held a smaller share (rank correlation -0.80: C0001-en 75 s→0.27, C0001-hi 94 s→0.27, C0001-gu 102 s→0.05, C0001-te 111 s→0.12; instagram <12h) (anecdote, n=4; F4)
+  - Not applied: all five estimates sit at 52–55 s by deliberate choice (density), inside the approved 35–55 s rule; an anecdote cannot override the rule either way.
+- **A4** (anecdote, n=4): Use the ≤6-word engagement line as a share prompt with a real answer in the text and compare shares/reach next time — shares/reach median 0.2% vs saves/reach 0.9% (instagram <12h) (anecdote, n=4; F5)
+  - Applied: no engagement line in the video; a pinned-comment question is suggested in script.md.
+
+## Review fixes applied (2026-11-16)
+From `review.md`; lint re-run after.
+
+- Scene 3: "इंद्राचे वज्र." → "वज्रास्त्र." (1.27.5); opener kept for scene length
+- Scene 8: spelling "बोलावायलाही"
+- Scene 11 card: "पुढे: मारीच, सुबाहू"
+- Visuals (all languages): light figures in dhoti wraps with their weapon emblem at the chest; scene 3 war discus with a flaming rim instead of an eight-spoked wheel; scene 4 sleep weapon as an arrow in silver mist.

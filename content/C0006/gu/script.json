@@ -1,0 +1,343 @@
+{
+  "title": "જ્યારે દિવ્ય અસ્ત્રો શ્રીરામ સામે ઝૂક્યાં | રામાયણ ભાગ 6",
+  "topic": "The divine weapons (Valmiki Ramayana 1.27–1.28; teaser 1.29.23)",
+  "style": "chalk",
+  "language": "gu",
+  "character": "",
+  "engine_version": 2,
+  "edition": "vulgate (southern recension), sa.wikisource; verse numbers cross-checked on valmikiramayan.net",
+  "scenes": [
+    {
+      "narration": "અસ્ત્રો રામ સામે ઝૂકી ગયાં.",
+      "keywords": [
+        "અસ્ત્રો",
+        "ઝૂકી"
+      ],
+      "emphasis": "",
+      "visual": "{rama_teen} with his back to the viewer, standing small in the foreground of a forest clearing at dawn, before him a semicircle of tall slender human-shaped figures made entirely of soft glowing golden chalk light, exactly two arms each, smooth glowing featureless faces, bare heads, simple dhoti wraps drawn in light, bare shoulders, each figure marked by its own weapon emblem glowing at its chest, heads bowed and palms joined at the chest in namaste, above them glowing Indian astra weapons floating in the air: a spinning golden discus with a serrated rim, a long arrow of light, a slender spear of light and a golden vajra thunderbolt with curved prongs at both ends, vertical composition, subject in the center of the frame, open dark chalkboard space at the top, lower quarter of the frame plain dark chalkboard",
+      "pause": 0.18,
+      "sfx": [
+        {
+          "name": "impact"
+        }
+      ],
+      "melody": "intro",
+      "swell": true,
+      "shot": "WS",
+      "move": "push",
+      "accent": "divine",
+      "overlay": [
+        "godrays"
+      ],
+      "seed": 6000
+    },
+    {
+      "narration": "સવારે વિશ્વામિત્ર હસીને બોલ્યા — રામ, મારાં બધાં અસ્ત્રો તારાં.",
+      "keywords": [
+        "સવારે",
+        "હસીને",
+        "અસ્ત્રો"
+      ],
+      "emphasis": "ઋષિની ભેટ",
+      "visual": "at sunrise in a quiet ancient Indian forest clearing, {vishvamitra} smiling warmly and raising one open hand as he speaks, facing {rama_teen} with his back to the viewer and {lakshmana_teen} standing side by side, soft morning rays slanting through tall sal trees, birds on the branches, vertical composition, subject in the center of the frame, open dark chalkboard space at the top, lower quarter of the frame plain dark chalkboard",
+      "pause": 0.18,
+      "sfx": [
+        {
+          "name": "birds"
+        }
+      ],
+      "melody": "calm",
+      "quote_src": "VR 1.27.1–2 (vulgate)",
+      "shot": "WS",
+      "accent": "forest",
+      "seed": 6001
+    },
+    {
+      "narration": "ધર્મચક્ર, કાલચક્ર, વજ્રાસ્ત્ર.",
+      "keywords": [
+        "ધર્મચક્ર,",
+        "કાલચક્ર,",
+        "વજ્રાસ્ત્ર."
+      ],
+      "emphasis": "દિવ્ય અસ્ત્રો",
+      "visual": "three glowing Indian astra weapons drawn as medium-sized chalk emblems stacked down the middle and lower half of a plain dark chalkboard, the whole top third of the board left completely empty dark chalkboard: at the top a bright golden spinning war discus with a serrated flaming rim radiating light, in the middle a dark iron discus ringed with tiny stars and moon phases around its rim, at the bottom a golden vajra thunderbolt with five curved prongs at each end and a round grip in the middle, crackling with lightning, symbolic emblems floating in empty space, vertical composition, subject in the center of the frame, open dark chalkboard space at the top, lower quarter of the frame plain dark chalkboard",
+      "pause": 0.18,
+      "sfx": [],
+      "transition": "cut",
+      "move": {
+        "type": "tilt",
+        "dir": "down"
+      },
+      "accent": "divine",
+      "seed": 6202
+    },
+    {
+      "narration": "બ્રહ્માસ્ત્ર, અગ્નિ અને વાયુનાં અસ્ત્રો, ઊંઘ લાવનારું પણ.",
+      "keywords": [
+        "બ્રહ્માસ્ત્ર,",
+        "અગ્નિ",
+        "ઊંઘ"
+      ],
+      "emphasis": "",
+      "visual": "four glowing Indian astra emblems standing upright side by side in one horizontal row across the middle of a plain dark chalkboard, all pointing upward, evenly spaced and not touching: an arrow of pure white light rising from a radiant lotus, an arrow wreathed in saffron flames, an arrow trailing swirling spirals of wind, an arrow wrapped in drifting curls of soft silver sleepy mist, symbolic emblems floating in empty space, vertical composition, subject in the center of the frame, open dark chalkboard space at the top, lower quarter of the frame plain dark chalkboard",
+      "pause": 0.18,
+      "sfx": [
+        {
+          "name": "wind"
+        }
+      ],
+      "transition": "cut",
+      "move": {
+        "type": "truck",
+        "dir": "right"
+      },
+      "accent": "divine",
+      "seed": 6103
+    },
+    {
+      "narration": "પૂર્વાભિમુખ થઈ ઋષિએ દેવોને પણ દુર્લભ મંત્રો આપ્યા.",
+      "keywords": [
+        "પૂર્વાભિમુખ",
+        "મંત્રો",
+        "દુર્લભ"
+      ],
+      "emphasis": "",
+      "visual": "{vishvamitra} standing tall on a riverbank facing the rising sun on the eastern horizon, both palms raised as he chants, a small sacred fire burning on a square brick altar beside him, flowing ribbons of glowing chalk light rising from the fire and curling through the air toward {rama_teen} with his back to the viewer, standing a little behind the sage, vertical composition, subject in the center of the frame, open dark chalkboard space at the top, lower quarter of the frame plain dark chalkboard",
+      "pause": 0.18,
+      "sfx": [
+        {
+          "name": "fire"
+        }
+      ],
+      "melody": "love",
+      "shot": "MS",
+      "angle": "low",
+      "accent": "ashram",
+      "overlay": [
+        "smoke"
+      ],
+      "seed": 6004
+    },
+    {
+      "narration": "જપ વચ્ચે જ અસ્ત્રો પ્રગટ થયાં. હાથ જોડી બોલ્યાં — અમે આપના સેવક છીએ.",
+      "keywords": [
+        "પ્રગટ",
+        "સેવક"
+      ],
+      "emphasis": "",
+      "visual": "a row of tall slender human-shaped figures made entirely of soft glowing golden chalk light, exactly two arms each, smooth glowing featureless faces, bare heads, simple dhoti wraps drawn in light, bare shoulders, each figure marked by its own weapon emblem glowing at its chest stepping out of a bright glow and standing before {rama_teen} with his back to the viewer, each figure with palms joined at the chest in namaste, each with its weapon shape glowing softly at its feet: a discus, an arrow, a spear, a mace, a vajra thunderbolt, warm radiant light filling the forest clearing, vertical composition, subject in the center of the frame, open dark chalkboard space at the top, lower quarter of the frame plain dark chalkboard",
+      "pause": 0.18,
+      "sfx": [
+        {
+          "name": "whoosh"
+        }
+      ],
+      "melody": "rise",
+      "swell": true,
+      "quote_src": "VR 1.27.25 (vulgate)",
+      "shot": "WS",
+      "angle": "low",
+      "move": "push",
+      "transition": "flash",
+      "accent": "divine",
+      "overlay": [
+        "godrays"
+      ],
+      "seed": 6005
+    },
+    {
+      "narration": "રામે સ્પર્શ કરીને કહ્યું — મારા મનમાં વસો.",
+      "keywords": [
+        "સ્પર્શ",
+        "મનમાં"
+      ],
+      "emphasis": "",
+      "visual": "close-up drawn only in white and gold chalk outlines on the black board, a young prince's simple slender right hand with five fingers and a simple gold bangle at the wrist, reaching in from the left and gently touching the two joined glowing hands of a figure made of soft golden chalk light whose palms are pressed together in greeting, both hands of the light figure clearly visible, streams of light flowing from the figure up along the prince's forearm, sparks of light drifting upward, the hand and the glowing palms centred on a plain dark chalkboard, vertical composition, subject in the center of the frame, open dark chalkboard space at the top, lower quarter of the frame plain dark chalkboard",
+      "pause": 0.5,
+      "sfx": [],
+      "quote_src": "VR 1.27.27 (vulgate)",
+      "shot": "insert",
+      "move": "push",
+      "transition": "cut",
+      "accent": "divine",
+      "seed": 6206
+    },
+    {
+      "narration": "રામ બોલ્યા — હવે દેવો પણ મને હરાવી નહીં શકે. પણ એમને પાછાં વાળતાં શીખવો.",
+      "keywords": [
+        "દેવો",
+        "પાછાં"
+      ],
+      "emphasis": "",
+      "visual": "the verse written in chalk",
+      "pause": 0.6,
+      "sfx": [],
+      "quote_src": "VR 1.28.2 (vulgate)",
+      "kind": "verse",
+      "devanagari": [
+        "ગૃહીતાસ્ત્રોઽસ્મિ ભગવન્",
+        "દુરાધર્ષઃ સુરૈરપિ।",
+        "અસ્ત્રાણાં ત્વહમિચ્છામિ",
+        "સંહારાન્ મુનિપુઙ્ગવ॥"
+      ],
+      "source": "વાલ્મીકિ રામાયણ 1.28.2 (દાક્ષિણાત્ય પાઠ)",
+      "edition": "vulgate (sa.wikisource)",
+      "tone": "awe",
+      "pacing": "slow"
+    },
+    {
+      "narration": "ઋષિએ એ પણ શીખવ્યું. એ શક્તિઓ ઝૂકીને આવી — અંગારા, ધુમાડા અને સૂર્ય-ચંદ્ર જેવી.",
+      "keywords": [
+        "શક્તિઓ",
+        "અંગારા",
+        "સૂર્ય-ચંદ્ર"
+      ],
+      "emphasis": "પાછાં વાળવાની વિદ્યા",
+      "visual": "a second row of human-shaped figures of light appearing before {rama_teen} standing small in the foreground with his back to the viewer, his dhoti drawn in simple loose folds, the dark sky above him plain and empty, all bowing deeply with palms joined at the chest, exactly two arms each, smooth glowing featureless faces, bare heads, simple dhoti wraps drawn in light: one figure glowing red-orange like smouldering embers, one made of drifting grey smoke, one blazing gold like the sun, one cool silver-white like the full moon, vertical composition, subject in the center of the frame, open dark chalkboard space at the top, lower quarter of the frame plain dark chalkboard",
+      "pause": 0.18,
+      "sfx": [
+        {
+          "name": "fire"
+        }
+      ],
+      "melody": "rise",
+      "swell": true,
+      "shot": "WS",
+      "move": "push",
+      "transition": "flash",
+      "accent": "divine",
+      "overlay": [
+        "embers",
+        "smoke"
+      ],
+      "seed": 6108
+    },
+    {
+      "narration": "રામે કહ્યું — હવે જાઓ. કામ પડે ત્યારે મનમાં આવીને સાથ આપજો.",
+      "keywords": [
+        "જાઓ.",
+        "મનમાં"
+      ],
+      "emphasis": "",
+      "visual": "seen from high above, {rama_teen} standing alone at the centre of a round forest clearing, a ring of small glowing human-shaped figures of light walking in a circle around him, their trails of light forming a luminous spiral that rises and fades into the dark sky, vertical composition, subject in the center of the frame, open dark chalkboard space at the top, lower quarter of the frame plain dark chalkboard",
+      "pause": 0.4,
+      "sfx": [
+        {
+          "name": "whoosh"
+        }
+      ],
+      "quote_src": "VR 1.28.14 (vulgate)",
+      "shot": "WS",
+      "angle": "high",
+      "move": "pull",
+      "transition": "whip",
+      "accent": "divine",
+      "seed": 6009
+    },
+    {
+      "narration": "આગળ હતો સિદ્ધાશ્રમ. ઋષિ બોલ્યા — અહીં આવતા રાક્ષસોનો અંત તારે કરવાનો છે.",
+      "keywords": [
+        "સિદ્ધાશ્રમ.",
+        "રાક્ષસોનો"
+      ],
+      "emphasis": "આગળ: મારીચ, સુબાહુ",
+      "visual": "{rama_teen} with his back to the viewer, standing small in the foreground on a forest path at dusk, beside him {vishvamitra} with dark hair streaked with grey tied in a topknot, a dark beard and a red tilak on his forehead, pointing ahead with his staff, in the distance a humble ancient Indian forest hermitage of thatched huts with a brick fire altar and a thin line of smoke on the edge of a hill, far on the horizon a few small dark human-shaped shadow figures with wild hair standing among the trees, exactly two arms each, bare-headed, vertical composition, subject in the center of the frame, open dark chalkboard space at the top, lower quarter of the frame plain dark chalkboard",
+      "pause": 0.18,
+      "sfx": [
+        {
+          "name": "wind"
+        }
+      ],
+      "melody": "calm",
+      "quote_src": "VR 1.29.23 (vulgate)",
+      "shot": "WS",
+      "move": "push",
+      "accent": "forest",
+      "seed": 6210,
+      "transition": "black"
+    }
+  ],
+  "description": "",
+  "hashtags": [],
+  "thumbnail": {
+    "scene": 0,
+    "devanagari": "",
+    "title": "શ્રીરામ સામે ઝૂક્યાં અસ્ત્રો",
+    "series": "The Epic in Chalk",
+    "episode": "ભાગ 6",
+    "subtitle": ""
+  },
+  "sources": [
+    {
+      "ref": "VR 1.27.1–2",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "next morning Vishvamitra smiles and says he is pleased; gives Rama all the weapons"
+    },
+    {
+      "ref": "VR 1.27.4–7",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "discus of danda, dharma, kala, Vishnu, Indra; vajra; Brahma weapon (brahmastra 1.27.7)"
+    },
+    {
+      "ref": "VR 1.27.10–11",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "Agneya (fire) and Vayavya (wind) weapons"
+    },
+    {
+      "ref": "VR 1.27.15",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "prasvapana (the sleep-bringing weapon)"
+    },
+    {
+      "ref": "VR 1.27.22–23",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "facing east, the sage gives the mantras; weapons hard to obtain even for gods"
+    },
+    {
+      "ref": "VR 1.27.24–26",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "as he chants, the weapons stand before Rama, palms joined: 'we are your servants'"
+    },
+    {
+      "ref": "VR 1.27.27",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "Rama touches them with his hand: 'be present in my mind'"
+    },
+    {
+      "ref": "VR 1.28.2",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "on-screen verse: 'I have the weapons, unassailable even by gods; I wish for their withdrawals (samhara)'"
+    },
+    {
+      "ref": "VR 1.28.3–12",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "the sage teaches the withdrawals; they appear bowing, like embers, smoke, sun and moon"
+    },
+    {
+      "ref": "VR 1.28.14–15",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "'go as you wish; in my mind, help me when needed'; they circle him and depart"
+    },
+    {
+      "ref": "VR 1.29.3–4, 1.29.23",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "Siddhashrama; teaser verse 1.29.23: rakshasas come to this hermitage, here you must kill them"
+    },
+    {
+      "ref": "VR 1.30.12",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "Maricha and Subahu attack the sacrifice (named on the Next card only)"
+    },
+    "https://sa.wikisource.org/wiki/रामायणम्/बालकाण्डम्/सर्गः_२७ (accessed 2026-11-16)",
+    "https://sa.wikisource.org/wiki/रामायणम्/बालकाण्डम्/सर्गः_२८ (accessed 2026-11-16)",
+    "https://www.valmikiramayan.net/utf8/baala/sarga29/balasans29.htm (accessed 2026-11-16)"
+  ],
+  "style_overrides": {
+    "caption_font": "/System/Library/Fonts/KohinoorGujarati.ttc",
+    "caption_font_index": 0,
+    "caption_size": 80,
+    "caption_max_chars": 22
+  },
+  "loop": "composition",
+  "estimated_seconds": 55
+}

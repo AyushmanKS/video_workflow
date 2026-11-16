@@ -1,0 +1,220 @@
+{
+  "engine_version": 2,
+  "fps": 30,
+  "total": 54.13,
+  "frames": 1623,
+  "first_word": 0.15,
+  "hook_end": 2.55,
+  "verses": [
+    {
+      "index": 7,
+      "start": 29.25,
+      "end": 35.37
+    }
+  ],
+  "scenes": [
+    {
+      "start": 0.0,
+      "cut": 0.0,
+      "end": 2.18,
+      "draw_end": 0.8,
+      "reveal": "hybrid",
+      "transition": "start",
+      "start_drawn": 0.72,
+      "index": 0,
+      "narration_start": 0.15,
+      "narration_end": 2.55,
+      "kind": "story",
+      "image": 0,
+      "shot": "WS",
+      "move": "push",
+      "accent": "divine",
+      "overlay": [
+        "godrays"
+      ]
+    },
+    {
+      "start": 2.18,
+      "cut": 2.73,
+      "end": 7.23,
+      "draw_end": 3.53,
+      "reveal": "fast",
+      "transition": "erase",
+      "start_drawn": 0.0,
+      "index": 1,
+      "narration_start": 2.73,
+      "narration_end": 7.05,
+      "kind": "story",
+      "image": 1,
+      "shot": "WS",
+      "accent": "forest",
+      "emphasis": "మహర్షి కానుక"
+    },
+    {
+      "start": 7.23,
+      "cut": 7.23,
+      "end": 10.61,
+      "draw_end": 7.906,
+      "reveal": "fast",
+      "transition": "cut",
+      "start_drawn": 0.0,
+      "index": 2,
+      "narration_start": 7.23,
+      "narration_end": 10.43,
+      "kind": "story",
+      "image": 2,
+      "move": {
+        "type": "tilt",
+        "dir": "down"
+      },
+      "accent": "divine",
+      "emphasis": "దివ్యాస్త్రాలు"
+    },
+    {
+      "start": 10.61,
+      "cut": 10.61,
+      "end": 14.08,
+      "draw_end": 11.304,
+      "reveal": "fast",
+      "transition": "cut",
+      "start_drawn": 0.0,
+      "index": 3,
+      "narration_start": 10.61,
+      "narration_end": 14.45,
+      "kind": "story",
+      "image": 3,
+      "move": {
+        "type": "truck",
+        "dir": "right"
+      },
+      "accent": "divine"
+    },
+    {
+      "start": 14.08,
+      "cut": 14.63,
+      "end": 19.05,
+      "draw_end": 15.43,
+      "reveal": "fast",
+      "transition": "erase",
+      "start_drawn": 0.0,
+      "index": 4,
+      "narration_start": 14.63,
+      "narration_end": 18.87,
+      "kind": "story",
+      "image": 4,
+      "shot": "MS",
+      "accent": "ashram",
+      "overlay": [
+        "smoke"
+      ]
+    },
+    {
+      "start": 19.05,
+      "cut": 19.05,
+      "end": 24.75,
+      "draw_end": 19.85,
+      "reveal": "fast",
+      "transition": "flash",
+      "start_drawn": 0.0,
+      "index": 5,
+      "narration_start": 19.05,
+      "narration_end": 24.57,
+      "kind": "story",
+      "image": 5,
+      "shot": "WS",
+      "move": "push",
+      "accent": "divine",
+      "overlay": [
+        "godrays"
+      ]
+    },
+    {
+      "start": 24.75,
+      "cut": 24.75,
+      "end": 28.7,
+      "draw_end": 25.54,
+      "reveal": "fast",
+      "transition": "cut",
+      "start_drawn": 0.0,
+      "index": 6,
+      "narration_start": 24.75,
+      "narration_end": 28.75,
+      "kind": "story",
+      "image": 6,
+      "shot": "insert",
+      "move": "push",
+      "accent": "divine"
+    },
+    {
+      "start": 28.7,
+      "cut": 29.25,
+      "end": 35.37,
+      "draw_end": 33.534,
+      "reveal": "draw",
+      "transition": "erase",
+      "start_drawn": 0.0,
+      "index": 7,
+      "narration_start": 29.25,
+      "narration_end": 34.77,
+      "kind": "verse",
+      "image": 7
+    },
+    {
+      "start": 35.37,
+      "cut": 35.37,
+      "end": 41.98,
+      "draw_end": 36.17,
+      "reveal": "fast",
+      "transition": "flash",
+      "start_drawn": 0.0,
+      "index": 8,
+      "narration_start": 35.37,
+      "narration_end": 41.93,
+      "kind": "story",
+      "image": 8,
+      "shot": "WS",
+      "move": "push",
+      "accent": "divine",
+      "overlay": [
+        "embers",
+        "smoke"
+      ],
+      "emphasis": "ఉపసంహార విద్య"
+    },
+    {
+      "start": 41.98,
+      "cut": 42.11,
+      "end": 47.02,
+      "draw_end": 42.91,
+      "reveal": "fast",
+      "transition": "whip",
+      "start_drawn": 0.0,
+      "index": 9,
+      "narration_start": 42.11,
+      "narration_end": 47.07,
+      "kind": "story",
+      "image": 9,
+      "shot": "WS",
+      "move": "pull",
+      "accent": "divine"
+    },
+    {
+      "start": 47.02,
+      "cut": 47.47,
+      "end": 54.13,
+      "draw_end": 48.27,
+      "reveal": "fast",
+      "transition": "black",
+      "start_drawn": 0.0,
+      "index": 10,
+      "narration_start": 47.47,
+      "narration_end": 53.15,
+      "kind": "story",
+      "image": 10,
+      "shot": "WS",
+      "move": "push",
+      "accent": "forest",
+      "emphasis": "తర్వాత: మారీచ, సుబాహు"
+    }
+  ]
+}

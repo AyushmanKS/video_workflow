@@ -1,0 +1,580 @@
+{
+  "video": "/Users/ayushman/Desktop/work/shorts-studio/content/C0006/en/C0006-en.mp4",
+  "kind": "automated",
+  "mp4_sha256": "d9b577b3b920ff841cadb0fb5b1e3e836bca256402c5c281828bbc1982b62574",
+  "verdict": "warn",
+  "families": {
+    "story": {
+      "score": 91,
+      "pass": true,
+      "rejects": [],
+      "warns": [
+        "lint_hook"
+      ],
+      "checks": 11
+    },
+    "visual": {
+      "score": 33,
+      "pass": false,
+      "rejects": [],
+      "warns": [
+        "chalk_density",
+        "safe_zones"
+      ],
+      "checks": 3
+    },
+    "audio": {
+      "score": 80,
+      "pass": true,
+      "rejects": [],
+      "warns": [
+        "music_under_speech"
+      ],
+      "checks": 4
+    },
+    "final": {
+      "score": 100,
+      "pass": true,
+      "rejects": [],
+      "warns": [],
+      "checks": 10
+    }
+  },
+  "checks": [
+    {
+      "name": "lint_duration",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "estimate_s": 52.64,
+        "basis": "letters"
+      }
+    },
+    {
+      "name": "lint_hook",
+      "family": "story",
+      "class": "warn",
+      "ok": false,
+      "issues": [
+        "hook scene spoken 2.4 s > 2.2 s"
+      ],
+      "data": {}
+    },
+    {
+      "name": "lint_scene_count",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_scene_length",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_keywords",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_digits",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_quote_src",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_sources",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_edition",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_silences",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_visual_parity",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "format",
+      "family": "final",
+      "class": "reject",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "video": "h264",
+        "audio": "aac",
+        "fps": 30.0,
+        "seconds": 53.5
+      }
+    },
+    {
+      "name": "duration",
+      "family": "final",
+      "class": "reject",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "seconds": 53.5
+      }
+    },
+    {
+      "name": "duration_target",
+      "family": "final",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "seconds": 53.5
+      }
+    },
+    {
+      "name": "loudness",
+      "family": "final",
+      "class": "reject",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "lufs": -13.9,
+        "true_peak_dbfs": -1.6,
+        "lra": 2.6
+      }
+    },
+    {
+      "name": "black_freeze",
+      "family": "final",
+      "class": "reject",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "black": 0,
+        "freeze": 0
+      }
+    },
+    {
+      "name": "silence",
+      "family": "final",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "gaps": 0
+      }
+    },
+    {
+      "name": "first_frame",
+      "family": "final",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "t0.0": 0.2657,
+        "t0.5": 0.2914
+      },
+      "note": "style decision: warn only"
+    },
+    {
+      "name": "narration_asr",
+      "family": "audio",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "scenes": [
+          {
+            "scene": 1,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "Rama's new weapons bowed before him."
+          },
+          {
+            "scene": 2,
+            "cer": 0.016,
+            "length_ratio": 1.0,
+            "heard": "The morning after Tataka, Vishwamitra smiled. Take all my weapons,\" he told Rama."
+          },
+          {
+            "scene": 3,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "The Discus of Dharma, The Discus of Time, The Vajra Thunderbolt"
+          },
+          {
+            "scene": 4,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "The Brahma weapon. Weapons of fire, of wind, even of sleep."
+          },
+          {
+            "scene": 5,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "Facing east, the sage gave him their mantras, rare even for gods."
+          },
+          {
+            "scene": 6,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "As he chanted, the weapons stood before Rama, palms joined. We serve you, they said."
+          },
+          {
+            "scene": 7,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "Rama touched them and said, Dwell in my mind."
+          },
+          {
+            "scene": 8,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "Now not even gods can overcome me, Rama said, but teach me how to call them back."
+          },
+          {
+            "scene": 9,
+            "cer": 0.028,
+            "length_ratio": 0.99,
+            "heard": "So the sage taught him the recall. Those powers bode too, like embers, smoke, sun and moon."
+          },
+          {
+            "scene": 10,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "Go now, Rama told them, come to my mind when I need you."
+          },
+          {
+            "scene": 11,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "Ahead lay Siddhashrama. Here, said the sage, the Rakshasas come. Here you must strike them."
+          }
+        ],
+        "transcripts": [
+          "render-time transcript (heard.json)"
+        ]
+      },
+      "note": "digits vs number-words and Whisper spelling quirks inflate CER; review flagged scenes by ear"
+    },
+    {
+      "name": "speech_rate",
+      "family": "audio",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "reference_letters_per_s": 12.07,
+        "scenes": [
+          {
+            "scene": 1,
+            "seconds": 2.62,
+            "letters_per_s": 11.05,
+            "deviation": -0.085
+          },
+          {
+            "scene": 2,
+            "seconds": 5.62,
+            "letters_per_s": 11.38,
+            "deviation": -0.057
+          },
+          {
+            "scene": 3,
+            "seconds": 4.3,
+            "letters_per_s": 11.86,
+            "deviation": -0.017
+          },
+          {
+            "scene": 4,
+            "seconds": 4.08,
+            "letters_per_s": 11.04,
+            "deviation": -0.085
+          },
+          {
+            "scene": 5,
+            "seconds": 4.6,
+            "letters_per_s": 11.09,
+            "deviation": -0.081
+          },
+          {
+            "scene": 6,
+            "seconds": 5.33,
+            "letters_per_s": 12.21,
+            "deviation": 0.012
+          },
+          {
+            "scene": 7,
+            "seconds": 3.05,
+            "letters_per_s": 11.48,
+            "deviation": -0.049
+          },
+          {
+            "scene": 8,
+            "seconds": 5.03,
+            "letters_per_s": 12.34,
+            "deviation": 0.022
+          },
+          {
+            "scene": 9,
+            "seconds": 5.78,
+            "letters_per_s": 12.29,
+            "deviation": 0.018
+          },
+          {
+            "scene": 10,
+            "seconds": 3.77,
+            "letters_per_s": 10.86,
+            "deviation": -0.1
+          },
+          {
+            "scene": 11,
+            "seconds": 5.45,
+            "letters_per_s": 13.21,
+            "deviation": 0.094
+          }
+        ]
+      }
+    },
+    {
+      "name": "speaker_consistency",
+      "family": "audio",
+      "class": "reject",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "windows": 25,
+        "window_median": 0.739,
+        "window_min": 0.62,
+        "scene_min": 0.715,
+        "median_f0": 198,
+        "calibration": "2026-11-16: 2.5s windows — consistent voice min 0.61 / known-mixed median 0.46 (50% < 0.5); 1s clips are unreliable (same voice down to 0.57)"
+      }
+    },
+    {
+      "name": "music_under_speech",
+      "family": "audio",
+      "class": "warn",
+      "ok": false,
+      "issues": [
+        "speech-band narration only 11.4 dB above the bed (target ≥12 dB)"
+      ],
+      "data": {
+        "median_db": 11.4,
+        "p10_db": 5.6,
+        "voice_gain": 3.808,
+        "frames": 88
+      }
+    },
+    {
+      "name": "captions",
+      "family": "final",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "groups": 48,
+        "timing": "timeline.json",
+        "engine_version": 2
+      }
+    },
+    {
+      "name": "caption_overflow",
+      "family": "final",
+      "class": "reject",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "widest_px": 900,
+        "limit_px": 1020
+      }
+    },
+    {
+      "name": "glyph_coverage",
+      "family": "final",
+      "class": "reject",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "texts": 20,
+        "fontset": "mac"
+      }
+    },
+    {
+      "name": "text_artifacts",
+      "family": "visual",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {},
+      "skipped": true,
+      "note": "tesseract binary not installed (brew install tesseract, Apache-2.0); skipped"
+    },
+    {
+      "name": "near_duplicates",
+      "family": "visual",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "images": 11
+      }
+    },
+    {
+      "name": "chalk_density",
+      "family": "visual",
+      "class": "warn",
+      "ok": false,
+      "issues": [
+        "scene 2: chalk density 49.9% outside 3%–45%"
+      ],
+      "data": {
+        "scenes": [
+          {
+            "scene": 1,
+            "density": 0.364,
+            "top": 0.223,
+            "bottom": 0.798
+          },
+          {
+            "scene": 2,
+            "density": 0.499,
+            "top": 0.923,
+            "bottom": 0.794
+          },
+          {
+            "scene": 3,
+            "density": 0.166,
+            "top": 0.127,
+            "bottom": 0.791
+          },
+          {
+            "scene": 4,
+            "density": 0.089,
+            "top": 0.12,
+            "bottom": 0.186
+          },
+          {
+            "scene": 5,
+            "density": 0.317,
+            "top": 0.034,
+            "bottom": 1.447
+          },
+          {
+            "scene": 6,
+            "density": 0.347,
+            "top": 0.186,
+            "bottom": 0.561
+          },
+          {
+            "scene": 7,
+            "density": 0.07,
+            "top": 0.301,
+            "bottom": 0.797
+          },
+          {
+            "scene": 8,
+            "density": 0.035,
+            "top": 0.0,
+            "bottom": 0.0
+          },
+          {
+            "scene": 9,
+            "density": 0.266,
+            "top": 0.094,
+            "bottom": 0.657
+          },
+          {
+            "scene": 10,
+            "density": 0.227,
+            "top": 0.108,
+            "bottom": 0.334
+          },
+          {
+            "scene": 11,
+            "density": 0.331,
+            "top": 0.048,
+            "bottom": 1.374
+          }
+        ]
+      }
+    },
+    {
+      "name": "safe_zones",
+      "family": "visual",
+      "class": "warn",
+      "ok": false,
+      "issues": [
+        "scene 1: stroke energy in the title zone (top 12%) 0.22 > p90 0.111",
+        "scene 2: stroke energy in the title zone (top 12%) 0.92 > p90 0.111",
+        "scene 3: stroke energy in the title zone (top 12%) 0.13 > p90 0.111",
+        "scene 4: stroke energy in the title zone (top 12%) 0.12 > p90 0.111",
+        "scene 6: stroke energy in the title zone (top 12%) 0.19 > p90 0.111",
+        "scene 7: stroke energy in the title zone (top 12%) 0.30 > p90 0.111"
+      ],
+      "data": {
+        "calibration": {
+          "top_p90": 0.111,
+          "bottom_p90": 1.519,
+          "n": 243
+        }
+      }
+    },
+    {
+      "name": "character_similarity",
+      "family": "visual",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "model_present": false
+      },
+      "skipped": true,
+      "note": "DINOv2 similarity is a human flag only; model not present locally and not downloaded"
+    }
+  ],
+  "contact_sheet": "/Users/ayushman/Desktop/work/shorts-studio/content/C0006/en/C0006-en.qa.png",
+  "manual_review_required": [
+    "character consistency",
+    "visual defects / wrong illustrations",
+    "storytelling quality",
+    "native-speaker listen for non-English"
+  ],
+  "created_at": "2026-11-16T21:26:25+0530",
+  "id": 57
+}

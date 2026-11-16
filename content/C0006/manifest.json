@@ -1,0 +1,480 @@
+{
+  "id": "C0006",
+  "series": "RAMAYANA — The Epic in Chalk",
+  "episode": 6,
+  "topic": "Ramayana Episode 06: The Divine Weapons",
+  "category": "mythology",
+  "style": "chalk",
+  "languages": [
+    "en",
+    "hi",
+    "gu",
+    "te",
+    "mr"
+  ],
+  "primary_language": "en",
+  "engine_version": 2,
+  "stages": {
+    "script:en": {
+      "status": "done",
+      "at": "2026-11-16T19:53:53+0530"
+    },
+    "script:hi": {
+      "status": "done",
+      "at": "2026-11-16T19:53:53+0530"
+    },
+    "script:gu": {
+      "status": "done",
+      "at": "2026-11-16T19:53:53+0530"
+    },
+    "script:te": {
+      "status": "done",
+      "at": "2026-11-16T19:53:53+0530"
+    },
+    "script:mr": {
+      "status": "done",
+      "at": "2026-11-16T19:53:53+0530"
+    },
+    "research": {
+      "status": "done",
+      "at": "2026-11-16T20:05:26+0530",
+      "note": "research/report.md verse table; strategy.md"
+    },
+    "strategy": {
+      "status": "done",
+      "at": "2026-11-16T20:05:31+0530",
+      "note": "strategy.md"
+    },
+    "gate:script": {
+      "status": "approved",
+      "langs": [
+        "en",
+        "hi",
+        "gu",
+        "te",
+        "mr"
+      ],
+      "entries": {
+        "en": {
+          "status": "approved",
+          "at": "2026-11-16T21:14:33+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "",
+          "sha256": "81461ba8c588e49f3083d6b6795f9ba236105a95c513ae170ba8a9409e684c0e",
+          "file": "content/C0006/en/script.json"
+        },
+        "hi": {
+          "status": "approved",
+          "at": "2026-11-16T21:14:33+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "",
+          "sha256": "ed476a00a69b1a7984f1eeb47aa6166a536be978188182154e915ce22c2d4690",
+          "file": "content/C0006/hi/script.json"
+        },
+        "gu": {
+          "status": "approved",
+          "at": "2026-11-16T21:14:33+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "",
+          "sha256": "7b50b6d1f12b8ffd2114550e368fe94a13fce489b75692a05b6a43074a70f0e5",
+          "file": "content/C0006/gu/script.json"
+        },
+        "te": {
+          "status": "approved",
+          "at": "2026-11-16T21:14:33+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "",
+          "sha256": "397464b3e2021f524ddb74c0ba631b9b5715df90dac9bdc0073fd32eae91a7cb",
+          "file": "content/C0006/te/script.json"
+        },
+        "mr": {
+          "status": "approved",
+          "at": "2026-11-16T21:14:33+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "",
+          "sha256": "51a0571ec1f6aefbff1ba0e4a5b7611c0ee3706494dc03680bb3c23484cd2991",
+          "file": "content/C0006/mr/script.json"
+        }
+      },
+      "history": [
+        {
+          "lang": "en",
+          "status": "approved",
+          "at": "2026-11-16T20:09:33+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "",
+          "sha256": "212ee88e15a9e4f14f14110539489c3baa2e9efcc42144ea33c148a69e5f286d",
+          "file": "content/C0006/en/script.json"
+        },
+        {
+          "lang": "hi",
+          "status": "approved",
+          "at": "2026-11-16T20:09:33+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "",
+          "sha256": "18644952bddfa8d03ea07279466b87b64f793a2d9780330374b8851b6e4b227d",
+          "file": "content/C0006/hi/script.json"
+        },
+        {
+          "lang": "gu",
+          "status": "approved",
+          "at": "2026-11-16T20:09:33+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "",
+          "sha256": "0594bde2bcd1da5ca2b2f941d99fb6099df448257df015857852e7db5c6074ec",
+          "file": "content/C0006/gu/script.json"
+        },
+        {
+          "lang": "te",
+          "status": "approved",
+          "at": "2026-11-16T20:09:33+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "",
+          "sha256": "24942fd9ff9eabafa2aca6036814bef69747a4ec4630e2d25269b14ee2519953",
+          "file": "content/C0006/te/script.json"
+        },
+        {
+          "lang": "mr",
+          "status": "approved",
+          "at": "2026-11-16T20:09:33+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "",
+          "sha256": "d2f60b1611461cc7886c81c1b2fe81073062d378f34a1ee4d829577e90288610",
+          "file": "content/C0006/mr/script.json"
+        },
+        {
+          "lang": "en",
+          "status": "approved",
+          "at": "2026-11-16T20:33:13+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "",
+          "sha256": "af419cb644a35a35960b6f4107e4b5227fcd44d9c6769442e3f31574a77c8eb1",
+          "file": "content/C0006/en/script.json"
+        },
+        {
+          "lang": "en",
+          "status": "approved",
+          "at": "2026-11-16T21:01:38+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "",
+          "sha256": "baa9da159fe1f692379ed0f460df86a6d5e1a29df39262da8885bc3a5cbc6edc",
+          "file": "content/C0006/en/script.json"
+        },
+        {
+          "lang": "hi",
+          "status": "approved",
+          "at": "2026-11-16T20:33:13+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "",
+          "sha256": "72612e669b12effa2ab35184a3cb3d43db578b856efcd110b6acaf2a41d69105",
+          "file": "content/C0006/hi/script.json"
+        },
+        {
+          "lang": "gu",
+          "status": "approved",
+          "at": "2026-11-16T20:33:13+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "",
+          "sha256": "30cac58ca5272ea290e00a6dbb0d2524dd41f6fa7fbdc8c8db1907930b65754f",
+          "file": "content/C0006/gu/script.json"
+        },
+        {
+          "lang": "te",
+          "status": "approved",
+          "at": "2026-11-16T20:33:13+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "",
+          "sha256": "477001c58d58e7cdc5f9b90ae39ad6384497b040c909a5bcb10b425031c4ddc7",
+          "file": "content/C0006/te/script.json"
+        },
+        {
+          "lang": "mr",
+          "status": "approved",
+          "at": "2026-11-16T20:33:13+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "",
+          "sha256": "75a707fe80bacbc9e4825f190d90e14d4a38a434f269574ff421a547f5482ab5",
+          "file": "content/C0006/mr/script.json"
+        }
+      ],
+      "at": "2026-11-16T21:14:33+0530",
+      "note": ""
+    },
+    "voice:en": {
+      "status": "done",
+      "at": "2026-11-16T21:02:02+0530"
+    },
+    "voice:hi": {
+      "status": "done",
+      "at": "2026-11-16T20:10:57+0530"
+    },
+    "voice:gu": {
+      "status": "done",
+      "at": "2026-11-16T20:11:46+0530"
+    },
+    "voice:te": {
+      "status": "done",
+      "at": "2026-11-16T20:12:38+0530"
+    },
+    "voice:mr": {
+      "status": "done",
+      "at": "2026-11-16T20:13:28+0530"
+    },
+    "images:en": {
+      "status": "done",
+      "at": "2026-11-16T21:18:09+0530"
+    },
+    "render:en": {
+      "status": "done",
+      "at": "2026-11-16T21:20:28+0530"
+    },
+    "images:hi": {
+      "status": "done",
+      "at": "2026-11-16T21:20:29+0530"
+    },
+    "render:hi": {
+      "status": "done",
+      "at": "2026-11-16T21:21:56+0530"
+    },
+    "images:gu": {
+      "status": "done",
+      "at": "2026-11-16T21:21:57+0530"
+    },
+    "render:gu": {
+      "status": "done",
+      "at": "2026-11-16T21:23:21+0530"
+    },
+    "images:te": {
+      "status": "done",
+      "at": "2026-11-16T21:23:22+0530"
+    },
+    "render:te": {
+      "status": "done",
+      "at": "2026-11-16T21:24:47+0530"
+    },
+    "images:mr": {
+      "status": "done",
+      "at": "2026-11-16T21:24:48+0530"
+    },
+    "render:mr": {
+      "status": "done",
+      "at": "2026-11-16T21:26:15+0530"
+    },
+    "video_qa:en": {
+      "status": "done",
+      "at": "2026-11-16T21:26:25+0530",
+      "note": "warn (report #57)"
+    },
+    "video_qa:hi": {
+      "status": "done",
+      "at": "2026-11-16T21:26:35+0530",
+      "note": "warn (report #58)"
+    },
+    "video_qa:gu": {
+      "status": "done",
+      "at": "2026-11-16T21:26:45+0530",
+      "note": "warn (report #59)"
+    },
+    "video_qa:te": {
+      "status": "done",
+      "at": "2026-11-16T21:26:55+0530",
+      "note": "warn (report #60)"
+    },
+    "video_qa:mr": {
+      "status": "done",
+      "at": "2026-11-16T21:27:05+0530",
+      "note": "warn (report #61)"
+    },
+    "schedule:en": {
+      "status": "done",
+      "at": "2026-11-16T21:27:29+0530",
+      "note": "12:30 2026-11-17T12:30:00+05:30"
+    },
+    "schedule:hi": {
+      "status": "done",
+      "at": "2026-11-16T21:27:26+0530",
+      "note": "12:30 2026-11-17T12:30:00+05:30"
+    },
+    "schedule:gu": {
+      "status": "done",
+      "at": "2026-11-16T21:27:26+0530",
+      "note": "12:30 2026-11-17T12:30:00+05:30"
+    },
+    "schedule:te": {
+      "status": "done",
+      "at": "2026-11-16T21:27:26+0530",
+      "note": "12:30 2026-11-17T12:30:00+05:30"
+    },
+    "schedule:mr": {
+      "status": "done",
+      "at": "2026-11-16T21:27:29+0530",
+      "note": "12:30 2026-11-17T12:30:00+05:30"
+    },
+    "gate:final": {
+      "status": "approved",
+      "langs": [
+        "en",
+        "hi",
+        "gu",
+        "te",
+        "mr"
+      ],
+      "entries": {
+        "en": {
+          "status": "approved",
+          "at": "2026-11-16T21:35:39+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "owner watched all five C0006 videos",
+          "sha256": "d9b577b3b920ff841cadb0fb5b1e3e836bca256402c5c281828bbc1982b62574",
+          "file": "content/C0006/en/C0006-en.mp4",
+          "qa_report_id": 57
+        },
+        "hi": {
+          "status": "approved",
+          "at": "2026-11-16T21:35:39+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "owner watched all five C0006 videos",
+          "sha256": "5d08a8e8c70a55855f9274441d02c83f20f6c1a1fe6aa3270fd8af4fe34da061",
+          "file": "content/C0006/hi/C0006-hi.mp4",
+          "qa_report_id": 58
+        },
+        "gu": {
+          "status": "approved",
+          "at": "2026-11-16T21:35:39+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "owner watched all five C0006 videos",
+          "sha256": "f411071601fbb4ec286794513079dc240166301faa5c48878865fe1b32216834",
+          "file": "content/C0006/gu/C0006-gu.mp4",
+          "qa_report_id": 59
+        },
+        "te": {
+          "status": "approved",
+          "at": "2026-11-16T21:35:39+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "owner watched all five C0006 videos",
+          "sha256": "81a571019647b56bbfd0c917d9aff9b9ceecc81f7b8157a161c5544faa9d5f49",
+          "file": "content/C0006/te/C0006-te.mp4",
+          "qa_report_id": 60
+        },
+        "mr": {
+          "status": "approved",
+          "at": "2026-11-16T21:35:39+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "owner watched all five C0006 videos",
+          "sha256": "ead8694b2a7c366b14722eed84c20672ec9eb21b5f72b5079a2f6f981c1c0418",
+          "file": "content/C0006/mr/C0006-mr.mp4",
+          "qa_report_id": 61
+        }
+      },
+      "history": [],
+      "at": "2026-11-16T21:35:39+0530",
+      "note": "owner watched all five C0006 videos"
+    },
+    "gate:publish:youtube": {
+      "status": "approved",
+      "langs": [
+        "te",
+        "mr",
+        "gu",
+        "hi",
+        "en"
+      ],
+      "entries": {
+        "te": {
+          "status": "approved",
+          "at": "2026-11-16T21:38:07+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "",
+          "platform": "youtube",
+          "time": "2026-11-20T18:30:00+05:30",
+          "video": "content/C0006/te/C0006-te.mp4",
+          "video_sha256": "81a571019647b56bbfd0c917d9aff9b9ceecc81f7b8157a161c5544faa9d5f49",
+          "meta": "content/C0006/te/publish.json",
+          "meta_sha256": "e9c9128cf84ad843051d0d61c8a65590d3c8d6deea0722075cf8902b740ad42d",
+          "meta_hash_scope": "publish.json['youtube']"
+        },
+        "mr": {
+          "status": "approved",
+          "at": "2026-11-16T21:38:07+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "",
+          "platform": "youtube",
+          "time": "2026-11-20T19:00:00+05:30",
+          "video": "content/C0006/mr/C0006-mr.mp4",
+          "video_sha256": "ead8694b2a7c366b14722eed84c20672ec9eb21b5f72b5079a2f6f981c1c0418",
+          "meta": "content/C0006/mr/publish.json",
+          "meta_sha256": "4daa29d1de1b1b975273d89685b2446b557d1b10a3985a1040ee79e739b26c3a",
+          "meta_hash_scope": "publish.json['youtube']"
+        },
+        "gu": {
+          "status": "approved",
+          "at": "2026-11-16T21:38:08+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "",
+          "platform": "youtube",
+          "time": "2026-11-20T19:30:00+05:30",
+          "video": "content/C0006/gu/C0006-gu.mp4",
+          "video_sha256": "f411071601fbb4ec286794513079dc240166301faa5c48878865fe1b32216834",
+          "meta": "content/C0006/gu/publish.json",
+          "meta_sha256": "3dbba6d40aa2193f9d1221c70f84d7657ebaa9c8f5d335fc63b40fbcc74c15d0",
+          "meta_hash_scope": "publish.json['youtube']"
+        },
+        "hi": {
+          "status": "approved",
+          "at": "2026-11-16T21:38:08+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "",
+          "platform": "youtube",
+          "time": "2026-11-20T20:30:00+05:30",
+          "video": "content/C0006/hi/C0006-hi.mp4",
+          "video_sha256": "5d08a8e8c70a55855f9274441d02c83f20f6c1a1fe6aa3270fd8af4fe34da061",
+          "meta": "content/C0006/hi/publish.json",
+          "meta_sha256": "c3407c31e45e70dfd17ed6ddeffcae88b2fe434d6506520dcdec96b50f693f9e",
+          "meta_hash_scope": "publish.json['youtube']"
+        },
+        "en": {
+          "status": "approved",
+          "at": "2026-11-16T21:38:08+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "",
+          "platform": "youtube",
+          "time": "2026-11-20T21:30:00+05:30",
+          "video": "content/C0006/en/C0006-en.mp4",
+          "video_sha256": "d9b577b3b920ff841cadb0fb5b1e3e836bca256402c5c281828bbc1982b62574",
+          "meta": "content/C0006/en/publish.json",
+          "meta_sha256": "bbd0706e8005ea8fa1fdec0ec6908507cfbbad47a35d9745da088bafd2d48235",
+          "meta_hash_scope": "publish.json['youtube']"
+        }
+      },
+      "history": [],
+      "at": "2026-11-16T21:38:08+0530",
+      "note": ""
+    }
+  }
+}

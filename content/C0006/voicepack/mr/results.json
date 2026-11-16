@@ -1,0 +1,110 @@
+[
+  {
+    "voice": "maya2:Malini",
+    "line": 1,
+    "file": "maya2_Malini_line1.wav",
+    "seconds_audio": 6.6,
+    "gen_seconds": 10.4,
+    "cer": 0.095,
+    "heard": "विश्वामित्र रुशी, राम आणी लक्ष्मनाला घ्यून गंगा पार करून एका भयानक जंगलात पहुचले।"
+  },
+  {
+    "voice": "maya2:Malini",
+    "line": 2,
+    "file": "maya2_Malini_line2.wav",
+    "seconds_audio": 4.3,
+    "gen_seconds": 3.8,
+    "cer": 0.161,
+    "heard": "त्या जंगला ताटका रहात होती, जीचात एक हजार हतीं से बढ़ होते,"
+  },
+  {
+    "voice": "maya2:Malini",
+    "line": 3,
+    "file": "maya2_Malini_line3.wav",
+    "seconds_audio": 4.4,
+    "gen_seconds": 3.8,
+    "cer": 0.185,
+    "heard": "दुसरे दिवशी सकाली रुशिन्नी श्री रामान्ना दिव्य अस्त्रे दिली."
+  },
+  {
+    "voice": "maya2:Malini",
+    "line": 4,
+    "file": "maya2_Malini_line4.wav",
+    "seconds_audio": 5.3,
+    "gen_seconds": 4.6,
+    "cer": 0.147,
+    "heard": "धर्माचे रक्षण करने हेच राजपुत्राचे करतव्या है, असे रुशी महनाले."
+  },
+  {
+    "voice": "maya2:Vaidehi",
+    "line": 1,
+    "file": "maya2_Vaidehi_line1.wav",
+    "seconds_audio": 6.6,
+    "gen_seconds": 5.6,
+    "cer": 0.095,
+    "heard": "विश्वामित्ररुशी, राम आणी लक्षमणाला घ्यून गंगा पार करून एका भयानक जंगलाग पहुचले।"
+  },
+  {
+    "voice": "maya2:Vaidehi",
+    "line": 2,
+    "file": "maya2_Vaidehi_line2.wav",
+    "seconds_audio": 4.6,
+    "gen_seconds": 4.0,
+    "cer": 0.258,
+    "heard": "जम्ला ताटका रहात होती, जिचात एक हजार हतीन से बढ़ होते."
+  },
+  {
+    "voice": "maya2:Vaidehi",
+    "line": 3,
+    "file": "maya2_Vaidehi_line3.wav",
+    "seconds_audio": 4.6,
+    "gen_seconds": 3.9,
+    "cer": 0.185,
+    "heard": "दूसर्या दिऊशी सकाली रुशिन्नी श्री रामान्ना दिव्य अस्त्रे दिली."
+  },
+  {
+    "voice": "maya2:Vaidehi",
+    "line": 4,
+    "file": "maya2_Vaidehi_line4.wav",
+    "seconds_audio": 4.4,
+    "gen_seconds": 3.8,
+    "cer": 0.176,
+    "heard": "धर्माचे रक्षन करने हेच राजुपुत्राचे करतव्या है, असे रूशी मणाले।"
+  },
+  {
+    "voice": "maya2:Ahana",
+    "line": 1,
+    "file": "maya2_Ahana_line1.wav",
+    "seconds_audio": 5.9,
+    "gen_seconds": 5.1,
+    "cer": 0.143,
+    "heard": "विश्वामित्र रुशी, राम आणी लक्षमनाला घ्यून गंगा पार करूने का भयानक जंगलाद पहुचले।"
+  },
+  {
+    "voice": "maya2:Ahana",
+    "line": 2,
+    "file": "maya2_Ahana_line2.wav",
+    "seconds_audio": 3.9,
+    "gen_seconds": 3.4,
+    "cer": 0.161,
+    "heard": "त्या जंगला ताटका रहत होती, जिचात एक हजार हतीन से बढ़ होते."
+  },
+  {
+    "voice": "maya2:Ahana",
+    "line": 3,
+    "file": "maya2_Ahana_line3.wav",
+    "seconds_audio": 4.3,
+    "gen_seconds": 3.7,
+    "cer": 0.148,
+    "heard": "दूसर्या दिवशी सकाली रुशिन्नी श्री रामान्ना दिव्य अस्त्रे दिली।"
+  },
+  {
+    "voice": "maya2:Ahana",
+    "line": 4,
+    "file": "maya2_Ahana_line4.wav",
+    "seconds_audio": 5.1,
+    "gen_seconds": 4.4,
+    "cer": 0.147,
+    "heard": "धर्माचे रक्षन करणी हेच राजुपुत्राचे करतव्या है, असे रुशी महलाले."
+  }
+]
