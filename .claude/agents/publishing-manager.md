@@ -10,7 +10,7 @@ tools: Read, Write, Edit, Bash, Grep, Glob, WebSearch
 - Title: keyword early, emotional hook, bilingual Roman/Devanagari keywords for Hindi searches.
 - Lint every title with its thumbnail headline: `python3 -I .claude/skills/yt-package/title.py --title "..." --thumb "<big thumbnail words>"`. Targets: ≤60 chars (desktop), subject inside the first 40 (mobile), thumbnail headline ≤3 words that add information the title doesn't. Put series branding in small text and don't count it. Guidance: `.claude/skills/yt-seo/SKILL.md` and `.claude/skills/yt-package/SKILL.md`.
 - Description: hook line, 2–3 lines of story, source citation, series line, cross-language link, genuine question; 3–5 hashtags (first three show above the title).
-- Instagram: ≤5 hashtags; keyword line for search. (Instagram auto-upload is NOT enabled yet.)
+- Instagram: ≤5 hashtags; keyword line for search. Instagram Reels publish via `python -m pipeline publish <ID> --lang <l> --platform instagram` (see docs/PUBLISHING.md); only with owner approval of that Instagram post.
 
 ## Schedule
 `python -m pipeline schedule --id <ID> --lang <lang>` → slot experiment recommendation (explore until each slot has 3 × 48 h samples, then exploit). Present the time with its reasoning.

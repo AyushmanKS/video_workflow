@@ -11,7 +11,6 @@ ROOT = Path(__file__).parent
 SECRETS = ROOT / "secrets"
 YT_SCOPES = ["https://www.googleapis.com/auth/youtube.upload", "https://www.googleapis.com/auth/youtube"]
 ANALYTICS_SCOPES = ["https://www.googleapis.com/auth/youtube.readonly", "https://www.googleapis.com/auth/yt-analytics.readonly"]
-GRAPH = "https://graph.facebook.com/v25.0"
 
 
 def confirm(summary, assume_yes):
@@ -140,44 +139,15 @@ def youtube_upload(video, meta, thumb, privacy, assume_yes, publish_at=None):
     return result
 
 
-def instagram_publish(video, meta, assume_yes):
-    cfg_path = SECRETS / "instagram.json"
-    if not cfg_path.exists():
-        sys.exit(f"Missing {cfg_path}. Follow the Instagram setup steps in docs/PUBLISHING.md first.")
-    cfg = json.loads(cfg_path.read_text())
+def instagram_publish(video, meta, assume_yes, thumbnail=None, dry_run=False, log=None):
+    import instagram
+
+    prior = instagram.already_published(video, log) if log else None
+    if prior and not dry_run:
+        print(f"  already on Instagram: {prior.get('url') or prior['id']} — not posting again")
+        return None
     ig = meta["instagram"]
-    size = Path(video).stat().st_size
-    if size > 300 * 1024 * 1024:
-        sys.exit("Instagram Reels must be 300 MB or smaller.")
-    confirm(f"Instagram Reel (PUBLIC as soon as it finishes)\n  file:    {video}\n  account: {cfg['ig_user_id']}\n  caption: {ig['caption'][:90]}...", assume_yes)
-    token = cfg["access_token"]
-    r = requests.post(f"{GRAPH}/{cfg['ig_user_id']}/media", data={
-        "media_type": "REELS", "upload_type": "resumable", "caption": ig["caption"],
-        "share_to_feed": "true", "thumb_offset": str(ig.get("thumb_offset_ms", 0)), "access_token": token,
-    }, timeout=60)
-    r.raise_for_status()
-    container = r.json()
-    cid = container["id"]
-    upload_uri = container.get("uri", f"https://rupload.facebook.com/ig-api-upload/v25.0/{cid}")
-    with open(video, "rb") as fh:
-        u = requests.post(upload_uri, headers={"Authorization": f"OAuth {token}", "offset": "0", "file_size": str(size)}, data=fh, timeout=600)
-    u.raise_for_status()
-    print("  video uploaded to Meta; waiting for processing", flush=True)
-    for _ in range(90):
-        s = requests.get(f"{GRAPH}/{cid}", params={"fields": "status_code,status", "access_token": token}, timeout=30).json()
-        if s.get("status_code") == "FINISHED":
-            break
-        if s.get("status_code") in ("ERROR", "EXPIRED"):
-            sys.exit(f"Instagram processing failed: {s}")
-        time.sleep(10)
-    else:
-        sys.exit("Instagram processing timed out; container id " + cid)
-    p = requests.post(f"{GRAPH}/{cfg['ig_user_id']}/media_publish", data={"creation_id": cid, "access_token": token}, timeout=60)
-    p.raise_for_status()
-    mid = p.json()["id"]
-    link = requests.get(f"{GRAPH}/{mid}", params={"fields": "permalink", "access_token": token}, timeout=30).json().get("permalink")
-    print(f"  published: {link or mid}")
-    return {"platform": "instagram", "id": mid, "url": link, "time": time.strftime("%Y-%m-%d %H:%M:%S")}
+    return instagram.publish(video, ig["caption"], thumbnail, ig.get("thumb_offset_ms", 0), dry_run, lambda s: confirm(s, assume_yes))
 
 
 def main():
@@ -191,12 +161,15 @@ def main():
     ap.add_argument("--publish-at", help="schedule public release, RFC3339 e.g. 2026-11-20T19:30:00+05:30 (uploads private until then)")
     ap.add_argument("--variant", help="content variant id (e.g. C0002-hi) to record the publication in data/studio.db")
     ap.add_argument("--slot", help="publishing slot label for timing experiments, e.g. evening-1930")
+    ap.add_argument("--dry-run", action="store_true", help="instagram: check token, tunnel and file limits without posting")
     a = ap.parse_args()
     meta = json.loads(Path(a.meta).read_text())
     if a.platform == "youtube":
         res = youtube_upload(a.video, meta, a.thumbnail, a.privacy, a.yes, a.publish_at)
     else:
-        res = instagram_publish(a.video, meta, a.yes)
+        res = instagram_publish(a.video, meta, a.yes, a.thumbnail, a.dry_run, Path(a.meta).with_name("published.json"))
+        if not res:
+            return
     log = Path(a.meta).with_name("published.json")
     entries = json.loads(log.read_text()) if log.exists() else []
     entries.append({"video": str(a.video), **res})

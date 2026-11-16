@@ -137,7 +137,7 @@ Use `--watch N --oneline` for periodic updates; the owner wants an update every 
 See `.claude/skills/storytelling/SKILL.md`. Write at least 6 hooks per language, score them on the 6-criterion rubric (curiosity, emotion, specificity, speed, resonance, accuracy), and keep them in `hooks.json` with reasoning. Mythology rules: cite book.chapter.verse, never invent verses or dialogue, label later traditions, depict deities symbolically when in doubt.
 
 ## 13. Publishing workflow
-`publish.json` (metadata) → `pipeline schedule` (slot experiment: explore each candidate IST slot until it has 3 × 48 h samples, then exploit) → **G3** → `pipeline publish` (private upload with `publishAt`, plus playlist and thumbnail; the publication is recorded in the database). Pinned comment and Related-video link are set manually in Studio. Instagram code exists in `publish.py` but **auto-upload is disabled by owner decision** until YouTube is proven.
+`publish.json` (metadata) → `pipeline schedule` (slot experiment: explore each candidate IST slot until it has 3 × 48 h samples, then exploit) → **G3** → `pipeline publish` (private upload with `publishAt`, plus playlist and thumbnail; the publication is recorded in the database). Pinned comment and Related-video link are set manually in Studio. Instagram: `instagram.py` (Instagram API with Instagram Login, v27.0) publishes Reels via a temporary cloudflared tunnel (Meta fetches `video_url`). Scheduling is a self-removing launchd job; see `docs/PUBLISHING.md`. Enabled by the owner on 2026-11-16. It still needs G3 approval for the Instagram post specifically.
 
 ## 14. Analytics
 `python -m pipeline analytics` takes due snapshots per publication at 24h, 48h, 7d, 14d and 30d. Each snapshot stores public counters, totals (views, watch minutes, average view duration and percentage, likes, comments, shares, subscribers), daily series, traffic sources, top countries and the retention curve. `python -m pipeline report <VARIANT>` produces a markdown report with retention insights and comparisons. Only metrics the API returns are recorded.
@@ -184,7 +184,7 @@ shorts-studio/
 - **`studio.py`**: the CLI production engine. Supports `--out`, `--stop-after`, `--redo`, `--voice` (Kokoro name or `veena:<speaker>`), per-scene `tts`/`speed`/`seed`/`pause`, and Whisper word alignment (`align_words`). It also does caption grouping (`caption_tokens`, `caption_groups`, `POSTPOSITIONS`).
 - **`chalk.py`**: board and palette, reveal order (connected-component trace), `plan()` timing, `render()`, `text_scene()` (verse/shloka), `font_for()` for all scripts, `music()` and `sound()` SFX, `thumbnail()`.
 - **`veena.py`**: phrase chunking with punctuation pauses, SNAC decode.
-- **`publish.py`**: OAuth (`google_credentials`, separate upload and analytics tokens), `youtube_upload` (publishAt, playlist, thumbnail, DB record), `instagram_publish` (resumable; disabled by policy).
+- **`publish.py`**: OAuth (`google_credentials`, separate upload and analytics tokens), `youtube_upload` (publishAt, playlist, thumbnail, DB record), `instagram_publish` → `instagram.py` (tunnel + `video_url`, dry run, duplicate guard). `pipeline/igschedule.py` installs and removes the launchd jobs; `pipeline ig-jobs` lists them.
 - **`pipeline/__main__.py`**: commands `new status trending research approve done produce takes progress qa schedule publish link analytics report retention-csv`.
 
 ## 19. Completed implementation
@@ -203,7 +203,6 @@ shorts-studio/
 - Analytics read-only token (owner sign-in), then the first real snapshots and reports for C0001.
 - Indic Parler-TTS evaluation for mr, bn, te, ta, gu, kn, ml, pa (needs a free HF token from the owner), then native-speaker listens.
 - Scheduled analytics: a launchd plist to run `python -m pipeline analytics` daily. The template is not installed yet; the owner decides.
-- Instagram auto-upload (deferred by owner).
 - Optional: YouTube API compliance audit application.
 
 ## 21. Known limitations
@@ -231,6 +230,7 @@ shorts-studio/
 - **Other changes:** QA normalizes ज्ञ↔ग्य; the Veena lead-in was reverted; the audio folder records the voice used (`audio/voice.txt`) and QA uses it.
 - **C0004 (Episode 04, Vishvamitra asks for Rama):** owner approved scripts, final videos and publish plan on 2026-11-16. Scheduled Wed 2026-11-18: HI 20:30 IST (`tuDnAZuQyGk`), EN 21:30 IST (`YgLlg2_Do7I`); publishAt verified by API read-back. Scene 4 image was regenerated twice (border, then Western bat-winged gargoyles) and edge-cropped. Hindi scene 12 was regenerated for a pitch spike.
 - **Fixes 2026-11-16 (Ep04):** music padded to voice length (off-by-one crash); caption chunks keep splitting until each fits `caption_max_chars`; speaker QA now loads a reference for any voice id (`profiles/voices/<lang>_<name>_ref.npy`), with `en_af_heart_ref.npy` built from approved C0003-en. Without a reference, QA falls back to scene 1 as the reference, which causes false flags.
+- **Instagram (2026-11-16):** code is ready and the tunnel was tested end to end (115 MB fetched over the internet, listing 404, link dead after close). The owner is creating the Instagram account; next is the Creator switch, Meta app, tester invite, `instagram.py setup`, a dry run, then a launchd schedule dry run (checks Desktop folder access).
 - **Pending:** the owner must enable the YouTube Analytics API in GCP project 145069760719, then run `python -m pipeline analytics --force`; optional HF token (Indic-Speak/IndicConformer); old-episode Hindi re-voice was declined by the owner (2026-11-16); after each video goes live, the owner adds pinned comments and Related-video links manually.
 
 ## 23. Exact next steps

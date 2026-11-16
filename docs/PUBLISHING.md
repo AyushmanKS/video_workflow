@@ -44,27 +44,65 @@ After uploading, it adds the video to the "Valmiki Ramayana" playlist and tries 
 
 ---
 
-## Instagram: one-time setup (once your account exists)
+## Instagram: one-time setup
 
-1. Create the Instagram account. Then go to **Settings → Account type and tools → Switch to professional account → Creator** (or Business).
-2. Create a free Facebook Page and link it: **Instagram → Edit profile → Page → Connect**.
-3. Go to https://developers.facebook.com/ and click **My Apps → Create app**:
-   - Use case: **Manage messaging & content on Instagram**, i.e. the Instagram API with Instagram Login.
-   - In the app's Instagram settings, add your Instagram account as an **Instagram tester**, then accept the invite in Instagram (**Settings → Website permissions → Apps and websites → Tester invites**).
-   - Generate an access token with the **instagram_business_basic** and **instagram_business_content_publish** permissions. Then exchange it for a **long-lived token**, which lasts 60 days and can be refreshed.
-4. Save the result as `~/Desktop/work/shorts-studio/secrets/instagram.json`:
-   ```json
-   {"ig_user_id": "YOUR_INSTAGRAM_USER_ID", "access_token": "YOUR_LONG_LIVED_TOKEN"}
+This uses the **Instagram API with Instagram Login** (API v27.0, host `graph.instagram.com`). It needs **no Facebook Page**, and it's free.
+
+1. **Create the account** in the Instagram app (any email or phone).
+   - Then go to **Settings → Account type and tools → Switch to professional account → Creator**. Business works too; personal accounts can't publish via the API.
+2. **Create a Meta developer account** at https://developers.facebook.com/ using your Facebook login, then accept the developer terms. A new Facebook account is fine; it's only used to own the app.
+3. **Create the app:** go to **My Apps → Create app**.
+   - Use case: **"Manage messaging & content on Instagram"**.
+   - You can skip linking a business portfolio.
+4. **Add yourself as a tester:** in the app, open **Instagram → API setup with Instagram business login**.
+   - Under **App roles → Roles → Instagram testers**, add your Instagram username.
+   - Accept the invite in the Instagram app: **Settings → Website permissions → Apps and websites → Tester invites**.
+   - The app can stay in Development mode. It can publish to accounts that have a role on it.
+5. **Generate a token:** back in **API setup with Instagram business login → Generate access tokens**, click **Add account**.
+   - Log in and grant `instagram_business_basic` and `instagram_business_content_publish`.
+   - Then click **Generate token** and copy it. **Don't paste it into any chat.**
+6. In Terminal, run:
    ```
-   Apps in Development mode can publish to accounts that have a role on the app, so your own account doesn't need app review.
+   cd ~/Desktop/work/shorts-studio && .venv/bin/python instagram.py setup
+   ```
+   Paste the token at the hidden prompt. Press Enter at the app-secret prompt unless Meta said the token is short-lived.
+   - This saves `secrets/instagram.json` (mode 600, git-ignored).
+   - The token lasts about 60 days and is refreshed automatically when it's older than 20 days and still valid.
+7. Run `.venv/bin/python instagram.py status`, which shows the account, token age and publishing quota.
 
-### Publish command (posts publicly)
+### How a post works
+
+Instagram Login apps can't upload a file directly; Meta downloads the video from a public HTTPS link. So `instagram.py`:
+
+1. Serves only that video, and the thumbnail as the cover JPEG, from your Mac through a temporary **Cloudflare quick tunnel**. That needs `brew install cloudflared`, which is free and needs no account.
+2. Uses a random, unguessable path with directory listing disabled.
+3. Creates the Reel container, waits until Instagram has processed the video, **closes the tunnel**, and then publishes.
+
+The tunnel takes about 1–2 minutes to come up.
+
+**Reel limits:** 3 s to 15 min, 300 MB or less, H.264/HEVC, AAC at 48 kHz or lower, 25 Mbps or lower. Our renders (about 12 Mbps, 1080×1920, 30 fps) are well inside these.
+
+### Commands (only after the owner approves the Instagram post: video, caption and time)
 
 ```
-python publish.py instagram $F/valmiki-ramayana-episode-01-english.mp4 --meta $F/publish-english.json
+python -m pipeline publish C0004 --lang en --platform instagram --dry-run --now
+python -m pipeline publish C0004 --lang en --platform instagram --at 2026-11-19T21:30:00+05:30 --yes
+python -m pipeline publish C0004 --lang en --platform instagram --now --yes
+python -m pipeline ig-jobs
+python -m pipeline publish C0004 --lang en --platform instagram --cancel
 ```
 
-The tool uploads the file directly from your Mac (Meta's resumable upload; up to 300 MB and 15 minutes), waits for processing, then publishes with the caption from the JSON. In the Instagram app afterwards, set the cover image and turn on **AI info**.
+- **Dry run:** checks the token, the tunnel and the file limits, and posts nothing.
+- **Scheduled post:** the Instagram API has no scheduling, so this installs a one-off **launchd** job (`~/Library/LaunchAgents/com.shortsstudio.ig.<variant>.plist`). The job posts at that local time, logs to `data/logs/ig-<variant>.log` and removes itself after success.
+  - **The Mac must be on.** If it's asleep at that time, launchd runs the job when it wakes.
+  - A job that is more than 24 h late refuses to post.
+  - Test a schedule once with `--dry-run --at <2 minutes from now> --yes`. macOS may ask whether Python may access the Desktop folder: allow it, or the job can't read the video.
+- `--now --yes` posts immediately; the post is public at once.
+- `ig-jobs` lists scheduled Instagram posts; `--cancel` removes one.
+
+The caption comes from `publish.json → instagram.caption`. The same video can't be posted twice; the uploader checks `published.json`. Limits: 100 API posts and 400 containers per rolling 24 h.
+
+In the Instagram app afterwards, check the cover, and add the **AI info** label if Instagram doesn't add it automatically.
 
 ---
 

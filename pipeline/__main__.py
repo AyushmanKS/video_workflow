@@ -223,19 +223,71 @@ def cmd_schedule(a):
 
 def cmd_publish(a):
     m = load(a.id)
+    work = CONTENT / a.id / a.lang
+    variant = f"{a.id}-{a.lang}"
+    if a.platform == "instagram" and a.cancel:
+        from . import igschedule
+
+        print(f"{variant}: Instagram job {'removed' if igschedule.remove(variant) else 'not found'}")
+        return
     require(m, "final", a.lang)
     require(m, "publish", a.lang)
-    work = CONTENT / a.id / a.lang
     meta = work / "publish.json"
     sched = json.loads((work / "schedule.json").read_text()) if (work / "schedule.json").exists() else {}
     when = a.at or sched.get("publish_at")
-    args = [sys.executable, str(ROOT / "publish.py"), "youtube", str(work / f"{a.id}-{a.lang}.mp4"), "--meta", str(meta), "--thumbnail", str(work / "thumbnail.png"), "--variant", f"{a.id}-{a.lang}", "--slot", a.slot or sched.get("slot", "")]
+    video = work / f"{a.id}-{a.lang}.mp4"
+    if a.platform == "instagram":
+        return publish_instagram(a, m, work, variant, meta, sched, when, video)
+    args = [sys.executable, str(ROOT / "publish.py"), "youtube", str(video), "--meta", str(meta), "--thumbnail", str(work / "thumbnail.png"), "--variant", variant, "--slot", a.slot or sched.get("slot", "")]
     if when:
         args += ["--publish-at", when]
     if a.yes:
         args.append("--yes")
     subprocess.run(args, check=True, cwd=ROOT)
     mark(m, "published", a.lang, note=when or "private")
+
+
+def publish_instagram(a, m, work, variant, meta, sched, when, video):
+    from datetime import datetime, timezone
+
+    from . import igschedule
+
+    now = datetime.now(timezone.utc)
+    at = igschedule.parse(when) if when else None
+    if at and not a.now and (at - now).total_seconds() > 60:
+        if not a.yes:
+            sys.exit("Scheduling an unattended Instagram post needs --yes (owner approval of video, caption and time).")
+        path, local = igschedule.install(a.id, a.lang, at, a.dry_run)
+        print(f"{variant}: Instagram {'dry run ' if a.dry_run else ''}scheduled for {local:%a %d %b %H:%M} local ({path.name})")
+        print("  the Mac must be on; if it is asleep then, the post goes out when it wakes")
+        if not a.dry_run:
+            mark(m, "instagram_scheduled", a.lang, note=when)
+        return
+    if a.now and at and (now - at).total_seconds() > 24 * 3600:
+        igschedule.remove(variant)
+        sys.exit(f"{variant}: scheduled time {when} is more than 24 h ago; not posting. Job removed.")
+    args = [sys.executable, str(ROOT / "publish.py"), "instagram", str(video), "--meta", str(meta), "--thumbnail", str(work / "thumbnail.png"), "--variant", variant, "--slot", a.slot or sched.get("slot", "")]
+    if a.dry_run:
+        args.append("--dry-run")
+    if a.yes:
+        args.append("--yes")
+    print(f"{variant}: Instagram {'dry run' if a.dry_run else 'publish'} starting {now.astimezone():%Y-%m-%d %H:%M:%S}", flush=True)
+    r = subprocess.run(args, cwd=ROOT)
+    if r.returncode == 0:
+        igschedule.remove(variant)
+        if not a.dry_run:
+            mark(m, "published_instagram", a.lang, note=now.isoformat())
+    sys.exit(r.returncode)
+
+
+def cmd_ig_jobs(a):
+    from . import igschedule
+
+    rows = igschedule.jobs()
+    if not rows:
+        print("no scheduled Instagram posts")
+    for r in rows:
+        print(f"{r['variant']:<12} {r['when']}{'  (dry run)' if r['dry_run'] else ''}  log: {r['log']}")
 
 
 def cmd_takes(a):
@@ -332,7 +384,8 @@ def main():
     p = sp.add_parser("produce"); p.add_argument("id"); p.add_argument("--lang", required=True); p.add_argument("--steps", default="voice,images,render"); p.set_defaults(fn=cmd_produce)
     p = sp.add_parser("qa"); p.add_argument("id"); p.add_argument("--lang", required=True); p.set_defaults(fn=cmd_qa)
     p = sp.add_parser("schedule"); p.add_argument("--id"); p.add_argument("--lang", required=True); p.set_defaults(fn=cmd_schedule)
-    p = sp.add_parser("publish"); p.add_argument("id"); p.add_argument("--lang", required=True); p.add_argument("--at"); p.add_argument("--slot"); p.add_argument("--yes", action="store_true", help="owner already approved in chat; skip the interactive prompt"); p.set_defaults(fn=cmd_publish)
+    p = sp.add_parser("publish"); p.add_argument("id"); p.add_argument("--lang", required=True); p.add_argument("--at"); p.add_argument("--slot"); p.add_argument("--yes", action="store_true", help="owner already approved in chat; skip the interactive prompt"); p.add_argument("--platform", default="youtube", choices=["youtube", "instagram"]); p.add_argument("--now", action="store_true", help="instagram: post immediately instead of scheduling"); p.add_argument("--dry-run", action="store_true", help="instagram: check token, tunnel and limits without posting"); p.add_argument("--cancel", action="store_true", help="instagram: remove a scheduled post"); p.set_defaults(fn=cmd_publish)
+    p = sp.add_parser("ig-jobs"); p.set_defaults(fn=cmd_ig_jobs)
     p = sp.add_parser("takes"); p.add_argument("id"); p.add_argument("--lang", required=True); p.add_argument("--scenes", help="comma list of 1-based scene numbers (default all)"); p.add_argument("--n", type=int, default=3); p.set_defaults(fn=cmd_takes)
     p = sp.add_parser("progress", help="live progress, per-step ETA and finish time"); p.add_argument("id"); p.add_argument("--watch", type=int, default=0, help="refresh every N seconds until done"); p.add_argument("--oneline", action="store_true"); p.set_defaults(fn=cmd_progress)
     p = sp.add_parser("retention-csv", help="export API retention curve for .claude/skills/yt-retention"); p.add_argument("variant"); p.set_defaults(fn=cmd_retention_csv)
