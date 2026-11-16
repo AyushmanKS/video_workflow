@@ -11,8 +11,8 @@ LANG_NAMES = {"en": "English", "hi": "Hindi", "gu": "Gujarati", "te": "Telugu", 
 PLATFORM_NAMES = {"youtube": "YouTube", "instagram": "Instagram"}
 ORDER = ["idea", "writing", "script_ok", "making", "video_ok", "ready", "scheduled", "live"]
 LABELS = {"idea": "Idea", "writing": "Writing", "script_ok": "Waiting for your OK (script)", "making": "Making video", "video_ok": "Waiting for your OK (video)",
-          "ready": "Ready to post", "scheduled": "Scheduled", "live": "Live", "problem": "Problem"}
-TONES = {"idea": "grey", "writing": "work", "script_ok": "wait", "making": "work", "video_ok": "wait", "ready": "wait", "scheduled": "gold", "live": "done", "problem": "bad"}
+          "ready": "Ready to post", "scheduled": "Scheduled", "partly_live": "Partly live", "live": "Live", "problem": "Problem"}
+TONES = {"idea": "grey", "writing": "work", "script_ok": "wait", "making": "work", "video_ok": "wait", "ready": "wait", "scheduled": "gold", "partly_live": "gold", "live": "done", "problem": "bad"}
 STEPS = [("script", "Script"), ("ok_script", "Your OK"), ("voice", "Voice"), ("pictures", "Pictures"), ("video", "Video"), ("check", "Quality check"),
          ("ok_video", "Your OK"), ("scheduled", "Scheduled"), ("live", "Live")]
 STEP_HELP = {"script": "The story is written in each language.", "ok_script": "You read the scripts and say OK.", "voice": "The narration is recorded.",
@@ -372,6 +372,8 @@ def overall(langs, now=None):
     if problem:
         first = next(l for l in langs if l["problems"])
         text = f"{first['name']}: {issue_title(first['problems'][0])}"
+    if stage == "live" and not all_done:
+        stage = "partly_live"
     shown = "problem" if problem else stage
     return {"stage": shown, "base": base, "label": LABELS[shown], "tone": TONES[shown], "done": all_done, "partial": any_live and not all_done, "text": text,
             "live_counts": live_counts, "problem": problem}

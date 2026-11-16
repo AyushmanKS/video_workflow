@@ -385,7 +385,7 @@ def test_episode_status_cases():
     pubs[("C0999-en", "instagram")] = [row(pub=iso(now - 30))]
     jobs.pop("C0999-en")
     ov, _ = status_of(m, ctx(pubs=pubs, jobs=jobs, m=m), now)
-    assert ov["label"] == "Live" and ov["partial"] and not ov["done"] and ov["live_counts"] == {"youtube": (1, 2), "instagram": (1, 2)}
+    assert ov["label"] == "Partly live" and ov["partial"] and not ov["done"] and ov["text"].startswith("Posted on ") and ov["live_counts"] == {"youtube": (1, 2), "instagram": (1, 2)}
     pubs[("C0999-hi", "youtube")] = [row(pub=iso(now - 60))]
     pubs[("C0999-hi", "instagram")] = [row(pub=iso(now - 30))]
     ov, _ = status_of(m, ctx(pubs=pubs, m=m), now)
@@ -397,10 +397,18 @@ def test_episode_status_cases():
     limit = {"id": 1, "status": "open", "severity": "recoverable", "stage": "publish", "platform": "youtube", "error_code": "youtube_upload_limit", "title": "YouTube daily upload limit reached"}
     queue = {("C0999-hi", "youtube"): {"status": "waiting", "publish_at": iso(now + 600), "last_error": "daily cap", "updated_at": iso(now)}}
     ov, langs = status_of(m, ctx(pubs=pubs, queue=queue, issues={"C0999-hi": [limit]}, m=m), now)
-    assert ov["label"] == "Live" and not langs[1]["problems"] and 1 not in langs[1]["relevant"]
+    assert ov["label"] == "Partly live" and not langs[1]["problems"] and 1 not in langs[1]["relevant"]
     ack = dict(limit, error_code="qa_fail", stage="video_qa", status="acknowledged")
     ov, langs = status_of(m, ctx(pubs=pubs, queue=queue, issues={"C0999-hi": [ack]}, m=m), now)
-    assert ov["label"] == "Live" and not langs[1]["problems"]
+    assert ov["label"] == "Partly live" and not langs[1]["problems"]
+
+
+def test_coming_up_puts_no_deadline_last():
+    ep = {"id": "C0001", "episode": 1, "langs": [
+        {"name": "Gujarati", "platforms": {"youtube": {"state": "waiting", "t": None, "held": True}}},
+        {"name": "Telugu", "platforms": {"youtube": {"state": "scheduled", "t": 200.0}, "instagram": {"state": "scheduled", "t": 100.0}}}]}
+    order = [(x["lang"]["name"], x["platform"]) for x in dashui.coming_up([ep])]
+    assert order == [("Telugu", "instagram"), ("Telugu", "youtube"), ("Gujarati", "youtube")]
 
 
 def test_friendly_times():

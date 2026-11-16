@@ -112,7 +112,7 @@ def lang_chips(ep):
                 continue
             ps = l["platforms"][p]
             tone = "bad" if any(x.get("platform") == p for x in l["problems"]) else PLAT_TONE[ps["state"]]
-            dots.append(f'<i class="d f-{tone}"></i>')
+            dots.append(f'<i class="d f-{tone}" role="img" aria-label="{e(E.platform_name(p))}: {e(PLAT_SHORT[ps["state"]] if tone != "bad" else "problem")}" title="{e(E.platform_name(p))}: {e(PLAT_SHORT[ps["state"]])}"></i>')
             desc.append(f"{E.platform_name(p)} {PLAT_SHORT[ps['state']]}")
         tone = "bad" if l["problems"] else E.TONES[l["stage"]]
         out.append(f'<span class="lc t-{tone}" title="{e(l["name"])}: {e(", ".join(desc))}" aria-label="{e(l["name"])}: {e(", ".join(desc))}">'
@@ -128,9 +128,9 @@ def ep_row(ep):
 
 
 def dot_legend():
-    return ('<p class="legend">Each language shows two dots: YouTube, then Instagram. '
-            '<span class="lg"><i class="d f-done"></i>posted</span><span class="lg"><i class="d f-gold"></i>scheduled</span>'
-            '<span class="lg"><i class="d f-wait"></i>waiting</span><span class="lg"><i class="d f-bad"></i>problem</span><span class="lg"><i class="d f-grey"></i>not yet</span></p>')
+    return ('<p class="legend"><span class="lg"><b>Dots:</b> first = YouTube, second = Instagram.</span>'
+            '<span class="lg"><i class="d f-done"></i>live</span><span class="lg"><i class="d f-gold"></i>scheduled</span><span class="lg"><i class="d f-wait"></i>waiting</span>'
+            '<span class="lg"><i class="d f-bad"></i>problem</span><span class="lg"><i class="d f-grey"></i>not yet</span></p>')
 
 
 def empty(text):
@@ -262,7 +262,7 @@ def coming_up(eps, limit=None):
             for p, ps in l["platforms"].items():
                 if ps["state"] in ("scheduled", "waiting"):
                     items.append({"ep": ep, "lang": l, "platform": p, "ps": ps, "t": ps.get("t") or 0})
-    items.sort(key=lambda x: (x["t"] or 0, x["platform"]))
+    items.sort(key=lambda x: (0 if x["t"] else 1, x["t"] or 0, x["platform"]))
     return items[:limit] if limit else items
 
 
@@ -275,7 +275,7 @@ def up_row(x, show_day=True):
     else:
         pn = E.platform_name(x["platform"])
         if not ps.get("t"):
-            time_txt, status = "Next possible slot", (f"Waiting for {pn}'s daily limit" if ps.get("held") else "Posting soon")
+            time_txt, status = "After the scheduled ones", (f"no fixed time, waits for {pn}'s daily limit" if ps.get("held") else "no fixed time")
         else:
             time_txt, status = (E.when(ps["t"]) if show_day else E.clock(E.to_dt(ps["t"]))), E.platform_words(ps)
         tone = "wait"
@@ -371,7 +371,7 @@ def render_progress(con, q):
         rows = []
         for i, m in enumerate(pr["milestones"]):
             open_ = " open" if i == pr["current"] else ""
-            eps_html = "".join(ep_row(x) for x in m["episodes"]) or empty("No episodes here yet.")
+            eps_html = (dot_legend() + "".join(ep_row(x) for x in m["episodes"])) if m["episodes"] else empty("No episodes here yet.")
             stat = f"{m['made']} made of {m['planned']} · {m['to_go']} to go" if m["planned"] else f"{m['made']} made"
             if m["made"] >= m["planned"] and m["planned"]:
                 stat = f"All {m['planned']} made"
@@ -379,7 +379,7 @@ def render_progress(con, q):
             rows.append(f'<details class="ms"{open_}><summary><span class="grow"><span class="t">{e(m["name"])}</span>'
                         f'<span class="meta">{e(m.get("subtitle") or "")}</span>{bar(m["pct"], tone)}<span class="meta strong">{e(stat)}</span></span>'
                         f'{icon("next", "chev")}</summary><div class="eps">{eps_html}</div></details>')
-        body.append(f'<h2 class="sec">Parts of the story</h2>{"".join(rows)}{dot_legend()}')
+        body.append(f'<h2 class="sec">Parts of the story</h2>{"".join(rows)}')
     else:
         body.append(f'<h2 class="sec">Episodes</h2>{"".join(ep_row(x) for x in sorted(mine, key=lambda x: x["id"])) or empty("No episodes yet.")}{dot_legend()}')
     after = con.execute("SELECT COALESCE(MAX(rowid),0) FROM events").fetchone()[0]
@@ -535,7 +535,7 @@ def render_uploads(con):
     groups = []
     cur = None
     for x in up:
-        day = E.day_name(x["t"]) if x["t"] else "As soon as possible"
+        day = E.day_name(x["t"]) if x["t"] else "After the scheduled ones"
         if day != cur:
             groups.append([day, []])
             cur = day
@@ -756,8 +756,8 @@ h3{font-size:1.05rem;margin:4px 0}h4{font-size:.95rem;margin:12px 0 2px;color:va
 .leg{list-style:none;padding:0;margin:10px 0 0;display:grid;gap:6px}.leg li{display:flex;align-items:center;gap:8px}
 .d{display:inline-block;width:10px;height:10px;border-radius:50%;flex:none}
 .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}.lc{display:inline-flex;align-items:center;gap:5px;font-size:.78rem;font-weight:700;padding:4px 8px;border-radius:8px;letter-spacing:.03em;background:var(--card2);color:var(--fg);border:1px solid var(--line)}
-.lc .d{width:9px;height:9px}.lc.t-bad{border-color:var(--bad)}
-.legend{color:var(--mut);font-size:.85rem;display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center}.lg{display:inline-flex;align-items:center;gap:5px}
+.lc .d{width:9px;height:9px}.d.f-wait{background:transparent;box-shadow:inset 0 0 0 2px var(--wait)}.lc.t-bad{border-color:var(--bad)}
+.legend{color:var(--mut);font-size:.85rem;display:flex;flex-wrap:wrap;gap:4px 12px;align-items:center;margin:10px 0 4px}.lg{display:inline-flex;align-items:center;gap:5px}
 .epn{font-weight:700;font-size:.85rem;background:var(--card2);border-radius:8px;padding:6px 8px;flex:none;align-self:flex-start;margin-top:2px}
 .goal{display:flex;align-items:center;gap:14px}.ringbox{position:relative;width:76px;height:76px;flex:none}.ring{width:76px;height:76px}
 .ring-bg{fill:none;stroke:var(--grey-bg);stroke-width:10}.ring-fg{fill:none;stroke:var(--gold);stroke-width:10;stroke-linecap:round}
