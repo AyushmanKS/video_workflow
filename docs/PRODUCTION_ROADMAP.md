@@ -114,6 +114,7 @@ Goal: fewer agents, more deterministic Python, scored QA with thresholds, correc
 | B14 | `step_render` writes `timeline.json` (scene starts and ends, hook end, verse window) | Retention-to-scene mapping is impossible without persisted render timings | `studio.py` step_render | yes | none | S* | M | none | timeline scene boundaries match the rendered cuts on one test render | none | SAFE | AUD §2.16 §20.2 |
 | B15 | Per-scene `accent` hues (Lanka crimson ≈ 0–8°, ≤3 hues per frame; default unchanged) | `restrict_palette` snaps every hue to saffron, gold or green, so every world looks the same | `restrict_palette(rgb, hues)`, `chalk_from_image`, `render()`; a world map in `ramayana.json` | yes | none | S* | M | crimson can read as gore or "evil" | owner A/B on one recoloured scene; hue histogram per frame | none | OWNER | VQ#15 §3.2 |
 
+| B16 | **Disk cleanup step** (owner request 2026-11-16, **implemented**) | Model caches and tool caches grow without limit: 50.6 GB of Hugging Face downloads, of which 42.4 GB is unused by the active configuration. That includes 32.8 GB of full Z-Image weights, unused because the local 4-bit model renders with the HF cache hidden (measured 2026-11-16). | `pipeline/cleanup.py`, `python -m pipeline cleanup [--models] [--tools] [--apply]`, `cleanup.guard()` at the start of `produce` | Yes | none | done | M (disk) | Low: preview by default; every deletion logged with a restore command | Preview lists items and restore commands; produce warns below 20 GB free and auto-removes the safe tier below 10 GB | — | SAFE | owner request |
 ---
 
 ## 3. Phase C: mobile management
@@ -261,6 +262,18 @@ Free disk at research time: about 92 GB (TL). "Unmeasured" means no source has a
 **Memory rule:** every model above runs alone. The bot's `data/heavy.lock` (C2) serializes produce, takes, QA and regenerations (MOB §7).
 
 ---
+
+### 7b. Disk cleanup policy (owner request 2026-11-16)
+The goal is to delete what is not needed but stays easy to get back. **GitHub holds only code, scripts, metadata, research and approvals; media is gitignored.** Final videos therefore exist only on this Mac (plus re-encoded copies on YouTube and Instagram) and are never deleted automatically.
+
+| Tier | What | How to restore | When it runs |
+|---|---|---|---|
+| safe | `mix.wav` and `*.qa.png` of variants whose final video is G2-approved; leftover temporary upload folders; `__pycache__` | `produce … --steps render` (deterministic from kept takes and images); `qa`; automatic | Automatically when free disk falls below 10 GB at `produce`; otherwise `cleanup --apply` |
+| models | Hugging Face caches not used by any approved voice or the image engine: retired Veena + orpheus tokenizer, unchosen svara, the full Z-Image weights while `models/z-image-turbo-4bit` exists, and unknown repos idle more than 30 days | `hf download <repo> --revision <hash>` (logged) | Only on `cleanup --models --apply` (asks to type yes) |
+| tools | uv, pip and Homebrew download caches | re-downloaded on the next install | Only on `cleanup --tools --apply` |
+| never | final videos, thumbnails, scripts, voice takes (stochastic, not exactly reproducible), scene images, manifests, `data/studio.db`, secrets, `models/` | — | — |
+
+Every deletion is appended to `data/cleanup_log.jsonl` with its size and restore command. Produce warns below 20 GB free.
 
 ## 8. What we will explicitly not do, and why
 

@@ -270,6 +270,11 @@ The owner asked for a full audit and research plan before any change. Nothing wa
 - Z-Image Turbo ignores negative prompts, and character consistency is text only.
 - Analytics have no data yet; the API is not enabled.
 
+**Owner approved all research documents (2026-11-16).** The owner added a disk cleanup step, now **implemented** as `python -m pipeline cleanup`; see the policy in `docs/PRODUCTION_ROADMAP.md` §7b.
+- **Default is a preview.** `--models` / `--tools` widen the scope, `--apply` deletes, and every deletion is logged in `data/cleanup_log.jsonl` with its restore command.
+- **Produce guard:** `produce` warns below 20 GB free and auto-removes only the safe tier below 10 GB.
+- **Measured 2026-11-16:** 86.9 GB free; 45.0 GB reclaimable, mostly the 32.8 GB of full Z-Image weights, which are unused because the local 4-bit model renders with the HF cache hidden.
+
 **Decisions pending (owner)**
 - Adopt the 35–55 s target.
 - YouTube `synthetic: true` (to match the Instagram AI label).

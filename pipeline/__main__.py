@@ -155,6 +155,9 @@ def studio(args):
 
 
 def cmd_produce(a):
+    from . import cleanup
+
+    cleanup.guard()
     m = load(a.id)
     require(m, "script", a.lang)
     vp = voice_profile(a.lang)
@@ -294,6 +297,24 @@ def publish_instagram(a, m, work, variant, meta, sched, when, video, thumb):
     sys.exit(r.returncode)
 
 
+def cmd_cleanup(a):
+    from . import cleanup
+
+    tiers = ["safe"] + (["models"] if a.models else []) + (["tools"] if a.tools else [])
+    before = cleanup.free_gb()
+    items = cleanup.plan(tiers)
+    total = cleanup.report(items)
+    print(f"\nFree now: {before:.1f} GB. Reclaimable: {total / 1e9:.2f} GB ({', '.join(tiers)}).")
+    print("Never touched: final videos, thumbnails, scripts, voice takes, scene images, approvals, database, secrets, models/ (local 4-bit image model).")
+    if not items or not a.apply:
+        print("Preview only. Add --apply to delete (log: data/cleanup_log.jsonl with restore commands).")
+        return
+    if not a.yes and input(f"Delete {len(items)} items ({total / 1e9:.2f} GB)? Type 'yes': ").strip() != "yes":
+        sys.exit("Cancelled.")
+    freed = cleanup.apply(items)
+    print(f"Freed {freed / 1e9:.2f} GB. Free now: {cleanup.free_gb():.1f} GB.")
+
+
 def cmd_ig_jobs(a):
     from . import igschedule
 
@@ -395,6 +416,7 @@ def main():
     p = sp.add_parser("research"); p.add_argument("id"); p.add_argument("--query", required=True, help='string, or JSON {"en": "...", "hi": "..."}'); p.add_argument("--wiki", required=True, help="English Wikipedia title"); p.add_argument("--langs", default="en,hi"); p.set_defaults(fn=cmd_research)
     p = sp.add_parser("approve"); p.add_argument("id"); p.add_argument("gate", choices=list(GATES)); p.add_argument("--note"); p.add_argument("--langs"); p.set_defaults(fn=cmd_approve)
     p = sp.add_parser("done"); p.add_argument("id"); p.add_argument("stage"); p.add_argument("--lang"); p.add_argument("--note"); p.set_defaults(fn=cmd_done)
+    p = sp.add_parser("cleanup", help="free disk: reproducible intermediates (default), unused model caches (--models), tool caches (--tools); preview unless --apply"); p.add_argument("--models", action="store_true"); p.add_argument("--tools", action="store_true"); p.add_argument("--apply", action="store_true"); p.add_argument("--yes", action="store_true"); p.set_defaults(fn=cmd_cleanup)
     p = sp.add_parser("produce"); p.add_argument("id"); p.add_argument("--lang", required=True); p.add_argument("--steps", default="voice,images,render"); p.set_defaults(fn=cmd_produce)
     p = sp.add_parser("qa"); p.add_argument("id"); p.add_argument("--lang", required=True); p.set_defaults(fn=cmd_qa)
     p = sp.add_parser("schedule"); p.add_argument("--id"); p.add_argument("--lang", required=True); p.set_defaults(fn=cmd_schedule)
