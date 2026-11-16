@@ -230,7 +230,10 @@ shorts-studio/
 - **Other changes:** QA normalizes ज्ञ↔ग्य; the Veena lead-in was reverted; the audio folder records the voice used (`audio/voice.txt`) and QA uses it.
 - **C0004 (Episode 04, Vishvamitra asks for Rama):** owner approved scripts, final videos and publish plan on 2026-11-16. Scheduled Wed 2026-11-18: HI 20:30 IST (`tuDnAZuQyGk`), EN 21:30 IST (`YgLlg2_Do7I`); publishAt verified by API read-back. Scene 4 image was regenerated twice (border, then Western bat-winged gargoyles) and edge-cropped. Hindi scene 12 was regenerated for a pitch spike.
 - **Fixes 2026-11-16 (Ep04):** music padded to voice length (off-by-one crash); caption chunks keep splitting until each fits `caption_max_chars`; speaker QA now loads a reference for any voice id (`profiles/voices/<lang>_<name>_ref.npy`), with `en_af_heart_ref.npy` built from approved C0003-en. Without a reference, QA falls back to scene 1 as the reference, which causes false flags.
-- **Instagram (2026-11-16):** code is ready and the tunnel was tested end to end (115 MB fetched over the internet, listing 404, link dead after close). The owner is creating the Instagram account; next is the Creator switch, Meta app, tester invite, `instagram.py setup`, a dry run, then a launchd schedule dry run (checks Desktop folder access).
+- **Instagram (2026-11-16): live.** @mr.aks.tale is connected through Meta Unified login: business portfolio, system-user token that never expires, IG id 17841412994195231, host graph.facebook.com (`instagram.py` handles both token types). Uploads go through a temporary cloudflared link. Reels set caption, cover, `audio_name`, `is_ai_generated=true` and `share_to_feed`. Scheduling uses launchd jobs (`pipeline/igschedule.py`): caffeinate keeps the Mac awake, tunnel failures retry, jobs remove themselves after success. **The Mac must be awake and plugged in at post time**, because Instagram has no server-side scheduling.
+  - **Ep01 en/hi/gu/te published 2026-11-16 ~15:35 IST:** te DfzGhiriqnz, gu DfzG3qpD49H, hi DfzHMW2CNcl, en DfzHjJ4nBpc. Researched captions per `reports/Instagram Reels Ep01 audience strategy.md`.
+  - **Ep02:** hi Tue 17 Nov 20:00 and en 20:30 IST scheduled (`python -m pipeline ig-jobs`). gu/te wait for owner G2.
+  - **Token rotation:** the token was pasted in chat once; rotate it (revoke in Business settings, regenerate, `instagram.py setup` in the owner's own terminal).
 - **Pending:** the owner must enable the YouTube Analytics API in GCP project 145069760719, then run `python -m pipeline analytics --force`; optional HF token (Indic-Speak/IndicConformer); old-episode Hindi re-voice was declined by the owner (2026-11-16); after each video goes live, the owner adds pinned comments and Related-video links manually.
 
 ## 23. Exact next steps
@@ -249,6 +252,32 @@ shorts-studio/
 - One bad scene: delete `img/NN_raw.png` or `audio/NN.wav` + `audio/NN.words.json` and rerun. Optionally set `"seed"` / `"voice_seed"` on that scene.
 - An OAuth token expired (Testing mode, about 7 days): the next command opens the browser sign-in again.
 - Legacy Episode 01 assets live in `out/ramayana-ep-01-…/` (`final/` holds the published files); C0001's manifest points there.
+
+## 26. Studio upgrade research (2026-11-16) — awaiting owner approval
+The owner asked for a full audit and research plan before any change. Nothing was implemented, and no approvals or episodes were touched. Documents:
+- `docs/WORKFLOW_AUDIT.md` (stage-by-stage audit, priorities; agents 10→5+1; QA scoring; learning-loop rules)
+- `docs/VIDEO_QUALITY_UPGRADE_PLAN.md` (35–55 s beat framework and word budgets, readable frame 0 and reveal modes, shot grammar, visual bible with per-world accents, character consistency method, sound direction and mix chain, 27 prioritised changes)
+- `docs/TOOLS_AND_SKILLS_RESEARCH.md` (ranked tools with licences; nothing external worth installing in Claude Code; do-not-use list)
+- `docs/MOBILE_CONTROL_ARCHITECTURE.md` (private Telegram bot daemon + Claude Code Remote Control; optional dashboard pending a licence decision)
+- `docs/GROWTH_AND_MONETIZATION_STRATEGY.md` (one channel + one IG account for now; YPP changes on 1 Feb 2027; inauthentic-content risk; compliance fixes)
+- `docs/PRODUCTION_ROADMAP.md` (phases A–E)
+- Notes: `research_notes/Studio upgrade research/`
+
+**Key verified findings**
+- All 20 rendered videos run 74.8–111.2 s, while the target is 35–55 s and the hard limit is under 60 s. The cause is that the 60–90 s target is written into the storytelling skill, the scriptwriter agent and §9, and QA only rejects over 180 s.
+- Frame 0 is a blank board.
+- Publish approval is not tied to platform, time or file hash. Instagram approval overwrote the YouTube record for C0001/C0002, and publishing never checks the QA verdict.
+- Z-Image Turbo ignores negative prompts, and character consistency is text only.
+- Analytics have no data yet; the API is not enabled.
+
+**Decisions pending (owner)**
+- Adopt the 35–55 s target.
+- YouTube `synthetic: true` (to match the Instagram AI label).
+- OFL fonts instead of macOS Chalkduster (a style change).
+- Telegram bot.
+- Dashboard licence route.
+- CLAUDE.md Hindi voice line: Veena → Maya2 Malini.
+- Approval-record redesign.
 
 ## Progress log
 | Date | Work | Decisions |
