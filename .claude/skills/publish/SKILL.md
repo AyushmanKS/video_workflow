@@ -16,13 +16,19 @@ Claude cannot invoke this skill on its own (`disable-model-invocation: true`). I
 5. **Metadata:** YouTube `synthetic: true` for new episodes; Instagram `is_ai_generated: true`; Made for Kids = No. Never edit a published episode's metadata or re-upload a published episode.
 6. **Not already published:** check `<lang>/published.json`.
 
-`python -m pipeline publish` enforces 1–4 once roadmap item A11 lands; until then, check them by reading `content/<ID>/manifest.json` and show the owner what you checked.
+`python -m pipeline publish` enforces 1–4 itself. Run the check first and show the owner its output:
+```
+python -m pipeline publish <ID> --lang <lang> --platform <youtube|instagram> --at <approved ISO time> --check-gates-only
+```
+It verifies G2, the platform's G3 record, the approved time and both hashes, without a tunnel or an upload. If it refuses, stop. Never record or alter approvals: `approve`, `reject` and `waive` are owner commands, and `--yes` on them only works when the owner has set `STUDIO_OWNER_APPROVED=<ID>` in their own shell.
 
 ## YouTube
 ```
 python -m pipeline publish <ID> --lang <lang> --at <approved ISO time>
 ```
-Uploads private with `publishAt`; YouTube releases it at that time. Afterwards verify `publishAt` by API read-back, record the URL, and remind the owner that pinned comments and Related-video links are manual in Studio. `uploadLimitExceeded` means stop for the day; do not retry in a loop.
+Uploads private with `publishAt`; YouTube releases it at that time. Without `--at`, the approved YouTube time from the G3 record is used.
+
+Several approved uploads can go through the persisted queue instead: `python -m pipeline publish-queue add <ID> --langs en,hi`, then `publish-queue list`, `publish-queue run --dry-run`, `publish-queue run --once`. The queue re-checks the gates before each upload, keeps the exact approved times and has a daily cap (`--cap`, default 6). Afterwards verify `publishAt` by API read-back, record the URL, and remind the owner that pinned comments and Related-video links are manual in Studio. `uploadLimitExceeded` means stop for the day; do not retry in a loop.
 
 ## Instagram
 ```
@@ -39,4 +45,5 @@ python -m pipeline ig-jobs
 
 ## After publishing
 - Record the platform IDs and times in PROJECT_CONTEXT §22.
+- Analytics snapshots run from the daily read-only job (`python -m pipeline analytics`); check with `python -m pipeline report <VARIANT>`.
 - Details on credentials, limits and the tunnel: `docs/PUBLISHING.md`.

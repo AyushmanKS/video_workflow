@@ -184,13 +184,19 @@ def transcript(wav, language):
     sha = file_sha256(wav)
     side = wav.with_suffix(".heard.json")
     if side.exists():
-        d = json.loads(side.read_text())
-        if d.get("wav_sha256") in (sha, None) and d.get("text") is not None:
+        try:
+            d = json.loads(side.read_text())
+        except ValueError:
+            d = {}
+        if d.get("wav_sha256") == sha and d.get("text") is not None:
             return d["text"], "render-time transcript (heard.json)"
     wj = wav.with_suffix(".words.json")
     if wj.exists():
-        d = json.loads(wj.read_text())
-        if isinstance(d, dict) and d.get("heard") is not None and d.get("wav_sha256") in (sha, None):
+        try:
+            d = json.loads(wj.read_text())
+        except ValueError:
+            d = None
+        if isinstance(d, dict) and d.get("heard") is not None and d.get("wav_sha256") == sha:
             text = d["heard"] if isinstance(d["heard"], str) else " ".join(w[0] if isinstance(w, list) else str(w) for w in d["heard"])
             return text, "render-time transcript (words.json)"
     cache = CACHE / f"asr-{sha}-{language}.json"
@@ -268,6 +274,26 @@ def check_speech_rate(work_dir, script, language):
     return chk("speech_rate", "audio", worst or "warn", not issues, issues, {"reference_letters_per_s": ref, "scenes": rows})
 
 
+def load_timeline(work_dir, script=None):
+    p = Path(work_dir) / "timeline.json" if work_dir else None
+    if not p or not p.exists():
+        return None
+    try:
+        tl = json.loads(p.read_text())
+    except ValueError:
+        return None
+    if script is not None and len(tl.get("scenes", [])) != len(script["scenes"]):
+        return None
+    return tl
+
+
+def narration_windows(work_dir, script):
+    tl = load_timeline(work_dir, script)
+    if not tl:
+        return None
+    return [(float(r["narration_start"]), float(r["narration_end"]) - float(r["narration_start"])) for r in tl["scenes"]]
+
+
 def check_music_under_speech(work_dir, script):
     import numpy as np
     from scipy import signal
@@ -282,8 +308,15 @@ def check_music_under_speech(work_dir, script):
     sr = studio.SR
     voice = np.zeros_like(mix)
     pos = None
+    windows = narration_windows(work_dir, script)
     for i, sc in enumerate(script["scenes"]):
         v = studio.read_wav(Path(work_dir) / "audio" / f"{i:02d}.wav")
+        if windows:
+            start = int(windows[i][0] * sr)
+            end = min(len(mix), start + len(v))
+            if end > start:
+                voice[start:end] += v[: end - start]
+            continue
         lo_s = 0 if pos is None else max(0, pos - int(0.3 * sr))
         hi_s = int(0.8 * sr) if pos is None else pos + int(0.3 * sr)
         n = min(len(v), sr)
@@ -317,41 +350,46 @@ def check_music_under_speech(work_dir, script):
 
 def style_for(script, style_name):
     sys.path.insert(0, str(ROOT))
-    from styles import STYLES
+    import studio
 
-    return {**STYLES[style_name], **script.get("style_overrides", {})}
+    return studio.effective_style(style_name, script)
 
 
 def check_captions(work_dir, script, style_name="chalk"):
     sys.path.insert(0, str(ROOT))
     import studio
-    from PIL import Image, ImageDraw
 
     st = style_for(script, style_name)
     cap = studio.Captioner(st)
-    dr = ImageDraw.Draw(Image.new("RGB", (10, 10)))
+    limit = studio.CAPTION_MAX_W
+    if any(not (Path(work_dir) / "audio" / f"{i:02d}.words.json").exists() for i in range(len(script["scenes"]))):
+        LAZY.need()
     wts = studio.scene_word_times(script, Path(work_dir))
-    issues, overflow, groups, widest = [], [], 0, 0
+    windows = narration_windows(work_dir, script)
+    issues, overflow, tight, groups, widest = [], [], [], 0, 0
     for i, sc in enumerate(script["scenes"]):
         toks = studio.caption_tokens(sc["narration"])
         if not wts[i] or len(wts[i]) != len(toks):
             issues.append(f"scene {i + 1}: word timing not aligned (captions fall back to estimated timing)")
+        start, dur = windows[i] if windows else (0.0, 5.0)
         prev_end = "."
-        for g in studio.caption_groups(sc["narration"], 0, 5, st.get("caption_words", 3), wts[i], st.get("caption_max_chars")):
+        for g in studio.scene_caption_groups(script, st, cap, i, start, dur, wts[i]):
             groups += 1
             phrase_start = prev_end[-1] in ".,?!:;।॥—"
             prev_end = g["words"][-1]
-            shown = [x.upper() if st.get("caption_upper", True) else x for x in g["words"]]
-            w = sum(dr.textlength(x, font=cap.font) for x in shown) + 22 * (len(shown) - 1)
+            w = cap.width(g["words"])
             widest = max(widest, w)
-            if w > studio.W - 60:
-                overflow.append(f"scene {i + 1}: caption '{' '.join(g['words'])}' {int(w)} px > {studio.W - 60} px")
+            if w > limit:
+                overflow.append(f"scene {i + 1}: caption '{' '.join(g['words'])}' {int(w)} px > {limit} px")
             elif w > studio.W - 120:
-                issues.append(f"scene {i + 1}: caption '{' '.join(g['words'])}' {int(w)} px > {studio.W - 120} px (tight)")
+                tight.append(f"scene {i + 1}: {int(w)} px")
             if len(g["words"]) > 1 and g["words"][0] in studio.POSTPOSITIONS and not phrase_start:
                 issues.append(f"scene {i + 1}: caption line starts with postposition '{g['words'][0]}'")
-    return [chk("captions", "final", "warn", not issues, issues, {"groups": groups}),
-            chk("caption_overflow", "final", "reject", not overflow, overflow, {"widest_px": int(widest), "limit_px": studio.W - 60})]
+    data = {"groups": groups, "timing": "timeline.json" if windows else "relative", "engine_version": studio.engine_version(script)}
+    if tight:
+        data["tight_info"] = tight
+    return [chk("captions", "final", "warn", not issues, issues, data),
+            chk("caption_overflow", "final", "reject", not overflow, overflow, {"widest_px": int(widest), "limit_px": limit})]
 
 
 def font_cmap(path, index=0):
@@ -378,6 +416,9 @@ def check_glyphs(script, style_name="chalk"):
     sys.path.insert(0, str(ROOT))
     import chalk
 
+    import studio
+
+    chalk.use_fonts(studio.engine_version(script))
     st = style_for(script, style_name)
     cap_font = (st.get("caption_font", st["font"]), st.get("caption_font_index", 0))
     upper = st.get("caption_upper", True)
@@ -400,7 +441,7 @@ def check_glyphs(script, style_name="chalk"):
             f = chalk.font_for(th[k], 58)
             jobs.append((f"thumbnail {k}", th[k], (f.path, getattr(f, "index", 0))))
     if th.get("devanagari"):
-        jobs.append(("thumbnail devanagari", th["devanagari"], (chalk.DEVANAGARI, 0)))
+        jobs.append(("thumbnail devanagari", th["devanagari"], (chalk.devanagari_font(), 0)))
     issues, checked = [], 0
     for where, text, (path, idx) in jobs:
         cmap = font_cmap(path, idx)
@@ -408,7 +449,7 @@ def check_glyphs(script, style_name="chalk"):
         checked += 1
         if miss:
             issues.append(f"{where}: {' '.join(f'{c} U+{ord(c):04X}' for c in miss)} missing from {Path(path).name}#{idx}")
-    return chk("glyph_coverage", "final", "reject", not issues, issues, {"texts": checked})
+    return chk("glyph_coverage", "final", "reject", not issues, issues, {"texts": checked, "fontset": chalk.FONTSET["name"]})
 
 
 def frame_at(video, t):
@@ -483,9 +524,18 @@ def visual_calibration():
 
 
 def visual_checks(work_dir, script):
-    img = Path(work_dir) / "img"
-    raws = [(i, img / f"{i:02d}_raw.png") for i in range(len(script["scenes"]))]
-    raws = [(i, p) for i, p in raws if p.exists()]
+    sys.path.insert(0, str(ROOT))
+    import studio
+
+    seen, raws = set(), []
+    for i in range(len(script["scenes"])):
+        try:
+            p = studio.raw_path(script, Path(work_dir), i)
+        except (ValueError, TypeError):
+            p = Path(work_dir) / "img" / f"{i:02d}_raw.png"
+        if p.exists() and p not in seen:
+            seen.add(p)
+            raws.append((i, p))
     if not raws:
         return [chk("visual", "visual", "warn", True, [], {}, skipped=True, note="no img/NN_raw.png found")]
     out = []
@@ -607,10 +657,10 @@ def story_checks(script, language, primary=None):
     for f in rep["findings"]:
         by_rule.setdefault(f["rule"], []).append(f)
     out = []
-    for rule in ("duration", "hook", "scene_count", "scene_length", "keywords", "digits", "quote_src", "sources", "edition", "silences", "visual_parity", "reveal", "transition", "shot", "crop"):
+    for rule in ("duration", "hook", "scene_count", "scene_length", "keywords", "digits", "quote_src", "sources", "edition", "silences", "visual_parity", "reveal", "transition", "shot", "crop", "engine_values"):
         fs = by_rule.get(rule, [])
         cls = "reject" if any(f["level"] == "fail" for f in fs) else "warn"
-        if rule in ("reveal", "transition", "shot", "crop") and not fs:
+        if rule in ("reveal", "transition", "shot", "crop", "engine_values") and not fs:
             continue
         out.append(chk(f"lint_{rule}", "story", cls, not fs, [f["message"] for f in fs]))
     out[0]["data"] = {"estimate_s": rep["estimate"]["total"], "basis": rep["estimate"]["basis"]}

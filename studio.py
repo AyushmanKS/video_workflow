@@ -407,6 +407,7 @@ def step_voice(script, voice, speed, out):
             log(f"voice: scene {i + 1} narration/tts/voice changed; regenerating")
             wav.replace(d / f"{i:02d}.prev.wav")
             (d / f"{i:02d}.words.json").unlink(missing_ok=True)
+            (d / f"{i:02d}.heard.json").unlink(missing_ok=True)
         todo.append(i)
     if not todo:
         return
@@ -851,6 +852,16 @@ def blip(seed):
 WHISPER = []
 
 
+def file_sha256(path):
+    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+
+
+def write_heard(wav, text, model, language):
+    rec = {"wav_sha256": file_sha256(wav), "text": text, "model": model, "language": language}
+    Path(wav).with_suffix(".heard.json").write_text(json.dumps(rec, ensure_ascii=False, indent=2))
+    return rec
+
+
 def align_words(wav, narration, language="en"):
     cache = wav.with_suffix(".words.json")
     if cache.exists():
@@ -865,7 +876,9 @@ def align_words(wav, narration, language="en"):
     a = read_wav(wav)
     a16 = np.interp(np.arange(0, len(a), SR / 16000), np.arange(len(a)), a).astype(np.float32)
     segs, _ = WHISPER[0][1].transcribe(a16, language=language, word_timestamps=True)
+    segs = list(segs)
     heard = [(w.word, w.start, w.end) for sg in segs for w in sg.words]
+    write_heard(wav, "".join(sg.text for sg in segs).strip(), name, language)
     tokens = caption_tokens(narration)
     times = [None] * len(tokens)
     sm = difflib.SequenceMatcher(None, [norm_word(t) for t in tokens], [norm_word(h[0]) for h in heard], autojunk=False)
@@ -1092,7 +1105,21 @@ def write_timeline(script, timings, total, out, pl=None, bounds=None):
     return tl
 
 
+def step_masks(script, st, out):
+    if st.get("motion") != "chalkdraw" or engine_version(script) < 2:
+        return []
+    import parallax
+
+    WHISPER.clear()
+    stats = parallax.ensure_maps(script, out / "img", scene_still, log)
+    for s in stats:
+        if s["computed"]:
+            log(f"{s['kind']}: {len(s['computed'])} still(s), model load {s['load_s']}s, {sum(s['per_image_s']):.1f}s inference")
+    return stats
+
+
 def step_render(script, st, timings, total, out, seed):
+    step_masks(script, st, out)
     keywords = [k for sc in script["scenes"] for k in sc.get("keywords", [])]
     cap = Captioner(st, keywords)
     groups = []
@@ -1119,7 +1146,8 @@ def step_render(script, st, timings, total, out, seed):
 
         raws = [raw_path(script, out, i) for i in range(len(script["scenes"]))]
         masks = [out / "img" / f"{scene_still(script, i):02d}_mask.png" for i in range(len(script["scenes"]))]
-        pl = chalk.render(script, st, timings, total, raws, proc, cap, groups, seed, log, masks)
+        depths = [out / "img" / f"{scene_still(script, i):02d}_depth.png" for i in range(len(script["scenes"]))]
+        pl = chalk.render(script, st, timings, total, raws, proc, cap, groups, seed, log, masks, depths)
         proc.stdin.close()
         proc.wait()
         write_timeline(script, timings, total, out, pl=pl)

@@ -11,6 +11,7 @@ from PIL import Image, ImageDraw, ImageFilter, ImageFont
 from scipy import ndimage
 from scipy.signal import butter, fftconvolve, lfilter
 
+import parallax
 from styles import FONT_DIR, OFL
 
 ROOT = Path(__file__).parent
@@ -525,14 +526,14 @@ class Overlays:
         return frame
 
 
-def load_mask(path, crop=None):
+def load_mask(path, crop=None, sigma=6):
     path = Path(path)
     if not path.exists():
         return None
     m = Image.open(path).convert("L")
     m = crop_still(m, crop)
     m = np.asarray(m.resize((CW, CH), Image.BILINEAR), np.float32) / 255
-    return cv2.GaussianBlur(m, (0, 0), 6)
+    return cv2.GaussianBlur(m, (0, 0), sigma)
 
 
 def alive_maps(mask):
@@ -599,6 +600,28 @@ def move_camera(mv, com, prev_cam):
     return ((za, fa[0], fa[1]), (zb, fb[0], fb[1])), (deg, deg)
 
 
+def cam_at(s, p, t):
+    span = max(0.5, p["ve"] - p["ds"])
+    x = min(1.0, max(0.0, (t - p["ds"]) / span))
+    if s["move"] and s["move"]["type"] == "whip":
+        u = smooth(min(1.0, max(0.0, (t - p["ds"]) / 0.35)))
+    elif s["move"] and s["move"].get("ease") == "linear":
+        u = x
+    else:
+        u = smooth(x)
+    (z0, fx0, fy0), (z1, fx1, fy1) = s["cam"]
+    return z0 + (z1 - z0) * u, fx0 + (fx1 - fx0) * u, fy0 + (fy1 - fy0) * u
+
+
+def scene_planes(script, sc, i, chalk, masks, depths):
+    mode = parallax.scene_mode(script, sc, i)
+    if mode == "off":
+        return None
+    pm = load_mask(masks[i], sc.get("crop"), 1.0) if masks and masks[i] else None
+    pd = parallax.read_map(depths[i], (CW, CH), sc.get("crop"), crop_still, 2.0) if mode == "depth" and depths and depths[i] else None
+    return parallax.build_planes(chalk, pm, pd)
+
+
 def whip_blur(comp, strength):
     k = int(strength * 90)
     return cv2.blur(comp, (k, 1)) if k > 2 else comp
@@ -634,7 +657,7 @@ def scene_overlays(sc):
     return ov
 
 
-def render(script, st, timings, total, raw_paths, writer, captioner, groups, seed, log, masks=None):
+def render(script, st, timings, total, raw_paths, writer, captioner, groups, seed, log, masks=None, depths=None):
     pl = plan(script, timings, total)
     ev = engine_version(script)
     board = make_board(seed)
@@ -672,8 +695,13 @@ def render(script, st, timings, total, raw_paths, writer, captioner, groups, see
         am = None
         if ev >= 2 and masks and masks[i] and sc.get("alive", True):
             m = load_mask(masks[i], sc.get("crop"))
-            am = alive_maps(m) if m is not None else None
+            am = alive_maps(m) if parallax.usable_mask(m) else None
         scenes.append({"chalk": chalk, "order": order, "pts": pts, "com": com, "ghost": ghost.astype(np.float32), "cam": cam, "rot": rot, "move": mv, "title": title, "alive": am, "overlay": scene_overlays(sc)})
+        planes = scene_planes(script, sc, i, chalk, masks, depths) if ev >= 2 else None
+        if planes is not None:
+            pdir = {"left": 1.0, "right": -1.0}.get((mv or {}).get("dir"), parallax.default_direction(i))
+            scenes[-1].update(planes=planes, pf0=cam_at(scenes[-1], pl[i], pl[i]["de"])[1:], pamount=parallax.drift_amount(sc), pdir=pdir)
+            log(f"render: scene {i + 1} parallax {parallax.scene_mode(script, sc, i)} ({len(planes['alphas']) + 1} planes)")
         log(f"render: prepared scene {i + 1}/{len(script['scenes'])} ({len(pts)} stroke points)")
     stick = chalk_stick()
     parts = Particles(seed)
@@ -693,6 +721,7 @@ def render(script, st, timings, total, raw_paths, writer, captioner, groups, see
         rot = 0.0
         tr = p["transition"]
         whip = 0.0
+        fgain = 1.0
         if i > 0 and t < p["ds"]:
             q = (t - p["vs"]) / max(1e-3, p["ds"] - p["vs"])
             ps = scenes[i - 1]
@@ -703,6 +732,7 @@ def render(script, st, timings, total, raw_paths, writer, captioner, groups, see
                 erased = np.clip((q * 1.2 - field) / 0.2, 0, 1)
                 erased = cv2.resize(erased, (CW, CH), interpolation=cv2.INTER_LINEAR)[..., None]
                 layer = ps["chalk"] * (1 - erased) + ps["ghost"] * erased
+                fgain = 1 - erased
                 if i > 1:
                     layer = np.maximum(layer, scenes[i - 2]["ghost"] * 0.5)
                 for _ in range(2):
@@ -760,8 +790,17 @@ def render(script, st, timings, total, raw_paths, writer, captioner, groups, see
                 py, px = s["pts"][min(n - 1, int(k * (n - 1)))]
                 tip_pos = ((px - fx) * z + W / 2 + jx, (py - fy) * z + H / 2 + jy)
         M = cam_matrix(z, fx, fy, jx, jy, rot)
+        owner = i - 1 if i > 0 and t < p["ds"] else i
+        so = scenes[owner]
+        up = 0.0
+        if so.get("planes") is not None:
+            up = 1.0 if owner != i else parallax.progress(t, p["de"], p["ve"])
         comp = cv2.warpAffine(board, M, (W, H), flags=cv2.INTER_LINEAR, borderMode=cv2.BORDER_REFLECT)
-        comp += cv2.warpAffine(layer, M, (W, H), flags=cv2.INTER_LINEAR, borderMode=cv2.BORDER_CONSTANT)
+        if up > 0:
+            mats = [cam_matrix(*c) for c in parallax.plane_cams((z, fx, fy, jx, jy, rot), so["pf0"], so["planes"], up, so["pamount"], so["pdir"])]
+            comp += parallax.composite(layer, so["planes"], mats, (W, H), fgain)
+        else:
+            comp += cv2.warpAffine(layer, M, (W, H), flags=cv2.INTER_LINEAR, borderMode=cv2.BORDER_CONSTANT)
         if whip > 0:
             comp = whip_blur(comp, whip)
         if i > 0 and tr == "black":

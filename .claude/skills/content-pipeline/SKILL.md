@@ -15,20 +15,32 @@ Always start: read `PROJECT_CONTEXT.md` (§22 status, §23 next steps), then `py
 | 3 | Visual plan | `creative-director` | positive-only `visual` prompts, `{character}` tokens in the primary `script.json` | — |
 | 4 | **Lint** | main | `python -m pipeline lint <ID>`; failures go back to the scriptwriter (max 2 rewrites, then the owner gets the diff) | must pass before G1 |
 | 5 | Story QA | `reviewer` | scored review text → main saves `<lang>/review.md` | — |
-| G1 | **Script approval** | owner | `python -m pipeline approve <ID> script` (owner runs it; records the `script.json` hashes) | lint pass |
+| G1 | **Script approval** | owner | `python -m pipeline approve <ID> script --langs en,hi,gu,te` (owner runs it; records the `script.json` hashes) | lint pass |
 | 6 | Voice | main | `python -m pipeline produce <ID> --lang X --steps voice` | languages sequential |
 | 7 | Images | main | `python -m pipeline produce <ID> --lang <primary> --steps images` (others reuse) | never parallel with voice |
 | 8 | Render | main | `python -m pipeline produce <ID> --lang X --steps render` | sequential |
 | 9 | Automatic QA | main | `python -m pipeline qa <ID> --lang X` → `qa.md`, contact sheet, verdict | — |
 | 10 | Visual + Audio QA | `reviewer` | scored review with numbered fixes; fixes routed to scriptwriter / creative-director | — |
-| G2 | **Final approval** | owner | `python -m pipeline approve <ID> final` | refused unless the latest QA verdict is pass, or warn with every warning waived (text + who); records the mp4 hash |
+| G2 | **Final approval** | owner | `python -m pipeline approve <ID> final --langs …`; waivers: `python -m pipeline waive <ID> --lang L --check <name>\|all-warnings --note "…"` | refused unless the latest QA verdict is pass, or warn with every warning waived (text + who); records the mp4 hash |
 | 11 | Metadata | `packager` | `<lang>/publish.json` (`synthetic: true`, Instagram `is_ai_generated: true`); main runs title lint and `python -m pipeline schedule --id <ID> --lang X` and passes the output | — |
-| G3 | **Publish approval, per platform** | owner | one record per platform (`gate:publish:<platform>`) holding each language's approved time and the hashes of `publish.json` and the mp4 | — |
-| 12 | Publish | `/publish` skill (manual only) | see `.claude/skills/publish/SKILL.md` | refused unless G3 for that platform, time and hashes match |
-| 13 | Analytics | main (deterministic) | `python -m pipeline analytics`, `python -m pipeline report <VARIANT>` | — |
+| G3 | **Publish approval, per platform** | owner | `python -m pipeline approve <ID> publish --langs … --platform youtube\|instagram --at <ISO>` (or `--at en=<ISO>,hi=<ISO>`, or `now`): one record per platform holding each language's time and the hashes of `publish.json` and the mp4. Rejections: `python -m pipeline reject <ID> <gate> --note "…"` | — |
+| 12 | Publish | `/publish` skill (manual only) | `--check-gates-only` first; uploads directly or via `publish-queue`; see `.claude/skills/publish/SKILL.md` | refused unless G3 for that platform, time and hashes match |
+| 13 | Analytics | main (deterministic) + daily LaunchAgent at 20:00 | `python -m pipeline analytics` (YouTube + Instagram, labels from `age_h`), `python -m pipeline report <VARIANT>`, weekly `python -m pipeline report --weekly` | — |
 | 14 | Optimize | `optimizer` (dormant until ≥30 variants have 7-day data) | `data/reports/recommendations.md` | owner approves changes |
 
-The approval and QA-gating behaviour above is being implemented in `pipeline/__main__.py` (roadmap A10, A11). Check `python -m pipeline approve --help` and `python -m pipeline lint --help` for the exact flags before first use; if a command does not exist yet, tell the owner instead of improvising a substitute.
+`approve` needs `--langs`, and publish approvals also need `--platform` and a time (`--at`; YouTube can fall back to `schedule.json`). The optional flags are `--by`, `--channel` and `--note`. Approvals are interactive. `--yes` works only when the owner has set `STUDIO_OWNER_APPROVED=<ID>` in their own shell, and then needs `--channel`. Check `--help` before first use. If a command does not exist, tell the owner instead of improvising a substitute.
+
+## Learning loop (D4)
+- The `features` row per variant is written at script, render and publish (`python -m pipeline features <ID>` or `--all` to backfill). It includes duration, scenes, words, w/s, hook, first frame (from `timeline.json` when present), voice, slot, weekday, title pattern, verse and engine version.
+- Experiments: `python -m pipeline experiment add|list|start|close`.
+  - One active at a time.
+  - Arms alternate by odd/even episode across all languages.
+  - At least 6 variants per arm per language before any claim, else "anecdote".
+  - Compare within a language by ratio to its rolling median, never raw views across languages.
+  - Pre-registered stop rule; 95% bootstrap interval.
+- Experiment #1 (duration) is registered as `planned` and is observational before/after: C0001–C0005 are the legacy arm, and every new episode is 35–55 s per O1. Its legacy arm can never reach n = 6, so it stays "anecdote".
+- `python -m pipeline schedule` ranks slots on the per-language outlier ratio and keeps the last slot while a content experiment is active.
+- The weekly report (`python -m pipeline report --weekly` → `data/reports/weekly-<date>.md`) covers per-language medians, top and bottom ratios, experiments with n per arm, the D10 cannibalisation check and the E7 split triggers. Never quote numbers that are not in it.
 
 **Agents never run `python -m pipeline approve` or `python -m pipeline publish`.** The reviewer and packager have no Bash at all; the main session runs deterministic commands for them and saves their returned text.
 

@@ -28,7 +28,31 @@ Use this on the About page and as one line in every description (GROWTH §3.4), 
 Never imply hand-drawn art or a human narrator. If the channel is renamed (GROWTH §7 Phase 0), update the name here.
 
 ### Approvals per platform (G3)
-G3 is recorded separately for each platform: the record names the platform, each language's approved time, and the sha256 of that language's `publish.json` and mp4. An Instagram approval never covers YouTube, or the reverse. If the video, the metadata or the time changes after G3, the publish command refuses and the owner approves again. G2 likewise requires a QA pass, or warnings each carrying a recorded waiver. The implementation is in `pipeline/__main__.py` (roadmap A10/A11); `python -m pipeline approve --help` shows the exact flags. Claude never records G3, and the upload steps live in the manual-only `/publish` skill.
+G3 is recorded separately for each platform: the record names the platform, each language's approved time, and the sha256 of that language's `publish.json` and mp4. An Instagram approval never covers YouTube, or the reverse. If the video, the metadata or the time changes after G3, the publish command refuses and the owner approves again. G2 likewise requires a QA pass, or warnings each carrying a recorded waiver. Claude never records G1, G2 or G3, and the upload steps live in the manual-only `/publish` skill.
+
+### Gate commands (owner only; flags as in `--help`, 2026-11-16)
+
+| Command | Flags | Notes |
+|---|---|---|
+| `python -m pipeline lint <ID>` | `[--lang L] [--calibrate]` | pre-G1 lint; G1 is refused while lint fails |
+| `python -m pipeline approve <ID> script` | `--langs en,hi [--note …] [--by owner] [--channel chat\|telegram\|terminal] [--nonce …] [--yes]` | records the `script.json` hashes |
+| `python -m pipeline approve <ID> final` | `--langs …` (same optional flags) | refused unless the latest QA verdict for the current mp4 is pass, or warn with every warning waived |
+| `python -m pipeline approve <ID> publish` | `--langs … --platform youtube\|instagram --at <ISO>` or `--at en=<ISO>,hi=<ISO>` or `--at now` | YouTube falls back to `schedule.json` when `--at` is omitted; Instagram always needs `--at` |
+| `python -m pipeline reject <ID> script\|final\|publish` | `--note "…" [--langs …] [--platform …] [--by …] [--channel …]` | blocks the gate for those languages |
+| `python -m pipeline waive <ID>` | `--lang L --check <name>\|all-warnings --note "…" [--by …] [--channel …] [--yes]` | auto-reject checks can never be waived |
+
+- `--langs` is required for every approval; there is no "all languages" default.
+- Approvals are interactive: the owner types the variant ids. `--yes` works only when the owner has set `STUDIO_OWNER_APPROVED=<ID>` in their own shell, and then `--channel` is required. A PreToolUse hook (`pipeline/g3hook.py`) blocks approval and publish commands from Claude that don't match the records.
+
+### Upload commands (after G3)
+
+| Command | Flags | Notes |
+|---|---|---|
+| `python -m pipeline publish <ID>` | `--lang L [--platform youtube\|instagram] [--at <approved ISO>] [--slot …] [--yes]` | YouTube: private upload with `publishAt` = the approved time |
+| | `--check-gates-only` | verifies G2/G3, time and hashes; no tunnel, no upload |
+| | Instagram only: `--dry-run`, `--now`, `--cancel` | see the Instagram section |
+| `python -m pipeline publish-queue add\|list\|remove\|run [ID]` | `[--langs …] [--platform youtube] [--priority N] [--cap N] [--dry-run] [--once]` | persisted YouTube queue: daily cap (default 6), backoff, exact approved times; re-checks the gates before each upload |
+| `python -m pipeline ig-jobs` | | lists scheduled Instagram posts |
 
 ---
 
@@ -132,6 +156,38 @@ In the Instagram app afterwards, check the cover, and confirm the **AI info** la
 
 ---
 
+## Analytics, experiments and the weekly report (read-only)
+
+```
+python -m pipeline analytics                    # snapshots that are due (YouTube + Instagram)
+python -m pipeline analytics --dry-run          # list what is due
+python -m pipeline analytics --platform instagram --force
+python -m pipeline analytics --relabel [--dry-run]
+python -m pipeline analytics --install-daily | --print-daily | --uninstall-daily
+python -m pipeline report <VARIANT>             # one variant, every snapshot
+python -m pipeline report --weekly              # data/reports/weekly-<date>.md
+python -m pipeline experiment add --exp1 | list | start <N> | close <N> --result "…"
+python -m pipeline features --all               # backfill the features table
+```
+
+- **Windows:** every snapshot stores `age_h = captured_at − published_at` (YouTube scheduled videos use `scheduled_for`). A snapshot is labelled `24h`, `48h`, `7d`, `14d` or `30d` only when `age_h` is within ±12 h of that window. Otherwise it is labelled `age_<n>h`, or `prepublish_<n>h` before the video is public. `--label` overrides this; avoid it.
+- **YouTube:** the day series is queried one day at a time (`startDate = endDate`). Window values are sums of the first N calendar days of that series. Rows younger than 3 days are re-queried because YouTube Analytics lags 1–3 days. The `24h` and `48h` windows are calendar-day approximations, since day 1 is partial.
+- **Instagram:** `GET /{media-id}/insights` on `graph.facebook.com/v27.0` asks for views, reach, saved, shares, likes, comments, total_interactions, ig_reels_avg_watch_time and ig_reels_video_view_total_time.
+  - `plays`, `clips_replays_count`, `ig_reels_aggregated_all_plays_count` and `video_views` are deprecated (all versions since 2025-04-21, or 2025-01-08 for `video_views`) and are not requested.
+  - The current token returns **(#10) "Application does not have permission"** for insights. Re-authorise the Meta app with `instagram_manage_insights` (Facebook Login). Until then, snapshots store `permission_error` and only the basic counters (`like_count`, `comments_count`).
+  - The token is sent in an Authorization header and never printed.
+- **Daily job:** `com.shortsstudio.analytics.daily` runs `python -m pipeline analytics` at 20:00 local and logs to `data/logs/analytics-daily.log`. It only reads analytics and never uploads or publishes. If the Mac is asleep at 20:00, launchd runs it on wake.
+- **Learning rules (D4):**
+  - One active experiment at a time.
+  - Arms alternate by odd/even episode across all languages.
+  - At least 6 variants per arm per language before any claim; below that the result is "anecdote".
+  - Compare within a language only, by ratio to that language's rolling median (never raw views across languages).
+  - The stop rule is fixed in advance, and the interval is a 95% bootstrap.
+  - `schedule` ranks slots on the per-language ratio, and freezes slots while a content experiment is active.
+- **E7 manual triggers:** record them in `data/reports/e7_manual.json` as `{"policy_pressure": {"gu": {"consecutive_episodes": 5, "evidence": "path or note"}}}`.
+
+---
+
 ## Files
 
 | File | Purpose |
@@ -139,4 +195,7 @@ In the Instagram app afterwards, check the cover, and confirm the **AI info** la
 | `publish.py` | The uploader (YouTube and Instagram) |
 | `secrets/` | Your OAuth client and tokens. Never share this folder. |
 | `out/<episode>/final/publish-english.json`, `publish-hindi.json` | Title, description, tags, playlist, caption |
-| `out/<episode>/final/published.json` | Log of uploads with links |
+| `out/<episode>/final/published.json` | Log of uploads with links (legacy C0001 en/hi) |
+| `content/<ID>/<lang>/publish.json`, `published.json` | Metadata and upload log for pipeline episodes |
+| `data/studio.db` | publications, analytics_snapshots, features, experiments, decisions, waivers, publish_queue |
+| `data/reports/weekly-<date>.md` | Weekly report |

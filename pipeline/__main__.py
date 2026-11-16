@@ -270,16 +270,29 @@ def cmd_waive(a):
     if not rep or rep["mp4_sha256"] != sha:
         sys.exit(f"{variant}: no QA report for the current video; run pipeline qa first")
     names = {c["name"]: c for c in rep["report"]["checks"]}
-    c = names.get(a.check)
-    if not c:
-        sys.exit(f"{variant}: no check named '{a.check}' in QA report #{rep['id']} ({', '.join(names)})")
-    if c.get("class") == "reject" and not c["ok"]:
-        sys.exit(f"{variant}: '{a.check}' is an auto-reject check; it cannot be waived — fix it")
-    owner_confirm(a, a.id, [f"Waive {a.check} for {variant} (QA #{rep['id']}, video {sha[:12]}): {a.note}", *[f"  - {i}" for i in c["issues"]]], [variant])
+    if a.check == "all-warnings":
+        rejects = [n for n, c in names.items() if c.get("class") == "reject" and not c["ok"]]
+        if rejects:
+            sys.exit(f"{variant}: auto-reject checks failed and cannot be waived: {', '.join(rejects)}")
+        picked = [c for c in names.values() if not c["ok"]]
+        if not picked:
+            sys.exit(f"{variant}: nothing to waive in QA report #{rep['id']}")
+    else:
+        c = names.get(a.check)
+        if not c:
+            sys.exit(f"{variant}: no check named '{a.check}' in QA report #{rep['id']} ({', '.join(names)})")
+        if c.get("class") == "reject" and not c["ok"]:
+            sys.exit(f"{variant}: '{a.check}' is an auto-reject check; it cannot be waived — fix it")
+        picked = [c]
+    lines = [f"Waive for {variant} (QA #{rep['id']}, video {sha[:12]}): {a.note}"]
+    for c in picked:
+        lines += [f"  {c['name']}"] + [f"    - {i}" for i in c["issues"]]
+    owner_confirm(a, a.id, lines, [variant])
     with db.connect() as con:
-        con.execute("INSERT INTO waivers (variant_id, check_name, mp4_sha256, note, actor, channel, created_at) VALUES (?,?,?,?,?,?,?)", (variant, a.check, sha, a.note, a.by, a.channel or "terminal", db.now()))
-        db.log_decision(con, "waiver", a.check, a.note, "human", content_id=a.id, variant_id=variant, actor=a.by, channel=a.channel or "terminal", artifact_sha256=sha)
-    print(f"{variant}: waiver recorded for {a.check}")
+        for c in picked:
+            con.execute("INSERT INTO waivers (variant_id, check_name, mp4_sha256, note, actor, channel, created_at) VALUES (?,?,?,?,?,?,?)", (variant, c["name"], sha, a.note, a.by, a.channel or "terminal", db.now()))
+            db.log_decision(con, "waiver", c["name"], a.note, "human", content_id=a.id, variant_id=variant, actor=a.by, channel=a.channel or "terminal", artifact_sha256=sha)
+    print(f"{variant}: waivers recorded for {', '.join(c['name'] for c in picked)}")
 
 
 def cmd_done(a):
@@ -352,6 +365,12 @@ def cmd_hooks(a):
 def cmd_features(a):
     from . import lint
 
+    if a.all:
+        for v, row in lint.backfill_features(a.stage if a.stage != "manual" else "backfill"):
+            print(f"{v}: " + (f"{row['duration_s']} s ({row['duration_source']}), {row['scenes']} scenes, first_frame {row['first_frame']}, slot {row['slot_ist']}, title {row['title_pattern']}" if row else "skipped (no script)"))
+        return
+    if not a.id:
+        sys.exit("features needs an id or --all")
     m = load(a.id)
     for lang in ([a.lang] if a.lang else m["languages"]):
         row = lint.log_features(m, lang, a.stage)
@@ -642,14 +661,45 @@ def cmd_link(a):
 def cmd_analytics(a):
     from . import analytics
 
-    done = analytics.snapshot_due(force=a.force, label_override=a.label)
-    for v, lab, views in done:
-        print(f"snapshot {v} {lab}: views={views}")
-    if not done:
+    if a.install_daily or a.print_daily:
+        spec, cmds, ok = analytics.install_daily(dry_run=a.print_daily)
+        print(f"LaunchAgent {analytics.AGENT_LABEL}: {' '.join(spec['ProgramArguments'])} daily at {analytics.DAILY_AT[0]:02d}:{analytics.DAILY_AT[1]:02d} local (read-only analytics; never publishes)")
+        print(f"  plist: {analytics.AGENT_PLIST}\n  log:   {spec['StandardOutPath']}")
+        print("  installed and loaded" if ok else "  not installed; to install run:\n    python -m pipeline analytics --install-daily")
+        return
+    if a.uninstall_daily:
+        print("removed" if analytics.uninstall_daily() else "no daily job was installed")
+        return
+    if a.relabel:
+        for c in analytics.relabel(dry_run=a.dry_run):
+            print(f"snapshot #{c['id']} pub {c['publication_id']}: {c['old']} -> {c['new']} (age {c['age_h']} h, captured {c['captured_at']}, published {c['published_ref']})")
+        print("dry run: nothing written" if a.dry_run else "relabelled")
+        return
+    platforms = (a.platform,) if a.platform else ("youtube", "instagram")
+    if a.dry_run:
+        with db.connect() as con:
+            for p, lab, t0 in analytics.due(con, a.force, platforms):
+                print(f"due {p['variant_id']} {p['platform']} {lab} (published {t0.isoformat()})")
+        return
+    done, errors = analytics.snapshot_due(force=a.force, label_override=a.label, platforms=platforms)
+    for v, plat, lab, views in done:
+        print(f"snapshot {v} {plat} {lab}: views={views}")
+    for v, plat, err in errors:
+        print(f"error {v} {plat}: {err}")
+    if not done and not errors:
         print("no snapshots due")
 
 
 def cmd_report(a):
+    if a.weekly:
+        from . import report
+
+        path, text = report.weekly(write=True)
+        print(text)
+        print(f"written: {path}")
+        return
+    if not a.variant:
+        sys.exit("report needs a variant (e.g. C0002-hi) or --weekly")
     from . import analytics
 
     text = analytics.report(a.variant)
@@ -657,6 +707,52 @@ def cmd_report(a):
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(text)
     print(text)
+
+
+def cmd_experiment(a):
+    from . import learn
+
+    if a.action in ("start", "close") and not a.exp_id:
+        sys.exit(f"experiment {a.action} needs the experiment id")
+    with db.connect() as con:
+        if a.action == "add":
+            if a.exp1:
+                spec = learn.EXP1
+            else:
+                missing = [k for k in ("hypothesis", "variable", "arms", "metric", "stop_rule") if not getattr(a, k)]
+                if missing:
+                    sys.exit("experiment add needs --" + ", --".join(m.replace("_", "-") for m in missing) + " (or --exp1)")
+                arms = a.arms.split(",")
+                if len(arms) != 2:
+                    sys.exit("--arms takes exactly two names, e.g. A,B")
+                rule = {"type": "parity", "odd": arms[0], "even": arms[1]}
+                spec = {"name": a.name, "hypothesis": a.hypothesis, "variable": a.variable, "arms": arms, "assignment_rule": rule, "metric": a.metric,
+                        "min_n_per_arm": max(learn.MIN_N, a.min_n), "stop_rule": a.stop_rule, "design": "alternating arms by odd/even episode across all languages"}
+            try:
+                eid = learn.ensure_exp1(con) if a.exp1 and not a.start else learn.add(con, spec, start=a.start)
+            except ValueError as e:
+                sys.exit(str(e))
+            print(f"experiment #{eid} registered ({'active' if a.start else 'planned'})")
+        elif a.action == "start":
+            try:
+                learn.start(con, a.exp_id)
+            except ValueError as e:
+                sys.exit(str(e))
+            print(f"experiment #{a.exp_id} active; slots are frozen while a content experiment is active")
+        elif a.action == "close":
+            if not a.result:
+                sys.exit("experiment close needs --result (what was concluded, with the evidence tier)")
+            learn.close(con, a.exp_id, a.result)
+            print(f"experiment #{a.exp_id} closed")
+        rows = [learn.as_dict(r) for r in learn.all_experiments(con)]
+    if a.action == "list":
+        if not rows:
+            print("no experiments")
+        for e in rows:
+            win = learn.metric_window(e)
+            ev = learn.evaluate(e, learn.rows_for(win))
+            n = {l: r["n"] for l, r in ev["languages"].items()}
+            print(f"#{e['id']} [{e['status']}] {e.get('name') or e['variable']}: arms {e['arms']} · metric window {win} · n per arm {n or 'none yet'} · {ev['overall']}")
 
 
 def main():
@@ -668,11 +764,11 @@ def main():
     p = sp.add_parser("research"); p.add_argument("id"); p.add_argument("--query", required=True, help='string, or JSON {"en": "...", "hi": "..."}'); p.add_argument("--wiki", required=True, help="English Wikipedia title"); p.add_argument("--langs", default="en,hi"); p.set_defaults(fn=cmd_research)
     p = sp.add_parser("approve", help="OWNER ONLY: record a gate approval bound to file hashes (interactive; --yes needs STUDIO_OWNER_APPROVED=<ID>)"); p.add_argument("id"); p.add_argument("gate", choices=list(GATES)); p.add_argument("--langs", required=True); p.add_argument("--platform", choices=list(gates.PLATFORMS)); p.add_argument("--at", help="publish: ISO time for all langs, or lang=ISO,lang=ISO; 'now' for immediate"); p.add_argument("--note", default=""); p.add_argument("--by", default="owner"); p.add_argument("--channel", help="chat, telegram, terminal …"); p.add_argument("--nonce"); p.add_argument("--yes", action="store_true"); p.set_defaults(fn=cmd_approve)
     p = sp.add_parser("reject", help="record a gate rejection (blocks the gate for those langs)"); p.add_argument("id"); p.add_argument("gate", choices=list(GATES)); p.add_argument("--platform", choices=list(gates.PLATFORMS)); p.add_argument("--langs"); p.add_argument("--note", required=True); p.add_argument("--by", default="owner"); p.add_argument("--channel"); p.set_defaults(fn=cmd_reject)
-    p = sp.add_parser("waive", help="OWNER ONLY: waive one auto-warn QA check for the current video"); p.add_argument("id"); p.add_argument("--lang", required=True); p.add_argument("--check", required=True); p.add_argument("--note", required=True); p.add_argument("--by", default="owner"); p.add_argument("--channel"); p.add_argument("--yes", action="store_true"); p.set_defaults(fn=cmd_waive)
+    p = sp.add_parser("waive", help="OWNER ONLY: waive one auto-warn QA check for the current video"); p.add_argument("id"); p.add_argument("--lang", required=True); p.add_argument("--check", required=True, help="check name, or all-warnings to waive every non-reject failure of the current QA report"); p.add_argument("--note", required=True); p.add_argument("--by", default="owner"); p.add_argument("--channel"); p.add_argument("--yes", action="store_true"); p.set_defaults(fn=cmd_waive)
     p = sp.add_parser("lint", help="pre-G1 script lint: duration estimate, hook, scenes, digits, sources, quotes, parity"); p.add_argument("id", nargs="?"); p.add_argument("--lang"); p.add_argument("--calibrate", action="store_true", help="recompute speech rates from existing renders into data/lint_rates.json"); p.set_defaults(fn=cmd_lint)
     p = sp.add_parser("migrate-gates", help="convert legacy gate:publish into per-platform, hash-bound records (evidence only)"); p.add_argument("id", nargs="?"); p.add_argument("--dry-run", action="store_true"); p.set_defaults(fn=cmd_migrate_gates)
     p = sp.add_parser("hooks", help="load <lang>/hooks.json into the hooks table"); p.add_argument("id"); p.add_argument("--lang"); p.set_defaults(fn=cmd_hooks)
-    p = sp.add_parser("features", help="(re)write the features row per variant"); p.add_argument("id"); p.add_argument("--lang"); p.add_argument("--stage", default="manual"); p.set_defaults(fn=cmd_features)
+    p = sp.add_parser("features", help="(re)write the features row per variant; --all backfills every content piece"); p.add_argument("id", nargs="?"); p.add_argument("--lang"); p.add_argument("--stage", default="manual"); p.add_argument("--all", action="store_true"); p.set_defaults(fn=cmd_features)
     p = sp.add_parser("publish-queue", help="persisted YouTube upload queue: add, list, remove, run (daily cap, backoff, exact approved times)"); p.add_argument("action", choices=["add", "list", "remove", "run"]); p.add_argument("id", nargs="?"); p.add_argument("--langs"); p.add_argument("--platform", default="youtube", choices=["youtube"]); p.add_argument("--priority", type=int, default=0); p.add_argument("--cap", type=int); p.add_argument("--dry-run", action="store_true"); p.add_argument("--once", action="store_true"); p.set_defaults(fn=cmd_publish_queue)
     p = sp.add_parser("done"); p.add_argument("id"); p.add_argument("stage"); p.add_argument("--lang"); p.add_argument("--note"); p.set_defaults(fn=cmd_done)
     p = sp.add_parser("cleanup", help="free disk: reproducible intermediates (default), unused model caches (--models), tool caches (--tools); preview unless --apply"); p.add_argument("--models", action="store_true"); p.add_argument("--tools", action="store_true"); p.add_argument("--apply", action="store_true"); p.add_argument("--yes", action="store_true"); p.set_defaults(fn=cmd_cleanup)
@@ -686,8 +782,9 @@ def main():
     p = sp.add_parser("retention-csv", help="export API retention curve for .claude/skills/yt-retention"); p.add_argument("variant"); p.set_defaults(fn=cmd_retention_csv)
     p = sp.add_parser("voicepack", help="render the same lines with several voices for an A/B listening test"); p.add_argument("--lines", required=True); p.add_argument("--voices", required=True, help="e.g. veena:kavya,maya2:Malini,svara:'Hindi (Female)'"); p.add_argument("--lang", default="hi"); p.add_argument("--out", required=True); p.set_defaults(fn=cmd_voicepack)
     p = sp.add_parser("link"); p.add_argument("--variant", required=True); p.add_argument("--video-id", required=True); p.add_argument("--published-at", required=True); p.add_argument("--slot"); p.set_defaults(fn=cmd_link)
-    p = sp.add_parser("analytics"); p.add_argument("--force", action="store_true"); p.add_argument("--label"); p.set_defaults(fn=cmd_analytics)
-    p = sp.add_parser("report"); p.add_argument("variant"); p.set_defaults(fn=cmd_report)
+    p = sp.add_parser("analytics", help="read-only YouTube + Instagram snapshots at 24h/48h/7d/14d/30d (±12 h), else age_<n>h"); p.add_argument("--force", action="store_true", help="snapshot every publication now"); p.add_argument("--label", help="override the computed label (avoid; labels come from age_h)"); p.add_argument("--platform", choices=["youtube", "instagram"]); p.add_argument("--dry-run", action="store_true", help="list what is due / preview --relabel"); p.add_argument("--relabel", action="store_true", help="recompute labels of existing snapshots from age_h"); p.add_argument("--install-daily", action="store_true", help="install the daily read-only LaunchAgent"); p.add_argument("--print-daily", action="store_true", help="show the LaunchAgent without installing"); p.add_argument("--uninstall-daily", action="store_true"); p.set_defaults(fn=cmd_analytics)
+    p = sp.add_parser("report", help="per-variant performance report, or --weekly → data/reports/weekly-<date>.md"); p.add_argument("variant", nargs="?"); p.add_argument("--weekly", action="store_true"); p.set_defaults(fn=cmd_report)
+    p = sp.add_parser("experiment", help="pre-registered experiments: add | list | start | close (one active at a time; ≥6 per arm per language)"); p.add_argument("action", choices=["add", "list", "start", "close"]); p.add_argument("exp_id", nargs="?", type=int); p.add_argument("--exp1", action="store_true", help="register experiment 1 (duration, observational before/after)"); p.add_argument("--name"); p.add_argument("--hypothesis"); p.add_argument("--variable"); p.add_argument("--arms", help="two arm names A,B; odd episodes get A, even get B"); p.add_argument("--metric", help="e.g. '7d views / language rolling median'"); p.add_argument("--min-n", type=int, default=6); p.add_argument("--stop-rule"); p.add_argument("--start", action="store_true", help="activate immediately (fails if another is active)"); p.add_argument("--result"); p.set_defaults(fn=cmd_experiment)
     a = ap.parse_args()
     a.fn(a)
 

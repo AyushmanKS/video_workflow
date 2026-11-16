@@ -1,9 +1,10 @@
 import json
 import re
 import subprocess
+import sys
 import unicodedata
 
-from . import CONTENT, DATA, PROFILES, db
+from . import CONTENT, DATA, PROFILES, ROOT, db
 
 DEFAULT_RATES = {"en": 2.81, "hi": 2.80, "gu": 2.3, "te": 1.66}
 FALLBACK_RATE = 2.3
@@ -77,6 +78,120 @@ def ffprobe_duration(path):
         return None
 
 
+URL = re.compile(r"^https?://")
+EDITION_IN_TEXT = re.compile(r"\(([^)]+)\)\s*$")
+QUESTION_WORDS = re.compile(r"\b(how|why|what|who|when|which)\b|कैसे|क्यों|क्या|कौन|કેમ|કેવી|શા|ఎలా|ఎందుకు|ఏమి", re.I)
+_VOCAB = {}
+
+
+def engine_vocab():
+    if "v" not in _VOCAB:
+        try:
+            sys.path.insert(0, str(ROOT))
+            import chalk
+            import studio
+
+            _VOCAB["v"] = {"transition": tuple(chalk.TRANSITIONS), "reveal": tuple(chalk.REVEALS), "move": tuple(chalk.MOVES), "overlay": tuple(chalk.OVERLAYS),
+                           "oneshot": tuple(chalk.ONESHOTS), "bed": tuple(chalk.BEDS), "leitmotif": tuple(chalk.LEITMOTIFS),
+                           "shot": tuple(studio.SHOT_HINTS), "angle": tuple(studio.ANGLE_HINTS), "scene_still": studio.scene_still}
+        except Exception as e:
+            _VOCAB["v"] = {"error": f"{type(e).__name__}: {e}"}
+    return _VOCAB["v"]
+
+
+def as_list(x):
+    if x is None or x == "" or x == []:
+        return []
+    return list(x) if isinstance(x, (list, tuple)) else [x]
+
+
+def sound_names(x):
+    out = []
+    for c in as_list(x):
+        out.append(c if isinstance(c, str) else (c.get("name") if isinstance(c, dict) else None))
+    return out
+
+
+def engine_value_findings(script):
+    v = engine_vocab()
+    if "error" in v:
+        return [finding("engine_values", "warn", f"engine vocabulary unavailable, values not checked ({v['error'][:120]})")]
+    f = []
+    scenes = script.get("scenes", [])
+
+    def bad(i, field, value, allowed):
+        f.append(finding("engine_values", "fail", f"scene {i + 1}: {field} '{value}' is not one of {', '.join(allowed)}", i + 1))
+
+    for i, sc in enumerate(scenes):
+        if sc.get("transition") and sc["transition"] not in v["transition"]:
+            bad(i, "transition", sc["transition"], v["transition"])
+        if sc.get("reveal") and sc["reveal"] not in v["reveal"]:
+            bad(i, "reveal", sc["reveal"], v["reveal"])
+        mv = sc.get("move")
+        if mv:
+            t = mv if isinstance(mv, str) else (mv.get("type") if isinstance(mv, dict) else None)
+            if t not in v["move"]:
+                bad(i, "move", t, v["move"])
+        for o in as_list(sc.get("overlay")):
+            if o not in v["overlay"]:
+                bad(i, "overlay", o, v["overlay"])
+        for field in ("sfx", "hit"):
+            for name in sound_names(sc.get(field)):
+                if not name or not (name in v["oneshot"] or name in v["bed"] or str(name).startswith("file:")):
+                    bad(i, field, name, v["bed"] + v["oneshot"] + ("file:<name>",))
+        mu = sc.get("music")
+        if isinstance(mu, dict) and mu.get("leitmotif") and mu["leitmotif"] not in v["leitmotif"]:
+            bad(i, "music.leitmotif", mu["leitmotif"], v["leitmotif"])
+        if sc.get("shot") and sc["shot"] not in v["shot"]:
+            bad(i, "shot", sc["shot"], v["shot"])
+        if sc.get("angle") and sc["angle"] not in v["angle"]:
+            bad(i, "angle", sc["angle"], v["angle"])
+        if sc.get("image") not in (None, "", False):
+            try:
+                v["scene_still"](script, i)
+            except (ValueError, TypeError) as e:
+                f.append(finding("engine_values", "fail", str(e), i + 1))
+    return f
+
+
+def source_edition(src):
+    if isinstance(src, dict):
+        return src.get("edition")
+    if isinstance(src, str) and not URL.match(src):
+        m = EDITION_IN_TEXT.search(src)
+        return m.group(1) if m else None
+    return None
+
+
+def source_findings(script):
+    f = []
+    refs = []
+    for k, src in enumerate(script.get("sources") or []):
+        if isinstance(src, dict):
+            if not src.get("ref"):
+                f.append(finding("sources", "fail", f"sources[{k}] object needs a 'ref' (e.g. {{\"ref\": \"VR 1.26.12\", \"edition\": \"vulgate\"}})"))
+            refs.append(src)
+        elif isinstance(src, str):
+            if not URL.match(src):
+                refs.append(src)
+        else:
+            f.append(finding("sources", "fail", f"sources[{k}] must be a string or an object with ref/edition"))
+    return f, refs
+
+
+def title_pattern(title):
+    if not title:
+        return None
+    head = title.split("|")[0]
+    if "?" in head or QUESTION_WORDS.search(head):
+        return "question"
+    if re.search(r"\d", head):
+        return "number"
+    if re.match(r"\s*(when|जब|જ્યારે|ఎప్పుడు)\b", head, re.I):
+        return "when-story"
+    return "statement"
+
+
 def finding(rule, level, msg, scene=None):
     return {"rule": rule, "level": level, "message": msg, **({"scene": scene} if scene is not None else {})}
 
@@ -116,12 +231,16 @@ def lint_script(script, lang, primary=None, rates=None):
             src = sc.get("source", "")
             if not VERSE_SOURCE.search(src):
                 f.append(finding("sources", "fail", f"scene {i + 1}: verse card source '{src}' lacks a kanda.sarga.verse locator", i + 1))
-            if not (sc.get("edition") or script.get("edition")):
+            if not (sc.get("edition") or script.get("edition") or source_edition(src) or any(source_edition(r) for r in (script.get("sources") or []))):
                 f.append(finding("edition", "warn", f"scene {i + 1}: verse card has no edition label (scene or script 'edition')", i + 1))
+    src_f, refs = source_findings(script)
+    f += src_f
+    sourced_editions = bool(refs) and all(source_edition(r) for r in refs)
     if not script.get("sources"):
         f.append(finding("sources", "fail", "script has no sources"))
-    elif not script.get("edition"):
-        f.append(finding("edition", "warn", "script has no 'edition' (which text edition the sources cite)"))
+    elif not script.get("edition") and not sourced_editions:
+        f.append(finding("edition", "warn", "no edition: set script 'edition' or give every source one ({\"ref\", \"edition\"} or \"VR 1.26.12 (vulgate)\")"))
+    f += engine_value_findings(script)
     silences = sum(1 for sc in scenes if float(sc.get("pause", DEFAULT_PAUSE)) >= SILENCE_MIN)
     if not SILENCES[0] <= silences <= SILENCES[1]:
         f.append(finding("silences", "warn", f"{silences} planned silences (pause ≥{SILENCE_MIN} s); target {SILENCES[0]}–{SILENCES[1]}"))
@@ -242,29 +361,54 @@ def calibrate(write=True):
     return out
 
 
-def features_row(m, lang, stage):
+def variant_sources(m, lang):
+    from . import gates
+
     work = CONTENT / m["id"] / lang
-    sp = work / "script.json"
+    files = gates.variant_files(m, lang)
+    script, audio = work / "script.json", work / "audio"
+    if not script.exists() and m.get("legacy_folder"):
+        legacy = ROOT / m["legacy_folder"]
+        sub = {"en": legacy, "hi": legacy / "hindi"}.get(lang)
+        if sub and (sub / "script.json").exists():
+            script, audio = sub / "script.json", sub / "audio"
+    return {"work": work, "script": script, "audio": audio, "video": files["video"], "meta": files["meta"], "legacy": files["legacy"] or script.parent != work}
+
+
+def wav_len(path):
+    import soundfile as sf
+
+    info = sf.info(str(path))
+    return info.frames / info.samplerate
+
+
+def features_row(m, lang, stage):
+    src = variant_sources(m, lang)
+    work, sp = src["work"], src["script"]
     if not sp.exists():
         return None
     script = json.loads(sp.read_text())
     est = estimate(script, lang)
-    video = work / f"{m['id']}-{lang}.mp4"
+    video = src["video"]
     dur = ffprobe_duration(video) if video.exists() else None
     hook_secs, speech = est["scene_seconds"][0] if est["scene_seconds"] else None, None
-    wav0 = work / "audio" / "00.wav"
-    if wav0.exists():
+    if (src["audio"] / "00.wav").exists():
         try:
-            import soundfile as sf
-
-            info = sf.info(str(wav0))
-            hook_secs = round(info.frames / info.samplerate, 2)
-            speech = 0.0
-            for i in range(len(script["scenes"])):
-                wi = sf.info(str(work / "audio" / f"{i:02d}.wav"))
-                speech += wi.frames / wi.samplerate
+            hook_secs = round(wav_len(src["audio"] / "00.wav"), 2)
+            speech = sum(wav_len(src["audio"] / f"{i:02d}.wav") for i in range(len(script["scenes"])))
         except Exception:
             speech = None
+    tl_path = work / "timeline.json"
+    tl = json.loads(tl_path.read_text()) if tl_path.exists() else None
+    s0 = script["scenes"][0] if script["scenes"] else {}
+    first_frame = "predrawn" if s0.get("reveal") == "instant" else "blank"
+    if tl:
+        hook_secs = round(tl["hook_end"] - tl["first_word"], 2)
+        sc0 = (tl.get("scenes") or [{}])[0]
+        if sc0.get("start_drawn") is not None:
+            first_frame = "predrawn" if float(sc0["start_drawn"]) >= 0.7 else ("partial" if float(sc0["start_drawn"]) > 0 else "blank")
+        if not dur and tl.get("total"):
+            dur = float(tl["total"])
     hooks = work / "hooks.json"
     hook_type = None
     if hooks.exists():
@@ -276,15 +420,42 @@ def features_row(m, lang, stage):
     sched = work / "schedule.json"
     if not slot and sched.exists():
         slot = json.loads(sched.read_text()).get("publish_at")
+    if not slot:
+        with db.connect() as con:
+            r = con.execute("SELECT COALESCE(published_at, scheduled_for) AS t FROM publications WHERE variant_id=? AND platform='youtube' ORDER BY id DESC LIMIT 1", (f"{m['id']}-{lang}",)).fetchone()
+        slot = r["t"] if r else None
     t = gates.parse_time(slot) if slot and slot != gates.NOW else None
-    s0 = script["scenes"][0] if script["scenes"] else {}
+    title = None
+    if src["meta"].exists():
+        try:
+            title = (json.loads(src["meta"].read_text()).get("youtube") or {}).get("title")
+        except ValueError:
+            title = None
+    sys.path.insert(0, str(ROOT))
+    try:
+        import studio
+
+        ev = studio.engine_version(script)
+    except Exception:
+        ev = int(script.get("engine_version", 1) or 1)
     return {"variant_id": f"{m['id']}-{lang}", "content_id": m["id"], "language": lang, "episode": m.get("episode"), "cohort": db.cohort_for(lang),
-            "duration_s": round(dur, 2) if dur else est["total"], "duration_source": "rendered" if dur else "lint estimate",
+            "duration_s": round(dur, 2) if dur else est["total"], "duration_source": ("rendered" if video.exists() else "timeline") if dur else "lint estimate",
             "scenes": len(script["scenes"]), "words": est["words"], "wps": round(est["words"] / speech, 3) if speech else est["rate"],
             "hook_type": hook_type, "hook_words": len(words(s0.get("narration"))), "hook_seconds": hook_secs,
-            "first_frame": "predrawn" if s0.get("reveal") == "instant" else "blank", "voice": current_voice(lang, work),
+            "first_frame": first_frame, "voice": current_voice(lang, src["audio"].parent),
             "slot_ist": t.astimezone(gates.IST).strftime("%H:%M") if t else None, "weekday": t.astimezone(gates.IST).strftime("%a") if t else None,
-            "title_pattern": None, "has_verse": int(any(sc.get("kind") in VERSE_KINDS for sc in script["scenes"])), "stage": stage, "updated_at": db.now()}
+            "title_pattern": title_pattern(title), "has_verse": int(any(sc.get("kind") in VERSE_KINDS for sc in script["scenes"])), "stage": stage,
+            "engine_version": ev, "updated_at": db.now()}
+
+
+def backfill_features(stage="backfill"):
+    rows = []
+    for mpath in sorted(CONTENT.glob("C*/manifest.json")):
+        m = json.loads(mpath.read_text())
+        for lang in m["languages"]:
+            row = log_features(m, lang, stage)
+            rows.append((f"{m['id']}-{lang}", row))
+    return rows
 
 
 def log_features(m, lang, stage):
@@ -295,6 +466,9 @@ def log_features(m, lang, stage):
         return None
     if row:
         with db.connect() as con:
+            prev = con.execute("SELECT stage FROM features WHERE variant_id=?", (row["variant_id"],)).fetchone()
+            if prev and stage in ("backfill", "manual") and prev["stage"] in ("publish", "render", "script"):
+                row["stage"] = prev["stage"]
             db.upsert(con, "features", row, key="variant_id")
             con.execute("UPDATE variants SET cohort=?, duration_s=COALESCE(?, duration_s), updated_at=? WHERE id=?", (row["cohort"], row["duration_s"] if row["duration_source"] == "rendered" else None, db.now(), row["variant_id"]))
     return row

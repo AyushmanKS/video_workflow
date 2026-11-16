@@ -10,7 +10,7 @@ from . import CONTENT, DATA, PROFILES, ROOT
 LOG = DATA / "cleanup_log.jsonl"
 WARN_GB = 20
 CRITICAL_GB = 10
-ALWAYS_MODELS = {"Systran/faster-whisper-small", "mobiuslabsgmbh/faster-whisper-large-v3-turbo", "speechbrain/spkrec-ecapa-voxceleb"}
+ALWAYS_MODELS = {"Systran/faster-whisper-small", "mobiuslabsgmbh/faster-whisper-large-v3-turbo", "speechbrain/spkrec-ecapa-voxceleb", "ZhengPeng7/BiRefNet", "depth-anything/Depth-Anything-V2-Small-hf"}
 VOICE_MODELS = {
     "af_": {"mlx-community/Kokoro-82M-bf16"},
     "maya2:": {"maya-research/maya2-native", "kyutai/moshiko-pytorch-bf16", "mlx-community/snac_24khz", "hubertsiuzdak/snac_24khz"},

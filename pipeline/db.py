@@ -182,6 +182,9 @@ COLUMNS = {
     "qa_reports": {"mp4_sha256": "TEXT", "scores": "TEXT"},
     "variants": {"cohort": "TEXT"},
     "hooks": {"source_sha256": "TEXT"},
+    "analytics_snapshots": {"age_h": "REAL", "platform": "TEXT", "published_ref": "TEXT"},
+    "features": {"engine_version": "INTEGER"},
+    "experiments": {"name": "TEXT", "design": "TEXT", "notes": "TEXT"},
 }
 
 
