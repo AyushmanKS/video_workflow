@@ -68,6 +68,18 @@
     "agastya": {
       "prompt": "the sage Agastya, a short sturdy elderly sage with a white beard and a topknot, saffron cloth over one shoulder, holding a kamandalu water pot",
       "source_episode": "C0005"
+    },
+    "maricha": {
+      "prompt": "a huge solid black shadow silhouette of a rakshasa with wild flowing hair and glinting fangs, a lean tall human-shaped body, only two arms, no facial detail, no crown, no extra arms, no wings, no horns, not a gargoyle, not a Western demon",
+      "prompt_positive": "a huge solid black shadow silhouette of a lean tall rakshasa with exactly two arms, wild flowing hair and glinting fangs, a smooth featureless shadowed face, bare-headed, human-shaped body wrapped in a simple dark loincloth",
+      "source_episode": "C0007",
+      "notes": "Follows the Tataka shadow rule. Lean and tall so he reads apart from Subahu; returns later as the golden deer, so keep the silhouette simple."
+    },
+    "subahu": {
+      "prompt": "a huge solid black shadow silhouette of a rakshasa with wild flowing hair and glinting fangs, a broad heavy human-shaped body, only two arms, no facial detail, no crown, no extra arms, no wings, no horns, not a gargoyle, not a Western demon",
+      "prompt_positive": "a huge solid black shadow silhouette of a broad heavy-shouldered rakshasa with exactly two arms, wild flowing hair and glinting fangs, a smooth featureless shadowed face, bare-headed, human-shaped body wrapped in a simple dark loincloth",
+      "source_episode": "C0007",
+      "notes": "Follows the Tataka shadow rule. Broad and heavy so he reads apart from Maricha."
     }
   },
   "rules": [

@@ -1,0 +1,110 @@
+[
+  {
+    "text": "Kill them, said the sage. Rama spared one.",
+    "type": "contrast / request with a twist",
+    "spoken_s": 2.66,
+    "scores": {
+      "curiosity": 5,
+      "emotion": 4,
+      "specificity": 4,
+      "speed": 4,
+      "resonance": 5,
+      "accuracy": 5
+    },
+    "total": 27,
+    "selected": true,
+    "visual_hook": true,
+    "hook_to_payoff": "closes at the verse card, scene 8 (about 65–67%); payoff scenes 9–10 end by 84–88%",
+    "reasoning": "Selected: highest rubric total. Pays off the Ep06 teaser verse 1.29.23 ('here you must kill them') in the first second, then reverses it: of all the attackers, one is not killed (1.30.18–20; all the rest die, 1.30.22–24). Frame 0 (Rama from behind, a shadow rakshasa hurled toward the ocean) reads muted. The main loop ('why or how one was spared?') closes at the verse card 1.30.20 and the payoff (Subahu, the rest, the completed sacrifice) ends by 84–88%. 'Spared' is reported, not a motive: the text says only that the Manava stunned him and did not take his life; 1.30.16 adds Rama's 'I am not eager to kill such ones'. Spoken about 2.6–2.8 s, as asked after the Ep06 speaker-check lesson (very short en hooks under Kokoro scored under 0.70). hookscore.py (English-only second opinion, run 2026-11-16): all six WEAK, 32–35/100 (question hook highest at 35, selected hook 33); weakest property STAKES for every line, as in Ep06. Not used to override the rubric or accuracy."
+  },
+  {
+    "text": "Blood rained on the sacred altar.",
+    "type": "sensory in medias res",
+    "spoken_s": 2.24,
+    "scores": {
+      "curiosity": 4,
+      "emotion": 5,
+      "specificity": 4,
+      "speed": 4,
+      "resonance": 3,
+      "accuracy": 5
+    },
+    "total": 25,
+    "selected": false,
+    "visual_hook": true,
+    "hook_to_payoff": "closes at scene 9 (Subahu falls), about 75%",
+    "reasoning": "1.30.12–13 (streams of blood on the altar). Strong and true, but a frame 0 of blood rain sits badly with the 'gore off-screen' rule and it does not open the main loop (Maricha spared)."
+  },
+  {
+    "text": "One arrow. A hundred yojanas. Into the sea.",
+    "type": "number",
+    "spoken_s": 2.74,
+    "scores": {
+      "curiosity": 4,
+      "emotion": 3,
+      "specificity": 5,
+      "speed": 4,
+      "resonance": 2,
+      "accuracy": 5
+    },
+    "total": 23,
+    "selected": false,
+    "visual_hook": false,
+    "hook_to_payoff": "closes at scene 7 (about 55%), spends the Turn early",
+    "reasoning": "1.30.18 (a full hundred yojanas, into the ocean). Concrete, but 'yojana' needs explaining and it spends the Turn in the first second."
+  },
+  {
+    "text": "Why did Rama let Maricha live?",
+    "type": "question",
+    "spoken_s": 1.99,
+    "scores": {
+      "curiosity": 4,
+      "emotion": 3,
+      "specificity": 4,
+      "speed": 5,
+      "resonance": 4,
+      "accuracy": 3
+    },
+    "total": 23,
+    "selected": false,
+    "visual_hook": false,
+    "hook_to_payoff": "not closed by the text: Valmiki gives no motive",
+    "reasoning": "Invites a motive the verses never state. The valmikiramayan.net commentary links it to the golden deer of the Aranya Kanda, but that is commentary, not Valmiki. Rejected on accuracy."
+  },
+  {
+    "text": "Rama's arrow threw a rakshasa into the ocean.",
+    "type": "bold claim",
+    "spoken_s": 2.99,
+    "scores": {
+      "curiosity": 3,
+      "emotion": 3,
+      "specificity": 4,
+      "speed": 3,
+      "resonance": 3,
+      "accuracy": 5
+    },
+    "total": 21,
+    "selected": false,
+    "visual_hook": true,
+    "hook_to_payoff": "closes at scene 7 (about 55%)",
+    "reasoning": "1.30.17–18. True, but a summary rather than a gap, and it is long to say."
+  },
+  {
+    "text": "Six nights without sleep. Then the sky roared.",
+    "type": "in medias res",
+    "spoken_s": 3.07,
+    "scores": {
+      "curiosity": 4,
+      "emotion": 3,
+      "specificity": 4,
+      "speed": 1,
+      "resonance": 3,
+      "accuracy": 5
+    },
+    "total": 20,
+    "selected": false,
+    "visual_hook": false,
+    "hook_to_payoff": "closes at scene 5–6 (about 40%)",
+    "reasoning": "1.30.5 and 1.30.10. Atmospheric but slow, and it hides the episode's real twist."
+  }
+]

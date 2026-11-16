@@ -1,0 +1,226 @@
+{
+  "engine_version": 2,
+  "fps": 30,
+  "total": 52.53,
+  "frames": 1575,
+  "first_word": 0.15,
+  "hook_end": 2.87,
+  "verses": [
+    {
+      "index": 7,
+      "start": 29.65,
+      "end": 36.09
+    }
+  ],
+  "scenes": [
+    {
+      "start": 0.0,
+      "cut": 0.0,
+      "end": 2.5,
+      "draw_end": 0.8,
+      "reveal": "hybrid",
+      "transition": "start",
+      "start_drawn": 0.72,
+      "index": 0,
+      "narration_start": 0.15,
+      "narration_end": 2.87,
+      "kind": "story",
+      "image": 0,
+      "shot": "WS",
+      "move": "push",
+      "accent": "battle"
+    },
+    {
+      "start": 2.5,
+      "cut": 3.05,
+      "end": 7.15,
+      "draw_end": 3.85,
+      "reveal": "fast",
+      "transition": "erase",
+      "start_drawn": 0.0,
+      "index": 1,
+      "narration_start": 3.05,
+      "narration_end": 6.97,
+      "kind": "story",
+      "image": 1,
+      "shot": "WS",
+      "move": "push",
+      "accent": "ashram",
+      "overlay": [
+        "smoke"
+      ],
+      "emphasis": "સિદ્ધાશ્રમ"
+    },
+    {
+      "start": 7.15,
+      "cut": 7.15,
+      "end": 11.49,
+      "draw_end": 7.95,
+      "reveal": "fast",
+      "transition": "dust",
+      "start_drawn": 0.0,
+      "index": 2,
+      "narration_start": 7.15,
+      "narration_end": 11.31,
+      "kind": "story",
+      "image": 2,
+      "shot": "MS",
+      "move": {
+        "type": "truck",
+        "dir": "right"
+      },
+      "accent": "ashram",
+      "emphasis": "છ દિવસ, છ રાત"
+    },
+    {
+      "start": 11.49,
+      "cut": 11.49,
+      "end": 16.66,
+      "draw_end": 12.29,
+      "reveal": "fast",
+      "transition": "cut",
+      "start_drawn": 0.0,
+      "index": 3,
+      "narration_start": 11.49,
+      "narration_end": 16.61,
+      "kind": "story",
+      "image": 3,
+      "shot": "MS",
+      "move": "push",
+      "accent": "ashram",
+      "overlay": [
+        "embers"
+      ]
+    },
+    {
+      "start": 16.66,
+      "cut": 16.79,
+      "end": 20.66,
+      "draw_end": 17.564,
+      "reveal": "fast",
+      "transition": "whip",
+      "start_drawn": 0.0,
+      "index": 4,
+      "narration_start": 16.79,
+      "narration_end": 21.03,
+      "kind": "story",
+      "image": 4,
+      "shot": "EWS",
+      "move": "shake",
+      "accent": "battle"
+    },
+    {
+      "start": 20.66,
+      "cut": 21.21,
+      "end": 24.43,
+      "draw_end": 21.854,
+      "reveal": "fast",
+      "transition": "erase",
+      "start_drawn": 0.0,
+      "index": 5,
+      "narration_start": 21.21,
+      "narration_end": 24.25,
+      "kind": "story",
+      "image": 5,
+      "shot": "silhouette",
+      "move": "dutch",
+      "accent": "battle",
+      "overlay": [
+        "rain"
+      ]
+    },
+    {
+      "start": 24.43,
+      "cut": 24.43,
+      "end": 29.1,
+      "draw_end": 25.23,
+      "reveal": "fast",
+      "transition": "flash",
+      "start_drawn": 0.0,
+      "index": 6,
+      "narration_start": 24.43,
+      "narration_end": 29.15,
+      "kind": "story",
+      "image": 6,
+      "shot": "EWS",
+      "move": {
+        "type": "truck",
+        "dir": "right"
+      },
+      "accent": "divine",
+      "emphasis": "માનવાસ્ત્ર"
+    },
+    {
+      "start": 29.1,
+      "cut": 29.65,
+      "end": 36.09,
+      "draw_end": 34.158,
+      "reveal": "draw",
+      "transition": "erase",
+      "start_drawn": 0.0,
+      "index": 7,
+      "narration_start": 29.65,
+      "narration_end": 35.49,
+      "kind": "verse",
+      "image": 7
+    },
+    {
+      "start": 36.09,
+      "cut": 36.09,
+      "end": 40.59,
+      "draw_end": 36.89,
+      "reveal": "fast",
+      "transition": "cut",
+      "start_drawn": 0.0,
+      "index": 8,
+      "narration_start": 36.09,
+      "narration_end": 40.41,
+      "kind": "story",
+      "image": 8,
+      "shot": "WS",
+      "move": "shake",
+      "accent": "battle",
+      "overlay": [
+        "embers"
+      ]
+    },
+    {
+      "start": 40.59,
+      "cut": 40.59,
+      "end": 45.74,
+      "draw_end": 41.39,
+      "reveal": "fast",
+      "transition": "dust",
+      "start_drawn": 0.0,
+      "index": 9,
+      "narration_start": 40.59,
+      "narration_end": 45.79,
+      "kind": "story",
+      "image": 9,
+      "shot": "WS",
+      "move": "pull",
+      "accent": "ashram",
+      "overlay": [
+        "smoke"
+      ]
+    },
+    {
+      "start": 45.74,
+      "cut": 46.19,
+      "end": 52.53,
+      "draw_end": 46.99,
+      "reveal": "fast",
+      "transition": "black",
+      "start_drawn": 0.0,
+      "index": 10,
+      "narration_start": 46.19,
+      "narration_end": 51.55,
+      "kind": "story",
+      "image": 10,
+      "shot": "WS",
+      "move": "push",
+      "accent": "mithila",
+      "emphasis": "આગળ: જનકનું ધનુષ"
+    }
+  ]
+}

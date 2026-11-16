@@ -1,0 +1,226 @@
+{
+  "engine_version": 2,
+  "fps": 30,
+  "total": 54.515,
+  "frames": 1635,
+  "first_word": 0.15,
+  "hook_end": 3.275,
+  "verses": [
+    {
+      "index": 7,
+      "start": 32.605,
+      "end": 37.53
+    }
+  ],
+  "scenes": [
+    {
+      "start": 0.0,
+      "cut": 0.0,
+      "end": 2.905,
+      "draw_end": 0.8,
+      "reveal": "hybrid",
+      "transition": "start",
+      "start_drawn": 0.72,
+      "index": 0,
+      "narration_start": 0.15,
+      "narration_end": 3.275,
+      "kind": "story",
+      "image": 0,
+      "shot": "WS",
+      "move": "push",
+      "accent": "battle"
+    },
+    {
+      "start": 2.905,
+      "cut": 3.455,
+      "end": 8.36,
+      "draw_end": 4.255,
+      "reveal": "fast",
+      "transition": "erase",
+      "start_drawn": 0.0,
+      "index": 1,
+      "narration_start": 3.455,
+      "narration_end": 8.18,
+      "kind": "story",
+      "image": 1,
+      "shot": "WS",
+      "move": "push",
+      "accent": "ashram",
+      "overlay": [
+        "smoke"
+      ],
+      "emphasis": "Siddhashrama"
+    },
+    {
+      "start": 8.36,
+      "cut": 8.36,
+      "end": 12.265,
+      "draw_end": 9.141,
+      "reveal": "fast",
+      "transition": "dust",
+      "start_drawn": 0.0,
+      "index": 2,
+      "narration_start": 8.36,
+      "narration_end": 12.085,
+      "kind": "story",
+      "image": 2,
+      "shot": "MS",
+      "move": {
+        "type": "truck",
+        "dir": "right"
+      },
+      "accent": "ashram",
+      "emphasis": "Six Days, Six Nights"
+    },
+    {
+      "start": 12.265,
+      "cut": 12.265,
+      "end": 17.54,
+      "draw_end": 13.065,
+      "reveal": "fast",
+      "transition": "cut",
+      "start_drawn": 0.0,
+      "index": 3,
+      "narration_start": 12.265,
+      "narration_end": 17.49,
+      "kind": "story",
+      "image": 3,
+      "shot": "MS",
+      "move": "push",
+      "accent": "ashram",
+      "overlay": [
+        "embers"
+      ]
+    },
+    {
+      "start": 17.54,
+      "cut": 17.67,
+      "end": 22.25,
+      "draw_end": 18.47,
+      "reveal": "fast",
+      "transition": "whip",
+      "start_drawn": 0.0,
+      "index": 4,
+      "narration_start": 17.67,
+      "narration_end": 22.62,
+      "kind": "story",
+      "image": 4,
+      "shot": "EWS",
+      "move": "shake",
+      "accent": "battle"
+    },
+    {
+      "start": 22.25,
+      "cut": 22.8,
+      "end": 26.505,
+      "draw_end": 23.541,
+      "reveal": "fast",
+      "transition": "erase",
+      "start_drawn": 0.0,
+      "index": 5,
+      "narration_start": 22.8,
+      "narration_end": 26.325,
+      "kind": "story",
+      "image": 5,
+      "shot": "silhouette",
+      "move": "dutch",
+      "accent": "battle",
+      "overlay": [
+        "rain"
+      ]
+    },
+    {
+      "start": 26.505,
+      "cut": 26.505,
+      "end": 32.055,
+      "draw_end": 27.305,
+      "reveal": "fast",
+      "transition": "flash",
+      "start_drawn": 0.0,
+      "index": 6,
+      "narration_start": 26.505,
+      "narration_end": 32.105,
+      "kind": "story",
+      "image": 6,
+      "shot": "EWS",
+      "move": {
+        "type": "truck",
+        "dir": "right"
+      },
+      "accent": "divine",
+      "emphasis": "The Manava Weapon"
+    },
+    {
+      "start": 32.055,
+      "cut": 32.605,
+      "end": 37.53,
+      "draw_end": 36.053,
+      "reveal": "draw",
+      "transition": "erase",
+      "start_drawn": 0.0,
+      "index": 7,
+      "narration_start": 32.605,
+      "narration_end": 36.93,
+      "kind": "verse",
+      "image": 7
+    },
+    {
+      "start": 37.53,
+      "cut": 37.53,
+      "end": 42.735,
+      "draw_end": 38.33,
+      "reveal": "fast",
+      "transition": "cut",
+      "start_drawn": 0.0,
+      "index": 8,
+      "narration_start": 37.53,
+      "narration_end": 42.555,
+      "kind": "story",
+      "image": 8,
+      "shot": "WS",
+      "move": "shake",
+      "accent": "battle",
+      "overlay": [
+        "embers"
+      ]
+    },
+    {
+      "start": 42.735,
+      "cut": 42.735,
+      "end": 47.66,
+      "draw_end": 43.535,
+      "reveal": "fast",
+      "transition": "dust",
+      "start_drawn": 0.0,
+      "index": 9,
+      "narration_start": 42.735,
+      "narration_end": 47.71,
+      "kind": "story",
+      "image": 9,
+      "shot": "WS",
+      "move": "pull",
+      "accent": "ashram",
+      "overlay": [
+        "smoke"
+      ]
+    },
+    {
+      "start": 47.66,
+      "cut": 48.11,
+      "end": 54.515,
+      "draw_end": 48.91,
+      "reveal": "fast",
+      "transition": "black",
+      "start_drawn": 0.0,
+      "index": 10,
+      "narration_start": 48.11,
+      "narration_end": 53.535,
+      "kind": "story",
+      "image": 10,
+      "shot": "WS",
+      "move": "push",
+      "accent": "mithila",
+      "emphasis": "Next: Janaka's Bow"
+    }
+  ]
+}

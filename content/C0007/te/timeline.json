@@ -1,0 +1,226 @@
+{
+  "engine_version": 2,
+  "fps": 30,
+  "total": 49.81,
+  "frames": 1494,
+  "first_word": 0.15,
+  "hook_end": 2.55,
+  "verses": [
+    {
+      "index": 7,
+      "start": 29.41,
+      "end": 34.17
+    }
+  ],
+  "scenes": [
+    {
+      "start": 0.0,
+      "cut": 0.0,
+      "end": 2.18,
+      "draw_end": 0.8,
+      "reveal": "hybrid",
+      "transition": "start",
+      "start_drawn": 0.72,
+      "index": 0,
+      "narration_start": 0.15,
+      "narration_end": 2.55,
+      "kind": "story",
+      "image": 0,
+      "shot": "WS",
+      "move": "push",
+      "accent": "battle"
+    },
+    {
+      "start": 2.18,
+      "cut": 2.73,
+      "end": 7.07,
+      "draw_end": 3.53,
+      "reveal": "fast",
+      "transition": "erase",
+      "start_drawn": 0.0,
+      "index": 1,
+      "narration_start": 2.73,
+      "narration_end": 6.89,
+      "kind": "story",
+      "image": 1,
+      "shot": "WS",
+      "move": "push",
+      "accent": "ashram",
+      "overlay": [
+        "smoke"
+      ],
+      "emphasis": "సిద్ధాశ్రమం"
+    },
+    {
+      "start": 7.07,
+      "cut": 7.07,
+      "end": 11.41,
+      "draw_end": 7.87,
+      "reveal": "fast",
+      "transition": "dust",
+      "start_drawn": 0.0,
+      "index": 2,
+      "narration_start": 7.07,
+      "narration_end": 11.23,
+      "kind": "story",
+      "image": 2,
+      "shot": "MS",
+      "move": {
+        "type": "truck",
+        "dir": "right"
+      },
+      "accent": "ashram",
+      "emphasis": "ఆరు రాత్రింబవళ్ళు"
+    },
+    {
+      "start": 11.41,
+      "cut": 11.41,
+      "end": 15.94,
+      "draw_end": 12.21,
+      "reveal": "fast",
+      "transition": "cut",
+      "start_drawn": 0.0,
+      "index": 3,
+      "narration_start": 11.41,
+      "narration_end": 15.89,
+      "kind": "story",
+      "image": 3,
+      "shot": "MS",
+      "move": "push",
+      "accent": "ashram",
+      "overlay": [
+        "embers"
+      ]
+    },
+    {
+      "start": 15.94,
+      "cut": 16.07,
+      "end": 20.1,
+      "draw_end": 16.87,
+      "reveal": "fast",
+      "transition": "whip",
+      "start_drawn": 0.0,
+      "index": 4,
+      "narration_start": 16.07,
+      "narration_end": 20.47,
+      "kind": "story",
+      "image": 4,
+      "shot": "EWS",
+      "move": "shake",
+      "accent": "battle"
+    },
+    {
+      "start": 20.1,
+      "cut": 20.65,
+      "end": 24.11,
+      "draw_end": 21.342,
+      "reveal": "fast",
+      "transition": "erase",
+      "start_drawn": 0.0,
+      "index": 5,
+      "narration_start": 20.65,
+      "narration_end": 23.93,
+      "kind": "story",
+      "image": 5,
+      "shot": "silhouette",
+      "move": "dutch",
+      "accent": "battle",
+      "overlay": [
+        "rain"
+      ]
+    },
+    {
+      "start": 24.11,
+      "cut": 24.11,
+      "end": 28.86,
+      "draw_end": 24.91,
+      "reveal": "fast",
+      "transition": "flash",
+      "start_drawn": 0.0,
+      "index": 6,
+      "narration_start": 24.11,
+      "narration_end": 28.91,
+      "kind": "story",
+      "image": 6,
+      "shot": "EWS",
+      "move": {
+        "type": "truck",
+        "dir": "right"
+      },
+      "accent": "divine",
+      "emphasis": "మానవాస్త్రం"
+    },
+    {
+      "start": 28.86,
+      "cut": 29.41,
+      "end": 34.17,
+      "draw_end": 32.742,
+      "reveal": "draw",
+      "transition": "erase",
+      "start_drawn": 0.0,
+      "index": 7,
+      "narration_start": 29.41,
+      "narration_end": 33.57,
+      "kind": "verse",
+      "image": 7
+    },
+    {
+      "start": 34.17,
+      "cut": 34.17,
+      "end": 39.15,
+      "draw_end": 34.97,
+      "reveal": "fast",
+      "transition": "cut",
+      "start_drawn": 0.0,
+      "index": 8,
+      "narration_start": 34.17,
+      "narration_end": 38.97,
+      "kind": "story",
+      "image": 8,
+      "shot": "WS",
+      "move": "shake",
+      "accent": "battle",
+      "overlay": [
+        "embers"
+      ]
+    },
+    {
+      "start": 39.15,
+      "cut": 39.15,
+      "end": 43.34,
+      "draw_end": 39.95,
+      "reveal": "fast",
+      "transition": "dust",
+      "start_drawn": 0.0,
+      "index": 9,
+      "narration_start": 39.15,
+      "narration_end": 43.39,
+      "kind": "story",
+      "image": 9,
+      "shot": "WS",
+      "move": "pull",
+      "accent": "ashram",
+      "overlay": [
+        "smoke"
+      ]
+    },
+    {
+      "start": 43.34,
+      "cut": 43.79,
+      "end": 49.81,
+      "draw_end": 44.59,
+      "reveal": "fast",
+      "transition": "black",
+      "start_drawn": 0.0,
+      "index": 10,
+      "narration_start": 43.79,
+      "narration_end": 48.83,
+      "kind": "story",
+      "image": 10,
+      "shot": "WS",
+      "move": "push",
+      "accent": "mithila",
+      "emphasis": "తర్వాత: జనకుని విల్లు"
+    }
+  ]
+}

@@ -1,0 +1,372 @@
+{
+  "title": "The Rakshasa Rama Spared | Ramayana Ep 7",
+  "topic": "Maricha and Subahu at Siddhashrama (Valmiki Ramayana 1.29.29–1.30.26; teaser 1.31.9)",
+  "style": "chalk",
+  "language": "en",
+  "character": "",
+  "engine_version": 2,
+  "edition": "vulgate (southern recension), sa.wikisource; verse numbers cross-checked on valmikiramayan.net",
+  "scenes": [
+    {
+      "narration": "Kill them, said the sage. Rama spared one.",
+      "keywords": [
+        "Kill",
+        "spared"
+      ],
+      "emphasis": "",
+      "visual": "{rama_teen} with his back to the viewer, standing small in the lower middle of the frame on a rocky ridge, his bow raised high and its string just released, far across a dark stormy sky a {maricha} tumbling backward through the air in a long curving arc traced by white chalk motion lines, flung toward a vast distant ocean with rolling waves on the far horizon, the sky drawn in soft grey chalk, mostly white chalk with sparse muted accents, vertical composition, subject in the center of the frame, open dark chalkboard space at the top, lower quarter of the frame plain dark chalkboard",
+      "pause": 0.18,
+      "sfx": [
+        {
+          "name": "impact"
+        }
+      ],
+      "melody": "intro",
+      "swell": true,
+      "quote_src": "VR 1.29.23 (vulgate)",
+      "shot": "WS",
+      "move": "push",
+      "accent": "battle",
+      "seed": 7000
+    },
+    {
+      "narration": "At Siddhashrama, Vishvamitra began his sacrifice, sworn to silence.",
+      "tts": "At Siddhaashrama, Vishvamitra began his sacrifice, sworn to silence.",
+      "keywords": [
+        "Siddhashrama,",
+        "silence."
+      ],
+      "emphasis": "Siddhashrama",
+      "visual": "the whole top third of the frame left as plain empty dark chalkboard, in the middle of the frame a humble ancient Indian forest hermitage of thatched huts among sal trees whose tops stay below the middle of the frame, at its centre a square red-brick fire altar with a small steady fire and a thin line of smoke, {vishvamitra} with dark hair streaked with grey tied in a topknot, a dark beard and a red tilak on his forehead seated cross-legged before the altar with eyes closed and lips sealed in a vow of silence, hands resting on his knees, a few Indian sages with brown skin, dark hair in topknots and short dark beards, wearing white dhotis with white cloth over one shoulder seated around the altar, at the two edges of the altar enclosure {rama_teen} with his back to the viewer on the left and {lakshmana_teen} on the right standing guard with bows, vertical composition, subject in the center of the frame, open dark chalkboard space at the top, lower quarter of the frame plain dark chalkboard",
+      "pause": 0.18,
+      "sfx": [
+        {
+          "name": "fire"
+        }
+      ],
+      "melody": "calm",
+      "shot": "WS",
+      "move": "push",
+      "accent": "ashram",
+      "overlay": [
+        "smoke"
+      ],
+      "seed": 7001
+    },
+    {
+      "narration": "For six days and nights, the princes guarded it without sleep.",
+      "keywords": [
+        "six",
+        "sleep."
+      ],
+      "emphasis": "Six Days, Six Nights",
+      "visual": "the whole top third of the frame left as plain empty dark chalkboard, night watch beside a low glowing brick fire altar, {rama_teen} and {lakshmana_teen} both with their backs to the viewer, standing alert shoulder to shoulder with bows held ready, facing the dark forest, a row of small clay oil lamps burning along the edge of the altar enclosure, thatched huts as dark shapes behind them, a few faint chalk stars low near the horizon line, vertical composition, subject in the center of the frame, open dark chalkboard space at the top, lower quarter of the frame plain dark chalkboard",
+      "pause": 0.18,
+      "sfx": [
+        {
+          "name": "wind"
+        }
+      ],
+      "shot": "MS",
+      "move": {
+        "type": "truck",
+        "dir": "right"
+      },
+      "transition": "dust",
+      "accent": "ashram",
+      "seed": 7002
+    },
+    {
+      "narration": "On the sixth day, Rama told Lakshmana: be ready. The altar fire blazed up.",
+      "keywords": [
+        "ready.",
+        "blazed"
+      ],
+      "emphasis": "",
+      "visual": "{rama_teen} and {lakshmana_teen} standing side by side in the foreground, both with their backs to the viewer, bows in hand, facing a square red-brick fire altar a little ahead of them, beyond the altar {vishvamitra} with dark hair streaked with grey tied in a topknot, a dark beard and a red tilak on his forehead seated in silent meditation with eyes closed, the altar flames suddenly leaping high in tall saffron and gold tongues of fire, sparks rising, vertical composition, subject in the center of the frame, open dark chalkboard space at the top, lower quarter of the frame plain dark chalkboard",
+      "pause": 0.18,
+      "sfx": [
+        {
+          "name": "fire"
+        }
+      ],
+      "quote_src": "VR 1.30.7 (vulgate)",
+      "shot": "MS",
+      "move": "push",
+      "transition": "cut",
+      "accent": "ashram",
+      "overlay": [
+        "embers"
+      ],
+      "seed": 7103
+    },
+    {
+      "narration": "A roar filled the sky. Like monsoon clouds, the rakshasas swept down.",
+      "tts": "A roar filled the sky. Like monsoon clouds, the raakshasas swept down.",
+      "keywords": [
+        "roar",
+        "monsoon",
+        "rakshasas"
+      ],
+      "emphasis": "",
+      "visual": "huge dark monsoon storm clouds rolling across the whole sky above a tiny ancient Indian forest hermitage of mud-walled huts with thatched roofs among sal trees, two tall fearsome rakshasas drawn as solid black shadow silhouettes with powerful muscular bodies diving down out of the clouds, each with exactly two arms stretched forward and wild hair streaming back, glinting fangs, menacing and terrifying, jagged white chalk lightning between the clouds, vertical composition, subject in the center of the frame, open dark chalkboard space at the top, lower quarter of the frame plain dark chalkboard",
+      "pause": 0.18,
+      "sfx": [
+        {
+          "name": "rumble"
+        }
+      ],
+      "melody": "rise",
+      "shot": "EWS",
+      "angle": "low",
+      "move": "shake",
+      "transition": "whip",
+      "accent": "battle",
+      "seed": 7104
+    },
+    {
+      "narration": "Maricha and Subahu rained blood upon the altar.",
+      "tts": "Maareecha and Subaahu rained blood upon the altar.",
+      "keywords": [
+        "Maricha",
+        "Subahu",
+        "blood"
+      ],
+      "emphasis": "",
+      "visual": "a square red-brick fire altar in the lower middle of the frame, streaks of dark red rain falling from black storm clouds only onto the altar, the small fire hissing and a cloud of grey smoke rising, a few Indian sages with brown skin, dark hair in topknots and short dark beards, wearing white dhotis stepping back from the altar, in the black storm clouds above the faint outlines of two looming dark shadow shapes, vertical composition, subject in the center of the frame, open dark chalkboard space at the top, lower quarter of the frame plain dark chalkboard",
+      "pause": 0.18,
+      "sfx": [
+        {
+          "name": "rumble"
+        }
+      ],
+      "shot": "silhouette",
+      "angle": "low",
+      "move": "dutch",
+      "accent": "battle",
+      "overlay": [
+        "rain"
+      ],
+      "seed": 7105
+    },
+    {
+      "narration": "Rama loosed the Manava weapon. It flung Maricha a hundred yojanas into the ocean.",
+      "tts": "Rama loosed the Maanava weapon. It flung Maareecha a hundred yojanas into the ocean.",
+      "keywords": [
+        "Manava",
+        "hundred",
+        "ocean."
+      ],
+      "emphasis": "The Manava Weapon",
+      "visual": "the whole top third of the frame left as plain empty dark chalkboard, across the middle band of the frame: {rama_teen} with his back to the viewer, small on a rocky ridge at the left with his bow drawn, a single golden chalk-drawn arrow with a sharp arrowhead and feathered fletching flying to the right, and far out over a vast open ocean a small solid black shadow rakshasa with exactly two arms tumbling helplessly head over heels through the air in a long low arc traced by white chalk motion lines, tall rolling waves stretching to the horizon, vertical composition, subject in the center of the frame, open dark chalkboard space at the top, lower quarter of the frame plain dark chalkboard",
+      "pause": 0.5,
+      "sfx": [
+        {
+          "name": "bowstring"
+        },
+        {
+          "name": "sea"
+        }
+      ],
+      "melody": "rise",
+      "swell": true,
+      "shot": "EWS",
+      "move": {
+        "type": "truck",
+        "dir": "right"
+      },
+      "transition": "flash",
+      "accent": "divine",
+      "seed": 7106
+    },
+    {
+      "narration": "It stuns him, Rama told Lakshmana, but does not take his life.",
+      "keywords": [
+        "stuns",
+        "life."
+      ],
+      "emphasis": "",
+      "visual": "the verse written in chalk",
+      "pause": 0.6,
+      "sfx": [],
+      "quote_src": "VR 1.30.20 (vulgate)",
+      "kind": "verse",
+      "tone": "awe",
+      "pacing": "slow",
+      "devanagari": [
+        "पश्य लक्ष्मण शीतेषुं",
+        "मानवं मनुसंहितम्।",
+        "मोहयित्वा नयत्येनं",
+        "न च प्राणैर्वियुज्यते॥"
+      ],
+      "source": "Valmiki Ramayana 1.30.20 (vulgate)",
+      "edition": "vulgate (sa.wikisource)"
+    },
+    {
+      "narration": "Then Agneya, the fire weapon, felled Subahu. The wind weapon took the rest.",
+      "tts": "Then Aagneya, the fire weapon, felled Subaahu. The wind weapon took the rest.",
+      "keywords": [
+        "Agneya,",
+        "Subahu.",
+        "wind"
+      ],
+      "emphasis": "",
+      "visual": "a single huge solid black shadow rakshasa with exactly two arms flung outward, toppling backward and dissolving into drifting dark smoke as a blazing chalk-drawn arrow wreathed in saffron flames strikes his chest, far away in the distance a swirling spiral of white chalk wind sweeping tiny dark shadows into the clouds like dry leaves, {rama_teen} with his back to the viewer small in the lower left with his bow raised, vertical composition, subject in the center of the frame, open dark chalkboard space at the top, lower quarter of the frame plain dark chalkboard",
+      "pause": 0.18,
+      "sfx": [
+        {
+          "name": "arrow"
+        },
+        {
+          "name": "wind"
+        }
+      ],
+      "melody": "rise",
+      "swell": true,
+      "shot": "WS",
+      "angle": "low",
+      "move": "shake",
+      "transition": "cut",
+      "accent": "battle",
+      "overlay": [
+        "embers"
+      ],
+      "seed": 7108
+    },
+    {
+      "narration": "The sacrifice was complete. Siddhashrama had earned its name, said the sage.",
+      "tts": "The sacrifice was complete. Siddhaashrama had earned its name, said the sage.",
+      "keywords": [
+        "complete.",
+        "earned"
+      ],
+      "emphasis": "",
+      "visual": "a calm clear evening sky over the ancient Indian hermitage of thatched huts, the square red-brick fire altar burning with a small steady flame, {vishvamitra} with dark hair streaked with grey tied in a topknot, a dark beard and a red tilak on his forehead standing beside it raising one open palm toward the princes, facing {rama_teen} with his back to the viewer and {lakshmana_teen} who stand side by side with bows lowered, a few Indian sages with brown skin, dark hair in topknots and short dark beards, wearing white dhotis with white cloth over one shoulder gathered around with palms joined at the chest, birds flying over the trees, vertical composition, subject in the center of the frame, open dark chalkboard space at the top, lower quarter of the frame plain dark chalkboard",
+      "pause": 0.4,
+      "sfx": [
+        {
+          "name": "birds"
+        }
+      ],
+      "melody": "love",
+      "quote_src": "VR 1.30.26 (vulgate)",
+      "shot": "WS",
+      "move": "pull",
+      "transition": "dust",
+      "accent": "ashram",
+      "overlay": [
+        "smoke"
+      ],
+      "seed": 7009
+    },
+    {
+      "narration": "At dawn, the sages spoke of a bow in Mithila no god or rakshasa could string.",
+      "tts": "At dawn, the sages spoke of a bow in Mithilaa no god or raakshasa could string.",
+      "keywords": [
+        "bow",
+        "Mithila",
+        "string."
+      ],
+      "emphasis": "Next: Janaka's Bow",
+      "visual": "the whole top third of the frame left as plain empty dark chalkboard, the same framing as the opening: {rama_teen} with his back to the viewer, standing small in the lower middle of the frame on a forest path at dawn, beside him {vishvamitra} with dark hair streaked with grey tied in a topknot, a dark beard and a red tilak on his forehead pointing ahead at eye level with his staff, far ahead on the horizon an ancient Indian city of Mithila with carved stone gateways and stepped shikhara towers, a long ornate golden longbow lying low along the horizon just above the city rooftops, glowing softly, a soft pale dawn glow spread low and wide along the horizon line, vertical composition, subject in the center of the frame, open dark chalkboard space at the top, lower quarter of the frame plain dark chalkboard",
+      "pause": 0.18,
+      "sfx": [
+        {
+          "name": "wind"
+        }
+      ],
+      "melody": "calm",
+      "quote_src": "VR 1.31.9 (vulgate)",
+      "shot": "WS",
+      "move": "push",
+      "transition": "black",
+      "accent": "mithila",
+      "seed": 7010
+    }
+  ],
+  "description": "",
+  "hashtags": [],
+  "thumbnail": {
+    "scene": 0,
+    "devanagari": "",
+    "title": "THE ONE RAMA SPARED",
+    "series": "The Epic in Chalk",
+    "episode": "Episode 7",
+    "subtitle": ""
+  },
+  "sources": [
+    {
+      "ref": "VR 1.29.23",
+      "edition": "vulgate (valmikiramayan.net; sa.wikisource sarga 29 numbering is broken)",
+      "note": "Ep06 teaser: obstructing rakshasas come to this hermitage; here they must be killed (hook)"
+    },
+    {
+      "ref": "VR 1.29.29–30",
+      "edition": "vulgate (valmikiramayan.net)",
+      "note": "the princes ask the sage to begin; Vishvamitra enters the diksha (sacrificial vow) that day"
+    },
+    {
+      "ref": "VR 1.30.4–6",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "the sages: guard for six nights from today, the sage is consecrated and keeps silence; the princes guard sleepless six days and nights"
+    },
+    {
+      "ref": "VR 1.30.7–9",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "on the sixth day Rama tells Lakshmana to be alert and ready; the altar fire blazes up"
+    },
+    {
+      "ref": "VR 1.30.10–11",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "a great terrifying sound in the sky; like a rain cloud covering the sky, the two rakshasas rush in, working maya"
+    },
+    {
+      "ref": "VR 1.30.12–13",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "Maricha and Subahu with their followers pour streams of blood; Rama sees the altar drenched"
+    },
+    {
+      "ref": "VR 1.30.15–18",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "Rama: they will be scattered by the Manava weapon like clouds by wind; he looses the Manava at Maricha's chest; Maricha is hurled a full hundred yojanas into the surging ocean"
+    },
+    {
+      "ref": "VR 1.30.19–20",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "on-screen verse 1.30.20: the Manava 'cold arrow' carries him off stunned but does not take his life"
+    },
+    {
+      "ref": "VR 1.30.22–23",
+      "edition": "vulgate (sa.wikisource; valmikiramayan.net splits these two verses differently, same range)",
+      "note": "Agneya weapon at Subahu's chest, he falls; the Vayavya weapon kills the rest"
+    },
+    {
+      "ref": "VR 1.30.24–26",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "all the obstructing rakshasas killed; sacrifice completed; Vishvamitra: my purpose is fulfilled, you made Siddhashrama true to its name"
+    },
+    {
+      "ref": "VR 1.31.2–9",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "next morning the sages tell Rama of Janaka's sacrifice at Mithila and a wondrous bow; teaser verse 1.31.9: no god, gandharva, asura, rakshasa or man can string it"
+    },
+    {
+      "ref": "VR 1.31.11",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "the bow of the great-souled king of Mithila (Next card: Janaka's bow)"
+    },
+    "https://sa.wikisource.org/wiki/रामायणम्/बालकाण्डम्/सर्गः_३० (accessed 2026-11-16)",
+    "https://sa.wikisource.org/wiki/रामायणम्/बालकाण्डम्/सर्गः_३१ (accessed 2026-11-16)",
+    "https://www.valmikiramayan.net/utf8/baala/sarga29/balasans29.htm (accessed 2026-11-16)",
+    "https://www.valmikiramayan.net/utf8/baala/sarga30/balasans30.htm (accessed 2026-11-16)",
+    "https://www.valmikiramayan.net/utf8/baala/sarga31/balasans31.htm (accessed 2026-11-16)"
+  ],
+  "style_overrides": {
+    "caption_font": "/System/Library/Fonts/Supplemental/ChalkboardSE.ttc",
+    "caption_font_index": 2,
+    "caption_size": 76,
+    "caption_max_chars": 24
+  },
+  "loop": "composition",
+  "estimated_seconds": 53
+}
