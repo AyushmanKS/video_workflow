@@ -74,7 +74,7 @@ def req(srv, path, method="GET", cookie=None, body=None, headers=None, ip=None):
 
 def login(srv, ip="10.0.0.1"):
     r, _ = req(srv, f"/login?k={dashboard.keys()['login_key']}", ip=ip)
-    assert r.status == 303
+    assert r.status == 200
     sc = r.getheader("Set-Cookie")
     return re.search(rf"{dashboard.COOKIE}=([^;]+)", sc).group(1), sc
 
@@ -120,7 +120,7 @@ def test_failed_login_rate_limit(server):
         assert req(server, "/login?k=nope", ip="10.9.9.9")[0].status == 403
     r, _ = req(server, f"/login?k={dashboard.keys()['login_key']}", ip="10.9.9.9")
     assert r.status == 429 and r.getheader("Retry-After")
-    assert req(server, f"/login?k={dashboard.keys()['login_key']}", ip="10.9.9.8")[0].status == 303
+    assert req(server, f"/login?k={dashboard.keys()['login_key']}", ip="10.9.9.8")[0].status == 200
 
 
 def test_global_rate_limit():

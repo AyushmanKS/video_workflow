@@ -909,7 +909,8 @@ class Handler(BaseHTTPRequestHandler):
             return self.send(403, "<h1>Link not valid</h1><p>Send /link to the Telegram bot for the current link.</p>")
         cookie = f"{COOKIE}={make_session()}; Path=/; Max-Age={SESSION_S}; HttpOnly; Secure; SameSite=Strict"
         log(f"login ok from {ip}")
-        return self.send(303, "", extra={"Location": "/", "Set-Cookie": cookie})
+        page = '<meta http-equiv="refresh" content="0;url=/"><p>Signed in. <a href="/">Open the dashboard</a></p>'
+        return self.send(200, page, extra={"Set-Cookie": cookie, "Cache-Control": "no-store"})
 
     def stream(self, q):
         with self.app.lock:
