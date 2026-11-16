@@ -1,5 +1,6 @@
 import argparse
 import difflib
+import hashlib
 import json
 import math
 import os
@@ -15,11 +16,181 @@ import numpy as np
 import requests
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
-from styles import STYLES
+from styles import FONT_DIR, MAC_TO_OFL, OFL, STYLES
 
 ROOT = Path(__file__).parent
 W, H, FPS, SR = 1080, 1920, 30, 24000
 OLLAMA = "http://localhost:11434"
+BIBLE = ROOT / "profiles" / "characters" / "ramayana.json"
+CAPTION_MAX_W = W - 60
+LOUDNESS_TARGET = {"I": -14.0, "TP": -1.5, "LRA": 11.0}
+V2_DEFAULTS = {
+    "caption_autosplit": True,
+    "loudnorm": "two-pass",
+    "narration_lufs": -16.0,
+    "ducking": "v2",
+    "duck_under_db": -20.0,
+    "duck_gap_lift_db": 6.0,
+    "autocrop": True,
+}
+SHOT_HINTS = {
+    "EWS": "extreme wide shot, tiny figures in a vast landscape",
+    "WS": "wide shot, full figures with their surroundings",
+    "MS": "medium shot, figures from the waist up",
+    "CU": "close-up shot",
+    "ECU": "extreme close-up detail shot",
+    "insert": "close-up insert of a single object",
+    "silhouette": "strong dark silhouette composition",
+    "map": "illustrated top-down map view",
+    "text": "",
+}
+ANGLE_HINTS = {"eye": "", "low": "low angle view looking up", "high": "high angle view looking down", "ots": "over-the-shoulder view", "pov": "first-person point of view", "dutch": ""}
+NEGATION = re.compile(r"^\s*(no|not|never|without|absolutely no|avoid)\b", re.I)
+
+
+def engine_version(script):
+    try:
+        return int(script.get("engine_version", 1) or 1)
+    except (TypeError, ValueError):
+        return 1
+
+
+def effective_style(style_name, script):
+    st = {**STYLES[style_name], **script.get("style_overrides", {})}
+    if engine_version(script) < 2:
+        return st
+    if script.get("fonts", "ofl") == "ofl":
+        for key, idx in (("font", None), ("caption_font", "caption_font_index")):
+            path = st.get(key)
+            if path in MAC_TO_OFL and Path(MAC_TO_OFL[path]).exists():
+                st[key] = MAC_TO_OFL[path]
+                if idx:
+                    st[idx] = 0
+    for k, v in V2_DEFAULTS.items():
+        st.setdefault(k, v)
+    return st
+
+
+def short_hash(*parts):
+    return hashlib.sha256("|".join(str(x) for x in parts).encode()).hexdigest()[:20]
+
+
+def cache_valid(asset, sidecar, key):
+    if not asset.exists():
+        return False
+    if not sidecar.exists():
+        sidecar.write_text(key)
+        return True
+    return sidecar.read_text().strip() == key
+
+
+def load_bible(path=None):
+    p = Path(path) if path else BIBLE
+    return json.loads(p.read_text()) if p.exists() else {}
+
+
+def expand_tokens(text, bible, ev=1):
+    chars = bible.get("characters", {})
+
+    def sub(m):
+        key = m.group(1)
+        if key not in chars:
+            raise KeyError(f"unknown character token {{{key}}} (known: {', '.join(sorted(chars))})")
+        c = chars[key]
+        return c.get("prompt_positive", c["prompt"]) if ev >= 2 else c["prompt"]
+
+    return re.sub(r"\{([a-z][a-z0-9_]*)\}", sub, text or "")
+
+
+def positive_only(text):
+    keep = [p for p in text.split(",") if not (NEGATION.match(p) and ":" not in p)]
+    return ",".join(keep).strip().strip(",").strip()
+
+
+def scene_still(script, i, _depth=0):
+    ref = script["scenes"][i].get("image")
+    if ref is None or ref == "" or _depth > 8:
+        return i
+    if isinstance(ref, bool):
+        return i
+    if isinstance(ref, int):
+        j = ref
+    else:
+        m = re.match(r"^\s*(\d+)", str(ref))
+        if not m:
+            raise ValueError(f"scene {i + 1}: image '{ref}' must be a scene index like 3 or '03'")
+        j = int(m.group(1))
+    if not 0 <= j < len(script["scenes"]):
+        raise ValueError(f"scene {i + 1}: image {ref} is out of range")
+    return i if j == i else scene_still(script, j, _depth + 1)
+
+
+def raw_path(script, out, i):
+    return out / "img" / f"{scene_still(script, i):02d}_raw.png"
+
+
+def scene_prompt(script, sc, st, bible=None):
+    ev = engine_version(script)
+    bible = load_bible() if bible is None else bible
+    visual = expand_tokens(sc["visual"], bible, ev)
+    hints = [SHOT_HINTS.get(sc.get("shot"), ""), ANGLE_HINTS.get(sc.get("angle"), "")]
+    body = ", ".join([h for h in hints if h] + [visual])
+    if ev >= 2:
+        body = positive_only(body)
+    character = expand_tokens(script.get("character") or "", bible, ev)
+    if character:
+        body += f". Recurring character: {character}"
+    prefix = st["prefix"] if ev >= 2 else st.get("prefix_v1", st["prefix"])
+    negative = st.get("negative", "") if ev >= 2 else st.get("negative_v1", st.get("negative", ""))
+    return f"{prefix} {body}", body, negative
+
+
+def border_lines(a, thr, max_frac=0.12):
+    h, w = a.shape
+    rows, cols = a.mean(axis=1), a.mean(axis=0)
+    mh, mw = max(1, int(h * max_frac)), max(1, int(w * max_frac))
+
+    def inset(lines):
+        idx = np.nonzero(lines > thr)[0]
+        return int(idx.max()) + 1 if len(idx) else 0
+
+    return inset(rows[:mh]), inset(rows[::-1][:mh]), inset(cols[:mw]), inset(cols[::-1][:mw])
+
+
+def border_detect(img, delta=0.25, band=0.03):
+    a = np.asarray(img.convert("L"), np.float32) / 255
+    h, w = a.shape
+    inner = float(a[int(h * 0.15):int(h * 0.85), int(w * 0.15):int(w * 0.85)].mean())
+    thr = inner + delta
+    bh, bw = max(1, int(h * band)), max(1, int(w * band))
+    bands = {"top": a[:bh].mean(), "bottom": a[-bh:].mean(), "left": a[:, :bw].mean(), "right": a[:, -bw:].mean()}
+    lines = border_lines(a, thr)
+    bordered = any(v > thr for v in bands.values()) or any(lines)
+    return {"bordered": bool(bordered), "inner": inner, "bands": {k: round(float(v), 3) for k, v in bands.items()}, "insets": lines}
+
+
+def autocrop_border(img, delta=0.25, pad=3):
+    info = border_detect(img, delta)
+    if not info["bordered"]:
+        return img, None, "clean"
+    w, h = img.size
+    t, b, l, r = info["insets"]
+    t, b, l, r = [v + pad if v else 0 for v in (t, b, l, r)]
+    if not any((t, b, l, r)):
+        bh, bw = int(h * 0.03), int(w * 0.03)
+        t, b, l, r = [x if info["bands"][k] > info["inner"] + delta else 0 for k, x in (("top", bh), ("bottom", bh), ("left", bw), ("right", bw))]
+    x0, y0, x1, y1 = l, t, w - r, h - b
+    cw, ch = x1 - x0, y1 - y0
+    if cw / ch > w / h:
+        nw = ch * w / h
+        x0, x1 = x0 + (cw - nw) / 2, x0 + (cw + nw) / 2
+    else:
+        nh = cw * h / w
+        y0, y1 = y0 + (ch - nh) / 2, y0 + (ch + nh) / 2
+    box = tuple(int(round(v)) for v in (x0, y0, x1, y1))
+    out = img.crop(box).resize((w, h), Image.LANCZOS)
+    status = "rejected" if border_detect(out, delta)["bordered"] else "cropped"
+    return out, box, status
 
 
 def ensure_raqm():
@@ -218,13 +389,37 @@ def say_fallback(text, path):
     aiff.unlink()
 
 
+def audio_key(sc, voice):
+    parts = [sc["narration"], sc.get("tts", ""), voice]
+    parts += [f"{k}={sc[k]}" for k in ("speed", "voice_seed") if k in sc]
+    return short_hash(*parts)
+
+
 def step_voice(script, voice, speed, out):
     d = out / "audio"
     d.mkdir(exist_ok=True)
-    todo = [i for i in range(len(script["scenes"])) if not (d / f"{i:02d}.wav").exists()]
+    todo = []
+    for i, sc in enumerate(script["scenes"]):
+        wav, side = d / f"{i:02d}.wav", d / f"{i:02d}.hash"
+        if cache_valid(wav, side, audio_key(sc, voice)):
+            continue
+        if wav.exists():
+            log(f"voice: scene {i + 1} narration/tts/voice changed; regenerating")
+            wav.replace(d / f"{i:02d}.prev.wav")
+            (d / f"{i:02d}.words.json").unlink(missing_ok=True)
+        todo.append(i)
     if not todo:
         return
     (d / "voice.txt").write_text(voice)
+    try:
+        voice_generate(script, voice, speed, d, todo)
+    finally:
+        for i in todo:
+            if (d / f"{i:02d}.wav").exists():
+                (d / f"{i:02d}.hash").write_text(audio_key(script["scenes"][i], voice))
+
+
+def voice_generate(script, voice, speed, d, todo):
     if voice.startswith(("maya2:", "svara:")):
         from pipeline import voicepack
 
@@ -286,38 +481,79 @@ def placeholder(text, path):
     img.save(path)
 
 
+def image_model_id(st, steps, model_args):
+    width, height = st.get("size", (576, 1024))
+    return f"z-image-turbo|{' '.join(model_args)}|{steps}|{width}x{height}"
+
+
+def generate_still(prompt, negative, seed, raw, st, steps, model_args):
+    width, height = st.get("size", (576, 1024))
+    cmd = [
+        "mflux-generate-z-image-turbo", *model_args, "--steps", str(steps),
+        "--width", str(width), "--height", str(height), "--seed", str(seed),
+        "--prompt", prompt,
+    ]
+    if negative:
+        cmd += ["--negative-prompt", negative]
+    subprocess.run(cmd + ["--output", str(raw)], check=True, stdout=subprocess.DEVNULL)
+
+
 def step_images(script, style, seed, steps, out):
     d = out / "img"
     d.mkdir(exist_ok=True)
-    st = STYLES[style]
+    st = effective_style(style, script)
+    ev = engine_version(script)
+    bible = load_bible()
     have_mflux = shutil.which("mflux-generate-z-image-turbo") is not None
     local = ROOT / "models" / "z-image-turbo-4bit"
     model_args = ["--model", str(local)] if local.exists() else ["--quantize", "4"]
-    width, height = st.get("size", (576, 1024))
+    flags = {}
     for i, sc in enumerate(script["scenes"]):
+        if scene_still(script, i) != i:
+            continue
         raw = d / f"{i:02d}_raw.png"
-        if not raw.exists() and sc.get("kind") in ("verse", "shloka"):
+        side = d / f"{i:02d}_raw.hash"
+        if sc.get("kind") in ("verse", "shloka"):
             import chalk
 
+            fields = {k: sc.get(k) for k in ("kind", "devanagari", "source", "from", "to", "from_label", "to_label")}
+            key = short_hash(json.dumps(fields, ensure_ascii=False, sort_keys=True), chalk.FONTSET["name"])
+            if cache_valid(raw, side, key):
+                continue
+            if raw.exists():
+                raw.replace(d / f"{i:02d}_raw.prev.png")
             chalk.text_scene(sc, raw, seed + i)
-        elif not raw.exists():
-            prompt = f"{st['prefix']} {sc['visual']}"
-            if script.get("character"):
-                prompt += f". Recurring character: {script['character']}"
-            log(f"images: scene {i + 1}/{len(script['scenes'])}")
-            if have_mflux:
-                subprocess.run(
-                    [
-                        "mflux-generate-z-image-turbo", *model_args, "--steps", str(steps),
-                        "--width", str(width), "--height", str(height), "--seed", str(sc.get("seed", seed + i)),
-                        "--prompt", prompt, "--negative-prompt", st["negative"],
-                        "--output", str(raw),
-                    ],
-                    check=True,
-                    stdout=subprocess.DEVNULL,
-                )
-            else:
-                placeholder(sc["visual"], raw)
+            side.write_text(key)
+            continue
+        prompt, body, negative = scene_prompt(script, sc, st, bible)
+        sseed = sc.get("seed", seed + i)
+        key = short_hash(body, negative, sseed, image_model_id(st, steps, model_args))
+        if cache_valid(raw, side, key):
+            continue
+        if raw.exists():
+            log(f"images: scene {i + 1} prompt/seed/model changed; regenerating")
+            raw.replace(d / f"{i:02d}_raw.prev.png")
+        log(f"images: scene {i + 1}/{len(script['scenes'])}")
+        if not have_mflux:
+            placeholder(sc["visual"], raw)
+            side.write_text(key)
+            continue
+        generate_still(prompt, negative, sseed, raw, st, steps, model_args)
+        if st.get("autocrop"):
+            img, box, status = autocrop_border(Image.open(raw).convert("RGB"))
+            if status == "rejected":
+                log(f"images: scene {i + 1} still bordered after crop; retrying with seed {sseed + 977}")
+                generate_still(prompt, negative, sseed + 977, raw, st, steps, model_args)
+                img, box, status = autocrop_border(Image.open(raw).convert("RGB"))
+            if box:
+                Image.open(raw).save(d / f"{i:02d}_uncropped.png")
+                img.save(raw)
+                flags[f"{i:02d}"] = {"status": status, "box": box}
+                log(f"images: scene {i + 1} border {status}, crop {box}")
+        side.write_text(key)
+    if flags:
+        prev = json.loads((d / "borders.json").read_text()) if (d / "borders.json").exists() else {}
+        (d / "borders.json").write_text(json.dumps({**prev, **flags}, indent=2))
 
 
 def load_scene_image(path, st):
@@ -357,7 +593,25 @@ def caption_tokens(text):
 POSTPOSITIONS = {"से", "में", "का", "की", "के", "को", "ने", "पर", "तक"}
 
 
-def caption_groups(text, start, dur, size=3, word_times=None, max_chars=None):
+def split_wide(groups, measure, maxw):
+    out = []
+    for g in groups:
+        if len(g) < 2 or measure(g) <= maxw:
+            out.append(g)
+            continue
+        best = None
+        for k in range(1, len(g)):
+            if g[k] in POSTPOSITIONS and k + 1 < len(g):
+                continue
+            score = max(measure(g[:k]), measure(g[k:]))
+            if best is None or score < best[0]:
+                best = (score, k)
+        k = best[1] if best else len(g) // 2
+        out += split_wide([g[:k], g[k:]], measure, maxw)
+    return out
+
+
+def caption_groups(text, start, dur, size=3, word_times=None, max_chars=None, measure=None, maxw=None):
     words = caption_tokens(text)
     phrases, cur = [], []
     for w in words:
@@ -387,6 +641,8 @@ def caption_groups(text, start, dur, size=3, word_times=None, max_chars=None):
             if len(chunk[j]) > 1 and chunk[j][0] in POSTPOSITIONS:
                 chunk[j - 1].append(chunk[j].pop(0))
         groups += chunk
+    if measure and maxw:
+        groups = split_wide(groups, measure, maxw)
     if word_times and len(word_times) == len(words):
         res, k = [], 0
         for g in groups:
@@ -418,6 +674,18 @@ def norm_word(w):
     return re.sub(r"[\W_]", "", w.lower())
 
 
+def scene_caption_groups(script, st, cap, i, start, dur, word_times=None):
+    size = st.get("caption_words", 3)
+    hook = engine_version(script) >= 2 and i == 0
+    if hook:
+        size = min(size, st.get("hook_caption_words", 3))
+    auto = st.get("caption_autosplit")
+    gs = caption_groups(script["scenes"][i]["narration"], start, dur, size, word_times, st.get("caption_max_chars"), cap.width if auto else None, CAPTION_MAX_W if auto else None)
+    if hook and gs:
+        gs[0]["start"] = 0.0
+    return gs
+
+
 class Captioner:
     def __init__(self, st, keywords=()):
         cf, ci = st.get("caption_font", st["font"]), st.get("caption_font_index", 0)
@@ -430,6 +698,12 @@ class Captioner:
         self.y = st.get("caption_y", 0.68)
         self.upper = st.get("caption_upper", True)
         self.keywords = {norm_word(k) for k in keywords} - {""}
+        self._probe = ImageDraw.Draw(Image.new("RGB", (8, 8)))
+
+    def width(self, words, font=None):
+        words = [w.upper() if self.upper else w for w in words]
+        f = font or self.font
+        return sum(self._probe.textlength(w, font=f) for w in words) + 22 * (len(words) - 1)
 
     def draw(self, frame, group, t, emphasis, scene_t):
         dr = ImageDraw.Draw(frame)
@@ -627,9 +901,77 @@ def scene_word_times(script, out):
     return [align_words(out / "audio" / f"{i:02d}.wav", sc["narration"], lang) for i, sc in enumerate(script["scenes"])]
 
 
+def loudnorm_json(text):
+    return json.loads(text[text.rindex("{"):text.rindex("}") + 1])
+
+
+def loudnorm_measure(src, target=LOUDNESS_TARGET):
+    af = f"loudnorm=I={target['I']}:TP={target['TP']}:LRA={target['LRA']}:print_format=json"
+    if isinstance(src, np.ndarray):
+        cmd = ["ffmpeg", "-hide_banner", "-nostats", "-f", "f32le", "-ar", str(SR), "-ac", "1", "-i", "-", "-af", af, "-f", "null", "-"]
+        r = subprocess.run(cmd, input=src.astype(np.float32).tobytes(), capture_output=True)
+        return loudnorm_json(r.stderr.decode())
+    r = subprocess.run(["ffmpeg", "-hide_banner", "-nostats", "-i", str(src), "-af", af, "-f", "null", "-"], capture_output=True, text=True)
+    return loudnorm_json(r.stderr)
+
+
+def lufs(audio):
+    v = float(loudnorm_measure(audio)["input_i"])
+    return v if math.isfinite(v) else -70.0
+
+
+def true_peak_env(x, over=4):
+    from scipy.signal import resample_poly
+
+    up = np.abs(resample_poly(x.astype(np.float64), over, 1))[: len(x) * over]
+    up = np.pad(up, (0, len(x) * over - len(up)))
+    return np.maximum(np.abs(x), up.reshape(len(x), over).max(axis=1)).astype(np.float32)
+
+
+def limit_peaks(x, ceiling, look=0.005):
+    from scipy import ndimage
+
+    need = np.minimum(1.0, ceiling / np.maximum(true_peak_env(x), 1e-9)).astype(np.float32)
+    w = 2 * max(1, int(look * SR)) + 1
+    g = ndimage.minimum_filter1d(need, w)
+    g = ndimage.uniform_filter1d(g, w)
+    return (x * np.minimum(g, need)).astype(np.float32)
+
+
+def speech_presence(voice, attack=0.02, release=0.3, block=0.01):
+    b = int(block * SR)
+    nb = len(voice) // b + 1
+    pad = np.pad(np.abs(voice), (0, nb * b - len(voice)))
+    env = np.sqrt((pad.reshape(nb, b) ** 2).mean(axis=1))
+    voiced = env[env > 1e-4]
+    ref = float(np.percentile(voiced, 75)) if len(voiced) else 1.0
+    raw = np.clip(env / (0.3 * ref), 0, 1)
+    ka, kr = 1 - math.exp(-block / attack), 1 - math.exp(-block / release)
+    sm = np.zeros(nb, np.float32)
+    acc = 0.0
+    for k in range(nb):
+        x = raw[k]
+        acc += (x - acc) * (ka if x > acc else kr)
+        sm[k] = acc
+    return np.interp(np.arange(len(voice)) / b, np.arange(nb), sm).astype(np.float32)
+
+
+def duck_v2(voice, bed, st):
+    sp = speech_presence(voice)
+    speech = sp > 0.5
+    rms = lambda x: 20 * math.log10(math.sqrt(float((x ** 2).mean())) + 1e-9)
+    lv = rms(voice[speech]) if speech.any() else rms(voice)
+    lm = rms(bed[np.abs(bed) > 1e-6]) if (np.abs(bed) > 1e-6).any() else -90.0
+    under = min(12.0, lv + st.get("duck_under_db", -20.0) - lm)
+    gdb = under + st.get("duck_gap_lift_db", 5.0) * (1 - sp)
+    return (10 ** (gdb / 20)).astype(np.float32), {"voice_rms_db": round(lv, 2), "bed_rms_db": round(lm, 2), "under_gain_db": round(under, 2)}
+
+
 def step_audio(script, st, music_path, out, seed, gap=0.18):
-    voice_parts, timings, t = [], [], 0.35
-    lead = np.zeros(int(0.35 * SR), dtype=np.float32)
+    ev = engine_version(script)
+    lead_s = 0.15 if ev >= 2 else 0.35
+    voice_parts, timings, t = [], [], lead_s
+    lead = np.zeros(int(lead_s * SR), dtype=np.float32)
     voice_parts.append(lead)
     for i in range(len(script["scenes"])):
         v = read_wav(out / "audio" / f"{i:02d}.wav")
@@ -642,6 +984,13 @@ def step_audio(script, st, music_path, out, seed, gap=0.18):
     voice_parts.append(np.zeros(int(0.8 * SR), dtype=np.float32))
     voice = np.concatenate(voice_parts)
     total = len(voice) / SR
+    report = {"engine_version": ev, "lead": lead_s}
+    gv = 1.0
+    if st.get("narration_lufs") is not None:
+        li = lufs(voice)
+        gv = 10 ** ((st["narration_lufs"] - li) / 20)
+        voice = voice * gv
+        report.update(narration_lufs_in=round(li, 2), narration_gain_db=round(20 * math.log10(gv), 2))
     if music_path:
         tmp = out / "music_in.wav"
         subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", music_path, "-ar", str(SR), "-ac", "1", str(tmp)], check=True)
@@ -676,12 +1025,71 @@ def step_audio(script, st, music_path, out, seed, gap=0.18):
             s = fx(seed + i)
             p = max(0, int((start - 0.15) * SR))
             sfx[p:p + len(s)] += s[: len(sfx) - p]
-    mix = voice * 1.0 + music * duck * fade * st.get("music_gain", 0.55) + sfx
-    peak = np.max(np.abs(mix))
-    if peak > 0.98:
-        mix = mix / peak * 0.98
-    write_wav(out / "mix.wav", mix)
+    if st.get("ducking") == "v2":
+        bed = music * fade * st.get("music_gain", 0.55)
+        gdyn, info = duck_v2(voice, bed, st)
+        report["ducking"] = info
+        mix = voice + bed * gdyn + sfx * gv
+    else:
+        mix = voice * 1.0 + music * duck * fade * st.get("music_gain", 0.55) + sfx * gv
+    if st.get("loudnorm") == "two-pass":
+        ceiling = 10 ** ((LOUDNESS_TARGET["TP"] - 0.7) / 20)
+        for _ in range(3):
+            mix = mix * 10 ** ((LOUDNESS_TARGET["I"] - lufs(mix)) / 20)
+            mix = limit_peaks(mix, ceiling)
+        write_wav(out / "mix.wav", mix)
+        m = loudnorm_measure(out / "mix.wav")
+        report["loudnorm_pass1"] = m
+        (out / "loudnorm.json").write_text(json.dumps(report, indent=2))
+    else:
+        peak = np.max(np.abs(mix))
+        if peak > 0.98:
+            mix = mix / peak * 0.98
+        write_wav(out / "mix.wav", mix)
     return timings, total
+
+
+def loudnorm_filter(st, out):
+    tg = LOUDNESS_TARGET
+    if st.get("loudnorm") != "two-pass":
+        return "loudnorm=I=-14:TP=-1.5:LRA=11"
+    path = out / "loudnorm.json"
+    m = json.loads(path.read_text())["loudnorm_pass1"] if path.exists() else loudnorm_measure(out / "mix.wav")
+    lra = max(tg["LRA"], float(m["input_lra"]) + 1.0)
+    return (
+        f"loudnorm=I={tg['I']}:TP={tg['TP']}:LRA={lra}:measured_I={m['input_i']}:measured_TP={m['input_tp']}"
+        f":measured_LRA={m['input_lra']}:measured_thresh={m['input_thresh']}:offset={m['target_offset']}:linear=true"
+    )
+
+
+def write_timeline(script, timings, total, out, pl=None, bounds=None):
+    scenes = []
+    for i, (start, dur) in enumerate(timings):
+        sc = script["scenes"][i]
+        if pl:
+            p = pl[i]
+            row = {"start": round(p["vs"], 3), "cut": round(p["ds"], 3), "end": round(p["ve"], 3), "draw_end": round(p["de"], 3), "reveal": p["reveal"], "transition": p["transition"], "start_drawn": p["p0"]}
+        else:
+            s, e = bounds[i]
+            row = {"start": round(s, 3), "cut": round(s, 3), "end": round(e, 3)}
+        row.update(index=i, narration_start=round(start, 3), narration_end=round(start + dur, 3), kind=sc.get("kind", "story"), image=scene_still(script, i))
+        for k in ("shot", "move", "accent", "overlay", "hit", "emphasis"):
+            if sc.get(k):
+                row[k] = sc[k]
+        scenes.append(row)
+    verses = [{"index": r["index"], "start": r["cut"], "end": r["end"]} for r in scenes if r["kind"] in ("verse", "shloka")]
+    tl = {
+        "engine_version": engine_version(script),
+        "fps": FPS,
+        "total": round(total, 3),
+        "frames": int(total * FPS),
+        "first_word": round(timings[0][0], 3),
+        "hook_end": round(timings[0][0] + timings[0][1], 3),
+        "verses": verses,
+        "scenes": scenes,
+    }
+    (out / "timeline.json").write_text(json.dumps(tl, indent=2, ensure_ascii=False))
+    return tl
 
 
 def step_render(script, st, timings, total, out, seed):
@@ -689,8 +1097,8 @@ def step_render(script, st, timings, total, out, seed):
     cap = Captioner(st, keywords)
     groups = []
     wts = scene_word_times(script, out)
-    for sc, (start, dur), wt in zip(script["scenes"], timings, wts):
-        groups += caption_groups(sc["narration"], start, dur, st.get("caption_words", 3), wt, st.get("caption_max_chars"))
+    for i, ((start, dur), wt) in enumerate(zip(timings, wts)):
+        groups += scene_caption_groups(script, st, cap, i, start, dur, wt)
     bounds = []
     for i, (start, dur) in enumerate(timings):
         s = 0 if i == 0 else start - 0.09
@@ -702,19 +1110,22 @@ def step_render(script, st, timings, total, out, seed):
             "ffmpeg", "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "rgb24",
             "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-", "-i", str(out / "mix.wav"),
             "-c:v", "h264_videotoolbox", "-b:v", "12M", "-pix_fmt", "yuv420p",
-            "-af", "loudnorm=I=-14:TP=-1.5:LRA=11", "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-shortest", "-movflags", "+faststart", str(video),
+            "-af", loudnorm_filter(st, out), "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-shortest", "-movflags", "+faststart", str(video),
         ],
         stdin=subprocess.PIPE,
     )
     if st["motion"] == "chalkdraw":
         import chalk
 
-        raws = [out / "img" / f"{i:02d}_raw.png" for i in range(len(script["scenes"]))]
-        chalk.render(script, st, timings, total, raws, proc, cap, groups, seed, log)
+        raws = [raw_path(script, out, i) for i in range(len(script["scenes"]))]
+        masks = [out / "img" / f"{scene_still(script, i):02d}_mask.png" for i in range(len(script["scenes"]))]
+        pl = chalk.render(script, st, timings, total, raws, proc, cap, groups, seed, log, masks)
         proc.stdin.close()
         proc.wait()
+        write_timeline(script, timings, total, out, pl=pl)
         return video
-    imgs = [load_scene_image(out / "img" / f"{i:02d}_raw.png", st) for i in range(len(script["scenes"]))]
+    write_timeline(script, timings, total, out, bounds=bounds)
+    imgs = [load_scene_image(raw_path(script, out, i), st) for i in range(len(script["scenes"]))]
     nframes = int(total * FPS)
     xf = 0.2
     log(f"render: {nframes} frames ({total:.1f}s)")
@@ -754,11 +1165,11 @@ def step_extras(script, st, out):
     if st.get("thumbnail") == "chalk":
         import chalk
 
-        chalk.thumbnail(script, out / "img" / f"{script['thumbnail']['scene']:02d}_raw.png", out / "thumbnail.png", 42)
+        chalk.thumbnail(script, raw_path(script, out, script["thumbnail"]["scene"]), out / "thumbnail.png", 42)
         tags = " ".join("#" + h.lstrip("#").replace(" ", "") for h in script["hashtags"])
         (out / "post.txt").write_text(f"{script['title']}\n\n{script['description']}\n\n{tags}\n")
         return out / "post.txt"
-    first = load_scene_image(out / "img" / "00_raw.png", st)
+    first = load_scene_image(raw_path(script, out, 0), st)
     thumb = scene_frame(first, st, 0.5, 1, 0)
     dr = ImageDraw.Draw(thumb)
     font = ImageFont.truetype(st["font"], 120)
@@ -805,7 +1216,11 @@ def main():
     t0 = time.time()
 
     script = step_script(a.topic, a.style, a.seconds, a.llm, out, a.notes)
-    st = {**st, **script.get("style_overrides", {})}
+    st = effective_style(a.style, script)
+    if st.get("motion") == "chalkdraw":
+        import chalk
+
+        chalk.use_fonts(script.get("fonts") or engine_version(script))
     if a.stop_after == "script":
         return
     step_voice(script, a.voice, a.speed, out)

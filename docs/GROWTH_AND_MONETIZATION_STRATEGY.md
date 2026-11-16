@@ -94,7 +94,7 @@ Read each metric only on like-for-like windows (48 h and 7 d), as `performance-a
 | Signal | Where | What it diagnoses | Change in the next video |
 |---|---|---|---|
 | Viewed vs swiped away (YT) / early drop in watch time (IG) | Studio Shorts analytics; IG Insights | The **opening frame and the first 1–2 seconds** | Open on the most striking chalk image already drawn, not a blank board. Speak the hook line in the first second. Put no title card before the hook. |
-| Average % viewed / retention curve | Studio; `python -m pipeline retention-csv` → `yt-retention` | Where the story loses people | Map each drop to a scene using `chalk.plan` timings. Tighten or cut that scene. Keep 60–95 s unless retention supports longer. |
+| Average % viewed / retention curve | Studio; `python -m pipeline retention-csv` → `yt-retention` | Where the story loses people | Map each drop to a scene using `chalk.plan` timings. Tighten or cut that scene. Keep to the 35–55 s target (hard limit under 60 s; owner decision O1, 2026-11-16, resolving roadmap conflict C1) unless the channel's own retention data supports a change. |
 | Rewatches (APV above 100%, or a loop) | Studio | Whether the ending loops back into the opening | End on a line that answers or echoes the hook, so the replay feels natural. |
 | Shares / sends | Studio; IG Insights (sends) | Whether the video gives viewers a reason to forward it | Use a "send this to the person who told you Ramayana stories" CTA. Add one surprising, verifiable fact with a verse citation. |
 | Saves | IG Insights | Reference value | Show the shloka card with its book.chapter.verse citation. Add a "save for the next episode" line. |

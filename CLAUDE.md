@@ -4,12 +4,15 @@
 
 ## Non-negotiables
 - **Zero cost.** No paid APIs, subscriptions or credits. Commercial-use licenses only, so macOS system voices are excluded.
-- **Human gates.** The owner approves at three points: script (G1), final video (G2), and publish with video + metadata + time (G3). Never publish or schedule without explicit approval.
+- **Human gates.** The owner approves at three points: script (G1), final video (G2, needs a QA pass or recorded waivers), and publish with video + metadata + time per platform (G3). Never publish or schedule without explicit approval; agents never run `pipeline approve` or `pipeline publish`, and publishing runs only through the manual `/publish` skill.
 - **Progress reporting.** During any long run (voice, images, render), post an update every 3–5 minutes using `python -m pipeline progress <ID> --oneline`. Each update covers the current step, its time left, total time left and finish time.
 - **Approved style.** Keep the approved chalkboard style and the reduced chalk SFX (`chalk.CHALK_SFX_GAIN = 0.035`).
-- **Hindi voice.** Use Veena kavya with voice-prompt priming and the speaker guard. QA must pass `speaker_consistency`, which checks that the whole narration is one voice.
+- **Hindi voice.** Use Maya 2 Native `maya2:Malini` (also gu and te; Veena kavya is retired, 2026-11-16). QA must pass `speaker_consistency`, which checks that the whole narration is one voice.
+- **Duration.** Target 35–55 s per language, hard limit under 60 s. Run `python -m pipeline lint <ID>` before G1; it blocks estimates above 57 s. See the `storytelling` skill.
+- **AI disclosure.** New episodes set YouTube `synthetic: true` and Instagram `is_ai_generated: true`; Made for Kids = No. See `docs/PUBLISHING.md`.
 - **No fabrication.** Never invent analytics, trends or audience data; cite the evidence files.
-- **Memory (16 GB MacBook Air).** Never run two heavy models at once. See `.claude/skills/content-pipeline/SKILL.md`.
+- **Memory (16 GB MacBook Air).** Never run two heavy models at once; heavy steps hold `data/heavy.lock`. See `.claude/skills/content-pipeline/SKILL.md`.
+- **Disk.** `python -m pipeline cleanup` previews removable files; `--apply` only with the owner's OK for model caches.
 - **Code style.** No code comments.
 - **Git.**
   - The remote is `AyushmanKS/video_workflow` and uses a repo-local identity and credential helper (see PROJECT_CONTEXT §17).
@@ -20,10 +23,10 @@
 ## Where things are
 | What | Where |
 |---|---|
-| Engines | `studio.py`, `chalk.py`, `veena.py`, `styles.py`, `publish.py` |
+| Engines | `studio.py`, `chalk.py`, `styles.py`, `publish.py`, `instagram.py`, `veena.py` (legacy Veena backend) |
 | Orchestration | `python -m pipeline …` (`pipeline/`) |
-| Agents | `.claude/agents/` |
-| Skills | `.claude/skills/` (`content-pipeline`, `storytelling`, vendored `yt-*`) |
+| Agents | `.claude/agents/` (series-planner, scriptwriter, creative-director, reviewer, packager; optimizer dormant) |
+| Skills | `.claude/skills/` (`content-pipeline`, `storytelling`, `audio-mix`, `publish`, vendored `yt-*`) |
 | Profiles | `profiles/` |
 | Content | `content/<ID>/` |
 | Credentials setup | `docs/PUBLISHING.md` |

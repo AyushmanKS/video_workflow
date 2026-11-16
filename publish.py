@@ -150,6 +150,25 @@ def instagram_publish(video, meta, assume_yes, thumbnail=None, dry_run=False, lo
     return instagram.publish(video, ig["caption"], thumbnail, ig.get("thumb_offset_ms", 0), dry_run, lambda s: confirm(s, assume_yes), ig)
 
 
+def gate_check(a):
+    sys.path.insert(0, str(ROOT))
+    from pipeline import gates
+
+    if not a.variant or "-" not in a.variant:
+        sys.exit("Refused: --variant <ID>-<lang> is required so the G2/G3 approval can be verified (use python -m pipeline publish).")
+    cid, lang = a.variant.rsplit("-", 1)
+    m = gates.load(cid)
+    f = gates.variant_files(m, lang)
+    problems = []
+    if gates.sha256(a.video) != gates.sha256(f["video"]):
+        problems.append(f"{a.video} is not the approved variant file {gates.rel(f['video'])}")
+    if gates.sha256(a.meta) != gates.sha256(f["meta"]):
+        problems.append(f"{a.meta} is not the approved metadata file {gates.rel(f['meta'])}")
+    problems += gates.check_publish(m, lang, a.platform, a.publish_at, immediate=a.platform == "instagram")
+    if problems:
+        sys.exit("Refused (approval record does not match):\n  " + "\n  ".join(problems))
+
+
 def main():
     ap = argparse.ArgumentParser(description="Publish a finished, approved video to YouTube and/or Instagram.")
     ap.add_argument("platform", choices=["youtube", "instagram"])
@@ -163,6 +182,8 @@ def main():
     ap.add_argument("--slot", help="publishing slot label for timing experiments, e.g. evening-1930")
     ap.add_argument("--dry-run", action="store_true", help="instagram: check token, tunnel and file limits without posting")
     a = ap.parse_args()
+    if not a.dry_run:
+        gate_check(a)
     meta = json.loads(Path(a.meta).read_text())
     if a.platform == "youtube":
         res = youtube_upload(a.video, meta, a.thumbnail, a.privacy, a.yes, a.publish_at)

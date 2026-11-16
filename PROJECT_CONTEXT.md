@@ -34,38 +34,39 @@ A zero-cost, local-first, multi-agent content studio that discovers opportunitie
   - `publish.py`: YouTube and Instagram uploader.
 - **New layer:**
   - `pipeline/`: orchestration CLI, database, research, QA, analytics and scheduling.
-  - `.claude/agents/`: 10 subagents.
-  - `.claude/skills/`: storytelling and the content-pipeline runbook.
+  - `.claude/agents/`: 5 active subagents + 1 dormant (§3).
+  - `.claude/skills/`: storytelling, content-pipeline runbook, audio-mix, and the manual-only publish skill.
   - `profiles/`: languages, voices and characters.
 
 ## 3. Agents (`.claude/agents/*.md`)
-| Agent | Role | Main outputs |
-|---|---|---|
-| trend-researcher | Evidence for opportunities: YouTube trending/competition, Wikipedia per-language interest, autocomplete, seasonal context | `content/<ID>/research/report.md` |
-| audience-localizer | Per-language audience brief; maintains `profiles/languages/*.json` | `content/<ID>/audience.md` |
-| content-strategist | 10-factor weighted scoring and slate selection | `content/<ID>/strategy.md` |
-| scriptwriter | Hooks (≥6, rubric-scored) + narration + scene plan, written originally per language | `<lang>/hooks.json`, `<lang>/script.json`, `<lang>/script.md` |
-| creative-director | Style preset, prompts, character bible, tool evaluation | `visual` fields, `profiles/characters/*.json` |
-| (production) | Python pipeline, run by the main session | audio, images, renders |
-| language-qa | ASR round-trip, best-of-N regeneration, grammar/register, native-listen gate; owns `profiles/voices.json` | `<lang>/voice_qa.md` |
-| video-qa | Automated `pipeline qa` + manual frame/story review | `<lang>/qa.md` |
-| publishing-manager | Metadata, slot recommendation, approved upload/schedule | `<lang>/publish.json`, `schedule.json` |
-| performance-analyst | Analytics snapshots, per-video and like-for-like comparisons | `data/reports/performance-*.md` |
-| optimization-strategist | Evidence-graded recommendations; never auto-changes approved style | `recommendations` table, `data/reports/recommendations.md` |
+Consolidated 2026-11-16 from 10 to 5 active + 1 dormant (owner decision O10; spec in `docs/WORKFLOW_AUDIT.md` §18.3). The retired definitions are kept for history in `docs/retired-agents/` (outside `.claude/agents/`, because Claude Code scans that folder recursively and would still load them).
+
+| Agent | Role | Main outputs | Tools |
+|---|---|---|---|
+| series-planner | Per arc: episode map, teaser chain, language plan, profile updates with evidence (was trend-researcher + content-strategist + audience-localizer) | `content/series/<series>.md`, profile diffs | Read/Write/Edit, Bash (`pipeline research`, `trending`), Web |
+| scriptwriter | Source verification (verse table with edition), hooks, scripts for every language within the 35–55 s word budgets; must pass `pipeline lint` (absorbs per-episode localization) | `research/report.md`, `<lang>/hooks.json`, `script.json`, `script.md` | Read/Write/Edit, Bash, Web |
+| creative-director | Positive-only prompts with `{character}` tokens, character bible, reference sheets, regeneration requests; no longer judges its own images | `visual`/`seed` fields, `profiles/characters/*.json` | Read/Write/Edit, Bash, Web |
+| reviewer | Subjective Story QA before G1, Visual and Audio QA before G2; scores and numbered fixes, never edits (was language-qa + video-qa) | review text saved by the main session as `<lang>/review.md` | Read, Grep, Glob only |
+| packager | YouTube and Instagram metadata per language and the G3 bundle text; never uploads, schedules or approves (was publishing-manager) | `<lang>/publish.json` | Read/Write/Edit, Grep, Glob, WebSearch (no Bash) |
+| optimizer (dormant) | Activates when ≥30 published variants have 7-day data; evidence-graded recommendations (was optimization-strategist; performance-analyst's steps are now plain `pipeline analytics/report` commands) | `recommendations` table, `data/reports/recommendations.md` | Read/Write, Bash |
+
+Production (voice, images, render, QA, analytics, upload) is the Python pipeline, run by the main session. No agent runs `pipeline approve` or `pipeline publish`; the reviewer and packager have no Bash at all.
 
 All agents share house rules: no fabricated data, cite evidence files or URLs, zero cost, and stop at the gates.
 
 ## 4. Execution order & gates
-The full table is in `.claude/skills/content-pipeline/SKILL.md`. Summary: `new → research → (audience ∥) → strategy → script → G1 → voice → language QA → images → render → video QA → G2 → metadata → schedule → G3 → publish → analytics (24h/48h/7d/14d/30d) → optimize`.
-- **Gates** are recorded with `python -m pipeline approve <ID> script|final|publish`.
+The full table is in `.claude/skills/content-pipeline/SKILL.md`. Summary: `(arc plan) → new → sources + hooks + scripts → visual plan → lint → story review → G1 → voice → images → render → qa → visual/audio review → G2 → metadata + schedule proposal → G3 per platform → /publish → analytics (24h/48h/7d/14d/30d) → optimize (dormant)`.
+- **Gates** are recorded by the owner with `python -m pipeline approve <ID> script|final|publish`. G1 requires a `pipeline lint` pass; G2 requires a QA pass or warnings with recorded waivers; G3 is recorded per platform with times and file hashes (roadmap A10/A11, being implemented).
 - `produce` refuses to run without G1, and `publish` refuses without G2 and G3.
 - **Parallelism:** research per topic, and per-language script/metadata, can run in parallel through subagents. Heavy models never run in parallel (see §8).
 
 ## 5. Claude Skills
 | Skill | Location | Purpose |
 |---|---|---|
-| `storytelling` | `.claude/skills/storytelling/` | Principles, 7 genre templates, hook rubric, script JSON schema, review checklist |
-| `content-pipeline` | `.claude/skills/content-pipeline/` | Runbook: stages, commands, agents, memory rules, recovery |
+| `storytelling` | `.claude/skills/storytelling/` | 35–55 s beat framework and timings, per-language word budgets, hook/loop rules, edition-labelled citations, 7 genre templates, script JSON schema, review checklist |
+| `content-pipeline` | `.claude/skills/content-pipeline/` | Runbook: stages, lint before G1, QA-gated G2, per-platform G3, agents, heavy lock, cleanup, recovery |
+| `publish` | `.claude/skills/publish/` | Upload/schedule steps; `disable-model-invocation: true`, so only the owner can start it with `/publish` |
+| `audio-mix` | `.claude/skills/audio-mix/` | Mix hierarchy, −16 LUFS narration, two-pass −14 LUFS loudnorm, ducking and SFX levels, licensed sources with `licenses.csv`, audio QA thresholds |
 | `yt-script`, `yt-package`, `yt-retention`, `yt-viral`, `yt-seo`, `yt-plan`, `yt-audit`, `yt-comment` | `.claude/skills/yt-*` (vendored from Jakeschincariol/youtube-agent-skill @ a2feb21, MIT; see `.claude/skills/_vendor/youtube-agent-skill/VENDORED.md`) | Second-opinion hook scoring, title + thumbnail lint, retention leak analysis (`python -m pipeline retention-csv`), outlier-multiple research, SEO/plan/audit/comment guidance. Skipped: yt-edit, yt-shorts, yt-chapters (long-form only) |
 | `skill-creator` | Built into Claude Code (anthropic-skills) | Extend or create skills; not vendored |
 
@@ -83,7 +84,7 @@ Ecosystem review (2026-11-15): the official `anthropics/skills` repository has 1
 | Speaker verification | speechbrain ECAPA (spkrec-ecapa-voxceleb) | Apache-2.0 | `pipeline/speaker.py`; voice-consistency guard and QA |
 | ASR / QA / caption timing | faster-whisper small (EN), large-v3-turbo (other languages) | MIT | |
 | Fonts | macOS system fonts (Chalkduster, Chalkboard SE, Kohinoor, ITF Devanagari, Sangam MN) + libraqm | System / LGPL | Text shaping requires `DYLD_FALLBACK_LIBRARY_PATH=/opt/homebrew/lib`; `studio.py` re-execs automatically |
-| Video | ffmpeg + VideoToolbox | LGPL/GPL | Render is about 1 min per 75–95 s video |
+| Video | ffmpeg + VideoToolbox | LGPL/GPL | Render is about 1 min per video (measured on the 75–95 s renders of Ep01–05) |
 | Research | YouTube Data API v3, Wikimedia pageviews, Google autocomplete (unofficial) | Free (10k YouTube units/day) | **Not available:** Google Trends API (pytrends archived), Instagram/TikTok trend APIs |
 | Publishing | YouTube Data API v3 (OAuth, own GCP project "upload-automation") | Free | API uploads were *not* audit-locked in practice (owner made one public). The API audit is still recommended |
 | Analytics | YouTube Analytics API v2 | Free | Separate read-only token. No hour-of-day dimension; data lags 1–3 days |
@@ -105,7 +106,7 @@ For credentials, follow `docs/PUBLISHING.md`: create your own GCP project, enabl
 
 ## 8. Environment & hardware rules
 - **Secrets:** only in `secrets/` (chmod 700, gitignored). Optional `.env` (see `.env.example`, `HF_TOKEN`).
-- **Memory (16 GB):** never run Qwen, Z-Image, Veena and Whisper-turbo at the same time. Run `ollama stop qwen3:8b` before images or voice. The fanless Air throttles on long runs, so keep it plugged in.
+- **Memory (16 GB):** never run two heavy models at once (Qwen, Z-Image, Maya 2, Whisper-turbo); heavy steps hold `data/heavy.lock`. Run `ollama stop qwen3:8b` before images or voice. The fanless Air throttles on long runs, so keep it plugged in.
 - **Disk:** 92 GB free at the time of writing. `~/.cache/huggingface/hub/models--Tongyi-MAI--Z-Image-Turbo` (~25 GB of bf16 blobs) can be deleted once `models/z-image-turbo-4bit` exists. The owner decides.
 
 ## 8b. Progress & ETA reporting
@@ -117,8 +118,8 @@ Use `--watch N --oneline` for periodic updates; the owner wants an update every 
 
 ## 9. Production standards (defaults)
 - **Format:** 1080×1920, 30 fps, H.264 (VideoToolbox, 12 Mb/s), AAC 192 k.
-- **Loudness:** −14 LUFS target (loudnorm); QA accepts −16.5 to −13, true peak ≤ −1 dBFS.
-- **Duration:** 60–95 s; Hindi runs longer when a Sanskrit verse is recited.
+- **Loudness:** −14 LUFS target (loudnorm); QA accepts −16.5 to −13, true peak ≤ −1 dBFS. Target chain (narration at −16 LUFS, two-pass linear loudnorm): `audio-mix` skill.
+- **Duration:** 35–55 s per language, hard limit under 60 s (owner decision O1, 2026-11-16; Ep01–05 ran 74.8–111.2 s under the old 60–95 s rule). `pipeline lint` blocks G1 above a 57 s estimate; final QA rejects ≥60.0 s. 8–11 scenes of 2.5–7 s; word budgets per language in the `storytelling` skill. Show verses on screen with the meaning narrated rather than reciting them in full.
 - **Chalk style:** a shared procedural board, a palette limited to white/saffron/gold/green, stroke-by-stroke reveal with chalk stick and dust, whole-board streak-erase transitions, Chalkduster titles with dark halo, word-synced captions with saffron keywords, generated tanpura + bansuri (Bhairavi) score.
 - **Chalk SFX gain is permanently reduced: `chalk.CHALK_SFX_GAIN = 0.035`** (30% below the first render). Do not revert. `music_gain` is 0.25.
 - **Captions:** grouped by punctuation (including । ॥ —), balanced chunks, `caption_max_chars` per language, no line starting with a Hindi postposition, word timing from Whisper.
@@ -127,11 +128,12 @@ Use `--watch N --oneline` for periodic updates; the owner wants an update every 
 ## 10. Multilingual & localization strategy
 - 10 language profiles in `profiles/languages/` (en, hi, mr, bn, te, ta, gu, kn, ml, pa). Each holds Census 2011 audience size, the regional Ramayana traditions that shape expectations, localization guidance, caption font, slot hypotheses and festivals. **Status:** en/hi in use; the other 8 are drafts that need native-speaker review.
 - **Rule:** every language version is written originally (audience brief → fresh script). Sanskrit verses stay in Sanskrit in that script, followed by a natural explanation.
-- **Voices:** `profiles/voices.json`. Approved: en (Kokoro af_heart), hi (Veena kavya). The other 8 languages are blocked until Indic Parler-TTS is evaluated (needs HF login) and a native speaker has listened.
+- **Voices:** `profiles/voices.json`. Approved: en (Kokoro af_heart); hi, gu and te (Maya 2 Native `maya2:Malini`, since 2026-11-16; Veena kavya retired). The other 6 languages are blocked until a voice is evaluated and a native speaker has listened.
+- **gu/te review status (owner decision O9):** the gu and te voices were approved without the native listen the voice policy requires, so both are tagged `review_status: unreviewed-language` in their profiles and analysed as a separate cohort until a native reviewer signs off.
 
 ## 11. Research & topic selection
 - **Evidence:** `python -m pipeline trending`, and `python -m pipeline research <ID> --query … --wiki … --langs …` (cached 6–24 h; about 200 YouTube units per language).
-- **Scoring:** 10 weighted factors (`content-strategist`). Every score cites evidence or is labelled as judgement. Topics are not chosen only because they trend.
+- **Scoring:** weighted factors in the `series-planner` agent, per arc. Every score cites evidence or is labelled as judgement. Topics are not chosen only because they trend.
 
 ## 12. Storytelling & hooks
 See `.claude/skills/storytelling/SKILL.md`. Write at least 6 hooks per language, score them on the 6-criterion rubric (curiosity, emotion, specificity, speed, resonance, accuracy), and keep them in `hooks.json` with reasoning. Mythology rules: cite book.chapter.verse, never invent verses or dialogue, label later traditions, depict deities symbolically when in doubt.
@@ -143,7 +145,7 @@ See `.claude/skills/storytelling/SKILL.md`. Write at least 6 hooks per language,
 `python -m pipeline analytics` takes due snapshots per publication at 24h, 48h, 7d, 14d and 30d. Each snapshot stores public counters, totals (views, watch minutes, average view duration and percentage, likes, comments, shares, subscribers), daily series, traffic sources, top countries and the retention curve. `python -m pipeline report <VARIANT>` produces a markdown report with retention insights and comparisons. Only metrics the API returns are recorded.
 
 ## 15. Optimization logic
-Recommendations carry evidence and a confidence level: low below 5 videos, medium 5–15, high above 15 with a consistent effect. A style or profile change needs medium confidence or better **and** owner approval. Mapping: early drop → hook; mid-video drop → scene pacing or visual; language gap → localizer; slot effects → scheduler.
+Recommendations carry evidence and a confidence level: low below 5 videos, medium 5–15, high above 15 with a consistent effect. A style or profile change needs medium confidence or better **and** owner approval. Mapping: early drop → hook; mid-video drop → scene pacing or visual; language gap → series-planner / scriptwriter; slot effects → scheduler.
 
 ## 16. Content database (`data/studio.db`, SQLite, gitignored)
 | Table | Contents |
@@ -165,10 +167,10 @@ shorts-studio/
   PROJECT_CONTEXT.md  README.md  requirements.txt  .env.example  .gitignore
   studio.py chalk.py veena.py styles.py publish.py      # engines
   pipeline/  (__main__ CLI, db, research, qa, analytics, schedule)
-  .claude/agents/*.md   .claude/skills/{storytelling,content-pipeline}/
+  .claude/agents/*.md   .claude/skills/{storytelling,content-pipeline,audio-mix,publish}/
   profiles/languages/*.json  profiles/voices.json  profiles/characters/*.json
   content/<ID>/  manifest.json brief.md research/ audience.md strategy.md <lang>/{script.json,hooks.json,publish.json,qa.md,...}
-  docs/  (BLUEPRINT.md original free-tools research, PUBLISHING.md credentials setup)
+  docs/  (BLUEPRINT.md original free-tools research, PUBLISHING.md credentials and disclosure, upgrade research docs, retired-agents/)
   tests/test_pipeline.py
   out/ models/ data/ secrets/ .venv/   # gitignored
 ```
@@ -276,13 +278,8 @@ The owner asked for a full audit and research plan before any change. Nothing wa
 - **Measured 2026-11-16:** 86.9 GB free; 45.0 GB reclaimable, mostly the 32.8 GB of full Z-Image weights, which are unused because the local 4-bit model renders with the HF cache hidden.
 
 **Decisions pending (owner)**
-- Adopt the 35–55 s target.
-- YouTube `synthetic: true` (to match the Instagram AI label).
-- OFL fonts instead of macOS Chalkduster (a style change).
-- Telegram bot.
-- Dashboard licence route.
-- CLAUDE.md Hindi voice line: Veena → Maya2 Malini.
-- Approval-record redesign.
+- Decided 2026-11-16 ("do all the improvements except mobile"): 35–55 s target (O1), YouTube `synthetic: true` (O2), OFL fonts (O3), approval-record redesign (O4), frame 0 ≥70% drawn (O5), CLAUDE.md voice line → Maya2 Malini (O8), gu/te `unreviewed-language` cohort (O9), agents 10 → 5 + 1 dormant (O10).
+- Out of scope for now: Telegram bot and Remote Control (O6), dashboard licence route (O7).
 
 ## Progress log
 | Date | Work | Decisions |

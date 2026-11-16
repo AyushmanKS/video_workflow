@@ -39,14 +39,72 @@
     },
     "gate:script": {
       "status": "approved",
-      "at": "2026-11-16T10:58:37+0530",
-      "note": "owner approved all 4 scripts and Malini for gu/te in chat 2026-11-16",
       "langs": [
         "en",
         "hi",
         "gu",
         "te"
-      ]
+      ],
+      "entries": {
+        "en": {
+          "status": "approved",
+          "at": "2026-11-16T10:58:37+0530",
+          "by": "owner (legacy record)",
+          "channel": "legacy",
+          "note": "owner approved all 4 scripts and Malini for gu/te in chat 2026-11-16",
+          "sha256": "7003fc43df6b3301f4f090d69fd0387cce27ca5a26e015f6e16a2db1739dd105",
+          "file": "content/C0005/en/script.json",
+          "migrated_from_legacy": true,
+          "migrated_at": "2026-11-16T17:30:55+0530"
+        },
+        "hi": {
+          "status": "approved",
+          "at": "2026-11-16T10:58:37+0530",
+          "by": "owner (legacy record)",
+          "channel": "legacy",
+          "note": "owner approved all 4 scripts and Malini for gu/te in chat 2026-11-16",
+          "sha256": "6a29a4d4231194e72bed0b126b60585e04c69469010875a9184585a4a5034c12",
+          "file": "content/C0005/hi/script.json",
+          "migrated_from_legacy": true,
+          "migrated_at": "2026-11-16T17:30:55+0530"
+        },
+        "gu": {
+          "status": "approved",
+          "at": "2026-11-16T10:58:37+0530",
+          "by": "owner (legacy record)",
+          "channel": "legacy",
+          "note": "owner approved all 4 scripts and Malini for gu/te in chat 2026-11-16",
+          "sha256": "4c3bd0c712b3d97439154abe10eacaa92037f291997ae414430a37b30301eb32",
+          "file": "content/C0005/gu/script.json",
+          "migrated_from_legacy": true,
+          "migrated_at": "2026-11-16T17:30:55+0530"
+        },
+        "te": {
+          "status": "approved",
+          "at": "2026-11-16T10:58:37+0530",
+          "by": "owner (legacy record)",
+          "channel": "legacy",
+          "note": "owner approved all 4 scripts and Malini for gu/te in chat 2026-11-16",
+          "sha256": "b05b66515d99ce25bc1b4343ce70e2acda34860b1a1d2be35b68c79768a929e5",
+          "file": "content/C0005/te/script.json",
+          "migrated_from_legacy": true,
+          "migrated_at": "2026-11-16T17:30:55+0530"
+        }
+      },
+      "history": [],
+      "legacy": {
+        "status": "approved",
+        "at": "2026-11-16T10:58:37+0530",
+        "note": "owner approved all 4 scripts and Malini for gu/te in chat 2026-11-16",
+        "langs": [
+          "en",
+          "hi",
+          "gu",
+          "te"
+        ]
+      },
+      "at": "2026-11-16T10:58:37+0530",
+      "note": "owner approved all 4 scripts and Malini for gu/te in chat 2026-11-16"
     },
     "voice:en": {
       "status": "done",
@@ -178,14 +236,72 @@
     },
     "gate:final": {
       "status": "approved",
-      "at": "2026-11-16T12:16:46+0530",
-      "note": "owner approved in chat 2026-11-16",
       "langs": [
         "en",
         "hi",
         "gu",
         "te"
-      ]
+      ],
+      "entries": {
+        "en": {
+          "status": "approved",
+          "at": "2026-11-16T12:16:46+0530",
+          "by": "owner (legacy record)",
+          "channel": "legacy",
+          "note": "owner approved in chat 2026-11-16",
+          "sha256": "8ae65f061db62790c304914f5a47ca24b05ac164e4bd104507d8aa67c078fc93",
+          "file": "content/C0005/en/C0005-en.mp4",
+          "migrated_from_legacy": true,
+          "migrated_at": "2026-11-16T17:30:55+0530"
+        },
+        "hi": {
+          "status": "approved",
+          "at": "2026-11-16T12:16:46+0530",
+          "by": "owner (legacy record)",
+          "channel": "legacy",
+          "note": "owner approved in chat 2026-11-16",
+          "sha256": "2161d5febcd88bda30bac43713ab91f500ce88b4cca43cbf14659b8148ecd139",
+          "file": "content/C0005/hi/C0005-hi.mp4",
+          "migrated_from_legacy": true,
+          "migrated_at": "2026-11-16T17:30:55+0530"
+        },
+        "gu": {
+          "status": "approved",
+          "at": "2026-11-16T12:16:46+0530",
+          "by": "owner (legacy record)",
+          "channel": "legacy",
+          "note": "owner approved in chat 2026-11-16",
+          "sha256": "9a3dfb3085c9f087c84401c803ab020a2d2fbe4ec47958fe4536d23ff93c0a12",
+          "file": "content/C0005/gu/C0005-gu.mp4",
+          "migrated_from_legacy": true,
+          "migrated_at": "2026-11-16T17:30:55+0530"
+        },
+        "te": {
+          "status": "approved",
+          "at": "2026-11-16T12:16:46+0530",
+          "by": "owner (legacy record)",
+          "channel": "legacy",
+          "note": "owner approved in chat 2026-11-16",
+          "sha256": "82bda3a01880a6e89a63eb7dc44f60cfb70506363f534f0bbf86ccb04c9a64ee",
+          "file": "content/C0005/te/C0005-te.mp4",
+          "migrated_from_legacy": true,
+          "migrated_at": "2026-11-16T17:30:55+0530"
+        }
+      },
+      "history": [],
+      "legacy": {
+        "status": "approved",
+        "at": "2026-11-16T12:16:46+0530",
+        "note": "owner approved in chat 2026-11-16",
+        "langs": [
+          "en",
+          "hi",
+          "gu",
+          "te"
+        ]
+      },
+      "at": "2026-11-16T12:16:46+0530",
+      "note": "owner approved in chat 2026-11-16"
     },
     "gate:publish": {
       "status": "approved",
@@ -196,7 +312,14 @@
         "hi",
         "gu",
         "te"
-      ]
+      ],
+      "migrated": {
+        "at": "2026-11-16T17:30:55+0530",
+        "to": [
+          "gate:publish:youtube"
+        ],
+        "note": "kept for history; not read by require()"
+      }
     },
     "published:te": {
       "status": "done",
@@ -207,6 +330,106 @@
       "status": "done",
       "at": "2026-11-16T12:17:49+0530",
       "note": "2026-11-19T19:30:00+05:30"
+    },
+    "gate:publish:youtube": {
+      "status": "approved",
+      "langs": [
+        "en",
+        "hi",
+        "gu",
+        "te"
+      ],
+      "entries": {
+        "en": {
+          "status": "approved",
+          "at": "2026-11-16T12:16:46+0530",
+          "by": "owner (legacy record)",
+          "channel": "legacy",
+          "note": "owner approved 2026-11-19 TE 18:30, GU 19:30, HI 20:30, EN 21:30 IST; same channel; YouTube only",
+          "platform": "youtube",
+          "time": "2026-11-19T21:30:00+05:30",
+          "video": "content/C0005/en/C0005-en.mp4",
+          "video_sha256": "8ae65f061db62790c304914f5a47ca24b05ac164e4bd104507d8aa67c078fc93",
+          "meta": "content/C0005/en/publish.json",
+          "meta_sha256": "34e000749d381bab92a4f3a5eed08b7ebfb3a8ca522a434f7eae5a4b9f49b52b",
+          "migrated_from_legacy": true,
+          "migrated_at": "2026-11-16T17:30:55+0530",
+          "evidence": {
+            "time": "2026-11-19T21:30:00+05:30",
+            "source": "schedule.json",
+            "already_published": false
+          },
+          "meta_hash_scope": "publish.json['youtube']"
+        },
+        "hi": {
+          "status": "approved",
+          "at": "2026-11-16T12:16:46+0530",
+          "by": "owner (legacy record)",
+          "channel": "legacy",
+          "note": "owner approved 2026-11-19 TE 18:30, GU 19:30, HI 20:30, EN 21:30 IST; same channel; YouTube only",
+          "platform": "youtube",
+          "time": "2026-11-19T20:30:00+05:30",
+          "video": "content/C0005/hi/C0005-hi.mp4",
+          "video_sha256": "2161d5febcd88bda30bac43713ab91f500ce88b4cca43cbf14659b8148ecd139",
+          "meta": "content/C0005/hi/publish.json",
+          "meta_sha256": "a345c9299eaf20bcae97f7e5fc043f8d4dcadda225e57b8b90233076042b66f9",
+          "migrated_from_legacy": true,
+          "migrated_at": "2026-11-16T17:30:55+0530",
+          "evidence": {
+            "time": "2026-11-19T20:30:00+05:30",
+            "source": "schedule.json",
+            "already_published": false
+          },
+          "meta_hash_scope": "publish.json['youtube']"
+        },
+        "gu": {
+          "status": "approved",
+          "at": "2026-11-16T12:16:46+0530",
+          "by": "owner (legacy record)",
+          "channel": "legacy",
+          "note": "owner approved 2026-11-19 TE 18:30, GU 19:30, HI 20:30, EN 21:30 IST; same channel; YouTube only",
+          "platform": "youtube",
+          "time": "2026-11-19T19:30:00+05:30",
+          "video": "content/C0005/gu/C0005-gu.mp4",
+          "video_sha256": "9a3dfb3085c9f087c84401c803ab020a2d2fbe4ec47958fe4536d23ff93c0a12",
+          "meta": "content/C0005/gu/publish.json",
+          "meta_sha256": "5ccea3b959e9441bbeecab0d73044e942fc0746136ece201b6d99941759dfd56",
+          "migrated_from_legacy": true,
+          "migrated_at": "2026-11-16T17:30:55+0530",
+          "evidence": {
+            "time": "2026-11-19T19:30:00+05:30",
+            "source": "published.json",
+            "platform_id": "J7v8vYKw7pA",
+            "already_published": true
+          },
+          "meta_hash_scope": "publish.json['youtube']"
+        },
+        "te": {
+          "status": "approved",
+          "at": "2026-11-16T12:16:46+0530",
+          "by": "owner (legacy record)",
+          "channel": "legacy",
+          "note": "owner approved 2026-11-19 TE 18:30, GU 19:30, HI 20:30, EN 21:30 IST; same channel; YouTube only",
+          "platform": "youtube",
+          "time": "2026-11-19T18:30:00+05:30",
+          "video": "content/C0005/te/C0005-te.mp4",
+          "video_sha256": "82bda3a01880a6e89a63eb7dc44f60cfb70506363f534f0bbf86ccb04c9a64ee",
+          "meta": "content/C0005/te/publish.json",
+          "meta_sha256": "ce691127c8d78ab72e58151cae3c11a8ac570621287dc6617b7af1d89df3b43a",
+          "migrated_from_legacy": true,
+          "migrated_at": "2026-11-16T17:30:55+0530",
+          "evidence": {
+            "time": "2026-11-19T18:30:00+05:30",
+            "source": "published.json",
+            "platform_id": "dELg2DdFNhw",
+            "already_published": true
+          },
+          "meta_hash_scope": "publish.json['youtube']"
+        }
+      },
+      "history": [],
+      "at": "2026-11-16T12:16:46+0530",
+      "note": "migrated from legacy gate:publish"
     }
   }
 }

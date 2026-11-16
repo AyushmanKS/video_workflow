@@ -1,5 +1,7 @@
 # Episode 05 handoff: Tataka, in four languages (en, hi, gu, te)
 
+> **Historical (2026-11-16).** Episode 05 (C0005) is produced; this file records how it was made. Do not use it as the template for new episodes: the duration target is now 35–55 s (hard limit under 60 s, `pipeline lint` before G1), the agent set is series-planner / scriptwriter / creative-director / reviewer / packager, and publishing goes through the manual `/publish` skill. Follow `CLAUDE.md`, `PROJECT_CONTEXT.md` and the `storytelling` and `content-pipeline` skills instead.
+
 Use this file to start a fresh Claude Code chat in `~/Desktop/work/shorts-studio` with:
 
 > Read `EP05_HANDOFF.md` and produce Episode 05, following it step by step.
@@ -136,7 +138,7 @@ Story beats to check (sarga numbers are approximate; confirm each one):
    - The Episode 04 builder is the template. It's not in the repo; `content/C0004/en/script.json` shows the schema.
    - **Scene fields:** `narration`, `keywords` (exact tokens as they appear in the narration, including trailing punctuation), `emphasis` (the title card text), `visual`, `pause`, `sfx`, `melody`, `swell`. The verse scene also has `kind: verse`, `devanagari: [4 lines]` and `source`.
    - **No digits in gu/te narration.** Write numbers as words: `pipeline/numwords.py` only handles hi/mr and en.
-   - **Target:** 13 scenes, 75–95 s, under about 220 words.
+   - **Target (as used for Ep05; superseded):** 13 scenes, 75–95 s, under about 220 words. New episodes: 8–11 scenes, 35–55 s, word budgets in the `storytelling` skill.
    - **Thumbnail:** scene index of the strongest image; headline 3–4 words in each language.
 4. Add `hooks.json` per language:
    - 6 hooks, scored with the rubric (curiosity, emotion, specificity, speed, resonance, accuracy, out of 30).

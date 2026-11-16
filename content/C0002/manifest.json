@@ -35,14 +35,72 @@
     },
     "gate:script": {
       "status": "approved",
-      "at": "2026-11-16T12:23:53+0530",
-      "note": "en/hi approved earlier; gu/te versions approved in advance by owner in chat 2026-11-16 (follow approved en/hi scene by scene)",
       "langs": [
         "en",
         "hi",
         "gu",
         "te"
-      ]
+      ],
+      "entries": {
+        "en": {
+          "status": "approved",
+          "at": "2026-11-16T12:23:53+0530",
+          "by": "owner (legacy record)",
+          "channel": "legacy",
+          "note": "en/hi approved earlier; gu/te versions approved in advance by owner in chat 2026-11-16 (follow approved en/hi scene by scene)",
+          "sha256": "43aee1512f99979e8f5e72f40eb7ce13ec7d5aea62ba1388dee80e75e507bf11",
+          "file": "content/C0002/en/script.json",
+          "migrated_from_legacy": true,
+          "migrated_at": "2026-11-16T17:33:58+0530"
+        },
+        "hi": {
+          "status": "approved",
+          "at": "2026-11-16T12:23:53+0530",
+          "by": "owner (legacy record)",
+          "channel": "legacy",
+          "note": "en/hi approved earlier; gu/te versions approved in advance by owner in chat 2026-11-16 (follow approved en/hi scene by scene)",
+          "sha256": "63eb542906307245743d8c09814ba0c40d781ed28ceb572af7571efd2ec2f369",
+          "file": "content/C0002/hi/script.json",
+          "migrated_from_legacy": true,
+          "migrated_at": "2026-11-16T17:33:58+0530"
+        },
+        "gu": {
+          "status": "approved",
+          "at": "2026-11-16T12:23:53+0530",
+          "by": "owner (legacy record)",
+          "channel": "legacy",
+          "note": "en/hi approved earlier; gu/te versions approved in advance by owner in chat 2026-11-16 (follow approved en/hi scene by scene)",
+          "sha256": "46fdd3b983bf0e195bdf6530e8a3fc86564d3d13d96ea032bd576be8390e8e9a",
+          "file": "content/C0002/gu/script.json",
+          "migrated_from_legacy": true,
+          "migrated_at": "2026-11-16T17:33:58+0530"
+        },
+        "te": {
+          "status": "approved",
+          "at": "2026-11-16T12:23:53+0530",
+          "by": "owner (legacy record)",
+          "channel": "legacy",
+          "note": "en/hi approved earlier; gu/te versions approved in advance by owner in chat 2026-11-16 (follow approved en/hi scene by scene)",
+          "sha256": "d3c2165672ef3aea54857a93e775ba95552a8e07e5683c6212f817a9e7d3da3a",
+          "file": "content/C0002/te/script.json",
+          "migrated_from_legacy": true,
+          "migrated_at": "2026-11-16T17:33:58+0530"
+        }
+      },
+      "history": [],
+      "legacy": {
+        "status": "approved",
+        "at": "2026-11-16T12:23:53+0530",
+        "note": "en/hi approved earlier; gu/te versions approved in advance by owner in chat 2026-11-16 (follow approved en/hi scene by scene)",
+        "langs": [
+          "en",
+          "hi",
+          "gu",
+          "te"
+        ]
+      },
+      "at": "2026-11-16T12:23:53+0530",
+      "note": "en/hi approved earlier; gu/te versions approved in advance by owner in chat 2026-11-16 (follow approved en/hi scene by scene)"
     },
     "voice:en": {
       "status": "done",
@@ -101,12 +159,46 @@
     },
     "gate:final": {
       "status": "approved",
-      "at": "2026-11-16T01:44:45+0530",
-      "note": "Owner: 'proceed with ep2 publishing' (2026-11-16)",
       "langs": [
         "en",
         "hi"
-      ]
+      ],
+      "entries": {
+        "en": {
+          "status": "approved",
+          "at": "2026-11-16T01:44:45+0530",
+          "by": "owner (legacy record)",
+          "channel": "legacy",
+          "note": "Owner: 'proceed with ep2 publishing' (2026-11-16)",
+          "sha256": "a13fd436383873198ac338d7dfddd5b3f7bd4fda237c0fa306dd5eeb114869c8",
+          "file": "content/C0002/en/C0002-en.mp4",
+          "migrated_from_legacy": true,
+          "migrated_at": "2026-11-16T17:33:58+0530"
+        },
+        "hi": {
+          "status": "approved",
+          "at": "2026-11-16T01:44:45+0530",
+          "by": "owner (legacy record)",
+          "channel": "legacy",
+          "note": "Owner: 'proceed with ep2 publishing' (2026-11-16)",
+          "sha256": "567e41ac785883979634243c7b8fc3a2c99ce6dd953f5b550f129163b0e0dde7",
+          "file": "content/C0002/hi/C0002-hi.mp4",
+          "migrated_from_legacy": true,
+          "migrated_at": "2026-11-16T17:33:58+0530"
+        }
+      },
+      "history": [],
+      "legacy": {
+        "status": "approved",
+        "at": "2026-11-16T01:44:45+0530",
+        "note": "Owner: 'proceed with ep2 publishing' (2026-11-16)",
+        "langs": [
+          "en",
+          "hi"
+        ]
+      },
+      "at": "2026-11-16T01:44:45+0530",
+      "note": "Owner: 'proceed with ep2 publishing' (2026-11-16)"
     },
     "gate:publish": {
       "status": "approved",
@@ -115,7 +207,15 @@
       "langs": [
         "en",
         "hi"
-      ]
+      ],
+      "migrated": {
+        "at": "2026-11-16T17:33:58+0530",
+        "to": [
+          "gate:publish:youtube",
+          "gate:publish:instagram"
+        ],
+        "note": "kept for history; not read by require()"
+      }
     },
     "published:hi": {
       "status": "done",
@@ -163,13 +263,13 @@
     },
     "video_qa:gu": {
       "status": "done",
-      "at": "2026-11-16T15:19:27+0530",
-      "note": "auto QA WARN/PASS (ASR only); native-script verse and title cards checked"
+      "at": "2026-11-16T17:38:23+0530",
+      "note": "warn (report #44)"
     },
     "video_qa:te": {
       "status": "done",
-      "at": "2026-11-16T15:19:27+0530",
-      "note": "auto QA WARN/PASS (ASR only); native-script verse and title cards checked"
+      "at": "2026-11-16T17:38:41+0530",
+      "note": "warn (report #45)"
     },
     "voice_qa:gu": {
       "status": "done",
@@ -198,6 +298,130 @@
       "status": "done",
       "at": "2026-11-16T15:41:52+0530",
       "note": "2026-11-17T20:30:00+05:30"
+    },
+    "gate:publish:youtube": {
+      "status": "approved",
+      "langs": [
+        "en",
+        "hi"
+      ],
+      "entries": {
+        "en": {
+          "status": "approved",
+          "at": "2026-11-16T15:41:52+0530",
+          "by": "owner (legacy record)",
+          "channel": "legacy",
+          "note": "Instagram G3: owner approved Ep02 Reels for Tue 17 Nov evening (HI 20:00, EN 20:30 IST) with researched captions, AI label, audio names; gu/te await G2",
+          "platform": "youtube",
+          "time": "2026-11-16T21:30:00+05:30",
+          "video": "content/C0002/en/C0002-en.mp4",
+          "video_sha256": "a13fd436383873198ac338d7dfddd5b3f7bd4fda237c0fa306dd5eeb114869c8",
+          "meta": "content/C0002/en/publish.json",
+          "meta_sha256": "c7440c58d101227a929c029d18049bc6850c6105c3f0508f3730624231e624c2",
+          "meta_hash_scope": "publish.json['youtube']",
+          "migrated_from_legacy": true,
+          "migrated_at": "2026-11-16T17:33:58+0530",
+          "evidence": {
+            "time": "2026-11-16T21:30:00+05:30",
+            "source": "published.json",
+            "platform_id": "QpmoDeVOMAo",
+            "already_published": true
+          }
+        },
+        "hi": {
+          "status": "approved",
+          "at": "2026-11-16T15:41:52+0530",
+          "by": "owner (legacy record)",
+          "channel": "legacy",
+          "note": "Instagram G3: owner approved Ep02 Reels for Tue 17 Nov evening (HI 20:00, EN 20:30 IST) with researched captions, AI label, audio names; gu/te await G2",
+          "platform": "youtube",
+          "time": "2026-11-16T20:30:00+05:30",
+          "video": "content/C0002/hi/C0002-hi.mp4",
+          "video_sha256": "567e41ac785883979634243c7b8fc3a2c99ce6dd953f5b550f129163b0e0dde7",
+          "meta": "content/C0002/hi/publish.json",
+          "meta_sha256": "dfa7bc4c6b2aa615a52aa5a17b287f508ca6a56d6f02fd14a59bcf3298a6c4bd",
+          "meta_hash_scope": "publish.json['youtube']",
+          "migrated_from_legacy": true,
+          "migrated_at": "2026-11-16T17:33:58+0530",
+          "evidence": {
+            "time": "2026-11-16T20:30:00+05:30",
+            "source": "published.json",
+            "platform_id": "nJNSDaSoHCk",
+            "already_published": true
+          }
+        }
+      },
+      "history": [],
+      "at": "2026-11-16T15:41:52+0530",
+      "note": "migrated from legacy gate:publish"
+    },
+    "gate:publish:instagram": {
+      "status": "approved",
+      "langs": [
+        "en",
+        "hi"
+      ],
+      "entries": {
+        "en": {
+          "status": "approved",
+          "at": "2026-11-16T15:41:52+0530",
+          "by": "owner (legacy record)",
+          "channel": "legacy",
+          "note": "Instagram G3: owner approved Ep02 Reels for Tue 17 Nov evening (HI 20:00, EN 20:30 IST) with researched captions, AI label, audio names; gu/te await G2",
+          "platform": "instagram",
+          "time": "2026-11-17T20:30:00+05:30",
+          "video": "content/C0002/en/C0002-en.mp4",
+          "video_sha256": "a13fd436383873198ac338d7dfddd5b3f7bd4fda237c0fa306dd5eeb114869c8",
+          "meta": "content/C0002/en/publish.json",
+          "meta_sha256": "3202c5c8876ad4384332e56e3be78fd7e2a996ce708b615da21c4d25535cd857",
+          "meta_hash_scope": "publish.json['instagram']",
+          "migrated_from_legacy": true,
+          "migrated_at": "2026-11-16T17:33:58+0530",
+          "evidence": {
+            "time": "2026-11-17T20:30:00+05:30",
+            "source": "launchd job",
+            "already_published": false
+          }
+        },
+        "hi": {
+          "status": "approved",
+          "at": "2026-11-16T15:41:52+0530",
+          "by": "owner (legacy record)",
+          "channel": "legacy",
+          "note": "Instagram G3: owner approved Ep02 Reels for Tue 17 Nov evening (HI 20:00, EN 20:30 IST) with researched captions, AI label, audio names; gu/te await G2",
+          "platform": "instagram",
+          "time": "2026-11-17T20:00:00+05:30",
+          "video": "content/C0002/hi/C0002-hi.mp4",
+          "video_sha256": "567e41ac785883979634243c7b8fc3a2c99ce6dd953f5b550f129163b0e0dde7",
+          "meta": "content/C0002/hi/publish.json",
+          "meta_sha256": "8741e5fc356264f3725d265de91b016e833f4b811068e2a50ca1e385bfa31480",
+          "meta_hash_scope": "publish.json['instagram']",
+          "migrated_from_legacy": true,
+          "migrated_at": "2026-11-16T17:33:58+0530",
+          "evidence": {
+            "time": "2026-11-17T20:00:00+05:30",
+            "source": "launchd job",
+            "already_published": false
+          }
+        }
+      },
+      "history": [],
+      "at": "2026-11-16T15:41:52+0530",
+      "note": "migrated from legacy gate:publish"
     }
+  },
+  "platforms": [
+    "youtube",
+    "instagram"
+  ],
+  "qa_exempt": {
+    "checks": [
+      "duration",
+      "lint_duration",
+      "lint_hook"
+    ],
+    "reason": "back-catalogue: en/hi published before the 60 s rule; gu/te mirror them scene by scene",
+    "decided_by": "owner",
+    "decided_at": "2026-11-16"
   }
 }

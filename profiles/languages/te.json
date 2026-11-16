@@ -3,6 +3,8 @@
   "name": "Telugu",
   "script": "Telugu",
   "status": "draft — needs native-speaker review",
+  "review_status": "unreviewed-language",
+  "review_status_note": "Owner decision O9 (2026-11-16): the maya2:Malini voice was approved without the native-speaker listen the voice policy requires. Variants in this language form a separate analytics cohort and CER checks are warn-only until a native reviewer signs off; then set review_status to \"native-reviewed\" with the reviewer and date.",
   "wikipedia": "te",
   "youtube_relevance_language": "te",
   "whisper_language": "te",

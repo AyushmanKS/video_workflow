@@ -112,7 +112,86 @@ CREATE TABLE IF NOT EXISTS recommendations (
     status TEXT NOT NULL DEFAULT 'proposed',
     created_at TEXT NOT NULL
 );
+CREATE TABLE IF NOT EXISTS waivers (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    variant_id TEXT NOT NULL,
+    check_name TEXT NOT NULL,
+    mp4_sha256 TEXT,
+    note TEXT NOT NULL,
+    actor TEXT NOT NULL,
+    channel TEXT,
+    created_at TEXT NOT NULL
+);
+CREATE TABLE IF NOT EXISTS publish_queue (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    content_id TEXT NOT NULL,
+    lang TEXT NOT NULL,
+    platform TEXT NOT NULL,
+    publish_at TEXT,
+    priority INTEGER NOT NULL DEFAULT 0,
+    status TEXT NOT NULL DEFAULT 'queued',
+    attempts INTEGER NOT NULL DEFAULT 0,
+    next_try_at TEXT,
+    last_error TEXT,
+    created_at TEXT NOT NULL,
+    updated_at TEXT NOT NULL,
+    UNIQUE(content_id, lang, platform)
+);
+CREATE TABLE IF NOT EXISTS features (
+    variant_id TEXT PRIMARY KEY,
+    content_id TEXT,
+    language TEXT,
+    episode INTEGER,
+    cohort TEXT,
+    duration_s REAL,
+    duration_source TEXT,
+    scenes INTEGER,
+    words INTEGER,
+    wps REAL,
+    hook_type TEXT,
+    hook_words INTEGER,
+    hook_seconds REAL,
+    first_frame TEXT,
+    voice TEXT,
+    slot_ist TEXT,
+    weekday TEXT,
+    title_pattern TEXT,
+    has_verse INTEGER,
+    stage TEXT,
+    updated_at TEXT NOT NULL
+);
+CREATE TABLE IF NOT EXISTS experiments (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    hypothesis TEXT NOT NULL,
+    variable TEXT NOT NULL,
+    arms TEXT NOT NULL,
+    assignment_rule TEXT NOT NULL,
+    metric TEXT NOT NULL,
+    min_n_per_arm INTEGER NOT NULL DEFAULT 6,
+    start TEXT,
+    stop_rule TEXT NOT NULL,
+    status TEXT NOT NULL DEFAULT 'proposed',
+    result TEXT,
+    created_at TEXT NOT NULL,
+    updated_at TEXT NOT NULL
+);
 """
+
+COLUMNS = {
+    "decisions": {"actor": "TEXT", "channel": "TEXT", "artifact_sha256": "TEXT"},
+    "qa_reports": {"mp4_sha256": "TEXT", "scores": "TEXT"},
+    "variants": {"cohort": "TEXT"},
+    "hooks": {"source_sha256": "TEXT"},
+}
+
+
+def migrate(con):
+    for table, cols in COLUMNS.items():
+        have = {r[1] for r in con.execute(f"PRAGMA table_info({table})")}
+        for col, typ in cols.items():
+            if col not in have:
+                con.execute(f"ALTER TABLE {table} ADD COLUMN {col} {typ}")
+    con.execute("UPDATE variants SET cohort='unreviewed-language' WHERE language IN ('gu','te') AND cohort IS NULL")
 
 
 def now():
@@ -126,6 +205,7 @@ def connect():
     con.row_factory = sqlite3.Row
     con.execute("PRAGMA foreign_keys = ON")
     con.executescript(SCHEMA)
+    migrate(con)
     try:
         yield con
         con.commit()
@@ -153,11 +233,15 @@ def next_content_id(con):
     return f"C{n:04d}"
 
 
-def log_decision(con, stage, decision, reasoning, decided_by, content_id=None, variant_id=None):
+def log_decision(con, stage, decision, reasoning, decided_by, content_id=None, variant_id=None, actor=None, channel=None, artifact_sha256=None):
     con.execute(
-        "INSERT INTO decisions (content_id, variant_id, stage, decision, reasoning, decided_by, created_at) VALUES (?,?,?,?,?,?,?)",
-        (content_id, variant_id, stage, decision, reasoning, decided_by, now()),
+        "INSERT INTO decisions (content_id, variant_id, stage, decision, reasoning, decided_by, created_at, actor, channel, artifact_sha256) VALUES (?,?,?,?,?,?,?,?,?,?)",
+        (content_id, variant_id, stage, decision, reasoning, decided_by, now(), actor, channel, as_json(artifact_sha256) if artifact_sha256 is not None else None),
     )
+
+
+def cohort_for(language):
+    return "unreviewed-language" if language in ("gu", "te") else None
 
 
 class Run:

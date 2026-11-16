@@ -1,3 +1,25 @@
+from pathlib import Path
+
+FONT_DIR = Path(__file__).parent / "assets" / "fonts"
+OFL = {
+    "title": str(FONT_DIR / "CabinSketch-Bold.ttf"),
+    "caption_latin": str(FONT_DIR / "Kalam-Bold.ttf"),
+    "devanagari": str(FONT_DIR / "NotoSansDevanagari-SemiBold.ttf"),
+    "devanagari_serif": str(FONT_DIR / "NotoSerifDevanagari-Medium.ttf"),
+    "devanagari_serif_bold": str(FONT_DIR / "NotoSerifDevanagari-SemiBold.ttf"),
+    "gujarati": str(FONT_DIR / "NotoSansGujarati-SemiBold.ttf"),
+    "gujarati_bold": str(FONT_DIR / "NotoSansGujarati-Bold.ttf"),
+    "telugu": str(FONT_DIR / "NotoSansTelugu-SemiBold.ttf"),
+    "telugu_bold": str(FONT_DIR / "NotoSansTelugu-Bold.ttf"),
+}
+MAC_TO_OFL = {
+    "/System/Library/Fonts/Supplemental/Chalkduster.ttf": OFL["title"],
+    "/System/Library/Fonts/Supplemental/ChalkboardSE.ttc": OFL["caption_latin"],
+    "/System/Library/Fonts/Kohinoor.ttc": OFL["devanagari"],
+    "/System/Library/Fonts/KohinoorGujarati.ttc": OFL["gujarati_bold"],
+    "/System/Library/Fonts/KohinoorTelugu.ttc": OFL["telugu"],
+}
+
 STYLES = {
     "pixel": {
         "prefix": "16-bit pixel art, retro SNES game style, limited color palette, crisp pixels, vibrant, clean composition, vertical frame,",
@@ -44,8 +66,10 @@ STYLES = {
         "caption_color": (255, 255, 255),
     },
     "chalk": {
-        "prefix": "traditional hand-drawn chalk art on a plain black chalkboard, white chalk line drawing with sketchy imperfect strokes and light cross-hatching, selective saffron, muted gold and earthy green chalk accents, classical Indian illustration style, ancient India, elegant detailed linework, dark empty background around the subject,",
-        "negative": "photograph, photorealistic, 3d render, neon, glowing colors, saturated colors, modern objects, text, letters, words, writing, numbers, watermark, signature, frame, border, cartoon, anime, chibi, white background, paper, colorful painting, blurry",
+        "prefix": "traditional hand-drawn chalk art on a matte black chalkboard that fills the whole frame edge to edge, white chalk line drawing with sketchy imperfect strokes and light cross-hatching, selective saffron, muted gold and earthy green chalk accents in soft dusty tones, classical Indian illustration style, ancient India, elegant detailed linework, crisp sharp chalk lines, dark open chalkboard space around the subject, full-bleed composition,",
+        "negative": "",
+        "prefix_v1": "traditional hand-drawn chalk art on a plain black chalkboard, white chalk line drawing with sketchy imperfect strokes and light cross-hatching, selective saffron, muted gold and earthy green chalk accents, classical Indian illustration style, ancient India, elegant detailed linework, dark empty background around the subject,",
+        "negative_v1": "photograph, photorealistic, 3d render, neon, glowing colors, saturated colors, modern objects, text, letters, words, writing, numbers, watermark, signature, frame, border, cartoon, anime, chibi, white background, paper, colorful painting, blurry",
         "size": (768, 1344),
         "pixelate": 0,
         "colors": 0,

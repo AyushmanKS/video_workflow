@@ -106,25 +106,141 @@
     },
     "gate:script": {
       "status": "approved",
-      "at": "2026-11-16T12:23:53+0530",
-      "note": "en/hi approved earlier; gu/te versions approved in advance by owner in chat 2026-11-16 (follow approved en/hi scene by scene)",
       "langs": [
         "en",
         "hi",
         "gu",
         "te"
-      ]
+      ],
+      "entries": {
+        "en": {
+          "status": "approved",
+          "at": "2026-11-16T12:23:53+0530",
+          "by": "owner (legacy record)",
+          "channel": "legacy",
+          "note": "en/hi approved earlier; gu/te versions approved in advance by owner in chat 2026-11-16 (follow approved en/hi scene by scene)",
+          "sha256": null,
+          "file": "content/C0001/en/script.json",
+          "migrated_from_legacy": true,
+          "migrated_at": "2026-11-16T17:30:54+0530"
+        },
+        "hi": {
+          "status": "approved",
+          "at": "2026-11-16T12:23:53+0530",
+          "by": "owner (legacy record)",
+          "channel": "legacy",
+          "note": "en/hi approved earlier; gu/te versions approved in advance by owner in chat 2026-11-16 (follow approved en/hi scene by scene)",
+          "sha256": null,
+          "file": "content/C0001/hi/script.json",
+          "migrated_from_legacy": true,
+          "migrated_at": "2026-11-16T17:30:54+0530"
+        },
+        "gu": {
+          "status": "approved",
+          "at": "2026-11-16T12:23:53+0530",
+          "by": "owner (legacy record)",
+          "channel": "legacy",
+          "note": "en/hi approved earlier; gu/te versions approved in advance by owner in chat 2026-11-16 (follow approved en/hi scene by scene)",
+          "sha256": "85e919bff46a9a60b2cf204b0582503d7f4fb4ff2d8bccc6e4c239aa2e1c544f",
+          "file": "content/C0001/gu/script.json",
+          "migrated_from_legacy": true,
+          "migrated_at": "2026-11-16T17:30:54+0530"
+        },
+        "te": {
+          "status": "approved",
+          "at": "2026-11-16T12:23:53+0530",
+          "by": "owner (legacy record)",
+          "channel": "legacy",
+          "note": "en/hi approved earlier; gu/te versions approved in advance by owner in chat 2026-11-16 (follow approved en/hi scene by scene)",
+          "sha256": "0c0f19f63a52721f365a90e87cf721d852def75b4df9e49ce6a13fc02eeaec4b",
+          "file": "content/C0001/te/script.json",
+          "migrated_from_legacy": true,
+          "migrated_at": "2026-11-16T17:30:54+0530"
+        }
+      },
+      "history": [],
+      "legacy": {
+        "status": "approved",
+        "at": "2026-11-16T12:23:53+0530",
+        "note": "en/hi approved earlier; gu/te versions approved in advance by owner in chat 2026-11-16 (follow approved en/hi scene by scene)",
+        "langs": [
+          "en",
+          "hi",
+          "gu",
+          "te"
+        ]
+      },
+      "at": "2026-11-16T12:23:53+0530",
+      "note": "en/hi approved earlier; gu/te versions approved in advance by owner in chat 2026-11-16 (follow approved en/hi scene by scene)"
     },
     "gate:final": {
       "status": "approved",
-      "at": "2026-11-16T13:09:20+0530",
-      "note": "gu/te owner approved in chat 2026-11-16",
       "langs": [
         "en",
         "hi",
         "gu",
         "te"
-      ]
+      ],
+      "entries": {
+        "en": {
+          "status": "approved",
+          "at": "2026-11-16T13:09:20+0530",
+          "by": "owner (legacy record)",
+          "channel": "legacy",
+          "note": "gu/te owner approved in chat 2026-11-16",
+          "sha256": "7dccc910a764ddc5e89e6ed23cf488891b2689d2b4d125a8270ba735537aad56",
+          "file": "out/ramayana-ep-01-maharishi-valmiki-the-birth-of-the-ramayana/final/valmiki-ramayana-episode-01-english.mp4",
+          "migrated_from_legacy": true,
+          "migrated_at": "2026-11-16T17:30:54+0530"
+        },
+        "hi": {
+          "status": "approved",
+          "at": "2026-11-16T13:09:20+0530",
+          "by": "owner (legacy record)",
+          "channel": "legacy",
+          "note": "gu/te owner approved in chat 2026-11-16",
+          "sha256": "d116809ac9f5ef4e93010b56cb9795e50af3913a9c47fdba11f03c0005ab263b",
+          "file": "out/ramayana-ep-01-maharishi-valmiki-the-birth-of-the-ramayana/final/valmiki-ramayana-episode-01-hindi.mp4",
+          "migrated_from_legacy": true,
+          "migrated_at": "2026-11-16T17:30:54+0530"
+        },
+        "gu": {
+          "status": "approved",
+          "at": "2026-11-16T13:09:20+0530",
+          "by": "owner (legacy record)",
+          "channel": "legacy",
+          "note": "gu/te owner approved in chat 2026-11-16",
+          "sha256": "d9a3a419e4920ae3a8010c7510083c000530214de4bac9d8889e79a9e002964b",
+          "file": "content/C0001/gu/C0001-gu.mp4",
+          "migrated_from_legacy": true,
+          "migrated_at": "2026-11-16T17:30:54+0530"
+        },
+        "te": {
+          "status": "approved",
+          "at": "2026-11-16T13:09:20+0530",
+          "by": "owner (legacy record)",
+          "channel": "legacy",
+          "note": "gu/te owner approved in chat 2026-11-16",
+          "sha256": "4bde4430421e9287a6a380a8f1afd68b696463ed2779eca763b6a081e8aedd6b",
+          "file": "content/C0001/te/C0001-te.mp4",
+          "migrated_from_legacy": true,
+          "migrated_at": "2026-11-16T17:30:54+0530"
+        }
+      },
+      "history": [],
+      "legacy": {
+        "status": "approved",
+        "at": "2026-11-16T13:09:20+0530",
+        "note": "gu/te owner approved in chat 2026-11-16",
+        "langs": [
+          "en",
+          "hi",
+          "gu",
+          "te"
+        ]
+      },
+      "at": "2026-11-16T13:09:20+0530",
+      "note": "gu/te owner approved in chat 2026-11-16"
     },
     "gate:publish": {
       "status": "approved",
@@ -135,7 +251,15 @@
         "hi",
         "gu",
         "te"
-      ]
+      ],
+      "migrated": {
+        "at": "2026-11-16T17:30:54+0530",
+        "to": [
+          "gate:publish:youtube",
+          "gate:publish:instagram"
+        ],
+        "note": "kept for history; not read by require()"
+      }
     },
     "schedule:en": {
       "status": "done",
@@ -248,6 +372,222 @@
       "status": "done",
       "at": "2026-11-16T15:46:02+0530",
       "note": "2026-11-16T10:13:19.621723+00:00"
+    },
+    "gate:publish:youtube": {
+      "status": "approved",
+      "langs": [
+        "en",
+        "hi",
+        "gu",
+        "te"
+      ],
+      "entries": {
+        "en": {
+          "status": "approved",
+          "at": "2026-11-16T15:25:12+0530",
+          "by": "owner (legacy record)",
+          "channel": "legacy",
+          "note": "Instagram G3: owner approved Ep01 en/hi/gu/te Reels (videos, researched captions, AI label, audio names, covers) all on 2026-11-16; YouTube approvals unchanged",
+          "platform": "youtube",
+          "time": "2026-11-15T22:25:51+05:30",
+          "video": "out/ramayana-ep-01-maharishi-valmiki-the-birth-of-the-ramayana/final/valmiki-ramayana-episode-01-english.mp4",
+          "video_sha256": "7dccc910a764ddc5e89e6ed23cf488891b2689d2b4d125a8270ba735537aad56",
+          "meta": "content/C0001/en/publish.json",
+          "meta_sha256": "afc2f23e3d1830cd2a35579a9b7f8282594e077dfdf1a24ada48d144444dad22",
+          "migrated_from_legacy": true,
+          "migrated_at": "2026-11-16T17:30:54+0530",
+          "evidence": {
+            "time": "2026-11-15T22:25:51+05:30",
+            "source": "publications table",
+            "platform_id": "iAOekr93Rwc",
+            "already_published": true
+          },
+          "meta_hash_scope": "publish.json['youtube']"
+        },
+        "hi": {
+          "status": "approved",
+          "at": "2026-11-16T15:25:12+0530",
+          "by": "owner (legacy record)",
+          "channel": "legacy",
+          "note": "Instagram G3: owner approved Ep01 en/hi/gu/te Reels (videos, researched captions, AI label, audio names, covers) all on 2026-11-16; YouTube approvals unchanged",
+          "platform": "youtube",
+          "time": "2026-11-15T21:48:12+05:30",
+          "video": "out/ramayana-ep-01-maharishi-valmiki-the-birth-of-the-ramayana/final/valmiki-ramayana-episode-01-hindi.mp4",
+          "video_sha256": "d116809ac9f5ef4e93010b56cb9795e50af3913a9c47fdba11f03c0005ab263b",
+          "meta": "content/C0001/hi/publish.json",
+          "meta_sha256": "381e36152e86607ffcd213f8afbcec790b1d42726b42ef4b494b56e757bbb120",
+          "migrated_from_legacy": true,
+          "migrated_at": "2026-11-16T17:30:54+0530",
+          "evidence": {
+            "time": "2026-11-15T21:48:12+05:30",
+            "source": "publications table",
+            "platform_id": "ATBD85fpgwY",
+            "already_published": true
+          },
+          "meta_hash_scope": "publish.json['youtube']"
+        },
+        "gu": {
+          "status": "approved",
+          "at": "2026-11-16T15:25:12+0530",
+          "by": "owner (legacy record)",
+          "channel": "legacy",
+          "note": "Instagram G3: owner approved Ep01 en/hi/gu/te Reels (videos, researched captions, AI label, audio names, covers) all on 2026-11-16; YouTube approvals unchanged",
+          "platform": "youtube",
+          "time": "now",
+          "video": "content/C0001/gu/C0001-gu.mp4",
+          "video_sha256": "d9a3a419e4920ae3a8010c7510083c000530214de4bac9d8889e79a9e002964b",
+          "meta": "content/C0001/gu/publish.json",
+          "meta_sha256": "b6baad46992dfcc48e3ba74705e101a63132ca85538405ccf7c5314ca6a1b213",
+          "migrated_from_legacy": true,
+          "migrated_at": "2026-11-16T17:30:54+0530",
+          "evidence": {
+            "time": "now",
+            "source": "schedule.json (release immediately)",
+            "already_published": false
+          },
+          "meta_hash_scope": "publish.json['youtube']"
+        },
+        "te": {
+          "status": "approved",
+          "at": "2026-11-16T15:25:12+0530",
+          "by": "owner (legacy record)",
+          "channel": "legacy",
+          "note": "Instagram G3: owner approved Ep01 en/hi/gu/te Reels (videos, researched captions, AI label, audio names, covers) all on 2026-11-16; YouTube approvals unchanged",
+          "platform": "youtube",
+          "time": "now",
+          "video": "content/C0001/te/C0001-te.mp4",
+          "video_sha256": "4bde4430421e9287a6a380a8f1afd68b696463ed2779eca763b6a081e8aedd6b",
+          "meta": "content/C0001/te/publish.json",
+          "meta_sha256": "adb5ac92314fffe11cb8f26778427c0d18392d5dded1c5487fe2fa2490a881e9",
+          "migrated_from_legacy": true,
+          "migrated_at": "2026-11-16T17:30:54+0530",
+          "evidence": {
+            "time": "now",
+            "source": "schedule.json (release immediately)",
+            "already_published": false
+          },
+          "meta_hash_scope": "publish.json['youtube']"
+        }
+      },
+      "history": [],
+      "at": "2026-11-16T15:25:12+0530",
+      "note": "migrated from legacy gate:publish"
+    },
+    "gate:publish:instagram": {
+      "status": "approved",
+      "langs": [
+        "en",
+        "hi",
+        "gu",
+        "te"
+      ],
+      "entries": {
+        "en": {
+          "status": "approved",
+          "at": "2026-11-16T15:25:12+0530",
+          "by": "owner (legacy record)",
+          "channel": "legacy",
+          "note": "Instagram G3: owner approved Ep01 en/hi/gu/te Reels (videos, researched captions, AI label, audio names, covers) all on 2026-11-16; YouTube approvals unchanged",
+          "platform": "instagram",
+          "time": "2026-11-16T21:30:00+05:30",
+          "video": "out/ramayana-ep-01-maharishi-valmiki-the-birth-of-the-ramayana/final/valmiki-ramayana-episode-01-english.mp4",
+          "video_sha256": "7dccc910a764ddc5e89e6ed23cf488891b2689d2b4d125a8270ba735537aad56",
+          "meta": "content/C0001/en/publish.json",
+          "meta_sha256": "73554e349d0dba3cceed9559832b29845934470dde1e78e7c38c5560ea295ef8",
+          "migrated_from_legacy": true,
+          "migrated_at": "2026-11-16T17:30:54+0530",
+          "evidence": {
+            "time": "2026-11-16T21:30:00+05:30",
+            "source": "published.json",
+            "platform_id": "18171516379465615",
+            "already_published": true
+          },
+          "meta_hash_scope": "publish.json['instagram']"
+        },
+        "hi": {
+          "status": "approved",
+          "at": "2026-11-16T15:25:12+0530",
+          "by": "owner (legacy record)",
+          "channel": "legacy",
+          "note": "Instagram G3: owner approved Ep01 en/hi/gu/te Reels (videos, researched captions, AI label, audio names, covers) all on 2026-11-16; YouTube approvals unchanged",
+          "platform": "instagram",
+          "time": "2026-11-16T20:30:00+05:30",
+          "video": "out/ramayana-ep-01-maharishi-valmiki-the-birth-of-the-ramayana/final/valmiki-ramayana-episode-01-hindi.mp4",
+          "video_sha256": "d116809ac9f5ef4e93010b56cb9795e50af3913a9c47fdba11f03c0005ab263b",
+          "meta": "content/C0001/hi/publish.json",
+          "meta_sha256": "c01aa01a6150e6081969f67a90d1a8aeaadc51b26e89f98ddeee17daf6ea7eb3",
+          "migrated_from_legacy": true,
+          "migrated_at": "2026-11-16T17:30:54+0530",
+          "evidence": {
+            "time": "2026-11-16T20:30:00+05:30",
+            "source": "published.json",
+            "platform_id": "18125459486060985",
+            "already_published": true
+          },
+          "meta_hash_scope": "publish.json['instagram']"
+        },
+        "gu": {
+          "status": "approved",
+          "at": "2026-11-16T15:25:12+0530",
+          "by": "owner (legacy record)",
+          "channel": "legacy",
+          "note": "Instagram G3: owner approved Ep01 en/hi/gu/te Reels (videos, researched captions, AI label, audio names, covers) all on 2026-11-16; YouTube approvals unchanged",
+          "platform": "instagram",
+          "time": "2026-11-16T19:30:00+05:30",
+          "video": "content/C0001/gu/C0001-gu.mp4",
+          "video_sha256": "d9a3a419e4920ae3a8010c7510083c000530214de4bac9d8889e79a9e002964b",
+          "meta": "content/C0001/gu/publish.json",
+          "meta_sha256": "f941be6a073517c30041e2c4bf5483a23f8501ef16ad92d4a006d312e70ed8b5",
+          "migrated_from_legacy": true,
+          "migrated_at": "2026-11-16T17:30:54+0530",
+          "evidence": {
+            "time": "2026-11-16T19:30:00+05:30",
+            "source": "published.json",
+            "platform_id": "18109188122530274",
+            "already_published": true
+          },
+          "meta_hash_scope": "publish.json['instagram']"
+        },
+        "te": {
+          "status": "approved",
+          "at": "2026-11-16T15:25:12+0530",
+          "by": "owner (legacy record)",
+          "channel": "legacy",
+          "note": "Instagram G3: owner approved Ep01 en/hi/gu/te Reels (videos, researched captions, AI label, audio names, covers) all on 2026-11-16; YouTube approvals unchanged",
+          "platform": "instagram",
+          "time": "2026-11-16T18:30:00+05:30",
+          "video": "content/C0001/te/C0001-te.mp4",
+          "video_sha256": "4bde4430421e9287a6a380a8f1afd68b696463ed2779eca763b6a081e8aedd6b",
+          "meta": "content/C0001/te/publish.json",
+          "meta_sha256": "0eb370047f2325122a1319cdbd0fd779e67711a9a6988736e179e9eb08d52ae5",
+          "migrated_from_legacy": true,
+          "migrated_at": "2026-11-16T17:30:54+0530",
+          "evidence": {
+            "time": "2026-11-16T18:30:00+05:30",
+            "source": "published.json",
+            "platform_id": "18220429441358381",
+            "already_published": true
+          },
+          "meta_hash_scope": "publish.json['instagram']"
+        }
+      },
+      "history": [],
+      "at": "2026-11-16T15:25:12+0530",
+      "note": "migrated from legacy gate:publish"
     }
+  },
+  "platforms": [
+    "youtube",
+    "instagram"
+  ],
+  "qa_exempt": {
+    "checks": [
+      "duration",
+      "lint_duration",
+      "lint_hook"
+    ],
+    "reason": "back-catalogue: en/hi published before the 60 s rule; gu/te mirror them scene by scene",
+    "decided_by": "owner",
+    "decided_at": "2026-11-16"
   }
 }

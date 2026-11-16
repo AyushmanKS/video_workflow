@@ -35,14 +35,72 @@
     },
     "gate:script": {
       "status": "approved",
-      "at": "2026-11-16T12:23:53+0530",
-      "note": "en/hi approved earlier; gu/te versions approved in advance by owner in chat 2026-11-16 (follow approved en/hi scene by scene)",
       "langs": [
         "en",
         "hi",
         "gu",
         "te"
-      ]
+      ],
+      "entries": {
+        "en": {
+          "status": "approved",
+          "at": "2026-11-16T12:23:53+0530",
+          "by": "owner (legacy record)",
+          "channel": "legacy",
+          "note": "en/hi approved earlier; gu/te versions approved in advance by owner in chat 2026-11-16 (follow approved en/hi scene by scene)",
+          "sha256": "5df5df41a03161ceb441b146369daf5f698e43a4032aafc359c2728f2257e5ea",
+          "file": "content/C0003/en/script.json",
+          "migrated_from_legacy": true,
+          "migrated_at": "2026-11-16T17:30:55+0530"
+        },
+        "hi": {
+          "status": "approved",
+          "at": "2026-11-16T12:23:53+0530",
+          "by": "owner (legacy record)",
+          "channel": "legacy",
+          "note": "en/hi approved earlier; gu/te versions approved in advance by owner in chat 2026-11-16 (follow approved en/hi scene by scene)",
+          "sha256": "42aa84e321ab71dc41352f7b5d9ab5beb004b908fa2f41b12605f9cf8236f5e6",
+          "file": "content/C0003/hi/script.json",
+          "migrated_from_legacy": true,
+          "migrated_at": "2026-11-16T17:30:55+0530"
+        },
+        "gu": {
+          "status": "approved",
+          "at": "2026-11-16T12:23:53+0530",
+          "by": "owner (legacy record)",
+          "channel": "legacy",
+          "note": "en/hi approved earlier; gu/te versions approved in advance by owner in chat 2026-11-16 (follow approved en/hi scene by scene)",
+          "sha256": "dd5ca77b4a18a7954c3cb44e157a11e5d44486e873d8fc90a0b904815e78cf48",
+          "file": "content/C0003/gu/script.json",
+          "migrated_from_legacy": true,
+          "migrated_at": "2026-11-16T17:30:55+0530"
+        },
+        "te": {
+          "status": "approved",
+          "at": "2026-11-16T12:23:53+0530",
+          "by": "owner (legacy record)",
+          "channel": "legacy",
+          "note": "en/hi approved earlier; gu/te versions approved in advance by owner in chat 2026-11-16 (follow approved en/hi scene by scene)",
+          "sha256": "56c79723d735b47c01fbc4ac97b0a3ed0136a1779ea1b29fa347b01678e729b6",
+          "file": "content/C0003/te/script.json",
+          "migrated_from_legacy": true,
+          "migrated_at": "2026-11-16T17:30:55+0530"
+        }
+      },
+      "history": [],
+      "legacy": {
+        "status": "approved",
+        "at": "2026-11-16T12:23:53+0530",
+        "note": "en/hi approved earlier; gu/te versions approved in advance by owner in chat 2026-11-16 (follow approved en/hi scene by scene)",
+        "langs": [
+          "en",
+          "hi",
+          "gu",
+          "te"
+        ]
+      },
+      "at": "2026-11-16T12:23:53+0530",
+      "note": "en/hi approved earlier; gu/te versions approved in advance by owner in chat 2026-11-16 (follow approved en/hi scene by scene)"
     },
     "voice:en": {
       "status": "done",
@@ -116,12 +174,46 @@
     },
     "gate:final": {
       "status": "approved",
-      "at": "2026-11-16T08:29:38+0530",
-      "note": "Owner approved EN (earlier) and HI Maya2 Malini (2026-11-16)",
       "langs": [
         "en",
         "hi"
-      ]
+      ],
+      "entries": {
+        "en": {
+          "status": "approved",
+          "at": "2026-11-16T08:29:38+0530",
+          "by": "owner (legacy record)",
+          "channel": "legacy",
+          "note": "Owner approved EN (earlier) and HI Maya2 Malini (2026-11-16)",
+          "sha256": "4fb286a000af309aae898b20fc8acee622721d2a353609f4bd9843f79e740741",
+          "file": "content/C0003/en/C0003-en.mp4",
+          "migrated_from_legacy": true,
+          "migrated_at": "2026-11-16T17:30:55+0530"
+        },
+        "hi": {
+          "status": "approved",
+          "at": "2026-11-16T08:29:38+0530",
+          "by": "owner (legacy record)",
+          "channel": "legacy",
+          "note": "Owner approved EN (earlier) and HI Maya2 Malini (2026-11-16)",
+          "sha256": "b3251cdca5476588372af55768efa837395d086290739f02ae05df415651b979",
+          "file": "content/C0003/hi/C0003-hi.mp4",
+          "migrated_from_legacy": true,
+          "migrated_at": "2026-11-16T17:30:55+0530"
+        }
+      },
+      "history": [],
+      "legacy": {
+        "status": "approved",
+        "at": "2026-11-16T08:29:38+0530",
+        "note": "Owner approved EN (earlier) and HI Maya2 Malini (2026-11-16)",
+        "langs": [
+          "en",
+          "hi"
+        ]
+      },
+      "at": "2026-11-16T08:29:38+0530",
+      "note": "Owner approved EN (earlier) and HI Maya2 Malini (2026-11-16)"
     },
     "gate:publish": {
       "status": "approved",
@@ -130,7 +222,14 @@
       "langs": [
         "en",
         "hi"
-      ]
+      ],
+      "migrated": {
+        "at": "2026-11-16T17:30:55+0530",
+        "to": [
+          "gate:publish:youtube"
+        ],
+        "note": "kept for history; not read by require()"
+      }
     },
     "published:hi": {
       "status": "done",
@@ -163,8 +262,8 @@
     },
     "video_qa:gu": {
       "status": "done",
-      "at": "2026-11-16T15:19:27+0530",
-      "note": "auto QA WARN/PASS (ASR only); native-script verse and title cards checked"
+      "at": "2026-11-16T17:46:15+0530",
+      "note": "warn (report #46)"
     },
     "video_qa:te": {
       "status": "done",
@@ -188,6 +287,71 @@
     "metadata:te": {
       "status": "done",
       "at": "2026-11-16T15:19:27+0530"
+    },
+    "gate:publish:youtube": {
+      "status": "approved",
+      "langs": [
+        "en",
+        "hi"
+      ],
+      "entries": {
+        "en": {
+          "status": "approved",
+          "at": "2026-11-16T08:29:38+0530",
+          "by": "owner (legacy record)",
+          "channel": "legacy",
+          "note": "HI Tue 2026-11-17 20:30 IST; EN already scheduled 21:30",
+          "platform": "youtube",
+          "time": "2026-11-17T21:30:00+05:30",
+          "video": "content/C0003/en/C0003-en.mp4",
+          "video_sha256": "4fb286a000af309aae898b20fc8acee622721d2a353609f4bd9843f79e740741",
+          "meta": "content/C0003/en/publish.json",
+          "meta_sha256": "9c4a123429271b04489de0ba872b4e254c28ada69b0d3e8f636bef9a2925a2c6",
+          "migrated_from_legacy": true,
+          "migrated_at": "2026-11-16T17:30:55+0530",
+          "evidence": {
+            "time": "2026-11-17T21:30:00+05:30",
+            "source": "published.json",
+            "platform_id": "XziMigS1G0w",
+            "already_published": true
+          }
+        },
+        "hi": {
+          "status": "approved",
+          "at": "2026-11-16T08:29:38+0530",
+          "by": "owner (legacy record)",
+          "channel": "legacy",
+          "note": "HI Tue 2026-11-17 20:30 IST; EN already scheduled 21:30",
+          "platform": "youtube",
+          "time": "2026-11-17T20:30:00+05:30",
+          "video": "content/C0003/hi/C0003-hi.mp4",
+          "video_sha256": "b3251cdca5476588372af55768efa837395d086290739f02ae05df415651b979",
+          "meta": "content/C0003/hi/publish.json",
+          "meta_sha256": "e07163ba0064caadaf50989ea1484a510c004f873506a19304d5557a811f4f15",
+          "migrated_from_legacy": true,
+          "migrated_at": "2026-11-16T17:30:55+0530",
+          "evidence": {
+            "time": "2026-11-17T20:30:00+05:30",
+            "source": "published.json",
+            "platform_id": "fPFUIizlkl4",
+            "already_published": true
+          },
+          "meta_hash_scope": "publish.json['youtube']"
+        }
+      },
+      "history": [],
+      "at": "2026-11-16T08:29:38+0530",
+      "note": "migrated from legacy gate:publish"
     }
+  },
+  "qa_exempt": {
+    "checks": [
+      "duration",
+      "lint_duration",
+      "lint_hook"
+    ],
+    "reason": "back-catalogue: en/hi published before the 60 s rule; gu/te mirror them scene by scene",
+    "decided_by": "owner",
+    "decided_at": "2026-11-16"
   }
 }

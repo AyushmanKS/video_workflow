@@ -6,6 +6,32 @@ Everything here is free: the YouTube Data API and Instagram Graph API cost nothi
 
 ---
 
+## Disclosure, audience setting and approvals (owner decisions 2026-11-16)
+
+### AI disclosure: `synthetic: true` on YouTube, `is_ai_generated: true` on Instagram
+Every new episode sets `youtube.synthetic: true` in `publish.json` (sent as `containsSyntheticMedia`) and `instagram.is_ai_generated: true`. Already-published episodes keep their metadata; nothing is re-uploaded.
+
+Reasoning (`docs/GROWTH_AND_MONETIZATION_STRATEGY.md` §3.5):
+- YouTube requires disclosure for realistic AI content, not for clearly animated content. The chalk visuals alone would not need it; the realistic TTS narrator is the borderline case, and YouTube's page does not address generic AI narration voices.
+- For animated content and non-music AI audio the label sits in the expanded description, not on the player, so disclosing costs little.
+- Creators who consistently fail to disclose risk labels added by YouTube, removal or suspension from YPP. Over-disclosure has no documented penalty.
+- Instagram Reels already go out with `is_ai_generated=true`; the same answer on both platforms keeps the channel's statement consistent. India's IT Rules amendment (in force 20 Feb 2026) adds a platform labelling duty for synthetic media.
+
+### Made for Kids = No
+Set "No" on the channel and on every video. The audience research describes the viewers as mostly adults, and made-for-kids content loses personalized ads, comments and memberships; mislabelling is a COPPA risk (GROWTH §3.6).
+
+### Honest workflow statement
+Use this on the About page and as one line in every description (GROWTH §3.4), adapted per language:
+
+> Written and researched by Knowledge PowerBank. Illustrations and narration are made with AI tools; every script is checked against the Valmiki Ramayana, with verse references in the description.
+
+Never imply hand-drawn art or a human narrator. If the channel is renamed (GROWTH §7 Phase 0), update the name here.
+
+### Approvals per platform (G3)
+G3 is recorded separately for each platform: the record names the platform, each language's approved time, and the sha256 of that language's `publish.json` and mp4. An Instagram approval never covers YouTube, or the reverse. If the video, the metadata or the time changes after G3, the publish command refuses and the owner approves again. G2 likewise requires a QA pass, or warnings each carrying a recorded waiver. The implementation is in `pipeline/__main__.py` (roadmap A10/A11); `python -m pipeline approve --help` shows the exact flags. Claude never records G3, and the upload steps live in the manual-only `/publish` skill.
+
+---
+
 ## YouTube: one-time setup (about 10 minutes)
 
 Use your **personal** Google account, the one that owns the YouTube channel. Don't reuse a work Google Cloud project.
@@ -82,7 +108,7 @@ The tunnel takes about 1–2 minutes to come up.
 
 **Reel limits:** 3 s to 15 min, 300 MB or less, H.264/HEVC, AAC at 48 kHz or lower, 25 Mbps or lower. Our renders (about 12 Mbps, 1080×1920, 30 fps) are well inside these.
 
-### Commands (only after the owner approves the Instagram post: video, caption and time)
+### Commands (only after the owner's Instagram G3: video, caption and time)
 
 ```
 python -m pipeline publish C0004 --lang en --platform instagram --dry-run --now
@@ -102,7 +128,7 @@ python -m pipeline publish C0004 --lang en --platform instagram --cancel
 
 The caption comes from `publish.json → instagram.caption`. The same video can't be posted twice; the uploader checks `published.json`. Limits: 100 API posts and 400 containers per rolling 24 h.
 
-In the Instagram app afterwards, check the cover, and add the **AI info** label if Instagram doesn't add it automatically.
+In the Instagram app afterwards, check the cover, and confirm the **AI info** label is shown (the API sets `is_ai_generated`; add it by hand if it is missing).
 
 ---
 

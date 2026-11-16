@@ -1,0 +1,14 @@
+All fonts in this folder are licensed under the SIL Open Font License, Version 1.1 (see the OFL-<family>.txt next to each font).
+Downloaded 2026-11-16.
+
+NotoSansDevanagari-SemiBold.ttf   https://github.com/notofonts/notofonts.github.io/tree/main/fonts/NotoSansDevanagari/full/ttf   OFL-notosansdevanagari.txt
+NotoSerifDevanagari-Medium.ttf    https://github.com/notofonts/notofonts.github.io/tree/main/fonts/NotoSerifDevanagari/full/ttf  OFL-notoserifdevanagari.txt
+NotoSerifDevanagari-SemiBold.ttf  https://github.com/notofonts/notofonts.github.io/tree/main/fonts/NotoSerifDevanagari/full/ttf  OFL-notoserifdevanagari.txt
+NotoSansGujarati-SemiBold.ttf     https://github.com/notofonts/notofonts.github.io/tree/main/fonts/NotoSansGujarati/full/ttf     OFL-notosansgujarati.txt
+NotoSansGujarati-Bold.ttf         https://github.com/notofonts/notofonts.github.io/tree/main/fonts/NotoSansGujarati/full/ttf     OFL-notosansgujarati.txt
+NotoSansTelugu-SemiBold.ttf       https://github.com/notofonts/notofonts.github.io/tree/main/fonts/NotoSansTelugu/full/ttf       OFL-notosanstelugu.txt
+NotoSansTelugu-Bold.ttf           https://github.com/notofonts/notofonts.github.io/tree/main/fonts/NotoSansTelugu/full/ttf       OFL-notosanstelugu.txt
+CabinSketch-Bold.ttf              https://github.com/google/fonts/tree/main/ofl/cabinsketch                                         OFL-cabinsketch.txt
+Kalam-Bold.ttf                    https://github.com/google/fonts/tree/main/ofl/kalam                                               OFL-kalam.txt
+
+Licence texts: https://github.com/google/fonts/tree/main/ofl/<family>/OFL.txt
