@@ -5,7 +5,7 @@ from datetime import datetime, timedelta, timezone
 
 from . import CONTENT, ROOT, db, gates
 
-DEFAULT_CAP = 6
+DEFAULT_CAP = 5
 MIN_LEAD = timedelta(minutes=10)
 BACKOFF = [timedelta(hours=1), timedelta(hours=2), timedelta(hours=4), timedelta(hours=6)]
 LOG = ROOT / "data" / "publish_queue.log"
@@ -82,7 +82,7 @@ def uploads_last_24h(con, platform="youtube", now=None):
 
 def sort_key(r):
     t = gates.parse_time(r["publish_at"]) if r["publish_at"] not in (None, gates.NOW) else None
-    return (-r["priority"], t or datetime.min.replace(tzinfo=timezone.utc), r["id"])
+    return (-r["priority"], t or datetime.max.replace(tzinfo=timezone.utc), r["id"])
 
 
 def plan(con, now=None, cap=DEFAULT_CAP):
