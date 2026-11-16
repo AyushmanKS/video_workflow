@@ -229,13 +229,14 @@ shorts-studio/
   - **HI (Malini) approved by the owner and scheduled** for Tue 2026-11-17 20:30 IST (`fPFUIizlkl4`).
 - **Voice decision (2026-11-16):** Hindi moves from Veena kavya to Maya 2 Malini, chosen via a listening pack (`python -m pipeline voicepack`). Malini is far more accurate and about 6× faster. Voice QA is now per voice: a stored reference centroid plus calibrated thresholds.
 - **Other changes:** QA normalizes ज्ञ↔ग्य; the Veena lead-in was reverted; the audio folder records the voice used (`audio/voice.txt`) and QA uses it.
-- **Pending:** analytics sign-in; an optional HF token (Indic-Speak comparison); consider re-voicing Episode 01/02 Hindi with Malini (owner decision); the scene 8 image (the divine being didn't render) could be retried.
+- **C0004 (Episode 04, Vishvamitra asks for Rama):** owner approved scripts, final videos and publish plan on 2026-11-16. Scheduled Wed 2026-11-18: HI 20:30 IST (`tuDnAZuQyGk`), EN 21:30 IST (`YgLlg2_Do7I`); publishAt verified by API read-back. Scene 4 image was regenerated twice (border, then Western bat-winged gargoyles) and edge-cropped. Hindi scene 12 was regenerated for a pitch spike.
+- **Fixes 2026-11-16 (Ep04):** music padded to voice length (off-by-one crash); caption chunks keep splitting until each fits `caption_max_chars`; speaker QA now loads a reference for any voice id (`profiles/voices/<lang>_<name>_ref.npy`), with `en_af_heart_ref.npy` built from approved C0003-en. Without a reference, QA falls back to scene 1 as the reference, which causes false flags.
+- **Pending:** the owner must enable the YouTube Analytics API in GCP project 145069760719, then run `python -m pipeline analytics --force`; optional HF token (Indic-Speak/IndicConformer); old-episode Hindi re-voice was declined by the owner (2026-11-16); after each video goes live, the owner adds pinned comments and Related-video links manually.
 
 ## 23. Exact next steps
-1. G1 for C0003: `python -m pipeline approve C0003 script`. Then produce: EN voice; HI `takes` (best-of-2, primed); images (EN, shared); render en/hi; `qa` (must pass speaker_consistency); manual review; G2.
-2. Metadata (lint with yt-package), schedule in the evening window (stagger languages), G3, publish with `--yes`.
-3. After the owner provides `HF_TOKEN`, run the adoption plan in `reports/Shorts studio voices and tools.md` §plan: IndicConformer QA first, then Indic-Speak A/B.
-4. Analytics snapshots for C0001/C0002 after sign-in.
+1. Episode 05 (C0005): Tataka (Bala Kanda 24–26; teaser verse 1.24.26). Only start when the owner asks. Flow: `new` → research/strategy/audience → EN+HI scripts (original Hindi) + hooks → G1 → produce EN (af_heart) then HI (`maya2:Malini`; regenerate flagged scenes with the speaker/pitch check) → `qa` → manual image review (watch for borders, Western fantasy demons, Ravana depiction) → metadata + schedule (evening, HI 20:30 / EN 21:30, one episode per day) → G2/G3 → `publish --yes`.
+2. Analytics snapshots once the API is enabled; then run the optimization pass.
+3. After the owner provides `HF_TOKEN`, run the adoption plan in `reports/Shorts studio voices and tools.md` §plan.
 
 ## 24. Testing
 - `python -m pytest -q tests` (unit tests: captions, DB, scheduler, QA scoring, fonts, profiles).

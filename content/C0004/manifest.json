@@ -99,6 +99,34 @@
     "schedule:hi": {
       "status": "done",
       "at": "2026-11-16T09:54:48+0530"
+    },
+    "gate:final": {
+      "status": "approved",
+      "at": "2026-11-16T09:56:56+0530",
+      "note": "owner approved in chat 2026-11-16",
+      "langs": [
+        "en",
+        "hi"
+      ]
+    },
+    "gate:publish": {
+      "status": "approved",
+      "at": "2026-11-16T09:56:56+0530",
+      "note": "owner approved video+metadata+time (HI 2026-11-18 20:30, EN 21:30 IST)",
+      "langs": [
+        "en",
+        "hi"
+      ]
+    },
+    "published:hi": {
+      "status": "done",
+      "at": "2026-11-16T09:57:25+0530",
+      "note": "2026-11-18T20:30:00+05:30"
+    },
+    "published:en": {
+      "status": "done",
+      "at": "2026-11-16T09:58:00+0530",
+      "note": "2026-11-18T21:30:00+05:30"
     }
   }
 }
