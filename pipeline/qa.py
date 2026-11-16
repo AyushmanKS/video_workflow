@@ -418,7 +418,7 @@ def check_glyphs(script, style_name="chalk"):
 
     import studio
 
-    chalk.use_fonts(studio.engine_version(script))
+    chalk.use_fonts(script.get("fonts", "mac"))
     st = style_for(script, style_name)
     cap_font = (st.get("caption_font", st["font"]), st.get("caption_font_index", 0))
     upper = st.get("caption_upper", True)

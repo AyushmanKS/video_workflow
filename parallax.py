@@ -15,7 +15,7 @@ LOCK = ROOT / "data" / "heavy.lock"
 MASK_REPO, MASK_REV = "ZhengPeng7/BiRefNet", "e2bf8e4460fc8fa32bba5ea4d94b3233d367b0e4"
 DEPTH_REPO, DEPTH_REV = "depth-anything/Depth-Anything-V2-Small-hf", "5426e4f0f36572d16453bbda7a8389317b1bef99"
 REPOS = {MASK_REPO, DEPTH_REPO}
-MODES = ("off", "mask", "depth")
+MODES = ("off", "mask", "depth", "auto")
 TEXT_KINDS = ("verse", "shloka")
 MEAN = np.array([0.485, 0.456, 0.406], np.float32)
 STD = np.array([0.229, 0.224, 0.225], np.float32)
@@ -57,7 +57,7 @@ def file_sha(path):
 def scene_mode(script, sc, i=0):
     if sc.get("kind") in TEXT_KINDS:
         return "off"
-    mode = sc.get("depth", script.get("depth", "off")) or "off"
+    mode = sc.get("depth", script.get("depth", "auto" if int(script.get("engine_version", 1) or 1) >= 2 else "off")) or "off"
     if mode not in MODES:
         raise ValueError(f"scene {i + 1}: unknown depth '{mode}' (use {', '.join(MODES)})")
     return mode
@@ -187,7 +187,7 @@ def ensure_maps(script, img_dir, still_of, log=print):
     for i, sc in enumerate(script["scenes"]):
         if wants_mask(script, sc, i):
             need["mask"].add(still_of(script, i))
-        if scene_mode(script, sc, i) == "depth":
+        if scene_mode(script, sc, i) in ("depth", "auto"):
             need["depth"].add(still_of(script, i))
     return [compute_maps(img_dir, need[k], k, log) for k in ("mask", "depth") if need[k]]
 

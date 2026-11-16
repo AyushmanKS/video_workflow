@@ -59,7 +59,7 @@ def effective_style(style_name, script):
     st = {**STYLES[style_name], **script.get("style_overrides", {})}
     if engine_version(script) < 2:
         return st
-    if script.get("fonts", "ofl") == "ofl":
+    if script.get("fonts", "mac") == "ofl":
         for key, idx in (("font", None), ("caption_font", "caption_font_index")):
             path = st.get(key)
             if path in MAC_TO_OFL and Path(MAC_TO_OFL[path]).exists():
@@ -1248,7 +1248,7 @@ def main():
     if st.get("motion") == "chalkdraw":
         import chalk
 
-        chalk.use_fonts(script.get("fonts") or engine_version(script))
+        chalk.use_fonts(script.get("fonts", "mac"))
     if a.stop_after == "script":
         return
     step_voice(script, a.voice, a.speed, out)

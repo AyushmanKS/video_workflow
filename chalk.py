@@ -64,7 +64,7 @@ def engine_version(script):
 
 
 def use_fonts(version_or_name):
-    name = version_or_name if isinstance(version_or_name, str) else ("ofl" if version_or_name >= 2 else "mac")
+    name = version_or_name if isinstance(version_or_name, str) else "mac"
     FONTSET["name"] = name
     return name
 
@@ -617,8 +617,13 @@ def scene_planes(script, sc, i, chalk, masks, depths):
     mode = parallax.scene_mode(script, sc, i)
     if mode == "off":
         return None
-    pm = load_mask(masks[i], sc.get("crop"), 1.0) if masks and masks[i] else None
-    pd = parallax.read_map(depths[i], (CW, CH), sc.get("crop"), crop_still, 2.0) if mode == "depth" and depths and depths[i] else None
+    has_mask = bool(masks and masks[i] and Path(masks[i]).exists())
+    pm = load_mask(masks[i], sc.get("crop"), 1.0) if has_mask else None
+    if mode == "auto":
+        mode = "mask" if pm is not None and parallax.usable_mask(pm) else "depth"
+        if mode == "depth":
+            pm = None
+    pd = parallax.read_map(depths[i], (CW, CH), sc.get("crop"), crop_still, 2.0) if mode == "depth" and depths and depths[i] and Path(depths[i]).exists() else None
     return parallax.build_planes(chalk, pm, pd)
 
 

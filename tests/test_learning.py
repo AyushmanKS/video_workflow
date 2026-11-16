@@ -267,10 +267,9 @@ def test_qa_glyphs_follow_engine_fontset():
     script = {"engine_version": 2, "scenes": [{"narration": "Rama", "kind": "verse", "devanagari": ["राम"], "source": "VR 1.1.1"}], "thumbnail": {"devanagari": "राम"}}
     if not Path(chalk.OFL["devanagari_serif"]).exists():
         pytest.skip("OFL fonts not installed")
-    c = qa.check_glyphs(script)
-    assert c["data"]["fontset"] == "ofl"
-    c1 = qa.check_glyphs({**script, "engine_version": 1})
-    assert c1["data"]["fontset"] == "mac"
+    assert qa.check_glyphs(script)["data"]["fontset"] == "mac"
+    assert qa.check_glyphs({**script, "fonts": "ofl"})["data"]["fontset"] == "ofl"
+    assert qa.check_glyphs({**script, "engine_version": 1})["data"]["fontset"] == "mac"
 
 
 def test_heard_json_requires_matching_sha(tmp_path, monkeypatch):

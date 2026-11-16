@@ -99,7 +99,7 @@ def test_depth_map_roundtrip_16bit(tmp_path):
 
 
 def test_ensure_maps_skips_when_no_scene_asks(tmp_path):
-    script = {"engine_version": 2, "scenes": [{"narration": "a"}, {"narration": "b", "kind": "verse", "depth": "mask"}]}
+    script = {"engine_version": 2, "depth": "off", "scenes": [{"narration": "a"}, {"narration": "b", "kind": "verse", "depth": "mask"}]}
     assert parallax.ensure_maps(script, tmp_path, studio.scene_still) == []
 
 
