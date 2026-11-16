@@ -93,7 +93,7 @@ def test_no_cookie_is_401_everywhere(server):
 
 def test_login_sets_strict_cookie_and_pages_work(server):
     cookie, sc = login(server)
-    for flag in ("HttpOnly", "Secure", "SameSite=Strict", "Max-Age=2592000", "Path=/"):
+    for flag in ("HttpOnly", "Secure", "SameSite=Lax", "Max-Age=2592000", "Path=/"):
         assert flag in sc
     r, body = req(server, "/", cookie=cookie)
     assert r.status == 200 and "Active projects" in body

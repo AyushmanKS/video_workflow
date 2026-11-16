@@ -833,7 +833,10 @@ class Handler(BaseHTTPRequestHandler):
             return self.send(401, json.dumps({"error": "sign-in required"}), "application/json")
         body = ('<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Sign in · Studio</title>'
                 '<link rel=stylesheet href=/static/app.css></head><body><main><h1>Sign-in needed</h1><p>Open the dashboard link from the Telegram bot '
-                '(send <b>/link</b> to the bot to get it again).</p></main></body></html>')
+                '(send <b>/link</b> to the bot to get it again).</p>'
+                '<p>Using the home-screen app? Long-press the link in Telegram, copy it, and paste it here:</p>'
+                '<form method=post action=/login><input name=link autocomplete=off style="width:100%;padding:10px" placeholder="https://…/login?k=…">'
+                '<p><button type=submit style="padding:10px 16px">Sign in</button></p></form></main></body></html>')
         self.send(401, body)
 
     def do_HEAD(self):
@@ -863,7 +866,7 @@ class Handler(BaseHTTPRequestHandler):
         if path == "/login":
             return self.login(q)
         if path == "/logout":
-            return self.send(303, "", extra={"Location": "/", "Set-Cookie": f"{COOKIE}=; Path=/; Max-Age=0; HttpOnly; Secure; SameSite=Strict"})
+            return self.send(303, "", extra={"Location": "/", "Set-Cookie": f"{COOKIE}=; Path=/; Max-Age=0; HttpOnly; Secure; SameSite=Lax"})
         nonce = self.session()
         api = path.startswith("/api/") or path == "/events/stream"
         routes = {"/": render_overview, "/projects": render_projects, "/analytics": render_analytics}
@@ -907,7 +910,7 @@ class Handler(BaseHTTPRequestHandler):
             self.app.limiter.fail(ip)
             log(f"failed login from {ip}")
             return self.send(403, "<h1>Link not valid</h1><p>Send /link to the Telegram bot for the current link.</p>")
-        cookie = f"{COOKIE}={make_session()}; Path=/; Max-Age={SESSION_S}; HttpOnly; Secure; SameSite=Strict"
+        cookie = f"{COOKIE}={make_session()}; Path=/; Max-Age={SESSION_S}; HttpOnly; Secure; SameSite=Lax"
         log(f"login ok from {ip}")
         page = '<meta http-equiv="refresh" content="0;url=/"><p>Signed in. <a href="/">Open the dashboard</a></p>'
         return self.send(200, page, extra={"Set-Cookie": cookie, "Cache-Control": "no-store"})
@@ -965,6 +968,14 @@ class Handler(BaseHTTPRequestHandler):
 
     def route_post(self):
         path = urlsplit(self.path).path
+        if path == "/login":
+            n = int(self.headers.get("Content-Length") or 0)
+            if n > 4096:
+                return self.send(413, "<h1>Too large</h1>")
+            form = parse_qs(self.rfile.read(n).decode("utf-8", "replace"))
+            raw = (form.get("link") or [""])[0].strip()
+            key = (parse_qs(urlsplit(raw).query).get("k") or [raw])[0]
+            return self.login({"k": [key]})
         m = re.fullmatch(r"/issues/(\d+)/ack", path)
         if not m:
             return self.send(404, "<h1>Not found</h1>")
