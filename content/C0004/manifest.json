@@ -66,13 +66,39 @@
     },
     "video_qa:en": {
       "status": "done",
-      "at": "2026-11-16T09:51:27+0530",
-      "note": "pass"
+      "at": "2026-11-16T09:54:47+0530",
+      "note": "auto QA PASS; manual image review: scene 4 regenerated (border, then winged gargoyles) and edge-cropped"
     },
     "video_qa:hi": {
       "status": "done",
-      "at": "2026-11-16T09:53:35+0530",
-      "note": "pass"
+      "at": "2026-11-16T09:54:48+0530",
+      "note": "auto QA PASS; manual image review: scene 4 regenerated (border, then winged gargoyles) and edge-cropped"
+    },
+    "voice_qa:en": {
+      "status": "done",
+      "at": "2026-11-16T09:54:47+0530",
+      "note": "ASR + speaker_consistency pass; owner listen at G2"
+    },
+    "metadata:en": {
+      "status": "done",
+      "at": "2026-11-16T09:54:47+0530"
+    },
+    "schedule:en": {
+      "status": "done",
+      "at": "2026-11-16T09:54:48+0530"
+    },
+    "voice_qa:hi": {
+      "status": "done",
+      "at": "2026-11-16T09:54:48+0530",
+      "note": "ASR + speaker_consistency pass; owner listen at G2"
+    },
+    "metadata:hi": {
+      "status": "done",
+      "at": "2026-11-16T09:54:48+0530"
+    },
+    "schedule:hi": {
+      "status": "done",
+      "at": "2026-11-16T09:54:48+0530"
     }
   }
 }
