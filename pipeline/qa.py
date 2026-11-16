@@ -143,8 +143,8 @@ def check_speaker(work_dir, script, language, voice=None, win=2.5, min_window_si
     from . import speaker as spk
 
     ref = None
-    if voice and ":" in voice:
-        rp = spk.reference_path(language, voice.split(":", 1)[1])
+    if voice:
+        rp = spk.reference_path(language, voice.split(":", 1)[-1])
         ref = np.load(rp) if rp.exists() else None
     issues, wsims, scene_sims, f0s = [], [], [], []
     for i in range(len(script["scenes"])):

@@ -373,12 +373,16 @@ def caption_groups(text, start, dur, size=3, word_times=None, max_chars=None):
         if max_chars:
             n = max(n, math.ceil(len(" ".join(ph)) / max_chars))
         n = min(n, len(ph))
-        base, extra = divmod(len(ph), n)
-        k, chunk = 0, []
-        for j in range(n):
-            m = base + (1 if j < extra else 0)
-            chunk.append(ph[k:k + m])
-            k += m
+        while True:
+            base, extra = divmod(len(ph), n)
+            k, chunk = 0, []
+            for j in range(n):
+                m = base + (1 if j < extra else 0)
+                chunk.append(ph[k:k + m])
+                k += m
+            if not max_chars or n >= len(ph) or all(len(c) == 1 or len(" ".join(c)) <= max_chars for c in chunk):
+                break
+            n += 1
         for j in range(1, len(chunk)):
             if len(chunk[j]) > 1 and chunk[j][0] in POSTPOSITIONS:
                 chunk[j - 1].append(chunk[j].pop(0))
@@ -652,6 +656,7 @@ def step_audio(script, st, music_path, out, seed, gap=0.18):
         music = chiptune(total, seed)[: len(voice)]
     else:
         music = pad(total, seed)[: len(voice)]
+    music = np.pad(music, (0, len(voice) - len(music)))
     env = np.abs(voice)
     win = int(0.25 * SR)
     env = np.convolve(env, np.ones(win) / win, mode="same")

@@ -60,14 +60,15 @@
         "nights."
       ],
       "emphasis": "Ten Nights",
-      "visual": "landscape only, no people: a sacred fire altar in a forest hermitage under a dark sky filled with swirling shadowy demon silhouettes, smoke rising, vertical composition, subject in the center of the frame, empty dark chalkboard space at the top and bottom, no border, no frame",
+      "visual": "landscape only, no people: a small sacred fire altar burning in a forest hermitage clearing, above it a stormy night sky where dark smoke clouds form two enormous menacing fanged faces with wild hair, no wings, no bodies, drops of dark rain falling toward the altar, ancient Indian setting, vertical composition, empty dark chalkboard space at the top and bottom, full-bleed chalkboard edge to edge, no border, no frame, no white margin",
       "pause": 0.35,
       "sfx": [
         {
           "name": "wind"
         }
       ],
-      "swell": true
+      "swell": true,
+      "seed": 4111
     },
     {
       "narration": "Hearing this, the king fainted for a moment. Then he spoke.",
@@ -223,5 +224,11 @@
     "1.21.1–5 Vishvamitra's anger; Vasishtha counsels (1.21.5 verified)",
     "sarga 22 Rama and Lakshmana depart; 1.22.15 Bala and Atibala (verified)",
     "1.24.26 Tataka, strength of a thousand elephants (verified, teaser)"
-  ]
+  ],
+  "style_overrides": {
+    "caption_font": "/System/Library/Fonts/Supplemental/ChalkboardSE.ttc",
+    "caption_font_index": 2,
+    "caption_size": 76,
+    "caption_max_chars": 24
+  }
 }

@@ -30,6 +30,49 @@
     "script:hi": {
       "status": "done",
       "at": "2026-11-16T08:52:18+0530"
+    },
+    "gate:script": {
+      "status": "approved",
+      "at": "2026-11-16T08:53:15+0530",
+      "note": "",
+      "langs": [
+        "en",
+        "hi"
+      ]
+    },
+    "voice:en": {
+      "status": "done",
+      "at": "2026-11-16T08:53:27+0530"
+    },
+    "images:en": {
+      "status": "done",
+      "at": "2026-11-16T09:47:11+0530"
+    },
+    "render:en": {
+      "status": "done",
+      "at": "2026-11-16T09:48:13+0530"
+    },
+    "voice:hi": {
+      "status": "done",
+      "at": "2026-11-16T09:35:09+0530"
+    },
+    "images:hi": {
+      "status": "done",
+      "at": "2026-11-16T09:48:13+0530"
+    },
+    "render:hi": {
+      "status": "done",
+      "at": "2026-11-16T09:50:59+0530"
+    },
+    "video_qa:en": {
+      "status": "done",
+      "at": "2026-11-16T09:51:27+0530",
+      "note": "pass"
+    },
+    "video_qa:hi": {
+      "status": "done",
+      "at": "2026-11-16T09:53:35+0530",
+      "note": "pass"
     }
   }
 }
