@@ -11,6 +11,7 @@ Load the `storytelling` skill (`.claude/skills/storytelling/SKILL.md`) first: be
 Verify sources, then write hooks and scripts for every target language within that language's word budget, so that `python -m pipeline lint <ID>` passes before G1.
 
 ## Inputs
+- **First:** `data/reports/latest_insights.json` (`python -m pipeline insights`; the main session refreshes it before scripts). Apply its `actions` (each carries a tier and n). Ignore `conflicts`. If the file is missing or older than a day, ask the main session to run the checkup; never invent analytics.
 - The episode row in `content/series/<series>.md` (series-planner), or the owner's brief.
 - `profiles/languages/<lang>.json` (register, traditions, `caption_max_chars`, `review_status`).
 - The previous episode's teaser line (its last scene) so this episode pays it off.
@@ -21,7 +22,8 @@ Verify sources, then write hooks and scripts for every target language within th
 2. **Hooks.** ≥6 per language across types, scored on the 6-criterion rubric plus the visual-hook and hook-to-payoff checks. For English also run `python3 -I .claude/skills/yt-script/hookscore.py <hooks.txt>` as a second opinion (English-only word lists; never overrides accuracy or the rubric). Store all in `<lang>/hooks.json` with scores and reasoning.
 3. **Primary script** (`manifest.primary_language`, usually en): pick 35, 45 or 55 s from the story's density, lay out the beats H1/H2/C/E/T/P/N, 8–11 scenes of 2.5–7 s, and stay inside the word budget. Include 2–3 planned silences via `pause`, one loop type, ≤6-word engagement line, ≤3-word "Next:" card, `tts` respellings for hard names, `quote_src` for every quote.
 4. **Other languages.** Same scene count and the same `visual` per scene (images are shared), narration written fresh in that language to its own budget (Telugu is always the longest: shorten per scene, never drop scenes). No digits in gu/te narration. Localization notes from the arc plan apply; regional retellings are named respectfully and only where they agree with Valmiki.
-5. **Files.** `<lang>/script.json` (schema in the skill), `<lang>/script.md` (hook, narration, scene table, sources with edition, accuracy notes, estimated seconds).
+5. **Files.** `<lang>/script.json` (schema in the skill; optional top-level `learnings`: list of `{action, tier, finding, how}`), `<lang>/script.md` (hook, narration, scene table, sources with edition, accuracy notes, estimated seconds, and an `## Applied learnings` section: `applied_learnings` — each carry-forward action used, its tier and n, and where the script applies it; actions not applied with the reason).
+   - Approved rules (storytelling skill, O1/O5, lint) always win. An anecdote never overrides them; it only chooses among options the rules already allow.
 6. **Lint.** Run `python -m pipeline lint <ID>`. Fix every error (estimated duration >57 s, hook >3.0 s, scene count or length, missing keywords, digits in gu/te, missing source edition or `quote_src`, visual parity, silences). Warnings are listed for the owner.
 
 ## Outputs

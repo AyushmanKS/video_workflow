@@ -691,6 +691,21 @@ def cmd_analytics(a):
         print(f"error {v} {plat}: {err}")
     if not done and not errors:
         print("no snapshots due")
+    if a.insights:
+        cmd_insights(argparse.Namespace(days=None, quiet=True))
+
+
+def cmd_insights(a):
+    from . import insights
+
+    path, text, d = insights.run(days=a.days)
+    if not getattr(a, "quiet", False):
+        print(text)
+    else:
+        print(f"insights: {len(d['findings'])} findings, {len(d['actions'])} carry-forward actions")
+    if d["stale"]:
+        print(f"note: last snapshot {d['last_snapshot_age_h']} h ago; run `python -m pipeline analytics` for fresh data")
+    print(f"written: {path}\nwritten: {insights.LATEST}")
 
 
 def cmd_report(a):
@@ -785,7 +800,8 @@ def main():
     p = sp.add_parser("retention-csv", help="export API retention curve for .claude/skills/yt-retention"); p.add_argument("variant"); p.set_defaults(fn=cmd_retention_csv)
     p = sp.add_parser("voicepack", help="render the same lines with several voices for an A/B listening test"); p.add_argument("--lines", required=True); p.add_argument("--voices", required=True, help="e.g. veena:kavya,maya2:Malini,svara:'Hindi (Female)'"); p.add_argument("--lang", default="hi"); p.add_argument("--out", required=True); p.set_defaults(fn=cmd_voicepack)
     p = sp.add_parser("link"); p.add_argument("--variant", required=True); p.add_argument("--video-id", required=True); p.add_argument("--published-at", required=True); p.add_argument("--slot"); p.set_defaults(fn=cmd_link)
-    p = sp.add_parser("analytics", help="read-only YouTube + Instagram snapshots at 24h/48h/7d/14d/30d (±12 h), else age_<n>h"); p.add_argument("--force", action="store_true", help="snapshot every publication now"); p.add_argument("--label", help="override the computed label (avoid; labels come from age_h)"); p.add_argument("--platform", choices=["youtube", "instagram"]); p.add_argument("--dry-run", action="store_true", help="list what is due / preview --relabel"); p.add_argument("--relabel", action="store_true", help="recompute labels of existing snapshots from age_h"); p.add_argument("--install-daily", action="store_true", help="install the daily read-only LaunchAgent"); p.add_argument("--print-daily", action="store_true", help="show the LaunchAgent without installing"); p.add_argument("--uninstall-daily", action="store_true"); p.set_defaults(fn=cmd_analytics)
+    p = sp.add_parser("analytics", help="read-only YouTube + Instagram snapshots at 24h/48h/7d/14d/30d (±12 h), else age_<n>h"); p.add_argument("--force", action="store_true", help="snapshot every publication now"); p.add_argument("--label", help="override the computed label (avoid; labels come from age_h)"); p.add_argument("--platform", choices=["youtube", "instagram"]); p.add_argument("--dry-run", action="store_true", help="list what is due / preview --relabel"); p.add_argument("--relabel", action="store_true", help="recompute labels of existing snapshots from age_h"); p.add_argument("--install-daily", action="store_true", help="install the daily read-only LaunchAgent"); p.add_argument("--print-daily", action="store_true", help="show the LaunchAgent without installing"); p.add_argument("--uninstall-daily", action="store_true"); p.add_argument("--insights", action="store_true", help="also run `insights` after the snapshots (used by the daily job)"); p.set_defaults(fn=cmd_analytics)
+    p = sp.add_parser("insights", help="analytics checkup → findings with evidence tiers → carry-forward script actions (data/reports/insights-<date>.md, latest_insights.json)"); p.add_argument("--days", type=int, help="only publications from the last N days"); p.set_defaults(fn=cmd_insights)
     p = sp.add_parser("report", help="per-variant performance report, or --weekly → data/reports/weekly-<date>.md"); p.add_argument("variant", nargs="?"); p.add_argument("--weekly", action="store_true"); p.set_defaults(fn=cmd_report)
     p = sp.add_parser("experiment", help="pre-registered experiments: add | list | start | close (one active at a time; ≥6 per arm per language)"); p.add_argument("action", choices=["add", "list", "start", "close"]); p.add_argument("exp_id", nargs="?", type=int); p.add_argument("--exp1", action="store_true", help="register experiment 1 (duration, observational before/after)"); p.add_argument("--name"); p.add_argument("--hypothesis"); p.add_argument("--variable"); p.add_argument("--arms", help="two arm names A,B; odd episodes get A, even get B"); p.add_argument("--metric", help="e.g. '7d views / language rolling median'"); p.add_argument("--min-n", type=int, default=6); p.add_argument("--stop-rule"); p.add_argument("--start", action="store_true", help="activate immediately (fails if another is active)"); p.add_argument("--result"); p.set_defaults(fn=cmd_experiment)
     a = ap.parse_args()

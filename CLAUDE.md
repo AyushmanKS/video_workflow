@@ -5,6 +5,7 @@
 ## Non-negotiables
 - **Zero cost.** No paid APIs, subscriptions or credits. Commercial-use licenses only, so macOS system voices are excluded.
 - **Human gates.** The owner approves at three points: script (G1), final video (G2, needs a QA pass or recorded waivers), and publish with video + metadata + time per platform (G3). Never publish or schedule without explicit approval; agents never run `pipeline approve` or `pipeline publish`, and publishing runs only through the manual `/publish` skill.
+- **Analytics checkup (workflow).** Before each new episode's scripts: `python -m pipeline analytics` (if the last snapshot is >12 h old) and `python -m pipeline insights`; the scriptwriter applies `data/reports/latest_insights.json`, and the learnings are shown with the scripts at G1 (no extra approval).
 - **Progress reporting.** During any long run (voice, images, render), post an update every 3–5 minutes using `python -m pipeline progress <ID> --oneline`. Each update covers the current step, its time left, total time left and finish time.
 - **Approved style.** Keep the approved chalkboard style and the reduced chalk SFX (`chalk.CHALK_SFX_GAIN = 0.035`).
 - **Hindi voice.** Use Maya 2 Native `maya2:Malini` (also gu and te; Veena kavya is retired, 2026-11-16). QA must pass `speaker_consistency`, which checks that the whole narration is one voice.

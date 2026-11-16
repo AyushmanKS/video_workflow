@@ -32,6 +32,7 @@ Return the full text of `<lang>/review.md` for the main session to save:
 - `speaker_consistency` must pass for every narration (one voice throughout).
 - For gu/te (`review_status: unreviewed-language`), say that no native speaker has reviewed the language; CER is warn-only there. Do not claim native-level judgement.
 - Never estimate metrics the tools did not output.
+- Story QA: check the script's `## Applied learnings` against `data/reports/latest_insights.json` (tier and n quoted correctly; no anecdote overriding an approved rule such as 35–55 s or hook ≤3.0 s).
 
 ## Handoff
 Fixes go to the scriptwriter (narration) or creative-director (images) through the main session. A clean report goes to the owner with the G1 or G2 bundle.

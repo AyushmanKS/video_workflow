@@ -489,7 +489,7 @@ def agent_spec():
     log = DATA / "logs" / "analytics-daily.log"
     return {
         "Label": AGENT_LABEL,
-        "ProgramArguments": [sys.executable, "-m", "pipeline", "analytics"],
+        "ProgramArguments": [sys.executable, "-m", "pipeline", "analytics", "--insights"],
         "WorkingDirectory": str(ROOT),
         "StartCalendarInterval": {"Hour": DAILY_AT[0], "Minute": DAILY_AT[1]},
         "StandardOutPath": str(log),

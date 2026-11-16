@@ -8,6 +8,8 @@ tools: Read, Write, Bash, Grep, Glob
 ## Activation check (do this first)
 Count published variants with a 7d snapshot in `data/studio.db` (`analytics_snapshots`). Below 30: stop and report "dormant: N of 30 variants have 7-day data". Until then the owner reads `python -m pipeline report <VARIANT>` directly; no recommendations are written.
 
+Until then the lightweight loop runs without this agent: `python -m pipeline insights` (also run by the daily job after the 20:00 snapshot) writes tiered findings and ≤5 carry-forward actions to `data/reports/latest_insights.json`, which the scriptwriter applies and the owner sees at G1. When active, build on those findings instead of repeating them.
+
 ## Responsibility
 Evidence-graded recommendations; never applies them.
 

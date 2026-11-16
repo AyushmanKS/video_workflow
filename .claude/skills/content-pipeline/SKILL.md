@@ -10,12 +10,13 @@ Always start: read `PROJECT_CONTEXT.md` (§22 status, §23 next steps), then `py
 | # | Stage | Who | Command / output | Gate check |
 |---|---|---|---|---|
 | 0 | Arc plan (per arc, not per episode) | `series-planner` | `content/series/<series>.md`, profile diffs | owner OKs the arc (lightweight) |
+| 1a | **Analytics checkup** (mandatory, every new episode) | main | If the last snapshot is >12 h old (`insights` prints it): `python -m pipeline analytics`. Then `python -m pipeline insights` → `data/reports/insights-<date>.md` + `data/reports/latest_insights.json` (findings with tiers, ≤5 carry-forward actions). Read the JSON and pass `actions` to the scriptwriter | no extra approval; learnings are shown at G1 |
 | 1 | Create | main | `python -m pipeline new --topic "…" --series … --episode N --category mythology --style chalk --langs en,hi,gu,te` | — |
-| 2 | Sources + hooks + scripts | `scriptwriter` (+ `storytelling` skill) | `research/report.md` (verse table), `<lang>/hooks.json`, `script.json`, `script.md` | — |
+| 2 | Sources + hooks + scripts | `scriptwriter` (+ `storytelling` skill) | reads `data/reports/latest_insights.json` first and applies the carry-forward actions; `research/report.md` (verse table), `<lang>/hooks.json`, `script.json` (`learnings`), `script.md` (`## Applied learnings`) | — |
 | 3 | Visual plan | `creative-director` | positive-only `visual` prompts, `{character}` tokens in the primary `script.json` | — |
 | 4 | **Lint** | main | `python -m pipeline lint <ID>`; failures go back to the scriptwriter (max 2 rewrites, then the owner gets the diff) | must pass before G1 |
 | 5 | Story QA | `reviewer` | scored review text → main saves `<lang>/review.md` | — |
-| G1 | **Script approval** | owner | `python -m pipeline approve <ID> script --langs en,hi,gu,te` (owner runs it; records the `script.json` hashes) | lint pass |
+| G1 | **Script approval** | owner | Show the scripts together with a short **"Learnings applied"** block (3–5 bullets from `learnings_for_g1` / the scripts' `applied_learnings`, each with its tier and n). Same single approval, no extra gate. `python -m pipeline approve <ID> script --langs en,hi,gu,te` (owner runs it; records the `script.json` hashes) | lint pass |
 | 6 | Voice | main | `python -m pipeline produce <ID> --lang X --steps voice` | languages sequential |
 | 7 | Images | main | `python -m pipeline produce <ID> --lang <primary> --steps images` (others reuse) | never parallel with voice |
 | 8 | Render | main | `python -m pipeline produce <ID> --lang X --steps render` | sequential |
@@ -25,12 +26,19 @@ Always start: read `PROJECT_CONTEXT.md` (§22 status, §23 next steps), then `py
 | 11 | Metadata | `packager` | `<lang>/publish.json` (`synthetic: true`, Instagram `is_ai_generated: true`); main runs title lint and `python -m pipeline schedule --id <ID> --lang X` and passes the output | — |
 | G3 | **Publish approval, per platform** | owner | `python -m pipeline approve <ID> publish --langs … --platform youtube\|instagram --at <ISO>` (or `--at en=<ISO>,hi=<ISO>`, or `now`): one record per platform holding each language's time and the hashes of `publish.json` and the mp4. Rejections: `python -m pipeline reject <ID> <gate> --note "…"` | — |
 | 12 | Publish | `/publish` skill (manual only) | `--check-gates-only` first; uploads directly or via `publish-queue`; see `.claude/skills/publish/SKILL.md` | refused unless G3 for that platform, time and hashes match |
-| 13 | Analytics | main (deterministic) + daily LaunchAgent at 20:00 | `python -m pipeline analytics` (YouTube + Instagram, labels from `age_h`), `python -m pipeline report <VARIANT>`, weekly `python -m pipeline report --weekly` | — |
+| 13 | Analytics | main (deterministic) + daily LaunchAgent at 20:00 (`analytics --insights`: snapshots, then insights) | `python -m pipeline analytics` (YouTube + Instagram, labels from `age_h`), `python -m pipeline insights`, `python -m pipeline report <VARIANT>`; weekly checkup every Monday (or before an arc plan): `python -m pipeline report --weekly` | — |
 | 14 | Optimize | `optimizer` (dormant until ≥30 variants have 7-day data) | `data/reports/recommendations.md` | owner approves changes |
 
 `approve` needs `--langs`, and publish approvals also need `--platform` and a time (`--at`; YouTube can fall back to `schedule.json`). The optional flags are `--by`, `--channel` and `--note`. Approvals are interactive. `--yes` works only when the owner has set `STUDIO_OWNER_APPROVED=<ID>` in their own shell, and then needs `--channel`. Check `--help` before first use. If a command does not exist, tell the owner instead of improvising a substitute.
 
 ## Learning loop (D4)
+- **Lightweight loop (every episode): analytics checkup → understanding → improvement.** `python -m pipeline insights [--days N]` reads the latest snapshots and reports per variant and platform (views, reach, likes, comments, shares, saves, avg watch, watch ratio = avg watch / duration, shares/saves/likes per reach or per view), per-language rolling medians at the same age bucket, plain-language findings and up to 5 carry-forward actions.
+  - Tiers: **anecdote** (<6 comparable variants or <48 h of data), **directional** (≥6 per group, same age bucket, ≥48 h), **confirmed** (a pre-registered experiment met its rule in `learn.py`).
+  - Only like windows are compared, and raw views are never compared across languages. Missing data is reported as "insufficient data".
+  - Actions are testable script guidance inside the approved rules (35–55 s, hook ≤3.0 s, frame 0 ≥70% drawn, engagement line ≤6 words). A signal that conflicts with an approved rule is listed under conflicts and never acted on. Anecdotes never override approved rules.
+  - The G1 message carries a 3–5 bullet "Learnings applied" block; there is no extra approval.
+- **Weekly checkup:** `python -m pipeline report --weekly` on Mondays and before each arc plan.
+- **Optimizer:** stays dormant until ≥30 variants have 7-day data; then monthly formal recommendations. Until then `insights` is the loop.
 - The `features` row per variant is written at script, render and publish (`python -m pipeline features <ID>` or `--all` to backfill). It includes duration, scenes, words, w/s, hook, first frame (from `timeline.json` when present), voice, slot, weekday, title pattern, verse and engine version.
 - Experiments: `python -m pipeline experiment add|list|start|close`.
   - One active at a time.

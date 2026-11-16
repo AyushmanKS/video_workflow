@@ -13,6 +13,7 @@ tools: Read, Write, Edit, Bash, Grep, Glob, WebSearch, WebFetch
 - Profile updates in `profiles/languages/*.json` only with sourced facts; unverified items are marked `verify`. Do not change `review_status` (owner decision, O9).
 
 ## Inputs
+- **First:** `data/reports/latest_insights.json` (`python -m pipeline insights`): findings with tiers and carry-forward actions. Use them to shape the arc (e.g. which episodes fit the 35 s shape); record which ones you applied as `applied_learnings` in the arc plan. Anecdotes never override approved rules.
 - Evidence from the Python pipeline: `python -m pipeline trending --region IN`, `python -m pipeline research <ID> --query '{"en":"…","hi":"…"}' --wiki "<title>" --langs …` (about 200 YouTube units per language; 10,000 per day). Output: `content/<ID>/research/evidence.*`, `data/reports/*.md`.
 - Analytics reports under `data/reports/` when they exist (the Analytics API returned 403 until the owner enables it; say "no data" rather than estimating).
 - `profiles/languages/*.json`, `profiles/characters/*.json`, PROJECT_CONTEXT §22.
