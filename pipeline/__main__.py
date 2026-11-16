@@ -3,6 +3,7 @@ import json
 import shutil
 import subprocess
 import sys
+import time
 from pathlib import Path
 
 from . import CONTENT, DATA, PROFILES, ROOT, db
@@ -236,8 +237,16 @@ def cmd_publish(a):
     sched = json.loads((work / "schedule.json").read_text()) if (work / "schedule.json").exists() else {}
     when = a.at or sched.get("publish_at")
     video = work / f"{a.id}-{a.lang}.mp4"
+    thumb = work / "thumbnail.png"
+    legacy_name = {"en": "english", "hi": "hindi"}.get(a.lang)
+    if not video.exists() and m.get("legacy_folder") and legacy_name:
+        final = ROOT / m["legacy_folder"] / "final"
+        stem = next(final.glob(f"*-{legacy_name}.mp4")).stem
+        video, thumb = final / f"{stem}.mp4", final / f"{stem}-thumbnail.png"
+        if not meta.exists():
+            meta = final / f"publish-{legacy_name}.json"
     if a.platform == "instagram":
-        return publish_instagram(a, m, work, variant, meta, sched, when, video)
+        return publish_instagram(a, m, work, variant, meta, sched, when, video, thumb)
     args = [sys.executable, str(ROOT / "publish.py"), "youtube", str(video), "--meta", str(meta), "--thumbnail", str(work / "thumbnail.png"), "--variant", variant, "--slot", a.slot or sched.get("slot", "")]
     if when:
         args += ["--publish-at", when]
@@ -247,7 +256,7 @@ def cmd_publish(a):
     mark(m, "published", a.lang, note=when or "private")
 
 
-def publish_instagram(a, m, work, variant, meta, sched, when, video):
+def publish_instagram(a, m, work, variant, meta, sched, when, video, thumb):
     from datetime import datetime, timezone
 
     from . import igschedule
@@ -266,13 +275,18 @@ def publish_instagram(a, m, work, variant, meta, sched, when, video):
     if a.now and at and (now - at).total_seconds() > 24 * 3600:
         igschedule.remove(variant)
         sys.exit(f"{variant}: scheduled time {when} is more than 24 h ago; not posting. Job removed.")
-    args = [sys.executable, str(ROOT / "publish.py"), "instagram", str(video), "--meta", str(meta), "--thumbnail", str(work / "thumbnail.png"), "--variant", variant, "--slot", a.slot or sched.get("slot", "")]
+    args = [sys.executable, str(ROOT / "publish.py"), "instagram", str(video), "--meta", str(meta), "--thumbnail", str(thumb), "--variant", variant, "--slot", a.slot or sched.get("slot", "")]
     if a.dry_run:
         args.append("--dry-run")
     if a.yes:
         args.append("--yes")
     print(f"{variant}: Instagram {'dry run' if a.dry_run else 'publish'} starting {now.astimezone():%Y-%m-%d %H:%M:%S}", flush=True)
-    r = subprocess.run(args, cwd=ROOT)
+    for attempt in range(4):
+        r = subprocess.run(args, cwd=ROOT)
+        if r.returncode != 75 or attempt == 3:
+            break
+        print(f"  tunnel failed; retrying in 2 min (attempt {attempt + 2} of 4)", flush=True)
+        time.sleep(120)
     if r.returncode == 0:
         igschedule.remove(variant)
         if not a.dry_run:

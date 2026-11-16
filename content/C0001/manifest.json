@@ -128,8 +128,8 @@
     },
     "gate:publish": {
       "status": "approved",
-      "at": "2026-11-16T13:09:20+0530",
-      "note": "gu/te owner approved immediate release 2026-11-16",
+      "at": "2026-11-16T15:25:12+0530",
+      "note": "Instagram G3: owner approved Ep01 en/hi/gu/te Reels (videos, researched captions, AI label, audio names, covers) all on 2026-11-16; YouTube approvals unchanged",
       "langs": [
         "en",
         "hi",
@@ -208,6 +208,26 @@
       "status": "done",
       "at": "2026-11-16T13:02:25+0530",
       "note": "release immediately on approval"
+    },
+    "instagram_scheduled:te": {
+      "status": "done",
+      "at": "2026-11-16T15:28:39+0530",
+      "note": "2026-11-16T18:30:00+05:30"
+    },
+    "instagram_scheduled:gu": {
+      "status": "done",
+      "at": "2026-11-16T15:28:39+0530",
+      "note": "2026-11-16T19:30:00+05:30"
+    },
+    "instagram_scheduled:hi": {
+      "status": "done",
+      "at": "2026-11-16T15:28:39+0530",
+      "note": "2026-11-16T20:30:00+05:30"
+    },
+    "instagram_scheduled:en": {
+      "status": "done",
+      "at": "2026-11-16T15:28:39+0530",
+      "note": "2026-11-16T21:30:00+05:30"
     }
   }
 }

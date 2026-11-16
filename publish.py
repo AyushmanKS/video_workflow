@@ -147,7 +147,7 @@ def instagram_publish(video, meta, assume_yes, thumbnail=None, dry_run=False, lo
         print(f"  already on Instagram: {prior.get('url') or prior['id']} — not posting again")
         return None
     ig = meta["instagram"]
-    return instagram.publish(video, ig["caption"], thumbnail, ig.get("thumb_offset_ms", 0), dry_run, lambda s: confirm(s, assume_yes))
+    return instagram.publish(video, ig["caption"], thumbnail, ig.get("thumb_offset_ms", 0), dry_run, lambda s: confirm(s, assume_yes), ig)
 
 
 def main():

@@ -20,9 +20,11 @@ SECRETS = ROOT / "secrets"
 CFG = SECRETS / "instagram.json"
 API_VERSION = "v27.0"
 GRAPH = f"https://graph.instagram.com/{API_VERSION}"
+FB_GRAPH = f"https://graph.facebook.com/{API_VERSION}"
 HOST = "https://graph.instagram.com"
 REFRESH_AFTER_DAYS = 20
 MAX_BYTES = 300 * 1024 * 1024
+TUNNEL_FAILED = 75
 
 
 def secure_write(path, text):
@@ -46,12 +48,16 @@ def call(method, url, where, **kw):
     return r.json()
 
 
+def graph(cfg):
+    return FB_GRAPH if cfg.get("host") == "facebook" else GRAPH
+
+
 def load_config():
     if not CFG.exists():
         sys.exit(f"Missing {CFG}. Run: python instagram.py setup")
     cfg = json.loads(CFG.read_text())
     age_days = (time.time() - cfg.get("saved_at", 0)) / 86400
-    if age_days > REFRESH_AFTER_DAYS:
+    if cfg.get("host") != "facebook" and age_days > REFRESH_AFTER_DAYS:
         cfg = refresh(cfg)
     return cfg
 
@@ -65,10 +71,13 @@ def refresh(cfg):
 
 
 def setup():
-    print("Paste the Instagram access token from the Meta app dashboard (input is hidden).")
+    print("Paste the access token from the Meta app dashboard (input is hidden).")
     token = getpass.getpass("Token: ").strip()
     if not token:
         sys.exit("No token entered.")
+    r = requests.get(f"{GRAPH}/me", params={"fields": "user_id,username,account_type", "access_token": token}, timeout=60)
+    if r.status_code >= 400:
+        return setup_facebook(token)
     app_secret = getpass.getpass("App secret, only if the token is short-lived (press Enter to skip): ").strip()
     expires_in = None
     if app_secret:
@@ -82,12 +91,23 @@ def setup():
         print("Warning: publishing needs a Professional (Creator or Business) account.")
 
 
+def setup_facebook(token):
+    print("This is a Facebook-style token (Unified login / system user).")
+    ig_id = input("Instagram account ID (Business settings > Accounts > Instagram accounts, or shown in the app configuration): ").strip()
+    if not ig_id.isdigit():
+        sys.exit("The Instagram account ID is a number.")
+    me = call("GET", f"{FB_GRAPH}/{ig_id}", "account lookup", params={"fields": "id,username", "access_token": token})
+    cfg = {"host": "facebook", "ig_user_id": me["id"], "username": me.get("username"), "account_type": "BUSINESS", "access_token": token, "expires_in": None, "saved_at": time.time()}
+    secure_write(CFG, json.dumps(cfg, indent=2))
+    print(f"Connected @{cfg['username']} via graph.facebook.com. Saved to {CFG} (mode 600).")
+
+
 def status():
     cfg = load_config()
-    me = call("GET", f"{GRAPH}/me", "account lookup", params={"fields": "user_id,username,account_type", "access_token": cfg["access_token"]})
-    lim = call("GET", f"{GRAPH}/{cfg['ig_user_id']}/content_publishing_limit", "publishing limit", params={"fields": "quota_usage,config", "access_token": cfg["access_token"]})
+    me = call("GET", f"{graph(cfg)}/{cfg['ig_user_id']}", "account lookup", params={"fields": "username", "access_token": cfg["access_token"]})
+    lim = call("GET", f"{graph(cfg)}/{cfg['ig_user_id']}/content_publishing_limit", "publishing limit", params={"fields": "quota_usage,config", "access_token": cfg["access_token"]})
     age = (time.time() - cfg.get("saved_at", 0)) / 86400
-    print(f"@{me.get('username')} ({me.get('account_type')}) · token age {age:.1f} days · publishing quota {json.dumps(lim.get('data', lim))}")
+    print(f"@{me.get('username')} ({cfg.get('host', 'instagram')} host) · token age {age:.1f} days · publishing quota {json.dumps(lim.get('data', lim))}")
 
 
 class _Handler(SimpleHTTPRequestHandler):
@@ -140,7 +160,8 @@ class PublicFiles:
                 break
             time.sleep(0.5)
         self.__exit__(None, None, None)
-        sys.exit("Could not start the temporary tunnel (cloudflared gave no URL).")
+        print("Could not start the temporary tunnel (cloudflared gave no URL).", file=sys.stderr)
+        sys.exit(TUNNEL_FAILED)
 
     def _wait_reachable(self, url):
         for _ in range(45):
@@ -151,7 +172,8 @@ class PublicFiles:
                 pass
             time.sleep(2)
         self.__exit__(None, None, None)
-        sys.exit("The temporary tunnel never became reachable.")
+        print("The temporary tunnel never became reachable.", file=sys.stderr)
+        sys.exit(TUNNEL_FAILED)
 
     def __exit__(self, *exc):
         if getattr(self, "proc", None) and self.proc.poll() is None:
@@ -188,7 +210,10 @@ def already_published(video, log):
     return None
 
 
-def publish(video, caption, thumbnail=None, thumb_offset_ms=0, dry_run=False, confirm=None):
+EXTRA_FIELDS = ("audio_name", "is_ai_generated", "trial_params", "collaborators", "location_id")
+
+
+def publish(video, caption, thumbnail=None, thumb_offset_ms=0, dry_run=False, confirm=None, extra=None):
     video = Path(video)
     size = video.stat().st_size
     secs = duration(video)
@@ -198,25 +223,29 @@ def publish(video, caption, thumbnail=None, thumb_offset_ms=0, dry_run=False, co
         sys.exit(f"Reel is {secs:.1f}s; Instagram allows 3 s to 15 min.")
     cfg = load_config()
     if confirm:
-        confirm(f"Instagram Reel ({'DRY RUN, nothing is posted' if dry_run else 'PUBLIC as soon as it finishes'})\n  file:    {video} ({size / 1e6:.0f} MB, {secs:.1f}s)\n  account: @{cfg.get('username')}\n  caption: {caption[:90]}...")
+        confirm(f"Instagram Reel ({'DRY RUN, nothing is posted' if dry_run else 'PUBLIC as soon as it finishes'})\n  file:    {video} ({size / 1e6:.0f} MB, {secs:.1f}s)\n  account: @{cfg.get('username')}\n  caption: {caption[:90]}...\n  extras:  {json.dumps({k: v for k, v in (extra or {}).items() if k in EXTRA_FIELDS}, ensure_ascii=False)}")
     work = Path(tempfile.mkdtemp(prefix="ig-cover-"))
     try:
         files = [video] + ([cover_jpeg(thumbnail, work)] if thumbnail else [])
         with PublicFiles(files) as urls:
             print("  temporary link is live; Instagram can fetch the video", flush=True)
             if dry_run:
-                call("GET", f"{GRAPH}/me", "account lookup", params={"fields": "user_id", "access_token": cfg["access_token"]})
+                call("GET", f"{graph(cfg)}/{cfg['ig_user_id']}", "account lookup", params={"fields": "username", "access_token": cfg["access_token"]})
                 print("  dry run OK: token valid, tunnel reachable, file within limits. Nothing was posted.")
                 return None
             data = {"media_type": "REELS", "video_url": urls[0], "caption": caption, "share_to_feed": "true", "access_token": cfg["access_token"]}
+            for k in EXTRA_FIELDS:
+                v = (extra or {}).get(k)
+                if v not in (None, "", []):
+                    data[k] = json.dumps(v) if isinstance(v, (dict, list)) else ("true" if v is True else str(v))
             if len(urls) > 1:
                 data["cover_url"] = urls[1]
             else:
                 data["thumb_offset"] = str(thumb_offset_ms)
-            cid = call("POST", f"{GRAPH}/{cfg['ig_user_id']}/media", "container creation", data=data)["id"]
+            cid = call("POST", f"{graph(cfg)}/{cfg['ig_user_id']}/media", "container creation", data=data)["id"]
             print(f"  container {cid} created; waiting for Instagram to process", flush=True)
             for _ in range(120):
-                s = call("GET", f"{GRAPH}/{cid}", "status check", params={"fields": "status_code,status", "access_token": cfg["access_token"]})
+                s = call("GET", f"{graph(cfg)}/{cid}", "status check", params={"fields": "status_code,status", "access_token": cfg["access_token"]})
                 if s.get("status_code") == "FINISHED":
                     break
                 if s.get("status_code") in ("ERROR", "EXPIRED"):
@@ -225,8 +254,8 @@ def publish(video, caption, thumbnail=None, thumb_offset_ms=0, dry_run=False, co
             else:
                 sys.exit(f"Instagram processing timed out; container {cid}")
         print("  processed; temporary link closed", flush=True)
-        mid = call("POST", f"{GRAPH}/{cfg['ig_user_id']}/media_publish", "publish", data={"creation_id": cid, "access_token": cfg["access_token"]})["id"]
-        info = call("GET", f"{GRAPH}/{mid}", "permalink lookup", params={"fields": "permalink,media_product_type,timestamp", "access_token": cfg["access_token"]})
+        mid = call("POST", f"{graph(cfg)}/{cfg['ig_user_id']}/media_publish", "publish", data={"creation_id": cid, "access_token": cfg["access_token"]})["id"]
+        info = call("GET", f"{graph(cfg)}/{mid}", "permalink lookup", params={"fields": "permalink,media_product_type,timestamp", "access_token": cfg["access_token"]})
         print(f"  published: {info.get('permalink') or mid}")
         return {"platform": "instagram", "id": mid, "url": info.get("permalink"), "privacy": "public", "media_product_type": info.get("media_product_type"), "time": info.get("timestamp") or time.strftime("%Y-%m-%dT%H:%M:%S")}
     finally:

@@ -29,7 +29,7 @@ def install(content_id, lang, when, dry_run=False):
     local = when.astimezone()
     LOGS.mkdir(parents=True, exist_ok=True)
     AGENTS.mkdir(parents=True, exist_ok=True)
-    args = [sys.executable, "-m", "pipeline", "publish", content_id, "--lang", lang, "--platform", "instagram", "--now", "--yes", "--at", when.isoformat()]
+    args = ["/usr/bin/caffeinate", "-i", "-m", sys.executable, "-m", "pipeline", "publish", content_id, "--lang", lang, "--platform", "instagram", "--now", "--yes", "--at", when.isoformat()]
     if dry_run:
         args.append("--dry-run")
     spec = {
@@ -49,11 +49,11 @@ def install(content_id, lang, when, dry_run=False):
 
 def remove(variant):
     p = plist_path(variant)
-    subprocess.run(["launchctl", "bootout", f"{domain()}/{label(variant)}"], capture_output=True)
-    if p.exists():
+    existed = p.exists()
+    if existed:
         p.unlink()
-        return True
-    return False
+    subprocess.run(["launchctl", "bootout", f"{domain()}/{label(variant)}"], capture_output=True)
+    return existed
 
 
 def jobs():
