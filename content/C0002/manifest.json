@@ -110,8 +110,8 @@
     },
     "gate:publish": {
       "status": "approved",
-      "at": "2026-11-16T01:44:45+0530",
-      "note": "Owner approved publishing at best-reach time; HI 20:30 IST, EN 21:30 IST on 2026-11-16",
+      "at": "2026-11-16T15:41:52+0530",
+      "note": "Instagram G3: owner approved Ep02 Reels for Tue 17 Nov evening (HI 20:00, EN 20:30 IST) with researched captions, AI label, audio names; gu/te await G2",
       "langs": [
         "en",
         "hi"
@@ -188,6 +188,16 @@
     "metadata:te": {
       "status": "done",
       "at": "2026-11-16T15:19:27+0530"
+    },
+    "instagram_scheduled:hi": {
+      "status": "done",
+      "at": "2026-11-16T15:41:52+0530",
+      "note": "2026-11-17T20:00:00+05:30"
+    },
+    "instagram_scheduled:en": {
+      "status": "done",
+      "at": "2026-11-16T15:41:52+0530",
+      "note": "2026-11-17T20:30:00+05:30"
     }
   }
 }
