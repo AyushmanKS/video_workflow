@@ -117,20 +117,24 @@
     },
     "gate:final": {
       "status": "approved",
-      "at": "2026-11-15",
-      "note": "owner approved in chat",
+      "at": "2026-11-16T13:09:20+0530",
+      "note": "gu/te owner approved in chat 2026-11-16",
       "langs": [
         "en",
-        "hi"
+        "hi",
+        "gu",
+        "te"
       ]
     },
     "gate:publish": {
       "status": "approved",
-      "at": "2026-11-15",
-      "note": "owner approved in chat",
+      "at": "2026-11-16T13:09:20+0530",
+      "note": "gu/te owner approved immediate release 2026-11-16",
       "langs": [
         "en",
-        "hi"
+        "hi",
+        "gu",
+        "te"
       ]
     },
     "schedule:en": {

@@ -136,6 +136,58 @@
       "status": "done",
       "at": "2026-11-16T12:24:22+0530",
       "note": "12:30 2026-11-17T12:30:00+05:30"
+    },
+    "voice:gu": {
+      "status": "done",
+      "at": "2026-11-16T13:04:24+0530"
+    },
+    "images:gu": {
+      "status": "done",
+      "at": "2026-11-16T13:04:25+0530"
+    },
+    "render:gu": {
+      "status": "done",
+      "at": "2026-11-16T13:11:55+0530"
+    },
+    "voice:te": {
+      "status": "done",
+      "at": "2026-11-16T13:15:20+0530"
+    },
+    "images:te": {
+      "status": "done",
+      "at": "2026-11-16T13:15:21+0530"
+    },
+    "render:te": {
+      "status": "done",
+      "at": "2026-11-16T13:25:56+0530"
+    },
+    "video_qa:gu": {
+      "status": "done",
+      "at": "2026-11-16T15:19:27+0530",
+      "note": "auto QA WARN/PASS (ASR only); native-script verse and title cards checked"
+    },
+    "video_qa:te": {
+      "status": "done",
+      "at": "2026-11-16T15:19:27+0530",
+      "note": "auto QA WARN/PASS (ASR only); native-script verse and title cards checked"
+    },
+    "voice_qa:gu": {
+      "status": "done",
+      "at": "2026-11-16T15:19:27+0530",
+      "note": "speaker_consistency pass vs gu_Malini_ref; ASR flags are Whisper truncation/spelling, endings verified; no native listen"
+    },
+    "metadata:gu": {
+      "status": "done",
+      "at": "2026-11-16T15:19:27+0530"
+    },
+    "voice_qa:te": {
+      "status": "done",
+      "at": "2026-11-16T15:19:27+0530",
+      "note": "speaker_consistency pass vs te_Malini_ref; ASR flags are Whisper truncation/spelling, endings verified; no native listen"
+    },
+    "metadata:te": {
+      "status": "done",
+      "at": "2026-11-16T15:19:27+0530"
     }
   }
 }
