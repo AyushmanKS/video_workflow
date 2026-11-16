@@ -39,10 +39,19 @@
     "next": "owner creates HF token → evaluate speakers with tools in PROJECT_CONTEXT.md §Voice QA → native-speaker listen"
   },
   "te": {
-    "status": "untested",
-    "voice": null,
-    "candidate": "ai4bharat/indic-parler-tts (Apache-2.0, gated: free Hugging Face login + accept terms)",
-    "next": "owner creates HF token → evaluate speakers with tools in PROJECT_CONTEXT.md §Voice QA → native-speaker listen"
+    "status": "approved",
+    "voice": "maya2:Malini",
+    "engine": "Maya 2 Native (maya-research/maya2-native, Apache-2.0) via mlx-audio maya2",
+    "speed": null,
+    "approved": "2026-11-16",
+    "evidence": "2026-11-16 listening pack content/C0005/voicepack/te: Malini line CER 0.06/0.13/0.08/0.02 (Whisper spelling quirks inflate it); similarity to hi_Malini_ref 0.83/0.68/0.84/0.74, so one narrator across hi/te; owner approved in chat 2026-11-16",
+    "qa": "speaker reference profiles/voices/te_Malini_ref.npy (centroid of 4 pack lines; pack windows min 0.69 median 0.82); thresholds shared under _speaker_thresholds maya2:Malini",
+    "native_review": "pending: no native speaker has listened or read the scripts; evidence is Whisper CER plus a non-native language-qa review",
+    "rejected": {
+      "maya2:Vaidehi": "lower similarity to the series narrator",
+      "svara Female": "~2x slower, similarity 0.3-0.4 to series narrator",
+      "maya2:Sreekar": "male, different identity"
+    }
   },
   "ta": {
     "status": "untested",
@@ -51,10 +60,19 @@
     "next": "owner creates HF token → evaluate speakers with tools in PROJECT_CONTEXT.md §Voice QA → native-speaker listen"
   },
   "gu": {
-    "status": "untested",
-    "voice": null,
-    "candidate": "ai4bharat/indic-parler-tts (Apache-2.0, gated: free Hugging Face login + accept terms)",
-    "next": "owner creates HF token → evaluate speakers with tools in PROJECT_CONTEXT.md §Voice QA → native-speaker listen"
+    "status": "approved",
+    "voice": "maya2:Malini",
+    "engine": "Maya 2 Native (maya-research/maya2-native, Apache-2.0) via mlx-audio maya2",
+    "speed": null,
+    "approved": "2026-11-16",
+    "evidence": "2026-11-16 listening pack content/C0005/voicepack/gu: Malini line CER 0.05/0.10/0.17/0.13 (Whisper spelling quirks inflate it); similarity to hi_Malini_ref 0.77/0.78/0.81/0.73, so one narrator across hi/gu; owner approved in chat 2026-11-16",
+    "qa": "speaker reference profiles/voices/gu_Malini_ref.npy (centroid of 4 pack lines; pack windows min 0.68 median 0.79); thresholds shared under _speaker_thresholds maya2:Malini",
+    "native_review": "pending: no native speaker has listened or read the scripts; evidence is Whisper CER plus a non-native language-qa review",
+    "rejected": {
+      "maya2:Vaidehi": "lower similarity to the series narrator",
+      "svara Female": "~2x slower, similarity 0.3-0.4 to series narrator",
+      "maya2:Ahana": "lower similarity"
+    }
   },
   "kn": {
     "status": "untested",
