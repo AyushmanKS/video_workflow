@@ -77,7 +77,8 @@ Ecosystem review (2026-11-15): the official `anthropics/skills` repository has 1
 | Script drafting (optional) | Ollama + Qwen3 8B | Apache-2.0 | Hallucinates facts; used only with Wikipedia grounding plus a fact-check pass. Premium scripts are written by Claude Code (your existing subscription) |
 | Images | Z-Image Turbo 4-bit via mflux 0.24 | Apache-2.0 / MIT | `models/z-image-turbo-4bit` (5.5 GB); about 58 s/image at 576×1024, about 100 s at 768×1344; 8.3 GB peak |
 | English voice | Kokoro-82M (`af_heart`) via mlx-audio | Apache-2.0 | Speed 1.04 |
-| Hindi voice | Veena 3B (`maya-research/Veena`, speaker kavya) | Apache-2.0 | About 5× slower than real time, 9.4 GB peak on MPS bf16; stochastic, so use best-of-3 takes |
+| Hindi voice (retired 2026-11-16) | Veena 3B (`maya-research/Veena`, speaker kavya) | Apache-2.0 | About 5× slower than real time, 9.4 GB peak on MPS bf16; stochastic, so use best-of-3 takes |
+| **Hindi voice (current)** | **Maya 2 Native, voice Malini** (Apache-2.0, ungated) via mlx-audio `maya2` | Apache-2.0 | About real-time on the M5 Air; 11 Indian languages + English, 20 voices; built-in number/date normalization; backend `voice: maya2:<Voice>` in studio.py and pipeline/voicepack.py |
 | Other Indic voices | ai4bharat/indic-parler-tts (candidate) | Apache-2.0, gated (free HF login) | Untested; needs `HF_TOKEN` |
 | Speaker verification | speechbrain ECAPA (spkrec-ecapa-voxceleb) | Apache-2.0 | `pipeline/speaker.py`; voice-consistency guard and QA |
 | ASR / QA / caption timing | faster-whisper small (EN), large-v3-turbo (other languages) | MIT | |
@@ -221,19 +222,14 @@ shorts-studio/
 - **Network:** occasional timeouts to googleapis/wikipedia; research uses retries.
 
 ## 22. Current status (update every session)
-- **C0002 (Episode 02):** scheduled. HI `nJNSDaSoHCk` goes public 2026-11-16 20:30 IST; EN `QpmoDeVOMAo` at 21:30 IST. The slot choice is based on PostEverywhere evidence (8–11 PM IST best for India) and is logged as an experiment.
-- **C0003 (Episode 03, "How Shri Ram was born", 1.8–1.18, verses verified):** research, strategy, audience, hooks and scripts EN+HI done. **Waiting at G1 (script approval).**
-  - New characters (Dasharatha, the three queens, Rishyashringa) are in the character bible.
-  - The hook was switched after the rubric and the vendored hookscore second opinion.
-- **Deep research done:** `reports/Shorts studio voices and tools.md`. **Applied from it (2026-11-16):**
-  - QA normalization: numbers to words (`pipeline/numwords.py`), nukta and chandrabindu folding.
-  - ~~Veena lead-in "... "~~ **reverted 2026-11-16.** C0003 evidence: it adds a spurious syllable before the first word ("साट, राम नवमी", "सब" for "तब", "सहर" for "उधर"). The earlier test's "स्किरोध" showed the same artifact. Default is `lead_in=False`.
-  - `engagedViews` in analytics.
-  - Post-upload privacy and schedule read-back in `publish.py`.
-  - Git pre-commit hook blocking secrets and media (`scripts/pre-commit`, installed in `.git/hooks`).
-- **Pending (needs owner's free HF token + accepted terms):** the Indic-Speak voice test (all 10 languages + Sanskrit) against Veena, and IndicConformer QA + CTC script alignment + an aspiration check.
-- **Pending (needs owner approval before changing the approved style):** ACE-Step music, depth parallax, FLUX.2 klein reference-image character sheets.
-- **Waiting on owner:** C0003 G1, analytics sign-in, HF token, a decision on re-producing Episode 01 Hindi (voice drift), and the Hindi Episode 01 title fix.
+- **C0002 (Episode 02):** scheduled for 2026-11-16, HI 20:30 / EN 21:30 IST.
+- **C0003 (Episode 03):**
+  - **EN** is scheduled for Tue 2026-11-17 21:30 IST (`XziMigS1G0w`).
+  - **HI:** the owner rejected the Veena version for pronunciation. It was re-voiced with **Maya 2 Malini**, and QA passes, including speaker consistency with the per-voice calibration.
+  - **Waiting:** the owner listens to `content/C0003/hi/C0003-hi.mp4`, then G2/G3 for HI.
+- **Voice decision (2026-11-16):** Hindi moves from Veena kavya to Maya 2 Malini, chosen via a listening pack (`python -m pipeline voicepack`). Malini is far more accurate and about 6× faster. Voice QA is now per voice: a stored reference centroid plus calibrated thresholds.
+- **Other changes:** QA normalizes ज्ञ↔ग्य; the Veena lead-in was reverted; the audio folder records the voice used (`audio/voice.txt`) and QA uses it.
+- **Pending:** analytics sign-in; an optional HF token (Indic-Speak comparison); consider re-voicing Episode 01/02 Hindi with Malini (owner decision); the scene 8 image (the divine being didn't render) could be retried.
 
 ## 23. Exact next steps
 1. G1 for C0003: `python -m pipeline approve C0003 script`. Then produce: EN voice; HI `takes` (best-of-2, primed); images (EN, shared); render en/hi; `qa` (must pass speaker_consistency); manual review; G2.

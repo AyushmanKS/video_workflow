@@ -285,6 +285,14 @@ def cmd_retention_csv(a):
     print(f"Analyse with: python3 -I .claude/skills/yt-retention/retention.py {out}")
 
 
+def cmd_voicepack(a):
+    from . import voicepack
+
+    lines = [l.strip() for l in Path(a.lines).read_text().splitlines() if l.strip()]
+    voicepack.build(a.out, lines, a.voices.split(","), a.lang)
+    print(f"Listening pack: {a.out}/README.md")
+
+
 def cmd_link(a):
     with db.connect() as con:
         con.execute("INSERT OR REPLACE INTO publications (variant_id, platform, platform_id, url, privacy, scheduled_for, published_at, slot, metadata, created_at) VALUES (?,?,?,?,?,?,?,?,?,?)",
@@ -328,6 +336,7 @@ def main():
     p = sp.add_parser("takes"); p.add_argument("id"); p.add_argument("--lang", required=True); p.add_argument("--scenes", help="comma list of 1-based scene numbers (default all)"); p.add_argument("--n", type=int, default=3); p.set_defaults(fn=cmd_takes)
     p = sp.add_parser("progress", help="live progress, per-step ETA and finish time"); p.add_argument("id"); p.add_argument("--watch", type=int, default=0, help="refresh every N seconds until done"); p.add_argument("--oneline", action="store_true"); p.set_defaults(fn=cmd_progress)
     p = sp.add_parser("retention-csv", help="export API retention curve for .claude/skills/yt-retention"); p.add_argument("variant"); p.set_defaults(fn=cmd_retention_csv)
+    p = sp.add_parser("voicepack", help="render the same lines with several voices for an A/B listening test"); p.add_argument("--lines", required=True); p.add_argument("--voices", required=True, help="e.g. veena:kavya,maya2:Malini,svara:'Hindi (Female)'"); p.add_argument("--lang", default="hi"); p.add_argument("--out", required=True); p.set_defaults(fn=cmd_voicepack)
     p = sp.add_parser("link"); p.add_argument("--variant", required=True); p.add_argument("--video-id", required=True); p.add_argument("--published-at", required=True); p.add_argument("--slot"); p.set_defaults(fn=cmd_link)
     p = sp.add_parser("analytics"); p.add_argument("--force", action="store_true"); p.add_argument("--label"); p.set_defaults(fn=cmd_analytics)
     p = sp.add_parser("report"); p.add_argument("variant"); p.set_defaults(fn=cmd_report)

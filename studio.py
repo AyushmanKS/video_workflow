@@ -224,6 +224,15 @@ def step_voice(script, voice, speed, out):
     todo = [i for i in range(len(script["scenes"])) if not (d / f"{i:02d}.wav").exists()]
     if not todo:
         return
+    (d / "voice.txt").write_text(voice)
+    if voice.startswith(("maya2:", "svara:")):
+        from pipeline import voicepack
+
+        for i in todo:
+            sc = script["scenes"][i]
+            log(f"voice: scene {i + 1}/{len(script['scenes'])} ({voice})")
+            write_wav(d / f"{i:02d}.wav", voicepack.speak(voice, sc.get("tts", sc["narration"]), script.get("language", "hi")))
+        return
     if voice.startswith("veena:"):
         from veena import Veena
 

@@ -1,0 +1,182 @@
+[
+  {
+    "voice": "maya2:Malini",
+    "line": 1,
+    "file": "maya2_Malini_line1.wav",
+    "seconds_audio": 8.2,
+    "gen_seconds": 51.6,
+    "cer": 0.022,
+    "heard": "राम नवमी तो सब मनाते हैं, पर क्या आप जानते हैं, श्री राम की जन्म की शुरुवात एक कटोरी खीर से हुई थी?"
+  },
+  {
+    "voice": "maya2:Malini",
+    "line": 2,
+    "file": "maya2_Malini_line2.wav",
+    "seconds_audio": 6.7,
+    "gen_seconds": 5.8,
+    "cer": 0.049,
+    "heard": "उधर देवता रावन से भैभीत थे। ब्रह्माजी के वर्दान से वो देवताओं और दानवों से अजेय था।"
+  },
+  {
+    "voice": "maya2:Malini",
+    "line": 3,
+    "file": "maya2_Malini_line3.wav",
+    "seconds_audio": 4.9,
+    "gen_seconds": 4.3,
+    "cer": 0.25,
+    "heard": "यग्य की अगनी जलाने के लिए युवा रिशी रिशिश्रूंग को बुलाया गया"
+  },
+  {
+    "voice": "maya2:Malini",
+    "line": 4,
+    "file": "maya2_Malini_line4.wav",
+    "seconds_audio": 6.1,
+    "gen_seconds": 5.2,
+    "cer": 0.0,
+    "heard": "फिर चैत्रमास की नवमी तिथी को महरानी कौशल्या की गोद में श्री राम का जन्म हुआ."
+  },
+  {
+    "voice": "maya2:Vaidehi",
+    "line": 1,
+    "file": "maya2_Vaidehi_line1.wav",
+    "seconds_audio": 7.4,
+    "gen_seconds": 6.3,
+    "cer": 0.022,
+    "heard": "राम नवमी तो सब मनाते हैं, पर क्या आप जानते हैं, श्री राम के जन्म की शुरुवात एक कटोरी खीर से हुई थी?"
+  },
+  {
+    "voice": "maya2:Vaidehi",
+    "line": 2,
+    "file": "maya2_Vaidehi_line2.wav",
+    "seconds_audio": 6.0,
+    "gen_seconds": 5.1,
+    "cer": 0.098,
+    "heard": "उधर देवता रामन से भैभीत थे। ब्रह्मा जी के वर्दान से वो देवताओं और दानवों से अजे था।"
+  },
+  {
+    "voice": "maya2:Vaidehi",
+    "line": 3,
+    "file": "maya2_Vaidehi_line3.wav",
+    "seconds_audio": 4.7,
+    "gen_seconds": 4.0,
+    "cer": 0.214,
+    "heard": "यग्गे की अगनी जलाने के लिए युवा रिशी रिश्य श्रंग को बुलाया गया."
+  },
+  {
+    "voice": "maya2:Vaidehi",
+    "line": 4,
+    "file": "maya2_Vaidehi_line4.wav",
+    "seconds_audio": 5.8,
+    "gen_seconds": 4.9,
+    "cer": 0.0,
+    "heard": "फिर चैत्रमास की नवमी तिथी को महरानी कौशल्या की गोद में श्री राम का जन्म हुआ."
+  },
+  {
+    "voice": "maya2:Vasant",
+    "line": 1,
+    "file": "maya2_Vasant_line1.wav",
+    "seconds_audio": 6.5,
+    "gen_seconds": 5.6,
+    "cer": 0.065,
+    "heard": "राम नव में तो सब मनाते हैं, पर क्या आप जानते हैं, शीराम के जनुर की शुरुवात एक कटोरी खीर से हुई थी?"
+  },
+  {
+    "voice": "maya2:Vasant",
+    "line": 2,
+    "file": "maya2_Vasant_line2.wav",
+    "seconds_audio": 6.4,
+    "gen_seconds": 5.5,
+    "cer": 0.073,
+    "heard": "उधर देवता रावन से भैभीत थे। ब्रह्मा जी के वरदान से वो देवताओं और दानवों से अजे था।"
+  },
+  {
+    "voice": "maya2:Vasant",
+    "line": 3,
+    "file": "maya2_Vasant_line3.wav",
+    "seconds_audio": 4.1,
+    "gen_seconds": 3.5,
+    "cer": 0.321,
+    "heard": "यग्ण की अग्णी जलाने के लिए युवा रिशी रिशिशंद को बुलाया गया"
+  },
+  {
+    "voice": "maya2:Vasant",
+    "line": 4,
+    "file": "maya2_Vasant_line4.wav",
+    "seconds_audio": 5.5,
+    "gen_seconds": 4.8,
+    "cer": 0.0,
+    "heard": "फिर चैत्रमास की नवमी तिथी को महारानी कौशल्या की गोद में श्रीराम का जन्म हुआ."
+  },
+  {
+    "voice": "svara:Hindi (Female)",
+    "line": 1,
+    "file": "svara_Hindi (Female)_line1.wav",
+    "seconds_audio": 7.8,
+    "gen_seconds": 30.6,
+    "cer": 0.065,
+    "heard": "राम नवमी पर सब मनाते हैं, पर क्या आप जानते हैं, श्री राम के जम्न की शुरुवात एक कटोरी खीर से हुई थी?"
+  },
+  {
+    "voice": "svara:Hindi (Female)",
+    "line": 2,
+    "file": "svara_Hindi (Female)_line2.wav",
+    "seconds_audio": 9.0,
+    "gen_seconds": 12.8,
+    "cer": 0.073,
+    "heard": "उधर देवता रावण से भय भी थे। ड्रम्हा जी की वर्दान से वो देवताओं और दानवों से अजय था।"
+  },
+  {
+    "voice": "svara:Hindi (Female)",
+    "line": 3,
+    "file": "svara_Hindi (Female)_line3.wav",
+    "seconds_audio": 5.7,
+    "gen_seconds": 8.1,
+    "cer": 0.25,
+    "heard": "यग्य की अगनी जलानी के लिए युवा रिशी रिशिश श्रिंग को बुलाया गया."
+  },
+  {
+    "voice": "svara:Hindi (Female)",
+    "line": 4,
+    "file": "svara_Hindi (Female)_line4.wav",
+    "seconds_audio": 8.9,
+    "gen_seconds": 12.5,
+    "cer": 0.139,
+    "heard": "फिर चैप्रमास की नवमी तिठी को महारानी कौशल्या की गोध में शीरांत का जन्म हुआ"
+  },
+  {
+    "voice": "veena:kavya",
+    "line": 1,
+    "file": "veena_kavya_line1.wav",
+    "seconds_audio": 6.9,
+    "gen_seconds": 45.8,
+    "cer": 0.087,
+    "heard": "बरारह नम्मी तो सब मनाते हैं, पर क्या आप जानते हैं, शिराम के जन्म की शुर्वात एक कटोरी खीर से हुई थी?"
+  },
+  {
+    "voice": "veena:kavya",
+    "line": 2,
+    "file": "veena_kavya_line2.wav",
+    "seconds_audio": 6.3,
+    "gen_seconds": 32.5,
+    "cer": 0.244,
+    "heard": "साइब बाईब्दा सारण ऐसे भाईजीत थे, ब्रह्मा जी के वरदान से वो देवताओं और दानों से अजय था."
+  },
+  {
+    "voice": "veena:kavya",
+    "line": 3,
+    "file": "veena_kavya_line3.wav",
+    "seconds_audio": 5.2,
+    "gen_seconds": 27.1,
+    "cer": 0.429,
+    "heard": "मैंनी सारे जाइड ने चलाने के लिए युवा रिशिश शर्शाइं को बुलाया गया."
+  },
+  {
+    "voice": "veena:kavya",
+    "line": 4,
+    "file": "veena_kavya_line4.wav",
+    "seconds_audio": 5.7,
+    "gen_seconds": 29.8,
+    "cer": 0.083,
+    "heard": "फिर चैत्रमास की नम्मी तिखी को महाराणी कौशल्या की गोद में श्रीराम का जन्म हुआ."
+  }
+]

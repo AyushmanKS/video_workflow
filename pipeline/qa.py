@@ -76,7 +76,7 @@ def normalize(text, language=None):
 
     if language:
         text = spell_numbers(text, language)
-    text = unicodedata.normalize("NFC", text).replace("\u093c", "").replace("\u0901", "\u0902").lower()
+    text = unicodedata.normalize("NFC", text).replace("ज्ञ", "ग्य").replace("\u093c", "").replace("\u0901", "\u0902").lower()
     return re.sub(r"[\W_]+", "", text)
 
 
@@ -193,7 +193,10 @@ def run(video, work_dir=None, script_path=None, language="en", variant_id=None, 
         script = json.loads(Path(script_path).read_text())
         checks += [check_narration(work_dir, script, language), check_captions(work_dir, script, style)]
         voices = json.loads((ROOT / "profiles" / "voices.json").read_text())
-        checks.append(check_speaker(work_dir, script, language, voices.get(language, {}).get("voice")))
+        used = Path(work_dir) / "audio" / "voice.txt"
+        voice = used.read_text().strip() if used.exists() else voices.get(language, {}).get("voice")
+        th = voices.get("_speaker_thresholds", {}).get(voice or "", {})
+        checks.append(check_speaker(work_dir, script, language, voice, min_window_sim=th.get("window", 0.5), min_scene_sim=th.get("scene", 0.7)))
     sheet = contact_sheet(video, Path(video).with_suffix(".qa.png"))
     failed = [c for c in checks if not c["ok"] and c["name"] in ("format", "loudness", "black_freeze", "speaker_consistency")]
     warned = [c for c in checks if not c["ok"] and c not in failed]
