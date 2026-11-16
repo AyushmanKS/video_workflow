@@ -64,7 +64,7 @@ def cmd_new(a):
         db.upsert(con, "contents", {"id": cid, "series": a.series, "episode": a.episode, "topic": a.topic, "category": a.category, "style": a.style, "status": "research", "folder": str(folder.relative_to(ROOT)), "notes": None, "created_at": db.now(), "updated_at": db.now()})
         for lang in langs:
             db.upsert(con, "variants", {"id": f"{cid}-{lang}", "content_id": cid, "language": lang, "voice": None, "script_path": f"content/{cid}/{lang}/script.json", "video_path": None, "thumbnail_path": None, "duration_s": None, "status": "planned", "cohort": db.cohort_for(lang), "created_at": db.now(), "updated_at": db.now()})
-    m = {"id": cid, "series": a.series, "episode": a.episode, "topic": a.topic, "category": a.category, "style": a.style, "languages": langs, "primary_language": langs[0], "stages": {}}
+    m = {"id": cid, "series": a.series, "episode": a.episode, "topic": a.topic, "category": a.category, "style": a.style, "languages": langs, "primary_language": langs[0], "engine_version": 2, "stages": {}}
     save(m)
     (folder / "brief.md").write_text(f"# {cid}: {a.topic}\n\n- Series: {a.series or '-'} · Episode: {a.episode or '-'}\n- Category: {a.category} · Style: {a.style}\n- Languages: {', '.join(langs)} (primary {langs[0]})\n\n## Goal\n\n## Constraints\n")
     print(f"Created {cid} at content/{cid}")
@@ -425,6 +425,9 @@ def cmd_produce(a):
     if prof_path.exists() and "style_overrides" not in script:
         script["style_overrides"] = json.loads(prof_path.read_text()).get("style_overrides", {})
         script.setdefault("language", a.lang)
+        (work / "script.json").write_text(json.dumps(script, indent=2, ensure_ascii=False))
+    if int(m.get("engine_version", 1) or 1) >= 2 and "engine_version" not in script:
+        script["engine_version"] = int(m["engine_version"])
         (work / "script.json").write_text(json.dumps(script, indent=2, ensure_ascii=False))
     base = [f"{m['id']} {a.lang}", "--out", str(work), "--style", m["style"], "--voice", vp["voice"]]
     if vp.get("speed"):

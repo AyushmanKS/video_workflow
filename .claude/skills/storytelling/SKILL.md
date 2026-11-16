@@ -134,3 +134,7 @@ Check in the text before using: the squirrel at the setu, Hanuman's gada, "Kodan
 - [ ] Every factual line has a locator with edition; every quote has `quote_src`; later traditions labelled or excluded
 - [ ] Reads aloud naturally in each language (no translated structure); no digits in gu/te
 - [ ] gu/te flagged as `unreviewed-language` in script.md until a native reviewer signs off
+
+
+## Engine version
+New scripts set `"engine_version": 2` at the top level (owner approved 2026-11-16: readable frame 0, fast reveals, two-pass loudness, automatic parallax with breathing; macOS fonts stay unless `"fonts": "ofl"`). `python -m pipeline new` records it in the manifest and `produce` adds it to any script that lacks it. Published episodes C0001–C0005 stay on engine 1.
