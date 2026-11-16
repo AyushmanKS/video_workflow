@@ -1,8 +1,8 @@
 # QA report: C0007-en.mp4
 
-**Verdict: WARN** · 2026-11-16T23:35:49+0530 · report #67
+**Verdict: WARN** · 2026-11-16T23:56:25+0530 · report #73
 
-File sha256: `d098c4c6a5f718eb04df4f8c1ebeff4dce3b5272b61186e34198a7b7ae9eb297`
+File sha256: `814230ca514075d323559f1382d23fd027b901cb2d80dc405f2448b25178d527`
 
 - **Story** 91/100 PASS · warn: lint_hook
 - **Visual** 67/100 NOT PASSED · warn: safe_zones
@@ -27,7 +27,7 @@ File sha256: `d098c4c6a5f718eb04df4f8c1ebeff4dce3b5272b61186e34198a7b7ae9eb297`
 - ✅ **loudness** (final/reject) {"lufs": -14.5, "true_peak_dbfs": -1.5, "lra": 2.5}
 - ✅ **black_freeze** (final/reject) {"black": 0, "freeze": 0}
 - ✅ **silence** (final/warn) {"gaps": 0}
-- ✅ **first_frame** (final/warn) {"t0.0": 0.1095, "t0.5": 0.1358} — style decision: warn only
+- ✅ **first_frame** (final/warn) {"t0.0": 0.2077, "t0.5": 0.2469} — style decision: warn only
 - ✅ **narration_asr** (audio/warn) {"transcripts": ["render-time transcript (heard.json)"]} — digits vs number-words and Whisper spelling quirks inflate CER; review flagged scenes by ear
 - ✅ **speech_rate** (audio/warn) {"reference_letters_per_s": 12.04}
 - ✅ **speaker_consistency** (audio/reject) {"windows": 23, "window_median": 0.744, "window_min": 0.588, "scene_min": 0.776, "median_f0": 195, "calibration": "2026-11-16: 2.5s windows — consistent voice min 0.61 / known-mixed median 0.46 (50% < 0.5); 1s clips are unreliable (same voice down to 0.57)"}
@@ -40,13 +40,12 @@ File sha256: `d098c4c6a5f718eb04df4f8c1ebeff4dce3b5272b61186e34198a7b7ae9eb297`
 - ✅ **near_duplicates** (visual/warn) {"images": 11}
 - ✅ **chalk_density** (visual/warn) {}
 - ⚠️ **safe_zones** (visual/warn) {"calibration": {"top_p90": 0.111, "bottom_p90": 1.519, "n": 243}}
-    - scene 1: stroke energy in the title zone (top 12%) 0.14 > p90 0.111
-    - scene 1: stroke energy in the caption zone (bottom 25%) 1.92 > p90 1.519
+    - scene 1: stroke energy in the caption zone (bottom 25%) 1.67 > p90 1.519
     - scene 3: stroke energy in the title zone (top 12%) 0.12 > p90 0.111
     - scene 4: stroke energy in the title zone (top 12%) 0.18 > p90 0.111
     - scene 5: stroke energy in the title zone (top 12%) 0.35 > p90 0.111
     - scene 6: stroke energy in the title zone (top 12%) 0.27 > p90 0.111
-    - scene 9: stroke energy in the title zone (top 12%) 1.20 > p90 0.111
+    - scene 9: stroke energy in the title zone (top 12%) 1.12 > p90 0.111
     - scene 11: stroke energy in the caption zone (bottom 25%) 1.62 > p90 1.519
 - ⏭️ **character_similarity** (visual/warn) {"model_present": false} — DINOv2 similarity is a human flag only; model not present locally and not downloaded
 

@@ -14,7 +14,7 @@
         "छोड़ा।"
       ],
       "emphasis": "",
-      "visual": "{rama_teen} with his back to the viewer, standing small in the lower middle of the frame on a rocky ridge, his bow raised high and its string just released, far across a dark stormy sky a {maricha} tumbling backward through the air in a long curving arc traced by white chalk motion lines, flung toward a vast distant ocean with rolling waves on the far horizon, the sky drawn in soft grey chalk, mostly white chalk with sparse muted accents, vertical composition, subject in the center of the frame, open dark chalkboard space at the top, lower quarter of the frame plain dark chalkboard",
+      "visual": "{rama_teen} with his back to the viewer, small in the lower left on a rocky ridge by the sea, his bow lowered just after the shot, and far away over a vast open ocean a small solid black shadow rakshasa with exactly two arms tumbling helplessly along a long low arc of white chalk motion lines toward the horizon, a grey storm sky drawn in mostly white chalk, rolling waves, vertical composition, subject in the center of the frame, open dark chalkboard space at the top, lower quarter of the frame plain dark chalkboard",
       "pause": 0.18,
       "sfx": [
         {
@@ -27,7 +27,7 @@
       "shot": "WS",
       "move": "push",
       "accent": "battle",
-      "seed": 7000
+      "seed": 7100
     },
     {
       "narration": "सिद्धाश्रम में विश्वामित्र ने मौन व्रत लेकर यज्ञ आरंभ किया।",
@@ -206,7 +206,7 @@
         "वायव्यास्त्र"
       ],
       "emphasis": "",
-      "visual": "a single huge solid black shadow rakshasa with exactly two arms flung outward, toppling backward and dissolving into drifting dark smoke as a blazing chalk-drawn arrow wreathed in saffron flames strikes his chest, far away in the distance a swirling spiral of white chalk wind sweeping tiny dark shadows into the clouds like dry leaves, {rama_teen} with his back to the viewer small in the lower left with his bow raised, vertical composition, subject in the center of the frame, open dark chalkboard space at the top, lower quarter of the frame plain dark chalkboard",
+      "visual": "a blazing chalk-drawn arrow wreathed in saffron flames flying through the air on its own toward a tall column of drifting dark smoke where a rakshasa has just vanished, only smoke and no figure in it, far away in the distance a swirling spiral of white chalk wind sweeping tiny dark shadows into the clouds like dry leaves, {rama_teen} with his back to the viewer small in the lower left corner with his bow raised after the shot, vertical composition, subject in the center of the frame, open dark chalkboard space at the top, lower quarter of the frame plain dark chalkboard",
       "pause": 0.18,
       "sfx": [
         {
@@ -226,7 +226,7 @@
       "overlay": [
         "embers"
       ],
-      "seed": 7108
+      "seed": 7208
     },
     {
       "narration": "यज्ञ पूरा हुआ। ऋषि बोले — सिद्धाश्रम सचमुच सिद्ध हुआ।",

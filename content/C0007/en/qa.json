@@ -1,7 +1,7 @@
 {
   "video": "/Users/ayushman/Desktop/work/shorts-studio/content/C0007/en/C0007-en.mp4",
   "kind": "automated",
-  "mp4_sha256": "d098c4c6a5f718eb04df4f8c1ebeff4dce3b5272b61186e34198a7b7ae9eb297",
+  "mp4_sha256": "814230ca514075d323559f1382d23fd027b901cb2d80dc405f2448b25178d527",
   "verdict": "warn",
   "families": {
     "story": {
@@ -206,8 +206,8 @@
       "ok": true,
       "issues": [],
       "data": {
-        "t0.0": 0.1095,
-        "t0.5": 0.1358
+        "t0.0": 0.2077,
+        "t0.5": 0.2469
       },
       "note": "style decision: warn only"
     },
@@ -464,9 +464,9 @@
         "scenes": [
           {
             "scene": 1,
-            "density": 0.253,
-            "top": 0.143,
-            "bottom": 1.915
+            "density": 0.307,
+            "top": 0.064,
+            "bottom": 1.672
           },
           {
             "scene": 2,
@@ -512,9 +512,9 @@
           },
           {
             "scene": 9,
-            "density": 0.292,
-            "top": 1.197,
-            "bottom": 0.651
+            "density": 0.193,
+            "top": 1.121,
+            "bottom": 0.872
           },
           {
             "scene": 10,
@@ -537,13 +537,12 @@
       "class": "warn",
       "ok": false,
       "issues": [
-        "scene 1: stroke energy in the title zone (top 12%) 0.14 > p90 0.111",
-        "scene 1: stroke energy in the caption zone (bottom 25%) 1.92 > p90 1.519",
+        "scene 1: stroke energy in the caption zone (bottom 25%) 1.67 > p90 1.519",
         "scene 3: stroke energy in the title zone (top 12%) 0.12 > p90 0.111",
         "scene 4: stroke energy in the title zone (top 12%) 0.18 > p90 0.111",
         "scene 5: stroke energy in the title zone (top 12%) 0.35 > p90 0.111",
         "scene 6: stroke energy in the title zone (top 12%) 0.27 > p90 0.111",
-        "scene 9: stroke energy in the title zone (top 12%) 1.20 > p90 0.111",
+        "scene 9: stroke energy in the title zone (top 12%) 1.12 > p90 0.111",
         "scene 11: stroke energy in the caption zone (bottom 25%) 1.62 > p90 1.519"
       ],
       "data": {
@@ -574,6 +573,6 @@
     "storytelling quality",
     "native-speaker listen for non-English"
   ],
-  "created_at": "2026-11-16T23:35:49+0530",
-  "id": 67
+  "created_at": "2026-11-16T23:56:25+0530",
+  "id": 73
 }

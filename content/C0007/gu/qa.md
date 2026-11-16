@@ -1,8 +1,8 @@
 # QA report: C0007-gu.mp4
 
-**Verdict: WARN** · 2026-11-16T23:34:54+0530 · report #64
+**Verdict: WARN** · 2026-11-16T23:55:40+0530 · report #70
 
-File sha256: `0ba35c4f012143598126468a9b7463212a5b0879c3774805eb2a45f1095b3151`
+File sha256: `bb8ae10dacfc4c6163a6fa6a0d68dd50d59cab795dfcf6a47c89e43a45e94059`
 
 - **Story** 91/100 PASS · warn: lint_hook
 - **Visual** 67/100 NOT PASSED · warn: safe_zones
@@ -27,7 +27,7 @@ File sha256: `0ba35c4f012143598126468a9b7463212a5b0879c3774805eb2a45f1095b3151`
 - ✅ **loudness** (final/reject) {"lufs": -14.0, "true_peak_dbfs": -1.9, "lra": 2.9}
 - ✅ **black_freeze** (final/reject) {"black": 0, "freeze": 0}
 - ✅ **silence** (final/warn) {"gaps": 0}
-- ✅ **first_frame** (final/warn) {"t0.0": 0.1095, "t0.5": 0.137} — style decision: warn only
+- ✅ **first_frame** (final/warn) {"t0.0": 0.2087, "t0.5": 0.2447} — style decision: warn only
 - ⚠️ **narration_asr** (audio/warn) {"transcripts": ["render-time transcript (heard.json)"]} — CER is warn-only for this language until Indic ASR is validated
     - scene 2: CER 0.222 length ratio 0.93 (warn) — listen and regenerate if mispronounced
     - scene 10: CER 0.231 length ratio 0.96 (warn) — listen and regenerate if mispronounced
@@ -42,13 +42,12 @@ File sha256: `0ba35c4f012143598126468a9b7463212a5b0879c3774805eb2a45f1095b3151`
 - ✅ **near_duplicates** (visual/warn) {"images": 11}
 - ✅ **chalk_density** (visual/warn) {}
 - ⚠️ **safe_zones** (visual/warn) {"calibration": {"top_p90": 0.111, "bottom_p90": 1.519, "n": 243}}
-    - scene 1: stroke energy in the title zone (top 12%) 0.14 > p90 0.111
-    - scene 1: stroke energy in the caption zone (bottom 25%) 1.92 > p90 1.519
+    - scene 1: stroke energy in the caption zone (bottom 25%) 1.67 > p90 1.519
     - scene 3: stroke energy in the title zone (top 12%) 0.12 > p90 0.111
     - scene 4: stroke energy in the title zone (top 12%) 0.18 > p90 0.111
     - scene 5: stroke energy in the title zone (top 12%) 0.35 > p90 0.111
     - scene 6: stroke energy in the title zone (top 12%) 0.27 > p90 0.111
-    - scene 9: stroke energy in the title zone (top 12%) 1.20 > p90 0.111
+    - scene 9: stroke energy in the title zone (top 12%) 1.12 > p90 0.111
     - scene 11: stroke energy in the caption zone (bottom 25%) 1.62 > p90 1.519
 - ⏭️ **character_similarity** (visual/warn) {"model_present": false} — DINOv2 similarity is a human flag only; model not present locally and not downloaded
 

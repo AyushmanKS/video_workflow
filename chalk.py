@@ -271,7 +271,12 @@ def text_scene(sc, path, seed):
     layers = []
     if sc["kind"] == "verse":
         lines = sc["devanagari"]
-        dev = font_for("".join(lines), 80)
+        size = 80
+        dev = font_for("".join(lines), size)
+        probe = ImageDraw.Draw(Image.new("L", (1, 1)))
+        while size > 48 and max(probe.textlength(line, font=dev) for line in lines) > W - 200:
+            size -= 4
+            dev = font_for("".join(lines), size)
         small = font_for(sc["source"], 40)
         y0 = 560
         for i, line in enumerate(lines):
