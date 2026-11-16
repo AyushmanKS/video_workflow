@@ -1,0 +1,117 @@
+{
+  "language": "gu",
+  "verdict": "fail",
+  "estimate": {
+    "rate": 2.111,
+    "letter_rate": 5.819,
+    "basis": "letters",
+    "scene_seconds": [
+      6.53,
+      9.28,
+      10.65,
+      9.97,
+      7.73,
+      7.22,
+      4.3,
+      6.87,
+      8.25,
+      7.39,
+      8.59,
+      9.62
+    ],
+    "pauses": 4.45,
+    "total": 102.01,
+    "words": 216
+  },
+  "rate_source": "calibrated 2026-11-16 from 5 renders",
+  "findings": [
+    {
+      "rule": "duration",
+      "level": "fail",
+      "message": "estimated 102.0 s > 57 s (rate 2.111 w/s, 216 words, pauses 4.45 s, lead/tail 1.15 s)"
+    },
+    {
+      "rule": "hook",
+      "level": "fail",
+      "message": "hook scene spoken 6.5 s > 3.0 s",
+      "scene": 1
+    },
+    {
+      "rule": "scene_count",
+      "level": "warn",
+      "message": "12 scenes (target 8–11)"
+    },
+    {
+      "rule": "scene_length",
+      "level": "warn",
+      "message": "scene 2 spoken 9.3 s (target 2.5–7.0 s)",
+      "scene": 2
+    },
+    {
+      "rule": "scene_length",
+      "level": "warn",
+      "message": "scene 3 spoken 10.7 s (target 2.5–7.0 s)",
+      "scene": 3
+    },
+    {
+      "rule": "scene_length",
+      "level": "warn",
+      "message": "scene 4 spoken 10.0 s (target 2.5–7.0 s)",
+      "scene": 4
+    },
+    {
+      "rule": "scene_length",
+      "level": "warn",
+      "message": "scene 5 spoken 7.7 s (target 2.5–7.0 s)",
+      "scene": 5
+    },
+    {
+      "rule": "scene_length",
+      "level": "warn",
+      "message": "scene 6 spoken 7.2 s (target 2.5–7.0 s)",
+      "scene": 6
+    },
+    {
+      "rule": "scene_length",
+      "level": "warn",
+      "message": "scene 9 spoken 8.2 s (target 2.5–7.0 s)",
+      "scene": 9
+    },
+    {
+      "rule": "scene_length",
+      "level": "warn",
+      "message": "scene 10 spoken 7.4 s (target 2.5–7.0 s)",
+      "scene": 10
+    },
+    {
+      "rule": "scene_length",
+      "level": "warn",
+      "message": "scene 11 spoken 8.6 s (target 2.5–7.0 s)",
+      "scene": 11
+    },
+    {
+      "rule": "scene_length",
+      "level": "warn",
+      "message": "scene 12 spoken 9.6 s (target 2.5–7.0 s)",
+      "scene": 12
+    },
+    {
+      "rule": "edition",
+      "level": "warn",
+      "message": "scene 3: verse card has no edition label (scene or script 'edition')",
+      "scene": 3
+    },
+    {
+      "rule": "edition",
+      "level": "warn",
+      "message": "script has no 'edition' (which text edition the sources cite)"
+    },
+    {
+      "rule": "silences",
+      "level": "warn",
+      "message": "12 planned silences (pause ≥0.3 s); target 2–3"
+    }
+  ],
+  "at": "2026-11-16T17:37:08+0530",
+  "script_sha256": "46fdd3b983bf0e195bdf6530e8a3fc86564d3d13d96ea032bd576be8390e8e9a"
+}

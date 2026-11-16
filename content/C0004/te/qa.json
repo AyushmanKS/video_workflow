@@ -1,0 +1,640 @@
+{
+  "video": "/Users/ayushman/Desktop/work/shorts-studio/content/C0004/te/C0004-te.mp4",
+  "kind": "automated",
+  "mp4_sha256": "c916e9f28d60202fcff1a85c5614e96dc0f6ee8e2489d27fe1b7746fafdfadc3",
+  "verdict": "warn",
+  "families": {
+    "story": {
+      "score": 45,
+      "pass": false,
+      "rejects": [],
+      "warns": [
+        "lint_duration",
+        "lint_hook",
+        "lint_scene_count",
+        "lint_scene_length",
+        "lint_edition",
+        "lint_silences"
+      ],
+      "checks": 11
+    },
+    "visual": {
+      "score": 67,
+      "pass": false,
+      "rejects": [],
+      "warns": [
+        "safe_zones"
+      ],
+      "checks": 3
+    },
+    "audio": {
+      "score": 60,
+      "pass": false,
+      "rejects": [],
+      "warns": [
+        "narration_asr",
+        "music_under_speech"
+      ],
+      "checks": 4
+    },
+    "final": {
+      "score": 87,
+      "pass": true,
+      "rejects": [],
+      "warns": [
+        "duration",
+        "duration_target"
+      ],
+      "checks": 10
+    }
+  },
+  "checks": [
+    {
+      "name": "lint_duration",
+      "family": "story",
+      "class": "warn",
+      "ok": false,
+      "issues": [
+        "estimated 101.2 s > 57 s (rate 1.572 w/s, 152 words, pauses 4.8 s, lead/tail 1.15 s)"
+      ],
+      "data": {
+        "estimate_s": 101.21,
+        "basis": "letters",
+        "exempt": "back-catalogue: en/hi published before the 60 s rule; gu/te mirror them scene by scene"
+      }
+    },
+    {
+      "name": "lint_hook",
+      "family": "story",
+      "class": "warn",
+      "ok": false,
+      "issues": [
+        "hook scene spoken 7.6 s > 3.0 s"
+      ],
+      "data": {
+        "exempt": "back-catalogue: en/hi published before the 60 s rule; gu/te mirror them scene by scene"
+      }
+    },
+    {
+      "name": "lint_scene_count",
+      "family": "story",
+      "class": "warn",
+      "ok": false,
+      "issues": [
+        "13 scenes (target 8–11)"
+      ],
+      "data": {}
+    },
+    {
+      "name": "lint_scene_length",
+      "family": "story",
+      "class": "warn",
+      "ok": false,
+      "issues": [
+        "scene 4 spoken 11.1 s (target 2.5–7.0 s)",
+        "scene 6 spoken 9.3 s (target 2.5–7.0 s)",
+        "scene 10 spoken 9.6 s (target 2.5–7.0 s)",
+        "scene 11 spoken 7.6 s (target 2.5–7.0 s)",
+        "scene 12 spoken 8.4 s (target 2.5–7.0 s)",
+        "scene 13 spoken 7.6 s (target 2.5–7.0 s)"
+      ],
+      "data": {}
+    },
+    {
+      "name": "lint_keywords",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_digits",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_quote_src",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_sources",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_edition",
+      "family": "story",
+      "class": "warn",
+      "ok": false,
+      "issues": [
+        "scene 6: verse card has no edition label (scene or script 'edition')",
+        "script has no 'edition' (which text edition the sources cite)"
+      ],
+      "data": {}
+    },
+    {
+      "name": "lint_silences",
+      "family": "story",
+      "class": "warn",
+      "ok": false,
+      "issues": [
+        "13 planned silences (pause ≥0.3 s); target 2–3"
+      ],
+      "data": {}
+    },
+    {
+      "name": "lint_visual_parity",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "format",
+      "family": "final",
+      "class": "reject",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "video": "h264",
+        "audio": "aac",
+        "fps": 30.0,
+        "seconds": 99.47
+      }
+    },
+    {
+      "name": "duration",
+      "family": "final",
+      "class": "warn",
+      "ok": false,
+      "issues": [
+        "duration 99.47 s ≥ 60.0 s"
+      ],
+      "data": {
+        "seconds": 99.47,
+        "exempt": "back-catalogue: en/hi published before the 60 s rule; gu/te mirror them scene by scene"
+      }
+    },
+    {
+      "name": "duration_target",
+      "family": "final",
+      "class": "warn",
+      "ok": false,
+      "issues": [
+        "duration 99.47 s outside 35–55 s"
+      ],
+      "data": {
+        "seconds": 99.47
+      }
+    },
+    {
+      "name": "loudness",
+      "family": "final",
+      "class": "reject",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "lufs": -14.7,
+        "true_peak_dbfs": -1.4,
+        "lra": 2.5
+      }
+    },
+    {
+      "name": "black_freeze",
+      "family": "final",
+      "class": "reject",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "black": 0,
+        "freeze": 0
+      }
+    },
+    {
+      "name": "silence",
+      "family": "final",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "gaps": 0
+      }
+    },
+    {
+      "name": "first_frame",
+      "family": "final",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "t0.0": 0.0021,
+        "t0.5": 0.2589
+      },
+      "note": "style decision: warn only"
+    },
+    {
+      "name": "narration_asr",
+      "family": "audio",
+      "class": "warn",
+      "ok": false,
+      "issues": [
+        "scene 4: CER 0.182 length ratio 0.89 (warn) — listen and regenerate if mispronounced"
+      ],
+      "data": {
+        "scenes": [
+          {
+            "scene": 1,
+            "cer": 0.022,
+            "length_ratio": 0.98,
+            "heard": "ఏది కోరినా ఇస్తానని ఒక మహారాజు మహర్షికి మాటిచ్చరు కాని ఆ మహర్షి అడిగింది ఆయన కొడుకునే."
+          },
+          {
+            "scene": 2,
+            "cer": 0.107,
+            "length_ratio": 1.0,
+            "heard": "అకరోజు విష్వామిత్ర మహర్షి అయోధ్య రాజసభకు విచ్చే సారు."
+          },
+          {
+            "scene": 3,
+            "cer": 0.079,
+            "length_ratio": 0.97,
+            "heard": "దశరద మహారాజు ఆనందంతో పొంగి పోయారు. మీరు ఏది కోరిన నిరవేరు స్థానని మాటేచ్చారు."
+          },
+          {
+            "scene": 4,
+            "cer": 0.182,
+            "length_ratio": 0.89,
+            "heard": "మారి చుడు సుబా హుడు అనే ఇద్దరు రాక్షసులు మహషి ఎగ్ఞాన్ని అపవిత్రం జేస్తునారు దాని రక్షనకు ఆయనకు స్రిరా ముడు కావాలి పది రా"
+          },
+          {
+            "scene": 5,
+            "cer": 0.032,
+            "length_ratio": 1.0,
+            "heard": "అది వినగానే మహారాజు క్షణకాలం మూర్చ పోయారు తర్వాత ఇలా అన్నారు."
+          },
+          {
+            "scene": 6,
+            "cer": 0.018,
+            "length_ratio": 1.0,
+            "heard": "కమలనయనుడయిన నా రాముడికి ఇంక పదహారేలు కూడా నిండలేదు. రాక్షసులతో యుద్ధం చేసే యోగ్యతా అతనిలో నాకు కనిపించిడంలేదు."
+          },
+          {
+            "scene": 7,
+            "cer": 0.056,
+            "length_ratio": 1.0,
+            "heard": "నా సైన్యాన్నే తీస్కెల్లండి, కావాలంటే నన్నే తీస్కెల్లండి, అని ఆయన వేడుకున్నారు."
+          },
+          {
+            "scene": 8,
+            "cer": 0.062,
+            "length_ratio": 1.0,
+            "heard": "ఆరాక్షసిలను పంపింది రావనుడియాని విన్నాకా ఆయనా భయం మరింత పేరిగింది."
+          },
+          {
+            "scene": 9,
+            "cer": 0.081,
+            "length_ratio": 1.0,
+            "heard": "విష్వామిత్ర మహర్షి కోపంతో రగిలి పోయారు రగువం సపు రాజు ఇచ్చిన మాట తప్పు తాడా"
+          },
+          {
+            "scene": 10,
+            "cer": 0.035,
+            "length_ratio": 0.98,
+            "heard": "అప్పుడు కులగురువు వసిష్ఠ మహషి ఇలా అన్నారు. ఇచ్చిన మాటా నిలబెట్టు కోండి. విష్వామిత్రుల వెంటా రాముడు సురక్షితంగా ఉంటాడు."
+          },
+          {
+            "scene": 11,
+            "cer": 0.089,
+            "length_ratio": 1.0,
+            "heard": "చివరికి మహారాజు రామున్ని పంపించారు అన్న వెంటా నమ్మకమయిన తముడు లక్ష్మనుడు కుడా బయల్దేరాడు"
+          },
+          {
+            "scene": 12,
+            "cer": 0.04,
+            "length_ratio": 1.02,
+            "heard": "సరయో తీరన్లో మహర్షివారికి బలా అతిబలా అనే రెండు మంత్రాలు ఉపదేసించారు. వాటితో ఎప్పుడు ఆకలి అలసటా ఉందవు."
+          },
+          {
+            "scene": 13,
+            "cer": 0.089,
+            "length_ratio": 0.93,
+            "heard": "కాని చీకటి అడవిలో వారి కోసం మొదటి పరిక్ష యదరు చూస్తోంది. వెయి ఏనుగుల బలం నా ఒక రాక్షసి."
+          }
+        ],
+        "transcripts": [
+          "whisper large-v3-turbo"
+        ]
+      },
+      "note": "CER is warn-only for this language until Indic ASR is validated"
+    },
+    {
+      "name": "speech_rate",
+      "family": "audio",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "reference_letters_per_s": 5.931,
+        "scenes": [
+          {
+            "scene": 1,
+            "seconds": 7.28,
+            "letters_per_s": 6.18,
+            "deviation": 0.042
+          },
+          {
+            "scene": 2,
+            "seconds": 4.64,
+            "letters_per_s": 6.03,
+            "deviation": 0.017
+          },
+          {
+            "scene": 3,
+            "seconds": 6.16,
+            "letters_per_s": 6.17,
+            "deviation": 0.04
+          },
+          {
+            "scene": 4,
+            "seconds": 11.36,
+            "letters_per_s": 5.81,
+            "deviation": -0.02
+          },
+          {
+            "scene": 5,
+            "seconds": 4.48,
+            "letters_per_s": 6.92,
+            "deviation": 0.167
+          },
+          {
+            "scene": 6,
+            "seconds": 8.72,
+            "letters_per_s": 6.31,
+            "deviation": 0.064
+          },
+          {
+            "scene": 7,
+            "seconds": 5.44,
+            "letters_per_s": 6.62,
+            "deviation": 0.116
+          },
+          {
+            "scene": 8,
+            "seconds": 5.52,
+            "letters_per_s": 5.8,
+            "deviation": -0.022
+          },
+          {
+            "scene": 9,
+            "seconds": 5.52,
+            "letters_per_s": 6.7,
+            "deviation": 0.13
+          },
+          {
+            "scene": 10,
+            "seconds": 10.56,
+            "letters_per_s": 5.4,
+            "deviation": -0.09
+          },
+          {
+            "scene": 11,
+            "seconds": 7.28,
+            "letters_per_s": 6.18,
+            "deviation": 0.042
+          },
+          {
+            "scene": 12,
+            "seconds": 9.04,
+            "letters_per_s": 5.53,
+            "deviation": -0.068
+          },
+          {
+            "scene": 13,
+            "seconds": 7.52,
+            "letters_per_s": 5.98,
+            "deviation": 0.008
+          }
+        ]
+      }
+    },
+    {
+      "name": "speaker_consistency",
+      "family": "audio",
+      "class": "reject",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "windows": 55,
+        "window_median": 0.758,
+        "window_min": 0.571,
+        "scene_min": 0.772,
+        "median_f0": 167,
+        "calibration": "2026-11-16: 2.5s windows — consistent voice min 0.61 / known-mixed median 0.46 (50% < 0.5); 1s clips are unreliable (same voice down to 0.57)"
+      }
+    },
+    {
+      "name": "music_under_speech",
+      "family": "audio",
+      "class": "warn",
+      "ok": false,
+      "issues": [
+        "speech-band narration only 11.0 dB above the bed (target ≥12 dB)"
+      ],
+      "data": {
+        "median_db": 11.0,
+        "p10_db": 4.2,
+        "voice_gain": 0.998,
+        "frames": 179
+      }
+    },
+    {
+      "name": "captions",
+      "family": "final",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "groups": 78
+      }
+    },
+    {
+      "name": "caption_overflow",
+      "family": "final",
+      "class": "reject",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "widest_px": 916,
+        "limit_px": 1020
+      }
+    },
+    {
+      "name": "glyph_coverage",
+      "family": "final",
+      "class": "reject",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "texts": 25
+      }
+    },
+    {
+      "name": "text_artifacts",
+      "family": "visual",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {},
+      "skipped": true,
+      "note": "tesseract binary not installed (brew install tesseract, Apache-2.0); skipped"
+    },
+    {
+      "name": "near_duplicates",
+      "family": "visual",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "images": 13
+      }
+    },
+    {
+      "name": "chalk_density",
+      "family": "visual",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "scenes": [
+          {
+            "scene": 1,
+            "density": 0.367,
+            "top": 0.07,
+            "bottom": 1.017
+          },
+          {
+            "scene": 2,
+            "density": 0.355,
+            "top": 0.054,
+            "bottom": 1.0
+          },
+          {
+            "scene": 3,
+            "density": 0.333,
+            "top": 0.04,
+            "bottom": 1.313
+          },
+          {
+            "scene": 4,
+            "density": 0.425,
+            "top": 0.03,
+            "bottom": 1.399
+          },
+          {
+            "scene": 5,
+            "density": 0.378,
+            "top": 0.007,
+            "bottom": 1.145
+          },
+          {
+            "scene": 6,
+            "density": 0.054,
+            "top": 0.0,
+            "bottom": 0.0
+          },
+          {
+            "scene": 7,
+            "density": 0.289,
+            "top": 0.052,
+            "bottom": 0.707
+          },
+          {
+            "scene": 8,
+            "density": 0.279,
+            "top": 0.163,
+            "bottom": 1.039
+          },
+          {
+            "scene": 9,
+            "density": 0.409,
+            "top": 0.081,
+            "bottom": 0.867
+          },
+          {
+            "scene": 10,
+            "density": 0.341,
+            "top": 0.049,
+            "bottom": 1.155
+          },
+          {
+            "scene": 11,
+            "density": 0.28,
+            "top": 0.038,
+            "bottom": 0.919
+          },
+          {
+            "scene": 12,
+            "density": 0.363,
+            "top": 0.053,
+            "bottom": 1.391
+          },
+          {
+            "scene": 13,
+            "density": 0.325,
+            "top": 0.069,
+            "bottom": 0.877
+          }
+        ]
+      }
+    },
+    {
+      "name": "safe_zones",
+      "family": "visual",
+      "class": "warn",
+      "ok": false,
+      "issues": [
+        "scene 8: stroke energy in the title zone (top 12%) 0.16 > p90 0.111"
+      ],
+      "data": {
+        "calibration": {
+          "top_p90": 0.111,
+          "bottom_p90": 1.519,
+          "n": 243
+        }
+      }
+    },
+    {
+      "name": "character_similarity",
+      "family": "visual",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "model_present": false
+      },
+      "skipped": true,
+      "note": "DINOv2 similarity is a human flag only; model not present locally and not downloaded"
+    }
+  ],
+  "contact_sheet": "/Users/ayushman/Desktop/work/shorts-studio/content/C0004/te/C0004-te.qa.png",
+  "manual_review_required": [
+    "character consistency",
+    "visual defects / wrong illustrations",
+    "storytelling quality",
+    "native-speaker listen for non-English"
+  ],
+  "created_at": "2026-11-16T18:39:30+0530",
+  "id": 49
+}

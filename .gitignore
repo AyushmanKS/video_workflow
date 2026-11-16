@@ -27,3 +27,7 @@ content/**/img/
 __pycache__/
 *.pyc
 .DS_Store
+
+# Run logs and personal Claude settings
+content/**/*.log
+.claude/settings.local.json

@@ -1,0 +1,71 @@
+{
+  "language": "en",
+  "verdict": "fail",
+  "estimate": {
+    "rate": 2.819,
+    "letter_rate": 12.07,
+    "basis": "letters",
+    "scene_seconds": [
+      6.05,
+      5.88,
+      6.71,
+      5.05,
+      3.73,
+      3.15,
+      7.21,
+      6.63,
+      4.97,
+      5.05,
+      4.97,
+      8.29,
+      7.54
+    ],
+    "pauses": 4.8,
+    "total": 81.18,
+    "words": 214
+  },
+  "rate_source": "calibrated 2026-11-16 from 4 renders",
+  "findings": [
+    {
+      "rule": "duration",
+      "level": "fail",
+      "message": "estimated 81.2 s > 57 s (rate 2.819 w/s, 214 words, pauses 4.8 s, lead/tail 1.15 s)"
+    },
+    {
+      "rule": "hook",
+      "level": "fail",
+      "message": "hook scene spoken 6.0 s > 3.0 s",
+      "scene": 1
+    },
+    {
+      "rule": "scene_count",
+      "level": "warn",
+      "message": "13 scenes (target 8–11)"
+    },
+    {
+      "rule": "scene_length",
+      "level": "warn",
+      "message": "scene 7 spoken 7.2 s (target 2.5–7.0 s)",
+      "scene": 7
+    },
+    {
+      "rule": "scene_length",
+      "level": "warn",
+      "message": "scene 12 spoken 8.3 s (target 2.5–7.0 s)",
+      "scene": 12
+    },
+    {
+      "rule": "scene_length",
+      "level": "warn",
+      "message": "scene 13 spoken 7.5 s (target 2.5–7.0 s)",
+      "scene": 13
+    },
+    {
+      "rule": "silences",
+      "level": "warn",
+      "message": "13 planned silences (pause ≥0.3 s); target 2–3"
+    }
+  ],
+  "at": "2026-11-16T18:55:36+0530",
+  "script_sha256": "7003fc43df6b3301f4f090d69fd0387cce27ca5a26e015f6e16a2db1739dd105"
+}

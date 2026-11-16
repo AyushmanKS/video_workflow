@@ -1,0 +1,100 @@
+{
+  "language": "te",
+  "verdict": "fail",
+  "estimate": {
+    "rate": 1.572,
+    "letter_rate": 5.931,
+    "basis": "letters",
+    "scene_seconds": [
+      7.59,
+      4.72,
+      6.41,
+      11.13,
+      5.23,
+      9.27,
+      6.07,
+      5.4,
+      6.24,
+      9.61,
+      7.59,
+      8.43,
+      7.59
+    ],
+    "pauses": 4.8,
+    "total": 101.21,
+    "words": 152
+  },
+  "rate_source": "calibrated 2026-11-16 from 5 renders",
+  "findings": [
+    {
+      "rule": "duration",
+      "level": "fail",
+      "message": "estimated 101.2 s > 57 s (rate 1.572 w/s, 152 words, pauses 4.8 s, lead/tail 1.15 s)"
+    },
+    {
+      "rule": "hook",
+      "level": "fail",
+      "message": "hook scene spoken 7.6 s > 3.0 s",
+      "scene": 1
+    },
+    {
+      "rule": "scene_count",
+      "level": "warn",
+      "message": "13 scenes (target 8–11)"
+    },
+    {
+      "rule": "scene_length",
+      "level": "warn",
+      "message": "scene 4 spoken 11.1 s (target 2.5–7.0 s)",
+      "scene": 4
+    },
+    {
+      "rule": "scene_length",
+      "level": "warn",
+      "message": "scene 6 spoken 9.3 s (target 2.5–7.0 s)",
+      "scene": 6
+    },
+    {
+      "rule": "scene_length",
+      "level": "warn",
+      "message": "scene 10 spoken 9.6 s (target 2.5–7.0 s)",
+      "scene": 10
+    },
+    {
+      "rule": "scene_length",
+      "level": "warn",
+      "message": "scene 11 spoken 7.6 s (target 2.5–7.0 s)",
+      "scene": 11
+    },
+    {
+      "rule": "scene_length",
+      "level": "warn",
+      "message": "scene 12 spoken 8.4 s (target 2.5–7.0 s)",
+      "scene": 12
+    },
+    {
+      "rule": "scene_length",
+      "level": "warn",
+      "message": "scene 13 spoken 7.6 s (target 2.5–7.0 s)",
+      "scene": 13
+    },
+    {
+      "rule": "edition",
+      "level": "warn",
+      "message": "scene 6: verse card has no edition label (scene or script 'edition')",
+      "scene": 6
+    },
+    {
+      "rule": "edition",
+      "level": "warn",
+      "message": "script has no 'edition' (which text edition the sources cite)"
+    },
+    {
+      "rule": "silences",
+      "level": "warn",
+      "message": "13 planned silences (pause ≥0.3 s); target 2–3"
+    }
+  ],
+  "at": "2026-11-16T17:36:46+0530",
+  "script_sha256": "ac7293798532eaf4185c0e89d14f1ccc24230bcdd8dc9ce78a5014013e0ebee8"
+}

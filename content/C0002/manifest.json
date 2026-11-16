@@ -161,7 +161,9 @@
       "status": "approved",
       "langs": [
         "en",
-        "hi"
+        "hi",
+        "gu",
+        "te"
       ],
       "entries": {
         "en": {
@@ -185,6 +187,26 @@
           "file": "content/C0002/hi/C0002-hi.mp4",
           "migrated_from_legacy": true,
           "migrated_at": "2026-11-16T17:33:58+0530"
+        },
+        "gu": {
+          "status": "approved",
+          "at": "2026-11-16T18:40:38+0530",
+          "by": "owner",
+          "channel": "chat",
+          "note": "owner in chat 2026-11-16: all episodes are approved, i have watched all; proceed to post or schedule",
+          "sha256": "8eca003f303fcdc92465ec8cf19e9a1cf104c2217b695e1f1606b95828e160c1",
+          "file": "content/C0002/gu/C0002-gu.mp4",
+          "qa_report_id": 44
+        },
+        "te": {
+          "status": "approved",
+          "at": "2026-11-16T18:40:38+0530",
+          "by": "owner",
+          "channel": "chat",
+          "note": "owner in chat 2026-11-16: all episodes are approved, i have watched all; proceed to post or schedule",
+          "sha256": "eef990baac4c087c28f476ae14a520b2a5a4f1ee19b3e961f70e60aa43aeee56",
+          "file": "content/C0002/te/C0002-te.mp4",
+          "qa_report_id": 45
         }
       },
       "history": [],
@@ -197,8 +219,8 @@
           "hi"
         ]
       },
-      "at": "2026-11-16T01:44:45+0530",
-      "note": "Owner: 'proceed with ep2 publishing' (2026-11-16)"
+      "at": "2026-11-16T18:40:38+0530",
+      "note": "owner in chat 2026-11-16: all episodes are approved, i have watched all; proceed to post or schedule"
     },
     "gate:publish": {
       "status": "approved",
@@ -291,19 +313,21 @@
     },
     "instagram_scheduled:hi": {
       "status": "done",
-      "at": "2026-11-16T15:41:52+0530",
-      "note": "2026-11-17T20:00:00+05:30"
+      "at": "2026-11-16T18:43:35+0530",
+      "note": "2026-11-16T20:00:00+05:30"
     },
     "instagram_scheduled:en": {
       "status": "done",
-      "at": "2026-11-16T15:41:52+0530",
-      "note": "2026-11-17T20:30:00+05:30"
+      "at": "2026-11-16T18:43:35+0530",
+      "note": "2026-11-16T20:30:00+05:30"
     },
     "gate:publish:youtube": {
       "status": "approved",
       "langs": [
         "en",
-        "hi"
+        "hi",
+        "gu",
+        "te"
       ],
       "entries": {
         "en": {
@@ -349,20 +373,131 @@
             "platform_id": "nJNSDaSoHCk",
             "already_published": true
           }
+        },
+        "gu": {
+          "status": "approved",
+          "at": "2026-11-16T18:49:57+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "owner in chat 2026-11-16: all episodes are approved, i have watched all; proceed to post or schedule; times from schedule.json",
+          "platform": "youtube",
+          "time": "2026-11-17T20:30:00+05:30",
+          "video": "content/C0002/gu/C0002-gu.mp4",
+          "video_sha256": "8eca003f303fcdc92465ec8cf19e9a1cf104c2217b695e1f1606b95828e160c1",
+          "meta": "content/C0002/gu/publish.json",
+          "meta_sha256": "e54a4e1350b8fee0a0bf3813c8297d9ee1edab6c5d10cde8ee2eafbea4e10ba6",
+          "meta_hash_scope": "publish.json['youtube']"
+        },
+        "te": {
+          "status": "approved",
+          "at": "2026-11-16T18:49:58+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "owner in chat 2026-11-16: all episodes are approved, i have watched all; proceed to post or schedule; times from schedule.json",
+          "platform": "youtube",
+          "time": "2026-11-17T18:30:00+05:30",
+          "video": "content/C0002/te/C0002-te.mp4",
+          "video_sha256": "eef990baac4c087c28f476ae14a520b2a5a4f1ee19b3e961f70e60aa43aeee56",
+          "meta": "content/C0002/te/publish.json",
+          "meta_sha256": "6995b2b894ebc9d848cf466326a46db7446001661aa96ace938c72bcda94cc99",
+          "meta_hash_scope": "publish.json['youtube']"
         }
       },
       "history": [],
-      "at": "2026-11-16T15:41:52+0530",
-      "note": "migrated from legacy gate:publish"
+      "at": "2026-11-16T18:49:58+0530",
+      "note": "owner in chat 2026-11-16: all episodes are approved, i have watched all; proceed to post or schedule; times from schedule.json"
     },
     "gate:publish:instagram": {
       "status": "approved",
       "langs": [
         "en",
-        "hi"
+        "hi",
+        "te",
+        "gu"
       ],
       "entries": {
         "en": {
+          "status": "approved",
+          "at": "2026-11-16T18:40:39+0530",
+          "by": "owner",
+          "channel": "chat",
+          "note": "owner: Ep02 Instagram today",
+          "platform": "instagram",
+          "time": "2026-11-16T20:30:00+05:30",
+          "video": "content/C0002/en/C0002-en.mp4",
+          "video_sha256": "a13fd436383873198ac338d7dfddd5b3f7bd4fda237c0fa306dd5eeb114869c8",
+          "meta": "content/C0002/en/publish.json",
+          "meta_sha256": "3202c5c8876ad4384332e56e3be78fd7e2a996ce708b615da21c4d25535cd857",
+          "meta_hash_scope": "publish.json['instagram']"
+        },
+        "hi": {
+          "status": "approved",
+          "at": "2026-11-16T18:40:39+0530",
+          "by": "owner",
+          "channel": "chat",
+          "note": "owner: Ep02 Instagram today",
+          "platform": "instagram",
+          "time": "2026-11-16T20:00:00+05:30",
+          "video": "content/C0002/hi/C0002-hi.mp4",
+          "video_sha256": "567e41ac785883979634243c7b8fc3a2c99ce6dd953f5b550f129163b0e0dde7",
+          "meta": "content/C0002/hi/publish.json",
+          "meta_sha256": "8741e5fc356264f3725d265de91b016e833f4b811068e2a50ca1e385bfa31480",
+          "meta_hash_scope": "publish.json['instagram']"
+        },
+        "te": {
+          "status": "approved",
+          "at": "2026-11-16T19:01:04+0530",
+          "by": "owner",
+          "channel": "chat",
+          "note": "owner in chat 2026-11-16 19:00: \"i want insta ep2 for all languages to be released today, then ep3 tomorrow\"",
+          "platform": "instagram",
+          "time": "2026-11-16T21:00:00+05:30",
+          "video": "content/C0002/te/C0002-te.mp4",
+          "video_sha256": "eef990baac4c087c28f476ae14a520b2a5a4f1ee19b3e961f70e60aa43aeee56",
+          "meta": "content/C0002/te/publish.json",
+          "meta_sha256": "08a2b0d8d6ff2782048b4852e20bd78f51974335e5bd97081ff22278ec3ff801",
+          "meta_hash_scope": "publish.json['instagram']"
+        },
+        "gu": {
+          "status": "approved",
+          "at": "2026-11-16T19:01:04+0530",
+          "by": "owner",
+          "channel": "chat",
+          "note": "owner in chat 2026-11-16 19:00: \"i want insta ep2 for all languages to be released today, then ep3 tomorrow\"",
+          "platform": "instagram",
+          "time": "2026-11-16T21:30:00+05:30",
+          "video": "content/C0002/gu/C0002-gu.mp4",
+          "video_sha256": "8eca003f303fcdc92465ec8cf19e9a1cf104c2217b695e1f1606b95828e160c1",
+          "meta": "content/C0002/gu/publish.json",
+          "meta_sha256": "f114bf0b5643f35fd00840b9a4d3e24a61b9840cacd54213cb3c24523c256ce9",
+          "meta_hash_scope": "publish.json['instagram']"
+        }
+      },
+      "history": [
+        {
+          "lang": "hi",
+          "status": "approved",
+          "at": "2026-11-16T15:41:52+0530",
+          "by": "owner (legacy record)",
+          "channel": "legacy",
+          "note": "Instagram G3: owner approved Ep02 Reels for Tue 17 Nov evening (HI 20:00, EN 20:30 IST) with researched captions, AI label, audio names; gu/te await G2",
+          "platform": "instagram",
+          "time": "2026-11-17T20:00:00+05:30",
+          "video": "content/C0002/hi/C0002-hi.mp4",
+          "video_sha256": "567e41ac785883979634243c7b8fc3a2c99ce6dd953f5b550f129163b0e0dde7",
+          "meta": "content/C0002/hi/publish.json",
+          "meta_sha256": "8741e5fc356264f3725d265de91b016e833f4b811068e2a50ca1e385bfa31480",
+          "meta_hash_scope": "publish.json['instagram']",
+          "migrated_from_legacy": true,
+          "migrated_at": "2026-11-16T17:33:58+0530",
+          "evidence": {
+            "time": "2026-11-17T20:00:00+05:30",
+            "source": "launchd job",
+            "already_published": false
+          }
+        },
+        {
+          "lang": "en",
           "status": "approved",
           "at": "2026-11-16T15:41:52+0530",
           "by": "owner (legacy record)",
@@ -383,31 +518,79 @@
             "already_published": false
           }
         },
-        "hi": {
+        {
+          "lang": "te",
           "status": "approved",
-          "at": "2026-11-16T15:41:52+0530",
-          "by": "owner (legacy record)",
-          "channel": "legacy",
-          "note": "Instagram G3: owner approved Ep02 Reels for Tue 17 Nov evening (HI 20:00, EN 20:30 IST) with researched captions, AI label, audio names; gu/te await G2",
+          "at": "2026-11-16T18:40:38+0530",
+          "by": "owner",
+          "channel": "chat",
+          "note": "owner: Ep02 Instagram today",
           "platform": "instagram",
-          "time": "2026-11-17T20:00:00+05:30",
-          "video": "content/C0002/hi/C0002-hi.mp4",
-          "video_sha256": "567e41ac785883979634243c7b8fc3a2c99ce6dd953f5b550f129163b0e0dde7",
-          "meta": "content/C0002/hi/publish.json",
-          "meta_sha256": "8741e5fc356264f3725d265de91b016e833f4b811068e2a50ca1e385bfa31480",
-          "meta_hash_scope": "publish.json['instagram']",
-          "migrated_from_legacy": true,
-          "migrated_at": "2026-11-16T17:33:58+0530",
-          "evidence": {
-            "time": "2026-11-17T20:00:00+05:30",
-            "source": "launchd job",
-            "already_published": false
-          }
+          "time": "2026-11-16T19:00:00+05:30",
+          "video": "content/C0002/te/C0002-te.mp4",
+          "video_sha256": "eef990baac4c087c28f476ae14a520b2a5a4f1ee19b3e961f70e60aa43aeee56",
+          "meta": "content/C0002/te/publish.json",
+          "meta_sha256": "08a2b0d8d6ff2782048b4852e20bd78f51974335e5bd97081ff22278ec3ff801",
+          "meta_hash_scope": "publish.json['instagram']"
+        },
+        {
+          "lang": "gu",
+          "status": "approved",
+          "at": "2026-11-16T18:40:38+0530",
+          "by": "owner",
+          "channel": "chat",
+          "note": "owner: Ep02 Instagram today",
+          "platform": "instagram",
+          "time": "2026-11-16T19:30:00+05:30",
+          "video": "content/C0002/gu/C0002-gu.mp4",
+          "video_sha256": "8eca003f303fcdc92465ec8cf19e9a1cf104c2217b695e1f1606b95828e160c1",
+          "meta": "content/C0002/gu/publish.json",
+          "meta_sha256": "f114bf0b5643f35fd00840b9a4d3e24a61b9840cacd54213cb3c24523c256ce9",
+          "meta_hash_scope": "publish.json['instagram']"
+        },
+        {
+          "lang": "te",
+          "status": "approved",
+          "at": "2026-11-16T18:58:31+0530",
+          "by": "owner",
+          "channel": "chat",
+          "note": "owner in chat 2026-11-16 chose \"Tomorrow evening (Recommended)\" for Ep02 Instagram incl. TE 19:00 / GU 19:30; G2 recorded 18:40",
+          "platform": "instagram",
+          "time": "2026-11-17T19:00:00+05:30",
+          "video": "content/C0002/te/C0002-te.mp4",
+          "video_sha256": "eef990baac4c087c28f476ae14a520b2a5a4f1ee19b3e961f70e60aa43aeee56",
+          "meta": "content/C0002/te/publish.json",
+          "meta_sha256": "08a2b0d8d6ff2782048b4852e20bd78f51974335e5bd97081ff22278ec3ff801",
+          "meta_hash_scope": "publish.json['instagram']"
+        },
+        {
+          "lang": "gu",
+          "status": "approved",
+          "at": "2026-11-16T18:58:31+0530",
+          "by": "owner",
+          "channel": "chat",
+          "note": "owner in chat 2026-11-16 chose \"Tomorrow evening (Recommended)\" for Ep02 Instagram incl. TE 19:00 / GU 19:30; G2 recorded 18:40",
+          "platform": "instagram",
+          "time": "2026-11-17T19:30:00+05:30",
+          "video": "content/C0002/gu/C0002-gu.mp4",
+          "video_sha256": "8eca003f303fcdc92465ec8cf19e9a1cf104c2217b695e1f1606b95828e160c1",
+          "meta": "content/C0002/gu/publish.json",
+          "meta_sha256": "f114bf0b5643f35fd00840b9a4d3e24a61b9840cacd54213cb3c24523c256ce9",
+          "meta_hash_scope": "publish.json['instagram']"
         }
-      },
-      "history": [],
-      "at": "2026-11-16T15:41:52+0530",
-      "note": "migrated from legacy gate:publish"
+      ],
+      "at": "2026-11-16T19:01:04+0530",
+      "note": "owner in chat 2026-11-16 19:00: \"i want insta ep2 for all languages to be released today, then ep3 tomorrow\""
+    },
+    "instagram_scheduled:te": {
+      "status": "done",
+      "at": "2026-11-16T19:01:11+0530",
+      "note": "2026-11-16T21:00:00+05:30"
+    },
+    "instagram_scheduled:gu": {
+      "status": "done",
+      "at": "2026-11-16T19:01:11+0530",
+      "note": "2026-11-16T21:30:00+05:30"
     }
   },
   "platforms": [

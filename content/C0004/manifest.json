@@ -166,7 +166,9 @@
       "status": "approved",
       "langs": [
         "en",
-        "hi"
+        "hi",
+        "gu",
+        "te"
       ],
       "entries": {
         "en": {
@@ -190,9 +192,52 @@
           "file": "content/C0004/hi/C0004-hi.mp4",
           "migrated_from_legacy": true,
           "migrated_at": "2026-11-16T17:30:55+0530"
+        },
+        "gu": {
+          "status": "approved",
+          "at": "2026-11-16T18:58:30+0530",
+          "by": "owner",
+          "channel": "chat",
+          "note": "owner in chat 2026-11-16: \"i wastched all, all are approved\"",
+          "sha256": "325dc14abf5f94af00e4ee9cb29fec84bf685e2757bf104a4ef10b273c4e8a8d",
+          "file": "content/C0004/gu/C0004-gu.mp4",
+          "qa_report_id": 48
+        },
+        "te": {
+          "status": "approved",
+          "at": "2026-11-16T18:58:31+0530",
+          "by": "owner",
+          "channel": "chat",
+          "note": "owner in chat 2026-11-16: \"i wastched all, all are approved\"",
+          "sha256": "c916e9f28d60202fcff1a85c5614e96dc0f6ee8e2489d27fe1b7746fafdfadc3",
+          "file": "content/C0004/te/C0004-te.mp4",
+          "qa_report_id": 49
         }
       },
-      "history": [],
+      "history": [
+        {
+          "lang": "gu",
+          "status": "approved",
+          "at": "2026-11-16T18:49:57+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "owner in chat 2026-11-16: all episodes are approved, i have watched all; proceed to post or schedule",
+          "sha256": "325dc14abf5f94af00e4ee9cb29fec84bf685e2757bf104a4ef10b273c4e8a8d",
+          "file": "content/C0004/gu/C0004-gu.mp4",
+          "qa_report_id": 48
+        },
+        {
+          "lang": "te",
+          "status": "approved",
+          "at": "2026-11-16T18:49:57+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "owner in chat 2026-11-16: all episodes are approved, i have watched all; proceed to post or schedule",
+          "sha256": "c916e9f28d60202fcff1a85c5614e96dc0f6ee8e2489d27fe1b7746fafdfadc3",
+          "file": "content/C0004/te/C0004-te.mp4",
+          "qa_report_id": 49
+        }
+      ],
       "legacy": {
         "status": "approved",
         "at": "2026-11-16T09:56:56+0530",
@@ -202,8 +247,8 @@
           "hi"
         ]
       },
-      "at": "2026-11-16T09:56:56+0530",
-      "note": "owner approved in chat 2026-11-16"
+      "at": "2026-11-16T18:58:31+0530",
+      "note": "owner in chat 2026-11-16: \"i wastched all, all are approved\""
     },
     "gate:publish": {
       "status": "approved",
@@ -257,13 +302,13 @@
     },
     "video_qa:gu": {
       "status": "done",
-      "at": "2026-11-16T15:19:27+0530",
-      "note": "auto QA WARN/PASS (ASR only); native-script verse and title cards checked"
+      "at": "2026-11-16T17:54:21+0530",
+      "note": "warn (report #48)"
     },
     "video_qa:te": {
       "status": "done",
-      "at": "2026-11-16T15:19:27+0530",
-      "note": "auto QA WARN/PASS (ASR only); native-script verse and title cards checked"
+      "at": "2026-11-16T18:39:30+0530",
+      "note": "warn (report #49)"
     },
     "voice_qa:gu": {
       "status": "done",
@@ -287,7 +332,9 @@
       "status": "approved",
       "langs": [
         "en",
-        "hi"
+        "hi",
+        "gu",
+        "te"
       ],
       "entries": {
         "en": {
@@ -332,11 +379,129 @@
             "already_published": true
           },
           "meta_hash_scope": "publish.json['youtube']"
+        },
+        "gu": {
+          "status": "approved",
+          "at": "2026-11-16T18:49:58+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "owner in chat 2026-11-16: all episodes are approved, i have watched all; proceed to post or schedule; times from schedule.json",
+          "platform": "youtube",
+          "time": "2026-11-19T12:30:00+05:30",
+          "video": "content/C0004/gu/C0004-gu.mp4",
+          "video_sha256": "325dc14abf5f94af00e4ee9cb29fec84bf685e2757bf104a4ef10b273c4e8a8d",
+          "meta": "content/C0004/gu/publish.json",
+          "meta_sha256": "42aa551afc9c0b4551cd100bbb7bf386e999b7ff4fae0530157320bf4960768f",
+          "meta_hash_scope": "publish.json['youtube']"
+        },
+        "te": {
+          "status": "approved",
+          "at": "2026-11-16T18:49:58+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "owner in chat 2026-11-16: all episodes are approved, i have watched all; proceed to post or schedule; times from schedule.json",
+          "platform": "youtube",
+          "time": "2026-11-19T12:30:00+05:30",
+          "video": "content/C0004/te/C0004-te.mp4",
+          "video_sha256": "c916e9f28d60202fcff1a85c5614e96dc0f6ee8e2489d27fe1b7746fafdfadc3",
+          "meta": "content/C0004/te/publish.json",
+          "meta_sha256": "fb0a6b53d3d9a2b01c5275022372e61a0749f295340701cf0192a1c46624c5a3",
+          "meta_hash_scope": "publish.json['youtube']"
         }
       },
       "history": [],
-      "at": "2026-11-16T09:56:56+0530",
-      "note": "migrated from legacy gate:publish"
+      "at": "2026-11-16T18:49:58+0530",
+      "note": "owner in chat 2026-11-16: all episodes are approved, i have watched all; proceed to post or schedule; times from schedule.json"
+    },
+    "gate:publish:instagram": {
+      "status": "approved",
+      "langs": [
+        "te",
+        "gu",
+        "hi",
+        "en"
+      ],
+      "entries": {
+        "te": {
+          "status": "approved",
+          "at": "2026-11-16T18:49:59+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "owner in chat 2026-11-16: all episodes are approved, i have watched all; proceed to post or schedule; Instagram one episode per evening",
+          "platform": "instagram",
+          "time": "2026-11-18T19:00:00+05:30",
+          "video": "content/C0004/te/C0004-te.mp4",
+          "video_sha256": "c916e9f28d60202fcff1a85c5614e96dc0f6ee8e2489d27fe1b7746fafdfadc3",
+          "meta": "content/C0004/te/publish.json",
+          "meta_sha256": "af3ebdb526914f5dec75591a8acca8a2fba2440867068d87fb80c39fffa39487",
+          "meta_hash_scope": "publish.json['instagram']"
+        },
+        "gu": {
+          "status": "approved",
+          "at": "2026-11-16T18:50:00+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "owner in chat 2026-11-16: all episodes are approved, i have watched all; proceed to post or schedule; Instagram one episode per evening",
+          "platform": "instagram",
+          "time": "2026-11-18T19:30:00+05:30",
+          "video": "content/C0004/gu/C0004-gu.mp4",
+          "video_sha256": "325dc14abf5f94af00e4ee9cb29fec84bf685e2757bf104a4ef10b273c4e8a8d",
+          "meta": "content/C0004/gu/publish.json",
+          "meta_sha256": "2617a7f82be773e20d6ae9b365c8f1524ddfb62a58c3dcbf10717e30b3f2908a",
+          "meta_hash_scope": "publish.json['instagram']"
+        },
+        "hi": {
+          "status": "approved",
+          "at": "2026-11-16T18:50:00+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "owner in chat 2026-11-16: all episodes are approved, i have watched all; proceed to post or schedule; Instagram one episode per evening",
+          "platform": "instagram",
+          "time": "2026-11-18T20:00:00+05:30",
+          "video": "content/C0004/hi/C0004-hi.mp4",
+          "video_sha256": "c3d718df2a1c1377f9b2b1971aac0960049435d182531dd92fe7cee1a22a4605",
+          "meta": "content/C0004/hi/publish.json",
+          "meta_sha256": "6590496d5f8030604c9812692a34294c87ab87c6859ad16f6a74f949ee345a9d",
+          "meta_hash_scope": "publish.json['instagram']"
+        },
+        "en": {
+          "status": "approved",
+          "at": "2026-11-16T18:50:00+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "owner in chat 2026-11-16: all episodes are approved, i have watched all; proceed to post or schedule; Instagram one episode per evening",
+          "platform": "instagram",
+          "time": "2026-11-18T20:30:00+05:30",
+          "video": "content/C0004/en/C0004-en.mp4",
+          "video_sha256": "9d4f821ce5df00254da651f90a71bf1bc671f13a07846b33ba77722891f80971",
+          "meta": "content/C0004/en/publish.json",
+          "meta_sha256": "f472350aa03fbbecb7c8ad2e69aa6f6638951f3d34d2e927e2862018e1c3f456",
+          "meta_hash_scope": "publish.json['instagram']"
+        }
+      },
+      "history": [],
+      "at": "2026-11-16T18:50:00+0530",
+      "note": "owner in chat 2026-11-16: all episodes are approved, i have watched all; proceed to post or schedule; Instagram one episode per evening"
+    },
+    "instagram_scheduled:te": {
+      "status": "done",
+      "at": "2026-11-16T18:50:00+0530",
+      "note": "2026-11-18T19:00:00+05:30"
+    },
+    "instagram_scheduled:gu": {
+      "status": "done",
+      "at": "2026-11-16T18:50:00+0530",
+      "note": "2026-11-18T19:30:00+05:30"
+    },
+    "instagram_scheduled:hi": {
+      "status": "done",
+      "at": "2026-11-16T18:50:00+0530",
+      "note": "2026-11-18T20:00:00+05:30"
+    },
+    "instagram_scheduled:en": {
+      "status": "done",
+      "at": "2026-11-16T18:50:00+0530",
+      "note": "2026-11-18T20:30:00+05:30"
     }
   },
   "qa_exempt": {
@@ -348,5 +513,9 @@
     "reason": "back-catalogue: en/hi published before the 60 s rule; gu/te mirror them scene by scene",
     "decided_by": "owner",
     "decided_at": "2026-11-16"
-  }
+  },
+  "platforms": [
+    "youtube",
+    "instagram"
+  ]
 }
