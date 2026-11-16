@@ -105,26 +105,33 @@
       "at": "2026-11-16T03:09:49+0530",
       "note": "QA speaker_consistency PASS"
     },
-    "gate:final": {
-      "status": "approved",
-      "at": "2026-11-16T03:13:57+0530",
-      "note": "Owner approved English only; Hindi rejected for pronunciation (2026-11-16)",
-      "langs": [
-        "en"
-      ]
-    },
-    "gate:publish": {
-      "status": "approved",
-      "at": "2026-11-16T03:13:57+0530",
-      "note": "Owner approved English; Tue 2026-11-17 21:30 IST",
-      "langs": [
-        "en"
-      ]
-    },
     "published:en": {
       "status": "done",
       "at": "2026-11-16T03:14:23+0530",
       "note": "2026-11-17T21:30:00+05:30"
+    },
+    "gate:final": {
+      "status": "approved",
+      "at": "2026-11-16T08:29:38+0530",
+      "note": "Owner approved EN (earlier) and HI Maya2 Malini (2026-11-16)",
+      "langs": [
+        "en",
+        "hi"
+      ]
+    },
+    "gate:publish": {
+      "status": "approved",
+      "at": "2026-11-16T08:29:38+0530",
+      "note": "HI Tue 2026-11-17 20:30 IST; EN already scheduled 21:30",
+      "langs": [
+        "en",
+        "hi"
+      ]
+    },
+    "published:hi": {
+      "status": "done",
+      "at": "2026-11-16T08:30:09+0530",
+      "note": "2026-11-17T20:30:00+05:30"
     }
   }
 }

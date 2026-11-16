@@ -226,7 +226,7 @@ shorts-studio/
 - **C0003 (Episode 03):**
   - **EN** is scheduled for Tue 2026-11-17 21:30 IST (`XziMigS1G0w`).
   - **HI:** the owner rejected the Veena version for pronunciation. It was re-voiced with **Maya 2 Malini**, and QA passes, including speaker consistency with the per-voice calibration.
-  - **Waiting:** the owner listens to `content/C0003/hi/C0003-hi.mp4`, then G2/G3 for HI.
+  - **HI (Malini) approved by the owner and scheduled** for Tue 2026-11-17 20:30 IST (`fPFUIizlkl4`).
 - **Voice decision (2026-11-16):** Hindi moves from Veena kavya to Maya 2 Malini, chosen via a listening pack (`python -m pipeline voicepack`). Malini is far more accurate and about 6× faster. Voice QA is now per voice: a stored reference centroid plus calibrated thresholds.
 - **Other changes:** QA normalizes ज्ञ↔ग्य; the Veena lead-in was reverted; the audio folder records the voice used (`audio/voice.txt`) and QA uses it.
 - **Pending:** analytics sign-in; an optional HF token (Indic-Speak comparison); consider re-voicing Episode 01/02 Hindi with Malini (owner decision); the scene 8 image (the divine being didn't render) could be retried.

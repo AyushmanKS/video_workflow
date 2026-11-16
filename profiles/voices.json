@@ -12,7 +12,7 @@
     "voice": "maya2:Malini",
     "engine": "Maya 2 Native (maya-research/maya2-native, Apache-2.0) via mlx-audio maya2",
     "speed": null,
-    "evidence": "2026-11-16 listening pack (content/C0003/hi/voicepack): line CER 0.02/0.05/0.00 vs Veena 0.09/0.24/0.08; ~real-time on M5 Air vs Veena ~5x slower; full Ep03 narration in 83 s",
+    "evidence": "2026-11-16 listening pack (content/C0003/hi/voicepack): line CER 0.02/0.05/0.00 vs Veena 0.09/0.24/0.08; ~real-time on M5 Air vs Veena ~5x slower; full Ep03 narration in 83 s; owner approved C0003-hi by ear 2026-11-16",
     "qa": "per-voice speaker reference profiles/voices/hi_Malini_ref.npy + thresholds in _speaker_thresholds; regenerate any scene with window <0.45 or pitch >7 semitones from median",
     "speaker_reference": "profiles/voices/hi_kavya_ref.npy (+ .wav), ECAPA embedding of a stable kavya take",
     "incident": "2026-11-16: phrase-level chunking caused speaker drift (different female and male voices) in Ep01-hi and C0002-hi; fixed",
@@ -24,8 +24,7 @@
       "voice": "veena:kavya",
       "status": "retired 2026-11-16",
       "reason": "owner rejected Ep03 Hindi for pronunciation errors"
-    },
-    "pending": "owner native listen of C0003-hi (Malini) before publish"
+    }
   },
   "mr": {
     "status": "untested",
