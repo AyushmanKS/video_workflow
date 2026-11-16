@@ -42,7 +42,25 @@ def fail(where, r):
 
 
 def call(method, url, where, **kw):
-    r = requests.request(method, url, timeout=kw.pop("timeout", 60), **kw)
+    timeout = kw.pop("timeout", 60)
+    headers = dict(kw.pop("headers", {}) or {})
+    for key in ("params", "data"):
+        if kw.get(key) and "access_token" in kw[key] and "/access_token" not in url and "/refresh_access_token" not in url:
+            kw[key] = dict(kw[key])
+            headers["Authorization"] = f"Bearer {kw[key].pop('access_token')}"
+    last = None
+    for attempt in range(6):
+        try:
+            r = requests.request(method, url, timeout=timeout, headers=headers, **kw)
+            break
+        except requests.ConnectionError as e:
+            last = e
+            if method != "GET" and not isinstance(e, requests.ConnectTimeout):
+                sys.exit(f"Network error during {where} after the request may have reached Instagram; not retrying to avoid a duplicate. Check the account before retrying.")
+            print(f"  network timeout during {where}; retrying ({attempt + 1}/5)", flush=True)
+            time.sleep(10 * (attempt + 1))
+    else:
+        sys.exit(f"Network unreachable during {where}: {type(last).__name__}")
     if r.status_code >= 400:
         fail(where, r)
     return r.json()
