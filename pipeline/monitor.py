@@ -175,7 +175,7 @@ def fmt_overview(o):
         f"Published:              {pub}",
         f"Failed tasks:           {o['failed_tasks']}",
         f"Needs attention:        {o['needs_attention_tasks']} tasks · open issues: {iss}",
-        f"Notifications pending:  {o['outbox_pending']} (Phase 2 sends them)",
+        f"Notifications pending:  {o['outbox_pending']} (the Telegram bot sends them)",
         f"Last live event:        {o['last_live_event'] or 'none yet'}",
     ]
     return "\n".join(lines)

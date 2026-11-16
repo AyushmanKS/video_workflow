@@ -320,3 +320,94 @@ Hierarchy: workspace → `projects` → videos (`contents`/`variants`) → tasks
 - **Instrumented:** `db.Run` (started/completed/failed), produce voice/images progress (files on disk, `events.Watch`), QA verdicts, approve/reject/waive and waiting-for-approval (G1 after `done script`, G2 after a non-failing video QA, G3 after `done metadata`), publish-queue (queued, status changes, upload start, limit/quota backoff, failure), `publish.py` (YouTube chunk progress at most every 10 %, uploaded/published, failures incl. `unknown_outcome`), `instagram.py` (tunnel live, container created, processing state), Instagram launchd jobs (installed, fired, skipped when over 24 h late, tunnel retries), analytics per platform.
 - **CLI:** `events [--video V] [--since H] [--project P] [--kind K] [--backfill]`, `issues [--open] [--full]`, `issue show|resolve|ack <id>`, `projects [add <slug> --name … --languages …]`, `overview [--json]`.
 - **Backfill (once, `events --backfill`):** 737 events from runs, QA reports, decisions, publications, publish-queue, `publish_run.log` and `data/logs/ig-*.log`, all with `detail.backfilled=true` and no outbox rows. Result: 21 issues, 18 resolved (e.g. Ep02 Instagram "API access blocked" ×2 and the container 18180328639433140 unknown outcome, resolved by the later successful posts), 3 open (C0001-gu and C0005-hi YouTube upload limit, waiting in the queue; C0005-en latest QA report fails).
+
+## Phases 2 and 3 implemented (2026-11-16): Telegram notifications and the mobile dashboard
+
+**Owner decisions behind these phases:** notifications come from a private Telegram bot. The dashboard is reached through a Cloudflare **quick tunnel** (trycloudflare.com: free, no account), and its current address plus a secret sign-in link are sent through Telegram. Both services run on the Mac at zero cost. These decisions override the "avoid quick tunnels" advice in §10 for the read-only dashboard. Approvals stay in the Claude chat until Phase 4. The bot and dashboard are **read-only**, except for acknowledging issues.
+
+### What runs
+| launchd label | Command | Log | Notes |
+|---|---|---|---|
+| `com.shortsstudio.queue` | `python -m pipeline publish-queue run` | `data/logs/queue.log` | YouTube upload queue. `service install` leaves it alone unless you pass `queue --restart` |
+| `com.shortsstudio.bot` | `python -m pipeline bot run` | `data/logs/bot.log` | Long polling only (outbound HTTPS, no webhook, no open port). Drains the outbox every 5 s and writes a heartbeat to `data/bot_state.json`. Without a token it idles and logs once |
+| `com.shortsstudio.dashboard` | `python -m pipeline dashboard run` | `data/logs/dashboard.log` | `ThreadingHTTPServer` on `127.0.0.1:8765` plus a supervised `cloudflared tunnel --url` child process |
+
+All three use `KeepAlive`, `RunAtLoad`, `PYTHONUNBUFFERED` and the repo working directory. Measured at idle: about 0 % CPU and 30–35 MB RSS each.
+
+### Commands
+```
+python -m pipeline service status                  # all three services
+python -m pipeline service install                 # bot + dashboard (queue untouched)
+python -m pipeline service install bot --restart   # restart one service
+python -m pipeline service install queue --restart # only when you really want to restart the queue
+python -m pipeline service remove bot dashboard
+python -m pipeline telegram status | test | drain  # drain only works while the bot service is stopped
+python -m pipeline dashboard link                  # queue the sign-in link to Telegram (--show prints it in this terminal)
+python -m pipeline dashboard rotate-key            # new key + cookie secret; signs every phone out and queues the new link
+```
+
+### Telegram setup (one time; already done for @Chalkstudiobot)
+1. In @BotFather: `/newbot`. Set **Allow Groups** to off.
+2. On the Mac: `pbpaste | python -m pipeline telegram setup --token-from-stdin`, or set `TELEGRAM_BOT_TOKEN`. This validates the token with `getMe` and writes `secrets/telegram.json` with mode 600. The token is never printed, and logs redact it (`explain.redact` has a Telegram token pattern).
+3. Run `python -m pipeline telegram pair` and send `/pair <6-digit code>` to the bot from your phone within 10 minutes. The bot stores `owner_chat_id`/`owner_user_id`.
+   - If the bot service is running, pairing goes through the service; otherwise the command polls Telegram itself.
+4. After pairing, every update from another chat, from a group, or from a different user is dropped without a reply and logged by id only.
+5. On its first start the bot skips messages sent before it existed (`getUpdates offset=-1`).
+
+### Notifications
+- **Source:** `events.emit()` writes rows to `outbox`. Repeats of the same issue are stored as `suppressed`; only the first occurrence, a reopen, a severity change or the 3rd/10th/50th occurrence is `pending`.
+- **Sending:** `notify.drain()` sends `pending` rows (HTML parse mode, escaped) at most 1 per second.
+  - When more than 5 rows are due at once, they go out as **one digest**. Critical issues and local messages, such as the dashboard link, are still sent on their own.
+  - A row is claimed (`sending`), sent, then marked `sent` with the Telegram `message_id`. A `sent` row is never sent again.
+- **Retries:** 429 waits for `retry_after`; 5xx and network errors back off 15 s → 1 h. After 10 attempts, or on a permanent 4xx, the row becomes `failed`.
+  - If Telegram can't parse the HTML, the message is sent again as plain text.
+  - A row stuck in `sending` for 5 min (crash mid-send) goes back to `pending`.
+- **Secret links:** after sending, the sign-in link is removed from the stored payload.
+- **Failure format:** `❌ Upload failed — Ramayana Ep04 (Hindi)` / `Reason:` / `Details:` / `Action:` / `Retry safe:` / `Video: C0004-HI` / `At: 10:42 PM` / `Log:`.
+  - The headline changes with the stage and kind: `❓ … outcome unknown`, `⏳ Upload delayed`, `Render failed`, `QA failed`, `Blocked at G2 final video`. A repeat adds `(3×)`.
+- **Other messages are short:** `✅ Uploaded to YouTube — …`, `✅ Posted on Instagram — …`, `📝 Approval needed (G1 script) — …`, `✅ Recovered — …`, `💻 Mac online — …`.
+- **Bot commands:** `/status`, `/overview`, `/issues`, `/queue`, `/uploads`, `/timeline [C0006-hi]`, `/link`, `/ack <id>` (acknowledge only) and `/help`.
+
+### Dashboard
+- **Pages:** Overview, Projects, Queue (filters for project, language, stage, status and date), Uploads (YouTube queue, measured upload progress only, Instagram jobs, publications, upload problems), Issues (with an Acknowledge button), Timeline (per-video history with `?video=`) and Analytics (latest snapshot per video, latest insights findings and actions, next 20:00 collection).
+- **Server-rendered:** HTML with one small vanilla-JS file; no new dependencies.
+- **Paths:** absolute paths are cut back to repo-relative paths, and home directories become `~`.
+- **Sign-in:**
+  - `secrets/dashboard.json` (mode 600) holds a random 32-byte `login_key` and `cookie_secret`.
+  - `/login?k=<key>` is compared in constant time, then sets `ss_session`: HMAC-signed, expiry 30 days, `HttpOnly; Secure; SameSite=Strict`. It then redirects to `/` so the key leaves the address bar.
+  - Failed logins are limited to 5 per IP (from `CF-Connecting-IP`) and 30 in total per 15 min, then return 429.
+  - Every page and API requires the cookie; without it you get a 401 page.
+  - Only a fixed set of static files is public: CSS, JS, manifest, service worker, icons, offline page and `/healthz`. Everything else returns 404; there is no file serving and no directory listing.
+- **Security:**
+  - Headers: CSP `default-src 'self'` (no inline script), `X-Frame-Options: DENY`, `Referrer-Policy: no-referrer`, `nosniff`, and `Cache-Control: no-store` on pages.
+  - Ack is a POST with a per-session CSRF token and a same-origin `Origin` check.
+  - Request logs never include query strings.
+- **Live updates:** one shared poller reads `events` every 3 s, and only while someone is watching.
+  - Local browsers get Server-Sent Events (`/events/stream`).
+  - **Measured on 2026-11-16:** the quick tunnel buffers streamed responses until they close. SSE and chunked plain text behaved the same with 2 KB and 70 KB padding. So pages opened through the tunnel automatically use **polling** of `/api/events` every 10 s, and `/events/stream` answers 409 to tunnel requests.
+- **Tunnel manager:**
+  - It starts `cloudflared tunnel --no-autoupdate --url http://127.0.0.1:8765`, reads the `*.trycloudflare.com` address from stderr, and confirms `/healthz` from outside.
+  - It stores the address in `data/dashboard_url.json`. When the address changes it queues a Telegram message with the sign-in link.
+  - It checks the address every 5 min, restarts cloudflared after 3 failed checks or if it exits (backoff 10 s → 5 min), and stops a stale child process from a previous run.
+  - Cloudflare documents quick tunnels as for testing only, with no uptime guarantee, so expect occasional new addresses.
+
+### Android steps
+1. Open the **Dashboard** message from the bot and tap **Open the dashboard**. Chrome opens, signs in and keeps you signed in for 30 days.
+2. In Chrome, tap ⋮ → **Add to Home screen** (or **Install app**). The app opens full-screen.
+3. **When the address changes** (Mac restart, cloudflared restart, quick-tunnel drop), the bot sends a new link.
+   - The old home-screen icon points at the dead address and shows the offline page.
+   - Open the new link from Telegram, then add it to the home screen again and remove the old icon. A quick-tunnel address can't be kept stable for free.
+4. Send `/link` to the bot at any time to get the current link again.
+
+### When things are offline
+- **Mac asleep or lid closed:** no notifications are sent, and the dashboard shows the cached "Mac unreachable" page.
+  - Events still go into the outbox; when the Mac wakes, the bot sends them (as one digest if more than 5).
+  - If the bot was down for over 10 minutes, it says `💻 Mac online — … offline since …`.
+- **Mac offline but awake:** the same as above. cloudflared reconnects by itself, and if the address changes you get a new link.
+- **Phone offline:** Telegram delivers the queued messages when the phone reconnects, and the dashboard shows the offline page until then.
+
+### Troubleshooting
+- **No messages:** run `python -m pipeline service status` and `tail data/logs/bot.log`, then `python -m pipeline telegram status` to see outbox counts. `telegram test` sends one message.
+- **Dashboard link dead:** send `/link`. If there's still no address, `tail data/logs/dashboard.log` and `python -m pipeline service install dashboard --restart`.
+- **"Link not valid":** the key was rotated, so use the newest link. **"Too many attempts":** wait 15 min.
+- **A leaked link:** run `python -m pipeline dashboard rotate-key`. **A leaked bot token:** `/revoke` it in BotFather, then run `telegram setup` again.

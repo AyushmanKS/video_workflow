@@ -918,6 +918,93 @@ def cmd_overview(a):
     print(json.dumps(o, indent=2, ensure_ascii=False, default=str) if a.json else monitor.fmt_overview(o))
 
 
+def cmd_telegram(a):
+    import os
+
+    from . import notify, service
+
+    if a.action == "setup":
+        token = sys.stdin.readline().strip() if a.token_from_stdin else os.environ.get("TELEGRAM_BOT_TOKEN", "").strip()
+        if not token:
+            sys.exit("Give the token on stdin (--token-from-stdin) or in TELEGRAM_BOT_TOKEN. It is never printed.")
+        try:
+            me = notify.setup(token)
+        except ValueError as e:
+            sys.exit(str(e))
+        except notify.TelegramError as e:
+            sys.exit(f"Telegram rejected the token: {e}")
+        print(f"Saved secrets/telegram.json (mode 600) for bot @{me.get('username')}. Next: python -m pipeline telegram pair")
+    elif a.action == "pair":
+        cfg = notify.pair_cli(a.minutes, bot_running=service.running("bot"))
+        print(f"Paired with chat {cfg['owner_chat_id']}. Other chats are ignored.")
+    elif a.action == "status":
+        cfg = notify.load_config()
+        has, paired = notify.configured(cfg)
+        print(f"token: {'set' if has else 'missing'} (bot @{cfg.get('bot_username') or '?'}) · paired: {'yes, chat ' + str(cfg['owner_chat_id']) if paired else 'no'}")
+        print(f"outbox: {json.dumps(notify.counts())}")
+        print(service.fmt(service.state("bot")))
+    elif a.action == "test":
+        cfg = notify.load_config()
+        if not notify.configured(cfg)[1]:
+            sys.exit("Not set up or not paired yet.")
+        notify.Telegram(cfg["bot_token"]).send(cfg["owner_chat_id"], "✅ Test message from shorts-studio on the Mac.")
+        print("sent")
+    elif a.action == "drain":
+        cfg = notify.load_config()
+        if not notify.configured(cfg)[1]:
+            sys.exit("Not set up or not paired yet.")
+        if service.running("bot"):
+            sys.exit("The bot service is running and drains the outbox itself.")
+        print(f"sent {notify.drain(notify.Telegram(cfg['bot_token']), cfg['owner_chat_id'])} message(s)")
+
+
+def cmd_bot(a):
+    from . import bot
+
+    bot.run()
+
+
+def cmd_dashboard(a):
+    from . import dashboard, notify
+
+    if a.action == "run":
+        dashboard.run(a.port, tunnel=not a.no_tunnel)
+    elif a.action == "rotate-key":
+        dashboard.rotate_key()
+        print("New login key and cookie secret saved in secrets/dashboard.json; every phone must sign in again.")
+        msg = dashboard.link_message("key rotated, sign in again")
+        if msg:
+            notify.enqueue_local("Dashboard link", msg, secret=True)
+            print("The new sign-in link is queued for Telegram.")
+    elif a.action == "link":
+        info = dashboard.read_url()
+        print(f"address: {info.get('url') or 'none yet'} (since {info.get('since') or '-'}, checked {info.get('checked_at') or '-'})")
+        if a.show:
+            print(dashboard.login_link() or "no tunnel address yet")
+        else:
+            msg = dashboard.link_message("sent from the Mac")
+            if msg:
+                notify.enqueue_local("Dashboard link", msg, secret=True)
+                print("Sign-in link queued for Telegram (use --show to print it here instead).")
+
+
+def cmd_service(a):
+    from . import service
+
+    names = a.names or None
+    bad = [n for n in (names or []) if n not in service.SERVICES]
+    if bad:
+        sys.exit(f"unknown service(s): {', '.join(bad)} (choose from queue, bot, dashboard)")
+    if a.action == "install":
+        service.install(names, restart=a.restart)
+    elif a.action == "remove":
+        if not names:
+            sys.exit("Name the services to remove: queue, bot, dashboard")
+        service.remove(names)
+    for st in service.status(names):
+        print(service.fmt(st))
+
+
 def main():
     ap = argparse.ArgumentParser(prog="python -m pipeline", description="shorts-studio orchestration: research → script → production → QA → publish → analytics")
     sp = ap.add_subparsers(dest="cmd", required=True)
@@ -954,6 +1041,10 @@ def main():
     p = sp.add_parser("issue", help="issue show|resolve|ack <id>"); p.add_argument("action", choices=["show", "resolve", "ack"]); p.add_argument("issue_id", type=int); p.add_argument("--note"); p.set_defaults(fn=cmd_issue)
     p = sp.add_parser("projects", help="list projects, or add <slug> --name ... --languages en,hi"); p.add_argument("action", nargs="?", choices=["list", "add"], default="list"); p.add_argument("slug", nargs="?"); p.add_argument("--name"); p.add_argument("--languages"); p.add_argument("--description"); p.add_argument("--objective"); p.add_argument("--workflow", help="comma list of stage names in order"); p.set_defaults(fn=cmd_projects)
     p = sp.add_parser("overview", help="workspace counts from the database and manifests (no estimates)"); p.add_argument("--json", action="store_true"); p.set_defaults(fn=cmd_overview)
+    p = sp.add_parser("telegram", help="private Telegram bot: setup (token from stdin or TELEGRAM_BOT_TOKEN), pair, status, test, drain"); p.add_argument("action", choices=["setup", "pair", "status", "test", "drain"]); p.add_argument("--token-from-stdin", action="store_true"); p.add_argument("--minutes", type=int, default=10); p.set_defaults(fn=cmd_telegram)
+    p = sp.add_parser("bot", help="run the Telegram bot daemon (launchd com.shortsstudio.bot)"); p.add_argument("action", choices=["run"]); p.set_defaults(fn=cmd_bot)
+    p = sp.add_parser("dashboard", help="read-only mobile dashboard: run (127.0.0.1 + quick tunnel), rotate-key, link"); p.add_argument("action", choices=["run", "rotate-key", "link"]); p.add_argument("--port", type=int, default=8765); p.add_argument("--no-tunnel", action="store_true"); p.add_argument("--show", action="store_true", help="link: print the secret sign-in link in this terminal"); p.set_defaults(fn=cmd_dashboard)
+    p = sp.add_parser("service", help="launchd services queue, bot, dashboard: install|remove|status [names]"); p.add_argument("action", choices=["install", "remove", "status"]); p.add_argument("names", nargs="*", help="queue, bot, dashboard (install default: bot dashboard)"); p.add_argument("--restart", action="store_true", help="rewrite and restart even if loaded (needed to touch the queue)"); p.set_defaults(fn=cmd_service)
     a = ap.parse_args()
     a.fn(a)
 

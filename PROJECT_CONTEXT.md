@@ -242,6 +242,12 @@ shorts-studio/
   - **Token rotation:** the token was pasted in chat once; rotate it (revoke in Business settings, regenerate, `instagram.py setup` in the owner's own terminal).
 - **Pending:** the owner must enable the YouTube Analytics API in GCP project 145069760719, then run `python -m pipeline analytics --force`; optional HF token (Indic-Speak/IndicConformer); old-episode Hindi re-voice was declined by the owner (2026-11-16); after each video goes live, the owner adds pinned comments and Related-video links manually.
 
+- **Monitoring Phases 2–3 (2026-11-16, details in `docs/MOBILE_CONTROL_ARCHITECTURE.md` "Phases 2 and 3 implemented"):**
+  - **What runs:** the private Telegram bot `@Chalkstudiobot` (`pipeline/bot.py`, `pipeline/notify.py`) and the read-only mobile dashboard (`pipeline/dashboard.py`, `127.0.0.1:8765` behind a cloudflared quick tunnel). They run as launchd `com.shortsstudio.bot` and `com.shortsstudio.dashboard`; manage them with `python -m pipeline service install|remove|status` (the queue is left alone unless you pass `queue --restart`).
+  - **Secrets:** `secrets/telegram.json` and `secrets/dashboard.json` (mode 600).
+  - **Dashboard address:** the current address is in `data/dashboard_url.json`, and a new sign-in link is sent to Telegram whenever it changes (`/link` re-sends it).
+  - **Approvals** stay in chat; the bot and dashboard can only acknowledge issues.
+
 ## 23. Exact next steps
 1. Episode 05 (C0005): Tataka (Bala Kanda 24–26; teaser verse 1.24.26). Only start when the owner asks. Flow: `new` → research/strategy/audience → EN+HI scripts (original Hindi) + hooks → G1 → produce EN (af_heart) then HI (`maya2:Malini`; regenerate flagged scenes with the speaker/pitch check) → `qa` → manual image review (watch for borders, Western fantasy demons, Ravana depiction) → metadata + schedule (evening, HI 20:30 / EN 21:30, one episode per day) → G2/G3 → `publish --yes`.
 2. Analytics snapshots once the API is enabled; then run the optimization pass.

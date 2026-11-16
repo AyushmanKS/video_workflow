@@ -11,6 +11,8 @@ REDACTIONS = [
     (re.compile(r"\bya29[.][A-Za-z0-9_\-.]+"), "<redacted-google-token>"),
     (re.compile(r"\b1//[A-Za-z0-9_\-]{20,}"), "1//<redacted>"),
     (re.compile(r"\bIGQ[A-Za-z0-9_\-]{20,}"), "IGQ<redacted>"),
+    (re.compile(r"(?<![0-9])\d{6,12}:[A-Za-z0-9_-]{30,}"), "<redacted-telegram-token>"),
+    (re.compile(r"([?&]k=)[A-Za-z0-9_\-]{20,}"), r"\1<redacted>"),
 ]
 
 
