@@ -1,0 +1,6 @@
+{
+  "language": "gu",
+  "slot": "20:30",
+  "publish_at": "2026-11-17T20:30:00+05:30",
+  "reason": "Hypothesis, not evidence: no channel analytics yet (Analytics API not enabled; YouTube's API has no hour-of-day data). gu/te back-catalogue catch-up before Ep05 (Nov 19 TE 18:30 / GU 19:30). Slots rotate through the profile candidates 12:30/18:30/20:30 so pipeline.schedule's slot experiment collects 48h samples per slot."
+}

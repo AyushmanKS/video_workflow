@@ -203,7 +203,7 @@ def text_scene(sc, path, seed):
 
         layers.append((orn, (0.86, 0.74, 0.44)))
     elif sc["kind"] == "shloka":
-        dev = ImageFont.truetype(DEVANAGARI, 210, layout_engine=ImageFont.Layout.RAQM)
+        dev = font_for(sc["from"] + sc["to"], 183)
         def word(text, y, label, ly):
             lab = font_for(label, 62)
 

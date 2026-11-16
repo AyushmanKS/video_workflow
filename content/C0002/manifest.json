@@ -7,7 +7,9 @@
   "style": "chalk",
   "languages": [
     "en",
-    "hi"
+    "hi",
+    "gu",
+    "te"
   ],
   "primary_language": "en",
   "stages": {
@@ -33,11 +35,13 @@
     },
     "gate:script": {
       "status": "approved",
-      "at": "2026-11-15T23:03:01+0530",
-      "note": "Owner approved EN+HI scripts in chat 2026-11-15",
+      "at": "2026-11-16T12:23:53+0530",
+      "note": "en/hi approved earlier; gu/te versions approved in advance by owner in chat 2026-11-16 (follow approved en/hi scene by scene)",
       "langs": [
         "en",
-        "hi"
+        "hi",
+        "gu",
+        "te"
       ]
     },
     "voice:en": {
@@ -122,6 +126,16 @@
       "status": "done",
       "at": "2026-11-16T01:45:45+0530",
       "note": "2026-11-16T21:30:00+05:30"
+    },
+    "schedule:gu": {
+      "status": "done",
+      "at": "2026-11-16T12:24:22+0530",
+      "note": "12:30 2026-11-17T12:30:00+05:30"
+    },
+    "schedule:te": {
+      "status": "done",
+      "at": "2026-11-16T12:24:22+0530",
+      "note": "12:30 2026-11-17T12:30:00+05:30"
     }
   }
 }

@@ -7,7 +7,9 @@
   "style": "chalk",
   "languages": [
     "en",
-    "hi"
+    "hi",
+    "gu",
+    "te"
   ],
   "primary_language": "en",
   "legacy_folder": "out/ramayana-ep-01-maharishi-valmiki-the-birth-of-the-ramayana",
@@ -104,11 +106,13 @@
     },
     "gate:script": {
       "status": "approved",
-      "at": "2026-11-15",
-      "note": "owner approved in chat",
+      "at": "2026-11-16T12:23:53+0530",
+      "note": "en/hi approved earlier; gu/te versions approved in advance by owner in chat 2026-11-16 (follow approved en/hi scene by scene)",
       "langs": [
         "en",
-        "hi"
+        "hi",
+        "gu",
+        "te"
       ]
     },
     "gate:final": {
@@ -138,6 +142,68 @@
       "status": "done",
       "at": "2026-11-15T22:45:55+0530",
       "note": "manual (pre-pipeline)"
+    },
+    "voice:gu": {
+      "status": "done",
+      "at": "2026-11-16T12:25:36+0530"
+    },
+    "images:gu": {
+      "status": "done",
+      "at": "2026-11-16T12:25:37+0530"
+    },
+    "render:gu": {
+      "status": "done",
+      "at": "2026-11-16T12:52:47+0530"
+    },
+    "voice:te": {
+      "status": "done",
+      "at": "2026-11-16T12:33:06+0530"
+    },
+    "images:te": {
+      "status": "done",
+      "at": "2026-11-16T12:33:07+0530"
+    },
+    "render:te": {
+      "status": "done",
+      "at": "2026-11-16T12:59:08+0530"
+    },
+    "video_qa:gu": {
+      "status": "done",
+      "at": "2026-11-16T13:02:25+0530",
+      "note": "auto QA WARN (ASR only); verse and shloka cards render in native script"
+    },
+    "video_qa:te": {
+      "status": "done",
+      "at": "2026-11-16T13:02:25+0530",
+      "note": "auto QA WARN (ASR only); verse and shloka cards render in native script"
+    },
+    "voice_qa:gu": {
+      "status": "done",
+      "at": "2026-11-16T13:02:25+0530",
+      "note": "speaker_consistency pass vs gu_Malini_ref; ASR flags are Whisper spelling/digits/truncation, endings verified; no native listen"
+    },
+    "metadata:gu": {
+      "status": "done",
+      "at": "2026-11-16T13:02:25+0530"
+    },
+    "schedule:gu": {
+      "status": "done",
+      "at": "2026-11-16T13:02:25+0530",
+      "note": "release immediately on approval"
+    },
+    "voice_qa:te": {
+      "status": "done",
+      "at": "2026-11-16T13:02:25+0530",
+      "note": "speaker_consistency pass vs te_Malini_ref; ASR flags are Whisper spelling/digits/truncation, endings verified; no native listen"
+    },
+    "metadata:te": {
+      "status": "done",
+      "at": "2026-11-16T13:02:25+0530"
+    },
+    "schedule:te": {
+      "status": "done",
+      "at": "2026-11-16T13:02:25+0530",
+      "note": "release immediately on approval"
     }
   }
 }

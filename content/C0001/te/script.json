@@ -1,0 +1,257 @@
+{
+  "title": "రామాయణం ఒక మహర్షి కన్నీటితో మొదలైంది | రామాయణం భాగం 1",
+  "topic": "Ramayana Ep 01 Maharishi Valmiki The Birth of the Ramayana",
+  "style": "chalk",
+  "language": "te",
+  "character": "",
+  "scenes": [
+    {
+      "narration": "శతాబ్దాలుగా కోట్లాది మంది వింటున్న రామాయణం, ఏ యుద్ధంతోనో కాదు, ఒక మహర్షి కన్నీటితో మొదలైంది.",
+      "keywords": [
+        "రామాయణం,",
+        "కన్నీటితో"
+      ],
+      "emphasis": "",
+      "visual": "Maharishi Valmiki, an elderly Indian sage with a long flowing white beard and long white hair tied in a topknot, lean bare chest with a saffron cloth draped over one shoulder, saffron dhoti, a string of rudraksha beads, sitting alone on a riverbank under a great banyan tree at dusk, head bowed in sorrow, a single feather drifting down, vertical composition, subject in the center of the frame, empty dark chalkboard space at the top and bottom",
+      "pause": 0.45,
+      "melody": "intro",
+      "sfx": [
+        {
+          "name": "wind"
+        }
+      ]
+    },
+    {
+      "narration": "ఈ కథను రామాయణమే స్వయంగా చెబుతుంది. అడవిలోని ఒక ప్రశాంత ఆశ్రమంలో ఉండేవారు... వాల్మీకి మహర్షి.",
+      "keywords": [
+        "రామాయణమే",
+        "వాల్మీకి"
+      ],
+      "emphasis": "వాల్మీకి మహర్షి",
+      "visual": "portrait of Maharishi Valmiki, an elderly Indian sage with a long flowing white beard and long white hair tied in a topknot, lean bare chest with a saffron cloth draped over one shoulder, saffron dhoti, a string of rudraksha beads, seated cross-legged in meditation in front of a thatched forest hermitage hut, calm eyes, trees around, vertical composition, subject in the center of the frame, empty dark chalkboard space at the top and bottom",
+      "pause": 0.3,
+      "melody": "calm",
+      "sfx": [
+        {
+          "name": "birds"
+        }
+      ]
+    },
+    {
+      "narration": "ఒక రోజు దేవర్షి నారదులు వచ్చి, అన్ని గుణాలూ ఉన్న ఒక మహాపురుషుడి కథ చెప్పారు — అయోధ్య రాకుమారుడు, శ్రీరాముడు.",
+      "keywords": [
+        "నారదులు",
+        "అయోధ్య",
+        "శ్రీరాముడు."
+      ],
+      "emphasis": "నారదుల కథ",
+      "visual": "the sage Narada, a youthful sage with a black topknot, white dhoti and white shawl, carrying a long-necked veena standing and speaking with an open hand gesture to Maharishi Valmiki, an elderly Indian sage with a long flowing white beard and long white hair tied in a topknot, lean bare chest with a saffron cloth draped over one shoulder, saffron dhoti, a string of rudraksha beads who sits listening attentively on a deerskin mat, forest hermitage, vertical composition, subject in the center of the frame, empty dark chalkboard space at the top and bottom",
+      "pause": 0.3,
+      "sfx": [
+        {
+          "name": "birds"
+        }
+      ]
+    },
+    {
+      "narration": "తర్వాత వాల్మీకి మహర్షి తన శిష్యుడు భరద్వాజుడితో కలిసి తమసా నదికి స్నానానికి వెళ్లారు.",
+      "keywords": [
+        "భరద్వాజుడితో",
+        "తమసా"
+      ],
+      "emphasis": "తమసా నది",
+      "visual": "Maharishi Valmiki, an elderly Indian sage with a long flowing white beard and long white hair tied in a topknot, lean bare chest with a saffron cloth draped over one shoulder, saffron dhoti, a string of rudraksha beads walking barefoot along a gentle forest river, followed by a young disciple with a shaven head and a small tuft of hair, white dhoti, carrying folded bark-cloth garments, tall trees, reeds, flowing water lines, no frame, no border, vertical composition, subject in the center of the frame, empty dark chalkboard space at the top and bottom",
+      "pause": 0.3,
+      "seed": 1203,
+      "sfx": [
+        {
+          "name": "river"
+        },
+        {
+          "name": "birds"
+        }
+      ]
+    },
+    {
+      "narration": "దగ్గర్లో ఒక క్రౌంచ పక్షుల జంట, ఒకదానిలో ఒకటి మైమరచి, తీయగా కూస్తోంది.",
+      "keywords": [
+        "క్రౌంచ",
+        "మైమరచి,"
+      ],
+      "emphasis": "క్రౌంచ పక్షులు",
+      "visual": "a pair of elegant sarus-crane-like Krauncha birds with long curved necks, long legs and a touch of red on the head, standing close together among river reeds, necks curving tenderly toward each other, vertical composition, subject in the center of the frame, empty dark chalkboard space at the top and bottom",
+      "pause": 0.3,
+      "melody": "love",
+      "sfx": [
+        {
+          "name": "river"
+        },
+        {
+          "name": "birds"
+        }
+      ]
+    },
+    {
+      "narration": "అంతలో... రివ్వున ఒక బాణం దూసుకొచ్చింది! ఒక వేటగాడు మగ పక్షిని నేలకూల్చాడు.",
+      "keywords": [
+        "బాణం",
+        "వేటగాడు"
+      ],
+      "emphasis": "వేటగాడు",
+      "visual": "a lean forest hunter with wild dark hair and a simple loincloth, drawing a long wooden bow, crouching behind bushes and releasing an arrow, dramatic diagonal composition, tense moment, vertical composition, subject in the center of the frame, empty dark chalkboard space at the top and bottom",
+      "pause": 0.45,
+      "swell": true,
+      "sfx": [
+        {
+          "name": "river"
+        },
+        {
+          "name": "arrow",
+          "word": "బాణం",
+          "offset": -0.35
+        }
+      ]
+    },
+    {
+      "narration": "రక్తంలో తడిసిన తన తోడును చూసి... ఆడ పక్షి దీనంగా విలపించింది.",
+      "keywords": [
+        "తోడును",
+        "దీనంగా"
+      ],
+      "emphasis": "",
+      "visual": "a single grieving Krauncha bird, elegant sarus-crane-like Krauncha birds with long curved necks, long legs and a touch of red on the head, wings spread wide, crying out toward the sky above its fallen mate lying among the reeds, a few drifting feathers, sorrowful, vertical composition, subject in the center of the frame, empty dark chalkboard space at the top and bottom",
+      "pause": 0.6,
+      "swell": true,
+      "sfx": [
+        {
+          "name": "river"
+        },
+        {
+          "name": "cry",
+          "word": "రక్తంలో",
+          "offset": -0.15
+        }
+      ]
+    },
+    {
+      "narration": "అది చూసి వాల్మీకి హృదయం కరుణతో నిండిపోయింది... ఆయన నోటి నుండి అప్రయత్నంగా మాటలు వెలువడ్డాయి.",
+      "keywords": [
+        "కరుణతో"
+      ],
+      "emphasis": "కరుణ",
+      "visual": "close-up portrait of Maharishi Valmiki, an elderly Indian sage with a long flowing white beard and long white hair tied in a topknot, lean bare chest with a saffron cloth draped over one shoulder, saffron dhoti, a string of rudraksha beads, eyes filled with tears, one hand raised, intense sorrow and compassion, swirls of chalk dust around him, vertical composition, subject in the center of the frame, empty dark chalkboard space at the top and bottom",
+      "pause": 0.35,
+      "melody": "grief",
+      "swell": true,
+      "sfx": [
+        {
+          "name": "wind"
+        }
+      ]
+    },
+    {
+      "narration": "ఓ వేటగాడా! నీకు యుగయుగాల వరకు శాంతి లభించకుండుగాక, ఎందుకంటే ప్రేమలో మునిగిన జంటలో ఒకదాన్ని నువ్వు చంపావు.",
+      "keywords": [
+        "శాంతి",
+        "ప్రేమలో"
+      ],
+      "emphasis": "",
+      "visual": "the first shloka written in chalk",
+      "pause": 0.7,
+      "swell": true,
+      "kind": "verse",
+      "source": "వాల్మీకి రామాయణం  1.2.15",
+      "sfx": [],
+      "devanagari": [
+        "మా నిషాద ప్రతిష్ఠాం త్వమ్",
+        "అగమః శాశ్వతీః సమాః।",
+        "యత్ క్రౌఞ్చమిథునాదేకమ్",
+        "అవధీః కామమోహితమ్॥"
+      ]
+    },
+    {
+      "narration": "వాల్మీకి ఆశ్చర్యపోయారు — అది కొలతలున్న ఛందస్సు, వీణ మీద పాడదగినది! శోకం నుండి పుట్టింది కాబట్టి, దానికి పేరు... శ్లోకం.",
+      "keywords": [
+        "ఛందస్సు,",
+        "శోకం",
+        "శ్లోకం."
+      ],
+      "emphasis": "",
+      "visual": "shoka becomes shloka",
+      "pause": 0.4,
+      "kind": "shloka",
+      "sfx": [],
+      "from": "శోకం",
+      "to": "శ్లోకం",
+      "from_label": "శోకం · దుఃఖం",
+      "to_label": "శ్లోకం · ఛందస్సు"
+    },
+    {
+      "narration": "అప్పుడు సృష్టికర్త బ్రహ్మదేవుడు స్వయంగా ఆశ్రమానికి వచ్చి, ఇదే ఛందస్సులో శ్రీరాముడి పూర్తి కథను రచించమని ఆదేశించారు.",
+      "keywords": [
+        "బ్రహ్మదేవుడు",
+        "శ్రీరాముడి"
+      ],
+      "emphasis": "దివ్య ఆదేశం",
+      "visual": "Maharishi Valmiki, an elderly Indian sage with a long flowing white beard and long white hair tied in a topknot, lean bare chest with a saffron cloth draped over one shoulder, saffron dhoti, a string of rudraksha beads kneeling with folded hands, looking up in awe at a radiant divine light above a blooming lotus in the sky, rays of muted gold chalk, vertical composition, subject in the center of the frame, empty dark chalkboard space at the top and bottom",
+      "pause": 0.3,
+      "sfx": [
+        {
+          "name": "bell",
+          "word": "బ్రహ్మదేవుడు",
+          "offset": -0.25
+        }
+      ]
+    },
+    {
+      "narration": "అలా పుట్టింది ఆదికావ్యం — రామాయణం. సంప్రదాయం ప్రకారం ఇరవై నాలుగు వేల శ్లోకాలు. దీనిలోని అతి పురాతన భాగాలు రెండు వేల ఏళ్లకు పైబడినవని చరిత్రకారుల అభిప్రాయం.",
+      "keywords": [
+        "ఆదికావ్యం",
+        "ఇరవై",
+        "వేల"
+      ],
+      "emphasis": "ఆదికావ్యం",
+      "visual": "Maharishi Valmiki, an elderly Indian sage with a long flowing white beard and long white hair tied in a topknot, lean bare chest with a saffron cloth draped over one shoulder, saffron dhoti, a string of rudraksha beads seated under a great tree with eyes closed, composing poetry, flowing ornamental vines and swirling lines rising around him like music, a small oil lamp beside him, vertical composition, subject in the center of the frame, empty dark chalkboard space at the top and bottom",
+      "pause": 0.4,
+      "melody": "rise",
+      "sfx": [
+        {
+          "name": "birds"
+        }
+      ]
+    },
+    {
+      "narration": "కానీ... నారదులు స్వయంగా గుణాలు వర్ణించిన ఆ శ్రీరాముడు ఎవరు? తెలుసుకుందాం... తర్వాతి భాగంలో.",
+      "keywords": [
+        "శ్రీరాముడు",
+        "తర్వాతి",
+        "భాగంలో."
+      ],
+      "emphasis": "తర్వాత: శ్రీరాముడు",
+      "visual": "a young prince Rama seen from behind, standing tall on a hill holding a great bow, wearing a simple crown and dhoti, looking toward a distant ancient Indian city with temple spires at sunrise, heroic, vertical composition, subject in the center",
+      "pause": 0.3,
+      "sfx": [
+        {
+          "name": "wind"
+        }
+      ]
+    }
+  ],
+  "description": "",
+  "hashtags": [],
+  "thumbnail": {
+    "scene": 7,
+    "devanagari": "",
+    "title": "రామాయణం",
+    "series": "The Epic in Chalk",
+    "episode": "భాగం 1",
+    "subtitle": "రామాయణం పుట్టుక"
+  },
+  "sources": [],
+  "style_overrides": {
+    "caption_font": "/System/Library/Fonts/KohinoorTelugu.ttc",
+    "caption_font_index": 1,
+    "caption_size": 80,
+    "caption_max_chars": 20
+  }
+}

@@ -175,6 +175,38 @@
       "status": "done",
       "at": "2026-11-16T12:12:52+0530",
       "note": "proposed Thu 2026-11-19 TE 18:30 GU 19:30 HI 20:30 EN 21:30 IST (hypothesis)"
+    },
+    "gate:final": {
+      "status": "approved",
+      "at": "2026-11-16T12:16:46+0530",
+      "note": "owner approved in chat 2026-11-16",
+      "langs": [
+        "en",
+        "hi",
+        "gu",
+        "te"
+      ]
+    },
+    "gate:publish": {
+      "status": "approved",
+      "at": "2026-11-16T12:16:46+0530",
+      "note": "owner approved 2026-11-19 TE 18:30, GU 19:30, HI 20:30, EN 21:30 IST; same channel; YouTube only",
+      "langs": [
+        "en",
+        "hi",
+        "gu",
+        "te"
+      ]
+    },
+    "published:te": {
+      "status": "done",
+      "at": "2026-11-16T12:17:19+0530",
+      "note": "2026-11-19T18:30:00+05:30"
+    },
+    "published:gu": {
+      "status": "done",
+      "at": "2026-11-16T12:17:49+0530",
+      "note": "2026-11-19T19:30:00+05:30"
     }
   }
 }

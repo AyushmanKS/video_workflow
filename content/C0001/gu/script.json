@@ -1,0 +1,257 @@
+{
+  "title": "રામાયણની શરૂઆત એક ઋષિનાં આંસુથી થઈ | રામાયણ ભાગ 1",
+  "topic": "Ramayana Ep 01 Maharishi Valmiki The Birth of the Ramayana",
+  "style": "chalk",
+  "language": "gu",
+  "character": "",
+  "scenes": [
+    {
+      "narration": "જે રામાયણ સદીઓથી કરોડો લોકો સાંભળતા આવ્યા છે, તેની શરૂઆત કોઈ યુદ્ધથી નહીં, એક ઋષિનાં આંસુથી થઈ હતી.",
+      "keywords": [
+        "રામાયણ",
+        "આંસુથી"
+      ],
+      "emphasis": "",
+      "visual": "Maharishi Valmiki, an elderly Indian sage with a long flowing white beard and long white hair tied in a topknot, lean bare chest with a saffron cloth draped over one shoulder, saffron dhoti, a string of rudraksha beads, sitting alone on a riverbank under a great banyan tree at dusk, head bowed in sorrow, a single feather drifting down, vertical composition, subject in the center of the frame, empty dark chalkboard space at the top and bottom",
+      "pause": 0.45,
+      "melody": "intro",
+      "sfx": [
+        {
+          "name": "wind"
+        }
+      ]
+    },
+    {
+      "narration": "આ કથા ખુદ રામાયણ કહે છે. વનના એક શાંત આશ્રમમાં રહેતા હતા... મહર્ષિ વાલ્મીકિ.",
+      "keywords": [
+        "રામાયણ",
+        "વાલ્મીકિ."
+      ],
+      "emphasis": "મહર્ષિ વાલ્મીકિ",
+      "visual": "portrait of Maharishi Valmiki, an elderly Indian sage with a long flowing white beard and long white hair tied in a topknot, lean bare chest with a saffron cloth draped over one shoulder, saffron dhoti, a string of rudraksha beads, seated cross-legged in meditation in front of a thatched forest hermitage hut, calm eyes, trees around, vertical composition, subject in the center of the frame, empty dark chalkboard space at the top and bottom",
+      "pause": 0.3,
+      "melody": "calm",
+      "sfx": [
+        {
+          "name": "birds"
+        }
+      ]
+    },
+    {
+      "narration": "એક દિવસ દેવર્ષિ નારદ પધાર્યા, અને એવા પુરુષની કથા કહી જેનામાં દરેક ગુણ હતો — અયોધ્યાના રાજકુમાર, શ્રીરામ.",
+      "keywords": [
+        "નારદ",
+        "અયોધ્યાના",
+        "શ્રીરામ."
+      ],
+      "emphasis": "નારદની કથા",
+      "visual": "the sage Narada, a youthful sage with a black topknot, white dhoti and white shawl, carrying a long-necked veena standing and speaking with an open hand gesture to Maharishi Valmiki, an elderly Indian sage with a long flowing white beard and long white hair tied in a topknot, lean bare chest with a saffron cloth draped over one shoulder, saffron dhoti, a string of rudraksha beads who sits listening attentively on a deerskin mat, forest hermitage, vertical composition, subject in the center of the frame, empty dark chalkboard space at the top and bottom",
+      "pause": 0.3,
+      "sfx": [
+        {
+          "name": "birds"
+        }
+      ]
+    },
+    {
+      "narration": "પછી વાલ્મીકિ પોતાના શિષ્ય ભરદ્વાજ સાથે તમસા નદીએ સ્નાન કરવા ગયા.",
+      "keywords": [
+        "ભરદ્વાજ",
+        "તમસા"
+      ],
+      "emphasis": "તમસા નદી",
+      "visual": "Maharishi Valmiki, an elderly Indian sage with a long flowing white beard and long white hair tied in a topknot, lean bare chest with a saffron cloth draped over one shoulder, saffron dhoti, a string of rudraksha beads walking barefoot along a gentle forest river, followed by a young disciple with a shaven head and a small tuft of hair, white dhoti, carrying folded bark-cloth garments, tall trees, reeds, flowing water lines, no frame, no border, vertical composition, subject in the center of the frame, empty dark chalkboard space at the top and bottom",
+      "pause": 0.3,
+      "seed": 1203,
+      "sfx": [
+        {
+          "name": "river"
+        },
+        {
+          "name": "birds"
+        }
+      ]
+    },
+    {
+      "narration": "નજીકમાં ક્રૌંચ પક્ષીઓનું એક જોડું, એકબીજામાં મગ્ન, મીઠા સ્વરે કલરવ કરતું હતું.",
+      "keywords": [
+        "ક્રૌંચ",
+        "મગ્ન,"
+      ],
+      "emphasis": "ક્રૌંચ પક્ષી",
+      "visual": "a pair of elegant sarus-crane-like Krauncha birds with long curved necks, long legs and a touch of red on the head, standing close together among river reeds, necks curving tenderly toward each other, vertical composition, subject in the center of the frame, empty dark chalkboard space at the top and bottom",
+      "pause": 0.3,
+      "melody": "love",
+      "sfx": [
+        {
+          "name": "river"
+        },
+        {
+          "name": "birds"
+        }
+      ]
+    },
+    {
+      "narration": "ત્યાં જ... સનનન કરતું એક તીર આવ્યું! એક શિકારીએ નર પક્ષીને વીંધી નાખ્યું.",
+      "keywords": [
+        "તીર",
+        "શિકારીએ"
+      ],
+      "emphasis": "શિકારી",
+      "visual": "a lean forest hunter with wild dark hair and a simple loincloth, drawing a long wooden bow, crouching behind bushes and releasing an arrow, dramatic diagonal composition, tense moment, vertical composition, subject in the center of the frame, empty dark chalkboard space at the top and bottom",
+      "pause": 0.45,
+      "swell": true,
+      "sfx": [
+        {
+          "name": "river"
+        },
+        {
+          "name": "arrow",
+          "word": "તીર",
+          "offset": -0.35
+        }
+      ]
+    },
+    {
+      "narration": "પોતાના સાથીને લોહીલુહાણ જોઈને... ક્રૌંચી કરુણ સ્વરે રડવા લાગી.",
+      "keywords": [
+        "ક્રૌંચી",
+        "કરુણ"
+      ],
+      "emphasis": "",
+      "visual": "a single grieving Krauncha bird, elegant sarus-crane-like Krauncha birds with long curved necks, long legs and a touch of red on the head, wings spread wide, crying out toward the sky above its fallen mate lying among the reeds, a few drifting feathers, sorrowful, vertical composition, subject in the center of the frame, empty dark chalkboard space at the top and bottom",
+      "pause": 0.6,
+      "swell": true,
+      "sfx": [
+        {
+          "name": "river"
+        },
+        {
+          "name": "cry",
+          "word": "પોતાના",
+          "offset": -0.15
+        }
+      ]
+    },
+    {
+      "narration": "આ જોઈને વાલ્મીકિનું હૃદય કરુણાથી ભરાઈ ગયું... અને મુખમાંથી આપોઆપ શબ્દો સરી પડ્યા.",
+      "keywords": [
+        "કરુણાથી"
+      ],
+      "emphasis": "કરુણા",
+      "visual": "close-up portrait of Maharishi Valmiki, an elderly Indian sage with a long flowing white beard and long white hair tied in a topknot, lean bare chest with a saffron cloth draped over one shoulder, saffron dhoti, a string of rudraksha beads, eyes filled with tears, one hand raised, intense sorrow and compassion, swirls of chalk dust around him, vertical composition, subject in the center of the frame, empty dark chalkboard space at the top and bottom",
+      "pause": 0.35,
+      "melody": "grief",
+      "swell": true,
+      "sfx": [
+        {
+          "name": "wind"
+        }
+      ]
+    },
+    {
+      "narration": "હે શિકારી! તને યુગો સુધી શાંતિ ન મળે, કારણ કે તેં પ્રેમમાં મગ્ન જોડામાંથી એકને મારી નાખ્યો.",
+      "keywords": [
+        "શાંતિ",
+        "પ્રેમમાં"
+      ],
+      "emphasis": "",
+      "visual": "the first shloka written in chalk",
+      "pause": 0.7,
+      "swell": true,
+      "kind": "verse",
+      "source": "વાલ્મીકિ રામાયણ  1.2.15",
+      "sfx": [],
+      "devanagari": [
+        "મા નિષાદ પ્રતિષ્ઠાં ત્વમ્",
+        "અગમઃ શાશ્વતીઃ સમાઃ।",
+        "યત્ ક્રૌઞ્ચમિથુનાદેકમ્",
+        "અવધીઃ કામમોહિતમ્॥"
+      ]
+    },
+    {
+      "narration": "વાલ્મીકિ ચકિત થઈ ગયા — આ તો માપસરનો છંદ હતો, વીણા પર ગાઈ શકાય એવો! શોકમાંથી જન્મ્યો, એટલે નામ પડ્યું... શ્લોક.",
+      "keywords": [
+        "છંદ",
+        "શોકમાંથી",
+        "શ્લોક."
+      ],
+      "emphasis": "",
+      "visual": "shoka becomes shloka",
+      "pause": 0.4,
+      "kind": "shloka",
+      "sfx": [],
+      "from": "શોક",
+      "to": "શ્લોક",
+      "from_label": "શોક · દુઃખ",
+      "to_label": "શ્લોક · છંદ"
+    },
+    {
+      "narration": "પછી સૃષ્ટિના સર્જક બ્રહ્માજી સ્વયં આશ્રમમાં આવ્યા, અને બોલ્યા — આ જ છંદમાં શ્રીરામની સંપૂર્ણ કથા રચો.",
+      "keywords": [
+        "બ્રહ્માજી",
+        "શ્રીરામની"
+      ],
+      "emphasis": "દિવ્ય આદેશ",
+      "visual": "Maharishi Valmiki, an elderly Indian sage with a long flowing white beard and long white hair tied in a topknot, lean bare chest with a saffron cloth draped over one shoulder, saffron dhoti, a string of rudraksha beads kneeling with folded hands, looking up in awe at a radiant divine light above a blooming lotus in the sky, rays of muted gold chalk, vertical composition, subject in the center of the frame, empty dark chalkboard space at the top and bottom",
+      "pause": 0.3,
+      "sfx": [
+        {
+          "name": "bell",
+          "word": "બ્રહ્માજી",
+          "offset": -0.25
+        }
+      ]
+    },
+    {
+      "narration": "અને આ રીતે રચાયું આદિકાવ્ય — રામાયણ. પરંપરા મુજબ ચોવીસ હજાર શ્લોક. ઇતિહાસકારો તેના સૌથી જૂના અંશોને બે હજાર વર્ષથી પણ જૂના માને છે.",
+      "keywords": [
+        "આદિકાવ્ય",
+        "ચોવીસ",
+        "હજાર"
+      ],
+      "emphasis": "આદિકાવ્ય",
+      "visual": "Maharishi Valmiki, an elderly Indian sage with a long flowing white beard and long white hair tied in a topknot, lean bare chest with a saffron cloth draped over one shoulder, saffron dhoti, a string of rudraksha beads seated under a great tree with eyes closed, composing poetry, flowing ornamental vines and swirling lines rising around him like music, a small oil lamp beside him, vertical composition, subject in the center of the frame, empty dark chalkboard space at the top and bottom",
+      "pause": 0.4,
+      "melody": "rise",
+      "sfx": [
+        {
+          "name": "birds"
+        }
+      ]
+    },
+    {
+      "narration": "પણ... કોણ હતા એ શ્રીરામ, જેમના ગુણ સ્વયં નારદે ગણાવ્યા હતા? જાણીશું... આવતા ભાગમાં.",
+      "keywords": [
+        "શ્રીરામ,",
+        "આવતા",
+        "ભાગમાં."
+      ],
+      "emphasis": "આગળ: શ્રીરામ",
+      "visual": "a young prince Rama seen from behind, standing tall on a hill holding a great bow, wearing a simple crown and dhoti, looking toward a distant ancient Indian city with temple spires at sunrise, heroic, vertical composition, subject in the center",
+      "pause": 0.3,
+      "sfx": [
+        {
+          "name": "wind"
+        }
+      ]
+    }
+  ],
+  "description": "",
+  "hashtags": [],
+  "thumbnail": {
+    "scene": 7,
+    "devanagari": "",
+    "title": "રામાયણ",
+    "series": "The Epic in Chalk",
+    "episode": "ભાગ 1",
+    "subtitle": "રામાયણનો જન્મ"
+  },
+  "sources": [],
+  "style_overrides": {
+    "caption_font": "/System/Library/Fonts/KohinoorGujarati.ttc",
+    "caption_font_index": 0,
+    "caption_size": 80,
+    "caption_max_chars": 24
+  }
+}

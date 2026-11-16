@@ -7,7 +7,9 @@
   "style": "chalk",
   "languages": [
     "en",
-    "hi"
+    "hi",
+    "gu",
+    "te"
   ],
   "primary_language": "en",
   "stages": {
@@ -33,11 +35,13 @@
     },
     "gate:script": {
       "status": "approved",
-      "at": "2026-11-16T08:53:15+0530",
-      "note": "",
+      "at": "2026-11-16T12:23:53+0530",
+      "note": "en/hi approved earlier; gu/te versions approved in advance by owner in chat 2026-11-16 (follow approved en/hi scene by scene)",
       "langs": [
         "en",
-        "hi"
+        "hi",
+        "gu",
+        "te"
       ]
     },
     "voice:en": {
