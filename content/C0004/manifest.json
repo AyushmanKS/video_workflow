@@ -1,0 +1,35 @@
+{
+  "id": "C0004",
+  "series": "RAMAYANA — The Epic in Chalk",
+  "episode": 4,
+  "topic": "Ramayana Episode 04: Vishvamitra asks for Rama",
+  "category": "mythology",
+  "style": "chalk",
+  "languages": [
+    "en",
+    "hi"
+  ],
+  "primary_language": "en",
+  "stages": {
+    "research": {
+      "status": "done",
+      "at": "2026-11-16T08:52:09+0530"
+    },
+    "strategy": {
+      "status": "done",
+      "at": "2026-11-16T08:52:09+0530"
+    },
+    "script": {
+      "status": "done",
+      "at": "2026-11-16T08:52:09+0530"
+    },
+    "script:en": {
+      "status": "done",
+      "at": "2026-11-16T08:52:18+0530"
+    },
+    "script:hi": {
+      "status": "done",
+      "at": "2026-11-16T08:52:18+0530"
+    }
+  }
+}

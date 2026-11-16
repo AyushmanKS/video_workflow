@@ -1,0 +1,86 @@
+[
+  {
+    "text": "A king promised a sage anything he wanted. Then the sage asked for his son.",
+    "scores": {
+      "curiosity": 5,
+      "emotion": 5,
+      "specificity": 4,
+      "speed": 5,
+      "resonance": 4,
+      "accuracy": 5
+    },
+    "total": 28,
+    "selected": true,
+    "reasoning": "Selected: highest rubric total; continues the Ep03 teaser (the son the king could never bear to give)."
+  },
+  {
+    "text": "You think Rama's first battle was against Ravana. It started with a father fainting on his throne.",
+    "scores": {
+      "curiosity": 5,
+      "emotion": 4,
+      "specificity": 4,
+      "speed": 3,
+      "resonance": 4,
+      "accuracy": 5
+    },
+    "total": 25,
+    "selected": false,
+    "reasoning": ""
+  },
+  {
+    "text": "He was not even sixteen when a sage came to take him away.",
+    "scores": {
+      "curiosity": 5,
+      "emotion": 4,
+      "specificity": 4,
+      "speed": 5,
+      "resonance": 4,
+      "accuracy": 5
+    },
+    "total": 27,
+    "selected": false,
+    "reasoning": ""
+  },
+  {
+    "text": "Ten nights. That's all the sage asked for.",
+    "scores": {
+      "curiosity": 4,
+      "emotion": 3,
+      "specificity": 4,
+      "speed": 5,
+      "resonance": 3,
+      "accuracy": 5
+    },
+    "total": 24,
+    "selected": false,
+    "reasoning": ""
+  },
+  {
+    "text": "The king offered his whole army. The sage wanted one boy.",
+    "scores": {
+      "curiosity": 5,
+      "emotion": 4,
+      "specificity": 4,
+      "speed": 5,
+      "resonance": 4,
+      "accuracy": 5
+    },
+    "total": 27,
+    "selected": false,
+    "reasoning": ""
+  },
+  {
+    "text": "Why did a king faint when a sage made one request?",
+    "scores": {
+      "curiosity": 5,
+      "emotion": 3,
+      "specificity": 3,
+      "speed": 5,
+      "resonance": 4,
+      "accuracy": 5
+    },
+    "total": 25,
+    "selected": false,
+    "reasoning": ""
+  }
+]

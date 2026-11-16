@@ -46,6 +46,18 @@
       "prompt": "the sage Vishvamitra, a tall fierce ascetic with intense eyes, long dark-and-grey matted hair and beard, a deerskin over one shoulder, rudraksha beads, holding a wooden staff",
       "source_episode": "C0003",
       "notes": "Distinct from Valmiki (white beard, saffron). Ep04 lead."
+    },
+    "vasishtha": {
+      "prompt": "the royal guru Vasishtha, a calm elderly sage with a long silver beard, white robes and a white shawl, gentle wise expression",
+      "source_episode": "C0004"
+    },
+    "rama_teen": {
+      "prompt": "a teenage prince Rama about fifteen, seen from behind, long dark hair tied back, simple dhoti and sash, a bow on his shoulder",
+      "source_episode": "C0004"
+    },
+    "lakshmana_teen": {
+      "prompt": "a teenage prince Lakshmana about fourteen, fair complexion, alert eyes, simple dhoti, carrying a bow and quiver",
+      "source_episode": "C0004"
     }
   },
   "rules": [

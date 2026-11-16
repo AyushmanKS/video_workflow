@@ -1,0 +1,227 @@
+{
+  "title": "The Sage Who Asked for Rama | Ramayana Ep 4",
+  "topic": "Vishvamitra asks for Rama (Valmiki Ramayana 1.18–1.22)",
+  "style": "chalk",
+  "language": "en",
+  "character": "",
+  "scenes": [
+    {
+      "narration": "A king promised a sage anything he wanted. Then the sage asked for his son.",
+      "keywords": [
+        "promised",
+        "son."
+      ],
+      "emphasis": "",
+      "visual": "the sage Vishvamitra, a tall fierce ascetic with intense eyes, long dark-and-grey matted hair and beard, a deerskin over one shoulder, rudraksha beads, holding a wooden staff, standing tall in a royal court, pointing his staff toward the throne, intense gaze, vertical composition, subject in the center of the frame, empty dark chalkboard space at the top and bottom, no border, no frame",
+      "pause": 0.35,
+      "sfx": [
+        {
+          "name": "wind"
+        }
+      ],
+      "melody": "intro",
+      "swell": true
+    },
+    {
+      "narration": "One day the great sage Vishvamitra arrived at the court of Ayodhya.",
+      "keywords": [
+        "Vishvamitra"
+      ],
+      "emphasis": "Vishvamitra",
+      "visual": "the sage Vishvamitra, a tall fierce ascetic with intense eyes, long dark-and-grey matted hair and beard, a deerskin over one shoulder, rudraksha beads, holding a wooden staff entering a grand ancient Indian royal court with carved stone pillars, courtiers bowing, vertical composition, subject in the center of the frame, empty dark chalkboard space at the top and bottom, no border, no frame",
+      "pause": 0.35,
+      "sfx": [
+        {
+          "name": "birds"
+        }
+      ],
+      "melody": "calm"
+    },
+    {
+      "narration": "Overjoyed, King Dasharatha welcomed him and promised to grant whatever he wished.",
+      "keywords": [
+        "promised"
+      ],
+      "emphasis": "A King's Word",
+      "visual": "King Dasharatha, a dignified middle-aged Indian king with a short grey beard and moustache, ornate golden crown, gold jewellery, rich saffron and white royal garments rising from his golden throne with folded hands, joyful and welcoming, vertical composition, subject in the center of the frame, empty dark chalkboard space at the top and bottom, no border, no frame",
+      "pause": 0.35,
+      "sfx": [
+        {
+          "name": "birds"
+        }
+      ]
+    },
+    {
+      "narration": "Two demons, Maricha and Subahu, were defiling his sacred fire ritual. He needed Rama to protect it, for ten nights.",
+      "keywords": [
+        "Maricha",
+        "Subahu,",
+        "Rama",
+        "nights."
+      ],
+      "emphasis": "Ten Nights",
+      "visual": "landscape only, no people: a sacred fire altar in a forest hermitage under a dark sky filled with swirling shadowy demon silhouettes, smoke rising, vertical composition, subject in the center of the frame, empty dark chalkboard space at the top and bottom, no border, no frame",
+      "pause": 0.35,
+      "sfx": [
+        {
+          "name": "wind"
+        }
+      ],
+      "swell": true
+    },
+    {
+      "narration": "Hearing this, the king fainted for a moment. Then he spoke.",
+      "keywords": [
+        "fainted"
+      ],
+      "emphasis": "",
+      "visual": "close-up of King Dasharatha, a dignified middle-aged Indian king with a short grey beard and moustache, ornate golden crown, gold jewellery, rich saffron and white royal garments slumped on his throne in shock, eyes closed, a hand on his chest, vertical composition, subject in the center of the frame, empty dark chalkboard space at the top and bottom, no border, no frame",
+      "pause": 0.35,
+      "sfx": [],
+      "melody": "grief",
+      "swell": true
+    },
+    {
+      "narration": "My lotus-eyed Rama is not yet sixteen. I do not see him fit to fight demons.",
+      "keywords": [
+        "sixteen.",
+        "demons."
+      ],
+      "emphasis": "",
+      "visual": "the verse written in chalk",
+      "pause": 0.6,
+      "sfx": [],
+      "swell": true,
+      "kind": "verse",
+      "devanagari": [
+        "ऊनषोडशवर्षो मे",
+        "रामो राजीवलोचनः।",
+        "न युद्धयोग्यतामस्य",
+        "पश्यामि सह राक्षसैः॥"
+      ],
+      "source": "Valmiki Ramayana  1.20.2"
+    },
+    {
+      "narration": "Take my army instead, he begged. Take me.",
+      "keywords": [
+        "army",
+        "me."
+      ],
+      "emphasis": "",
+      "visual": "King Dasharatha, a dignified middle-aged Indian king with a short grey beard and moustache, ornate golden crown, gold jewellery, rich saffron and white royal garments pleading with outstretched hands, a vast army of chariots and elephants drawn in faint chalk behind him, vertical composition, subject in the center of the frame, empty dark chalkboard space at the top and bottom, no border, no frame",
+      "pause": 0.35,
+      "sfx": []
+    },
+    {
+      "narration": "And when he heard that the demons were sent by Ravana, his fear only grew.",
+      "keywords": [
+        "Ravana,"
+      ],
+      "emphasis": "Ravana's Shadow",
+      "visual": "landscape only, no figures: an ominous crowned shadow with many heads looming over distant storm clouds above a forest, vertical composition, subject in the center of the frame, empty dark chalkboard space at the top and bottom, no border, no frame",
+      "pause": 0.35,
+      "sfx": [
+        {
+          "name": "wind"
+        }
+      ],
+      "swell": true
+    },
+    {
+      "narration": "Vishvamitra rose in fury. A king of the Raghu line, breaking his word?",
+      "keywords": [
+        "fury.",
+        "word?"
+      ],
+      "emphasis": "",
+      "visual": "close-up of the sage Vishvamitra, a tall fierce ascetic with intense eyes, long dark-and-grey matted hair and beard, a deerskin over one shoulder, rudraksha beads, holding a wooden staff furious, eyes blazing, his staff raised, the court trembling, vertical composition, subject in the center of the frame, empty dark chalkboard space at the top and bottom, no border, no frame",
+      "pause": 0.35,
+      "sfx": [],
+      "swell": true
+    },
+    {
+      "narration": "Then the royal guru Vasishtha spoke. Keep your promise, he said. With Vishvamitra, Rama is safe.",
+      "keywords": [
+        "Vasishtha",
+        "promise,"
+      ],
+      "emphasis": "Guru Vasishtha",
+      "visual": "the royal guru Vasishtha, a calm elderly sage with a long silver beard, white robes and a white shawl, gentle wise expression placing a calm hand on the shoulder of King Dasharatha, a dignified middle-aged Indian king with a short grey beard and moustache, ornate golden crown, gold jewellery, rich saffron and white royal garments, speaking gently, royal court, vertical composition, subject in the center of the frame, empty dark chalkboard space at the top and bottom, no border, no frame",
+      "pause": 0.35,
+      "sfx": [
+        {
+          "name": "birds"
+        }
+      ],
+      "melody": "calm"
+    },
+    {
+      "narration": "So the king let Rama go. And Lakshmana, his loyal brother, walked beside him.",
+      "keywords": [
+        "Rama",
+        "Lakshmana,"
+      ],
+      "emphasis": "Two Brothers",
+      "visual": "a teenage prince Rama about fifteen, seen from behind, long dark hair tied back, simple dhoti and sash, a bow on his shoulder and a teenage prince Lakshmana about fourteen, fair complexion, alert eyes, simple dhoti, carrying a bow and quiver walking side by side out of the palace gates behind the sage Vishvamitra, a tall fierce ascetic with intense eyes, long dark-and-grey matted hair and beard, a deerskin over one shoulder, rudraksha beads, holding a wooden staff, the king watching from the steps, vertical composition, subject in the center of the frame, empty dark chalkboard space at the top and bottom, no border, no frame",
+      "pause": 0.35,
+      "sfx": [
+        {
+          "name": "birds"
+        }
+      ],
+      "melody": "rise"
+    },
+    {
+      "narration": "On the banks of the Sarayu, Vishvamitra taught them two mantras, Bala and Atibala, so they would never tire or hunger.",
+      "keywords": [
+        "Bala",
+        "Atibala,"
+      ],
+      "emphasis": "",
+      "visual": "the sage Vishvamitra, a tall fierce ascetic with intense eyes, long dark-and-grey matted hair and beard, a deerskin over one shoulder, rudraksha beads, holding a wooden staff teaching mantras to a teenage prince Rama about fifteen, seen from behind, long dark hair tied back, simple dhoti and sash, a bow on his shoulder and a teenage prince Lakshmana about fourteen, fair complexion, alert eyes, simple dhoti, carrying a bow and quiver seated on a riverbank at dusk, glowing chalk symbols in the air, vertical composition, subject in the center of the frame, empty dark chalkboard space at the top and bottom, no border, no frame",
+      "pause": 0.35,
+      "sfx": [
+        {
+          "name": "river"
+        }
+      ],
+      "melody": "love"
+    },
+    {
+      "narration": "But their first test waited in a dark forest. A demoness with the strength of a thousand elephants.",
+      "keywords": [
+        "thousand",
+        "elephants."
+      ],
+      "emphasis": "Next: Tataka",
+      "visual": "landscape only, no figures: a dark tangled forest at night with two glowing eyes and a huge looming shadow between the trees, vertical composition, subject in the center of the frame, empty dark chalkboard space at the top and bottom, no border, no frame",
+      "pause": 0.35,
+      "sfx": [
+        {
+          "name": "wind"
+        }
+      ],
+      "swell": true
+    }
+  ],
+  "description": "",
+  "hashtags": [],
+  "thumbnail": {
+    "scene": 4,
+    "devanagari": "",
+    "title": "NOT YET SIXTEEN",
+    "series": "The Epic in Chalk",
+    "episode": "Episode 4",
+    "subtitle": ""
+  },
+  "sources": [
+    "Valmiki Ramayana sarga 18 (Vishvamitra arrives; Dasharatha's promise)",
+    "1.19.5–6 Maricha and Subahu defile the altar (verified)",
+    "1.19.18 ten nights (verified)",
+    "1.20.1–2 Dasharatha faints; 'not yet sixteen' verse (verified)",
+    "1.20.18–19 demons urged by Ravana (verified)",
+    "1.21.1–5 Vishvamitra's anger; Vasishtha counsels (1.21.5 verified)",
+    "sarga 22 Rama and Lakshmana depart; 1.22.15 Bala and Atibala (verified)",
+    "1.24.26 Tataka, strength of a thousand elephants (verified, teaser)"
+  ]
+}
