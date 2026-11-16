@@ -11,6 +11,25 @@ BACKOFF = [timedelta(hours=1), timedelta(hours=2), timedelta(hours=4), timedelta
 LOG = ROOT / "data" / "publish_queue.log"
 
 
+_deferred = []
+
+
+def ev(kind, r, message, **kw):
+    _deferred.append((kind, f"{r['content_id']}-{r['lang']}", r["platform"], message, kw))
+
+
+def flush():
+    items = _deferred[:]
+    _deferred.clear()
+    try:
+        from . import events
+
+        for kind, variant, platform, message, kw in items:
+            events.emit(kind, "publish", message, variant_id=variant, platform=platform, **kw)
+    except Exception:
+        pass
+
+
 def utcnow():
     return datetime.now(timezone.utc)
 
@@ -32,6 +51,7 @@ def add(con, cid, langs, platform="youtube", priority=0):
                     "ON CONFLICT(content_id, lang, platform) DO UPDATE SET priority=excluded.priority, status=CASE WHEN publish_queue.status='done' THEN 'done' ELSE 'queued' END, updated_at=excluded.updated_at",
                     (cid, lang, platform, at, priority, "queued", db.now(), db.now()))
         out.append((f"{cid}-{lang}", at))
+        ev("queued", {"content_id": cid, "lang": lang, "platform": platform}, f"added to publish-queue (approved time {at or 'none yet'})", detail={"publish_at": at, "priority": priority})
     return out
 
 
@@ -132,9 +152,16 @@ def run(cap=DEFAULT_CAP, dry_run=False, once=False):
                     set_status(con, r, "done")
                     say(f"skip {variant}: {why}")
                 elif action in ("waiting", "blocked", "capped", "backoff"):
-                    set_status(con, r, "waiting" if action != "blocked" else "blocked", why, r["next_try_at"] if action == "backoff" else None)
+                    new = "waiting" if action != "blocked" else "blocked"
+                    set_status(con, r, new, why, r["next_try_at"] if action == "backoff" else None)
+                    if r["status"] != new and action != "backoff":
+                        if action == "blocked":
+                            ev("warning", r, f"blocked: {why}", status="Needs Attention", error=why)
+                        else:
+                            ev("queued", r, f"{action}: {why}")
                     if action != "backoff":
                         say(f"{action} {variant}: {why}")
+        flush()
         if dry_run:
             return decisions
         for r, action, why, when in decisions:
@@ -142,7 +169,10 @@ def run(cap=DEFAULT_CAP, dry_run=False, once=False):
                 continue
             variant = f"{r['content_id']}-{r['lang']}"
             say(f"uploading {variant} publishAt {when}")
+            ev("info", r, f"queue starting upload (attempt {r['attempts'] + 1}) with publishAt {when}", detail={"publish_at": when, "attempt": r["attempts"] + 1})
+            flush()
             code, out = upload(r, when)
+            log_ref = str((CONTENT / r["content_id"] / r["lang"] / "publish_run.log").relative_to(ROOT))
             with db.connect() as con:
                 if code == 0:
                     set_status(con, r, "done", attempt=True)
@@ -152,16 +182,20 @@ def run(cap=DEFAULT_CAP, dry_run=False, once=False):
                     nt = (utcnow() + BACKOFF[k]).isoformat()
                     set_status(con, r, "backoff", "uploadLimitExceeded", nt, attempt=True)
                     say(f"limit {variant}: channel upload limit; next try {nt}")
+                    ev("queued", r, f"channel upload limit; queue retries at {nt}", detail={"next_try_at": nt}, log_ref=log_ref)
                     break
                 elif "quotaExceeded" in out:
                     nt = next_pacific_midnight(utcnow()).isoformat()
                     set_status(con, r, "backoff", "quotaExceeded", nt, attempt=True)
                     say(f"quota {variant}: API quota used up; next try {nt}")
+                    ev("queued", r, f"API quota used up; queue retries at {nt}", detail={"next_try_at": nt}, log_ref=log_ref)
                     break
                 else:
                     tail = out.strip().splitlines()[-1][:200] if out.strip() else f"exit {code}"
                     set_status(con, r, "failed", tail, attempt=True)
                     say(f"FAIL {variant}: {tail}")
+                    ev("failed", r, f"upload failed; marked failed in the queue: {tail}", log_ref=log_ref)
+        flush()
         with db.connect() as con:
             pending = items(con, ("queued", "waiting", "backoff"))
         if once or not pending:
@@ -171,13 +205,15 @@ def run(cap=DEFAULT_CAP, dry_run=False, once=False):
 
 
 def cli(a):
-    with db.connect() as con:
-        if a.action == "add":
-            if not a.id or not a.langs:
-                sys.exit("publish-queue add <ID> --langs en,hi")
+    if a.action == "add":
+        if not a.id or not a.langs:
+            sys.exit("publish-queue add <ID> --langs en,hi")
+        with db.connect() as con:
             for v, at in add(con, a.id, a.langs.split(","), a.platform, a.priority):
                 print(f"queued {v} {a.platform} (approved time: {at or 'not approved yet'})")
-            return
+        flush()
+        return
+    with db.connect() as con:
         if a.action == "remove":
             for lang in a.langs.split(","):
                 con.execute("DELETE FROM publish_queue WHERE content_id=? AND lang=? AND platform=?", (a.id, lang, a.platform))

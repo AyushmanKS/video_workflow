@@ -351,7 +351,24 @@ def snapshot_due(force=False, label_override=None, platforms=("youtube", "instag
             errors.append((p["variant_id"], p["platform"], scrub(str(e))[:200]))
         except Exception as e:
             errors.append((p["variant_id"], p["platform"], scrub(f"{type(e).__name__}: {e}")[:200]))
+    report_events(done, errors)
     return done, errors
+
+
+def report_events(done, errors):
+    try:
+        from . import events
+
+        for plat in sorted({d[1] for d in done} | {e[1] for e in errors}):
+            ok = [d for d in done if d[1] == plat]
+            bad = [e for e in errors if e[1] == plat]
+            if bad:
+                events.emit("failed", "analytics", f"{plat} snapshots: {len(ok)} stored, {len(bad)} failed ({', '.join(e[0] for e in bad[:6])})", platform=plat,
+                            error=bad[0][2], detail={"stored": len(ok), "failed": [list(e) for e in bad[:20]]})
+            else:
+                events.emit("completed", "analytics", f"{plat} snapshots stored: {len(ok)}", platform=plat, detail={"stored": [list(d[:3]) for d in ok[:30]]})
+    except Exception:
+        pass
 
 
 def relabel(dry_run=False):

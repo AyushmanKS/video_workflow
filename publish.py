@@ -13,6 +13,17 @@ YT_SCOPES = ["https://www.googleapis.com/auth/youtube.upload", "https://www.goog
 ANALYTICS_SCOPES = ["https://www.googleapis.com/auth/youtube.readonly", "https://www.googleapis.com/auth/yt-analytics.readonly"]
 
 
+def emit(kind, message="", **kw):
+    try:
+        if str(ROOT) not in sys.path:
+            sys.path.insert(0, str(ROOT))
+        from pipeline import events
+
+        return events.emit(kind, None, message, **kw)
+    except Exception:
+        return None
+
+
 def confirm(summary, assume_yes):
     print("\n" + summary + "\n")
     if assume_yes:
@@ -106,11 +117,17 @@ def youtube_upload(video, meta, thumb, privacy, assume_yes, publish_at=None):
     if publish_at:
         body["status"]["publishAt"] = publish_at
     req = svc.videos().insert(part="snippet,status", body=body, media_body=MediaFileUpload(str(video), mimetype="video/mp4", chunksize=8 * 1024 * 1024, resumable=True))
+    emit("started", f"YouTube upload started ({Path(video).stat().st_size / 1e6:.0f} MB)")
     resp = None
+    bucket = -1
     while resp is None:
         status, resp = req.next_chunk()
         if status:
             print(f"  uploaded {status.progress() * 100:.0f}%", flush=True)
+            b = int(status.progress() * 10)
+            if b > bucket:
+                bucket = b
+                emit("progress", f"uploading {status.progress() * 100:.0f}%", progress=status.progress(), detail={"measured": "resumable upload chunks"})
     vid = resp["id"]
     result = {"platform": "youtube", "id": vid, "url": f"https://www.youtube.com/shorts/{vid}", "privacy": resp["status"]["privacyStatus"], "scheduled_for": resp["status"].get("publishAt"), "time": time.strftime("%Y-%m-%d %H:%M:%S")}
     print(f"  uploaded: {result['url']} (privacy reported: {result['privacy']})")
@@ -145,7 +162,9 @@ def instagram_publish(video, meta, assume_yes, thumbnail=None, dry_run=False, lo
     prior = instagram.already_published(video, log) if log else None
     if prior and not dry_run:
         print(f"  already on Instagram: {prior.get('url') or prior['id']} — not posting again")
+        emit("info", f"already on Instagram ({prior.get('url') or prior['id']}); not posting again")
         return None
+    emit("started", "Instagram dry run started" if dry_run else "Instagram publish started")
     ig = meta["instagram"]
     return instagram.publish(video, ig["caption"], thumbnail, ig.get("thumb_offset_ms", 0), dry_run, lambda s: confirm(s, assume_yes), ig)
 
@@ -182,6 +201,39 @@ def main():
     ap.add_argument("--slot", help="publishing slot label for timing experiments, e.g. evening-1930")
     ap.add_argument("--dry-run", action="store_true", help="instagram: check token, tunnel and file limits without posting")
     a = ap.parse_args()
+    emit_ctx(a)
+    try:
+        run(a)
+    except BaseException as e:
+        report_failure(e)
+        raise
+
+
+def emit_ctx(a):
+    try:
+        if str(ROOT) not in sys.path:
+            sys.path.insert(0, str(ROOT))
+        from pipeline import events
+
+        events.set_context(variant_id=a.variant, platform=a.platform, stage="ig_dry_run" if a.dry_run else "publish")
+    except Exception:
+        pass
+
+
+def report_failure(e):
+    if isinstance(e, SystemExit):
+        if e.code in (None, 0) or e.code == 75:
+            return
+        raw = str(e.code)
+    elif isinstance(e, KeyboardInterrupt):
+        emit("failed", "publish stopped by hand", status="Cancelled", error="KeyboardInterrupt")
+        return
+    else:
+        raw = f"{type(e).__name__}: {e}"
+    emit("failed", raw.splitlines()[0][:300] if raw else "publish failed", error=raw)
+
+
+def run(a):
     if not a.dry_run:
         gate_check(a)
     meta = json.loads(Path(a.meta).read_text())
@@ -196,6 +248,11 @@ def main():
     entries.append({"video": str(a.video), **res})
     log.write_text(json.dumps(entries, indent=2, ensure_ascii=False))
     print(f"  logged to {log}")
+    if res["platform"] == "youtube":
+        emit("completed", f"uploaded to YouTube {res['id']}" + (f", scheduled for {res.get('scheduled_for')}" if res.get("scheduled_for") else f" ({res.get('privacy')})"),
+             detail={"platform_id": res["id"], "url": res.get("url"), "verified": res.get("verified")})
+    else:
+        emit("completed", f"published on Instagram {res.get('url') or res['id']}", detail={"platform_id": res["id"], "url": res.get("url")})
     if a.variant:
         from pipeline import db
 

@@ -307,3 +307,16 @@ Delivers notifications, status, and G1/G2/G3 approvals.
 - ntfy: https://docs.ntfy.sh/publish/ · https://docs.ntfy.sh/config/
 - macOS man pages on this Mac (macOS 27.2.1): `launchd.plist(5)` (KeepAlive, ThrottleInterval, StartCalendarInterval wake semantics), `caffeinate(8)`, `pmset(1)`
 - Measured locally: proxy transcode of `content/C0005/hi/C0005-hi.mp4` (150 MB → 11.1 MB, 4.4 s); Opus scene clip about 25 KB
+
+---
+
+## Phase 1 implemented (2026-11-16): reliable event tracking
+
+Hierarchy: workspace → `projects` → videos (`contents`/`variants`) → tasks (`task_state`) → `events`.
+
+- **Tables (additive, created by `db.connect()` and by `events.connect()`):** `projects` (+ `contents.project_id`, backfilled to `ramayana`), `events`, `task_state` (latest state per variant/stage/platform; stage order from `projects.config.workflow`, default `events.WORKFLOW`), `issues` (deduped by `scope|stage|platform|error_code`; resolved by a later `completed`/`approved` event for the same scope, stage and platform), `outbox` (Telegram payloads for Phase 2; `pending` or `suppressed`).
+- **`pipeline/events.py` `emit()`:** writes the event in its own transaction first, then task state and issues, then the outbox, each in a separate transaction. It never raises; on any failure it appends to `data/logs/events-fallback.log`. The DB is switched to WAL with a 5 s busy timeout. Never call `emit()` while the same process holds an open write transaction (see `queue.flush()` for the deferral pattern). A `Mac online` event is added on the first live event after 30 min of silence.
+- **`pipeline/explain.py`:** catalogue of real errors → title, explanation, suggestion, retry safety, severity. Raw errors are kept verbatim after token redaction (`access_token=`, `Bearer`, `EAA…`, Google OAuth access tokens, refresh tokens, client secrets).
+- **Instrumented:** `db.Run` (started/completed/failed), produce voice/images progress (files on disk, `events.Watch`), QA verdicts, approve/reject/waive and waiting-for-approval (G1 after `done script`, G2 after a non-failing video QA, G3 after `done metadata`), publish-queue (queued, status changes, upload start, limit/quota backoff, failure), `publish.py` (YouTube chunk progress at most every 10 %, uploaded/published, failures incl. `unknown_outcome`), `instagram.py` (tunnel live, container created, processing state), Instagram launchd jobs (installed, fired, skipped when over 24 h late, tunnel retries), analytics per platform.
+- **CLI:** `events [--video V] [--since H] [--project P] [--kind K] [--backfill]`, `issues [--open] [--full]`, `issue show|resolve|ack <id>`, `projects [add <slug> --name … --languages …]`, `overview [--json]`.
+- **Backfill (once, `events --backfill`):** 737 events from runs, QA reports, decisions, publications, publish-queue, `publish_run.log` and `data/logs/ig-*.log`, all with `detail.backfilled=true` and no outbox rows. Result: 21 issues, 18 resolved (e.g. Ep02 Instagram "API access blocked" ×2 and the container 18180328639433140 unknown outcome, resolved by the later successful posts), 3 open (C0001-gu and C0005-hi YouTube upload limit, waiting in the queue; C0005-en latest QA report fails).

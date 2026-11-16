@@ -1,4 +1,5 @@
 import json
+import re
 import sqlite3
 import time
 from contextlib import contextmanager
@@ -177,6 +178,102 @@ CREATE TABLE IF NOT EXISTS experiments (
 );
 """
 
+EVENT_SCHEMA = """
+CREATE TABLE IF NOT EXISTS projects (
+    id TEXT PRIMARY KEY,
+    name TEXT NOT NULL,
+    description TEXT,
+    objective TEXT,
+    languages TEXT,
+    config TEXT,
+    status TEXT NOT NULL DEFAULT 'active',
+    created_at TEXT NOT NULL,
+    updated_at TEXT NOT NULL
+);
+CREATE TABLE IF NOT EXISTS events (
+    id TEXT PRIMARY KEY,
+    ts TEXT NOT NULL,
+    t REAL NOT NULL,
+    project_id TEXT,
+    content_id TEXT,
+    variant_id TEXT,
+    platform TEXT,
+    stage TEXT NOT NULL,
+    kind TEXT NOT NULL,
+    status TEXT,
+    progress REAL,
+    message TEXT,
+    detail TEXT,
+    error_code TEXT,
+    error_raw TEXT,
+    retry_safe INTEGER,
+    log_ref TEXT,
+    run_id INTEGER
+);
+CREATE INDEX IF NOT EXISTS events_ts ON events(ts);
+CREATE INDEX IF NOT EXISTS events_t ON events(t);
+CREATE INDEX IF NOT EXISTS events_variant ON events(variant_id);
+CREATE TABLE IF NOT EXISTS task_state (
+    task_key TEXT PRIMARY KEY,
+    project_id TEXT,
+    content_id TEXT,
+    variant_id TEXT,
+    stage TEXT NOT NULL,
+    platform TEXT,
+    stage_order INTEGER,
+    status TEXT NOT NULL,
+    kind TEXT,
+    progress REAL,
+    message TEXT,
+    error_code TEXT,
+    last_event_id TEXT,
+    started_at TEXT,
+    updated_at TEXT NOT NULL,
+    t REAL NOT NULL
+);
+CREATE TABLE IF NOT EXISTS issues (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    dedupe_key TEXT NOT NULL UNIQUE,
+    severity TEXT NOT NULL,
+    project_id TEXT,
+    content_id TEXT,
+    variant_id TEXT,
+    platform TEXT,
+    stage TEXT,
+    error_code TEXT,
+    last_kind TEXT,
+    title TEXT NOT NULL,
+    explanation TEXT,
+    technical TEXT,
+    suggestion TEXT,
+    retry_safe INTEGER,
+    log_ref TEXT,
+    first_seen TEXT NOT NULL,
+    last_seen TEXT NOT NULL,
+    last_t REAL,
+    occurrences INTEGER NOT NULL DEFAULT 1,
+    status TEXT NOT NULL DEFAULT 'open',
+    resolved_at TEXT,
+    resolution TEXT,
+    last_event_id TEXT
+);
+CREATE INDEX IF NOT EXISTS issues_status ON issues(status);
+CREATE TABLE IF NOT EXISTS outbox (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    event_id TEXT NOT NULL,
+    issue_id INTEGER,
+    channel TEXT NOT NULL DEFAULT 'telegram',
+    payload TEXT NOT NULL,
+    status TEXT NOT NULL DEFAULT 'pending',
+    attempts INTEGER NOT NULL DEFAULT 0,
+    next_try_at TEXT,
+    last_error TEXT,
+    created_at TEXT NOT NULL,
+    sent_at TEXT
+);
+CREATE INDEX IF NOT EXISTS outbox_status ON outbox(status);
+"""
+
 COLUMNS = {
     "decisions": {"actor": "TEXT", "channel": "TEXT", "artifact_sha256": "TEXT"},
     "qa_reports": {"mp4_sha256": "TEXT", "scores": "TEXT"},
@@ -185,7 +282,10 @@ COLUMNS = {
     "analytics_snapshots": {"age_h": "REAL", "platform": "TEXT", "published_ref": "TEXT"},
     "features": {"engine_version": "INTEGER"},
     "experiments": {"name": "TEXT", "design": "TEXT", "notes": "TEXT"},
+    "contents": {"project_id": "TEXT"},
 }
+
+PROJECT_SLUGS = {"RAMAYANA — The Epic in Chalk": "ramayana"}
 
 
 def migrate(con):
@@ -195,6 +295,24 @@ def migrate(con):
             if col not in have:
                 con.execute(f"ALTER TABLE {table} ADD COLUMN {col} {typ}")
     con.execute("UPDATE variants SET cohort='unreviewed-language' WHERE language IN ('gu','te') AND cohort IS NULL")
+    backfill_projects(con)
+
+
+def slugify(name):
+    head = re.split(r"\s+[—–-]\s+", name.strip())[0]
+    return re.sub(r"[^a-z0-9]+", "-", head.lower()).strip("-") or "project"
+
+
+def backfill_projects(con):
+    rows = con.execute("SELECT series, GROUP_CONCAT(DISTINCT v.language) AS langs FROM contents c LEFT JOIN variants v ON v.content_id=c.id "
+                       "WHERE c.project_id IS NULL AND c.series IS NOT NULL AND c.series != '' GROUP BY series").fetchall()
+    for r in rows:
+        slug = PROJECT_SLUGS.get(r["series"]) or slugify(r["series"])
+        if not con.execute("SELECT 1 FROM projects WHERE id=?", (slug,)).fetchone():
+            langs = sorted(set((r["langs"] or "").split(",")) - {""})
+            con.execute("INSERT INTO projects (id, name, description, objective, languages, config, status, created_at, updated_at) VALUES (?,?,?,?,?,?,?,?,?)",
+                        (slug, r["series"], None, None, json.dumps(langs), json.dumps({}), "active", now(), now()))
+        con.execute("UPDATE contents SET project_id=? WHERE project_id IS NULL AND series=?", (slug, r["series"]))
 
 
 def now():
@@ -204,10 +322,10 @@ def now():
 @contextmanager
 def connect():
     DATA.mkdir(exist_ok=True)
-    con = sqlite3.connect(DB_PATH)
+    con = sqlite3.connect(DB_PATH, timeout=30)
     con.row_factory = sqlite3.Row
     con.execute("PRAGMA foreign_keys = ON")
-    con.executescript(SCHEMA)
+    con.executescript(SCHEMA + EVENT_SCHEMA)
     migrate(con)
     try:
         yield con
@@ -247,9 +365,18 @@ def cohort_for(language):
     return "unreviewed-language" if language in ("gu", "te") else None
 
 
+def _emit(**kw):
+    try:
+        from . import events
+
+        return events.emit(**kw)
+    except Exception:
+        return None
+
+
 class Run:
-    def __init__(self, stage, content_id=None, variant_id=None):
-        self.stage, self.content_id, self.variant_id = stage, content_id, variant_id
+    def __init__(self, stage, content_id=None, variant_id=None, emit_done=True):
+        self.stage, self.content_id, self.variant_id, self.emit_done = stage, content_id, variant_id, emit_done
 
     def __enter__(self):
         self.t0 = time.time()
@@ -259,12 +386,21 @@ class Run:
                 (self.content_id, self.variant_id, self.stage, "running", now()),
             )
             self.id = cur.lastrowid
+        _emit(kind="started", stage=self.stage, content_id=self.content_id, variant_id=self.variant_id, run_id=self.id, message=f"{self.stage} started")
         return self
 
     def __exit__(self, exc_type, exc, tb):
+        secs = round(time.time() - self.t0, 1)
         with connect() as con:
             con.execute(
                 "UPDATE runs SET status=?, finished_at=?, seconds=?, detail=? WHERE id=?",
-                ("failed" if exc else "ok", now(), round(time.time() - self.t0, 1), repr(exc)[:500] if exc else None, self.id),
+                ("failed" if exc else "ok", now(), secs, repr(exc)[:500] if exc else None, self.id),
             )
+        if exc is not None:
+            cancelled = isinstance(exc, KeyboardInterrupt)
+            _emit(kind="failed", stage=self.stage, content_id=self.content_id, variant_id=self.variant_id, run_id=self.id, status="Cancelled" if cancelled else None,
+                  message=f"{self.stage} {'stopped' if cancelled else 'failed'} after {secs:.0f} s", error=f"{type(exc).__name__}: {exc!r}", detail={"seconds": secs})
+        else:
+            _emit(kind="completed" if self.emit_done else "info", stage=self.stage, content_id=self.content_id, variant_id=self.variant_id, run_id=self.id,
+                  status=None if self.emit_done else "Running", message=f"{self.stage} finished in {secs:.0f} s", detail={"seconds": secs})
         return False

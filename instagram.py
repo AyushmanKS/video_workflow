@@ -27,6 +27,19 @@ MAX_BYTES = 300 * 1024 * 1024
 TUNNEL_FAILED = 75
 
 
+def emit(kind, message="", flag=None, **kw):
+    try:
+        if str(ROOT) not in sys.path:
+            sys.path.insert(0, str(ROOT))
+        from pipeline import events
+
+        if flag:
+            events.add_flag(flag)
+        return events.emit(kind, None, message, **kw)
+    except Exception:
+        return None
+
+
 def secure_write(path, text):
     SECRETS.mkdir(mode=0o700, exist_ok=True)
     path.write_text(text)
@@ -247,9 +260,11 @@ def publish(video, caption, thumbnail=None, thumb_offset_ms=0, dry_run=False, co
         files = [video] + ([cover_jpeg(thumbnail, work)] if thumbnail else [])
         with PublicFiles(files) as urls:
             print("  temporary link is live; Instagram can fetch the video", flush=True)
+            emit("info", "temporary link is live; Instagram can fetch the video")
             if dry_run:
                 call("GET", f"{graph(cfg)}/{cfg['ig_user_id']}", "account lookup", params={"fields": "username", "access_token": cfg["access_token"]})
                 print("  dry run OK: token valid, tunnel reachable, file within limits. Nothing was posted.")
+                emit("completed", "dry run OK: token valid, tunnel reachable, file within limits")
                 return None
             data = {"media_type": "REELS", "video_url": urls[0], "caption": caption, "share_to_feed": "true", "access_token": cfg["access_token"]}
             for k in EXTRA_FIELDS:
@@ -262,8 +277,13 @@ def publish(video, caption, thumbnail=None, thumb_offset_ms=0, dry_run=False, co
                 data["thumb_offset"] = str(thumb_offset_ms)
             cid = call("POST", f"{graph(cfg)}/{cfg['ig_user_id']}/media", "container creation", data=data)["id"]
             print(f"  container {cid} created; waiting for Instagram to process", flush=True)
+            emit("info", f"container {cid} created; Instagram is processing", flag="container_created", detail={"container_id": cid})
+            last_state = None
             for _ in range(120):
                 s = call("GET", f"{graph(cfg)}/{cid}", "status check", params={"fields": "status_code,status", "access_token": cfg["access_token"]})
+                if s.get("status_code") != last_state:
+                    last_state = s.get("status_code")
+                    emit("info", f"container {cid} processing state {last_state}", detail={"container_id": cid, "status_code": last_state})
                 if s.get("status_code") == "FINISHED":
                     break
                 if s.get("status_code") in ("ERROR", "EXPIRED"):
@@ -275,6 +295,7 @@ def publish(video, caption, thumbnail=None, thumb_offset_ms=0, dry_run=False, co
         mid = call("POST", f"{graph(cfg)}/{cfg['ig_user_id']}/media_publish", "publish", data={"creation_id": cid, "access_token": cfg["access_token"]})["id"]
         info = call("GET", f"{graph(cfg)}/{mid}", "permalink lookup", params={"fields": "permalink,media_product_type,timestamp", "access_token": cfg["access_token"]})
         print(f"  published: {info.get('permalink') or mid}")
+        emit("info", f"Instagram published media {mid}", detail={"media_id": mid, "url": info.get("permalink")})
         return {"platform": "instagram", "id": mid, "url": info.get("permalink"), "privacy": "public", "media_product_type": info.get("media_product_type"), "time": info.get("timestamp") or time.strftime("%Y-%m-%dT%H:%M:%S")}
     finally:
         shutil.rmtree(work, ignore_errors=True)

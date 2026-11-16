@@ -16,6 +16,25 @@ GATES = {"script": "gate:script", "final": "gate:final", "publish": "gate:publis
 PROTECTED_STAGES = ("voice_qa", "video_qa")
 
 
+def ev(kind, stage, message="", **kw):
+    try:
+        from . import events
+
+        return events.emit(kind, stage, message, **kw)
+    except Exception:
+        return None
+
+
+def ask_approval(m, gate_key_, lang, why):
+    try:
+        if lang in gates.approved_langs(m, gate_key_):
+            return None
+        plat = gate_key_.split(":")[2] if gate_key_.count(":") == 2 else None
+        return ev("waiting_approval", gate_key_, why, variant_id=f"{m['id']}-{lang}", platform=plat)
+    except Exception:
+        return None
+
+
 def manifest_path(cid):
     return CONTENT / cid / "manifest.json"
 
@@ -244,6 +263,9 @@ def cmd_approve(a):
         for lang, e in entries_.items():
             sha = e.get("sha256") or {"video": e.get("video_sha256"), "meta": e.get("meta_sha256"), "time": e.get("time")}
             db.log_decision(con, key, "approved", a.note, "human", content_id=a.id, variant_id=f"{a.id}-{lang}", actor=a.by, channel=channel, artifact_sha256=sha)
+    for lang, e in entries_.items():
+        when = f" for {e.get('time')}" if e.get("time") else ""
+        ev("approved", key, f"owner approved {key}{when} via {channel}" + (f": {a.note[:160]}" if a.note else ""), variant_id=f"{a.id}-{lang}", platform=a.platform if a.gate == "publish" else None)
     print(f"{a.id}: {key} approved for {','.join(langs)}")
 
 
@@ -258,6 +280,8 @@ def cmd_reject(a):
     with db.connect() as con:
         for lang in langs:
             db.log_decision(con, key, "rejected", a.note, "human", content_id=a.id, variant_id=f"{a.id}-{lang}", actor=a.by, channel=a.channel or "terminal")
+    for lang in langs:
+        ev("rejected", key, f"owner rejected {key}: {a.note[:200]}", variant_id=f"{a.id}-{lang}", platform=a.platform if a.gate == "publish" else None, error_code="gate_rejected")
     print(f"{a.id}: {key} rejected for {','.join(langs)}")
 
 
@@ -292,6 +316,7 @@ def cmd_waive(a):
         for c in picked:
             con.execute("INSERT INTO waivers (variant_id, check_name, mp4_sha256, note, actor, channel, created_at) VALUES (?,?,?,?,?,?,?)", (variant, c["name"], sha, a.note, a.by, a.channel or "terminal", db.now()))
             db.log_decision(con, "waiver", c["name"], a.note, "human", content_id=a.id, variant_id=variant, actor=a.by, channel=a.channel or "terminal", artifact_sha256=sha)
+    ev("info", "waiver", f"owner waived {', '.join(c['name'] for c in picked)}: {a.note[:160]}", variant_id=variant)
     print(f"{variant}: waivers recorded for {', '.join(c['name'] for c in picked)}")
 
 
@@ -301,6 +326,14 @@ def cmd_done(a):
     m = load(a.id)
     mark(m, a.stage, a.lang, note=a.note)
     print(f"{a.id}: {a.stage}{':' + a.lang if a.lang else ''} done")
+    if a.lang:
+        ev("completed", a.stage, f"{a.stage} marked done" + (f": {a.note[:160]}" if a.note else ""), variant_id=f"{a.id}-{a.lang}")
+        if a.stage == "script":
+            ask_approval(m, gates.SCRIPT, a.lang, "script ready for G1 (owner review)")
+        elif a.stage == "metadata":
+            ask_approval(m, gates.publish_key("youtube"), a.lang, "metadata ready; G3 needs video, metadata and publish time")
+    else:
+        ev("completed", a.stage, f"{a.stage} marked done", content_id=a.id)
     if a.stage == "script" and a.lang:
         from . import lint
 
@@ -399,6 +432,17 @@ def share_images(m, lang):
             shutil.copy2(f, dst / f.name)
 
 
+def watch(cid, lang, step):
+    try:
+        from . import events
+
+        return events.Watch(cid, lang, step)
+    except Exception:
+        from contextlib import nullcontext
+
+        return nullcontext()
+
+
 def studio(args):
     cmd = [sys.executable, str(ROOT / "studio.py"), *args]
     print("$", " ".join(cmd))
@@ -435,12 +479,14 @@ def cmd_produce(a):
     steps = a.steps.split(",")
     if "voice" in steps:
         with db.Run("voice", a.id, f"{a.id}-{a.lang}"):
-            studio(base + ["--stop-after", "voice"])
+            with watch(a.id, a.lang, "voice"):
+                studio(base + ["--stop-after", "voice"])
         mark(m, "voice", a.lang)
     if "images" in steps:
         share_images(m, a.lang)
         with db.Run("images", a.id, f"{a.id}-{a.lang}"):
-            studio(base + ["--stop-after", "images"])
+            with watch(a.id, a.lang, "images"):
+                studio(base + ["--stop-after", "images"])
         mark(m, "images", a.lang)
     if "render" in steps:
         with db.Run("render", a.id, f"{a.id}-{a.lang}"):
@@ -468,8 +514,22 @@ def cmd_qa(a):
     work = CONTENT / a.id / a.lang
     video = gates.variant_files(m, a.lang)["video"]
     stage = "voice_qa" if a.audio_only else "video_qa"
-    with db.Run(stage, a.id, f"{a.id}-{a.lang}"):
+    with db.Run(stage, a.id, f"{a.id}-{a.lang}", emit_done=False):
         rep = qa.run(None if a.audio_only else video, work, work / "script.json", a.lang, f"{a.id}-{a.lang}", m["style"], audio_only=a.audio_only)
+    try:
+        from . import explain
+
+        if rep["verdict"] == "fail":
+            ev("failed", stage, f"QA fail (report #{rep.get('id')})", variant_id=f"{a.id}-{a.lang}", error=explain.qa_failure_text(rep), error_code="qa_fail",
+               detail={"qa_report": rep.get("id"), "verdict": rep["verdict"]}, log_ref=str((work / ("voice_qa.md" if a.audio_only else "qa.md")).relative_to(ROOT)))
+        else:
+            warns = [c["name"] for c in rep.get("checks", []) if not c.get("ok") and not c.get("skipped")]
+            ev("completed", stage, f"QA {rep['verdict']} (report #{rep.get('id')})" + (f"; warnings: {', '.join(warns)}" if warns else ""), variant_id=f"{a.id}-{a.lang}",
+               detail={"qa_report": rep.get("id"), "verdict": rep["verdict"], "warnings": warns})
+            if not a.audio_only:
+                ask_approval(m, gates.FINAL, a.lang, f"video QA {rep['verdict']}; G2 needs the owner to watch the final video")
+    except Exception:
+        pass
     (work / ("voice_qa.md" if a.audio_only else "qa.md")).write_text(qa.markdown(rep))
     (work / ("voice_qa_report.json" if a.audio_only else "qa.json")).write_text(json.dumps(rep, indent=2, ensure_ascii=False))
     mark(m, stage, a.lang, status="done" if rep["verdict"] != "fail" else "failed", note=f"{rep['verdict']} (report #{rep.get('id')})")
@@ -485,6 +545,7 @@ def cmd_schedule(a):
         m = load(a.id)
         (CONTENT / a.id / a.lang / "schedule.json").write_text(json.dumps(rec, indent=2, ensure_ascii=False))
         mark(m, "schedule", a.lang, note=f"{rec['slot']} {rec['publish_at']}")
+        ev("completed", "schedule", f"recommended slot {rec['slot']} {rec['publish_at']}", variant_id=f"{a.id}-{a.lang}")
 
 
 def resolve_when(a, m, platform):
@@ -541,14 +602,23 @@ def publish_instagram(a, m, work, variant, meta, sched, when, video, thumb):
         if not a.yes:
             sys.exit("Scheduling an unattended Instagram post needs --yes (owner approval of video, caption and time).")
         path, local = igschedule.install(a.id, a.lang, at, a.dry_run)
+        ev("queued", "ig_dry_run" if a.dry_run else "publish", f"launchd job installed for {local:%a %d %b %H:%M} local", variant_id=variant, platform="instagram",
+           detail={"job": path.name, "at": when}, log_ref=str(igschedule.LOGS / f"ig-{variant}.log"))
         print(f"{variant}: Instagram {'dry run ' if a.dry_run else ''}scheduled for {local:%a %d %b %H:%M} local ({path.name})")
         print("  the Mac must be on; if it is asleep then, the post goes out when it wakes")
         if not a.dry_run:
             mark(m, "instagram_scheduled", a.lang, note=when)
         return
+    stage = "ig_dry_run" if a.dry_run else "publish"
+    log_ref = str(igschedule.LOGS / f"ig-{variant}.log") if a.now and at else None
     if a.now and at and (now - at).total_seconds() > 24 * 3600:
         igschedule.remove(variant)
-        sys.exit(f"{variant}: scheduled time {when} is more than 24 h ago; not posting. Job removed.")
+        msg = f"{variant}: scheduled time {when} is more than 24 h ago; not posting. Job removed."
+        ev("warning", stage, "scheduled job fired over 24 h late; skipped", variant_id=variant, platform="instagram", status="Needs Attention", error=msg, log_ref=log_ref)
+        sys.exit(msg)
+    if a.now and at:
+        late = (now - at).total_seconds()
+        ev("info", stage, f"scheduled job fired" + (f" ({late / 60:.0f} min late)" if late > 300 else ""), variant_id=variant, platform="instagram", detail={"at": when, "late_s": round(late)}, log_ref=log_ref)
     args = [sys.executable, str(ROOT / "publish.py"), "instagram", str(video), "--meta", str(meta), "--thumbnail", str(thumb), "--variant", variant, "--slot", a.slot or sched.get("slot", "")]
     if a.dry_run:
         args.append("--dry-run")
@@ -559,8 +629,11 @@ def publish_instagram(a, m, work, variant, meta, sched, when, video, thumb):
         r = subprocess.run(args, cwd=ROOT)
         if r.returncode != 75 or attempt == 3:
             break
+        ev("warning", stage, f"temporary link failed; retrying in 2 min (attempt {attempt + 2} of 4)", variant_id=variant, platform="instagram", log_ref=log_ref)
         print(f"  tunnel failed; retrying in 2 min (attempt {attempt + 2} of 4)", flush=True)
         time.sleep(120)
+    if r.returncode == 75:
+        ev("failed", stage, "temporary link failed 4 times; not posted", variant_id=variant, platform="instagram", error="exit 75: tunnel failed after 4 attempts", log_ref=log_ref)
     if r.returncode == 0:
         igschedule.remove(variant)
         if not a.dry_run:
@@ -773,6 +846,78 @@ def cmd_experiment(a):
             print(f"#{e['id']} [{e['status']}] {e.get('name') or e['variable']}: arms {e['arms']} · metric window {win} · n per arm {n or 'none yet'} · {ev['overall']}")
 
 
+def cmd_events(a):
+    from . import backfill, monitor
+
+    if a.backfill:
+        res = backfill.run(force=a.force)
+        if res["skipped"]:
+            print(f"backfill already done ({res['existing']} backfilled events); pass --force to add them again")
+        else:
+            print(f"backfilled events by source: {json.dumps(res['events'])}; failed to write: {res['failed']}")
+            print(f"issues by status: {json.dumps(res['issues'])}; dry-run tunnel issues settled: {res['settled']}")
+        return
+    with db.connect() as con:
+        rows = monitor.timeline(con, a.video, a.since, a.project, a.limit, a.kind.split(",") if a.kind else None)
+    if not rows:
+        print("no events")
+    for r in rows:
+        print(monitor.fmt_event(r))
+
+
+def cmd_issues(a):
+    from . import monitor
+
+    with db.connect() as con:
+        rows = monitor.issues(con, only_open=a.open)
+    if not rows:
+        print("no open issues" if a.open else "no issues")
+    for r in rows:
+        print(monitor.fmt_issue(r, full=a.full or a.open))
+
+
+def cmd_issue(a):
+    from . import monitor
+
+    with db.connect() as con:
+        if a.action == "show":
+            r = con.execute("SELECT * FROM issues WHERE id=?", (a.issue_id,)).fetchone()
+            if not r:
+                sys.exit(f"no issue #{a.issue_id}")
+            print(monitor.fmt_issue(r, full=True))
+            return
+        r = monitor.resolve_issue(con, a.issue_id, a.note, "resolved" if a.action == "resolve" else "acknowledged")
+    if not r:
+        sys.exit(f"no issue #{a.issue_id}")
+    print(f"issue #{a.issue_id} {'resolved' if a.action == 'resolve' else 'acknowledged'}: {r['title']}")
+
+
+def cmd_projects(a):
+    from . import monitor
+
+    with db.connect() as con:
+        if a.action == "add":
+            if not a.slug or not a.name:
+                sys.exit("projects add <slug> --name '...' [--languages en,hi] [--description] [--objective] [--workflow stage1,stage2]")
+            monitor.add_project(con, a.slug, a.name, a.languages.split(",") if a.languages else [], a.description, a.objective, a.workflow.split(",") if a.workflow else None)
+            print(f"project {a.slug} saved")
+            return
+        rows = monitor.projects(con)
+    if not rows:
+        print("no projects")
+    for r in rows:
+        langs = ",".join(json.loads(r["languages"] or "[]"))
+        print(f"{r['id']:12s} {r['status']:8s} {r['videos']:3d} videos  langs {langs or '-':16s} {r['name']}")
+
+
+def cmd_overview(a):
+    from . import monitor
+
+    with db.connect() as con:
+        o = monitor.overview(con)
+    print(json.dumps(o, indent=2, ensure_ascii=False, default=str) if a.json else monitor.fmt_overview(o))
+
+
 def main():
     ap = argparse.ArgumentParser(prog="python -m pipeline", description="shorts-studio orchestration: research → script → production → QA → publish → analytics")
     sp = ap.add_subparsers(dest="cmd", required=True)
@@ -804,6 +949,11 @@ def main():
     p = sp.add_parser("insights", help="analytics checkup → findings with evidence tiers → carry-forward script actions (data/reports/insights-<date>.md, latest_insights.json)"); p.add_argument("--days", type=int, help="only publications from the last N days"); p.set_defaults(fn=cmd_insights)
     p = sp.add_parser("report", help="per-variant performance report, or --weekly → data/reports/weekly-<date>.md"); p.add_argument("variant", nargs="?"); p.add_argument("--weekly", action="store_true"); p.set_defaults(fn=cmd_report)
     p = sp.add_parser("experiment", help="pre-registered experiments: add | list | start | close (one active at a time; ≥6 per arm per language)"); p.add_argument("action", choices=["add", "list", "start", "close"]); p.add_argument("exp_id", nargs="?", type=int); p.add_argument("--exp1", action="store_true", help="register experiment 1 (duration, observational before/after)"); p.add_argument("--name"); p.add_argument("--hypothesis"); p.add_argument("--variable"); p.add_argument("--arms", help="two arm names A,B; odd episodes get A, even get B"); p.add_argument("--metric", help="e.g. '7d views / language rolling median'"); p.add_argument("--min-n", type=int, default=6); p.add_argument("--stop-rule"); p.add_argument("--start", action="store_true", help="activate immediately (fails if another is active)"); p.add_argument("--result"); p.set_defaults(fn=cmd_experiment)
+    p = sp.add_parser("events", help="event timeline (newest last); --backfill derives history once from runs, QA, decisions, publications, queue and logs"); p.add_argument("--video", help="variant (C0006-hi) or content id (C0006)"); p.add_argument("--since", type=float, help="hours back"); p.add_argument("--project"); p.add_argument("--kind", help="comma list, e.g. failed,unknown_outcome"); p.add_argument("--limit", type=int, default=200); p.add_argument("--backfill", action="store_true"); p.add_argument("--force", action="store_true"); p.set_defaults(fn=cmd_events)
+    p = sp.add_parser("issues", help="problems with plain-language explanation, suggestion and retry safety"); p.add_argument("--open", action="store_true"); p.add_argument("--full", action="store_true"); p.set_defaults(fn=cmd_issues)
+    p = sp.add_parser("issue", help="issue show|resolve|ack <id>"); p.add_argument("action", choices=["show", "resolve", "ack"]); p.add_argument("issue_id", type=int); p.add_argument("--note"); p.set_defaults(fn=cmd_issue)
+    p = sp.add_parser("projects", help="list projects, or add <slug> --name ... --languages en,hi"); p.add_argument("action", nargs="?", choices=["list", "add"], default="list"); p.add_argument("slug", nargs="?"); p.add_argument("--name"); p.add_argument("--languages"); p.add_argument("--description"); p.add_argument("--objective"); p.add_argument("--workflow", help="comma list of stage names in order"); p.set_defaults(fn=cmd_projects)
+    p = sp.add_parser("overview", help="workspace counts from the database and manifests (no estimates)"); p.add_argument("--json", action="store_true"); p.set_defaults(fn=cmd_overview)
     a = ap.parse_args()
     a.fn(a)
 
