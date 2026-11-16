@@ -281,6 +281,17 @@ The owner asked for a full audit and research plan before any change. Nothing wa
 - Decided 2026-11-16 ("do all the improvements except mobile"): 35–55 s target (O1), YouTube `synthetic: true` (O2), OFL fonts (O3), approval-record redesign (O4), frame 0 ≥70% drawn (O5), CLAUDE.md voice line → Maya2 Malini (O8), gu/te `unreviewed-language` cohort (O9), agents 10 → 5 + 1 dormant (O10).
 - Out of scope for now: Telegram bot and Remote Control (O6), dashboard licence route (O7).
 
+### Implementation status (2026-11-16 evening)
+- **Wave 1 and Wave 2 done:** commits 0496b0e, dd9cc60, de71b37. Phase C (mobile) is deferred by the owner.
+- **Owner decisions (in chat):**
+  - Keep the macOS fonts; OFL only with `"fonts": "ofl"`.
+  - Parallax approved: `depth: auto` by default on engine v2 (figure mask where usable, otherwise depth layers), plus breathing.
+  - New opening / engine v2 approved; new episodes get `engine_version: 2`.
+  - Approvals happen in chat only, in three steps (script → videos opened in Finder → schedule for YT+IG). The owner removed the terminal approval hook. Claude records approvals with `STUDIO_OWNER_APPROVED=<ID> … --channel chat --note '<owner quote>' --yes` (allowed in `.claude/settings.local.json`), and only after the owner approves in chat.
+- **Instagram catch-up schedule:** one episode per day at TE 19:00, GU 19:30, HI 20:00, EN 20:30. Ep02 is all today (te/gu moved to 21:00 / 21:30); Ep03 17 Nov, Ep04 18 Nov, Ep05 19 Nov.
+- **Wave 3 next (Phase E tests, one heavy model at a time):** FLUX.2 klein reference conditioning (A9), Z-Image ControlNet (E5), ACE-Step / Magenta music beds (E4), Indian painting style stills (E2), chalk LoRA pilot (E1), LTX-2.3 hero shot (E3), commercial aligner (E9), Manim (E10). E6–E8 wait for their data triggers.
+- **Owner optional:** `instagram_manage_insights` permission + a new token, for Reel stats.
+
 ## Progress log
 | Date | Work | Decisions |
 |---|---|---|
