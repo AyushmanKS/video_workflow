@@ -112,6 +112,22 @@ def plan(tiers):
     return out
 
 
+def sweep_shared_blobs():
+    import os
+
+    hub = Path.home() / ".cache" / "huggingface" / "hub"
+    shared = hub / "blobs"
+    if not shared.exists():
+        return 0
+    ref = {Path(os.path.realpath(q)) for r in hub.glob("models--*") for q in r.rglob("*") if q.is_symlink()}
+    freed = 0
+    for q in shared.rglob("*"):
+        if q.is_file() and q not in ref and q.stat().st_nlink == 1:
+            freed += q.stat().st_size
+            q.unlink()
+    return freed
+
+
 def apply(items):
     LOG.parent.mkdir(parents=True, exist_ok=True)
     freed = 0
@@ -126,6 +142,11 @@ def apply(items):
             after = size(it["path"]) if Path(it["path"]).exists() else 0
             freed += before - after
             log.write(json.dumps({**{k: v for k, v in it.items() if k != "cmd"}, "freed": before - after, "at": time.strftime("%Y-%m-%dT%H:%M:%S%z")}) + "\n")
+    if any(it["tier"] == "models" for it in items):
+        extra = sweep_shared_blobs()
+        freed += extra
+        with LOG.open("a") as log:
+            log.write(json.dumps({"tier": "models", "path": "huggingface shared blobs", "freed": extra, "restore": "orphaned files of the repos removed above", "at": time.strftime("%Y-%m-%dT%H:%M:%S%z")}) + "\n")
     return freed
 
 
