@@ -82,7 +82,7 @@ def uploads_last_24h(con, platform="youtube", now=None):
 
 def sort_key(r):
     t = gates.parse_time(r["publish_at"]) if r["publish_at"] not in (None, gates.NOW) else None
-    return (-r["priority"], t or datetime.max.replace(tzinfo=timezone.utc), r["id"])
+    return (t or datetime.max.replace(tzinfo=timezone.utc), -r["priority"], r["id"])
 
 
 def plan(con, now=None, cap=DEFAULT_CAP):
