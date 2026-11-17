@@ -697,9 +697,10 @@ def render_results(con, q):
 
 def offline_html():
     return ('<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Offline · Studio</title>'
-            '<link rel="stylesheet" href="/static/app.css"></head><body><main><h1>Your Mac is offline or asleep</h1>'
-            '<section class="card"><p class="lead">The studio runs on the Mac, so this page needs the Mac to be awake and online.</p>'
-            '<p>Wake the Mac or check its internet, then pull down to refresh.</p><p>If it still does not open, send <b>/link</b> to the Telegram bot to get the current address.</p></section></main></body></html>')
+            '<link rel="stylesheet" href="/static/app.css"></head><body><main><h1>Can\u2019t reach your studio</h1>'
+            '<section class="card"><p class="lead">One of two things happened:</p>'
+            '<p><b>1. Your Mac is asleep or offline.</b> Wake it or check its internet, then pull down to refresh.</p>'
+            '<p><b>2. Your Mac is awake, but the address changed</b> (this happens after the Mac or the link restarts). Send <b>/link</b> to the Telegram bot, open the new link, and add it to your home screen again. You can delete this icon.</p></section></main></body></html>')
 
 
 def signin_html():
@@ -821,7 +822,7 @@ if(!b||!b.dataset.live)return;var last=parseInt(b.dataset.after||'0',10),updated
 document.addEventListener('toggle',function(){touched=true;},true);
 function show(cls,text,click){net.hidden=false;net.className='net '+cls;msg.textContent=text;net.onclick=click||null;}
 function hide(){if(!pending)net.hidden=true;}
-function offline(){show('off','Your Mac is offline or asleep \\u2014 showing the last update from '+updated+'.');}
+function offline(){show('off','Can\\u2019t reach your Mac \\u2014 it may be asleep, or the address changed (send /link to the bot). Showing the update from '+updated+'.');}
 function busy(){var a=document.activeElement;return touched||(a&&/INPUT|TEXTAREA|SELECT|BUTTON/.test(a.tagName));}
 function changed(){if(busy()||Date.now()-lastReload<20000){pending=true;show('new','New updates \\u2014 tap to refresh',function(){location.reload();});return;}location.reload();}
 function poll(){fetch('/api/events?after='+last,{credentials:'same-origin',cache:'no-store'}).then(function(r){if(r.status===401){location.reload();return null;}if(!r.ok)throw new Error('http');return r.json();})
@@ -834,7 +835,7 @@ setInterval(function(){if(es&&Date.now()-seen>25000)startPoll();},5000);}
 window.addEventListener('offline',offline);window.addEventListener('online',function(){poll();});
 if(!navigator.onLine)offline();if(b.dataset.sse==='1'){startSSE();}else{startPoll();}})();"""
 
-SW = """const C='ss-shell-v3',P='ss-pages-v3';const SHELL=['/offline.html','/static/app.css','/static/app.js','/icon-192.png'];
+SW = """const C='ss-shell-v4',P='ss-pages-v4';const SHELL=['/offline.html','/static/app.css','/static/app.js','/icon-192.png'];
 self.addEventListener('install',e=>{e.waitUntil(caches.open(C).then(c=>c.addAll(SHELL)));self.skipWaiting();});
 self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k!==C&&k!==P).map(k=>caches.delete(k)))));self.clients.claim();});
 self.addEventListener('fetch',e=>{const r=e.request;if(r.method!=='GET')return;const u=new URL(r.url);if(u.origin!==location.origin)return;
