@@ -1,0 +1,379 @@
+{
+  "title": "જ્યારે સો રાજકુંવરીઓએ દેવને ના પાડી | રામાયણ ભાગ 8",
+  "topic": "Kushanabha's hundred daughters, told at the Shona camp on the road to Mithila (Valmiki Ramayana 1.31.6–1.33.23; teaser 1.34.8)",
+  "style": "chalk",
+  "language": "gu",
+  "character": "",
+  "engine_version": 2,
+  "edition": "vulgate (southern recension), sa.wikisource; verse numbers cross-checked on valmikiramayan.net",
+  "scenes": [
+    {
+      "narration": "સો રાજકુંવરીઓએ એક દેવને ના પાડી.",
+      "keywords": [
+        "સો",
+        "દેવને"
+      ],
+      "emphasis": "",
+      "visual": "the whole top third of the frame left as plain empty dark chalkboard, in the middle of the frame an ancient Indian palace garden with flowering trees and a low carved stone wall, behind the garden wall the flat stone terraces and stepped temple-like shikhara towers of an ancient Indian palace, {kushanabha_daughters} seen from behind in the lower middle of the frame, standing firm and upright with their heads held high, facing a huge swirling spiral of white chalk wind made only of long curved chalk strokes and whirling leaves, like a tall tornado of wind lines, hollow and empty inside, rising off to the right side of the garden away from their heads, bending the treetops sideways and streaming their sari ends in the wind, the spiral staying below the top third of the frame, vertical composition, subject in the center of the frame, open dark chalkboard space at the top, lower quarter of the frame plain dark chalkboard",
+      "pause": 0.18,
+      "sfx": [
+        {
+          "name": "impact"
+        },
+        {
+          "name": "wind"
+        }
+      ],
+      "melody": "intro",
+      "swell": true,
+      "shot": "WS",
+      "move": "push",
+      "accent": "divine",
+      "seed": 8100
+    },
+    {
+      "narration": "ઋષિ કુમારોને લઈ એ ધનુષ તરફ ચાલ્યા, જે કોઈ રાજા ચડાવી ન શક્યો.",
+      "keywords": [
+        "ઋષિ",
+        "ધનુષ"
+      ],
+      "emphasis": "મિથિલાનો માર્ગ",
+      "visual": "the whole top third of the frame left as plain empty dark chalkboard, a narrow winding dirt footpath of bare earth and grass leading north through tall sal trees whose tops stay below the middle of the frame, {vishvamitra} with dark hair streaked with grey tied in a topknot, a dark beard, with exactly two arms, walking ahead with a wooden staff, followed by {rama_teen} and {lakshmana_teen}, each with exactly two arms, all three walking away from the viewer along the footpath with space between them, a few spotted deer standing among the trees behind them and small birds flying low over the trees, far ahead on the horizon a long ornate golden longbow lying low along the horizon line, glowing softly, vertical composition, subject in the center of the frame, open dark chalkboard space at the top, lower quarter of the frame plain dark chalkboard",
+      "pause": 0.18,
+      "sfx": [
+        {
+          "name": "birds"
+        }
+      ],
+      "melody": "calm",
+      "shot": "EWS",
+      "move": {
+        "type": "truck",
+        "dir": "right"
+      },
+      "transition": "dust",
+      "accent": "forest",
+      "seed": 8101
+    },
+    {
+      "narration": "સાંજે શોણ નદીને કાંઠે રામે પૂછ્યું કે આ કયો પ્રદેશ છે.",
+      "keywords": [
+        "શોણ",
+        "પ્રદેશ"
+      ],
+      "emphasis": "શોણ નદી",
+      "visual": "the whole top third of the frame left as plain empty dark chalkboard, a sunset camp on the sandy bank of the wide Shona river, a small campfire of crossed sticks in the middle, on the near side of the fire {rama_teen} with his back to the viewer seated cross-legged on the left and {lakshmana_teen} with his back to the viewer seated on the right, each with exactly two arms, across the fire {vishvamitra} with dark hair streaked with grey tied in a topknot, a dark beard and a red tilak on his forehead, with exactly two arms, seated cross-legged facing them and speaking, hands resting on his knees, the wide calm river and a dark forest line beyond, a soft warm sunset glow spread low and wide along the horizon line, vertical composition, subject in the center of the frame, open dark chalkboard space at the top, lower quarter of the frame plain dark chalkboard",
+      "pause": 0.18,
+      "sfx": [
+        {
+          "name": "river"
+        }
+      ],
+      "shot": "WS",
+      "move": "pull",
+      "transition": "cut",
+      "accent": "forest",
+      "overlay": [
+        "smoke"
+      ],
+      "quote_src": "VR 1.31.23 (vulgate)",
+      "seed": 8002
+    },
+    {
+      "narration": "ત્યારે ઋષિએ કથા માંડી, કુશનાભની સો દીકરીઓની.",
+      "keywords": [
+        "કુશનાભની",
+        "દીકરીઓની."
+      ],
+      "emphasis": "રાજા કુશનાભ",
+      "visual": "the whole top third of the frame left as plain empty dark chalkboard, {kushanabha} seated alone on a carved stone throne in the middle of an ancient Indian pillared hall with carved stone pillars and hanging oil lamps, a calm proud expression, both hands resting on the armrests, the hall empty around him, a tall carved stone doorway behind him opening onto a garden, vertical composition, subject in the center of the frame, open dark chalkboard space at the top, lower quarter of the frame plain dark chalkboard",
+      "pause": 0.18,
+      "shot": "MS",
+      "move": "push",
+      "transition": "erase",
+      "accent": "mithila",
+      "seed": 8003
+    },
+    {
+      "narration": "વાયુદેવે તેમને જોઈ કહ્યું, મારી પત્નીઓ બનો, સદા યુવાન રહેશો.",
+      "keywords": [
+        "વાયુદેવે",
+        "પત્નીઓ"
+      ],
+      "emphasis": "",
+      "visual": "an ancient Indian palace garden with flowering trees, {kushanabha_daughters} seen from behind, small in the lower middle of the frame, and a huge swirling spiral of white chalk wind made only of long curved chalk strokes and whirling leaves, like a tall tornado of wind lines towering high over the garden in front of them and bending the trees and scattering petals and leaves through the air, the wind lines hollow and empty inside, vertical composition, subject in the center of the frame, open dark chalkboard space at the top, lower quarter of the frame plain dark chalkboard",
+      "pause": 0.18,
+      "sfx": [
+        {
+          "name": "wind"
+        }
+      ],
+      "melody": "rise",
+      "shot": "WS",
+      "move": "tilt",
+      "transition": "whip",
+      "accent": "divine",
+      "quote_src": "VR 1.32.16–17 (vulgate)",
+      "seed": 8004
+    },
+    {
+      "narration": "તેઓ હસીને બોલી, તમને પદ પરથી પાડી શકીએ, પણ તપ નહીં વેડફીએ.",
+      "keywords": [
+        "હસીને",
+        "તપ"
+      ],
+      "emphasis": "",
+      "visual": "three young Indian princesses with brown skin and long dark braided hair, each modestly dressed in a full-length sari with the end drawn over her head, each with exactly two arms covered by the sari drape wrapped around her shoulders, standing tall and well apart from one another, seen from behind, heads tilted back in laughter, facing a small loose spiral of white chalk wind lines low on the grass at knee height in front of them, fading into a few limp curls, flowering garden trees on both sides, vertical composition, subject in the center of the frame, open dark chalkboard space at the top, lower quarter of the frame plain dark chalkboard",
+      "pause": 0.18,
+      "shot": "MS",
+      "move": "push",
+      "transition": "cut",
+      "accent": "mithila",
+      "quote_src": "VR 1.32.18–20 (vulgate)",
+      "seed": 8005
+    },
+    {
+      "narration": "અને કહ્યું કે અમારા પતિ તો પિતાજી જ પસંદ કરશે.",
+      "keywords": [
+        "પતિ",
+        "પિતાજી"
+      ],
+      "emphasis": "",
+      "visual": "a row of seven small simple dark silhouettes of Indian princesses in full-length saris with the ends drawn over their heads, each with exactly two arms covered by the sari drape, standing well apart from one another on a garden terrace, seen from behind, all turned toward their father's palace far away on a hill, an ancient Indian palace of flat stone terraces with a tall carved stone gateway and pointed stepped shikhara towers like a temple, a soft pale evening glow spread low along the horizon line, vertical composition, subject in the center of the frame, open dark chalkboard space at the top, lower quarter of the frame plain dark chalkboard",
+      "pause": 0.18,
+      "shot": "silhouette",
+      "move": "static",
+      "transition": "cut",
+      "accent": "mithila",
+      "quote_src": "VR 1.32.21–22 (vulgate)",
+      "seed": 8106
+    },
+    {
+      "narration": "આ સાંભળી ક્રોધે ભરાયેલા વાયુએ અંગોમાં પેસી તેમને કૂબડી કરી દીધી.",
+      "keywords": [
+        "ક્રોધે",
+        "કૂબડી"
+      ],
+      "emphasis": "",
+      "visual": "an ancient Indian palace garden seen from above, a huge swirling spiral of white chalk wind made only of long curved chalk strokes and whirling leaves, like a tall tornado of wind lines sweeping across the garden, all the trees bent the same way, {kushanabha_daughters}, small and far apart, every one of them bent forward at the waist like tall reeds in a strong gale, heads bowed into the wind, sari ends streaming sideways, vertical composition, subject in the center of the frame, open dark chalkboard space at the top, lower quarter of the frame plain dark chalkboard",
+      "pause": 0.5,
+      "sfx": [
+        {
+          "name": "rumble"
+        },
+        {
+          "name": "wind"
+        }
+      ],
+      "melody": "grief",
+      "swell": true,
+      "shot": "WS",
+      "angle": "high",
+      "move": "shake",
+      "transition": "flash",
+      "accent": "divine",
+      "overlay": [
+        "dust"
+      ],
+      "seed": 8007
+    },
+    {
+      "narration": "પણ પિતાએ એમની ક્ષમા વખાણી, ને કહ્યું, ક્ષમા પર જગત ટકેલું છે.",
+      "keywords": [
+        "ક્ષમા",
+        "જગત"
+      ],
+      "emphasis": "",
+      "visual": "the verse written in chalk",
+      "pause": 0.5,
+      "sfx": [],
+      "kind": "verse",
+      "tone": "awe",
+      "pacing": "slow",
+      "quote_src": "VR 1.33.6–9 (vulgate)",
+      "devanagari": [
+        "ક્ષમા દાનં ક્ષમા સત્યં",
+        "ક્ષમા યજ્ઞાશ્ચ પુત્રિકાઃ।",
+        "ક્ષમા યશઃ ક્ષમા ધર્મઃ",
+        "ક્ષમાયાં વિષ્ઠિતં જગત્॥"
+      ],
+      "source": "વાલ્મીકિ રામાયણ 1.33.8–9 (દાક્ષિણાત્ય પાઠ)",
+      "edition": "vulgate (sa.wikisource)"
+    },
+    {
+      "narration": "પછી રાજા બ્રહ્મદત્તે હાથ ઝાલ્યો, ને તેઓ સીધી થઈ ગઈ.",
+      "keywords": [
+        "બ્રહ્મદત્તે",
+        "સીધી"
+      ],
+      "emphasis": "જગત શેના પર ટકેલું છે?",
+      "visual": "the whole top third of the frame left as plain empty dark chalkboard, an ancient Indian wedding pavilion with carved stone pillars hung with flower garlands and rows of small clay oil lamps, {brahmadatta} seen from behind, standing alone in the lower left on the pavilion steps with his right arm extended forward and palm open, his left arm at his side, far beyond him across an open courtyard {kushanabha_daughters}, all standing perfectly straight and tall, a warm golden glow spread low along the floor of the courtyard, flower petals drifting down, vertical composition, subject in the center of the frame, open dark chalkboard space at the top, lower quarter of the frame plain dark chalkboard",
+      "pause": 0.3,
+      "sfx": [
+        {
+          "name": "bell"
+        }
+      ],
+      "melody": "love",
+      "swell": true,
+      "shot": "WS",
+      "move": "pull",
+      "transition": "dust",
+      "accent": "mithila",
+      "overlay": [
+        "petals"
+      ],
+      "seed": 8009
+    },
+    {
+      "narration": "ઋષિએ કહ્યું કે કુશનાભ તેમના દાદા હતા, ને તેમની મોટી બહેન નદી બની.",
+      "keywords": [
+        "દાદા",
+        "નદી"
+      ],
+      "emphasis": "આગળ: નદી બનેલી બહેન",
+      "visual": "the whole top third of the frame left as plain empty dark chalkboard, the same framing as the opening: a night camp on the bank of the Shona river, {rama_teen} with his back to the viewer and {vishvamitra} with dark hair streaked with grey tied in a topknot, a dark beard seated small in the lower middle of the frame beside a small campfire, both seen from behind with exactly two arms, the sage pointing ahead at eye level with his wooden staff, across the middle of the frame a broad winding river of rippling pale silver-white chalk water between rocky banks, flowing down from snowy Himalayan peaks on the horizon, a few faint chalk stars low near the horizon line, vertical composition, subject in the center of the frame, open dark chalkboard space at the top, lower quarter of the frame plain dark chalkboard",
+      "pause": 0.18,
+      "sfx": [
+        {
+          "name": "river"
+        }
+      ],
+      "melody": "calm",
+      "shot": "WS",
+      "move": "push",
+      "transition": "black",
+      "accent": "forest",
+      "quote_src": "VR 1.34.5–8 (vulgate)",
+      "seed": 8010
+    }
+  ],
+  "description": "",
+  "hashtags": [],
+  "thumbnail": {
+    "scene": 0,
+    "devanagari": "",
+    "title": "દેવને ના પાડી",
+    "series": "The Epic in Chalk",
+    "episode": "ભાગ 8",
+    "subtitle": ""
+  },
+  "sources": [
+    {
+      "ref": "VR 1.31.6–7",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "the sages: Janaka of Mithila will hold a sacrifice; come and see the wondrous bow (Ep07 setting)"
+    },
+    {
+      "ref": "VR 1.31.8–10",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "the gods gave the bow; no god, gandharva, asura, rakshasa or man can string it (Ep07 teaser 1.31.9); mighty kings tested it and could not string it (1.31.10)"
+    },
+    {
+      "ref": "VR 1.31.14–18",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "Vishvamitra takes leave of the forest deities and sets out north; a hundred carts of brahmavadins follow; the hermitage's deer and birds follow him"
+    },
+    {
+      "ref": "VR 1.31.19–23",
+      "edition": "vulgate (valmikiramayan.net; sa.wikisource prints 1.31.19 twice)",
+      "note": "he turns the birds and beasts back; at sunset they camp on the bank of the Shona; Rama asks: what land is this, rich with forests?"
+    },
+    {
+      "ref": "VR 1.31.24",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "urged by Rama, the sage tells the whole story of that land among the sages"
+    },
+    {
+      "ref": "VR 1.32.1–11",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "Kusha and his four sons found cities; Kushanabha founds Mahodaya and fathers a hundred daughters by Ghritachi"
+    },
+    {
+      "ref": "VR 1.32.15–17",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "Vayu sees them: I desire you all, you will be my wives; leave the human state, gain long life, unfading youth, immortality"
+    },
+    {
+      "ref": "VR 1.32.18–22",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "they laugh off his words; we could topple you from your place, but we guard our tapas; never will we slight our truthful father and choose for ourselves; whoever our father gives us to will be our husband"
+    },
+    {
+      "ref": "VR 1.32.23–26",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "Vayu, enraged, enters all their limbs and breaks them; they return weeping; the king asks who made them all hunchbacked (कुब्जाः)"
+    },
+    {
+      "ref": "VR 1.33.1–4",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "the daughters tell their father: we are not free to choose; ask our father; for saying this, Vayu struck us hard"
+    },
+    {
+      "ref": "VR 1.33.5–9",
+      "edition": "vulgate (sa.wikisource; valmikiramayan.net labels the card lines 1.33.8b–9a)",
+      "note": "the king: you have forgiven, as the forgiving do; forgiveness is charity, truth, sacrifice, glory, dharma; on forgiveness the world stands (verse card 1.33.8–9)"
+    },
+    {
+      "ref": "VR 1.33.18–23",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "Brahmadatta, king of Kampilya; Kushanabha gives him the hundred daughters; at the mere touch of his hand they are unbent and free of pain"
+    },
+    {
+      "ref": "VR 1.34.5–6",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "Gadhi is born to Kushanabha; the sage: that Gadhi is my father, I am Kaushika of Kusha's line"
+    },
+    {
+      "ref": "VR 1.34.7–8",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "teaser verse 1.34.8: his elder sister Satyavati, given to Richika, followed her husband bodily to heaven and flowed forth as the great river Kaushiki"
+    },
+    "https://sa.wikisource.org/wiki/रामायणम्/बालकाण्डम्/सर्गः_३१ (accessed 2026-11-17)",
+    "https://sa.wikisource.org/wiki/रामायणम्/बालकाण्डम्/सर्गः_३२ (accessed 2026-11-17)",
+    "https://sa.wikisource.org/wiki/रामायणम्/बालकाण्डम्/सर्गः_३३ (accessed 2026-11-17)",
+    "https://sa.wikisource.org/wiki/रामायणम्/बालकाण्डम्/सर्गः_३४ (accessed 2026-11-17)",
+    "https://www.valmikiramayan.net/utf8/baala/sarga31/balasans31.htm (accessed 2026-11-17)",
+    "https://www.valmikiramayan.net/utf8/baala/sarga32/balasans32.htm (accessed 2026-11-17)",
+    "https://www.valmikiramayan.net/utf8/baala/sarga33/balasans33.htm (accessed 2026-11-17)",
+    "https://www.valmikiramayan.net/utf8/baala/sarga34/balasans34.htm (accessed 2026-11-17)"
+  ],
+  "style_overrides": {
+    "caption_font": "/System/Library/Fonts/KohinoorGujarati.ttc",
+    "caption_font_index": 0,
+    "caption_size": 80,
+    "caption_max_chars": 22
+  },
+  "loop": "composition",
+  "learnings": [
+    {
+      "action": "A1",
+      "tier": "anecdote",
+      "n": 8,
+      "finding": "F1",
+      "how": "Partly applied. The stakes are in the hook itself (a hundred princesses refuse a god). The shape is the 45 s default trimmed toward 35 s, not the 35 s anecdote shape: the story needs offer, refusal, curse, the father's verdict and the cure, plus the Ep07 payoff and the teaser. In en the curse lands at about 27–31 s, the verse card follows, and the main loop closes at the healing by about 87% of runtime."
+    },
+    {
+      "action": "A2",
+      "tier": "anecdote",
+      "n": 1,
+      "finding": "F2",
+      "how": "Applied. Hooks are 2.5–2.9 s in every language with the stakes in the first sentence; gu is written natively short (ના પાડી), not translated. Frame 0 is the hook image (princesses under the wind spiral), to be drawn ≥70% by the engine (O5)."
+    },
+    {
+      "action": "A3",
+      "tier": "anecdote",
+      "n": 8,
+      "finding": "F4",
+      "how": "Applied. Estimates sit in the lower-middle of 35–55 s (see the lint line above), and gu/te/mr stay at or under 53 s (narration rewrite for flow, 2026-11-17; the owner asked for flow over brevity)."
+    },
+    {
+      "action": "A4",
+      "tier": "anecdote",
+      "n": 8,
+      "finding": "F5",
+      "how": "Applied on screen. Scene 10 carries the ≤6-word engagement line as its title card (en 'What holds up the world?'), answered in the text by the verse card just before it (forgiveness, 1.33.8–9). It is not spoken, because gu/te/mr have no seconds to spare. The same line is suggested as the pinned comment so shares/reach can be compared next time."
+    }
+  ],
+  "estimated_seconds": 53
+}

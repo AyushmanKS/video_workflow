@@ -1,0 +1,111 @@
+[
+  {
+    "text": "A hundred princesses refused a god.",
+    "type": "contrast / forbidden detail",
+    "spoken_s": 2.49,
+    "scores": {
+      "curiosity": 5,
+      "emotion": 5,
+      "specificity": 4,
+      "speed": 5,
+      "resonance": 4,
+      "accuracy": 5
+    },
+    "total": 28,
+    "selected": true,
+    "visual_hook": true,
+    "hook_to_payoff": "closes at scene 10 (healed, about 85%); the reversal lands at the verse card, scene 9",
+    "reasoning": "Selected: highest rubric total. Stakes in the first sentence (a hundred against a god), a number, and a refusal that makes the viewer ask what it cost them. Frame 0 (princesses under a wind spiral) reads muted. The main loop (what did the god do, and what then?) turns at the curse (scene 8), reverses at the verse card (scene 9) and closes at the healing (scene 10) by about 85%. Spoken about 2.5 s, above the 2.0 s that failed the Kokoro speaker check in Ep06. hookscore.py (English-only second opinion, run 2026-11-17): all six WEAK, 31–35/100 (question hook highest at 35, selected hook 32); weakest property STAKES for every line, as in Ep06 and Ep07. Not used to override the rubric or accuracy.",
+    "rewrite_note": "2026-11-17 narration rewrite for flow: hook kept unchanged. The main loop now closes at the end of scene 10 at about 46.7 s of 53.56 s (about 87%), lint estimate."
+  },
+  {
+    "text": "Be my wives, said the wind god. They laughed.",
+    "type": "request with a twist",
+    "spoken_s": 2.82,
+    "scores": {
+      "curiosity": 5,
+      "emotion": 4,
+      "specificity": 4,
+      "speed": 3,
+      "resonance": 4,
+      "accuracy": 5
+    },
+    "total": 25,
+    "selected": false,
+    "visual_hook": true,
+    "hook_to_payoff": "closes at scene 10",
+    "reasoning": "1.32.16–18. Strong twist, but it spends scenes 5–6 in the hook and runs about 3 s, near the hard limit."
+  },
+  {
+    "text": "They could topple a god. They forgave him instead.",
+    "type": "contrast",
+    "spoken_s": 3.32,
+    "scores": {
+      "curiosity": 4,
+      "emotion": 4,
+      "specificity": 3,
+      "speed": 1,
+      "resonance": 4,
+      "accuracy": 4
+    },
+    "total": 20,
+    "selected": false,
+    "visual_hook": false,
+    "hook_to_payoff": "closes at the verse card, scene 9",
+    "reasoning": "1.32.20 and 1.33.6. True, but 'forgave him' compresses the father's words (1.33.6 'you have forgiven') into the daughters' own act, and it gives away the reversal. Spoken 3.32 s, over the 3.0 s hard limit (speed scored 1)."
+  },
+  {
+    "text": "Why were a hundred princesses left hunched?",
+    "type": "question",
+    "spoken_s": 2.99,
+    "scores": {
+      "curiosity": 4,
+      "emotion": 3,
+      "specificity": 4,
+      "speed": 4,
+      "resonance": 3,
+      "accuracy": 5
+    },
+    "total": 23,
+    "selected": false,
+    "visual_hook": false,
+    "hook_to_payoff": "closes at scene 8 (about 65%)",
+    "reasoning": "1.32.23–26. Highest hookscore (35), but it answers itself at the curse and puts disfigurement at frame 0, which sits badly with the sensitivity rule."
+  },
+  {
+    "text": "One god's anger bent a hundred backs.",
+    "type": "number / bold claim",
+    "spoken_s": 2.41,
+    "scores": {
+      "curiosity": 4,
+      "emotion": 4,
+      "specificity": 4,
+      "speed": 4,
+      "resonance": 3,
+      "accuracy": 4
+    },
+    "total": 23,
+    "selected": false,
+    "visual_hook": false,
+    "hook_to_payoff": "closes at scene 10",
+    "reasoning": "1.32.23–26. Vivid, but 'backs' narrows the text's 'all their limbs' (सर्वगात्राणि) and frames the episode around the curse rather than the refusal."
+  },
+  {
+    "text": "On the road to Janaka's bow, a story of forgiveness.",
+    "type": "teaser payoff / in medias res",
+    "spoken_s": 3.32,
+    "scores": {
+      "curiosity": 2,
+      "emotion": 2,
+      "specificity": 3,
+      "speed": 1,
+      "resonance": 4,
+      "accuracy": 5
+    },
+    "total": 17,
+    "selected": false,
+    "visual_hook": false,
+    "hook_to_payoff": "closes at scene 10",
+    "reasoning": "Pays off the Ep07 card directly but has no stakes in the first sentence (A2) and names the moral before the story. Spoken 3.32 s, over the 3.0 s hard limit (speed scored 1)."
+  }
+]

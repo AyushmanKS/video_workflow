@@ -1,0 +1,111 @@
+[
+  {
+    "text": "शंभर राजकन्यांनी देवाला नकार दिला.",
+    "type": "contrast / forbidden detail",
+    "spoken_s": 2.82,
+    "scores": {
+      "curiosity": 5,
+      "emotion": 5,
+      "specificity": 4,
+      "speed": 5,
+      "resonance": 4,
+      "accuracy": 5
+    },
+    "total": 28,
+    "selected": true,
+    "visual_hook": true,
+    "hook_to_payoff": "closes at scene 10 (about 85%)",
+    "reasoning": "Selected: highest total. नकार दिला is the standard Marathi refusal; dropping एका keeps the hook under 3.0 s (3.15 s with it). Stakes in the first sentence; frame 0 reads muted.",
+    "rewrite_note": "2026-11-17 narration rewrite for flow: hook kept unchanged. The main loop now closes at the end of scene 10 at about 47.2 s of 52.92 s (about 89%), lint estimate."
+  },
+  {
+    "text": "माझ्या पत्नी व्हा, वायुदेव बोलला. त्या हसल्या.",
+    "type": "request with a twist",
+    "spoken_s": 3.48,
+    "scores": {
+      "curiosity": 5,
+      "emotion": 4,
+      "specificity": 4,
+      "speed": 1,
+      "resonance": 4,
+      "accuracy": 5
+    },
+    "total": 23,
+    "selected": false,
+    "visual_hook": true,
+    "hook_to_payoff": "closes at scene 10",
+    "reasoning": "1.32.16–18. Over 3 s. Spoken 3.48 s, over the 3.0 s hard limit (speed scored 1)."
+  },
+  {
+    "text": "देवाला पाडू शकत होत्या, तरी क्षमा केली.",
+    "type": "contrast",
+    "spoken_s": 2.98,
+    "scores": {
+      "curiosity": 4,
+      "emotion": 4,
+      "specificity": 3,
+      "speed": 3,
+      "resonance": 4,
+      "accuracy": 4
+    },
+    "total": 22,
+    "selected": false,
+    "visual_hook": false,
+    "hook_to_payoff": "closes at scene 9",
+    "reasoning": "1.32.20, 1.33.6. Gives away the reversal."
+  },
+  {
+    "text": "शंभर राजकन्या कुबड्या का झाल्या?",
+    "type": "question",
+    "spoken_s": 2.65,
+    "scores": {
+      "curiosity": 4,
+      "emotion": 3,
+      "specificity": 4,
+      "speed": 5,
+      "resonance": 3,
+      "accuracy": 5
+    },
+    "total": 24,
+    "selected": false,
+    "visual_hook": false,
+    "hook_to_payoff": "closes at scene 8",
+    "reasoning": "1.32.26. Answers itself at the curse."
+  },
+  {
+    "text": "एका देवाच्या रागाने शंभर पाठी वाकल्या.",
+    "type": "number / bold claim",
+    "spoken_s": 2.98,
+    "scores": {
+      "curiosity": 4,
+      "emotion": 4,
+      "specificity": 4,
+      "speed": 4,
+      "resonance": 3,
+      "accuracy": 4
+    },
+    "total": 23,
+    "selected": false,
+    "visual_hook": false,
+    "hook_to_payoff": "closes at scene 10",
+    "reasoning": "Narrows 'all their limbs'."
+  },
+  {
+    "text": "जनकाच्या धनुष्याच्या वाटेवर क्षमेची कथा.",
+    "type": "teaser payoff",
+    "spoken_s": 3.48,
+    "scores": {
+      "curiosity": 2,
+      "emotion": 2,
+      "specificity": 3,
+      "speed": 1,
+      "resonance": 4,
+      "accuracy": 5
+    },
+    "total": 17,
+    "selected": false,
+    "visual_hook": false,
+    "hook_to_payoff": "closes at scene 10",
+    "reasoning": "No stakes in the first sentence. Spoken 3.48 s, over the 3.0 s hard limit (speed scored 1)."
+  }
+]

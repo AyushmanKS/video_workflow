@@ -80,6 +80,21 @@
       "prompt_positive": "a huge solid black shadow silhouette of a broad heavy-shouldered rakshasa with exactly two arms, wild flowing hair and glinting fangs, a smooth featureless shadowed face, bare-headed, human-shaped body wrapped in a simple dark loincloth",
       "source_episode": "C0007",
       "notes": "Follows the Tataka shadow rule. Broad and heavy so he reads apart from Maricha."
+    },
+    "kushanabha": {
+      "prompt": "King Kushanabha, a dignified middle-aged Indian king with brown skin, a short black beard streaked with grey and a moustache, a simple gold crown, a gold necklace on his bare chest, a white dhoti with a saffron sash, exactly two arms",
+      "source_episode": "C0008",
+      "notes": "Appears alone in the frame (rule for Ep08). Ancient Indian king, simple crown; nothing Mughal-coded."
+    },
+    "brahmadatta": {
+      "prompt": "King Brahmadatta of Kampilya, a young Indian king with brown skin, long dark hair under a simple gold crown, a white flower garland over his bare chest, a saffron dhoti, exactly two arms",
+      "source_episode": "C0008",
+      "notes": "Appears alone in the frame, seen from behind, with the princesses only as a distant crowd. The cure is shown as his extended open palm and the distant crowd standing straight, never as a hand insert."
+    },
+    "kushanabha_daughters": {
+      "prompt": "a distant crowd of small simple silhouettes of young Indian princesses with brown skin and long dark braided hair, each modestly dressed in a full-length sari with the end drawn over her head, each with exactly two arms, standing well apart from one another in loose rows",
+      "source_episode": "C0008",
+      "notes": "The hundred daughters: always distant, small, well separated, modest saris, usually seen from behind. Ep07 lesson: crowded or overlapping figures grow extra arms. The curse is bending like reeds in the wind, never deformity."
     }
   },
   "rules": [

@@ -1,0 +1,111 @@
+[
+  {
+    "text": "వంద మంది కన్యలు దేవుణ్ణి కాదన్నారు.",
+    "type": "contrast / forbidden detail",
+    "spoken_s": 2.87,
+    "scores": {
+      "curiosity": 5,
+      "emotion": 5,
+      "specificity": 4,
+      "speed": 5,
+      "resonance": 4,
+      "accuracy": 5
+    },
+    "total": 28,
+    "selected": true,
+    "visual_hook": true,
+    "hook_to_payoff": "closes at scene 10 (about 85%)",
+    "reasoning": "Selected: highest total. కన్యలు renders the text's कन्याशतम् and keeps the hook under 3.0 s (రాకుమార్తెలు ran 3.5 s). కాదన్నారు is the natural spoken refusal. Stakes in the first sentence; frame 0 reads muted.",
+    "rewrite_note": "2026-11-17 narration rewrite for flow: hook kept unchanged. The main loop now closes at the end of scene 10 at about 47.4 s of 52.98 s (about 89%), lint estimate."
+  },
+  {
+    "text": "భార్యలవ్వండి అన్నాడు వాయువు. వారు నవ్వారు.",
+    "type": "request with a twist",
+    "spoken_s": 3.37,
+    "scores": {
+      "curiosity": 5,
+      "emotion": 4,
+      "specificity": 4,
+      "speed": 1,
+      "resonance": 4,
+      "accuracy": 5
+    },
+    "total": 23,
+    "selected": false,
+    "visual_hook": true,
+    "hook_to_payoff": "closes at scene 10",
+    "reasoning": "1.32.16–18. Spends scenes 5–6; near 3 s. Spoken 3.37 s, over the 3.0 s hard limit (speed scored 1)."
+  },
+  {
+    "text": "దేవుణ్ణి పడగొట్టగలరు, అయినా క్షమించారు.",
+    "type": "contrast",
+    "spoken_s": 3.37,
+    "scores": {
+      "curiosity": 4,
+      "emotion": 4,
+      "specificity": 3,
+      "speed": 1,
+      "resonance": 4,
+      "accuracy": 4
+    },
+    "total": 20,
+    "selected": false,
+    "visual_hook": false,
+    "hook_to_payoff": "closes at scene 9",
+    "reasoning": "1.32.20, 1.33.6. Gives away the reversal. Spoken 3.37 s, over the 3.0 s hard limit (speed scored 1)."
+  },
+  {
+    "text": "వంద మంది కన్యలు గూనివాళ్ళెందుకయ్యారు?",
+    "type": "question",
+    "spoken_s": 3.04,
+    "scores": {
+      "curiosity": 4,
+      "emotion": 3,
+      "specificity": 4,
+      "speed": 1,
+      "resonance": 3,
+      "accuracy": 5
+    },
+    "total": 20,
+    "selected": false,
+    "visual_hook": false,
+    "hook_to_payoff": "closes at scene 8",
+    "reasoning": "1.32.26. Long compound; answers itself at the curse. Spoken 3.04 s, over the 3.0 s hard limit (speed scored 1)."
+  },
+  {
+    "text": "ఒక దేవుడి కోపం వంద నడుములు వంచింది.",
+    "type": "number / bold claim",
+    "spoken_s": 2.7,
+    "scores": {
+      "curiosity": 4,
+      "emotion": 4,
+      "specificity": 4,
+      "speed": 3,
+      "resonance": 3,
+      "accuracy": 4
+    },
+    "total": 22,
+    "selected": false,
+    "visual_hook": false,
+    "hook_to_payoff": "closes at scene 10",
+    "reasoning": "Narrows 'all their limbs'."
+  },
+  {
+    "text": "జనకుని విల్లు దారిలో ఒక క్షమ కథ.",
+    "type": "teaser payoff",
+    "spoken_s": 2.87,
+    "scores": {
+      "curiosity": 2,
+      "emotion": 2,
+      "specificity": 3,
+      "speed": 4,
+      "resonance": 4,
+      "accuracy": 5
+    },
+    "total": 20,
+    "selected": false,
+    "visual_hook": false,
+    "hook_to_payoff": "closes at scene 10",
+    "reasoning": "No stakes in the first sentence."
+  }
+]

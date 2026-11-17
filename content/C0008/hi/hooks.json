@@ -1,0 +1,111 @@
+[
+  {
+    "text": "सौ राजकन्याओं ने देवता को ठुकराया।",
+    "type": "contrast / forbidden detail",
+    "spoken_s": 2.62,
+    "scores": {
+      "curiosity": 5,
+      "emotion": 5,
+      "specificity": 4,
+      "speed": 5,
+      "resonance": 4,
+      "accuracy": 5
+    },
+    "total": 28,
+    "selected": true,
+    "visual_hook": true,
+    "hook_to_payoff": "closes at scene 10 (about 85%)",
+    "reasoning": "Selected: highest total. राजकन्या is the text's own word (कन्याशतम्, 1.32.11); ठुकराया carries refusal and defiance in one verb. Stakes in the first sentence; frame 0 reads muted.",
+    "rewrite_note": "2026-11-17 narration rewrite for flow: hook kept unchanged. The main loop now closes at the end of scene 10 at about 46.2 s of 52.63 s (about 88%), lint estimate."
+  },
+  {
+    "text": "वायुदेव बोले — पत्नियाँ बनो। वे हँस पड़ीं।",
+    "type": "request with a twist",
+    "spoken_s": 2.78,
+    "scores": {
+      "curiosity": 5,
+      "emotion": 4,
+      "specificity": 4,
+      "speed": 3,
+      "resonance": 4,
+      "accuracy": 5
+    },
+    "total": 25,
+    "selected": false,
+    "visual_hook": true,
+    "hook_to_payoff": "closes at scene 10",
+    "reasoning": "1.32.16–18. Good twist; close to 3 s and spends scenes 5–6."
+  },
+  {
+    "text": "वे देवता को गिरा सकती थीं, पर क्षमा चुनी।",
+    "type": "contrast",
+    "spoken_s": 2.94,
+    "scores": {
+      "curiosity": 4,
+      "emotion": 4,
+      "specificity": 3,
+      "speed": 3,
+      "resonance": 5,
+      "accuracy": 4
+    },
+    "total": 23,
+    "selected": false,
+    "visual_hook": false,
+    "hook_to_payoff": "closes at scene 9",
+    "reasoning": "1.32.20, 1.33.6. Strong resonance (क्षमा), but gives away the reversal and compresses the father's words."
+  },
+  {
+    "text": "सौ राजकन्याएँ कुबड़ी क्यों हुईं?",
+    "type": "question",
+    "spoken_s": 2.29,
+    "scores": {
+      "curiosity": 4,
+      "emotion": 3,
+      "specificity": 4,
+      "speed": 5,
+      "resonance": 3,
+      "accuracy": 5
+    },
+    "total": 24,
+    "selected": false,
+    "visual_hook": false,
+    "hook_to_payoff": "closes at scene 8",
+    "reasoning": "1.32.26. Answers itself at the curse; disfigurement at frame 0."
+  },
+  {
+    "text": "एक देवता के क्रोध ने सौ कमरें झुका दीं।",
+    "type": "number / bold claim",
+    "spoken_s": 2.78,
+    "scores": {
+      "curiosity": 4,
+      "emotion": 4,
+      "specificity": 4,
+      "speed": 4,
+      "resonance": 3,
+      "accuracy": 4
+    },
+    "total": 23,
+    "selected": false,
+    "visual_hook": false,
+    "hook_to_payoff": "closes at scene 10",
+    "reasoning": "1.32.23. 'कमर' narrows 'all their limbs'."
+  },
+  {
+    "text": "जनक के धनुष की राह पर, क्षमा की एक कथा।",
+    "type": "teaser payoff",
+    "spoken_s": 3.27,
+    "scores": {
+      "curiosity": 2,
+      "emotion": 2,
+      "specificity": 3,
+      "speed": 1,
+      "resonance": 4,
+      "accuracy": 5
+    },
+    "total": 17,
+    "selected": false,
+    "visual_hook": false,
+    "hook_to_payoff": "closes at scene 10",
+    "reasoning": "No stakes in the first sentence. Spoken 3.27 s, over the 3.0 s hard limit (speed scored 1)."
+  }
+]

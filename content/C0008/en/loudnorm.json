@@ -1,0 +1,23 @@
+{
+  "engine_version": 2,
+  "lead": 0.15,
+  "narration_lufs_in": -26.12,
+  "narration_gain_db": 10.12,
+  "ducking": {
+    "voice_rms_db": -15.66,
+    "bed_rms_db": -33.69,
+    "under_gain_db": -1.97
+  },
+  "loudnorm_pass1": {
+    "input_i": "-14.13",
+    "input_tp": "-1.77",
+    "input_lra": "2.50",
+    "input_thresh": "-24.71",
+    "output_i": "-13.96",
+    "output_tp": "-1.60",
+    "output_lra": "2.30",
+    "output_thresh": "-24.48",
+    "normalization_type": "dynamic",
+    "target_offset": "-0.04"
+  }
+}
