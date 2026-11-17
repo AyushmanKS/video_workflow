@@ -145,7 +145,46 @@ Free disk is now 57 GB. Deleting both Wan folders frees about 33 GB.
 - AnimeGen I2V MLX (43 GB peak): https://huggingface.co/mlx-community/AnimeGen-I2V-A14B-Lightning-int4
 - Real-ESRGAN: https://github.com/xinntao/Real-ESRGAN (releases v0.2.5.0)
 
-## 7. AK01 sample production (2026-11-17, in progress)
+## 7. AK01 sample production (2026-11-17), complete and awaiting owner review
+
+**Finals** (lab only, gitignored, nothing integrated into the pipeline or published):
+- `data/anim_lab/AK01/AK01-hi.mp4`: 52.8 s, 1080×1920, 30 fps, H.264, AAC 48 kHz, −13.9 LUFS, TP −2.0 dBTP.
+- `data/anim_lab/AK01/AK01-en.mp4`: 48.0 s, same format, −13.9 LUFS, TP −1.5 dBTP.
+- Also in the folder: 540p proxies, 0.5 s contact sheets and timeline JSON.
+
+All 11 shots are real LTX-2.3 image-to-video animation, with no Ken Burns or parallax stand-ins. Voice QA passed: `speaker_consistency` minimum window similarity was 0.627 (en) and 0.664 (hi), against a 0.5 threshold. Captions use Whisper word alignment.
+
+### 7.0 Final shot list (`data/anim_lab/AK01/clips/`)
+
+| Shot | Final take | Wall time | What moves | Notes |
+|---|---|---|---|---|
+| 1 King at the window | seed 42, 97 frames, end anchor | 6.0 min | Push-in; the king lifts his gaze to the sky, then his brow tightens | Meteor faint |
+| 2 Throne hall | seed 42, 121 frames | 7.5 min | Push-in under the parasol; attendants wave fans | — |
+| 3 Assembly | retake, seed 7, 97 frames | 6.0 min | Slow pull-back; the king lowers his open palms; nobles in rows | Take 1 rejected: a giant hand entered the frame. The final has no text prompt (see below) |
+| 4 Peacocks | seed 42, 97 frames, new keyframe | 6.2 min | Peacocks shimmer and shift their fans; monsoon rain; petals | First keyframe rejected (cloud read as smoke). No text prompt |
+| 5 Rama close-up | retake 2, seed 11, 97 frames, mid anchor at frame 48 (0.5) + end anchor 0.8 | 7.0 min | Lowers his eyes, gentle smile, lamp light | Take 1 rejected (spin); retake 1 rejected (crown wobble). The final's crown is stable, but the clip had two brightness dips, corrected in the edit with per-frame gain. No text prompt |
+| 6 Embrace | retake, seed 7, 97 frames | 5.7 min | The king draws Rama in, hand on his shoulder; Rama bows his head | Take 1 rejected (crouch, cropped face). The clip darkens at the end, under the dip into shot 7 |
+| 7 Dreadful dreams | seed 42, 97 frames, end anchor | 6.7 min | A foreground lamp flame sweeps past with a rack focus; the king's eyes open wide | The eyes are slightly cartoonish |
+| 8 "Be crowned tomorrow" | retake, seed 42, 97 frames, new keyframe + end anchor | 6.3 min | The king leans in and grips Rama's forearm; an ancient earth road outside | Take 1 rejected (modern highway). About 0.7 s of crown softening during the lean |
+| 9 The sacred fast | seed 42, 121 frames | 10.2 min | Push-in; both close their eyes; fire and smoke | — |
+| 10 Decorated city | seed 42, 121 frames | 7.5 min | Crane up with parallax; people walk; banners and lamps | — |
+| 11 Manthara | seed 42, 121 frames, end anchor | 8.4 min | Push-in; a small gesture toward the city; she looks back with narrowed eyes | No text prompt |
+
+**Rejected takes and errors:**
+- 6 takes were rejected in total (s03, s05 ×2, s06, s08 and the first s05 retake), and 2 keyframes (s04, s08).
+- **Script error:** from 19:49 my prompt module had a syntax error. As a result the final takes of shots 3, 4, 5 and 11 were rendered with an **empty text prompt**, driven only by the keyframe and its start, mid and end anchors. Their motion matches the shot list and they passed visual review, but they were not text-directed. The error is now fixed.
+
+**Totals:**
+- LTX: 18 clip renders, about 2 h 15 min, peak footprint 8.2–8.7 GB.
+- Keyframes, anchors and references: about 1 h 45 min of klein and Z-Image time.
+- Voice: 1 min.
+- Assembly: about 3 min for both languages.
+- Cost: ₹0.
+
+The afternoon interim report follows (kept for the record).
+
+### 7.0b Interim report written at the 17:00 stop
+
 
 Status: **sample, not finished, awaiting owner review.** By the laptop's 17:00 close, 7 LTX clips had been rendered. 4 shots were approved (1, 5 retake, 9, 10) and 3 takes were rejected (5 take 1, 6, 8). A "first look" cut of shots 1, 5, 9 and 10 was made in Hindi and English (`data/anim_lab/AK01/AK01-firstlook-{en,hi}.mp4`). Nothing was integrated into the pipeline, published or scheduled. All files are in `data/anim_lab/` (gitignored). The resume steps are in `data/anim_lab/AK01/STATE.md`.
 

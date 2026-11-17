@@ -435,17 +435,19 @@
         ],
         "prompt": "Use the reference images for character identity only: image 1 shows the old king with the white beard and tall gold crown. Keep each character's face, skin tone, hair, crown, jewellery and costume colours exactly as in the references. Image 2 shows the location: keep its architecture, colours and light. anime film still, painterly cel-shaded animation with soft gradient shading, painted warm golden lighting, atmospheric depth, richly detailed gold ornaments, cinematic, ancient Indian setting, detailed background art, vertical frame. low angle wide shot of a vast pillared assembly hall, the same old king standing in front of his golden throne with his right arm extended forward and open palm raised, rows of small distant seated kings and citizens in white and saffron far away along the sides, lapis blue sky through tall openings. King Dasharatha, a very old Indian king with a light golden-brown complexion, a noble lined face with deep-set kind tired eyes, white bushy eyebrows, a long flowing white beard and white moustache, long white hair, the ornate golden crown with red rubies, a red tilak on the forehead, heavy gold necklaces and pearl strings, gold armlets, bare chest with a white sacred thread, a saffron silk dhoti and a white shawl with a broad gold border over one shoulder, exactly two arms.",
         "seed": 7,
-        "motion_prompt": "Low angle wide view of a vast pillared assembly hall. The old king stands before his golden throne and slowly extends his right arm forward with an open palm, proclaiming. Distant rows of seated nobles remain still, a few turn their heads. Banners hanging between the pillars sway. The camera slowly pulls back to reveal the scale of the hall."
+        "motion_prompt": "Low angle wide view of a vast pillared assembly hall. Static camera with a very slow pull-back. The old king stands before his golden throne and raises his open palms toward the seated assembly; the seated nobles turn their heads toward him; the fringe of the white parasol sways. Only the people already in the frame move; no new hands, arms or objects enter the frame.",
+        "final_clip_note": "final clip was rendered with an empty text prompt (keyframe + anchors only) because of a script error; motion approved on review"
       },
       "s04": {
         "path": "data/anim_lab/AK01/keyframes/s04.png",
-        "sha256": "36828a4f520f1657d797e492803c512be5d31de12b935183f8e2f9cc88973207",
+        "sha256": "a9dcad1581639c8780b07475cfc1a4a331575131f8dbd1796240d282a42d8f39",
         "refs": [
           "data/anim_lab/refs/locations/city_aerial.png"
         ],
         "prompt": "Image 1 shows the location: keep its architecture, colours and light. anime film still, painterly cel-shaded animation with soft gradient shading, painted warm golden lighting, atmospheric depth, richly detailed gold ornaments, cinematic, ancient Indian setting, detailed background art, vertical frame. two peacocks standing on a carved sandstone palace terrace in the foreground, dancing with their long tails spread wide in full fans, heads raised toward a soft blue-grey monsoon rain cloud over the golden city of Ayodhya, light rain streaks falling in soft silver light, a few marigold petals in the air.",
         "seed": 7,
-        "motion_prompt": "Two peacocks on a carved sandstone palace parapet raise their heads and shake their wide fanned tails, feathers shimmering. A soft blue-grey monsoon cloud drifts over the golden city and gentle rain streaks begin to fall in silver light. Orange marigold petals are tossed up from below and drift through the air. The camera holds steady with a slight push in."
+        "motion_prompt": "Two peacocks on a carved sandstone palace parapet raise their heads and shake their wide fanned tails, feathers shimmering. A soft blue-grey monsoon cloud drifts over the golden city and gentle rain streaks begin to fall in silver light. Orange marigold petals are tossed up from below and drift through the air. The camera holds steady with a slight push in.",
+        "final_clip_note": "final clip was rendered with an empty text prompt (keyframe + anchors only) because of a script error; motion approved on review"
       },
       "s05": {
         "path": "data/anim_lab/AK01/keyframes/s05.png",
@@ -460,6 +462,14 @@
           "path": "data/anim_lab/AK01/keyframes/s05_end.png",
           "sha256": "f8dd20ffec9c74d99549d3e7da43060041267a4d1ca01f549bb6cb65a168b23c",
           "strength": 0.7
+        },
+        "final_clip_note": "final clip was rendered with an empty text prompt (keyframe + anchors only) because of a script error; motion approved on review",
+        "final_take": {
+          "clip": "data/anim_lab/AK01/clips/s05.mp4",
+          "seed": 11,
+          "frames": 97,
+          "extra_anchors": "start keyframe as mid guide at frame 48 strength 0.5; end anchor strength 0.8",
+          "note": "crown stable; two brightness dips corrected in the edit by per-frame V gain (assemble.DEFLICKER)"
         }
       },
       "s06": {
@@ -472,7 +482,7 @@
         ],
         "prompt": "Use the reference images for character identity only: image 1 shows the old king with the white beard and tall gold crown; image 2 shows the young prince with deep dark skin. Keep each character's face, skin tone, hair, crown, jewellery and costume colours exactly as in the references. Image 3 shows the location: keep its architecture, colours and light. anime film still, painterly cel-shaded animation with soft gradient shading, painted warm golden lighting, atmospheric depth, richly detailed gold ornaments, cinematic, ancient Indian setting, detailed background art, vertical frame. medium two-shot on a palace terrace in warm golden light, the same old king on the left facing right and the same young prince on the right facing left, the king's hands resting gently on the prince's shoulders, the prince's head gently bowed, a white parasol and an oil lamp behind them. King Dasharatha, a very old Indian king with a light golden-brown complexion, a noble lined face with deep-set kind tired eyes, white bushy eyebrows, a long flowing white beard and white moustache, long white hair, the ornate golden crown with red rubies, a red tilak on the forehead, heavy gold necklaces and pearl strings, gold armlets, bare chest with a white sacred thread, a saffron silk dhoti and a white shawl with a broad gold border over one shoulder, exactly two arms. Prince Rama, a handsome adult Indian prince about twenty-five years old with a strong jaw and a princely upright bearing, a natural deep dark-brown complexion with a subtle cool blue sheen only in the highlights, evenly on face and body, long lotus-shaped eyes, a gentle dignified closed-mouth smile, clean-shaven, long black hair falling to the shoulders, a modest golden prince's crown with a small lotus at the centre, gold earrings, a fine gold necklace with a single ruby pendant and a pearl string, gold armlets, bare chest with a white sacred thread, a yellow silk dhoti with a saffron sash and a light saffron shawl over one shoulder, broad-shouldered with exactly two arms.",
         "seed": 7,
-        "motion_prompt": "On a sunlit palace terrace an old king with a white beard rests his hands gently on the shoulders of a young prince, who slowly bows his head in respect. The king smiles warmly. A small lamp flame flickers and the fringe of a white parasol stirs in the breeze. The camera gently pushes in."
+        "motion_prompt": "On a sunlit palace terrace an old king with a white beard and a young prince both stay standing face to face. The king rests his hands gently on the prince's shoulders and draws him a little closer; the prince only slightly bows his head, staying upright. The king smiles warmly. Both crowns stay unchanged. A small lamp flame flickers and the fringe of a white parasol stirs in the breeze. The camera stays static, framing both faces."
       },
       "s07": {
         "path": "data/anim_lab/AK01/keyframes/s07.png",
@@ -483,19 +493,29 @@
         ],
         "prompt": "Use the reference images for character identity only: image 1 shows the old king with the white beard and tall gold crown. Keep each character's face, skin tone, hair, crown, jewellery and costume colours exactly as in the references. Image 2 shows the location: keep its architecture, colours and light. anime film still, painterly cel-shaded animation with soft gradient shading, painted warm golden lighting, atmospheric depth, richly detailed gold ornaments, cinematic, ancient Indian setting, detailed background art, vertical frame. close-up of the same old king in a dark royal chamber at night lit by a single small oil lamp in the foreground, deep indigo shadows on the carved wall, warm lamp light on one side of his face, his eyes half closed and troubled. King Dasharatha, a very old Indian king with a light golden-brown complexion, a noble lined face with deep-set kind tired eyes, white bushy eyebrows, a long flowing white beard and white moustache, long white hair, the ornate golden crown with red rubies, a red tilak on the forehead, heavy gold necklaces and pearl strings, gold armlets, bare chest with a white sacred thread, a saffron silk dhoti and a white shawl with a broad gold border over one shoulder, exactly two arms.",
         "seed": 7,
-        "motion_prompt": "Close-up of an old king with a white beard in a dark chamber lit by a single oil lamp. The lamp flame bends and shudders in a draught and the shadows on the wall stretch and tremble. The king slowly opens his eyes wide in fear. The camera is still, then pushes in slightly."
+        "motion_prompt": "Close-up of an old king with a white beard in a dark chamber lit by a single oil lamp. The lamp flame bends and shudders in a draught and the shadows on the wall stretch and tremble. The king slowly opens his eyes wide in fear. The camera is still, then pushes in slightly.",
+        "end_anchor": {
+          "path": "data/anim_lab/AK01/keyframes/s07_end.png",
+          "sha256": "474abbb0d2c62be9ae5e939b8f58f480c5114d3e916d0d3d661acc1efb372304",
+          "strength": 0.7
+        }
       },
       "s08": {
         "path": "data/anim_lab/AK01/keyframes/s08.png",
-        "sha256": "f9c8051925c76e32e184297388abc52ed05e064ed3acf37048414d0e80590968",
+        "sha256": "fe382e504da3003e5a22897723d84e424b34eb2502bf0065dd1333d96cb865d0",
         "refs": [
           "data/anim_lab/refs/dasharatha/front.png",
           "data/anim_lab/refs/rama/front.png",
           "data/anim_lab/refs/locations/window_chamber.png"
         ],
-        "prompt": "Use the reference images for character identity only: image 1 shows the old king with the white beard and tall gold crown; image 2 shows the young prince with deep dark skin. Keep each character's face, skin tone, hair, crown, jewellery and costume colours exactly as in the references. Image 3 shows the location: keep its architecture, colours and light. anime film still, painterly cel-shaded animation with soft gradient shading, painted warm golden lighting, atmospheric depth, richly detailed gold ornaments, cinematic, ancient Indian setting, detailed background art, vertical frame. medium two-shot beside a tall carved window, the same old king on the left leaning toward the same young prince on the right, the king's hand resting on the prince's forearm, both faces in three-quarter view, through the window an empty road winds west into distant hills under a pale sky. King Dasharatha, a very old Indian king with a light golden-brown complexion, a noble lined face with deep-set kind tired eyes, white bushy eyebrows, a long flowing white beard and white moustache, long white hair, the ornate golden crown with red rubies, a red tilak on the forehead, heavy gold necklaces and pearl strings, gold armlets, bare chest with a white sacred thread, a saffron silk dhoti and a white shawl with a broad gold border over one shoulder, exactly two arms. Prince Rama, a handsome adult Indian prince about twenty-five years old with a strong jaw and a princely upright bearing, a natural deep dark-brown complexion with a subtle cool blue sheen only in the highlights, evenly on face and body, long lotus-shaped eyes, a gentle dignified closed-mouth smile, clean-shaven, long black hair falling to the shoulders, a modest golden prince's crown with a small lotus at the centre, gold earrings, a fine gold necklace with a single ruby pendant and a pearl string, gold armlets, bare chest with a white sacred thread, a yellow silk dhoti with a saffron sash and a light saffron shawl over one shoulder, broad-shouldered with exactly two arms.",
+        "prompt": "Use the reference images for character identity only: image 1 shows the old king with the white beard and tall gold crown; image 2 shows the young prince with deep dark skin. Keep each character's face, skin tone, hair, crown, jewellery and costume colours exactly as in the references. Image 3 shows the location: keep its architecture, colours and light. anime film still, painterly cel-shaded animation with soft gradient shading, painted warm golden lighting, atmospheric depth, richly detailed gold ornaments, cinematic, ancient Indian setting, detailed background art, vertical frame. medium two-shot beside a tall carved window, the same old king on the left leaning toward the same young prince on the right, the king's hand resting on the prince's forearm, both faces in three-quarter view, through the window an ancient, unpaved earth road lined with trees and fields winds west toward distant hills under a pale sky, no modern elements. King Dasharatha, a very old Indian king with a light golden-brown complexion, a noble lined face with deep-set kind tired eyes, white bushy eyebrows, a long flowing white beard and white moustache, long white hair, the ornate golden crown with red rubies, a red tilak on the forehead, heavy gold necklaces and pearl strings, gold armlets, bare chest with a white sacred thread, a saffron silk dhoti and a white shawl with a broad gold border over one shoulder, exactly two arms. Prince Rama, a handsome adult Indian prince about twenty-five years old with a strong jaw and a princely upright bearing, a natural deep dark-brown complexion with a subtle cool blue sheen only in the highlights, evenly on face and body, long lotus-shaped eyes, a gentle dignified closed-mouth smile, clean-shaven, long black hair falling to the shoulders, a modest golden prince's crown with a small lotus at the centre, gold earrings, a fine gold necklace with a single ruby pendant and a pearl string, gold armlets, bare chest with a white sacred thread, a yellow silk dhoti with a saffron sash and a light saffron shawl over one shoulder, broad-shouldered with exactly two arms.",
         "seed": 7,
-        "motion_prompt": "Beside a tall carved window an old king leans in toward the young prince and grips his forearm, speaking urgently. The prince listens calmly. Through the window, dust drifts along an empty road winding toward distant hills and clouds move slowly. The camera slowly pushes in."
+        "motion_prompt": "Beside a tall carved window an old king and a young prince stand together and stay in place. The old king leans in toward the prince and rests his hand on the prince's forearm, his face urgent; the prince listens calmly. Behind them, through the window, an ancient, unpaved earth road lined with trees and fields winds west toward distant hills, no modern elements, and clouds drift slowly. The king grips the prince's forearm and the prince looks at him. Static camera framing both of them; nobody walks away.",
+        "end_anchor": {
+          "path": "data/anim_lab/AK01/keyframes/s08_end.png",
+          "sha256": "4dc5bc7ae405ae4bfa44e9b1136234105e9867afda11bf692da2fa5729f6b308",
+          "strength": 0.7
+        }
       },
       "s09": {
         "path": "data/anim_lab/AK01/keyframes/s09.png",
@@ -528,9 +548,15 @@
         ],
         "prompt": "Use the reference images for character identity only: image 1 shows the older woman in the earth-brown sari. Keep each character's face, skin tone, hair, crown, jewellery and costume colours exactly as in the references. Image 2 shows the location: keep its architecture, colours and light. anime film still, painterly cel-shaded animation with soft gradient shading, painted warm golden lighting, atmospheric depth, richly detailed gold ornaments, cinematic, ancient Indian setting, detailed background art, vertical frame. medium shot of the same older woman seen three-quarter from behind standing on a moon-white marble palace terrace, looking down at the decorated golden city below with banners and lamp-trees, her face partly visible in profile, the end of her sari over her shoulder, warm late light. Manthara, an elderly Indian woman about sixty-five with a warm brown complexion, a narrow lined face with sharp watchful eyes and thin lips, a small dark bindi, grey hair pulled back in a tight bun, a slight dignified stoop of the shoulders, a plain earth-brown cotton sari with a grey border and the end over her shoulder, a single gold ring and thin silver bangles, still and composed, exactly two arms.",
         "seed": 7,
-        "motion_prompt": "On a moon-white palace terrace an older woman in an earth-brown sari stands seen from behind, looking down at the decorated city. She stays very still, then slowly turns her head to look back over her shoulder with narrowed, watchful eyes. The end of her sari stirs in the wind. The city glitters below. The camera slowly pushes in toward her."
+        "motion_prompt": "On a moon-white palace terrace an older woman in an earth-brown sari stands seen from behind, looking down at the decorated city. She stays very still, then slowly turns her head to look back over her shoulder with narrowed, watchful eyes. The end of her sari stirs in the wind. The city glitters below. The camera slowly pushes in toward her.",
+        "end_anchor": {
+          "path": "data/anim_lab/AK01/keyframes/s11_end.png",
+          "sha256": "e53ec721829e5aab747b696bb611ed8e01c427e2ed0b5abf3b1c0aeb18c01604",
+          "strength": 0.7
+        },
+        "final_clip_note": "final clip was rendered with an empty text prompt (keyframe + anchors only) because of a script error; motion approved on review"
       }
     },
-    "ak01_keyframes_note": "s04 keyframe is rejected (reads as a smoke plume); regenerate with the monsoon prompt now in shots.py before animating."
+    "ak01_keyframes_note": "s04 and s08 keyframes regenerated on 2026-11-17 evening (monsoon cloud; ancient unpaved road). All 11 final clips in data/anim_lab/AK01/clips/; finals data/anim_lab/AK01/AK01-{hi,en}.mp4."
   }
 }

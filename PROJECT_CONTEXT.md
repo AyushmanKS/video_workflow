@@ -332,7 +332,7 @@ The owner asked for a full audit and research plan before any change. Nothing wa
 ## 28. Ayodhya Kanda animated sample AK01 (2026-11-17) — awaiting owner review, nothing integrated
 - **What:** first real-animation sample of AK01 "Rama's Crown Was Ready" in the owner-approved anime-film look (benchmark `data/anim_lab/keyframes/king.png`), Hindi (maya2:Malini) + English (Kokoro af_heart). Lab only: `data/anim_lab/` (gitignored); no pipeline code, approved content or schedule touched; nothing published.
 - **Consistency system (locked):** FLUX.2 klein 4B q8 (Apache-2.0) reference edits from per-character front anchors + location plates; registry with sha256/prompts/seeds in `profiles/characters/ayodhya_kanda.json` → `locked_refs` (Dasharatha, Rama, Sita, Manthara, 5 locations, 11 AK01 keyframes). Reuse these files for every later Ayodhya episode; never regenerate.
-- **State at 17:00:** shots 1, 5 (retake, crown wobble), 9, 10 (+6 pending review) animated with LTX-2.3 (6–10 min per clip with the Android emulator closed); first-look cut `data/anim_lab/AK01/AK01-firstlook-{en,hi}.mp4`. Remaining shots, s04 keyframe regen, character sheets, voice QA and full assembly: `data/anim_lab/AK01/STATE.md`. Report: `docs/ANIMATION_RESEARCH.md` §7.
+- **Done (20:40):** finals `data/anim_lab/AK01/AK01-hi.mp4` (52.8 s) and `AK01-en.mp4` (48.0 s), all 11 shots real LTX-2.3 animation, −13.9 LUFS, speaker_consistency pass; 540p proxies + contact sheets beside them. Awaiting owner review (the style change itself is still an owner decision). Open: cinematic character sheets beyond the fronts. Details: `data/anim_lab/AK01/STATE.md`, `docs/ANIMATION_RESEARCH.md` §7.
 
 ## Progress log
 | Date | Work | Decisions |
