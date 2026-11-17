@@ -428,6 +428,37 @@
         },
         "gu": {
           "status": "approved",
+          "at": "2026-11-17T10:05:29+0530",
+          "by": "owner",
+          "channel": "chat",
+          "note": "owner in chat 2026-11-17: \"add the cross promotional texts to new videos, and also old videos\"; same times, metadata now includes cross-promotion",
+          "platform": "youtube",
+          "time": "now",
+          "video": "content/C0001/gu/C0001-gu.mp4",
+          "video_sha256": "d9a3a419e4920ae3a8010c7510083c000530214de4bac9d8889e79a9e002964b",
+          "meta": "content/C0001/gu/publish.json",
+          "meta_sha256": "90b0defcbb210a524eab41860edfb1392f287e32ab7fdec8eaacf1527463625c",
+          "meta_hash_scope": "publish.json['youtube']"
+        },
+        "te": {
+          "status": "approved",
+          "at": "2026-11-17T10:05:29+0530",
+          "by": "owner",
+          "channel": "chat",
+          "note": "owner in chat 2026-11-17: \"add the cross promotional texts to new videos, and also old videos\"; same times, metadata now includes cross-promotion",
+          "platform": "youtube",
+          "time": "now",
+          "video": "content/C0001/te/C0001-te.mp4",
+          "video_sha256": "4bde4430421e9287a6a380a8f1afd68b696463ed2779eca763b6a081e8aedd6b",
+          "meta": "content/C0001/te/publish.json",
+          "meta_sha256": "d89c5c64024436f51bd90162bcef8acf968dbc351aee0262ae33a2a71af113d2",
+          "meta_hash_scope": "publish.json['youtube']"
+        }
+      },
+      "history": [
+        {
+          "lang": "gu",
+          "status": "approved",
           "at": "2026-11-16T15:25:12+0530",
           "by": "owner (legacy record)",
           "channel": "legacy",
@@ -447,7 +478,8 @@
           },
           "meta_hash_scope": "publish.json['youtube']"
         },
-        "te": {
+        {
+          "lang": "te",
           "status": "approved",
           "at": "2026-11-16T15:25:12+0530",
           "by": "owner (legacy record)",
@@ -468,10 +500,9 @@
           },
           "meta_hash_scope": "publish.json['youtube']"
         }
-      },
-      "history": [],
-      "at": "2026-11-16T15:25:12+0530",
-      "note": "migrated from legacy gate:publish"
+      ],
+      "at": "2026-11-17T10:05:29+0530",
+      "note": "owner in chat 2026-11-17: \"add the cross promotional texts to new videos, and also old videos\"; same times, metadata now includes cross-promotion"
     },
     "gate:publish:instagram": {
       "status": "approved",

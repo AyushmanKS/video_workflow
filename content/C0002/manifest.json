@@ -376,16 +376,16 @@
         },
         "gu": {
           "status": "approved",
-          "at": "2026-11-16T18:49:57+0530",
+          "at": "2026-11-17T10:05:29+0530",
           "by": "owner",
-          "channel": "terminal",
-          "note": "owner in chat 2026-11-16: all episodes are approved, i have watched all; proceed to post or schedule; times from schedule.json",
+          "channel": "chat",
+          "note": "owner in chat 2026-11-17: \"add the cross promotional texts to new videos, and also old videos\"; same times, metadata now includes cross-promotion",
           "platform": "youtube",
           "time": "2026-11-17T20:30:00+05:30",
           "video": "content/C0002/gu/C0002-gu.mp4",
           "video_sha256": "8eca003f303fcdc92465ec8cf19e9a1cf104c2217b695e1f1606b95828e160c1",
           "meta": "content/C0002/gu/publish.json",
-          "meta_sha256": "e54a4e1350b8fee0a0bf3813c8297d9ee1edab6c5d10cde8ee2eafbea4e10ba6",
+          "meta_sha256": "9d9db4a42baff341a8eeba8acfea390d4257d0940b7efa110c57e455df193882",
           "meta_hash_scope": "publish.json['youtube']"
         },
         "te": {
@@ -403,9 +403,25 @@
           "meta_hash_scope": "publish.json['youtube']"
         }
       },
-      "history": [],
-      "at": "2026-11-16T18:49:58+0530",
-      "note": "owner in chat 2026-11-16: all episodes are approved, i have watched all; proceed to post or schedule; times from schedule.json"
+      "history": [
+        {
+          "lang": "gu",
+          "status": "approved",
+          "at": "2026-11-16T18:49:57+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "owner in chat 2026-11-16: all episodes are approved, i have watched all; proceed to post or schedule; times from schedule.json",
+          "platform": "youtube",
+          "time": "2026-11-17T20:30:00+05:30",
+          "video": "content/C0002/gu/C0002-gu.mp4",
+          "video_sha256": "8eca003f303fcdc92465ec8cf19e9a1cf104c2217b695e1f1606b95828e160c1",
+          "meta": "content/C0002/gu/publish.json",
+          "meta_sha256": "e54a4e1350b8fee0a0bf3813c8297d9ee1edab6c5d10cde8ee2eafbea4e10ba6",
+          "meta_hash_scope": "publish.json['youtube']"
+        }
+      ],
+      "at": "2026-11-17T10:05:29+0530",
+      "note": "owner in chat 2026-11-17: \"add the cross promotional texts to new videos, and also old videos\"; same times, metadata now includes cross-promotion"
     },
     "gate:publish:instagram": {
       "status": "approved",
@@ -611,6 +627,11 @@
       "status": "done",
       "at": "2026-11-16T21:57:45+0530",
       "note": "2026-11-16T16:25:11.259439+00:00"
+    },
+    "published:te": {
+      "status": "done",
+      "at": "2026-11-17T09:52:50+0530",
+      "note": "2026-11-17T18:30:00+05:30"
     }
   },
   "platforms": [

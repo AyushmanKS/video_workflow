@@ -61,6 +61,28 @@
             "date": "2025-07"
           }
         ]
+      },
+      "language_playlists": {
+        "en": {
+          "id": "PLIO6mtj9-ckQ",
+          "title": "Valmiki Ramayana · English"
+        },
+        "hi": {
+          "id": "PLMWwbLblwshw",
+          "title": "वाल्मीकि रामायण · हिंदी"
+        },
+        "gu": {
+          "id": "PLRB2tdJT0-yA",
+          "title": "વાલ્મીકિ રામાયણ · ગુજરાતી"
+        },
+        "te": {
+          "id": "PLCUc-0zSBFz8",
+          "title": "వాల్మీకి రామాయణం · తెలుగు"
+        },
+        "mr": {
+          "id": "PLDTLU8q5QFsI",
+          "title": "वाल्मीकी रामायण · मराठी"
+        }
       }
     },
     "email": "ayushman.k.singh@gmail.com",

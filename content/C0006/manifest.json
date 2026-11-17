@@ -403,6 +403,79 @@
       "entries": {
         "te": {
           "status": "approved",
+          "at": "2026-11-17T10:05:31+0530",
+          "by": "owner",
+          "channel": "chat",
+          "note": "owner in chat 2026-11-17: \"add the cross promotional texts to new videos, and also old videos\"; same times, metadata now includes cross-promotion",
+          "platform": "youtube",
+          "time": "2026-11-20T18:30:00+05:30",
+          "video": "content/C0006/te/C0006-te.mp4",
+          "video_sha256": "81a571019647b56bbfd0c917d9aff9b9ceecc81f7b8157a161c5544faa9d5f49",
+          "meta": "content/C0006/te/publish.json",
+          "meta_sha256": "d871ecd7993315a195b44459c6db3d35084e1387bd03b5ffbb7b8328edb35776",
+          "meta_hash_scope": "publish.json['youtube']"
+        },
+        "mr": {
+          "status": "approved",
+          "at": "2026-11-17T10:05:31+0530",
+          "by": "owner",
+          "channel": "chat",
+          "note": "owner in chat 2026-11-17: \"add the cross promotional texts to new videos, and also old videos\"; same times, metadata now includes cross-promotion",
+          "platform": "youtube",
+          "time": "2026-11-20T19:00:00+05:30",
+          "video": "content/C0006/mr/C0006-mr.mp4",
+          "video_sha256": "ead8694b2a7c366b14722eed84c20672ec9eb21b5f72b5079a2f6f981c1c0418",
+          "meta": "content/C0006/mr/publish.json",
+          "meta_sha256": "1ce32fd3a71345c16c5c423b20bdc9bb62b6e543eac850db1883924abb76a7ea",
+          "meta_hash_scope": "publish.json['youtube']"
+        },
+        "gu": {
+          "status": "approved",
+          "at": "2026-11-17T10:05:31+0530",
+          "by": "owner",
+          "channel": "chat",
+          "note": "owner in chat 2026-11-17: \"add the cross promotional texts to new videos, and also old videos\"; same times, metadata now includes cross-promotion",
+          "platform": "youtube",
+          "time": "2026-11-20T19:30:00+05:30",
+          "video": "content/C0006/gu/C0006-gu.mp4",
+          "video_sha256": "f411071601fbb4ec286794513079dc240166301faa5c48878865fe1b32216834",
+          "meta": "content/C0006/gu/publish.json",
+          "meta_sha256": "1102bdfa92ac61fbf82e002ecf78caaa2c151186725c8f5be673f6fc38112810",
+          "meta_hash_scope": "publish.json['youtube']"
+        },
+        "hi": {
+          "status": "approved",
+          "at": "2026-11-17T10:05:31+0530",
+          "by": "owner",
+          "channel": "chat",
+          "note": "owner in chat 2026-11-17: \"add the cross promotional texts to new videos, and also old videos\"; same times, metadata now includes cross-promotion",
+          "platform": "youtube",
+          "time": "2026-11-20T20:30:00+05:30",
+          "video": "content/C0006/hi/C0006-hi.mp4",
+          "video_sha256": "5d08a8e8c70a55855f9274441d02c83f20f6c1a1fe6aa3270fd8af4fe34da061",
+          "meta": "content/C0006/hi/publish.json",
+          "meta_sha256": "e08277d1602a4f6d638396f1d89d206a5148870e814c08627deeeb6ef4dcaba6",
+          "meta_hash_scope": "publish.json['youtube']"
+        },
+        "en": {
+          "status": "approved",
+          "at": "2026-11-17T10:05:31+0530",
+          "by": "owner",
+          "channel": "chat",
+          "note": "owner in chat 2026-11-17: \"add the cross promotional texts to new videos, and also old videos\"; same times, metadata now includes cross-promotion",
+          "platform": "youtube",
+          "time": "2026-11-20T21:30:00+05:30",
+          "video": "content/C0006/en/C0006-en.mp4",
+          "video_sha256": "d9b577b3b920ff841cadb0fb5b1e3e836bca256402c5c281828bbc1982b62574",
+          "meta": "content/C0006/en/publish.json",
+          "meta_sha256": "9fb6e93ca83b918ab349c80d4c8e3847397c5dcf306a0c243d43852c33a466af",
+          "meta_hash_scope": "publish.json['youtube']"
+        }
+      },
+      "history": [
+        {
+          "lang": "te",
+          "status": "approved",
           "at": "2026-11-16T21:38:07+0530",
           "by": "owner",
           "channel": "terminal",
@@ -415,7 +488,8 @@
           "meta_sha256": "e9c9128cf84ad843051d0d61c8a65590d3c8d6deea0722075cf8902b740ad42d",
           "meta_hash_scope": "publish.json['youtube']"
         },
-        "mr": {
+        {
+          "lang": "mr",
           "status": "approved",
           "at": "2026-11-16T21:38:07+0530",
           "by": "owner",
@@ -429,7 +503,8 @@
           "meta_sha256": "4daa29d1de1b1b975273d89685b2446b557d1b10a3985a1040ee79e739b26c3a",
           "meta_hash_scope": "publish.json['youtube']"
         },
-        "gu": {
+        {
+          "lang": "gu",
           "status": "approved",
           "at": "2026-11-16T21:38:08+0530",
           "by": "owner",
@@ -443,7 +518,8 @@
           "meta_sha256": "3dbba6d40aa2193f9d1221c70f84d7657ebaa9c8f5d335fc63b40fbcc74c15d0",
           "meta_hash_scope": "publish.json['youtube']"
         },
-        "hi": {
+        {
+          "lang": "hi",
           "status": "approved",
           "at": "2026-11-16T21:38:08+0530",
           "by": "owner",
@@ -457,7 +533,8 @@
           "meta_sha256": "c3407c31e45e70dfd17ed6ddeffcae88b2fe434d6506520dcdec96b50f693f9e",
           "meta_hash_scope": "publish.json['youtube']"
         },
-        "en": {
+        {
+          "lang": "en",
           "status": "approved",
           "at": "2026-11-16T21:38:08+0530",
           "by": "owner",
@@ -471,10 +548,9 @@
           "meta_sha256": "bbd0706e8005ea8fa1fdec0ec6908507cfbbad47a35d9745da088bafd2d48235",
           "meta_hash_scope": "publish.json['youtube']"
         }
-      },
-      "history": [],
-      "at": "2026-11-16T21:38:08+0530",
-      "note": ""
+      ],
+      "at": "2026-11-17T10:05:31+0530",
+      "note": "owner in chat 2026-11-17: \"add the cross promotional texts to new videos, and also old videos\"; same times, metadata now includes cross-promotion"
     },
     "gate:publish:instagram": {
       "status": "approved",
@@ -488,6 +564,79 @@
       "entries": {
         "te": {
           "status": "approved",
+          "at": "2026-11-17T10:05:57+0530",
+          "by": "owner",
+          "channel": "chat",
+          "note": "owner in chat 2026-11-17: \"add the cross promotional texts to new videos, and also old videos\"; same times, metadata now includes cross-promotion",
+          "platform": "instagram",
+          "time": "2026-11-20T19:00:00+05:30",
+          "video": "content/C0006/te/C0006-te.mp4",
+          "video_sha256": "81a571019647b56bbfd0c917d9aff9b9ceecc81f7b8157a161c5544faa9d5f49",
+          "meta": "content/C0006/te/publish.json",
+          "meta_sha256": "32efb32fdfdfb14e5f55eb9feaee3b0bfb7715ec29858fec357e171cf5e50468",
+          "meta_hash_scope": "publish.json['instagram']"
+        },
+        "mr": {
+          "status": "approved",
+          "at": "2026-11-17T10:05:57+0530",
+          "by": "owner",
+          "channel": "chat",
+          "note": "owner in chat 2026-11-17: \"add the cross promotional texts to new videos, and also old videos\"; same times, metadata now includes cross-promotion",
+          "platform": "instagram",
+          "time": "2026-11-20T19:15:00+05:30",
+          "video": "content/C0006/mr/C0006-mr.mp4",
+          "video_sha256": "ead8694b2a7c366b14722eed84c20672ec9eb21b5f72b5079a2f6f981c1c0418",
+          "meta": "content/C0006/mr/publish.json",
+          "meta_sha256": "52021a66e2c3d5a47679d7983f0a62195f20d51db980e106ca8024a4845c643a",
+          "meta_hash_scope": "publish.json['instagram']"
+        },
+        "gu": {
+          "status": "approved",
+          "at": "2026-11-17T10:05:57+0530",
+          "by": "owner",
+          "channel": "chat",
+          "note": "owner in chat 2026-11-17: \"add the cross promotional texts to new videos, and also old videos\"; same times, metadata now includes cross-promotion",
+          "platform": "instagram",
+          "time": "2026-11-20T19:30:00+05:30",
+          "video": "content/C0006/gu/C0006-gu.mp4",
+          "video_sha256": "f411071601fbb4ec286794513079dc240166301faa5c48878865fe1b32216834",
+          "meta": "content/C0006/gu/publish.json",
+          "meta_sha256": "45c4304ecf2f85cc4bff9ed189dad6ea334ff6007d1eaa70ae257b5579d205b6",
+          "meta_hash_scope": "publish.json['instagram']"
+        },
+        "hi": {
+          "status": "approved",
+          "at": "2026-11-17T10:05:57+0530",
+          "by": "owner",
+          "channel": "chat",
+          "note": "owner in chat 2026-11-17: \"add the cross promotional texts to new videos, and also old videos\"; same times, metadata now includes cross-promotion",
+          "platform": "instagram",
+          "time": "2026-11-20T20:00:00+05:30",
+          "video": "content/C0006/hi/C0006-hi.mp4",
+          "video_sha256": "5d08a8e8c70a55855f9274441d02c83f20f6c1a1fe6aa3270fd8af4fe34da061",
+          "meta": "content/C0006/hi/publish.json",
+          "meta_sha256": "de33ce3a157971eca9216d92a685e92605e69db8623f3e9f11edc64b8d82d78c",
+          "meta_hash_scope": "publish.json['instagram']"
+        },
+        "en": {
+          "status": "approved",
+          "at": "2026-11-17T10:05:58+0530",
+          "by": "owner",
+          "channel": "chat",
+          "note": "owner in chat 2026-11-17: \"add the cross promotional texts to new videos, and also old videos\"; same times, metadata now includes cross-promotion",
+          "platform": "instagram",
+          "time": "2026-11-20T20:30:00+05:30",
+          "video": "content/C0006/en/C0006-en.mp4",
+          "video_sha256": "d9b577b3b920ff841cadb0fb5b1e3e836bca256402c5c281828bbc1982b62574",
+          "meta": "content/C0006/en/publish.json",
+          "meta_sha256": "cd44ea75682c5b65299a7bea701aa055cc441c705317e9d7dae28760ebe4954b",
+          "meta_hash_scope": "publish.json['instagram']"
+        }
+      },
+      "history": [
+        {
+          "lang": "te",
+          "status": "approved",
           "at": "2026-11-16T22:00:31+0530",
           "by": "owner",
           "channel": "terminal",
@@ -500,7 +649,8 @@
           "meta_sha256": "e40906285643e51c6c3f65eba8d6b60070369d7764b9224e4903bc54d622df00",
           "meta_hash_scope": "publish.json['instagram']"
         },
-        "mr": {
+        {
+          "lang": "mr",
           "status": "approved",
           "at": "2026-11-16T22:00:31+0530",
           "by": "owner",
@@ -514,7 +664,8 @@
           "meta_sha256": "5ed4c1f438ce35e81c37eafe2d4a83c86f9744a646c08f34c115a091528e6d7a",
           "meta_hash_scope": "publish.json['instagram']"
         },
-        "gu": {
+        {
+          "lang": "gu",
           "status": "approved",
           "at": "2026-11-16T22:00:31+0530",
           "by": "owner",
@@ -528,7 +679,8 @@
           "meta_sha256": "11d2c9bce3f41201d38a4404f39ab32c0187e8cc4aa4b6c2bab03f9d72569791",
           "meta_hash_scope": "publish.json['instagram']"
         },
-        "hi": {
+        {
+          "lang": "hi",
           "status": "approved",
           "at": "2026-11-16T22:00:31+0530",
           "by": "owner",
@@ -542,7 +694,8 @@
           "meta_sha256": "82147d1fe7914a16798b0b565f00256262b88bcc2812bca0b14b2edf22f7af58",
           "meta_hash_scope": "publish.json['instagram']"
         },
-        "en": {
+        {
+          "lang": "en",
           "status": "approved",
           "at": "2026-11-16T22:00:31+0530",
           "by": "owner",
@@ -556,10 +709,9 @@
           "meta_sha256": "21ed3f2d6fa2d4f3cebf3ace76519cf5f5af60e59721592d96ae11eaa06c314f",
           "meta_hash_scope": "publish.json['instagram']"
         }
-      },
-      "history": [],
-      "at": "2026-11-16T22:00:31+0530",
-      "note": ""
+      ],
+      "at": "2026-11-17T10:05:58+0530",
+      "note": "owner in chat 2026-11-17: \"add the cross promotional texts to new videos, and also old videos\"; same times, metadata now includes cross-promotion"
     },
     "instagram_scheduled:te": {
       "status": "done",

@@ -7,5 +7,20 @@
     "privacy": "public",
     "media_product_type": "REELS",
     "time": "2026-11-16T16:25:00+0000"
+  },
+  {
+    "video": "/Users/ayushman/Desktop/work/shorts-studio/content/C0002/te/C0002-te.mp4",
+    "platform": "youtube",
+    "id": "Go7jmaQOVAs",
+    "url": "https://www.youtube.com/shorts/Go7jmaQOVAs",
+    "privacy": "private",
+    "scheduled_for": "2026-11-17T13:00:00Z",
+    "time": "2026-11-17 09:52:40",
+    "verified": {
+      "privacy": "private",
+      "publishAt": "2026-11-17T13:00:00Z"
+    },
+    "playlist": "PLWVy3EI3zAVs",
+    "thumbnail": "set"
   }
 ]

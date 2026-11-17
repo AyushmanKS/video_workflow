@@ -24,6 +24,16 @@ def emit(kind, message="", **kw):
         return None
 
 
+def language_playlist(variant):
+    if not variant or "-" not in str(variant):
+        return None
+    try:
+        b = json.loads((ROOT / "profiles" / "brand.json").read_text())
+        return b["brand"]["youtube"].get("language_playlists", {}).get(str(variant).rsplit("-", 1)[1])
+    except (OSError, ValueError, KeyError):
+        return None
+
+
 def confirm(summary, assume_yes):
     print("\n" + summary + "\n")
     if assume_yes:
@@ -83,7 +93,7 @@ def find_playlist(svc, title):
     return None
 
 
-def youtube_upload(video, meta, thumb, privacy, assume_yes, publish_at=None):
+def youtube_upload(video, meta, thumb, privacy, assume_yes, publish_at=None, variant=None):
     from googleapiclient.http import MediaFileUpload
 
     yt = meta["youtube"]
@@ -145,6 +155,14 @@ def youtube_upload(video, meta, thumb, privacy, assume_yes, publish_at=None):
             print(f"  added to playlist '{yt['playlist']}'")
         else:
             print(f"  playlist '{yt['playlist']}' not found; skipped")
+    lang_pl = language_playlist(variant)
+    if lang_pl:
+        try:
+            svc.playlistItems().insert(part="snippet", body={"snippet": {"playlistId": lang_pl["id"], "resourceId": {"kind": "youtube#video", "videoId": vid}}}).execute()
+            result["language_playlist"] = lang_pl["id"]
+            print(f"  added to language playlist '{lang_pl['title']}'")
+        except Exception as ex:
+            print(f"  language playlist skipped: {type(ex).__name__}")
     if thumb and Path(thumb).exists():
         try:
             svc.thumbnails().set(videoId=vid, media_body=MediaFileUpload(str(thumb), mimetype="image/png")).execute()
@@ -252,7 +270,7 @@ def run(a):
     meta = json.loads(Path(a.meta).read_text())
     promo_warning(meta, a)
     if a.platform == "youtube":
-        res = youtube_upload(a.video, meta, a.thumbnail, a.privacy, a.yes, a.publish_at)
+        res = youtube_upload(a.video, meta, a.thumbnail, a.privacy, a.yes, a.publish_at, a.variant)
     else:
         res = instagram_publish(a.video, meta, a.yes, a.thumbnail, a.dry_run, Path(a.meta).with_name("published.json"))
         if not res:
