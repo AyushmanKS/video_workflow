@@ -475,6 +475,120 @@
       "history": [],
       "at": "2026-11-16T21:38:08+0530",
       "note": ""
+    },
+    "gate:publish:instagram": {
+      "status": "approved",
+      "langs": [
+        "te",
+        "mr",
+        "gu",
+        "hi",
+        "en"
+      ],
+      "entries": {
+        "te": {
+          "status": "approved",
+          "at": "2026-11-16T22:00:31+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "",
+          "platform": "instagram",
+          "time": "2026-11-20T19:00:00+05:30",
+          "video": "content/C0006/te/C0006-te.mp4",
+          "video_sha256": "81a571019647b56bbfd0c917d9aff9b9ceecc81f7b8157a161c5544faa9d5f49",
+          "meta": "content/C0006/te/publish.json",
+          "meta_sha256": "e40906285643e51c6c3f65eba8d6b60070369d7764b9224e4903bc54d622df00",
+          "meta_hash_scope": "publish.json['instagram']"
+        },
+        "mr": {
+          "status": "approved",
+          "at": "2026-11-16T22:00:31+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "",
+          "platform": "instagram",
+          "time": "2026-11-20T19:15:00+05:30",
+          "video": "content/C0006/mr/C0006-mr.mp4",
+          "video_sha256": "ead8694b2a7c366b14722eed84c20672ec9eb21b5f72b5079a2f6f981c1c0418",
+          "meta": "content/C0006/mr/publish.json",
+          "meta_sha256": "5ed4c1f438ce35e81c37eafe2d4a83c86f9744a646c08f34c115a091528e6d7a",
+          "meta_hash_scope": "publish.json['instagram']"
+        },
+        "gu": {
+          "status": "approved",
+          "at": "2026-11-16T22:00:31+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "",
+          "platform": "instagram",
+          "time": "2026-11-20T19:30:00+05:30",
+          "video": "content/C0006/gu/C0006-gu.mp4",
+          "video_sha256": "f411071601fbb4ec286794513079dc240166301faa5c48878865fe1b32216834",
+          "meta": "content/C0006/gu/publish.json",
+          "meta_sha256": "11d2c9bce3f41201d38a4404f39ab32c0187e8cc4aa4b6c2bab03f9d72569791",
+          "meta_hash_scope": "publish.json['instagram']"
+        },
+        "hi": {
+          "status": "approved",
+          "at": "2026-11-16T22:00:31+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "",
+          "platform": "instagram",
+          "time": "2026-11-20T20:00:00+05:30",
+          "video": "content/C0006/hi/C0006-hi.mp4",
+          "video_sha256": "5d08a8e8c70a55855f9274441d02c83f20f6c1a1fe6aa3270fd8af4fe34da061",
+          "meta": "content/C0006/hi/publish.json",
+          "meta_sha256": "82147d1fe7914a16798b0b565f00256262b88bcc2812bca0b14b2edf22f7af58",
+          "meta_hash_scope": "publish.json['instagram']"
+        },
+        "en": {
+          "status": "approved",
+          "at": "2026-11-16T22:00:31+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "",
+          "platform": "instagram",
+          "time": "2026-11-20T20:30:00+05:30",
+          "video": "content/C0006/en/C0006-en.mp4",
+          "video_sha256": "d9b577b3b920ff841cadb0fb5b1e3e836bca256402c5c281828bbc1982b62574",
+          "meta": "content/C0006/en/publish.json",
+          "meta_sha256": "21ed3f2d6fa2d4f3cebf3ace76519cf5f5af60e59721592d96ae11eaa06c314f",
+          "meta_hash_scope": "publish.json['instagram']"
+        }
+      },
+      "history": [],
+      "at": "2026-11-16T22:00:31+0530",
+      "note": ""
+    },
+    "instagram_scheduled:te": {
+      "status": "done",
+      "at": "2026-11-16T22:00:48+0530",
+      "note": "2026-11-20T19:00:00+05:30"
+    },
+    "instagram_scheduled:mr": {
+      "status": "done",
+      "at": "2026-11-16T22:00:48+0530",
+      "note": "2026-11-20T19:15:00+05:30"
+    },
+    "instagram_scheduled:gu": {
+      "status": "done",
+      "at": "2026-11-16T22:00:48+0530",
+      "note": "2026-11-20T19:30:00+05:30"
+    },
+    "instagram_scheduled:hi": {
+      "status": "done",
+      "at": "2026-11-16T22:00:48+0530",
+      "note": "2026-11-20T20:00:00+05:30"
+    },
+    "instagram_scheduled:en": {
+      "status": "done",
+      "at": "2026-11-16T22:00:49+0530",
+      "note": "2026-11-20T20:30:00+05:30"
     }
-  }
+  },
+  "platforms": [
+    "youtube",
+    "instagram"
+  ]
 }

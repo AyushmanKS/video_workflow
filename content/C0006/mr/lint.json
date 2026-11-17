@@ -1,29 +1,35 @@
 {
   "language": "mr",
-  "verdict": "pass",
+  "verdict": "warn",
   "estimate": {
-    "rate": 2.3,
-    "letter_rate": null,
-    "basis": "words",
+    "rate": 1.782,
+    "letter_rate": 6.037,
+    "basis": "letters",
     "scene_seconds": [
-      1.3,
-      4.35,
-      2.61,
-      2.61,
-      3.04,
-      4.78,
-      3.48,
-      5.22,
-      4.35,
-      3.48,
-      5.22
+      2.15,
+      4.97,
+      4.14,
+      4.31,
+      3.98,
+      5.8,
+      4.31,
+      6.29,
+      6.13,
+      3.81,
+      6.29
     ],
     "pauses": 2.94,
-    "total": 44.52,
+    "total": 56.27,
     "words": 93
   },
-  "rate_source": "given",
-  "findings": [],
-  "at": "2026-11-16T21:24:48+0530",
+  "rate_source": "calibrated 2026-11-16 from 1 renders",
+  "findings": [
+    {
+      "rule": "duration",
+      "level": "warn",
+      "message": "estimated 56.3 s outside 35–55 s"
+    }
+  ],
+  "at": "2026-11-16T22:19:44+0530",
   "script_sha256": "51a0571ec1f6aefbff1ba0e4a5b7611c0ee3706494dc03680bb3c23484cd2991"
 }

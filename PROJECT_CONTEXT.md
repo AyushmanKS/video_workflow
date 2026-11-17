@@ -227,6 +227,22 @@ shorts-studio/
 - **Network:** occasional timeouts to googleapis/wikipedia; research uses retries.
 
 ## 22. Current status (update every session)
+- **Status 2026-11-16 21:40 IST:**
+  - **Uploads:**
+    - **YouTube:** Ep01–04 EN/HI and Ep05 TE/GU are live or scheduled. `publish-queue` holds 15 approved uploads under the 6/24 h cap: Ep01 GU/TE (now), Ep02–04 GU/TE, Ep05 HI/EN, and Ep06 in all 5 languages. The queue runs in the owner's terminal under caffeinate.
+    - **Instagram:** Ep01 is live in 4 languages. Ep02 HI/EN failed at 20:00 and 20:30 with OAuthException 200, subcode 5258005, "API access blocked". The remaining launchd jobs (Ep02 TE/GU, Ep03–05) will fail the same way until the owner fixes access in Meta. After that, new times need a new Instagram G3.
+  - **C0006 (Episode 06, The Divine Weapons, Bala Kanda 1.27–1.28; teaser 1.29.23):**
+    - **Languages:** en, hi, gu, te and **mr** (new). This is the first episode in the 35–55 s format: en 53.5 s, hi 56.0 s, gu 55.3 s, te 54.1 s, mr 56.3 s.
+    - **Gates:** G1 (re-approved 4×, after image prompt and hook fixes), G2 (with waivers) and YouTube G3 for 2026-11-20 (TE 18:30, MR 19:00, GU 19:30, HI 20:30, EN 21:30) are recorded. The YouTube uploads are queued. Instagram G3 is pending until access is fixed.
+    - **Fixes made:**
+      - The EN hook was changed to "…bowed before him" because Kokoro is deterministic and the old wording failed speaker_consistency (0.66).
+      - HI scenes 5 and 9 were regenerated for speaker and pitch.
+      - Images 03, 08, 02, 06 and 10 were redone. Scene 7 kept take 1 because take 2 was photorealistic. Image 02 was shifted down 96 px so the title zone is clear.
+  - **Marathi:**
+    - **Voice:** `maya2:Malini`, approved by the owner on 2026-11-16 (`content/C0006/voicepack/SUMMARY.md`; reference `profiles/voices/mr_Malini_ref.npy`). mr is `unreviewed-language`.
+    - **Open issues:**
+      - Whisper repeatedly hears म्हणाले/झ/ळ as Hindi-like forms. The owner waived this; a native listen is still needed.
+      - The mr lint rate is uncalibrated (estimate 44.5 s vs 56.3 s rendered), so run `pipeline lint --calibrate` before the next mr script.
 - **C0002 (Episode 02):** scheduled for 2026-11-16, HI 20:30 / EN 21:30 IST.
 - **C0003 (Episode 03):**
   - **EN** is scheduled for Tue 2026-11-17 21:30 IST (`XziMigS1G0w`).
