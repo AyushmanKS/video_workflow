@@ -1,0 +1,116 @@
+[
+  {
+    "text": "Vishvamitra's own sister became a river.",
+    "type": "teaser payoff / forbidden detail",
+    "spoken_s": 2.74,
+    "scores": {
+      "curiosity": 5,
+      "emotion": 4,
+      "specificity": 5,
+      "speed": 5,
+      "resonance": 5,
+      "accuracy": 5
+    },
+    "total": 29,
+    "selected": true,
+    "visual_hook": true,
+    "hook_to_payoff": "Main loop (how does a sister become a river?) answers in scenes 3–4 (heaven in her own body, then the Kaushiki), deepens at the verse card (scene 5, he lives beside her out of love) and closes at scene 6 (he left her only for the vow Rama's splendour fulfilled), at about 55% of runtime. The second loop (will the night pass without hindrance?) opens at scene 7 and closes at the safe dawn arrival at the Ganga (scene 10, about 88%). Next-episode question (scene 11) is not counted as the payoff.",
+    "reasoning": "Selected: highest total. Pays off the Ep08 teaser in the very first words, names a sage the audience knows, and leaves the obvious gap (how?). Spoken 2.74 s, inside the 2.5–2.8 s band that passed the Kokoro speaker check. Frame 0 (river under the Himalaya, the sage small on the bank) reads muted. hookscore.py (English-only second opinion, run 2026-11-17): all six WEAK, 30–42/100; highest 'One sister. One river…' (42) and 'Why does the great sage…' (38); selected hook 30; weakest property STAKES for every line, as in Ep06–08. Not used to override the rubric or accuracy: the 42-point line says he 'never left her side', which the text does not say, and runs 4.4 s.",
+    "speed_rule": "speed score from the lint estimate: >3.0 s = 1 (fails the hard limit), 2.8–3.0 s = 4, ≤2.8 s = 5"
+  },
+  {
+    "text": "She followed her husband to heaven in her own body.",
+    "type": "sensory in medias res",
+    "spoken_s": 3.41,
+    "scores": {
+      "curiosity": 4,
+      "emotion": 4,
+      "specificity": 4,
+      "speed": 1,
+      "resonance": 4,
+      "accuracy": 5
+    },
+    "total": 22,
+    "selected": false,
+    "visual_hook": true,
+    "hook_to_payoff": "",
+    "reasoning": "Strong image (1.34.8) but 3.4 s, over the hard limit, and 'she' is unanchored for new viewers.",
+    "speed_rule": "speed score from the lint estimate: >3.0 s = 1 (fails the hard limit), 2.8–3.0 s = 4, ≤2.8 s = 5"
+  },
+  {
+    "text": "Why does the great sage live beside a river?",
+    "type": "question",
+    "spoken_s": 2.91,
+    "scores": {
+      "curiosity": 4,
+      "emotion": 3,
+      "specificity": 3,
+      "speed": 4,
+      "resonance": 4,
+      "accuracy": 5
+    },
+    "total": 23,
+    "selected": false,
+    "visual_hook": false,
+    "hook_to_payoff": "",
+    "reasoning": "True to 1.34.10, but the stake is weak and it hides the wonder that makes the episode.",
+    "speed_rule": "speed score from the lint estimate: >3.0 s = 1 (fails the hard limit), 2.8–3.0 s = 4, ≤2.8 s = 5"
+  },
+  {
+    "text": "A river that was once a woman of truth.",
+    "type": "contrast",
+    "spoken_s": 2.49,
+    "scores": {
+      "curiosity": 4,
+      "emotion": 3,
+      "specificity": 3,
+      "speed": 5,
+      "resonance": 3,
+      "accuracy": 4
+    },
+    "total": 22,
+    "selected": false,
+    "visual_hook": true,
+    "hook_to_payoff": "",
+    "reasoning": "1.34.11 calls her steadfast in truth; 'once a woman' slightly flattens 'went to heaven bodily, then flowed'. It also pushes the visual toward drawing the river as a woman, which the brief forbids.",
+    "speed_rule": "speed score from the lint estimate: >3.0 s = 1 (fails the hard limit), 2.8–3.0 s = 4, ≤2.8 s = 5"
+  },
+  {
+    "text": "At midnight, the sage told Rama to sleep. The night was not safe.",
+    "type": "in medias res (night)",
+    "spoken_s": 4.15,
+    "scores": {
+      "curiosity": 4,
+      "emotion": 4,
+      "specificity": 3,
+      "speed": 1,
+      "resonance": 3,
+      "accuracy": 2
+    },
+    "total": 17,
+    "selected": false,
+    "visual_hook": false,
+    "hook_to_payoff": "",
+    "reasoning": "4.2 s. 'Not safe' overstates 1.34.14/18 (a wish for no hindrance; night creatures astir), and it promises danger the episode never delivers.",
+    "speed_rule": "speed score from the lint estimate: >3.0 s = 1 (fails the hard limit), 2.8–3.0 s = 4, ≤2.8 s = 5"
+  },
+  {
+    "text": "One sister. One river. One sage who never left her side, except once.",
+    "type": "question (why leave her)",
+    "spoken_s": 4.4,
+    "scores": {
+      "curiosity": 5,
+      "emotion": 4,
+      "specificity": 3,
+      "speed": 1,
+      "resonance": 3,
+      "accuracy": 2
+    },
+    "total": 18,
+    "selected": false,
+    "visual_hook": false,
+    "hook_to_payoff": "",
+    "reasoning": "hookscore's top line, but 4.4 s, and 'never left her side' is not in the text (1.34.10 'I dwell beside her', 1.34.12 'I left her for my vow').",
+    "speed_rule": "speed score from the lint estimate: >3.0 s = 1 (fails the hard limit), 2.8–3.0 s = 4, ≤2.8 s = 5"
+  }
+]

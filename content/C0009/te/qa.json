@@ -1,0 +1,578 @@
+{
+  "video": "/Users/ayushman/Desktop/work/shorts-studio/content/C0009/te/C0009-te.mp4",
+  "kind": "automated",
+  "mp4_sha256": "7087dfc0b66ea76d467126eef63471b7ad91f2e1ceaa801ab1d678889f3b3e89",
+  "verdict": "warn",
+  "families": {
+    "story": {
+      "score": 91,
+      "pass": true,
+      "rejects": [],
+      "warns": [
+        "lint_hook"
+      ],
+      "checks": 11
+    },
+    "visual": {
+      "score": 33,
+      "pass": false,
+      "rejects": [],
+      "warns": [
+        "chalk_density",
+        "safe_zones"
+      ],
+      "checks": 3
+    },
+    "audio": {
+      "score": 100,
+      "pass": true,
+      "rejects": [],
+      "warns": [],
+      "checks": 4
+    },
+    "final": {
+      "score": 100,
+      "pass": true,
+      "rejects": [],
+      "warns": [],
+      "checks": 10
+    }
+  },
+  "checks": [
+    {
+      "name": "lint_duration",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "estimate_s": 53.15,
+        "basis": "letters"
+      }
+    },
+    {
+      "name": "lint_hook",
+      "family": "story",
+      "class": "warn",
+      "ok": false,
+      "issues": [
+        "hook scene spoken 2.5 s > 2.2 s"
+      ],
+      "data": {}
+    },
+    {
+      "name": "lint_scene_count",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_scene_length",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_keywords",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_digits",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_quote_src",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_sources",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_edition",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_silences",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_visual_parity",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "format",
+      "family": "final",
+      "class": "reject",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "video": "h264",
+        "audio": "aac",
+        "fps": 30.0,
+        "seconds": 49.1
+      }
+    },
+    {
+      "name": "duration",
+      "family": "final",
+      "class": "reject",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "seconds": 49.1
+      }
+    },
+    {
+      "name": "duration_target",
+      "family": "final",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "seconds": 49.1
+      }
+    },
+    {
+      "name": "loudness",
+      "family": "final",
+      "class": "reject",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "lufs": -14.0,
+        "true_peak_dbfs": -1.9,
+        "lra": 2.7
+      }
+    },
+    {
+      "name": "black_freeze",
+      "family": "final",
+      "class": "reject",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "black": 0,
+        "freeze": 0
+      }
+    },
+    {
+      "name": "silence",
+      "family": "final",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "gaps": 0
+      }
+    },
+    {
+      "name": "first_frame",
+      "family": "final",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "t0.0": 0.353,
+        "t0.5": 0.3332
+      },
+      "note": "style decision: warn only"
+    },
+    {
+      "name": "narration_asr",
+      "family": "audio",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "scenes": [
+          {
+            "scene": 1,
+            "cer": 0.067,
+            "length_ratio": 1.0,
+            "heard": "మహార్షియక్కా మహానదిగా మారింది."
+          },
+          {
+            "scene": 2,
+            "cer": 0.036,
+            "length_ratio": 1.0,
+            "heard": "ఆ రాత్రి శోణ తీరాన అక్క సత్యవతి కధను రామునికి చెప్పేరు."
+          },
+          {
+            "scene": 3,
+            "cer": 0.125,
+            "length_ratio": 0.96,
+            "heard": "భర్త రుచి కుని అంసరించి ససరి రంగా స్వరగం చేరింది."
+          },
+          {
+            "scene": 4,
+            "cer": 0.08,
+            "length_ratio": 1.04,
+            "heard": "ఆపై లోకహితం కోసం కఉషికి అనే పున్యనదిగా ప్రవహించింది."
+          },
+          {
+            "scene": 5,
+            "cer": 0.037,
+            "length_ratio": 0.96,
+            "heard": "అందుకే హిమాలేయాల చెంతా ప్రేమతో అక్కదెగ్గరే ఉంటా ననారు"
+          },
+          {
+            "scene": 6,
+            "cer": 0.062,
+            "length_ratio": 0.94,
+            "heard": "వ్రతం కోసమే విడిచి వచ్చానని రాముని తేజసుతో అది సిద్ధిం చిందనారు."
+          },
+          {
+            "scene": 7,
+            "cer": 0.074,
+            "length_ratio": 1.0,
+            "heard": "అర్ధరాత్రి దాటింది దారిలో విగ్నమ్ రాకుండా నిద్రపొమ్మనారు."
+          },
+          {
+            "scene": 8,
+            "cer": 0.062,
+            "length_ratio": 0.97,
+            "heard": "చెట్లు కదలక నిలిచాయి పక్షులు ఉదిగాయి చల్లని చెందుడు ఉదయించాడు."
+          },
+          {
+            "scene": 9,
+            "cer": 0.042,
+            "length_ratio": 1.0,
+            "heard": "రాముడు కాస్తా ఆష్చరియంతో లక్ష్మణునితో నిద్రించాడు."
+          },
+          {
+            "scene": 10,
+            "cer": 0.107,
+            "length_ratio": 1.0,
+            "heard": "టెల్లవారి బయల్దేరి మధ్యాన్నానికి హంసలగంగా ఉడ్డు చేరారు."
+          },
+          {
+            "scene": 11,
+            "cer": 0.067,
+            "length_ratio": 0.97,
+            "heard": "అక్కడా గంగం మూడు లోకాలు దాటి సముద్ర మెలా చేరిందని రాముడాడిగేడు"
+          }
+        ],
+        "transcripts": [
+          "render-time transcript (heard.json)"
+        ]
+      },
+      "note": "CER is warn-only for this language until Indic ASR is validated"
+    },
+    {
+      "name": "speech_rate",
+      "family": "audio",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "reference_letters_per_s": 5.928,
+        "scenes": [
+          {
+            "scene": 1,
+            "seconds": 2.64,
+            "letters_per_s": 5.68,
+            "deviation": -0.042
+          },
+          {
+            "scene": 2,
+            "seconds": 4.4,
+            "letters_per_s": 6.36,
+            "deviation": 0.073
+          },
+          {
+            "scene": 3,
+            "seconds": 4.0,
+            "letters_per_s": 6.0,
+            "deviation": 0.012
+          },
+          {
+            "scene": 4,
+            "seconds": 4.56,
+            "letters_per_s": 5.48,
+            "deviation": -0.076
+          },
+          {
+            "scene": 5,
+            "seconds": 4.08,
+            "letters_per_s": 6.62,
+            "deviation": 0.117
+          },
+          {
+            "scene": 6,
+            "seconds": 4.48,
+            "letters_per_s": 7.14,
+            "deviation": 0.204
+          },
+          {
+            "scene": 7,
+            "seconds": 3.92,
+            "letters_per_s": 6.89,
+            "deviation": 0.162
+          },
+          {
+            "scene": 8,
+            "seconds": 4.96,
+            "letters_per_s": 6.45,
+            "deviation": 0.088
+          },
+          {
+            "scene": 9,
+            "seconds": 3.52,
+            "letters_per_s": 6.82,
+            "deviation": 0.15
+          },
+          {
+            "scene": 10,
+            "seconds": 4.24,
+            "letters_per_s": 6.6,
+            "deviation": 0.113
+          },
+          {
+            "scene": 11,
+            "seconds": 4.64,
+            "letters_per_s": 6.47,
+            "deviation": 0.091
+          }
+        ]
+      }
+    },
+    {
+      "name": "speaker_consistency",
+      "family": "audio",
+      "class": "reject",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "windows": 20,
+        "window_median": 0.737,
+        "window_min": 0.671,
+        "scene_min": 0.644,
+        "median_f0": 178,
+        "calibration": "2026-11-16: 2.5s windows — consistent voice min 0.61 / known-mixed median 0.46 (50% < 0.5); 1s clips are unreliable (same voice down to 0.57)"
+      }
+    },
+    {
+      "name": "music_under_speech",
+      "family": "audio",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "median_db": 13.6,
+        "p10_db": 6.7,
+        "voice_gain": 3.666,
+        "frames": 96
+      }
+    },
+    {
+      "name": "captions",
+      "family": "final",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "groups": 44,
+        "timing": "timeline.json",
+        "engine_version": 2
+      }
+    },
+    {
+      "name": "caption_overflow",
+      "family": "final",
+      "class": "reject",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "widest_px": 866,
+        "limit_px": 1020
+      }
+    },
+    {
+      "name": "glyph_coverage",
+      "family": "final",
+      "class": "reject",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "texts": 21,
+        "fontset": "mac"
+      }
+    },
+    {
+      "name": "text_artifacts",
+      "family": "visual",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {},
+      "skipped": true,
+      "note": "tesseract binary not installed (brew install tesseract, Apache-2.0); skipped"
+    },
+    {
+      "name": "near_duplicates",
+      "family": "visual",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "images": 11
+      }
+    },
+    {
+      "name": "chalk_density",
+      "family": "visual",
+      "class": "warn",
+      "ok": false,
+      "issues": [
+        "scene 1: chalk density 47.6% outside 3%–45%",
+        "scene 4: chalk density 58.4% outside 3%–45%",
+        "scene 10: chalk density 52.0% outside 3%–45%",
+        "scene 11: chalk density 60.0% outside 3%–45%"
+      ],
+      "data": {
+        "scenes": [
+          {
+            "scene": 1,
+            "density": 0.476,
+            "top": 0.029,
+            "bottom": 0.755
+          },
+          {
+            "scene": 2,
+            "density": 0.425,
+            "top": 0.046,
+            "bottom": 1.551
+          },
+          {
+            "scene": 3,
+            "density": 0.293,
+            "top": 0.069,
+            "bottom": 2.009
+          },
+          {
+            "scene": 4,
+            "density": 0.584,
+            "top": 0.033,
+            "bottom": 1.122
+          },
+          {
+            "scene": 5,
+            "density": 0.053,
+            "top": 0.0,
+            "bottom": 0.0
+          },
+          {
+            "scene": 6,
+            "density": 0.36,
+            "top": 0.045,
+            "bottom": 1.625
+          },
+          {
+            "scene": 7,
+            "density": 0.346,
+            "top": 0.038,
+            "bottom": 0.826
+          },
+          {
+            "scene": 8,
+            "density": 0.449,
+            "top": 1.304,
+            "bottom": 0.078
+          },
+          {
+            "scene": 9,
+            "density": 0.331,
+            "top": 0.017,
+            "bottom": 0.826
+          },
+          {
+            "scene": 10,
+            "density": 0.52,
+            "top": 0.049,
+            "bottom": 1.603
+          },
+          {
+            "scene": 11,
+            "density": 0.6,
+            "top": 0.029,
+            "bottom": 0.944
+          }
+        ]
+      }
+    },
+    {
+      "name": "safe_zones",
+      "family": "visual",
+      "class": "warn",
+      "ok": false,
+      "issues": [
+        "scene 2: stroke energy in the caption zone (bottom 25%) 1.55 > p90 1.519",
+        "scene 3: stroke energy in the caption zone (bottom 25%) 2.01 > p90 1.519",
+        "scene 6: stroke energy in the caption zone (bottom 25%) 1.63 > p90 1.519",
+        "scene 8: stroke energy in the title zone (top 12%) 1.30 > p90 0.111",
+        "scene 10: stroke energy in the caption zone (bottom 25%) 1.60 > p90 1.519"
+      ],
+      "data": {
+        "calibration": {
+          "top_p90": 0.111,
+          "bottom_p90": 1.519,
+          "n": 243
+        }
+      }
+    },
+    {
+      "name": "character_similarity",
+      "family": "visual",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "model_present": false
+      },
+      "skipped": true,
+      "note": "DINOv2 similarity is a human flag only; model not present locally and not downloaded"
+    }
+  ],
+  "contact_sheet": "/Users/ayushman/Desktop/work/shorts-studio/content/C0009/te/C0009-te.qa.png",
+  "manual_review_required": [
+    "character consistency",
+    "visual defects / wrong illustrations",
+    "storytelling quality",
+    "native-speaker listen for non-English"
+  ],
+  "created_at": "2026-11-17T15:13:22+0530",
+  "id": 98
+}

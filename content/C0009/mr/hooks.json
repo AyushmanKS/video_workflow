@@ -1,0 +1,116 @@
+[
+  {
+    "text": "विश्वामित्रांची थोरली बहीण नदी झाली.",
+    "type": "teaser payoff / forbidden detail",
+    "spoken_s": 2.82,
+    "scores": {
+      "curiosity": 5,
+      "emotion": 4,
+      "specificity": 5,
+      "speed": 4,
+      "resonance": 5,
+      "accuracy": 5
+    },
+    "total": 28,
+    "selected": true,
+    "visual_hook": true,
+    "hook_to_payoff": "Main loop (how does a sister become a river?) answers in scenes 3–4 (heaven in her own body, then the Kaushiki), deepens at the verse card (scene 5, he lives beside her out of love) and closes at scene 6 (he left her only for the vow Rama's splendour fulfilled), at about 55% of runtime. The second loop (will the night pass without hindrance?) opens at scene 7 and closes at the safe dawn arrival at the Ganga (scene 10, about 88%). Next-episode question (scene 11) is not counted as the payoff.",
+    "reasoning": "Selected. Standard Marathi, names the sage, pays off the Ep08 mr teaser (माझी मोठी बहीण नदी झाली) with थोरली for a formal register. 2.82 s.",
+    "speed_rule": "speed score from the lint estimate: >3.0 s = 1 (fails the hard limit), 2.8–3.0 s = 4, ≤2.8 s = 5"
+  },
+  {
+    "text": "पतीपाठोपाठ त्या सदेह स्वर्गाला गेल्या.",
+    "type": "sensory in medias res",
+    "spoken_s": 3.15,
+    "scores": {
+      "curiosity": 4,
+      "emotion": 4,
+      "specificity": 4,
+      "speed": 1,
+      "resonance": 4,
+      "accuracy": 5
+    },
+    "total": 22,
+    "selected": false,
+    "visual_hook": true,
+    "hook_to_payoff": "",
+    "reasoning": "Strong (1.34.8) but the subject is unanchored.",
+    "speed_rule": "speed score from the lint estimate: >3.0 s = 1 (fails the hard limit), 2.8–3.0 s = 4, ≤2.8 s = 5"
+  },
+  {
+    "text": "ऋषी हिमालयात नदीकाठी का राहतात?",
+    "type": "question",
+    "spoken_s": 2.65,
+    "scores": {
+      "curiosity": 4,
+      "emotion": 3,
+      "specificity": 3,
+      "speed": 5,
+      "resonance": 4,
+      "accuracy": 5
+    },
+    "total": 24,
+    "selected": false,
+    "visual_hook": false,
+    "hook_to_payoff": "",
+    "reasoning": "True (1.34.10), weaker stake.",
+    "speed_rule": "speed score from the lint estimate: >3.0 s = 1 (fails the hard limit), 2.8–3.0 s = 4, ≤2.8 s = 5"
+  },
+  {
+    "text": "एक नदी, जी ऋषींची थोरली बहीण होती.",
+    "type": "contrast",
+    "spoken_s": 2.65,
+    "scores": {
+      "curiosity": 4,
+      "emotion": 3,
+      "specificity": 4,
+      "speed": 5,
+      "resonance": 4,
+      "accuracy": 4
+    },
+    "total": 24,
+    "selected": false,
+    "visual_hook": true,
+    "hook_to_payoff": "",
+    "reasoning": "Past tense implies she stopped being his sister.",
+    "speed_rule": "speed score from the lint estimate: >3.0 s = 1 (fails the hard limit), 2.8–3.0 s = 4, ≤2.8 s = 5"
+  },
+  {
+    "text": "अर्धी रात्र सरली, ऋषी म्हणाले, झोप.",
+    "type": "in medias res (night)",
+    "spoken_s": 2.82,
+    "scores": {
+      "curiosity": 2,
+      "emotion": 2,
+      "specificity": 3,
+      "speed": 4,
+      "resonance": 3,
+      "accuracy": 5
+    },
+    "total": 19,
+    "selected": false,
+    "visual_hook": false,
+    "hook_to_payoff": "",
+    "reasoning": "Accurate (1.34.14) but no gap.",
+    "speed_rule": "speed score from the lint estimate: >3.0 s = 1 (fails the hard limit), 2.8–3.0 s = 4, ≤2.8 s = 5"
+  },
+  {
+    "text": "ऋषींनी बहिणीला का सोडले?",
+    "type": "question (why leave her)",
+    "spoken_s": 1.82,
+    "scores": {
+      "curiosity": 4,
+      "emotion": 3,
+      "specificity": 3,
+      "speed": 5,
+      "resonance": 3,
+      "accuracy": 5
+    },
+    "total": 23,
+    "selected": false,
+    "visual_hook": false,
+    "hook_to_payoff": "",
+    "reasoning": "True (1.34.12) but spoils the turn.",
+    "speed_rule": "speed score from the lint estimate: >3.0 s = 1 (fails the hard limit), 2.8–3.0 s = 4, ≤2.8 s = 5"
+  }
+]

@@ -1,0 +1,585 @@
+{
+  "video": "/Users/ayushman/Desktop/work/shorts-studio/content/C0009/mr/C0009-mr.mp4",
+  "kind": "automated",
+  "mp4_sha256": "d8c4ee2b74f1cd1ed783554ab22dc6684fcc069aa932cfc43045d7cbb92ef676",
+  "verdict": "warn",
+  "families": {
+    "story": {
+      "score": 91,
+      "pass": true,
+      "rejects": [],
+      "warns": [
+        "lint_hook"
+      ],
+      "checks": 11
+    },
+    "visual": {
+      "score": 33,
+      "pass": false,
+      "rejects": [],
+      "warns": [
+        "chalk_density",
+        "safe_zones"
+      ],
+      "checks": 3
+    },
+    "audio": {
+      "score": 80,
+      "pass": true,
+      "rejects": [],
+      "warns": [
+        "narration_asr"
+      ],
+      "checks": 4
+    },
+    "final": {
+      "score": 100,
+      "pass": true,
+      "rejects": [],
+      "warns": [],
+      "checks": 10
+    }
+  },
+  "checks": [
+    {
+      "name": "lint_duration",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "estimate_s": 53.25,
+        "basis": "letters"
+      }
+    },
+    {
+      "name": "lint_hook",
+      "family": "story",
+      "class": "warn",
+      "ok": false,
+      "issues": [
+        "hook scene spoken 2.8 s > 2.2 s"
+      ],
+      "data": {}
+    },
+    {
+      "name": "lint_scene_count",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_scene_length",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_keywords",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_digits",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_quote_src",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_sources",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_edition",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_silences",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_visual_parity",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "format",
+      "family": "final",
+      "class": "reject",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "video": "h264",
+        "audio": "aac",
+        "fps": 30.0,
+        "seconds": 52.8
+      }
+    },
+    {
+      "name": "duration",
+      "family": "final",
+      "class": "reject",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "seconds": 52.8
+      }
+    },
+    {
+      "name": "duration_target",
+      "family": "final",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "seconds": 52.8
+      }
+    },
+    {
+      "name": "loudness",
+      "family": "final",
+      "class": "reject",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "lufs": -14.0,
+        "true_peak_dbfs": -1.0,
+        "lra": 2.5
+      }
+    },
+    {
+      "name": "black_freeze",
+      "family": "final",
+      "class": "reject",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "black": 0,
+        "freeze": 0
+      }
+    },
+    {
+      "name": "silence",
+      "family": "final",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "gaps": 0
+      }
+    },
+    {
+      "name": "first_frame",
+      "family": "final",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "t0.0": 0.3538,
+        "t0.5": 0.3376
+      },
+      "note": "style decision: warn only"
+    },
+    {
+      "name": "narration_asr",
+      "family": "audio",
+      "class": "warn",
+      "ok": false,
+      "issues": [
+        "scene 4: CER 0.179 length ratio 0.89 (warn) — listen and regenerate if mispronounced",
+        "scene 5: CER 0.2 length ratio 1.0 (warn) — listen and regenerate if mispronounced",
+        "scene 6: CER 0.207 length ratio 0.93 (warn) — listen and regenerate if mispronounced",
+        "scene 7: CER 0.214 length ratio 0.96 (warn) — listen and regenerate if mispronounced"
+      ],
+      "data": {
+        "scenes": [
+          {
+            "scene": 1,
+            "cer": 0.118,
+            "length_ratio": 0.94,
+            "heard": "वीश्वा मित्रांची थोरली बहीं नदी जाली."
+          },
+          {
+            "scene": 2,
+            "cer": 0.036,
+            "length_ratio": 1.0,
+            "heard": "त्यारात्री शोणतीरी त्यानी बहींड सत्यवती यंची कथा सांगीतली."
+          },
+          {
+            "scene": 3,
+            "cer": 0.083,
+            "length_ratio": 0.96,
+            "heard": "पती रूचीकांचा पाठो पाठ त्या सदेह स्वर्गाला गेल्या."
+          },
+          {
+            "scene": 4,
+            "cer": 0.179,
+            "length_ratio": 0.89,
+            "heard": "मां जगाचा कल्याणा साथी त्या कवशी की नदी होन वाहू लागले।"
+          },
+          {
+            "scene": 5,
+            "cer": 0.2,
+            "length_ratio": 1.0,
+            "heard": "रुशी महणाले क्या मुलेच मी हिमालायत बहीनी जवल प्रेमाने रहतो।"
+          },
+          {
+            "scene": 6,
+            "cer": 0.207,
+            "length_ratio": 0.93,
+            "heard": "व्रता साठी स्तिला सोडू नालो अणि रामा तुझा ते जानेते सिध्ध जाले।"
+          },
+          {
+            "scene": 7,
+            "cer": 0.214,
+            "length_ratio": 0.96,
+            "heard": "मक मनाले, अर्धी रात्र सरली, अता जोप, वाटेत विघ्ण न येव।"
+          },
+          {
+            "scene": 8,
+            "cer": 0.069,
+            "length_ratio": 0.97,
+            "heard": "भोती जाडे निश्चल होती, पक्षी लपले, आणी शीतल चंद्र उगवला."
+          },
+          {
+            "scene": 9,
+            "cer": 0.115,
+            "length_ratio": 0.96,
+            "heard": "श्री राम ही काहिसे विस्मित होन लक्ष्मना सह जोपी गेले।"
+          },
+          {
+            "scene": 10,
+            "cer": 0.037,
+            "length_ratio": 1.0,
+            "heard": "पहाटे सारे निगाले आणि दुपारी हंस भरल्या गंगातीरी पहुचले।"
+          },
+          {
+            "scene": 11,
+            "cer": 0.062,
+            "length_ratio": 1.03,
+            "heard": "पिथे श्री रामान नी विचारले कि गंगा तीन ही लोक ओलांडून सागराला कशी मिलाली."
+          }
+        ],
+        "transcripts": [
+          "render-time transcript (heard.json)"
+        ]
+      },
+      "note": "CER is warn-only for this language until Indic ASR is validated"
+    },
+    {
+      "name": "speech_rate",
+      "family": "audio",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "reference_letters_per_s": 6.037,
+        "scenes": [
+          {
+            "scene": 1,
+            "seconds": 2.8,
+            "letters_per_s": 6.07,
+            "deviation": 0.005
+          },
+          {
+            "scene": 2,
+            "seconds": 4.4,
+            "letters_per_s": 6.36,
+            "deviation": 0.054
+          },
+          {
+            "scene": 3,
+            "seconds": 3.44,
+            "letters_per_s": 6.98,
+            "deviation": 0.156
+          },
+          {
+            "scene": 4,
+            "seconds": 4.32,
+            "letters_per_s": 6.48,
+            "deviation": 0.073
+          },
+          {
+            "scene": 5,
+            "seconds": 4.64,
+            "letters_per_s": 6.47,
+            "deviation": 0.072
+          },
+          {
+            "scene": 6,
+            "seconds": 5.28,
+            "letters_per_s": 5.49,
+            "deviation": -0.091
+          },
+          {
+            "scene": 7,
+            "seconds": 4.96,
+            "letters_per_s": 5.65,
+            "deviation": -0.064
+          },
+          {
+            "scene": 8,
+            "seconds": 5.36,
+            "letters_per_s": 5.41,
+            "deviation": -0.104
+          },
+          {
+            "scene": 9,
+            "seconds": 3.76,
+            "letters_per_s": 6.91,
+            "deviation": 0.145
+          },
+          {
+            "scene": 10,
+            "seconds": 4.72,
+            "letters_per_s": 5.72,
+            "deviation": -0.053
+          },
+          {
+            "scene": 11,
+            "seconds": 5.44,
+            "letters_per_s": 5.88,
+            "deviation": -0.026
+          }
+        ]
+      }
+    },
+    {
+      "name": "speaker_consistency",
+      "family": "audio",
+      "class": "reject",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "windows": 23,
+        "window_median": 0.707,
+        "window_min": 0.616,
+        "scene_min": 0.727,
+        "median_f0": 178,
+        "calibration": "2026-11-16: 2.5s windows — consistent voice min 0.61 / known-mixed median 0.46 (50% < 0.5); 1s clips are unreliable (same voice down to 0.57)"
+      }
+    },
+    {
+      "name": "music_under_speech",
+      "family": "audio",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "median_db": 12.3,
+        "p10_db": 5.9,
+        "voice_gain": 3.5,
+        "frames": 102
+      }
+    },
+    {
+      "name": "captions",
+      "family": "final",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "groups": 38,
+        "timing": "timeline.json",
+        "engine_version": 2
+      }
+    },
+    {
+      "name": "caption_overflow",
+      "family": "final",
+      "class": "reject",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "widest_px": 845,
+        "limit_px": 1020
+      }
+    },
+    {
+      "name": "glyph_coverage",
+      "family": "final",
+      "class": "reject",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "texts": 21,
+        "fontset": "mac"
+      }
+    },
+    {
+      "name": "text_artifacts",
+      "family": "visual",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {},
+      "skipped": true,
+      "note": "tesseract binary not installed (brew install tesseract, Apache-2.0); skipped"
+    },
+    {
+      "name": "near_duplicates",
+      "family": "visual",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "images": 11
+      }
+    },
+    {
+      "name": "chalk_density",
+      "family": "visual",
+      "class": "warn",
+      "ok": false,
+      "issues": [
+        "scene 1: chalk density 47.6% outside 3%–45%",
+        "scene 4: chalk density 58.4% outside 3%–45%",
+        "scene 10: chalk density 52.0% outside 3%–45%",
+        "scene 11: chalk density 60.0% outside 3%–45%"
+      ],
+      "data": {
+        "scenes": [
+          {
+            "scene": 1,
+            "density": 0.476,
+            "top": 0.029,
+            "bottom": 0.755
+          },
+          {
+            "scene": 2,
+            "density": 0.425,
+            "top": 0.046,
+            "bottom": 1.551
+          },
+          {
+            "scene": 3,
+            "density": 0.293,
+            "top": 0.069,
+            "bottom": 2.009
+          },
+          {
+            "scene": 4,
+            "density": 0.584,
+            "top": 0.033,
+            "bottom": 1.122
+          },
+          {
+            "scene": 5,
+            "density": 0.035,
+            "top": 0.0,
+            "bottom": 0.0
+          },
+          {
+            "scene": 6,
+            "density": 0.36,
+            "top": 0.045,
+            "bottom": 1.625
+          },
+          {
+            "scene": 7,
+            "density": 0.346,
+            "top": 0.038,
+            "bottom": 0.826
+          },
+          {
+            "scene": 8,
+            "density": 0.449,
+            "top": 1.304,
+            "bottom": 0.078
+          },
+          {
+            "scene": 9,
+            "density": 0.331,
+            "top": 0.017,
+            "bottom": 0.826
+          },
+          {
+            "scene": 10,
+            "density": 0.52,
+            "top": 0.049,
+            "bottom": 1.603
+          },
+          {
+            "scene": 11,
+            "density": 0.6,
+            "top": 0.029,
+            "bottom": 0.944
+          }
+        ]
+      }
+    },
+    {
+      "name": "safe_zones",
+      "family": "visual",
+      "class": "warn",
+      "ok": false,
+      "issues": [
+        "scene 2: stroke energy in the caption zone (bottom 25%) 1.55 > p90 1.519",
+        "scene 3: stroke energy in the caption zone (bottom 25%) 2.01 > p90 1.519",
+        "scene 6: stroke energy in the caption zone (bottom 25%) 1.63 > p90 1.519",
+        "scene 8: stroke energy in the title zone (top 12%) 1.30 > p90 0.111",
+        "scene 10: stroke energy in the caption zone (bottom 25%) 1.60 > p90 1.519"
+      ],
+      "data": {
+        "calibration": {
+          "top_p90": 0.111,
+          "bottom_p90": 1.519,
+          "n": 243
+        }
+      }
+    },
+    {
+      "name": "character_similarity",
+      "family": "visual",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "model_present": false
+      },
+      "skipped": true,
+      "note": "DINOv2 similarity is a human flag only; model not present locally and not downloaded"
+    }
+  ],
+  "contact_sheet": "/Users/ayushman/Desktop/work/shorts-studio/content/C0009/mr/C0009-mr.qa.png",
+  "manual_review_required": [
+    "character consistency",
+    "visual defects / wrong illustrations",
+    "storytelling quality",
+    "native-speaker listen for non-English"
+  ],
+  "created_at": "2026-11-17T15:13:33+0530",
+  "id": 99
+}

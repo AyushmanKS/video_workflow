@@ -1,0 +1,116 @@
+[
+  {
+    "text": "మహర్షి అక్క ఒక మహానదిగా మారింది.",
+    "type": "teaser payoff / forbidden detail",
+    "spoken_s": 2.87,
+    "scores": {
+      "curiosity": 5,
+      "emotion": 4,
+      "specificity": 4,
+      "speed": 4,
+      "resonance": 5,
+      "accuracy": 5
+    },
+    "total": 27,
+    "selected": true,
+    "visual_hook": true,
+    "hook_to_payoff": "Main loop (how does a sister become a river?) answers in scenes 3–4 (heaven in her own body, then the Kaushiki), deepens at the verse card (scene 5, he lives beside her out of love) and closes at scene 6 (he left her only for the vow Rama's splendour fulfilled), at about 55% of runtime. The second loop (will the night pass without hindrance?) opens at scene 7 and closes at the safe dawn arrival at the Ganga (scene 10, about 88%). Next-episode question (scene 11) is not counted as the payoff.",
+    "reasoning": "Selected. Echoes the Ep08 te teaser (అక్క నదైంది) and upgrades it to మహానది (1.34.8). 2.87 s, under 3.0.",
+    "speed_rule": "speed score from the lint estimate: >3.0 s = 1 (fails the hard limit), 2.8–3.0 s = 4, ≤2.8 s = 5"
+  },
+  {
+    "text": "భర్త వెంట సశరీరంగా స్వర్గం చేరిన అక్క.",
+    "type": "sensory in medias res",
+    "spoken_s": 3.37,
+    "scores": {
+      "curiosity": 4,
+      "emotion": 4,
+      "specificity": 4,
+      "speed": 1,
+      "resonance": 4,
+      "accuracy": 5
+    },
+    "total": 22,
+    "selected": false,
+    "visual_hook": true,
+    "hook_to_payoff": "",
+    "reasoning": "Strong image (1.34.8); a fragment, and close to the limit.",
+    "speed_rule": "speed score from the lint estimate: >3.0 s = 1 (fails the hard limit), 2.8–3.0 s = 4, ≤2.8 s = 5"
+  },
+  {
+    "text": "మహర్షి హిమాలయాల్లో నది చెంత ఎందుకుంటారు?",
+    "type": "question",
+    "spoken_s": 3.21,
+    "scores": {
+      "curiosity": 4,
+      "emotion": 3,
+      "specificity": 3,
+      "speed": 1,
+      "resonance": 4,
+      "accuracy": 5
+    },
+    "total": 20,
+    "selected": false,
+    "visual_hook": false,
+    "hook_to_payoff": "",
+    "reasoning": "True (1.34.10), weaker stake.",
+    "speed_rule": "speed score from the lint estimate: >3.0 s = 1 (fails the hard limit), 2.8–3.0 s = 4, ≤2.8 s = 5"
+  },
+  {
+    "text": "ఒక నది, ఒకప్పుడు మహర్షి అక్క.",
+    "type": "contrast",
+    "spoken_s": 2.7,
+    "scores": {
+      "curiosity": 4,
+      "emotion": 3,
+      "specificity": 4,
+      "speed": 5,
+      "resonance": 4,
+      "accuracy": 3
+    },
+    "total": 23,
+    "selected": false,
+    "visual_hook": true,
+    "hook_to_payoff": "",
+    "reasoning": "'ఒకప్పుడు' implies she no longer is his sister.",
+    "speed_rule": "speed score from the lint estimate: >3.0 s = 1 (fails the hard limit), 2.8–3.0 s = 4, ≤2.8 s = 5"
+  },
+  {
+    "text": "అర్ధరాత్రి దాటింది, నిద్రపొమ్మన్నారు మహర్షి.",
+    "type": "in medias res (night)",
+    "spoken_s": 3.71,
+    "scores": {
+      "curiosity": 2,
+      "emotion": 2,
+      "specificity": 3,
+      "speed": 1,
+      "resonance": 3,
+      "accuracy": 5
+    },
+    "total": 16,
+    "selected": false,
+    "visual_hook": false,
+    "hook_to_payoff": "",
+    "reasoning": "Accurate (1.34.14) but no gap.",
+    "speed_rule": "speed score from the lint estimate: >3.0 s = 1 (fails the hard limit), 2.8–3.0 s = 4, ≤2.8 s = 5"
+  },
+  {
+    "text": "అక్కను విడిచి మహర్షి ఎందుకు వచ్చారు?",
+    "type": "question (why leave her)",
+    "spoken_s": 3.04,
+    "scores": {
+      "curiosity": 4,
+      "emotion": 3,
+      "specificity": 3,
+      "speed": 1,
+      "resonance": 3,
+      "accuracy": 5
+    },
+    "total": 19,
+    "selected": false,
+    "visual_hook": false,
+    "hook_to_payoff": "",
+    "reasoning": "True (1.34.12) but spoils the turn.",
+    "speed_rule": "speed score from the lint estimate: >3.0 s = 1 (fails the hard limit), 2.8–3.0 s = 4, ≤2.8 s = 5"
+  }
+]

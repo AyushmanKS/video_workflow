@@ -1,0 +1,582 @@
+{
+  "id": "C0009",
+  "series": "RAMAYANA — The Epic in Chalk",
+  "episode": 9,
+  "topic": "Ramayana Episode 09: The Sister River",
+  "category": "mythology",
+  "style": "chalk",
+  "languages": [
+    "en",
+    "hi",
+    "gu",
+    "te",
+    "mr"
+  ],
+  "primary_language": "en",
+  "engine_version": 2,
+  "stages": {
+    "research": {
+      "status": "done",
+      "at": "2026-11-17T12:04:37+0530"
+    },
+    "strategy": {
+      "status": "done",
+      "at": "2026-11-17T12:04:37+0530"
+    },
+    "script:en": {
+      "status": "done",
+      "at": "2026-11-17T12:04:37+0530"
+    },
+    "script:hi": {
+      "status": "done",
+      "at": "2026-11-17T12:04:37+0530"
+    },
+    "script:gu": {
+      "status": "done",
+      "at": "2026-11-17T12:04:37+0530"
+    },
+    "script:te": {
+      "status": "done",
+      "at": "2026-11-17T12:04:37+0530"
+    },
+    "script:mr": {
+      "status": "done",
+      "at": "2026-11-17T12:04:37+0530"
+    },
+    "gate:script": {
+      "status": "approved",
+      "langs": [
+        "en",
+        "hi",
+        "gu",
+        "te",
+        "mr"
+      ],
+      "entries": {
+        "en": {
+          "status": "approved",
+          "at": "2026-11-17T14:54:22+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "",
+          "sha256": "be9512fba46f1f57181bfbe69effa7927ac8521501f50bd0f37bc60a413d1d97",
+          "file": "content/C0009/en/script.json"
+        },
+        "hi": {
+          "status": "approved",
+          "at": "2026-11-17T14:54:22+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "",
+          "sha256": "e2f97edb54226e89b7ffe4c4f4ffb6cb356e7c2b000122e634b92c07d94c84bb",
+          "file": "content/C0009/hi/script.json"
+        },
+        "gu": {
+          "status": "approved",
+          "at": "2026-11-17T14:54:22+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "",
+          "sha256": "609c6f41d8dc5363c017058702e94958f15ab47aab0a27828cfbf777a65fb72a",
+          "file": "content/C0009/gu/script.json"
+        },
+        "te": {
+          "status": "approved",
+          "at": "2026-11-17T14:54:22+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "",
+          "sha256": "67c01be651410c4e838192357555db7a19eec614e1725fe8a3454b247e2a9e9b",
+          "file": "content/C0009/te/script.json"
+        },
+        "mr": {
+          "status": "approved",
+          "at": "2026-11-17T14:54:22+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "",
+          "sha256": "0b530463180843194fa8b44a8d61156d70f949106c921842763fe1d1832b6135",
+          "file": "content/C0009/mr/script.json"
+        }
+      },
+      "history": [
+        {
+          "lang": "en",
+          "status": "approved",
+          "at": "2026-11-17T12:07:37+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "",
+          "sha256": "1e07f5a67420279d48701a346f8a280528179c93b0bbbf3be3288bdc3cd682cd",
+          "file": "content/C0009/en/script.json"
+        },
+        {
+          "lang": "hi",
+          "status": "approved",
+          "at": "2026-11-17T12:07:37+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "",
+          "sha256": "c4475fc95f8ff2346a098eabe3e53ff070f284daf0df2aea196b8533bd343e09",
+          "file": "content/C0009/hi/script.json"
+        },
+        {
+          "lang": "gu",
+          "status": "approved",
+          "at": "2026-11-17T12:07:37+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "",
+          "sha256": "73c07782f94c7071b4fd1f9b353362787c8a1b60fbdc0c3f828eef0b2d25bab0",
+          "file": "content/C0009/gu/script.json"
+        },
+        {
+          "lang": "te",
+          "status": "approved",
+          "at": "2026-11-17T12:07:37+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "",
+          "sha256": "6de83822a97a4c615a894881a06f540e7a0cc6e0913440dd8e0e89f0beeaaa1e",
+          "file": "content/C0009/te/script.json"
+        },
+        {
+          "lang": "mr",
+          "status": "approved",
+          "at": "2026-11-17T12:07:37+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "",
+          "sha256": "2b948560d5964af5ca53dbc843e8a27f98f9ea37b63b6cba58ac66a0121d624a",
+          "file": "content/C0009/mr/script.json"
+        },
+        {
+          "lang": "en",
+          "status": "approved",
+          "at": "2026-11-17T12:47:55+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "",
+          "sha256": "8e791555827e5de5e3dfdacaa0ae448cb4da4eef6dcd76a4dcfe93d866e9c69e",
+          "file": "content/C0009/en/script.json"
+        },
+        {
+          "lang": "hi",
+          "status": "approved",
+          "at": "2026-11-17T12:47:55+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "",
+          "sha256": "863b343dc9173c9b2a8b424ff4e96b244cde4397a44bd6ff1d8d64d52e31c76c",
+          "file": "content/C0009/hi/script.json"
+        },
+        {
+          "lang": "gu",
+          "status": "approved",
+          "at": "2026-11-17T12:47:55+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "",
+          "sha256": "a5a4a9da0b45c6dfbc3c125d8f74a4c6418a503f1bf27040e89adcf3d11289a3",
+          "file": "content/C0009/gu/script.json"
+        },
+        {
+          "lang": "te",
+          "status": "approved",
+          "at": "2026-11-17T12:47:55+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "",
+          "sha256": "b87b1751a8d0fb671cc2f4b094068c4699f4d6b43c499a39f09cdca8008edbf5",
+          "file": "content/C0009/te/script.json"
+        },
+        {
+          "lang": "mr",
+          "status": "approved",
+          "at": "2026-11-17T12:47:55+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "",
+          "sha256": "d10f94338741eb41e52f875261e46ae42f0e1101d426e931943592622ebfc24f",
+          "file": "content/C0009/mr/script.json"
+        }
+      ],
+      "at": "2026-11-17T14:54:22+0530",
+      "note": ""
+    },
+    "voice:en": {
+      "status": "done",
+      "at": "2026-11-17T14:55:22+0530"
+    },
+    "voice:hi": {
+      "status": "done",
+      "at": "2026-11-17T12:09:03+0530"
+    },
+    "voice:gu": {
+      "status": "done",
+      "at": "2026-11-17T12:09:57+0530"
+    },
+    "voice:te": {
+      "status": "done",
+      "at": "2026-11-17T12:10:49+0530"
+    },
+    "voice:mr": {
+      "status": "done",
+      "at": "2026-11-17T12:11:47+0530"
+    },
+    "images:en": {
+      "status": "done",
+      "at": "2026-11-17T14:58:53+0530"
+    },
+    "render:en": {
+      "status": "done",
+      "at": "2026-11-17T15:00:23+0530"
+    },
+    "images:hi": {
+      "status": "done",
+      "at": "2026-11-17T15:00:24+0530"
+    },
+    "render:hi": {
+      "status": "done",
+      "at": "2026-11-17T15:03:26+0530"
+    },
+    "images:gu": {
+      "status": "done",
+      "at": "2026-11-17T15:03:31+0530"
+    },
+    "render:gu": {
+      "status": "done",
+      "at": "2026-11-17T15:05:29+0530"
+    },
+    "images:te": {
+      "status": "done",
+      "at": "2026-11-17T15:05:31+0530"
+    },
+    "render:te": {
+      "status": "done",
+      "at": "2026-11-17T15:08:05+0530"
+    },
+    "images:mr": {
+      "status": "done",
+      "at": "2026-11-17T15:08:11+0530"
+    },
+    "render:mr": {
+      "status": "done",
+      "at": "2026-11-17T15:12:31+0530"
+    },
+    "video_qa:en": {
+      "status": "done",
+      "at": "2026-11-17T15:12:45+0530",
+      "note": "warn (report #95)"
+    },
+    "video_qa:hi": {
+      "status": "done",
+      "at": "2026-11-17T15:12:57+0530",
+      "note": "warn (report #96)"
+    },
+    "video_qa:gu": {
+      "status": "done",
+      "at": "2026-11-17T15:13:11+0530",
+      "note": "warn (report #97)"
+    },
+    "video_qa:te": {
+      "status": "done",
+      "at": "2026-11-17T15:13:22+0530",
+      "note": "warn (report #98)"
+    },
+    "video_qa:mr": {
+      "status": "done",
+      "at": "2026-11-17T15:13:33+0530",
+      "note": "warn (report #99)"
+    },
+    "schedule:en": {
+      "status": "done",
+      "at": "2026-11-17T14:08:40+0530",
+      "note": "12:30 2026-11-18T12:30:00+05:30"
+    },
+    "schedule:hi": {
+      "status": "done",
+      "at": "2026-11-17T14:08:40+0530",
+      "note": "12:30 2026-11-18T12:30:00+05:30"
+    },
+    "schedule:gu": {
+      "status": "done",
+      "at": "2026-11-17T14:08:40+0530",
+      "note": "12:30 2026-11-18T12:30:00+05:30"
+    },
+    "schedule:te": {
+      "status": "done",
+      "at": "2026-11-17T14:08:40+0530",
+      "note": "12:30 2026-11-18T12:30:00+05:30"
+    },
+    "schedule:mr": {
+      "status": "done",
+      "at": "2026-11-17T14:08:40+0530",
+      "note": "12:30 2026-11-18T12:30:00+05:30"
+    },
+    "gate:final": {
+      "status": "approved",
+      "langs": [
+        "en",
+        "hi",
+        "gu",
+        "te",
+        "mr"
+      ],
+      "entries": {
+        "en": {
+          "status": "approved",
+          "at": "2026-11-17T15:16:11+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "owner watched and approved the Ep09 videos",
+          "sha256": "3bdb0b37fc752b05c5a4f97f183e4820cddc048dcef4a4afab17c7b5cbed3e8e",
+          "file": "content/C0009/en/C0009-en.mp4",
+          "qa_report_id": 95
+        },
+        "hi": {
+          "status": "approved",
+          "at": "2026-11-17T15:16:11+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "owner watched and approved the Ep09 videos",
+          "sha256": "a75cbc466410e4710d034bba44299d875a1ef06263e7a94d5c2d1c99b67eb0af",
+          "file": "content/C0009/hi/C0009-hi.mp4",
+          "qa_report_id": 96
+        },
+        "gu": {
+          "status": "approved",
+          "at": "2026-11-17T15:16:11+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "owner watched and approved the Ep09 videos",
+          "sha256": "f76c073ed514b380faa768ae3fea1fdec568b1b4373d4b92a206a8f854140374",
+          "file": "content/C0009/gu/C0009-gu.mp4",
+          "qa_report_id": 97
+        },
+        "te": {
+          "status": "approved",
+          "at": "2026-11-17T15:16:11+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "owner watched and approved the Ep09 videos",
+          "sha256": "7087dfc0b66ea76d467126eef63471b7ad91f2e1ceaa801ab1d678889f3b3e89",
+          "file": "content/C0009/te/C0009-te.mp4",
+          "qa_report_id": 98
+        },
+        "mr": {
+          "status": "approved",
+          "at": "2026-11-17T15:16:11+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "owner watched and approved the Ep09 videos",
+          "sha256": "d8c4ee2b74f1cd1ed783554ab22dc6684fcc069aa932cfc43045d7cbb92ef676",
+          "file": "content/C0009/mr/C0009-mr.mp4",
+          "qa_report_id": 99
+        }
+      },
+      "history": [],
+      "at": "2026-11-17T15:16:11+0530",
+      "note": "owner watched and approved the Ep09 videos"
+    },
+    "gate:publish:youtube": {
+      "status": "approved",
+      "langs": [
+        "te",
+        "mr",
+        "gu",
+        "hi",
+        "en"
+      ],
+      "entries": {
+        "te": {
+          "status": "approved",
+          "at": "2026-11-17T15:16:11+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "Mon Nov 23 evening slots",
+          "platform": "youtube",
+          "time": "2026-11-23T18:30:00+05:30",
+          "video": "content/C0009/te/C0009-te.mp4",
+          "video_sha256": "7087dfc0b66ea76d467126eef63471b7ad91f2e1ceaa801ab1d678889f3b3e89",
+          "meta": "content/C0009/te/publish.json",
+          "meta_sha256": "906c2a152949365e808aae561a90dd02a0fb0502c09840eeea8ac781ee390f93",
+          "meta_hash_scope": "publish.json['youtube']"
+        },
+        "mr": {
+          "status": "approved",
+          "at": "2026-11-17T15:16:12+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "Mon Nov 23 evening slots",
+          "platform": "youtube",
+          "time": "2026-11-23T19:00:00+05:30",
+          "video": "content/C0009/mr/C0009-mr.mp4",
+          "video_sha256": "d8c4ee2b74f1cd1ed783554ab22dc6684fcc069aa932cfc43045d7cbb92ef676",
+          "meta": "content/C0009/mr/publish.json",
+          "meta_sha256": "50712478c3b642802d50b4f23c5daef3f0ed901a88633251dc417871116abb03",
+          "meta_hash_scope": "publish.json['youtube']"
+        },
+        "gu": {
+          "status": "approved",
+          "at": "2026-11-17T15:16:12+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "Mon Nov 23 evening slots",
+          "platform": "youtube",
+          "time": "2026-11-23T19:30:00+05:30",
+          "video": "content/C0009/gu/C0009-gu.mp4",
+          "video_sha256": "f76c073ed514b380faa768ae3fea1fdec568b1b4373d4b92a206a8f854140374",
+          "meta": "content/C0009/gu/publish.json",
+          "meta_sha256": "2e4fc807a15dd47ce58b3be8f2b87f3b63c8979811f26b67d9be901bca1d5b13",
+          "meta_hash_scope": "publish.json['youtube']"
+        },
+        "hi": {
+          "status": "approved",
+          "at": "2026-11-17T15:16:12+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "Mon Nov 23 evening slots",
+          "platform": "youtube",
+          "time": "2026-11-23T20:30:00+05:30",
+          "video": "content/C0009/hi/C0009-hi.mp4",
+          "video_sha256": "a75cbc466410e4710d034bba44299d875a1ef06263e7a94d5c2d1c99b67eb0af",
+          "meta": "content/C0009/hi/publish.json",
+          "meta_sha256": "1a29a43a2f6e07536455e9ffdbf6cb15e3699b07c745d19cebf15be4a6908cf3",
+          "meta_hash_scope": "publish.json['youtube']"
+        },
+        "en": {
+          "status": "approved",
+          "at": "2026-11-17T15:16:12+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "Mon Nov 23 evening slots",
+          "platform": "youtube",
+          "time": "2026-11-23T21:30:00+05:30",
+          "video": "content/C0009/en/C0009-en.mp4",
+          "video_sha256": "3bdb0b37fc752b05c5a4f97f183e4820cddc048dcef4a4afab17c7b5cbed3e8e",
+          "meta": "content/C0009/en/publish.json",
+          "meta_sha256": "584716187390e060b55231e56c6f42602b92b6a16c57f3d51d52fb4c73fd21fd",
+          "meta_hash_scope": "publish.json['youtube']"
+        }
+      },
+      "history": [],
+      "at": "2026-11-17T15:16:12+0530",
+      "note": "Mon Nov 23 evening slots"
+    },
+    "gate:publish:instagram": {
+      "status": "approved",
+      "langs": [
+        "te",
+        "mr",
+        "gu",
+        "hi",
+        "en"
+      ],
+      "entries": {
+        "te": {
+          "status": "approved",
+          "at": "2026-11-17T15:16:12+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "Mon Nov 23 evening slots",
+          "platform": "instagram",
+          "time": "2026-11-23T19:00:00+05:30",
+          "video": "content/C0009/te/C0009-te.mp4",
+          "video_sha256": "7087dfc0b66ea76d467126eef63471b7ad91f2e1ceaa801ab1d678889f3b3e89",
+          "meta": "content/C0009/te/publish.json",
+          "meta_sha256": "973fe80018af81ffcdaeb53287cf4cc1dd2d80e0feb8733e5f0703edcc5232e8",
+          "meta_hash_scope": "publish.json['instagram']"
+        },
+        "mr": {
+          "status": "approved",
+          "at": "2026-11-17T15:16:12+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "Mon Nov 23 evening slots",
+          "platform": "instagram",
+          "time": "2026-11-23T19:15:00+05:30",
+          "video": "content/C0009/mr/C0009-mr.mp4",
+          "video_sha256": "d8c4ee2b74f1cd1ed783554ab22dc6684fcc069aa932cfc43045d7cbb92ef676",
+          "meta": "content/C0009/mr/publish.json",
+          "meta_sha256": "aee6efd00921d4a5c43726785ce3a4e4b1331979b48fe67786c37a5e760c9061",
+          "meta_hash_scope": "publish.json['instagram']"
+        },
+        "gu": {
+          "status": "approved",
+          "at": "2026-11-17T15:16:12+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "Mon Nov 23 evening slots",
+          "platform": "instagram",
+          "time": "2026-11-23T19:30:00+05:30",
+          "video": "content/C0009/gu/C0009-gu.mp4",
+          "video_sha256": "f76c073ed514b380faa768ae3fea1fdec568b1b4373d4b92a206a8f854140374",
+          "meta": "content/C0009/gu/publish.json",
+          "meta_sha256": "8a061ba2038588a85d60b50e8af18effd490a825a3af57fd4f148a4c104cc609",
+          "meta_hash_scope": "publish.json['instagram']"
+        },
+        "hi": {
+          "status": "approved",
+          "at": "2026-11-17T15:16:12+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "Mon Nov 23 evening slots",
+          "platform": "instagram",
+          "time": "2026-11-23T20:00:00+05:30",
+          "video": "content/C0009/hi/C0009-hi.mp4",
+          "video_sha256": "a75cbc466410e4710d034bba44299d875a1ef06263e7a94d5c2d1c99b67eb0af",
+          "meta": "content/C0009/hi/publish.json",
+          "meta_sha256": "98d3e3014733c0a00e07a9933d27391104fe4b624276d5cd705ba352f1ae7cf4",
+          "meta_hash_scope": "publish.json['instagram']"
+        },
+        "en": {
+          "status": "approved",
+          "at": "2026-11-17T15:16:12+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "Mon Nov 23 evening slots",
+          "platform": "instagram",
+          "time": "2026-11-23T20:30:00+05:30",
+          "video": "content/C0009/en/C0009-en.mp4",
+          "video_sha256": "3bdb0b37fc752b05c5a4f97f183e4820cddc048dcef4a4afab17c7b5cbed3e8e",
+          "meta": "content/C0009/en/publish.json",
+          "meta_sha256": "07b54b4ee9006574425a4fa25b2412e13d4fca8e016ba58d6e44e9464b8b1f05",
+          "meta_hash_scope": "publish.json['instagram']"
+        }
+      },
+      "history": [],
+      "at": "2026-11-17T15:16:12+0530",
+      "note": "Mon Nov 23 evening slots"
+    },
+    "instagram_scheduled:te": {
+      "status": "done",
+      "at": "2026-11-17T15:16:12+0530",
+      "note": "2026-11-23T19:00:00+05:30"
+    },
+    "instagram_scheduled:mr": {
+      "status": "done",
+      "at": "2026-11-17T15:16:12+0530",
+      "note": "2026-11-23T19:15:00+05:30"
+    },
+    "instagram_scheduled:gu": {
+      "status": "done",
+      "at": "2026-11-17T15:16:12+0530",
+      "note": "2026-11-23T19:30:00+05:30"
+    },
+    "instagram_scheduled:hi": {
+      "status": "done",
+      "at": "2026-11-17T15:16:13+0530",
+      "note": "2026-11-23T20:00:00+05:30"
+    },
+    "instagram_scheduled:en": {
+      "status": "done",
+      "at": "2026-11-17T15:16:13+0530",
+      "note": "2026-11-23T20:30:00+05:30"
+    }
+  },
+  "platforms": [
+    "youtube",
+    "instagram"
+  ]
+}
