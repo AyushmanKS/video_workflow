@@ -114,6 +114,8 @@ Illustrations and narration are made with AI tools; every script is written and 
 ```
 > **Owner check:** the first line says "hand-drawn chalkboard animation". The house rule in `docs/PUBLISHING.md` is never to imply hand-drawn art, and the last line of this text says the illustrations are made with AI tools. Consider "hand-drawn-style chalkboard animation" or "chalkboard animation". The text above is kept exactly as supplied until the owner decides.
 
+**Older unrelated videos (owner decision, not applied):** the channel still has public videos from July 2025 that have nothing to do with Chalk Tales: "London plane crash #news…", "\"Brainrot\" क्या है?…", "Born in Fire: The Night Israel Became a Nation…" and "Facing the Shadows: A Psychological Journey…". There is also an unlisted "WizardCart…" demo. They conflict with the brand and the new channel description. Recommendation: before the rebrand, set the public ones to **Unlisted** or **Private** so the channel page shows only Chalk Tales content. They don't need to be deleted, and the unlisted demo can stay as it is. Claude has not changed them.
+
 **Organisation:**
 - **Playlists:** one per language, each set as a series in Studio, plus the existing "Valmiki Ramayana" playlist:
   - "Valmiki Ramayana · English"
@@ -152,6 +154,7 @@ Do these in the apps. Claude does not change live accounts.
 6. **Highlights:** create Ramayana, New, Behind the Chalk and Collabs from a Story each. Then Edit highlight → Edit cover → choose the matching `data/brand/highlight_*.png` (send them to the phone first).
 
 **YouTube (Studio → Customisation)**
+0. **Content → older videos:** set the July 2025 non-Chalk-Tales public videos (London plane crash, Brainrot, Born in Fire, Facing the Shadows) to Unlisted or Private (Visibility). Deleting them is not necessary.
 1. **Profile → Name:** Chalk Tales. YouTube limits how often the name and handle can change; Studio shows the limit.
 2. **Profile → Handle:** `@aks.chalk.tales` if available. The old handle URL redirects for a while.
 3. **Profile → Description:** paste the description above (797 characters).
