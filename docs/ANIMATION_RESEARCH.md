@@ -147,7 +147,7 @@ Free disk is now 57 GB. Deleting both Wan folders frees about 33 GB.
 
 ## 7. AK01 sample production (2026-11-17, in progress)
 
-Status: **sample, not finished, awaiting owner review.** At the laptop's 17:00 close, 5 of 11 shots were animated, and a "first look" cut of 4 shots was made in Hindi and English. Nothing was integrated into the pipeline, published or scheduled. All files are in `data/anim_lab/` (gitignored). The resume steps are in `data/anim_lab/AK01/STATE.md`.
+Status: **sample, not finished, awaiting owner review.** By the laptop's 17:00 close, 7 LTX clips had been rendered. 4 shots were approved (1, 5 retake, 9, 10) and 3 takes were rejected (5 take 1, 6, 8). A "first look" cut of shots 1, 5, 9 and 10 was made in Hindi and English (`data/anim_lab/AK01/AK01-firstlook-{en,hi}.mp4`). Nothing was integrated into the pipeline, published or scheduled. All files are in `data/anim_lab/` (gitignored). The resume steps are in `data/anim_lab/AK01/STATE.md`.
 
 ### 7.1 Character consistency method (tested, then locked)
 
@@ -190,7 +190,8 @@ The owner's Android emulator, Gradle and Flutter processes were open until about
 | LTX s05, 97 frames (rejected) | 8 min 6 s | 8.6 GB | +2.1 GB |
 | **LTX s09**, 121 frames | **10 min 9 s** | 8.7 GB | +9.2 GB |
 | **LTX s05r**, 97 frames (retake) | **8 min 41 s** | — | +7.8 GB |
-| LTX s06, 97 frames | see `AK01/progress.log` | | |
+| LTX s06, 97 frames (rejected) | 6 min 56 s | — | +0.8 GB |
+| LTX s08, 97 frames (rejected) | 5 min 51 s | — | +1.3 GB |
 | First-look render, en + hi | about 1.5 min per language | ~2 GB | — |
 
 - **LTX timing.** With `LTX2_SPLIT_TEXT_ENCODE=1`, `--low-ram` and the emulator closed, LTX-2.3 q4 distilled took **6–10 min per clip**, against 12–22 min in the benchmark.
@@ -207,6 +208,8 @@ The owner's Android emulator, Gradle and Flutter processes were open until about
 | s09 Rama and Sita at the fire | **Good.** Slow push-in, both close their eyes, fire and smoke animate. Faces stay consistent. |
 | s05 Rama close-up, take 1 | **Rejected.** He spins a full turn and the crown morphs during the turn. |
 | s05r retake (calm prompt, seed 7, end anchor) | No spin. He lowers his gaze and smiles, hair and cloth move in the breeze. **Flaw:** mid-clip the crown shrinks and changes shape, then the end anchor restores it. Usable for review; retake again (73 frames or another seed) for the final. |
+| s06 king and Rama on the terrace | **Rejected.** Rama crouches at the king's feet instead of the embrace in the narration, the camera crops the king's face, and Rama's crown shrinks. The prompt is fixed: both stay standing, static camera. |
+| s08 king and Rama by the window | **Rejected.** Both walk out of frame, then the camera flies through the window onto a *modern asphalt highway* with lane markings and poles. The prompt is fixed: ancient unpaved earth road, no modern elements, static camera, and an end anchor with both characters in frame. |
 
 ### 7.4 Audio, captions, end card
 
@@ -233,7 +236,8 @@ No Real-ESRGAN: the weights' licence is unclear. Upscaling is Lanczos to 1080×1
 
 ### 7.6 Known limitations
 
-- 6 of 11 shots are not animated yet: 2, 3, 4, 7, 8 and 11. Shot 6 finished at the stop; check its contact sheet.
+- 7 of 11 shots are still missing for the full cut: 2, 3, 4, 7 and 11 (never animated), plus retakes of 6 and 8. The full 11-shot assemblies `AK01-hi.mp4` and `AK01-en.mp4` therefore do not exist yet; the assembler (`AK01/scripts/assemble.py`) is written and tested on the first look.
+- About 1 in 2 character clips needed a retake (5, 6, 8). Shots with two characters or a window view drift most. Prompts must pin the characters in place and name the period ("ancient, unpaved, no modern elements").
 - s05 has a crown wobble. Rama's crown is nearly as grand as Dasharatha's; a smaller Yuvaraja diadem is recorded as a planned variant in the bible.
 - klein does not produce true profiles.
 - Character sheets (three-quarter, profile, full body and expressions in the cinematic style) were not regenerated after the style change. Only the fronts are locked.
@@ -242,5 +246,5 @@ No Real-ESRGAN: the weights' licence is unclear. Upscaling is Lanczos to 1080×1
 ### 7.7 Compared with the chalk style
 
 - **Pros.** Characters and places now visibly act and move: head turns, eyes closing, fire, crowds, a crane move. The look matches the owner-approved benchmark, and faces stay consistent across shots through the locked anchors.
-- **Cost.** Chalk renders an episode in minutes. This look needs about 1.5–2 h of serial heavy-model time per episode with the emulator closed, plus occasional retakes; about 1 in 5 clips was rejected here.
+- **Cost.** Chalk renders an episode in minutes. This look needs about 1.5–2 h of serial heavy-model time per episode with the emulator closed, plus retakes; 3 of 7 clips were rejected here.
 - **Brand continuity.** The chalk title fonts, the chalk bridge and the end card keep the Chalk Tales identity.
