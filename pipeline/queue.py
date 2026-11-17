@@ -126,12 +126,50 @@ def set_status(con, r, status, err=None, next_try=None, attempt=False):
                 (status, err, next_try, 1 if attempt else 0, db.now(), r["id"]))
 
 
+STALL_S = 600
+STALLED = 124
+
+
+def last_activity(r, log):
+    t = log.stat().st_mtime if log.exists() else 0
+    try:
+        with db.connect() as con:
+            row = con.execute("SELECT MAX(t) FROM events WHERE variant_id=?", (f"{r['content_id']}-{r['lang']}",)).fetchone()
+        t = max(t, row[0] or 0)
+    except Exception:
+        pass
+    return t
+
+
 def upload(r, when):
     log = CONTENT / r["content_id"] / r["lang"] / "publish_run.log"
     cmd = [sys.executable, "-m", "pipeline", "publish", r["content_id"], "--lang", r["lang"], "--platform", r["platform"], "--at", when, "--yes"]
+    start = time.time()
     with open(log, "w") as fh:
-        p = subprocess.run(cmd, cwd=ROOT, stdout=fh, stderr=subprocess.STDOUT)
+        p = subprocess.Popen(cmd, cwd=ROOT, stdout=fh, stderr=subprocess.STDOUT)
+        while p.poll() is None:
+            time.sleep(15)
+            if time.time() - max(start, last_activity(r, log)) > STALL_S:
+                p.kill()
+                p.wait()
+                fh.write(f"\nupload stalled: no progress for {STALL_S // 60} min; stopped by the queue watchdog\n")
+                return STALLED, log.read_text()
     return p.returncode, log.read_text()
+
+
+def already_on_youtube(r):
+    try:
+        import json as _json
+        import publish
+
+        meta = _json.loads((CONTENT / r["content_id"] / r["lang"] / "publish.json").read_text())
+        title = meta["youtube"]["title"]
+        svc = next(getattr(publish, n)() for n in ("youtube_service", "get_service", "service", "yt_service", "authorized_service") if hasattr(publish, n))
+        up = svc.channels().list(part="contentDetails", mine=True).execute()["items"][0]["contentDetails"]["relatedPlaylists"]["uploads"]
+        items = svc.playlistItems().list(part="snippet", playlistId=up, maxResults=25).execute()["items"]
+        return next((i["snippet"]["resourceId"]["videoId"] for i in items if i["snippet"]["title"] == title), None)
+    except Exception as ex:
+        return f"check failed: {type(ex).__name__}"
 
 
 def next_pacific_midnight(now):
@@ -171,9 +209,23 @@ def run(cap=DEFAULT_CAP, dry_run=False, once=False):
             say(f"uploading {variant} publishAt {when}")
             ev("info", r, f"queue starting upload (attempt {r['attempts'] + 1}) with publishAt {when}", detail={"publish_at": when, "attempt": r["attempts"] + 1})
             flush()
+            if (r.get("last_error") or "").startswith("upload stalled"):
+                found = already_on_youtube(r)
+                if found:
+                    with db.connect() as con:
+                        set_status(con, r, "failed", f"possible duplicate: a video with this title exists ({found}); check YouTube Studio before retrying", attempt=False)
+                    ev("failed", r, f"stalled upload may have reached YouTube ({found}); not retrying to avoid a duplicate", error="network_unknown_outcome")
+                    flush()
+                    continue
             code, out = upload(r, when)
             log_ref = str((CONTENT / r["content_id"] / r["lang"] / "publish_run.log").relative_to(ROOT))
             with db.connect() as con:
+                if code == STALLED:
+                    nt = (utcnow() + timedelta(minutes=20)).isoformat()
+                    set_status(con, r, "backoff", f"upload stalled (no progress for {STALL_S // 60} min); YouTube is checked before the retry", nt, attempt=True)
+                    say(f"stalled {variant}: stopped; checks YouTube and retries at {nt}")
+                    ev("warning", r, f"upload stalled for {STALL_S // 60} min and was stopped; the queue checks YouTube for a partial upload before retrying at {nt}", error="network_timeout", log_ref=log_ref)
+                    break
                 if code == 0:
                     set_status(con, r, "done", attempt=True)
                     say(f"OK {variant} publishAt {when}")
