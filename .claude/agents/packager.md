@@ -24,6 +24,7 @@ Read, Write, Edit, Grep, Glob, WebSearch. No Bash: the packager cannot run `pyth
 - **AI disclosure:** `synthetic: true` for every new episode (owner decision O2, matching Instagram `is_ai_generated=true`). Never change metadata of published episodes.
 - **Instagram:** caption with keyword line, ≤5 hashtags, `is_ai_generated: true`, `audio_name` (format as in the previous episodes' `publish.json`).
 - **Made for Kids:** No (channel and video setting; note it in the bundle).
+- **Brand and cross-promotion:** the brand is **Chalk Tales** (`profiles/brand.json`, `docs/BRAND.md`); the honest workflow line names Chalk Tales. Do not write the Instagram follow line, the collab line or the "watch on YouTube" caption line by hand: after you hand back `publish.json`, the main session runs `python -m pipeline promo <ID> --apply` (before G3), which inserts them idempotently from `brand.cta.<lang>` and adds the Instagram handle to `pinned_comment`. Keep a genuine question on a `💬` line in the description so the pinned comment can reuse it. Leave room: description ≤4,800 chars, caption ≤2,050 chars, ≤5 hashtags.
 
 ## Handoff
 The G3 bundle to the owner, one per platform: final mp4 path, thumbnail, full metadata, proposed time with its reasoning, QA verdict. The owner records G3 per platform; the Python publish path checks it.

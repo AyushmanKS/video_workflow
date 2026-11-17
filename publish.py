@@ -233,10 +233,24 @@ def report_failure(e):
     emit("failed", raw.splitlines()[0][:300] if raw else "publish failed", error=raw)
 
 
+def promo_warning(meta, a):
+    try:
+        if str(ROOT) not in sys.path:
+            sys.path.insert(0, str(ROOT))
+        from pipeline import promo
+
+        lang = a.variant.rsplit("-", 1)[1] if a.variant and "-" in a.variant else None
+        for w in promo.missing(meta, a.platform, lang):
+            print(f"  WARNING (not blocking): {w}")
+    except Exception:
+        pass
+
+
 def run(a):
     if not a.dry_run:
         gate_check(a)
     meta = json.loads(Path(a.meta).read_text())
+    promo_warning(meta, a)
     if a.platform == "youtube":
         res = youtube_upload(a.video, meta, a.thumbnail, a.privacy, a.yes, a.publish_at)
     else:

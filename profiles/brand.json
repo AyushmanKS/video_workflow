@@ -1,0 +1,98 @@
+{
+  "version": 1,
+  "brand": {
+    "name": "Chalk Tales",
+    "positioning": "India's great stories as hand-drawn-style chalkboard animation, under a minute each, in Indian languages.",
+    "tagline": "India's epics, drawn in chalk",
+    "colors": {
+      "slate": "#14191C",
+      "chalk": "#F2EFE6",
+      "gold": "#E8BE6E",
+      "saffron": "#F28C28"
+    },
+    "fonts": {
+      "wordmark": "Chalkduster (macOS system font, brand images only)",
+      "tagline": "Chalkboard SE (macOS system font, brand images only)",
+      "devanagari": "ITF Devanagari Medium (macOS)",
+      "gujarati": "Kohinoor Gujarati Medium (macOS)",
+      "telugu": "Kohinoor Telugu Medium (macOS)",
+      "ofl_alternatives": "assets/fonts: Cabin Sketch, Kalam, Noto Sans/Serif Devanagari, Noto Sans Gujarati, Noto Sans Telugu"
+    },
+    "instagram": {
+      "handle": "@aks.chalk.tales",
+      "url": "https://www.instagram.com/aks.chalk.tales/",
+      "display_name": "Chalk Tales · Ramayana & More"
+    },
+    "youtube": {
+      "current_name": "Knowledge PowerBank",
+      "current_handle": "@knowledgepowerbank",
+      "current_url": "https://www.youtube.com/@knowledgepowerbank",
+      "planned_name": "Chalk Tales",
+      "planned_handle": "@aks.chalk.tales",
+      "planned_url": "https://www.youtube.com/@aks.chalk.tales",
+      "status": "rename pending",
+      "active_url": "https://www.youtube.com/@knowledgepowerbank"
+    },
+    "email": "ayushman.k.singh@gmail.com",
+    "languages": {
+      "en": "English",
+      "hi": "हिंदी",
+      "gu": "ગુજરાતી",
+      "te": "తెలుగు",
+      "mr": "मराठी"
+    },
+    "categories": ["Indian mythology and epics (now: the Valmiki Ramayana)", "Indian history (planned)", "Science stories (planned)", "Education and culture"],
+    "partnership_formats": ["Sponsored episode or segment, clearly labelled", "Brand mention in the description and pinned comment", "Instagram collab post or Story", "Custom chalk explainer for a product, place or idea", "Multilingual versions (English, Hindi, Gujarati, Telugu, Marathi)"],
+    "limits": {
+      "instagram_caption_chars": 2200,
+      "instagram_hashtags": 5,
+      "youtube_description_chars": 5000,
+      "cta_chars_target": 90
+    },
+    "cta": {
+      "en": {
+        "review": "approved-language",
+        "youtube_description_line": "📸 Daily chalk stories on Instagram: {instagram_url}",
+        "youtube_pinned_comment": "{question}\n📸 More chalk stories on Instagram: {instagram_handle}",
+        "instagram_caption_line": "▶️ Watch the full series in order on YouTube, link in profile",
+        "collab_line": "🤝 Paid collabs & business: {email}"
+      },
+      "hi": {
+        "review": "approved-language",
+        "youtube_description_line": "📸 रोज़ नई चॉक कहानी, Instagram पर: {instagram_url}",
+        "youtube_pinned_comment": "{question}\n📸 Instagram पर भी मिलिए: {instagram_handle}",
+        "instagram_caption_line": "▶️ पूरी सीरीज़ क्रम से YouTube पर देखें, लिंक प्रोफ़ाइल में",
+        "collab_line": "🤝 पेड कोलैब और बिज़नेस के लिए: {email}"
+      },
+      "gu": {
+        "review": "needs native review",
+        "youtube_description_line": "📸 રોજ નવી ચૉક વાર્તા, Instagram પર: {instagram_url}",
+        "youtube_pinned_comment": "{question}\n📸 Instagram પર પણ મળીએ: {instagram_handle}",
+        "instagram_caption_line": "▶️ આખી શ્રેણી ક્રમમાં YouTube પર જુઓ, લિંક પ્રોફાઇલમાં",
+        "collab_line": "🤝 પેઇડ કોલૅબ અને બિઝનેસ માટે: {email}"
+      },
+      "te": {
+        "review": "needs native review",
+        "youtube_description_line": "📸 రోజూ కొత్త చాక్ కథ, Instagramలో: {instagram_url}",
+        "youtube_pinned_comment": "{question}\n📸 Instagramలో కూడా కలుద్దాం: {instagram_handle}",
+        "instagram_caption_line": "▶️ పూర్తి సిరీస్ వరుసగా YouTubeలో చూడండి, లింక్ ప్రొఫైల్‌లో",
+        "collab_line": "🤝 పెయిడ్ కొలాబ్‌లు, బిజినెస్ కోసం: {email}"
+      },
+      "mr": {
+        "review": "needs native review",
+        "youtube_description_line": "📸 रोज नवी खडूची गोष्ट, Instagram वर: {instagram_url}",
+        "youtube_pinned_comment": "{question}\n📸 Instagram वरही भेटूया: {instagram_handle}",
+        "instagram_caption_line": "▶️ संपूर्ण मालिका क्रमाने YouTube वर पाहा, लिंक प्रोफाइलमध्ये",
+        "collab_line": "🤝 पेड कोलॅब आणि व्यवसायासाठी: {email}"
+      }
+    }
+  },
+  "projects": {
+    "ramayana": {
+      "series": ["RAMAYANA — The Epic in Chalk"],
+      "series_name": "RAMAYANA — The Epic in Chalk",
+      "playlist": "Valmiki Ramayana",
+      "overrides": {}
+    }
+  }
+}

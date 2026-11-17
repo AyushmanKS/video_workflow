@@ -1014,6 +1014,18 @@ def cmd_dashboard(a):
                 print("Sign-in link queued for Telegram (use --show to print it here instead).")
 
 
+def cmd_promo(a):
+    from . import promo
+
+    promo.cli(a)
+
+
+def cmd_mediakit(a):
+    from . import mediakit
+
+    mediakit.cli(a)
+
+
 def cmd_service(a):
     from . import service
 
@@ -1057,6 +1069,8 @@ def main():
     p = sp.add_parser("schedule"); p.add_argument("--id"); p.add_argument("--lang", required=True); p.set_defaults(fn=cmd_schedule)
     p = sp.add_parser("publish"); p.add_argument("id"); p.add_argument("--lang", required=True); p.add_argument("--at"); p.add_argument("--slot"); p.add_argument("--yes", action="store_true", help="owner already approved in chat; skip the interactive prompt"); p.add_argument("--platform", default="youtube", choices=["youtube", "instagram"]); p.add_argument("--now", action="store_true", help="instagram: post immediately instead of scheduling"); p.add_argument("--dry-run", action="store_true", help="instagram: check token, tunnel and limits without posting"); p.add_argument("--cancel", action="store_true", help="instagram: remove a scheduled post"); p.add_argument("--check-gates-only", action="store_true", help="verify the G2/G3 records, times and hashes; no tunnel, no upload"); p.set_defaults(fn=cmd_publish)
     p = sp.add_parser("ig-jobs"); p.set_defaults(fn=cmd_ig_jobs)
+    p = sp.add_parser("promo", help="insert the brand cross-promotion lines (profiles/brand.json) into publish.json; dry run unless --apply; refuses G3-approved sections; --audit writes data/reports/promo-audit-<date>.md"); p.add_argument("id", nargs="?"); p.add_argument("--lang", help="one language or a comma list"); g = p.add_mutually_exclusive_group(); g.add_argument("--dry-run", action="store_true"); g.add_argument("--apply", action="store_true"); p.add_argument("--platform", choices=["youtube", "instagram"]); p.add_argument("--force-reapproval-needed", action="store_true", help="also change G3-approved sections; the owner must then re-approve G3"); p.add_argument("--audit", action="store_true", help="read-only report of every variant and platform"); p.set_defaults(fn=cmd_promo)
+    p = sp.add_parser("mediakit", help="fill docs/MEDIA_KIT.md from real analytics only → data/reports/media-kit-<date>.md (missing values say 'not yet available')"); p.add_argument("--offline", action="store_true", help="skip the read-only follower lookups (Instagram API, YouTube channels.list)"); p.set_defaults(fn=cmd_mediakit)
     p = sp.add_parser("takes"); p.add_argument("id"); p.add_argument("--lang", required=True); p.add_argument("--scenes", help="comma list of 1-based scene numbers (default all)"); p.add_argument("--n", type=int, default=3); p.set_defaults(fn=cmd_takes)
     p = sp.add_parser("progress", help="live progress, per-step ETA and finish time"); p.add_argument("id"); p.add_argument("--watch", type=int, default=0, help="refresh every N seconds until done"); p.add_argument("--oneline", action="store_true"); p.set_defaults(fn=cmd_progress)
     p = sp.add_parser("retention-csv", help="export API retention curve for .claude/skills/yt-retention"); p.add_argument("variant"); p.set_defaults(fn=cmd_retention_csv)

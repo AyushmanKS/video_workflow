@@ -9,7 +9,7 @@
 ## 1. Vision & objectives
 A zero-cost, local-first, multi-agent content studio that discovers opportunities, understands Indian language audiences, writes strong stories, produces 9:16 animated videos with natural narration, publishes on schedule (YouTube first), measures real performance and feeds learnings back into the next production.
 - **Owner:** a single creator on a MacBook Air (Apple M5, 16 GB RAM).
-- **Channel:** YouTube "Knowledge PowerBank".
+- **Channel:** YouTube "Knowledge PowerBank" (rename to **Chalk Tales** pending, §27) + Instagram @aks.chalk.tales.
 - **First series:** *RAMAYANA — The Epic in Chalk* (Valmiki Ramayana, chalkboard style, English + Hindi).
 - **Hard constraints:** no paid APIs, subscriptions or credits; commercial-use licenses only; human approval before any public release.
 
@@ -264,6 +264,8 @@ shorts-studio/
   - **Dashboard address:** the current address is in `data/dashboard_url.json`, and a new sign-in link is sent to Telegram whenever it changes (`/link` re-sends it).
   - **Approvals** stay in chat; the bot and dashboard can only acknowledge issues.
 
+- **Brand (2026-11-17):** Chalk Tales package built locally (§27); new episodes run `pipeline promo <ID> --apply` before G3.
+
 ## 23. Exact next steps
 1. Episode 05 (C0005): Tataka (Bala Kanda 24–26; teaser verse 1.24.26). Only start when the owner asks. Flow: `new` → research/strategy/audience → EN+HI scripts (original Hindi) + hooks → G1 → produce EN (af_heart) then HI (`maya2:Malini`; regenerate flagged scenes with the speaker/pitch check) → `qa` → manual image review (watch for borders, Western fantasy demons, Ravana depiction) → metadata + schedule (evening, HI 20:30 / EN 21:30, one episode per day) → G2/G3 → `publish --yes`.
 2. Analytics snapshots once the API is enabled; then run the optimization pass.
@@ -317,6 +319,15 @@ The owner asked for a full audit and research plan before any change. Nothing wa
 - **Instagram catch-up schedule:** one episode per day at TE 19:00, GU 19:30, HI 20:00, EN 20:30. Ep02 is all today (te/gu moved to 21:00 / 21:30); Ep03 17 Nov, Ep04 18 Nov, Ep05 19 Nov.
 - **Wave 3 next (Phase E tests, one heavy model at a time):** FLUX.2 klein reference conditioning (A9), Z-Image ControlNet (E5), ACE-Step / Magenta music beds (E4), Indian painting style stills (E2), chalk LoRA pilot (E1), LTX-2.3 hero shot (E3), commercial aligner (E9), Manim (E10). E6–E8 wait for their data triggers.
 - **Owner optional:** `instagram_manage_insights` permission + a new token, for Reel stats.
+
+## 27. Brand: Chalk Tales and cross-promotion (2026-11-17)
+- **Owner decision:** one brand name, **Chalk Tales**, on Instagram (@aks.chalk.tales, live) and YouTube (rename from Knowledge PowerBank and handle @aks.chalk.tales pending; the owner does it in Studio). Everything was built locally; no live account, published or scheduled item was changed.
+- **Config:** `profiles/brand.json` (name, positioning, colours slate #14191C / chalk #F2EFE6 / gold #E8BE6E, fonts, IG handle/url, YouTube current/planned with one `active_url` that stays on the current channel until the rename is confirmed, collab email, per-language CTA lines en/hi/gu/te/mr with gu/te/mr "needs native review"; `projects.<slug>.overrides` for other series).
+- **Promo:** `python -m pipeline promo <ID> [--lang] [--platform] [--dry-run|--apply] [--force-reapproval-needed]` (`pipeline/promo.py`) inserts the Instagram follow + collab lines into the YouTube description, the IG handle into `pinned_comment`, and one "watch on YouTube, link in profile" line above the Instagram hashtags; idempotent; enforces IG 2,200 chars / ≤5 hashtags and YT 5,000 chars; refuses G3-approved sections (G3 hashes each platform section) and anything already uploaded. Runs **before G3** (content-pipeline step 11b, packager notes). `publish.py` warns (never blocks) when the line is missing. `promo --audit` → `data/reports/promo-audit-<date>.md`.
+- **Audit 2026-11-17:** all 60 platform sections of C0001–C0007 lack promo and all are G3-approved, scheduled, queued or live, so nothing was applied; proposed text is in the audit for manual Studio/app edits if the owner wants them. C0008 has no publish.json yet and will get promo before its G3.
+- **Assets:** `python -m pipeline.brandart` → `data/brand/` (YouTube banner + crop-guide preview, refined bow profile picture + "CT" alternative + 110/40 px preview, 4 highlight covers, `brand_review.png`). Recommended picture: `profile_bow_1080.png`.
+- **Docs:** `docs/BRAND.md` (positioning, voice, names, colours, logo use, IG name/bio, YouTube description and playlists, cross-promotion rules, owner checklist for the live accounts); `docs/MEDIA_KIT.md` template filled by `python -m pipeline mediakit` from real analytics only ("not yet available" otherwise).
+- **Owner to do:** apply the checklist in `docs/BRAND.md`; confirm the YouTube rename so `brand.youtube.active_url` can be switched; decide on "hand-drawn" in the supplied channel description (conflicts with the never-imply-hand-drawn rule); native review of gu/te/mr CTA lines.
 
 ## Progress log
 | Date | Work | Decisions |

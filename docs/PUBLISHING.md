@@ -23,9 +23,25 @@ Set "No" on the channel and on every video. The audience research describes the 
 ### Honest workflow statement
 Use this on the About page and as one line in every description (GROWTH §3.4), adapted per language:
 
-> Written and researched by Knowledge PowerBank. Illustrations and narration are made with AI tools; every script is checked against the Valmiki Ramayana, with verse references in the description.
+> Written and researched by Chalk Tales. Illustrations and narration are made with AI tools; every script is checked against the Valmiki Ramayana, with verse references in the description.
 
-Never imply hand-drawn art or a human narrator. If the channel is renamed (GROWTH §7 Phase 0), update the name here.
+Never imply hand-drawn art or a human narrator. The brand name comes from `profiles/brand.json` (owner decision 2026-11-17: one name, **Chalk Tales**, on Instagram and YouTube; the YouTube rename is pending in Studio). Episodes approved before this decision keep "Knowledge PowerBank" in their approved metadata.
+
+### Brand cross-promotion (`python -m pipeline promo`)
+Brand settings live in `profiles/brand.json` (name, colours, Instagram handle and URL, YouTube current/planned handle with one `active_url`, collab email, per-language CTA text; projects can override). Details and the live-account checklist: `docs/BRAND.md`.
+
+| Command | What it does |
+|---|---|
+| `python -m pipeline promo <ID> [--lang L[,L]] [--platform youtube\|instagram]` | dry run (default): prints a readable diff of the proposed changes |
+| `python -m pipeline promo <ID> --apply` | writes `publish.json`: YouTube description gets the Instagram follow line and the collab line once (above the hashtag line), `youtube.pinned_comment` gets the Instagram handle (pin it by hand), the Instagram caption gets one "watch the full series in order on YouTube, link in profile" line before the hashtags |
+| `... --apply --force-reapproval-needed` | also changes sections that already have a G3 approval; it prints that the owner must re-approve G3 for them |
+| `python -m pipeline promo --audit` | read-only report of every variant and platform → `data/reports/promo-audit-<date>.md` (status, promo present, exact proposed text) |
+
+- Run it **before G3**. G3 binds a hash of each platform's section of `publish.json`, so a later change invalidates the approval; promo refuses G3-approved sections by default and always refuses sections already uploaded or published (edit those by hand in Studio or the Instagram app).
+- Idempotent: lines are found by content (the Instagram URL/handle, the email, the known CTA strings), so re-runs replace rather than duplicate.
+- Limits enforced: Instagram caption ≤2,200 characters and ≤5 hashtags; YouTube description ≤5,000 characters and no `<` `>`. Nothing is written when a limit would be exceeded.
+- `publish.py` prints a non-blocking warning when the platform's promo line is missing.
+- `python -m pipeline mediakit [--offline]` fills `docs/MEDIA_KIT.md` from the database (and read-only follower lookups) into `data/reports/media-kit-<date>.md`; anything without data says "not yet available".
 
 ### Approvals per platform (G3)
 G3 is recorded separately for each platform: the record names the platform, each language's approved time, and the sha256 of that language's `publish.json` and mp4. An Instagram approval never covers YouTube, or the reverse. If the video, the metadata or the time changes after G3, the publish command refuses and the owner approves again. G2 likewise requires a QA pass, or warnings each carrying a recorded waiver. Claude never records G1, G2 or G3, and the upload steps live in the manual-only `/publish` skill.
@@ -199,3 +215,5 @@ python -m pipeline features --all               # backfill the features table
 | `content/<ID>/<lang>/publish.json`, `published.json` | Metadata and upload log for pipeline episodes |
 | `data/studio.db` | publications, analytics_snapshots, features, experiments, decisions, waivers, publish_queue |
 | `data/reports/weekly-<date>.md` | Weekly report |
+| `profiles/brand.json` | Brand name, handles, links, email, per-language CTA lines |
+| `data/reports/promo-audit-<date>.md`, `media-kit-<date>.md` | Promo audit and media kit (generated, local) |
