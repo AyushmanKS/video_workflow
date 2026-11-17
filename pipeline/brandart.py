@@ -141,43 +141,66 @@ class Mask:
         return self.im.resize(self.size, Image.LANCZOS)
 
 
-def bow_parts(cx, cy, s, arc_c=0.15, arc_e=0.06, shaft=0.04, fletch=0.035, chevrons=3, string=0.03, head=0.09, tip=1.0):
-    k, R = 0.2417, 1.0517
-    th0 = math.asin(0.94 / R)
+def limb_x(v):
+    a = abs(v)
+    return 0.30 - 0.50 * v * v + 0.30 * max(0.0, (a - 0.70) / 0.30) ** 2
+
+
+def bow_unit(weight=1.0):
+    wt = weight
+    half = 0.86
+    n = 90
     outer, inner = [], []
-    n = 80
     for i in range(n + 1):
-        t = -th0 + 2 * th0 * i / n
-        u = abs(t) / th0
-        th = arc_c * (1 - u ** 2) + arc_e * u ** 2
-        x, y = math.sin(t), k - math.cos(t)
-        outer.append((cx + s * x * (R + th / 2), cy + s * (k - math.cos(t) * (R + th / 2))))
-        inner.append((cx + s * x * (R - th / 2), cy + s * (k - math.cos(t) * (R - th / 2))))
-    arc = outer + inner[::-1]
-    ends = [(cx - s * 0.94, cy - s * 0.23), (cx + s * 0.94, cy - s * 0.23)]
-    tip = cy - s * tip
-    headbase = tip + s * head * 2.3
-    headpoly = [(cx, tip), (cx + s * head, headbase), (cx - s * head, headbase)]
-    shaft_line = [(cx, headbase - 2), (cx, cy + s * 0.97)]
-    fl = []
-    for j in range(chevrons):
-        y0 = cy + s * (0.70 + j * (0.24 / max(1, chevrons - 1) if chevrons > 1 else 0))
-        fl.append([(cx - s * 0.12, y0 + s * 0.11), (cx, y0), (cx + s * 0.12, y0 + s * 0.11)])
-    caps = [(outer[0], inner[0]), (outer[-1], inner[-1])]
-    return {"arc": arc, "caps": caps, "string": ends, "head": headpoly, "shaft": shaft_line, "fletch": fl, "w": {"string": string * s, "shaft": shaft * s, "fletch": fletch * s}}
+        v = -1 + 2 * i / n
+        x, y = limb_x(v), half * v
+        dx = (limb_x(v + 1e-3) - limb_x(v - 1e-3)) / 2e-3
+        dy = half
+        ln = math.hypot(dx, dy)
+        nx, ny = dy / ln, -dx / ln
+        th = (0.115 * (1 - v * v) + 0.055 * v * v) * wt
+        outer.append((x + nx * th / 2, y + ny * th / 2))
+        inner.append((x - nx * th / 2, y - ny * th / 2))
+    tips = [(limb_x(-1), -half), (limb_x(1), half)]
+    nock = (-0.50, 0.0)
+    head_tip, head_base, head_w = (0.86, 0.0), 0.60, 0.15
+    feathers = []
+    for d in (0.0, 0.12):
+        for sgn in (-1, 1):
+            feathers.append([(-0.14 - d, 0.0), (-0.30 - d, sgn * 0.14)])
+    return {
+        "polys": [outer + inner[::-1], [head_tip, (head_base, -head_w), (head_base + 0.05, 0.0), (head_base, head_w)]],
+        "dots": [(t, 0.05 * wt) for t in tips],
+        "lines": [([tips[0], nock, tips[1]], 0.042 * wt), ([nock, (head_base + 0.02, 0.0)], 0.07 * wt)] + [(f, 0.038 * wt) for f in feathers],
+    }
 
 
-def draw_bow(m, cx, cy, s, **kw):
-    b = bow_parts(cx, cy, s, **kw)
-    m.poly(b["arc"])
-    for (ox, oy), (ix, iy) in b["caps"]:
-        mx, my, r = (ox + ix) / 2, (oy + iy) / 2, math.hypot(ox - ix, oy - iy) / 2
-        m.d.ellipse([(mx - r) * m.ss, (my - r) * m.ss, (mx + r) * m.ss, (my + r) * m.ss], fill=255)
-    m.line(b["string"], b["w"]["string"])
-    m.line(b["shaft"], b["w"]["shaft"], round_caps=False)
-    m.poly(b["head"])
-    for ch in b["fletch"]:
-        m.line(ch, b["w"]["fletch"])
+def bow_parts(cx, cy, r, weight=1.0, angle=-45.0):
+    u = bow_unit(weight)
+    pts = [q for poly in u["polys"] for q in poly] + [q for pl, _ in u["lines"] for q in pl]
+    mx = (min(q[0] for q in pts) + max(q[0] for q in pts)) / 2
+    my = (min(q[1] for q in pts) + max(q[1] for q in pts)) / 2
+    a = math.radians(angle)
+    ca, sa = math.cos(a), math.sin(a)
+    ext = max(math.hypot(q[0] - mx, q[1] - my) for q in pts) + 0.06 * weight
+    k = r / ext
+
+    def tf(q):
+        x, y = q[0] - mx, q[1] - my
+        return (cx + k * (x * ca - y * sa), cy + k * (x * sa + y * ca))
+
+    return {"polys": [[tf(q) for q in poly] for poly in u["polys"]], "dots": [(tf(c), w * k) for c, w in u["dots"]],
+            "lines": [([tf(q) for q in pl], w * k) for pl, w in u["lines"]]}
+
+
+def draw_bow(m, cx, cy, r, weight=1.0, angle=-45.0):
+    b = bow_parts(cx, cy, r, weight, angle)
+    for poly in b["polys"]:
+        m.poly(poly)
+    for (x, y), w in b["dots"]:
+        m.d.ellipse([(x - w) * m.ss, (y - w) * m.ss, (x + w) * m.ss, (y + w) * m.ss], fill=255)
+    for pl, w in b["lines"]:
+        m.line(pl, w)
 
 
 def script_of(ch):
@@ -249,8 +272,8 @@ def banner(tk, seed=11):
     base = board(w, h, tk["slate"], seed)
     x0, y0, x1, y1 = SAFE
     pad = 34
-    s = 168
-    mark_w = 2 * 0.94 * s + 0.15 * s
+    s = 190
+    mark_w = 2 * s
     gap = 70
     textmax = (x1 - x0) - 2 * pad - mark_w - gap
     ts = fit(tk["name"], 170, textmax, CHALKDUSTER)
@@ -265,7 +288,7 @@ def banner(tk, seed=11):
     tag_y = title_y + gs * 1.45
     line_y = tag_y + ls * 1.75
     block_mid = (title_y - 0.72 * ts + line_y + 0.25 * ls) / 2
-    draw_bow(mg, left + mark_w / 2, block_mid + s * 0.015, s, arc_c=0.17, arc_e=0.07, shaft=0.045, fletch=0.04, string=0.032, head=0.11, tip=1.05)
+    draw_bow(mg, left + mark_w / 2, block_mid, s, weight=0.85)
     tx = left + mark_w + gap
     mt = Mask(w, h)
     mixed_text(mt, tx, title_y, tk["name"], ts, CHALKDUSTER)
@@ -283,31 +306,21 @@ def banner(tk, seed=11):
     return to_image(img), to_image(base)
 
 
-def profile(tk, monogram=False, seed=21):
+def profile(tk, seed=21):
     w = h = 1080
     base = board(w, h, tk["slate"], seed)
     c = w / 2
     ring = Mask(w, h)
-    ring.ring(c, c, 468, 16)
+    ring.ring(c, c, 468, 18)
     mg = Mask(w, h)
-    mt = Mask(w, h)
-    if monogram:
-        s = 205
-        draw_bow(mg, c, c - 140, s, arc_c=0.22, arc_e=0.10, shaft=0.075, fletch=0.07, chevrons=2, string=0.055, head=0.14, tip=1.08)
-        f = ImageFont.truetype(CHALKDUSTER, 230)
-        mt.text((c, c + 318), "CT", f, anchor="ms")
-    else:
-        s = 345
-        draw_bow(mg, c, c + 8, s, arc_c=0.20, arc_e=0.09, shaft=0.07, fletch=0.065, chevrons=2, string=0.05, head=0.13, tip=1.07)
+    draw_bow(mg, c, c, 385, weight=1.45)
     img = chalkify(base, ring.done(), tk["chalk"], seed + 1, 0.9)
     img = chalkify(img, mg.done(), tk["gold"], seed + 2)
-    if monogram:
-        img = chalkify(img, mt.done(), tk["chalk"], seed + 3)
     return to_image(img)
 
 
 def icon_bow(m, cx, cy, r):
-    draw_bow(m, cx, cy + r * 0.02, r * 1.0, arc_c=0.14, arc_e=0.14, shaft=0.13, fletch=0.13, chevrons=2, string=0.11, head=0.16, tip=1.08)
+    draw_bow(m, cx, cy, r * 1.12, weight=1.35)
 
 
 def icon_star(m, cx, cy, r, lw):
@@ -402,6 +415,26 @@ def profile_preview(options):
     return im
 
 
+def mark_preview(options):
+    big = 720
+    W = 40 + len(options) * (big + 40)
+    H = 70 + big + 260
+    im = Image.new("RGB", (W, H), (34, 36, 38))
+    d = ImageDraw.Draw(im)
+    for i, (name, src) in enumerate(options):
+        x = 40 + i * (big + 40)
+        label(d, (x, 24), f"{name} · 1080 px (shown at {big})", 26)
+        im.paste(src.resize((big, big), Image.LANCZOS), (x, 70))
+        y = 70 + big + 30
+        for j, bg in enumerate(((0, 0, 0), (255, 255, 255))):
+            bx = x + j * 330
+            d.rectangle([bx, y, bx + 300, y + 170], fill=bg)
+            im.paste(circle_crop(src, 110, bg), (bx + 20, y + 20))
+            im.paste(circle_crop(src, 40, bg), (bx + 170, y + 55))
+            label(d, (bx + 20, y + 140), "110 px      40 px", 16, (230, 230, 230) if j == 0 else (30, 30, 30))
+    return im
+
+
 def banner_preview(img):
     im = img.copy()
     d = ImageDraw.Draw(im)
@@ -432,8 +465,11 @@ def contact_sheet(files, tk):
     label(d, (40, 1112), "YouTube banner 2560×1440 (safe 1546×423)", 20)
     y = 1150
     x = 40
-    for key, name in (("profile", "Profile: bow (refined)"), ("profile_ct", "Profile: bow + CT")):
-        p = circle_crop(Image.open(files[key]), 340, (34, 36, 38))
+    for key, name in (("old_profile", "Old mark (retired)"), ("profile", "Profile: bow and arrow")):
+        if key not in files:
+            x += 380
+            continue
+        p = circle_crop(Image.open(files[key]).convert("RGB"), 340, (34, 36, 38))
         im.paste(p, (x, y))
         label(d, (x, y + 350), name, 20)
         x += 380
@@ -478,12 +514,17 @@ def build(out_dir=OUT):
     p = out_dir / "profile_bow_1080.png"
     prof.save(p, optimize=True)
     written["profile"] = p
-    ct = profile(tk, monogram=True)
-    p = out_dir / "profile_bow_ct_1080.png"
-    ct.save(p, optimize=True)
-    written["profile_ct"] = p
-    opts = [("Current", Image.open(out_dir / "instagram_profile_bow.png").convert("RGB"))] if (out_dir / "instagram_profile_bow.png").exists() else []
-    opts += [("Refined bow", prof), ("Bow + CT", ct)]
+    stale = out_dir / "profile_bow_ct_1080.png"
+    if stale.exists():
+        stale.unlink()
+    old = out_dir / "instagram_profile_bow.png"
+    if old.exists():
+        written["old_profile"] = old
+    opts = [("Old mark", Image.open(old).convert("RGB"))] if old.exists() else []
+    opts += [("New bow and arrow", prof)]
+    p = out_dir / "mark_preview.png"
+    mark_preview(opts).save(p, optimize=True)
+    written["mark_preview"] = p
     p = out_dir / "profile_preview.png"
     profile_preview(opts).save(p, optimize=True)
     written["profile_preview"] = p

@@ -224,3 +224,11 @@ def test_mediakit_uses_only_real_snapshots(tmp_path, monkeypatch):
     assert v["ig_engagement"] == "10.0%"
     assert v["yt_avg_views"] == mediakit.NA
     assert v["ig_followers"] == mediakit.NA
+
+
+def test_audit_keeps_external_channel_items(studio, tmp_path):
+    path, rows, _ = promo.audit(today="2026-01-01", out_dir=tmp_path / "reports")
+    text = path.read_text()
+    assert "## Channel content outside the pipeline" in text
+    assert "London plane crash" in text and "Unlisted or Private" in text
+    assert len(rows) == 2 * len(LANGS)

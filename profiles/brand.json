@@ -2,7 +2,7 @@
   "version": 1,
   "brand": {
     "name": "Chalk Tales",
-    "positioning": "India's great stories as hand-drawn-style chalkboard animation, under a minute each, in Indian languages.",
+    "positioning": "India's great stories as chalkboard-style animation, under a minute each, in Indian languages.",
     "tagline": "India's epics, drawn in chalk",
     "colors": {
       "slate": "#14191C",
@@ -31,7 +31,37 @@
       "planned_handle": "@aks.chalk.tales",
       "planned_url": "https://www.youtube.com/@aks.chalk.tales",
       "status": "rename pending",
-      "active_url": "https://www.youtube.com/@knowledgepowerbank"
+      "active_url": "https://www.youtube.com/@knowledgepowerbank",
+      "external_channel_items": {
+        "note": "Older YouTube videos outside the pipeline that conflict with the Chalk Tales brand. Recommendation (owner decision, not applied): set the public ones to Unlisted or Private before the rebrand so the channel page shows only Chalk Tales content; deleting is not necessary.",
+        "items": [
+          {
+            "title": "London plane crash #news…",
+            "visibility": "public",
+            "date": "2025-07"
+          },
+          {
+            "title": "\"Brainrot\" क्या है?…",
+            "visibility": "public",
+            "date": "2025-07"
+          },
+          {
+            "title": "Born in Fire: The Night Israel Became a Nation…",
+            "visibility": "public",
+            "date": "2025-07"
+          },
+          {
+            "title": "Facing the Shadows: A Psychological Journey…",
+            "visibility": "public",
+            "date": "2025-07"
+          },
+          {
+            "title": "WizardCart… (demo)",
+            "visibility": "unlisted",
+            "date": "2025-07"
+          }
+        ]
+      }
     },
     "email": "ayushman.k.singh@gmail.com",
     "languages": {
@@ -41,8 +71,19 @@
       "te": "తెలుగు",
       "mr": "मराठी"
     },
-    "categories": ["Indian mythology and epics (now: the Valmiki Ramayana)", "Indian history (planned)", "Science stories (planned)", "Education and culture"],
-    "partnership_formats": ["Sponsored episode or segment, clearly labelled", "Brand mention in the description and pinned comment", "Instagram collab post or Story", "Custom chalk explainer for a product, place or idea", "Multilingual versions (English, Hindi, Gujarati, Telugu, Marathi)"],
+    "categories": [
+      "Indian mythology and epics (now: the Valmiki Ramayana)",
+      "Indian history (planned)",
+      "Science stories (planned)",
+      "Education and culture"
+    ],
+    "partnership_formats": [
+      "Sponsored episode or segment, clearly labelled",
+      "Brand mention in the description and pinned comment",
+      "Instagram collab post or Story",
+      "Custom chalk explainer for a product, place or idea",
+      "Multilingual versions (English, Hindi, Gujarati, Telugu, Marathi)"
+    ],
     "limits": {
       "instagram_caption_chars": 2200,
       "instagram_hashtags": 5,
@@ -89,7 +130,9 @@
   },
   "projects": {
     "ramayana": {
-      "series": ["RAMAYANA — The Epic in Chalk"],
+      "series": [
+        "RAMAYANA — The Epic in Chalk"
+      ],
       "series_name": "RAMAYANA — The Epic in Chalk",
       "playlist": "Valmiki Ramayana",
       "overrides": {}

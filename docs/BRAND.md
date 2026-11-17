@@ -50,12 +50,12 @@ The brand images use macOS system fonts, as the owner chose. The OFL alternative
 Every glyph is checked against each font's missing-glyph shape when the assets are built.
 
 ## Logo
-- **Mark:** Rama's bow in saffron gold, drawn with chalk texture, an arrow through it pointing up, inside a thin chalk-white ring, on slate.
+- **Mark (redesigned 2026-11-17):** Rama's recurve bow in saffron gold chalk, drawn at full draw. The composition is rotated about 45°: the limbs run from upper-left to lower-right, with round tips, the string is pulled back into a V, and a nocked arrow points to the upper-right, with a triangular head and two pairs of fletching feathers. It sits inside a thin chalk-white ring, on slate. Nothing in it is mirrored about a vertical axis, so it can't be read as an umbrella, an anchor or a plant.
 - No deity faces and no text inside the profile picture. Deity imagery is sensitive in India, and this mark avoids it.
 - **Clear space:** keep at least the ring's stroke width × 4 free around the ring.
-- **Minimum size:** 40 px (the profile picture's smallest display size). Below about 60 px only the bow outline reads.
+- **Minimum size:** 40 px (the profile picture's smallest display size). At 40 px the bow curve, the V of the string and the arrowhead still read (`data/brand/mark_preview.png`).
 - **Don't:** recolour the bow, add gradients or glow, rotate it, or put it on a light background without the slate disc.
-- At a glance the vertical-arrow mark can read as an umbrella. This is the owner's current approved shape, so it is kept.
+- The old mark (arc on top with a vertical arrow, `instagram_profile_bow.png`) is retired because it read as an umbrella. That file is kept unchanged for reference.
 
 ## Assets
 The assets are local PNGs in `data/brand/` (gitignored). Regenerate them with `python -m pipeline.brandart`.
@@ -64,12 +64,12 @@ The assets are local PNGs in `data/brand/` (gitignored). Regenerate them with `p
 |---|---|
 | `youtube_banner_2560x1440.png` | YouTube banner (1.3 MB). All text and the logo sit inside the centred 1546×423 safe area |
 | `youtube_banner_preview.png` | Review copy with the TV, desktop (2560×423), tablet (1855×423) and mobile/safe (1546×423) crop guides |
-| `profile_bow_1080.png` | **Recommended** profile picture (Instagram and YouTube). Thicker strokes for 110 px and 40 px |
-| `profile_bow_ct_1080.png` | Alternative with a "CT" monogram. The letters cannot be read at 40 px |
-| `profile_preview.png` | Current, refined and CT versions at 110 px and 40 px, on dark and light backgrounds |
+| `profile_bow_1080.png` | Profile picture for Instagram and YouTube, with the new bow-and-arrow mark |
+| `mark_preview.png` | Old and new mark side by side at 1080 px, and at 110 px and 40 px on dark and light backgrounds (umbrella check) |
+| `profile_preview.png` | Old and new profile pictures at 110 px and 40 px |
 | `highlight_ramayana.png`, `highlight_new.png`, `highlight_behind_the_chalk.png`, `highlight_collabs.png` | Instagram highlight covers (1080×1920, icon inside the centre circle) |
 | `brand_review.png` | Contact sheet of everything above |
-| `instagram_profile_bow.png` | Current live Instagram picture (kept unchanged) |
+| `instagram_profile_bow.png` | Current live Instagram picture with the old, retired mark (kept unchanged) |
 
 ## Instagram profile
 **Display name:** `Chalk Tales · Ramayana & More`
@@ -96,9 +96,9 @@ Add **History** and **Science** highlights only when those series start.
 ## YouTube channel
 **Name:** Chalk Tales (after the rename). **Handle:** `@aks.chalk.tales` if available.
 
-**Description** (797 characters; YouTube shows about the first 1,000, so all of it is visible):
+**Description** (792 characters; YouTube shows about the first 1,000, so all of it is visible):
 ```
-Chalk Tales brings India's great stories to life as hand-drawn chalkboard animation, in under a minute each.
+Chalk Tales brings India's great stories to life as chalkboard-style animation, in under a minute each.
 
 Now showing: the Valmiki Ramayana, episode by episode, from Maharishi Valmiki's first verse onward. Every script is checked against the Valmiki Ramayana and cites its verses; where later retellings differ, we say so.
 
@@ -112,9 +112,9 @@ Paid collaborations & business inquiries: ayushman.k.singh@gmail.com
 
 Illustrations and narration are made with AI tools; every script is written and checked by us.
 ```
-> **Owner check:** the first line says "hand-drawn chalkboard animation". The house rule in `docs/PUBLISHING.md` is never to imply hand-drawn art, and the last line of this text says the illustrations are made with AI tools. Consider "hand-drawn-style chalkboard animation" or "chalkboard animation". The text above is kept exactly as supplied until the owner decides.
+> The art is AI-generated, so the description says "chalkboard-style" and never "hand-drawn" (`docs/PUBLISHING.md`).
 
-**Older unrelated videos (owner decision, not applied):** the channel still has public videos from July 2025 that have nothing to do with Chalk Tales: "London plane crash #news…", "\"Brainrot\" क्या है?…", "Born in Fire: The Night Israel Became a Nation…" and "Facing the Shadows: A Psychological Journey…". There is also an unlisted "WizardCart…" demo. They conflict with the brand and the new channel description. Recommendation: before the rebrand, set the public ones to **Unlisted** or **Private** so the channel page shows only Chalk Tales content. They don't need to be deleted, and the unlisted demo can stay as it is. Claude has not changed them.
+**Older unrelated videos (owner decision, not applied; listed in `profiles/brand.json → brand.youtube.external_channel_items`, which `promo --audit` prints on every run):** the channel still has public videos from July 2025 that have nothing to do with Chalk Tales: "London plane crash #news…", "\"Brainrot\" क्या है?…", "Born in Fire: The Night Israel Became a Nation…" and "Facing the Shadows: A Psychological Journey…". There is also an unlisted "WizardCart…" demo. They conflict with the brand and the new channel description. Recommendation: before the rebrand, set the public ones to **Unlisted** or **Private** so the channel page shows only Chalk Tales content. They don't need to be deleted, and the unlisted demo can stay as it is. Claude has not changed them.
 
 **Organisation:**
 - **Playlists:** one per language, each set as a series in Studio, plus the existing "Valmiki Ramayana" playlist:
@@ -157,7 +157,7 @@ Do these in the apps. Claude does not change live accounts.
 0. **Content → older videos:** set the July 2025 non-Chalk-Tales public videos (London plane crash, Brainrot, Born in Fire, Facing the Shadows) to Unlisted or Private (Visibility). Deleting them is not necessary.
 1. **Profile → Name:** Chalk Tales. YouTube limits how often the name and handle can change; Studio shows the limit.
 2. **Profile → Handle:** `@aks.chalk.tales` if available. The old handle URL redirects for a while.
-3. **Profile → Description:** paste the description above (797 characters).
+3. **Profile → Description:** paste the description above (792 characters).
 4. **Profile → Contact info:** ayushman.k.singh@gmail.com. This is also the business email in Basic info.
 5. **Profile → Links:** Instagram, https://www.instagram.com/aks.chalk.tales/ (shown on the banner).
 6. **Profile → Banner image:** upload `data/brand/youtube_banner_2560x1440.png` (2560×1440, safe area 1546×423, 6 MB or smaller; this file is 1.3 MB). Check the device preview.
