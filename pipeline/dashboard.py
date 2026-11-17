@@ -796,7 +796,7 @@ class Tunnel:
     def spawn(self):
         found = threading.Event()
         holder = {}
-        self.proc = subprocess.Popen([self.binary, "tunnel", "--no-autoupdate", "--url", f"http://127.0.0.1:{self.port}"],
+        self.proc = subprocess.Popen([self.binary, "tunnel", "--no-autoupdate", "--protocol", "http2", "--url", f"http://127.0.0.1:{self.port}"],
                                      stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL, stderr=subprocess.PIPE, text=True)
         proc = self.proc
 

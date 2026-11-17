@@ -834,10 +834,10 @@ setInterval(function(){if(es&&Date.now()-seen>25000)startPoll();},5000);}
 window.addEventListener('offline',offline);window.addEventListener('online',function(){poll();});
 if(!navigator.onLine)offline();if(b.dataset.sse==='1'){startSSE();}else{startPoll();}})();"""
 
-SW = """const C='ss-shell-v2',P='ss-pages-v2';const SHELL=['/offline.html','/static/app.css','/static/app.js','/icon-192.png'];
+SW = """const C='ss-shell-v3',P='ss-pages-v3';const SHELL=['/offline.html','/static/app.css','/static/app.js','/icon-192.png'];
 self.addEventListener('install',e=>{e.waitUntil(caches.open(C).then(c=>c.addAll(SHELL)));self.skipWaiting();});
 self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k!==C&&k!==P).map(k=>caches.delete(k)))));self.clients.claim();});
 self.addEventListener('fetch',e=>{const r=e.request;if(r.method!=='GET')return;const u=new URL(r.url);if(u.origin!==location.origin)return;
-if(r.mode==='navigate'){e.respondWith(fetch(r).then(res=>{if(res.ok&&res.status===200&&!u.pathname.startsWith('/login')){const cp=res.clone();caches.open(P).then(c=>c.put(r,cp));}return res;})
+if(r.mode==='navigate'){e.respondWith(fetch(r).then(res=>{if(res.status>=520&&res.status<=530){return caches.open(P).then(c=>c.match(r)).then(m=>m||caches.match('/offline.html'));}if(res.ok&&res.status===200&&!u.pathname.startsWith('/login')){const cp=res.clone();caches.open(P).then(c=>c.put(r,cp));}return res;})
 .catch(()=>caches.open(P).then(c=>c.match(r)).then(m=>m||caches.match('/offline.html'))));return;}
 if(SHELL.includes(u.pathname)){e.respondWith(fetch(r).catch(()=>caches.match(r)));}});"""
