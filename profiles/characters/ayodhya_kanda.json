@@ -1,0 +1,536 @@
+{
+  "series": "RAMAYANA — Chalk Tales",
+  "kanda": "Ayodhya Kanda",
+  "style": "animated-pahari",
+  "status": "draft proposal 2026-11-17; needs owner approval of the style test (docs/KANDA_VISUAL_IDENTITIES.md §0, §6.4)",
+  "style_prefix": "hand-painted animated feature film still, soft gouache and watercolour textures, Pahari miniature colour palette of warm ivory, saffron, lapis blue, leaf green and vermilion, gentle golden rim light, ancient Indian setting with carved sandstone pillars and stepped shikhara towers, graceful expressive Indian faces with calm almond eyes, clean confident linework, vertical composition with open sky at the top and calm space at the bottom",
+  "style_prefix_variant_for_test": "hand-painted anime feature film still, soft gouache and watercolour textures, Pahari miniature colour palette of warm ivory, saffron, lapis blue, leaf green and vermilion, gentle golden rim light, ancient Indian setting with carved sandstone pillars and stepped shikhara towers, graceful expressive Indian faces with calm almond eyes, clean confident linework, vertical composition with open sky at the top and calm space at the bottom",
+  "edition_note": "Locators are Valmiki Ramayana vulgate (southern recension) as numbered on valmikiramayan.net, accessed 2026-11-17. Critical Edition numbers not checked. 'tradition' marks iconography from later painting and popular depiction, not from a verse.",
+  "characters": {
+    "rama": {
+      "name": "Rama",
+      "age": "about 25 (3.47.10b–11a, Sita's account of his age at the exile; valmikiramayan.net notes the line is missing in some older manuscripts)",
+      "face": "oval face, broad calm forehead, long lotus-shaped eyes with a coppery warmth, straight nose, gentle closed-mouth smile, clean-shaven",
+      "skin": "deep dark skin with a cool blue-lotus undertone (indīvara-śyāma, 2.2.53); recommended deliberate choice, never saturated cartoon blue",
+      "build": "tall, broad-shouldered, long arms (mahābāhu, 2.2.22), athletic but not bulky",
+      "hair": "long black hair, partly tied in a small knot at the crown, the rest falling to the shoulders",
+      "attire": "yellow silk dhoti (pītāmbara) with a saffron sash at the waist, a light saffron uttarīya over one shoulder, bare chest with a white sacred thread",
+      "jewellery": "gold earrings, a gold necklace with a single ruby pendant, gold armlets, a pearl string",
+      "crown_accessories": "simple gold diadem with a small central lotus (prince, before coronation); the bow only in outdoor scenes",
+      "marks": "the only character with the yellow-and-saffron combination; calm eyes; blue-lotus undertone",
+      "motion": "unhurried and still; small head turns, lowered eyes when praised, folded hands to elders; never fast, never snarky (sensitivity checklist)",
+      "prompt": "Prince Rama, a young Indian prince about twenty-five with deep dark skin with a cool blue-lotus undertone, an oval face with long lotus-shaped eyes and a gentle closed-mouth smile, clean-shaven, long black hair partly tied at the crown, a simple gold diadem with a small lotus, gold earrings and a gold necklace with a ruby pendant, a white sacred thread across his bare chest, a yellow silk dhoti with a saffron sash and a light saffron shawl over one shoulder, tall and broad-shouldered with exactly two arms, calm and dignified",
+      "states": {
+        "exile": "same face and body; bark-cloth garments (2.37) and later matted hair tied high (2.52); keep the saffron sash colour as a narrow cloth band for recognition"
+      },
+      "depiction": "Face shown respectfully from AK01 (owner decision 2026-11-17). Calm, never comic, never action-hero snarl. Tradition (Pahari painting, Ravi Varma prints, the 1992 Indo-Japanese film) paints him blue; the bible chooses dark with a blue undertone to follow śyāma. Test 4 seeds before AK01 images."
+    },
+    "sita": {
+      "name": "Sita (Vaidehi, Janaki)",
+      "age": "about 18 (3.47.11a, same caveat as Rama's age)",
+      "face": "soft oval face, large calm eyes, gentle composed expression, a small red bindi",
+      "skin": "golden-wheat complexion (tradition; verse not checked in this pass)",
+      "build": "graceful, slender, upright posture",
+      "hair": "long black hair in a single thick braid, a line of red sindoor in the parting (tradition)",
+      "attire": "ivory silk sari with a broad gold border, a lotus-pink uttarīya drawn over the shoulder and, in rites, over the head; fully draped",
+      "jewellery": "gold forehead ornament (maang tikka), gold earrings, a modest gold necklace, gold bangles",
+      "crown_accessories": "a delicate gold hair ornament; no crown",
+      "marks": "ivory-gold-and-lotus-pink; the braid",
+      "motion": "still and composed; hands folded at the fire; small head turn towards Rama; never posed for allure",
+      "prompt": "Sita, a young Indian princess about eighteen with a golden-wheat complexion, a soft oval face with large calm eyes and a small red bindi, long black hair in a single thick braid with a line of red sindoor in the parting, a gold forehead ornament, gold earrings and gold bangles, an ivory silk sari with a broad gold border and a lotus-pink shawl drawn over her shoulder, fully and modestly draped, graceful and upright with exactly two arms, composed and dignified",
+      "states": {
+        "exile": "bark-cloth over the sari (2.37); jewellery reduced but the gold forehead ornament stays as her recognition mark"
+      },
+      "depiction": "Never sexualised (sensitivity checklist). Strong presence: in Ayodhya Kanda she insists on going to the forest (2.26–2.30), so posture is upright, not meek."
+    },
+    "lakshmana": {
+      "name": "Lakshmana",
+      "age": "early twenties, a little younger than Rama",
+      "face": "keen angular face, alert eyes, firm jaw, clean-shaven",
+      "skin": "fair golden-brown complexion (tradition)",
+      "build": "lean, wiry, always slightly forward on his feet",
+      "hair": "black hair tied in a knot at the crown",
+      "attire": "leaf-green dhoti with a darker green sash, a green uttarīya, white sacred thread",
+      "jewellery": "gold earrings, a simple gold necklace, gold armlets",
+      "crown_accessories": "simple gold circlet; bow and quiver outdoors",
+      "marks": "green; bow and quiver; stands half a step behind Rama",
+      "motion": "alert, quick glances, hand near the bow; anger shown in posture, not grimace (2.21–2.23)",
+      "prompt": "Prince Lakshmana, a young Indian prince in his early twenties with a fair golden-brown complexion, a keen angular clean-shaven face with alert eyes, black hair tied in a knot at the crown, a simple gold circlet, gold earrings and armlets, a white sacred thread, a leaf-green dhoti with a dark green sash and a green shawl, lean and wiry with exactly two arms, a bow and a quiver of arrows on his back",
+      "depiction": "Accent green as in the series bible (VQ §3.4). Appears in AK01 only as a background figure, if at all."
+    },
+    "bharata": {
+      "name": "Bharata",
+      "age": "about Rama's age",
+      "face": "gentle round face, soft earnest eyes, clean-shaven",
+      "skin": "warm brown complexion (design choice so the model separates him from Rama; the text is not checked on this)",
+      "build": "medium height, gentle bearing",
+      "hair": "black hair tied at the crown",
+      "attire": "deep maroon dhoti with a gold border and a maroon uttarīya (Kaikeyi's colour family, softened)",
+      "jewellery": "gold earrings, a gold necklace",
+      "crown_accessories": "simple gold circlet",
+      "marks": "maroon and gold; earnest, slightly bowed head",
+      "motion": "gentle, devoted; later grief and refusal (2.73–2.82); carries Rama's sandals on his head (2.113)",
+      "prompt": "Prince Bharata, a young Indian prince with a warm brown complexion, a gentle round clean-shaven face with soft earnest eyes, black hair tied at the crown, a simple gold circlet, gold earrings and a gold necklace, a deep maroon dhoti with a gold border and a maroon shawl, medium height with exactly two arms, gentle and devoted",
+      "states": {
+        "mourning": "plain white dhoti and shawl, no jewellery, after Dasharatha's death (2.65 onward)",
+        "nandigrama": "bark-cloth and matted hair, ruling in Rama's name with the sandals on the throne (2.115)"
+      },
+      "depiction": "Away at his uncle's in Kekaya during AK01 (2.1.1–2). Dasharatha's line 'while Bharata is away' (2.4.25) must never be framed as Bharata plotting: 2.4.26 calls him devoted to his elder brother."
+    },
+    "shatrughna": {
+      "name": "Shatrughna",
+      "age": "about Lakshmana's age",
+      "face": "youthful square face, steady eyes, clean-shaven",
+      "skin": "fair golden-brown complexion (tradition)",
+      "build": "compact, strong",
+      "hair": "black hair tied at the crown",
+      "attire": "teal dhoti with a silver-grey sash and a teal uttarīya",
+      "jewellery": "gold earrings, gold armlets",
+      "crown_accessories": "simple gold circlet; a sword at the hip",
+      "marks": "teal; sword",
+      "motion": "steady, protective of Bharata; seizes Manthara in anger (2.78), shown off-screen or as a held gesture",
+      "prompt": "Prince Shatrughna, a young Indian prince with a fair golden-brown complexion, a youthful square clean-shaven face with steady eyes, black hair tied at the crown, a simple gold circlet, gold earrings and armlets, a teal dhoti with a silver-grey sash and a teal shawl, compact and strong with exactly two arms, a sheathed sword at his hip",
+      "depiction": "Away with Bharata during AK01 (2.1.1)."
+    },
+    "dasharatha": {
+      "name": "King Dasharatha",
+      "age": "very old: 'many thousands of years' in the text (2.2.8); render as a man in his late seventies",
+      "face": "noble lined face, deep-set kind eyes, heavy brows, a full short white beard and white moustache",
+      "skin": "warm brown complexion",
+      "build": "tall but slightly bent with age, broad frame",
+      "hair": "white hair to the shoulders under the crown",
+      "attire": "saffron silk dhoti with a white-and-gold uttarīya, a white sacred thread",
+      "jewellery": "heavy gold necklaces, gold earrings, gold armlets and rings",
+      "crown_accessories": "tall ornate gold crown (mukuṭa) with a lotus crest; the white royal parasol (2.2.7) over the throne",
+      "marks": "white beard plus tall gold crown silhouette; saffron and white",
+      "motion": "slow, heavy movements; a hand pressed to the chest; eyes lifting to the sky; warm when looking at Rama",
+      "prompt": "King Dasharatha, a very old Indian king with a warm brown complexion, a noble lined face with deep-set kind eyes, a full short white beard and white moustache, white hair to the shoulders, a tall ornate gold crown with a lotus crest, heavy gold necklaces and gold earrings, a white sacred thread, a saffron silk dhoti with a white and gold shawl, tall and slightly bent with age, exactly two arms",
+      "depiction": "Supersedes ramayana.json 'dasharatha' (grey-bearded, middle-aged) for Ayodhya Kanda: the text stresses his age (2.1.3, 2.1.35, 2.2.7–9). Fear and grief shown with dignity; his death (2.65) off-screen."
+    },
+    "kaushalya": {
+      "name": "Queen Kaushalya",
+      "age": "about fifty",
+      "face": "serene oval face, gentle eyes, a small red bindi",
+      "skin": "warm brown complexion",
+      "build": "graceful, upright",
+      "hair": "long black hair streaked with silver in a low bun",
+      "attire": "white silk sari with a gold border (she wears silk at worship, 2.4.30)",
+      "jewellery": "gold necklace, gold bangles, small gold earrings",
+      "crown_accessories": "small gold crown; prayer beads",
+      "marks": "white and gold; prayer beads",
+      "motion": "hands folded in prayer; tears of joy (2.4.32–34), later deep grief (2.20)",
+      "prompt": "Queen Kaushalya, a graceful Indian queen about fifty with a warm brown complexion, a serene oval face with gentle eyes and a small red bindi, long black hair streaked with silver in a low bun, a small gold crown, a gold necklace and gold bangles, a white silk sari with a gold border, holding a string of prayer beads, exactly two arms",
+      "depiction": "Continues the ramayana.json colours (white and gold)."
+    },
+    "sumitra": {
+      "name": "Queen Sumitra",
+      "age": "about fifty",
+      "face": "kind round face, steady eyes",
+      "skin": "warm brown complexion",
+      "build": "medium, calm bearing",
+      "hair": "black hair with silver streaks in a braid",
+      "attire": "green silk sari with a gold border",
+      "jewellery": "gold necklace, gold bangles",
+      "crown_accessories": "small gold crown",
+      "marks": "green and gold",
+      "motion": "calm, consoling (2.44)",
+      "prompt": "Queen Sumitra, a gentle Indian queen about fifty with a warm brown complexion, a kind round face with steady eyes, black hair with silver streaks in a braid, a small gold crown, a gold necklace and gold bangles, a green silk sari with a gold border, exactly two arms",
+      "depiction": "Continues the ramayana.json colours (green and gold)."
+    },
+    "kaikeyi": {
+      "name": "Queen Kaikeyi",
+      "age": "about forty; the youngest and most beloved queen",
+      "face": "striking heart-shaped face, large expressive eyes lined with kohl, arched brows (2.7.31 calls her beautiful-faced)",
+      "skin": "fair golden complexion",
+      "build": "tall, poised",
+      "hair": "long black hair in an ornate braid with gold ornaments",
+      "attire": "deep crimson silk sari with a heavy gold border",
+      "jewellery": "ornate gold necklaces, gold earrings, many gold bangles, a gold waist chain",
+      "crown_accessories": "ornate gold crown",
+      "marks": "crimson and gold; the most jewellery of any queen",
+      "motion": "poised and regal; in AK01 not shown at all; in AK02 first joyful (2.7.31–35), then turning still and cold",
+      "prompt": "Queen Kaikeyi, a striking Indian queen about forty with a fair golden complexion, a heart-shaped face with large kohl-lined eyes and arched brows, long black hair in an ornate braid with gold ornaments, an ornate gold crown, ornate gold necklaces and many gold bangles, a deep crimson silk sari with a heavy gold border, tall and poised with exactly two arms",
+      "states": {
+        "anger_chamber": "jewels cast off and scattered on a dark floor, hair loose, plain soiled garment, lying on the bare floor (2.10); dignity kept, no grotesque face"
+      },
+      "depiction": "Continues the ramayana.json colours. Never a cartoon villain: Valmiki first shows her joy at Rama's news and her saying she sees no difference between Rama and Bharata (2.7.35)."
+    },
+    "manthara": {
+      "name": "Manthara",
+      "age": "older woman, about sixty (tradition; the text calls her Kaikeyi's attendant from birth, jñātidāsī, 2.7.1)",
+      "face": "narrow lined face, sharp watchful eyes, thin lips, a small dark bindi",
+      "skin": "warm brown complexion",
+      "build": "small, with a slight stoop of the back (kubjā, 2.7.12)",
+      "hair": "grey hair pulled back in a tight bun",
+      "attire": "plain dusty earth-brown cotton sari with a grey border, the end over her shoulder",
+      "jewellery": "a single gold ring, thin silver bangles",
+      "crown_accessories": "none",
+      "marks": "earth-brown and grey; slight stoop; stillness",
+      "motion": "very still, then a slow deliberate head turn; sharp narrowing of the eyes; never hobbling or comic",
+      "prompt": "Manthara, an older Indian woman about sixty with a warm brown complexion, a narrow lined face with sharp watchful eyes and a small dark bindi, grey hair pulled back in a tight bun, a slight stoop of the back, a plain earth-brown cotton sari with a grey border with the end over her shoulder, a single gold ring and thin silver bangles, small and very still with exactly two arms",
+      "depiction": "Dignified depiction of disability: show the stoop, never exaggerate it or play it for laughs. Her menace is in her stillness and gaze. Appears in AK01 only in the final shot, seen from behind or three-quarter."
+    },
+    "vasishtha": {
+      "name": "Sage Vasishtha",
+      "age": "very old",
+      "face": "calm lined face, gentle wise eyes",
+      "skin": "warm brown complexion",
+      "build": "lean, upright",
+      "hair": "long silver hair in a topknot, long silver beard",
+      "attire": "white robes and a white shawl, rudraksha beads",
+      "jewellery": "rudraksha beads only",
+      "crown_accessories": "a brass water pot (kamandalu) or a staff",
+      "marks": "white and silver",
+      "motion": "slow, blessing gestures; leads the preparations (2.3.7–21) and the fast (2.5)",
+      "prompt": "the royal guru Vasishtha, a calm elderly Indian sage with a warm brown complexion, a long silver beard and long silver hair in a topknot, gentle wise eyes, white robes and a white shawl, a string of rudraksha beads, holding a brass water pot, exactly two arms",
+      "depiction": "Same identity as ramayana.json 'vasishtha', restated in the painterly style."
+    },
+    "sumantra": {
+      "name": "Sumantra, minister and charioteer",
+      "age": "about fifty-five",
+      "face": "square loyal face, grey moustache",
+      "skin": "warm brown complexion",
+      "build": "sturdy",
+      "hair": "grey hair under a simple white head-wrap",
+      "attire": "white dhoti with an indigo sash, a white uttarīya",
+      "jewellery": "a gold earring, a plain armlet",
+      "crown_accessories": "reins and a whip of the royal chariot",
+      "marks": "white and indigo; chariot",
+      "motion": "brisk, respectful; fetches Rama by chariot (2.3.22–23, 2.4.3–8)",
+      "prompt": "Sumantra, a sturdy Indian royal charioteer about fifty-five with a warm brown complexion, a square loyal face with a grey moustache, grey hair under a simple white head-wrap, a white dhoti with an indigo sash and a white shawl, a gold earring, holding the reins of a royal chariot, exactly two arms",
+      "depiction": "Simple white head-wrap only; no plumed or Mughal-style turban."
+    },
+    "citizens": {
+      "name": "Citizens of Ayodhya",
+      "age": "all ages",
+      "attire": "ancient Indian dress: white and saffron dhotis with shawls for men, bright cotton saris for women, flower garlands",
+      "motion": "only as distant crowds: raising arms, scattering petals, lighting lamps",
+      "prompt": "a distant crowd of small simple figures of the people of ancient Ayodhya in white and saffron dhotis and bright cotton saris with flower garlands, each with exactly two arms, standing well apart from one another in loose rows",
+      "depiction": "Always distant, small, well separated (Ep07 lesson). Never a close crowd."
+    }
+  },
+  "worlds": {
+    "_doc": "Ayodhya Kanda phases; colour guide only (docs/KANDA_VISUAL_IDENTITIES.md §3.2). Environment phrases are positive-only prompt add-ons.",
+    "ayodhya_glory": {
+      "palette": [
+        "#F4EBD9",
+        "#E8BE6E",
+        "#2E4A8C",
+        "#5E8C4A"
+      ],
+      "light": "warm morning sun from the top-left, soft shadows",
+      "prompt_addon": "the golden city of Ayodhya beside the Sarayu river at morning, carved sandstone gateways, stepped shikhara towers, white palace terraces, clear lapis-blue sky"
+    },
+    "ayodhya_festival": {
+      "palette": [
+        "#E8973A",
+        "#C8432B",
+        "#E8BE6E",
+        "#F4EBD9"
+      ],
+      "light": "golden afternoon turning to lamp-light",
+      "prompt_addon": "rooftops with saffron and red banners, the royal road strewn with marigold petals, tall branching lamp-trees with many small flames, garlands across carved gateways"
+    },
+    "ayodhya_night_turn": {
+      "palette": [
+        "#1F2547",
+        "#9B1B30",
+        "#E8BE6E"
+      ],
+      "light": "one low oil lamp, hard shadows, faces half-lit",
+      "prompt_addon": "a dark palace chamber lit by a single oil lamp, deep indigo shadows, a crimson curtain"
+    },
+    "exile_road": {
+      "palette": [
+        "#B9B3A6",
+        "#7A5C3E",
+        "#6E8799",
+        "#2F5D3A"
+      ],
+      "light": "grey dawn mist, later dappled forest light",
+      "prompt_addon": "a long dusty road leaving the city gate at grey dawn, mist over the river, distant forest"
+    }
+  },
+  "rules": [
+    "Prefix every keyframe prompt with style_prefix; reuse character prompts verbatim through {id} tokens.",
+    "Positive phrasing only: Z-Image Turbo runs at guidance 0 and ignores negative prompts.",
+    "At most 2 characters in a close or medium shot; crowds only distant, small and well separated.",
+    "One clear action per shot for image-to-video; no interlocked hands or arms.",
+    "Faces calm, mouths closed (narration is voice-over).",
+    "Costume and architecture ancient Indian (Ajanta murals, Gupta sculpture): dhoti, uttarīya, mukuṭa; carved sandstone, shikhara towers. Palette from Pahari painting only.",
+    "Deities symbolic (radiant light), as in the Bala Kanda rules.",
+    "Gold accent #E8BE6E visible in every frame.",
+    "Screen direction: Rama's party left to right; threats right to left.",
+    "Title headroom top 12%, captions lower 25%, no borders, no text in images."
+  ],
+  "locked_refs": {
+    "_doc": "Locked reference images for Ayodhya Kanda (AK01 sample, 2026-11-17). Files live under data/anim_lab/refs/ (gitignored): copy them, never regenerate, when a later episode needs these characters or places. Method: Z-Image Turbo 4-bit front anchor (seed below), then FLUX.2 klein 4B (Apache-2.0, mflux-community/flux2-klein-4b-mflux-q8 via mflux 0.24.0 Flux2KleinEdit, 4 steps, guidance 1.0) conditioned on the front anchor for every other view and for every shot keyframe. Status: sample, awaiting owner approval.",
+    "method": {
+      "anchor_model": "Z-Image Turbo 4-bit (models/z-image-turbo-4bit) via mflux, 9 steps, 768x1024",
+      "anchor_prefix": "anime film still, painterly cel-shaded animation with soft gradient shading, painted warm golden lighting, atmospheric depth, richly detailed gold ornaments, cinematic, ancient Indian setting, character reference portrait in front of a simple softly blurred warm palace backdrop of carved sandstone pillars and oil lamps",
+      "style_reference": "data/anim_lab/keyframes/king.png (owner-approved benchmark keyframe; Z-Image Turbo seed 11)",
+      "view_model": "FLUX.2 klein 4B q8 (mflux-community/flux2-klein-4b-mflux-q8, Apache-2.0) via mflux Flux2KleinEdit, 4 steps, guidance 1.0, seed 7",
+      "view_prompt_template": "The same person as in the reference image, identical face, identical skin tone, identical hair, identical crown and ornaments, identical costume and colours, identical anime film painting style and lighting. {view}. Simple softly blurred warm palace backdrop. {cine_prompt}",
+      "cine_prefix": "anime film still, painterly cel-shaded animation with soft gradient shading, painted warm golden lighting, atmospheric depth, richly detailed gold ornaments, cinematic, ancient Indian setting",
+      "cine_prompts": {
+        "dasharatha": "King Dasharatha, a very old Indian king with a light golden-brown complexion, a noble lined face with deep-set kind tired eyes, white bushy eyebrows, a long flowing white beard and white moustache, long white hair, the ornate golden crown with red rubies, a red tilak on the forehead, heavy gold necklaces and pearl strings, gold armlets, bare chest with a white sacred thread, a saffron silk dhoti and a white shawl with a broad gold border over one shoulder, exactly two arms",
+        "rama": "Prince Rama, a handsome adult Indian prince about twenty-five years old with a strong jaw and a princely upright bearing, a natural deep dark-brown complexion with a subtle cool blue sheen only in the highlights, evenly on face and body, long lotus-shaped eyes, a gentle dignified closed-mouth smile, clean-shaven, long black hair falling to the shoulders, a modest golden prince's crown with a small lotus at the centre, gold earrings, a fine gold necklace with a single ruby pendant and a pearl string, gold armlets, bare chest with a white sacred thread, a yellow silk dhoti with a saffron sash and a light saffron shawl over one shoulder, broad-shouldered with exactly two arms",
+        "sita": "Princess Sita, a graceful young Indian woman about nineteen with a golden-wheat complexion, a soft oval face with large calm eyes and a small red bindi, a line of red sindoor in the hair parting, long black hair in a single thick braid, a refined gold forehead ornament, gold earrings, a delicate gold necklace and gold bangles, an ivory silk sari with a broad gold border and a lotus-pink shawl drawn over her shoulder, fully and modestly draped, upright and dignified, exactly two arms",
+        "manthara": "Manthara, an elderly Indian woman about sixty-five with a warm brown complexion, a narrow lined face with sharp watchful eyes and thin lips, a small dark bindi, grey hair pulled back in a tight bun, a slight dignified stoop of the shoulders, a plain earth-brown cotton sari with a grey border and the end over her shoulder, a single gold ring and thin silver bangles, still and composed, exactly two arms"
+      },
+      "location_model": "Z-Image Turbo 4-bit, 576x1024, seed 211, prompt = cine_prefix + location text"
+    },
+    "characters": {
+      "dasharatha": {
+        "anchor": {
+          "model": "FLUX.2 klein 4B q8 edit",
+          "refs": [
+            "data/anim_lab/keyframes/king.png"
+          ],
+          "seed": 7,
+          "prompt": "Edit: the same old king from the reference image, now standing, waist-up portrait facing the viewer in front of a simple softly blurred warm palace backdrop. Keep exactly the same face, eyes, white eyebrows, long white beard and moustache, white hair, tilak and the same ornate golden crown with red rubies, and the same anime film painting style and lighting. Change only his clothing: bare chest with a white sacred thread, heavy gold necklaces and pearl strings, gold armlets, a saffron silk dhoti and a white shawl with a broad gold border over one shoulder.",
+          "size": "576x1024",
+          "note": "crown, face and beard carried over from the owner-approved benchmark king (king.png, Z-Image seed 11); costume recoloured to the bible"
+        },
+        "views": {
+          "front": {
+            "path": "data/anim_lab/refs/dasharatha/front.png",
+            "sha256": "7853996ef54024c9cba13de637be3e1a9148648b402f63ed658f34864ae89e0c",
+            "prompt": "Edit: the same old king from the reference image, now standing, waist-up portrait facing the viewer in front of a simple softly blurred warm palace backdrop. Keep exactly the same face, eyes, white eyebrows, long white beard and moustache, white hair, tilak and the same ornate golden crown with red rubies, and the same anime film painting style and lighting. Change only his clothing: bare chest with a white sacred thread, heavy gold necklaces and pearl strings, gold armlets, a saffron silk dhoti and a white shawl with a broad gold border over one shoulder.",
+            "seed": 7
+          }
+        },
+        "contact_sheet": null
+      },
+      "rama": {
+        "anchor": {
+          "model": "FLUX.2 klein 4B q8 edit, two passes",
+          "refs": [
+            "data/anim_lab/keyframes/king.png (style only)"
+          ],
+          "seed": "7 (pass 1, style-ref portrait) then 7 (pass 2, skin fix)",
+          "prompt": "Paint a completely different person, not the king: use the reference image only for its art style, keeping exactly the same anime film painting style, line quality, cel shading, soft gradients and warm golden lighting. anime film still, painterly cel-shaded animation with soft gradient shading, painted warm golden lighting, atmospheric depth, richly detailed gold ornaments, cinematic, ancient Indian setting, character reference portrait in front of a simple softly blurred warm palace backdrop of carved sandstone pillars and oil lamps, waist-up portrait facing the viewer. Prince Rama, a handsome adult Indian prince about twenty-five years old with a strong jaw and a princely upright bearing, deep dark dusky skin with a subtle cool blue-grey undertone evenly on face and body, long lotus-shaped eyes, a gentle dignified closed-mouth smile, clean-shaven, long black hair falling to the shoulders, a modest golden prince's crown with a small lotus at the centre, gold earrings, a fine gold necklace with a single ruby pendant and a pearl string, gold armlets, bare chest with a white sacred thread, a yellow silk dhoti with a saffron sash and a light saffron shawl over one shoulder, broad-shouldered with exactly two arms",
+          "prompt_pass2": "Edit only the skin colour of this man: repaint his skin on face, neck, chest and arms as a natural deep dark-brown human complexion, rich and warm like dark teak wood, with a subtle cool blue sheen only in the highlights. Not grey, not ashen, not blue. Keep everything else exactly identical: face structure, eyes, gentle smile, hair, golden crown, earrings, necklaces, pearl string, sacred thread, armlets, yellow silk dhoti, saffron sash and shawl, backdrop, anime film painting style and lighting.",
+          "size": "576x1024",
+          "note": "coordinator/owner approved 2026-11-17 (kC_rama_7). Planned costume variant: a smaller, simpler Yuvaraja diadem so Rama and Dasharatha differ at a glance (not used in AK01)"
+        },
+        "views": {
+          "front": {
+            "path": "data/anim_lab/refs/rama/front.png",
+            "sha256": "232cce00bd70178e8bdaab479a1e04dd77b75c4280435d9e37141e50eee0edf8",
+            "prompt": "Paint a completely different person, not the king: use the reference image only for its art style, keeping exactly the same anime film painting style, line quality, cel shading, soft gradients and warm golden lighting. anime film still, painterly cel-shaded animation with soft gradient shading, painted warm golden lighting, atmospheric depth, richly detailed gold ornaments, cinematic, ancient Indian setting, character reference portrait in front of a simple softly blurred warm palace backdrop of carved sandstone pillars and oil lamps, waist-up portrait facing the viewer. Prince Rama, a handsome adult Indian prince about twenty-five years old with a strong jaw and a princely upright bearing, deep dark dusky skin with a subtle cool blue-grey undertone evenly on face and body, long lotus-shaped eyes, a gentle dignified closed-mouth smile, clean-shaven, long black hair falling to the shoulders, a modest golden prince's crown with a small lotus at the centre, gold earrings, a fine gold necklace with a single ruby pendant and a pearl string, gold armlets, bare chest with a white sacred thread, a yellow silk dhoti with a saffron sash and a light saffron shawl over one shoulder, broad-shouldered with exactly two arms",
+            "seed": "7 (pass 1, style-ref portrait) then 7 (pass 2, skin fix)"
+          }
+        },
+        "contact_sheet": null
+      },
+      "sita": {
+        "anchor": {
+          "model": "Z-Image Turbo 4-bit",
+          "seed": 11,
+          "prompt": "anime film still, painterly cel-shaded animation with soft gradient shading, painted warm golden lighting, atmospheric depth, richly detailed gold ornaments, cinematic, ancient Indian setting, character reference portrait in front of a simple softly blurred warm palace backdrop of carved sandstone pillars and oil lamps, waist-up portrait facing the viewer, eyes looking at the viewer. Princess Sita, a graceful young Indian woman about nineteen with a golden-wheat complexion, a soft oval face with large calm eyes and a small red bindi, a line of red sindoor in the hair parting, long black hair in a single thick braid, a refined gold forehead ornament, gold earrings, a delicate gold necklace and gold bangles, an ivory silk sari with a broad gold border and a lotus-pink shawl drawn over her shoulder, fully and modestly draped, upright and dignified, exactly two arms",
+          "size": "576x1024"
+        },
+        "views": {
+          "front": {
+            "path": "data/anim_lab/refs/sita/front.png",
+            "sha256": "16ccd6e9737d1d8767c11bcf5fe2b9768128fd8b56897ef0118231dcb165478b",
+            "prompt": "anime film still, painterly cel-shaded animation with soft gradient shading, painted warm golden lighting, atmospheric depth, richly detailed gold ornaments, cinematic, ancient Indian setting, character reference portrait in front of a simple softly blurred warm palace backdrop of carved sandstone pillars and oil lamps, waist-up portrait facing the viewer, eyes looking at the viewer. Princess Sita, a graceful young Indian woman about nineteen with a golden-wheat complexion, a soft oval face with large calm eyes and a small red bindi, a line of red sindoor in the hair parting, long black hair in a single thick braid, a refined gold forehead ornament, gold earrings, a delicate gold necklace and gold bangles, an ivory silk sari with a broad gold border and a lotus-pink shawl drawn over her shoulder, fully and modestly draped, upright and dignified, exactly two arms",
+            "seed": 11
+          }
+        },
+        "contact_sheet": null
+      },
+      "manthara": {
+        "anchor": {
+          "model": "FLUX.2 klein 4B q8 edit",
+          "refs": [
+            "data/anim_lab/keyframes/king.png (style only)"
+          ],
+          "seed": 7,
+          "prompt": "Paint a completely different person, not the king: use the reference image only for its art style, keeping exactly the same anime film painting style, line quality, cel shading, soft gradients and warm golden lighting. anime film still, painterly cel-shaded animation with soft gradient shading, painted warm golden lighting, atmospheric depth, richly detailed gold ornaments, cinematic, ancient Indian setting, character reference portrait in front of a simple softly blurred warm palace backdrop of carved sandstone pillars and oil lamps, waist-up portrait facing the viewer. Manthara, an elderly Indian woman about sixty-five with a warm brown complexion, a narrow lined face with sharp watchful eyes and thin lips, a small dark bindi, grey hair pulled back in a tight bun, a slight dignified stoop of the shoulders, a plain earth-brown cotton sari with a grey border and the end over her shoulder, a single gold ring and thin silver bangles, still and composed, exactly two arms",
+          "size": "576x1024",
+          "note": "owner approved 2026-11-17"
+        },
+        "views": {
+          "front": {
+            "path": "data/anim_lab/refs/manthara/front.png",
+            "sha256": "02dcaf1114a6420552de06d78aa91e051cc9b4b95ef16a7d2ba1bd488f8de758",
+            "prompt": "Paint a completely different person, not the king: use the reference image only for its art style, keeping exactly the same anime film painting style, line quality, cel shading, soft gradients and warm golden lighting. anime film still, painterly cel-shaded animation with soft gradient shading, painted warm golden lighting, atmospheric depth, richly detailed gold ornaments, cinematic, ancient Indian setting, character reference portrait in front of a simple softly blurred warm palace backdrop of carved sandstone pillars and oil lamps, waist-up portrait facing the viewer. Manthara, an elderly Indian woman about sixty-five with a warm brown complexion, a narrow lined face with sharp watchful eyes and thin lips, a small dark bindi, grey hair pulled back in a tight bun, a slight dignified stoop of the shoulders, a plain earth-brown cotton sari with a grey border and the end over her shoulder, a single gold ring and thin silver bangles, still and composed, exactly two arms",
+            "seed": 7
+          }
+        },
+        "contact_sheet": null
+      }
+    },
+    "locations": {
+      "city_aerial": {
+        "path": "data/anim_lab/refs/locations/city_aerial.png",
+        "sha256": "c70c45785fa2f13efaab7114fdb53fd832cefb6d9c1a52d115441875dc165043",
+        "prompt": "anime film still, painterly cel-shaded animation with soft gradient shading, painted warm golden lighting, atmospheric depth, richly detailed gold ornaments, cinematic, ancient Indian setting, detailed background art, vertical frame. high aerial view of the ancient golden city of Ayodhya beside the wide Sarayu river at morning, carved sandstone palaces, stepped shikhara temple towers, white palace terraces with saffron banners, walled gardens with mango trees and lotus ponds, a wide royal road, the ancient city ends at green fields, forests and soft blue hills on the far horizon under a clear lapis-blue sky, every building ancient Indian stone architecture",
+        "seed": 305
+      },
+      "throne_hall": {
+        "path": "data/anim_lab/refs/locations/throne_hall.png",
+        "sha256": "bfcfa7e289450b0e30855b76ad8c2cc24309603698ab6d6686d964b4436031b1",
+        "prompt": "anime film still, painterly cel-shaded animation with soft gradient shading, painted warm golden lighting, atmospheric depth, richly detailed gold ornaments, cinematic, ancient Indian setting, detailed background art, vertical frame. interior of a vast pillared carved sandstone throne hall, a carved golden throne on a dais under a large round white royal parasol with a gold fringe, tall openings showing lapis-blue sky, warm morning light, empty, no people",
+        "seed": 211
+      },
+      "window_chamber": {
+        "path": "data/anim_lab/refs/locations/window_chamber.png",
+        "sha256": "5b55735fa5e2ba3f375694542967dc000cccbac40a977378aba2a284bcf4cf0f",
+        "prompt": "anime film still, painterly cel-shaded animation with soft gradient shading, painted warm golden lighting, atmospheric depth, richly detailed gold ornaments, cinematic, ancient Indian setting, detailed background art, vertical frame. interior of a high royal chamber with a tall carved sandstone window opening, through the window the golden city of Ayodhya far below with saffron banners and a pale sky, carved pillars, warm light, empty, no people",
+        "seed": 211
+      },
+      "shrine": {
+        "path": "data/anim_lab/refs/locations/shrine.png",
+        "sha256": "0b2ed42b7481b27d78ea6d6ef7f196aea673761a77a3cdf71430e76e6d1810ed",
+        "prompt": "anime film still, painterly cel-shaded animation with soft gradient shading, painted warm golden lighting, atmospheric depth, richly detailed gold ornaments, cinematic, ancient Indian setting, detailed background art, vertical frame. interior of a small stone palace shrine, a square fire altar with a small sacred fire, a mat of kusha grass, a carved lamp niche with oil lamps, marigold garlands, warm lamp light, empty, no people",
+        "seed": 211
+      },
+      "kaikeyi_terrace": {
+        "path": "data/anim_lab/refs/locations/kaikeyi_terrace.png",
+        "sha256": "7cc2286605c7b617428b56fb4eaa8af26fa2bb60d8a963eade3ec21cdda2b29c",
+        "prompt": "anime film still, painterly cel-shaded animation with soft gradient shading, painted warm golden lighting, atmospheric depth, richly detailed gold ornaments, cinematic, ancient Indian setting, detailed background art, vertical frame. a moon-white marble palace terrace high above the decorated golden city of Ayodhya, carved white balustrade, saffron and red banners and lamp-trees on the rooftops below, warm late light, empty, no people",
+        "seed": 211
+      }
+    },
+    "planned_variants": {
+      "rama": "Yuvaraja diadem: a smaller, simpler gold diadem than Dasharatha's crown, so father and son read differently at a glance (coordinator note 2026-11-17; not used in AK01)"
+    },
+    "ak01_keyframes": {
+      "s01": {
+        "path": "data/anim_lab/AK01/keyframes/s01.png",
+        "sha256": "927d03fa1671bf2be1809227d91ee5d9bad019309556a0b693a5986e2964a891",
+        "refs": [
+          "data/anim_lab/refs/dasharatha/front.png",
+          "data/anim_lab/refs/locations/window_chamber.png"
+        ],
+        "prompt": "Use the reference images for character identity only: image 1 shows the old king with the white beard and tall gold crown. Keep each character's face, skin tone, hair, crown, jewellery and costume colours exactly as in the references. Image 2 shows the location: keep its architecture, colours and light. anime film still, painterly cel-shaded animation with soft gradient shading, painted warm golden lighting, atmospheric depth, richly detailed gold ornaments, cinematic, ancient Indian setting, detailed background art, vertical frame. the same old king seen three-quarter from behind standing at a tall carved sandstone window high in the palace, his white beard and tall gold crown visible in profile, he looks out over the golden city of Ayodhya far below with saffron banners on the rooftops, a pale daytime sky with a bright meteor streak, warm morning light on his face. King Dasharatha, a very old Indian king with a light golden-brown complexion, a noble lined face with deep-set kind tired eyes, white bushy eyebrows, a long flowing white beard and white moustache, long white hair, the ornate golden crown with red rubies, a red tilak on the forehead, heavy gold necklaces and pearl strings, gold armlets, bare chest with a white sacred thread, a saffron silk dhoti and a white shawl with a broad gold border over one shoulder, exactly two arms.",
+        "seed": 7,
+        "motion_prompt": "An old Indian king with a white beard and a tall gold crown stands at a high carved sandstone window, seen from behind over his shoulder. He slowly lifts his gaze up toward the sky, his brow tightening with worry. Outside the window a bright white meteor with a glowing tail streaks slowly and clearly across the pale daytime sky. Far below, saffron banners ripple in the wind over the golden city. The camera slowly pushes in.",
+        "end_anchor": {
+          "path": "data/anim_lab/AK01/keyframes/s01_end.png",
+          "sha256": "5cf7e39567a58d4fc67458c515edd5268223722f89af1c5b351497f97011ebc8",
+          "strength": 0.7
+        }
+      },
+      "s02": {
+        "path": "data/anim_lab/AK01/keyframes/s02.png",
+        "sha256": "9b743489cfd17e1249f66625df4d174f6ea6df49907277e6e3a000e7687ec7ad",
+        "refs": [
+          "data/anim_lab/refs/dasharatha/front.png",
+          "data/anim_lab/refs/locations/throne_hall.png"
+        ],
+        "prompt": "Use the reference images for character identity only: image 1 shows the old king with the white beard and tall gold crown. Keep each character's face, skin tone, hair, crown, jewellery and costume colours exactly as in the references. Image 2 shows the location: keep its architecture, colours and light. anime film still, painterly cel-shaded animation with soft gradient shading, painted warm golden lighting, atmospheric depth, richly detailed gold ornaments, cinematic, ancient Indian setting, detailed background art, vertical frame. wide shot of a pillared sandstone throne hall, the same old king seated on a carved golden throne beneath a large round white royal parasol with a gold fringe, two small distant attendants behind him holding white yak-tail fans, warm morning light through tall openings, the king small in the frame and centred. King Dasharatha, a very old Indian king with a light golden-brown complexion, a noble lined face with deep-set kind tired eyes, white bushy eyebrows, a long flowing white beard and white moustache, long white hair, the ornate golden crown with red rubies, a red tilak on the forehead, heavy gold necklaces and pearl strings, gold armlets, bare chest with a white sacred thread, a saffron silk dhoti and a white shawl with a broad gold border over one shoulder, exactly two arms.",
+        "seed": 7,
+        "motion_prompt": "A wide view of a pillared sandstone throne hall. An old king sits on a golden throne beneath a large white royal parasol whose gold fringe flutters gently. Behind him two attendants slowly sway white yak-tail fans. The tired king slowly lowers his head. Dust motes drift in the warm light. The camera tilts slowly down from the parasol to the king."
+      },
+      "s03": {
+        "path": "data/anim_lab/AK01/keyframes/s03.png",
+        "sha256": "0dbb7e8517b91fc0d1ed19923a4de6401b9a61aa415e0dc302f721e1bc39466c",
+        "refs": [
+          "data/anim_lab/refs/dasharatha/front.png",
+          "data/anim_lab/refs/locations/throne_hall.png"
+        ],
+        "prompt": "Use the reference images for character identity only: image 1 shows the old king with the white beard and tall gold crown. Keep each character's face, skin tone, hair, crown, jewellery and costume colours exactly as in the references. Image 2 shows the location: keep its architecture, colours and light. anime film still, painterly cel-shaded animation with soft gradient shading, painted warm golden lighting, atmospheric depth, richly detailed gold ornaments, cinematic, ancient Indian setting, detailed background art, vertical frame. low angle wide shot of a vast pillared assembly hall, the same old king standing in front of his golden throne with his right arm extended forward and open palm raised, rows of small distant seated kings and citizens in white and saffron far away along the sides, lapis blue sky through tall openings. King Dasharatha, a very old Indian king with a light golden-brown complexion, a noble lined face with deep-set kind tired eyes, white bushy eyebrows, a long flowing white beard and white moustache, long white hair, the ornate golden crown with red rubies, a red tilak on the forehead, heavy gold necklaces and pearl strings, gold armlets, bare chest with a white sacred thread, a saffron silk dhoti and a white shawl with a broad gold border over one shoulder, exactly two arms.",
+        "seed": 7,
+        "motion_prompt": "Low angle wide view of a vast pillared assembly hall. The old king stands before his golden throne and slowly extends his right arm forward with an open palm, proclaiming. Distant rows of seated nobles remain still, a few turn their heads. Banners hanging between the pillars sway. The camera slowly pulls back to reveal the scale of the hall."
+      },
+      "s04": {
+        "path": "data/anim_lab/AK01/keyframes/s04.png",
+        "sha256": "36828a4f520f1657d797e492803c512be5d31de12b935183f8e2f9cc88973207",
+        "refs": [
+          "data/anim_lab/refs/locations/city_aerial.png"
+        ],
+        "prompt": "Image 1 shows the location: keep its architecture, colours and light. anime film still, painterly cel-shaded animation with soft gradient shading, painted warm golden lighting, atmospheric depth, richly detailed gold ornaments, cinematic, ancient Indian setting, detailed background art, vertical frame. two peacocks standing on a carved sandstone palace terrace in the foreground, dancing with their long tails spread wide in full fans, heads raised toward a soft blue-grey monsoon rain cloud over the golden city of Ayodhya, light rain streaks falling in soft silver light, a few marigold petals in the air.",
+        "seed": 7,
+        "motion_prompt": "Two peacocks on a carved sandstone palace parapet raise their heads and shake their wide fanned tails, feathers shimmering. A soft blue-grey monsoon cloud drifts over the golden city and gentle rain streaks begin to fall in silver light. Orange marigold petals are tossed up from below and drift through the air. The camera holds steady with a slight push in."
+      },
+      "s05": {
+        "path": "data/anim_lab/AK01/keyframes/s05.png",
+        "sha256": "341af3d2bead2e7c7c3bf13419985141bca1f48e52e1f1458283eeed433d80d1",
+        "refs": [
+          "data/anim_lab/refs/rama/front.png"
+        ],
+        "prompt": "Use the reference images for character identity only: image 1 shows the young prince with deep dark skin. Keep each character's face, skin tone, hair, crown, jewellery and costume colours exactly as in the references. anime film still, painterly cel-shaded animation with soft gradient shading, painted warm golden lighting, atmospheric depth, richly detailed gold ornaments, cinematic, ancient Indian setting, detailed background art, vertical frame. medium close-up of the same young prince standing in a palace courtyard beside a pond of blue lotuses, three-quarter view facing slightly toward the viewer, calm gentle face, soft morning light, carved sandstone pillars behind. Prince Rama, a handsome adult Indian prince about twenty-five years old with a strong jaw and a princely upright bearing, a natural deep dark-brown complexion with a subtle cool blue sheen only in the highlights, evenly on face and body, long lotus-shaped eyes, a gentle dignified closed-mouth smile, clean-shaven, long black hair falling to the shoulders, a modest golden prince's crown with a small lotus at the centre, gold earrings, a fine gold necklace with a single ruby pendant and a pearl string, gold armlets, bare chest with a white sacred thread, a yellow silk dhoti with a saffron sash and a light saffron shawl over one shoulder, broad-shouldered with exactly two arms.",
+        "seed": 7,
+        "motion_prompt": "A young Indian prince with deep dark skin and a golden crown stands in a palace courtyard beside a pond of blue lotuses. He stays facing the camera the whole time, perfectly still in posture; he slowly lowers his gaze modestly and a gentle smile forms. A soft breeze moves his hair and the silk cloth of his saffron shawl. The lotus pond ripples behind him. Slow camera push-in. No turning, no spinning, the crown stays unchanged.",
+        "end_anchor": {
+          "path": "data/anim_lab/AK01/keyframes/s05_end.png",
+          "sha256": "f8dd20ffec9c74d99549d3e7da43060041267a4d1ca01f549bb6cb65a168b23c",
+          "strength": 0.7
+        }
+      },
+      "s06": {
+        "path": "data/anim_lab/AK01/keyframes/s06.png",
+        "sha256": "9c773475fb25a52497757a4a5921bcca177be6e90e2f33ae94e900b7aaaa11d4",
+        "refs": [
+          "data/anim_lab/refs/dasharatha/front.png",
+          "data/anim_lab/refs/rama/front.png",
+          "data/anim_lab/refs/locations/kaikeyi_terrace.png"
+        ],
+        "prompt": "Use the reference images for character identity only: image 1 shows the old king with the white beard and tall gold crown; image 2 shows the young prince with deep dark skin. Keep each character's face, skin tone, hair, crown, jewellery and costume colours exactly as in the references. Image 3 shows the location: keep its architecture, colours and light. anime film still, painterly cel-shaded animation with soft gradient shading, painted warm golden lighting, atmospheric depth, richly detailed gold ornaments, cinematic, ancient Indian setting, detailed background art, vertical frame. medium two-shot on a palace terrace in warm golden light, the same old king on the left facing right and the same young prince on the right facing left, the king's hands resting gently on the prince's shoulders, the prince's head gently bowed, a white parasol and an oil lamp behind them. King Dasharatha, a very old Indian king with a light golden-brown complexion, a noble lined face with deep-set kind tired eyes, white bushy eyebrows, a long flowing white beard and white moustache, long white hair, the ornate golden crown with red rubies, a red tilak on the forehead, heavy gold necklaces and pearl strings, gold armlets, bare chest with a white sacred thread, a saffron silk dhoti and a white shawl with a broad gold border over one shoulder, exactly two arms. Prince Rama, a handsome adult Indian prince about twenty-five years old with a strong jaw and a princely upright bearing, a natural deep dark-brown complexion with a subtle cool blue sheen only in the highlights, evenly on face and body, long lotus-shaped eyes, a gentle dignified closed-mouth smile, clean-shaven, long black hair falling to the shoulders, a modest golden prince's crown with a small lotus at the centre, gold earrings, a fine gold necklace with a single ruby pendant and a pearl string, gold armlets, bare chest with a white sacred thread, a yellow silk dhoti with a saffron sash and a light saffron shawl over one shoulder, broad-shouldered with exactly two arms.",
+        "seed": 7,
+        "motion_prompt": "On a sunlit palace terrace an old king with a white beard rests his hands gently on the shoulders of a young prince, who slowly bows his head in respect. The king smiles warmly. A small lamp flame flickers and the fringe of a white parasol stirs in the breeze. The camera gently pushes in."
+      },
+      "s07": {
+        "path": "data/anim_lab/AK01/keyframes/s07.png",
+        "sha256": "b39dc1800846cc543644ef5f19a63e4f1c7ea6e4a361af324ec0463f772d1e76",
+        "refs": [
+          "data/anim_lab/refs/dasharatha/front.png",
+          "data/anim_lab/refs/locations/window_chamber.png"
+        ],
+        "prompt": "Use the reference images for character identity only: image 1 shows the old king with the white beard and tall gold crown. Keep each character's face, skin tone, hair, crown, jewellery and costume colours exactly as in the references. Image 2 shows the location: keep its architecture, colours and light. anime film still, painterly cel-shaded animation with soft gradient shading, painted warm golden lighting, atmospheric depth, richly detailed gold ornaments, cinematic, ancient Indian setting, detailed background art, vertical frame. close-up of the same old king in a dark royal chamber at night lit by a single small oil lamp in the foreground, deep indigo shadows on the carved wall, warm lamp light on one side of his face, his eyes half closed and troubled. King Dasharatha, a very old Indian king with a light golden-brown complexion, a noble lined face with deep-set kind tired eyes, white bushy eyebrows, a long flowing white beard and white moustache, long white hair, the ornate golden crown with red rubies, a red tilak on the forehead, heavy gold necklaces and pearl strings, gold armlets, bare chest with a white sacred thread, a saffron silk dhoti and a white shawl with a broad gold border over one shoulder, exactly two arms.",
+        "seed": 7,
+        "motion_prompt": "Close-up of an old king with a white beard in a dark chamber lit by a single oil lamp. The lamp flame bends and shudders in a draught and the shadows on the wall stretch and tremble. The king slowly opens his eyes wide in fear. The camera is still, then pushes in slightly."
+      },
+      "s08": {
+        "path": "data/anim_lab/AK01/keyframes/s08.png",
+        "sha256": "f9c8051925c76e32e184297388abc52ed05e064ed3acf37048414d0e80590968",
+        "refs": [
+          "data/anim_lab/refs/dasharatha/front.png",
+          "data/anim_lab/refs/rama/front.png",
+          "data/anim_lab/refs/locations/window_chamber.png"
+        ],
+        "prompt": "Use the reference images for character identity only: image 1 shows the old king with the white beard and tall gold crown; image 2 shows the young prince with deep dark skin. Keep each character's face, skin tone, hair, crown, jewellery and costume colours exactly as in the references. Image 3 shows the location: keep its architecture, colours and light. anime film still, painterly cel-shaded animation with soft gradient shading, painted warm golden lighting, atmospheric depth, richly detailed gold ornaments, cinematic, ancient Indian setting, detailed background art, vertical frame. medium two-shot beside a tall carved window, the same old king on the left leaning toward the same young prince on the right, the king's hand resting on the prince's forearm, both faces in three-quarter view, through the window an empty road winds west into distant hills under a pale sky. King Dasharatha, a very old Indian king with a light golden-brown complexion, a noble lined face with deep-set kind tired eyes, white bushy eyebrows, a long flowing white beard and white moustache, long white hair, the ornate golden crown with red rubies, a red tilak on the forehead, heavy gold necklaces and pearl strings, gold armlets, bare chest with a white sacred thread, a saffron silk dhoti and a white shawl with a broad gold border over one shoulder, exactly two arms. Prince Rama, a handsome adult Indian prince about twenty-five years old with a strong jaw and a princely upright bearing, a natural deep dark-brown complexion with a subtle cool blue sheen only in the highlights, evenly on face and body, long lotus-shaped eyes, a gentle dignified closed-mouth smile, clean-shaven, long black hair falling to the shoulders, a modest golden prince's crown with a small lotus at the centre, gold earrings, a fine gold necklace with a single ruby pendant and a pearl string, gold armlets, bare chest with a white sacred thread, a yellow silk dhoti with a saffron sash and a light saffron shawl over one shoulder, broad-shouldered with exactly two arms.",
+        "seed": 7,
+        "motion_prompt": "Beside a tall carved window an old king leans in toward the young prince and grips his forearm, speaking urgently. The prince listens calmly. Through the window, dust drifts along an empty road winding toward distant hills and clouds move slowly. The camera slowly pushes in."
+      },
+      "s09": {
+        "path": "data/anim_lab/AK01/keyframes/s09.png",
+        "sha256": "090ba448e18cfad8bc17d80aba2f9612d4d1d72b63b49c36bfb40d519a5bdf89",
+        "refs": [
+          "data/anim_lab/refs/rama/front.png",
+          "data/anim_lab/refs/sita/front.png",
+          "data/anim_lab/refs/locations/shrine.png"
+        ],
+        "prompt": "Use the reference images for character identity only: image 1 shows the young prince with deep dark skin; image 2 shows the young princess in the ivory and gold sari. Keep each character's face, skin tone, hair, crown, jewellery and costume colours exactly as in the references. Image 3 shows the location: keep its architecture, colours and light. anime film still, painterly cel-shaded animation with soft gradient shading, painted warm golden lighting, atmospheric depth, richly detailed gold ornaments, cinematic, ancient Indian setting, detailed background art, vertical frame. medium shot in a stone palace shrine, the same young prince on the left and the same young princess on the right seated side by side cross-legged on a mat of kusha grass before a small sacred fire, hands folded in prayer, eyes open looking at the fire, thin smoke rising, a carved lamp niche behind. Prince Rama, a handsome adult Indian prince about twenty-five years old with a strong jaw and a princely upright bearing, a natural deep dark-brown complexion with a subtle cool blue sheen only in the highlights, evenly on face and body, long lotus-shaped eyes, a gentle dignified closed-mouth smile, clean-shaven, long black hair falling to the shoulders, a modest golden prince's crown with a small lotus at the centre, gold earrings, a fine gold necklace with a single ruby pendant and a pearl string, gold armlets, bare chest with a white sacred thread, a yellow silk dhoti with a saffron sash and a light saffron shawl over one shoulder, broad-shouldered with exactly two arms. Princess Sita, a graceful young Indian woman about nineteen with a golden-wheat complexion, a soft oval face with large calm eyes and a small red bindi, a line of red sindoor in the hair parting, long black hair in a single thick braid, a refined gold forehead ornament, gold earrings, a delicate gold necklace and gold bangles, an ivory silk sari with a broad gold border and a lotus-pink shawl drawn over her shoulder, fully and modestly draped, upright and dignified, exactly two arms.",
+        "seed": 7,
+        "motion_prompt": "In a stone shrine a young prince and a young princess sit side by side on a grass mat before a small sacred fire, hands folded in prayer. The fire flickers and thin smoke curls upward. They slowly close their eyes. Lamp flames in the niche behind gently flicker. The camera very slowly pushes in."
+      },
+      "s10": {
+        "path": "data/anim_lab/AK01/keyframes/s10.png",
+        "sha256": "59f80306f8abb20a0b1ea6a7e0feebbdd7e290aac016c16120d7ea70eb8681a3",
+        "refs": [
+          "data/anim_lab/refs/locations/city_aerial.png"
+        ],
+        "prompt": "Image 1 shows the location: keep its architecture, colours and light. anime film still, painterly cel-shaded animation with soft gradient shading, painted warm golden lighting, atmospheric depth, richly detailed gold ornaments, cinematic, ancient Indian setting, detailed background art, vertical frame. high angle view down the royal road of ancient Ayodhya in late golden afternoon, the road strewn with marigold petals, saffron and red banners on every rooftop, tall branching lamp-trees with small flames along the road, tiny distant citizens far below, carved sandstone gateways and stepped shikhara towers.",
+        "seed": 7,
+        "motion_prompt": "High view over the royal road of ancient Ayodhya at golden hour. Saffron banners unfurl and wave along the rooftops, marigold petals drift down onto the road, and small flames catch and glow on tall lamp-trees. Tiny distant people walk along the road. The camera slowly cranes up and tilts up toward the towers."
+      },
+      "s11": {
+        "path": "data/anim_lab/AK01/keyframes/s11.png",
+        "sha256": "97b9372f911eccc94465f66f19f2fa4bf9cee65ee6318e65dd35aff38a88441c",
+        "refs": [
+          "data/anim_lab/refs/manthara/front.png",
+          "data/anim_lab/refs/locations/kaikeyi_terrace.png"
+        ],
+        "prompt": "Use the reference images for character identity only: image 1 shows the older woman in the earth-brown sari. Keep each character's face, skin tone, hair, crown, jewellery and costume colours exactly as in the references. Image 2 shows the location: keep its architecture, colours and light. anime film still, painterly cel-shaded animation with soft gradient shading, painted warm golden lighting, atmospheric depth, richly detailed gold ornaments, cinematic, ancient Indian setting, detailed background art, vertical frame. medium shot of the same older woman seen three-quarter from behind standing on a moon-white marble palace terrace, looking down at the decorated golden city below with banners and lamp-trees, her face partly visible in profile, the end of her sari over her shoulder, warm late light. Manthara, an elderly Indian woman about sixty-five with a warm brown complexion, a narrow lined face with sharp watchful eyes and thin lips, a small dark bindi, grey hair pulled back in a tight bun, a slight dignified stoop of the shoulders, a plain earth-brown cotton sari with a grey border and the end over her shoulder, a single gold ring and thin silver bangles, still and composed, exactly two arms.",
+        "seed": 7,
+        "motion_prompt": "On a moon-white palace terrace an older woman in an earth-brown sari stands seen from behind, looking down at the decorated city. She stays very still, then slowly turns her head to look back over her shoulder with narrowed, watchful eyes. The end of her sari stirs in the wind. The city glitters below. The camera slowly pushes in toward her."
+      }
+    },
+    "ak01_keyframes_note": "s04 keyframe is rejected (reads as a smoke plume); regenerate with the monsoon prompt now in shots.py before animating."
+  }
+}
