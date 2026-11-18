@@ -22,6 +22,7 @@ CHALKDUSTER = "/System/Library/Fonts/Supplemental/Chalkduster.ttf"
 DEVANAGARI = "/System/Library/Fonts/Supplemental/ITFDevanagari.ttc"
 PALETTE_HUES = [27.0, 42.0, 95.0]
 CHALK_SFX_GAIN = 0.035
+PUPPET_CHALK_SFX_SCALE = 0.12
 BIBLE = ROOT / "profiles" / "characters" / "ramayana.json"
 SFX_DIR = ROOT / "data" / "sfx"
 SFX_LICENSES = SFX_DIR / "licenses.csv"
@@ -278,7 +279,7 @@ def text_scene(sc, path, seed):
             size -= 4
             dev = font_for("".join(lines), size)
         small = font_for(sc["source"], 40)
-        y0 = 560
+        y0 = 560 + (4 - len(lines)) * 84
         for i, line in enumerate(lines):
             col = (0.96, 0.66, 0.32) if i < 2 else (0.95, 0.94, 0.9)
 
@@ -289,7 +290,7 @@ def text_scene(sc, path, seed):
             layers.append((fn, col))
 
         def orn(d):
-            y = y0 + 4 * 168 + 40
+            y = y0 + len(lines) * 168 + 40
             d.line([CW / 2 - 300, y, CW / 2 - 40, y], fill=255, width=4)
             d.line([CW / 2 + 40, y, CW / 2 + 300, y], fill=255, width=4)
             d.ellipse([CW / 2 - 14, y - 14, CW / 2 + 14, y + 14], outline=255, width=4)
@@ -1275,9 +1276,10 @@ def sound(script, timings, total, pl, word_times, seed):
         if e > s0:
             out[s0:e] += x[: e - s0]
 
+    chalk_scale = PUPPET_CHALK_SFX_SCALE if engine_version(script) >= 3 else 1.0
     for i, p in enumerate(pl):
         if p["de"] - p["ds"] > 0.02:
-            put(sfx_chalk(p["de"] - p["ds"], rng), p["ds"])
+            put(sfx_chalk(p["de"] - p["ds"], rng) * chalk_scale, p["ds"])
         elif i > 0:
             put(sfx_snap(rng), p["ds"])
         if i > 0 and p["transition"] == "erase":

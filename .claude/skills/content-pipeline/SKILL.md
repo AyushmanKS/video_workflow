@@ -7,6 +7,8 @@ description: Runbook to take one content piece from idea to the G3 bundle in sho
 
 Always start: read `PROJECT_CONTEXT.md` (§22 status, §23 next steps), then `python -m pipeline status` to find the next pending stage. Resume there. One episode per day, and only when the owner asks.
 
+**From Episode 10 on, every episode uses the chalk-puppet animation (engine v3, approved 2026-11-18).** `pipeline new` sets `engine_version: 3`. Each scene is drawn in chalk, then its characters and objects move about real pivots (`puppetstudio.py`), checked by the motion QA gate. Ep01–09 stay on engine v2.
+
 | # | Stage | Who | Command / output | Gate check |
 |---|---|---|---|---|
 | 0 | Arc plan (per arc, not per episode) | `series-planner` | `content/series/<series>.md`, profile diffs | owner OKs the arc (lightweight) |
@@ -19,7 +21,8 @@ Always start: read `PROJECT_CONTEXT.md` (§22 status, §23 next steps), then `py
 | G1 | **Script approval** | owner | Show the scripts together with a short **"Learnings applied"** block (3–5 bullets from `learnings_for_g1` / the scripts' `applied_learnings`, each with its tier and n). Same single approval, no extra gate. `python -m pipeline approve <ID> script --langs en,hi,gu,te` (owner runs it; records the `script.json` hashes) | lint pass |
 | 6 | Voice | main | `python -m pipeline produce <ID> --lang X --steps voice` | languages sequential |
 | 7 | Images | main | `python -m pipeline produce <ID> --lang <primary> --steps images` (others reuse) | never parallel with voice |
-| 8 | Render | main | `python -m pipeline produce <ID> --lang X --steps render` | sequential |
+| 7b | **Puppet rig** (engine v3, every episode from Ep10) | main | Write `content/<ID>/rig.json`: one shot per scene (`"scene": i`), pivots from `profiles/rigs.json` templates, actions timed to words (`"line": i, "frac"`), elements (flags, flames, lamps…), optional `camera`, `transition` (`erase`, `crossfade`, `dip`, `cut`, `black`) and recorded `qa_waive`. Scenes without a shot, and verse/shloka slides, are drawn in chalk and stay still. Then `python -m pipeline rig-qa <ID> --lang <primary>` and fix every flag (sheets in `<lang>/rigqa/`). Method and motion rules: PROJECT_CONTEXT §30 | rig QA must pass; render refuses otherwise |
+| 8 | Render | main | `python -m pipeline produce <ID> --lang X --steps render` (engine v3 runs the rig QA again, then draws each scene in chalk and brings it to life) | sequential |
 | 9 | Automatic QA | main | `python -m pipeline qa <ID> --lang X` → `qa.md`, contact sheet, verdict | — |
 | 10 | Visual + Audio QA | `reviewer` | scored review with numbered fixes; fixes routed to scriptwriter / creative-director | — |
 | G2 | **Final approval** | owner | `python -m pipeline approve <ID> final --langs …`; waivers: `python -m pipeline waive <ID> --lang L --check <name>\|all-warnings --note "…"` | refused unless the latest QA verdict is pass, or warn with every warning waived (text + who); records the mp4 hash |

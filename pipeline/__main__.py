@@ -83,7 +83,7 @@ def cmd_new(a):
         db.upsert(con, "contents", {"id": cid, "series": a.series, "episode": a.episode, "topic": a.topic, "category": a.category, "style": a.style, "status": "research", "folder": str(folder.relative_to(ROOT)), "notes": None, "created_at": db.now(), "updated_at": db.now()})
         for lang in langs:
             db.upsert(con, "variants", {"id": f"{cid}-{lang}", "content_id": cid, "language": lang, "voice": None, "script_path": f"content/{cid}/{lang}/script.json", "video_path": None, "thumbnail_path": None, "duration_s": None, "status": "planned", "cohort": db.cohort_for(lang), "created_at": db.now(), "updated_at": db.now()})
-    m = {"id": cid, "series": a.series, "episode": a.episode, "topic": a.topic, "category": a.category, "style": a.style, "languages": langs, "primary_language": langs[0], "engine_version": 2, "stages": {}}
+    m = {"id": cid, "series": a.series, "episode": a.episode, "topic": a.topic, "category": a.category, "style": a.style, "languages": langs, "primary_language": langs[0], "engine_version": 3, "stages": {}}
     save(m)
     (folder / "brief.md").write_text(f"# {cid}: {a.topic}\n\n- Series: {a.series or '-'} · Episode: {a.episode or '-'}\n- Category: {a.category} · Style: {a.style}\n- Languages: {', '.join(langs)} (primary {langs[0]})\n\n## Goal\n\n## Constraints\n")
     print(f"Created {cid} at content/{cid}")
@@ -505,6 +505,14 @@ def cmd_produce(a):
     from . import progress as _pg
 
     _pg.learn_from(a.id)
+
+
+def cmd_rig_qa(a):
+    work = CONTENT / a.id / a.lang
+    m = load(a.id)
+    r = subprocess.run([sys.executable, str(ROOT / "puppetstudio.py"), str(work), "--style", m["style"]], cwd=ROOT)
+    print(f"Rig QA {'passed' if r.returncode == 0 else 'FAILED'}: sheets in {work / 'rigqa'}")
+    sys.exit(r.returncode)
 
 
 def cmd_qa(a):
@@ -1065,6 +1073,7 @@ def main():
     p = sp.add_parser("done"); p.add_argument("id"); p.add_argument("stage"); p.add_argument("--lang"); p.add_argument("--note"); p.set_defaults(fn=cmd_done)
     p = sp.add_parser("cleanup", help="free disk: reproducible intermediates (default), unused model caches (--models), tool caches (--tools); preview unless --apply"); p.add_argument("--models", action="store_true"); p.add_argument("--tools", action="store_true"); p.add_argument("--apply", action="store_true"); p.add_argument("--yes", action="store_true"); p.set_defaults(fn=cmd_cleanup)
     p = sp.add_parser("produce"); p.add_argument("id"); p.add_argument("--lang", required=True); p.add_argument("--steps", default="voice,images,render"); p.set_defaults(fn=cmd_produce)
+    p = sp.add_parser("rig-qa", help="engine v3 (chalk puppet): run the motion QA gate on content/<ID>/rig.json for one language (needs voice + images)"); p.add_argument("id"); p.add_argument("--lang", required=True); p.set_defaults(fn=cmd_rig_qa)
     p = sp.add_parser("qa"); p.add_argument("id"); p.add_argument("--lang", required=True); p.add_argument("--audio-only", action="store_true", help="voice QA on the scene WAVs before render (marks voice_qa)"); p.set_defaults(fn=cmd_qa)
     p = sp.add_parser("schedule"); p.add_argument("--id"); p.add_argument("--lang", required=True); p.set_defaults(fn=cmd_schedule)
     p = sp.add_parser("publish"); p.add_argument("id"); p.add_argument("--lang", required=True); p.add_argument("--at"); p.add_argument("--slot"); p.add_argument("--yes", action="store_true", help="owner already approved in chat; skip the interactive prompt"); p.add_argument("--platform", default="youtube", choices=["youtube", "instagram"]); p.add_argument("--now", action="store_true", help="instagram: post immediately instead of scheduling"); p.add_argument("--dry-run", action="store_true", help="instagram: check token, tunnel and limits without posting"); p.add_argument("--cancel", action="store_true", help="instagram: remove a scheduled post"); p.add_argument("--check-gates-only", action="store_true", help="verify the G2/G3 records, times and hashes; no tunnel, no upload"); p.set_defaults(fn=cmd_publish)

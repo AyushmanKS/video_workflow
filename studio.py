@@ -980,12 +980,9 @@ def duck_v2(voice, bed, st):
     return (10 ** (gdb / 20)).astype(np.float32), {"voice_rms_db": round(lv, 2), "bed_rms_db": round(lm, 2), "under_gain_db": round(under, 2)}
 
 
-def step_audio(script, st, music_path, out, seed, gap=0.18):
-    ev = engine_version(script)
-    lead_s = 0.15 if ev >= 2 else 0.35
-    voice_parts, timings, t = [], [], lead_s
-    lead = np.zeros(int(lead_s * SR), dtype=np.float32)
-    voice_parts.append(lead)
+def scene_timings(script, out, gap=0.18):
+    lead_s = 0.15 if engine_version(script) >= 2 else 0.35
+    voice_parts, timings, t = [np.zeros(int(lead_s * SR), dtype=np.float32)], [], lead_s
     for i in range(len(script["scenes"])):
         v = read_wav(out / "audio" / f"{i:02d}.wav")
         dur = len(v) / SR
@@ -996,7 +993,12 @@ def step_audio(script, st, music_path, out, seed, gap=0.18):
         t += dur + pause
     voice_parts.append(np.zeros(int(0.8 * SR), dtype=np.float32))
     voice = np.concatenate(voice_parts)
-    total = len(voice) / SR
+    return timings, len(voice) / SR, voice, lead_s
+
+
+def step_audio(script, st, music_path, out, seed, gap=0.18):
+    ev = engine_version(script)
+    timings, total, voice, lead_s = scene_timings(script, out, gap)
     report = {"engine_version": ev, "lead": lead_s}
     gv = 1.0
     if st.get("narration_lufs") is not None:
@@ -1141,6 +1143,20 @@ def step_render(script, st, timings, total, out, seed):
         ],
         stdin=subprocess.PIPE,
     )
+    if st["motion"] == "chalkdraw" and engine_version(script) >= 3:
+        import puppetstudio
+
+        raws = [raw_path(script, out, i) for i in range(len(script["scenes"]))]
+        masks = [out / "img" / f"{scene_still(script, i):02d}_mask.png" for i in range(len(script["scenes"]))]
+        if not puppetstudio.qa(script, timings, total, out, seed, raws, masks, log) and os.environ.get("STUDIO_RIG_FORCE") != "1":
+            proc.stdin.close()
+            proc.wait()
+            raise SystemExit(f"Rig QA failed: see {out / 'rigqa'}; fix the rig (content/<ID>/rig.json) or set STUDIO_RIG_FORCE=1 to render anyway")
+        pl = puppetstudio.render(script, st, timings, total, raws, proc, cap, groups, seed, log, masks, out)
+        proc.stdin.close()
+        proc.wait()
+        write_timeline(script, timings, total, out, pl=pl)
+        return video
     if st["motion"] == "chalkdraw":
         import chalk
 

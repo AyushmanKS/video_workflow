@@ -264,9 +264,23 @@ shorts-studio/
   - **Dashboard address:** the current address is in `data/dashboard_url.json`, and a new sign-in link is sent to Telegram whenever it changes (`/link` re-sends it).
   - **Approvals** stay in chat; the bot and dashboard can only acknowledge issues.
 
+- **Animation (2026-11-18):** chalk puppets (engine v3) are active for Ep10 onwards: `puppetstudio.py`, `pipeline rig-qa`, `content/<ID>/rig.json`. The AK01 puppet episode is approved and on hold until the Ayodhya Kanda chapter (§23.0).
+- **Dashboard phone app (2026-11-18, owner chose option A):**
+  - **Why:** the quick tunnel's address changes whenever the Mac sleeps or the network drops, so the home-screen web app kept breaking.
+  - **Fix:** after each change, the tunnel writes the current address to a secret GitHub gist (`pipeline/linkgist.py`; token `secrets/github_gist.json`, gist scope only; state `data/dashboard_gist.json`). It retries every 5 min until the sync succeeds. The Telegram link message is sent only if the gist sync fails.
+  - **App:** Flutter, `mobile/chalk_dashboard`. A WebView of the dashboard. It reads the gist on launch and on any failure, checks `/healthz`, and signs in through `/login?k=` once per address. It shows "Mac offline, retrying" with backoff (15/30/60/90 s), which stays under GitHub's limit of 60 unauthenticated requests per hour.
+  - **Setup:** the bot's `/app` command sends a one-time setup code: base64 of `{gist id, login key}`.
+  - **Build:** signed release APK at `data/mobile/ChalkDashboard.apk`. Keystore and passwords are in `secrets/android/`; keep them, because app updates must be signed with the same key. Rebuild with `flutter build apk --release` in `mobile/chalk_dashboard`.
+  - **Live since 2026-11-18 12:02.** The token is gist-only; the first, over-scoped token was revoked. v1.0.1 is installed on the owner's phone over wireless adb, and it trusts only `https://*.trycloudflare.com` addresses from the gist, so a tampered gist cannot capture the login key.
+  - **Owner advice:** turn off wireless debugging. To reinstall: `adb install -r data/mobile/ChalkDashboard.apk`, or copy the APK to the phone.
 - **Brand (2026-11-17):** Chalk Tales package built locally (§27); new episodes run `pipeline promo <ID> --apply` before G3.
 
 ## 23. Exact next steps
+0. **Standing decisions (owner, 2026-11-18):**
+   - **Animation from Episode 10 onwards** is the chalk-puppet engine v3 (§30). `pipeline new` defaults to `engine_version: 3`.
+   - **Per-episode flow:** after images, write `content/<ID>/rig.json`, then run `python -m pipeline rig-qa <ID> --lang <primary>` until every scene passes, then render. The creative-director composes drawings for puppetry.
+   - **Unchanged:** Ep01–09 stay on engine v2.
+   - **AK01 (Ayodhya Kanda sample, approved) is on hold.** Schedule or publish it only when the series reaches the Ayodhya Kanda chapter, and raise it with the owner at that point.
 1. Episode 05 (C0005): Tataka (Bala Kanda 24–26; teaser verse 1.24.26). Only start when the owner asks. Flow: `new` → research/strategy/audience → EN+HI scripts (original Hindi) + hooks → G1 → produce EN (af_heart) then HI (`maya2:Malini`; regenerate flagged scenes with the speaker/pitch check) → `qa` → manual image review (watch for borders, Western fantasy demons, Ravana depiction) → metadata + schedule (evening, HI 20:30 / EN 21:30, one episode per day) → G2/G3 → `publish --yes`.
 2. Analytics snapshots once the API is enabled; then run the optimization pass.
 3. After the owner provides `HF_TOKEN`, run the adoption plan in `reports/Shorts studio voices and tools.md` §plan.
@@ -333,6 +347,134 @@ The owner asked for a full audit and research plan before any change. Nothing wa
 - **What:** first real-animation sample of AK01 "Rama's Crown Was Ready" in the owner-approved anime-film look (benchmark `data/anim_lab/keyframes/king.png`), Hindi (maya2:Malini) + English (Kokoro af_heart). Lab only: `data/anim_lab/` (gitignored); no pipeline code, approved content or schedule touched; nothing published.
 - **Consistency system (locked):** FLUX.2 klein 4B q8 (Apache-2.0) reference edits from per-character front anchors + location plates; registry with sha256/prompts/seeds in `profiles/characters/ayodhya_kanda.json` → `locked_refs` (Dasharatha, Rama, Sita, Manthara, 5 locations, 11 AK01 keyframes). Reuse these files for every later Ayodhya episode; never regenerate.
 - **Done (20:40):** finals `data/anim_lab/AK01/AK01-hi.mp4` (52.8 s) and `AK01-en.mp4` (48.0 s), all 11 shots real LTX-2.3 animation, −13.9 LUFS, speaker_consistency pass; 540p proxies + contact sheets beside them. Awaiting owner review (the style change itself is still an owner decision). Open: cinematic character sheets beyond the fronts. Details: `data/anim_lab/AK01/STATE.md`, `docs/ANIMATION_RESEARCH.md` §7.
+
+## 29. Continuity editing layer (2026-11-17) — prototype, awaiting owner A/B review
+- **Why:** the owner said AK01 "feels like multiple independent video clips simply stitched together". Measured causes (`research_notes/Continuity editing/ak01_boundary_analysis.md`, numbers in `data/anim_lab/AK01/analysis/boundaries.json`): every cut sat 0.12 s before a narration line, with picture, caption, title, ambience and motif all changing on one frame; clips played whole from frame 0, retimed 0.77–1.19× with frame blending and frozen under dissolves; 12 vs 24 fps cadence flips; camera moves that stop or reverse at cuts; time of day jumping (night → day → night at shots 7–9).
+- **Research:** `research_notes/Continuity editing/editing_craft.md` (craft rules, decision table, limits: ≤3 soft transitions and ≤1 dip per Short, no whip pans in Ayodhya), `tools.md` (free, commercial-OK tools with timings on this Mac). Verdicts: keep numpy + PIL + ffmpeg as the compositor; OpenCV DIS optical flow for motion, interpolation and cadence repair; DaVinci Resolve rejected for automation (Python scripting is Studio-only from 21.1); RIFE (MIT) only for in-shot speed ramps, later; FILM (archived) and DINOv3 (custom licence) avoided; MLT/Shotcut optional later for an editable timeline.
+- **Engine:** `pipeline/continuity.py` (generic, not yet wired into `produce`). Steps: `measure` (per-frame pan/zoom/local motion, luminance and Lab colour, cadence; cached per clip) → `window` (usable in/out: drops flicker, pops and light changes with no camera move, such as self-fades and pulses, with a 4-frame guard) → `decide` (one transition per boundary from the story beat in the edit spec: turn → held indigo dip, time_jump → 1 s dissolve on live frames, simile → cut with 0.7 s sound lead, parallel → J-cut sound bridge, reveal → L-cut, same_scene/new_place → cut; plus automatic flags for jump cuts, screen-side flips, camera reversals, cadence mismatch; then enforces the limits) → `allocate` (dynamic programme that moves each cut −0.75…+0.75 s off the line start so every shot fits its clean footage) → `retime` (rate 1.0 window chosen so both ends are in motion and outgoing pushes are not cut at peak acceleration; otherwise motion-aware stretch that slows only still frames (down to 0.4×) and moving frames at most to 0.9×, with optical-flow interpolation, never frame-blend ghosting) → `camera` (light digital push on static shots, ≤4%, and zoom carry across cuts, total ≤6% crop) → `grade` (per-shot Lab match toward its time-of-day group: night/dusk caps, vignette) → `repair_cadence` (on-twos clips rebuilt to 24 fps by interpolating the duplicate frames) → `report` (Markdown table of every decision with its reason and flags). Output 24 fps so rate-1.0 shots map frame for frame.
+- **AK01 Version B:** `data/anim_lab/AK01/scripts/assemble.py --cut b en hi` (edit spec `EDIT_SHOTS` / `EDIT_BEATS`; Version A path unchanged) → `data/anim_lab/AK01/AK01-{en,hi}-B.mp4` (+ 540p, `-B.timeline.json`); per-language plans `analysis/edit_plan_{en,hi}.{md,json}`; cut sheets `analysis/contacts/{B}-{en,hi}-cuts.png`. Audio rebuilt with J/L beds keyed to picture cuts (hall birds under shot 1, roar and thunder 0.7 s before the peacocks, heartbeat entering under the embrace, fire under the dissolve, nagada 1 s under the shrine and 1 s into Manthara, wind and music carried into the end card); titles 0.6 s after their cut, verse 0.9 s after; "Next" shown only on the end card; chalk-line bloom at the open and a chalk drain into the end card. Results: en 48.0 s, hi 52.75 s, −13.9 LUFS, TP −1.6/−2.0 dB, 1080×1920 at 24 fps; render 106 s (en) and 117 s (hi) on the M5 under `heavy.lock`. `clips/` and the Version A finals are byte-identical before and after (md5 checked).
+- **Editing cannot fix (regeneration flagged, owner's call):** s08 is daylight in a night scene (grade softens it only); s03 is a jump cut from s02 (same king, parasol and axis; needs a low angle or a cutaway); s06 fades itself to dark from frame 60 (only 2.5 s clean, so the Turn dip sits partly over the end of line 6); s05 has light pulses (frames 31–73 clean); s10/s11 read as afternoon against "lamps for the night"; Rama changes screen side at 5→6 and 8→9.
+- **Superseded direction (2026-11-17, later):** the owner discarded the anime/painterly/cinematic look for Ayodhya Kanda (see §30). The continuity rules above still apply to the new chalk-puppet direction.
+- **Workflow for future episodes (all Kandas, languages, genres):** (1) at G1 the creative-director adds per-shot `time`, `place`, `subject`, `size`, `intent`, `screen` and per-boundary `beat` to the shot list; (2) before rendering, run the planner on an animatic (keyframes plus voice) to lock cut points, and render 121–145 frames so every shot has handles; write motion direction and end pose into the prompts; (3) after rendering, `measure` + `window` the clips, and regenerate any shot the report flags before assembly; (4) assemble with `continuity.plan`, then review the cut sheet; store the plan with the timeline for G2. Integration into `produce` waits for the owner's A/B verdict and the Ayodhya style approval.
+
+## 30. Chalk-puppet animation (Kathputli style) (2026-11-17) — prototype, awaiting owner review
+- **Direction (owner, 2026-11-17):** drop Pahari Gold, anime, painterly and cinematic 2.5D. Return to the original chalkboard illustrations and bring them alive with subtle, deliberate string-puppet movement: only what the line needs moves, everything else stays still, and the chalk grain, strokes, board and character designs stay exactly the drawing's own. The §28 LTX/FLUX anime sample and its locked refs are no longer the Ayodhya look.
+- **Research:** `research_notes/Chalk puppet animation/tools.md`. Verdict: deterministic 2D cut-out puppetry in our own numpy/OpenCV compositor beats AI video for this style (AI video smooths chalk grain and flickers texture). Usable: OpenCV, numpy, scipy (already installed); libigl (MPL-2.0) and SAM 2.1 (Apache-2.0) as optional later helpers; MI-GAN (MIT) or LaMa (Apache-2.0) as optional better fills. Avoid: Triangle/meshpy (non-free commercial), LivePortrait's InsightFace (non-commercial), bizarre-pose (AGPL), DrawingSpinUp (no licence, CUDA). Excluded as paid: Spine, Moho, Live2D PRO, Rive export. Blender headless only as a fallback for a real perspective turn. MediaPipe found a pose on only 1 of 3 chalk figures, so joint placement needs a person to confirm.
+- **Engine:** `puppet.py` (root, beside `chalk.py`; not wired into `produce`). `Puppet`: bones with parents (forward kinematics), each bone owns a traced part; each part is a rigid chalk cut-out moved with one affine (cubic resampling keeps grain), drawn in z-order, with a shared joint disc at each pivot so elbows and necks stay covered; part opacity follows the chalk ink so dark board around a part never blocks what is behind it. Actions are `{bone, deg, at, dur}` (or root `dx` with `hop`/`steps` for puppet steps), eased with a string-style overshoot and settle; idle sway and breath around the string point. `Elements`: displacement fields for flags (wave from the pole), hanging cloth (pivot top), trees (pivot bottom), rigid swings (whisks, lamps), flames (flicker + optional ignite time), drifting clouds; chalk-stroke birds. `Stage`: background plate with only the moved pixels filled (`fill_holes`, Telea + chalk grain), elements, puppets, then a 3-frame chalk "boil". Falling petals reuse `chalk.Overlays`. Board, chalk conversion (`chalk.chalk_from_image`, palette `ayodhya`), camera and captions reuse `chalk`/`studio`. No new dependencies.
+- **Prototype:** `data/anim_lab/AK01_puppet/` (lab, gitignored): illustrations `illus/` (Z-Image Turbo, series chalk prefix, bible prompt for Dasharatha; 3 seeds each, picks 7202/7202/7303), rigs `rigs/proto.json` (parts, joints, actions keyed to narration lines and fractions, elements), scripts `scripts/{gen,proto}.py`. Output `AK01-puppet-proto-{en,hi}.mp4` (20.8 s / 22.4 s, 1080×1920 at 30 fps, −13.7/−13.8 LUFS): (1) Dasharatha on the throne lowers his raised hand and droops his head on "longed to rest", then lifts both on "proposed Rama"; chamara whisk, banners and hanging lamps move; (2) terrace: Rama steps in, the king leans and reaches to his shoulder on "embraced", both look up on "Pushya"; flags, tree, cloth ends and birds move; (3) city at dusk: flags flutter, clouds drift, petals fall from "flowers", lamps light far to near on "lamps for the night". Render about 2.5 s per output second on the M5, no heavy model at render time.
+- **v2 after owner review (2026-11-17):** owner: "pillars moving", Rama's "waist doesn't fit his lower body", "movements aren't logically correct". Fixes, now rules for every puppet shot:
+  - **Cut-outs only.** Environmental objects (banners, whisks, lamps, flags, trees, flames) are rigid cut-outs too, never a bent region. Character pixels are subtracted from every object cut-out.
+  - **Figure masks.** Character parts are intersected with the BiRefNet figure mask (dilated 9 px), so railings, pillars and buildings behind a figure never move.
+  - **Whole figures.** Every figure is one connected puppet (legs → torso → head and arms) with shared joint discs. Standing figures keep their feet planted; sway and breath act only above the waist. Seated figures breathe only in the torso.
+  - **Logical movement.** Gestures continue the drawn pose: the weary hand sinks, the proclaiming hand rises higher, the father's hand comes to rest on the son's chest, the son bows from the waist. Shoulders rotate at most about 30°.
+  - **Locked stage.** No handheld jitter in puppet shots; only a slow push.
+  - **Motion-map QA.** Before showing a shot, render it with a motion map (every pixel that changed is marked red) and confirm only the intended things move.
+  - **Removed.** Cloud drift (rectangular strips) and garland sway were dropped. Outputs: `AK01-puppet-proto-v2-{en,hi}.mp4`.
+- **v3 after second owner review (2026-11-17):** owner: Dasharatha's "shoulder gets completely cut off"; wants "a lot of movements" that are "possible as in real life", with no "arm breaking". Changes:
+  - **Mesh skinning.** Rigid cut-outs were replaced by a deformable mesh per figure (scipy Delaunay, 8 px spacing). Skinning weights come from the traced part labels, blended smoothly across each joint (shoulder about 0.035 × width, elbow about 0.022). Rendering is forward triangle rasterisation with one cubic remap, so shoulders, elbows, necks and waists bend like skin and cloth instead of separating. There is no fold-over ghosting and no new dependency.
+  - **Follow-through.** `follow` bones lag a parent (scarf, hanging arm, cloth).
+  - **Revealed gaps** are filled dimmed, so they read as shadow.
+  - **Draw the story pose; animate around it.** A single flat drawing cannot show a large reach: the hidden inner arm folds. So each illustration is generated in the narration's key pose (for example the father's arm already around Rama), and the motion stays anatomically small and rich: breathing, head turns and nods, a lean, a pat, a bow, looking up, cloth swing, plus environmental motion.
+  - **Joint caps.** About 25° at elbows, 20° at shoulders, and no lifting of a hand that rests on something (the hidden surface beneath would show).
+  - **Outputs:** `AK01-puppet-proto-v3-{en,hi}.mp4`. The terrace now uses the embrace drawing `illus/p2b_embrace_7603.png`, and the king's resting hand is rigged to Rama's shoulder, so it moves with Rama.
+- **v4 after third owner review (2026-11-17):** owner: the whisk feathers moved but its handle stayed still, plus "multiple issues"; "figure out an automated checklist, and verify the issues and fix them before delivering". Changes:
+  - **Automated motion QA, `pipeline/puppetqa.py`.** Run with `proto.py --qa`. Rendering refuses unless every shot passes; `--force` overrides. Each shot writes a report plus a crop sheet (rest vs peak, or original vs frozen rest) to `work/qa/<shot>.{json,png}`. Checks:
+    - `rest_fidelity`: with all motion frozen, the frame must reproduce the drawing.
+    - `torn_stroke`: a still stroke cut from a moving one. Inside characters the figure mask decides; for objects the test is the same colour on both sides of the cut and the stroke crossing it.
+    - `split_surface`: one surface torn between two characters.
+    - `orphan_fragment`: a small piece of a moving object left behind.
+    - `lost_ink`: a moving object loses or gains drawing.
+    - `fold`: crushed or flipped mesh triangles inside visible area.
+    - `exposed_patch`: an uncovered fill that changes the image, in scenes without a plate.
+    - `background_seam`: an uncovered area does not continue its surroundings.
+    - `joint_limit`: a per-bone `limit` in the rig, defaults by joint type.
+    - `pop`: a jump of more than 9 px between frames.
+    - `contact_drift`: resting hands and planted feet must stay put.
+    - `double_owner`: one drawn pixel owned by two moving objects.
+  - **Waivers.** A flag I verified on the sheet as invisible or as correct occlusion becomes a `qa_waive` entry in the rig with the check, box and written reason; it is reported, not hidden.
+  - **Engine rules learned from the flags.**
+    - Every moving object is completed underneath whatever is in front of it. A body part is extended in a narrow band (about as wide as the motion) under overlapping parts of its own and of other characters. A cloth or object behind another object is completed from a clean background plate, colour-matched to that object.
+    - Semi-transparent overlaps, such as feather strands over a banner, are alpha-matted against the actual composite behind them, so the rest frame is exact.
+    - Clean background plates come from FLUX.2 klein reference editing (`plates/`): the same drawing without the moving figures and objects. A plate is used only for large reveals whose surroundings match; otherwise the local background is continued. Wherever nothing covers a pixel at rest, the background is always the original.
+    - Ownership is exclusive. The front character claims only pixels it actually draws; character coverage stays inside its own traced outline, and traced outlines are authoritative over the figure mask.
+    - Objects are colour cut-outs: flags, banners and flames keep only their saturated pieces, with their chalk edge, and never take spires, pillars or clouds.
+    - The whisk rotates together with the attendant's forearm about the elbow, so the hand holding it moves.
+    - Each body part is its own mesh. Parts blend only at a real joint, and only within the limb's width (`blend` and `width` per bone). Parts that merely touch, such as a hand on a dhoti or a scarf beside the body, move independently.
+    - Resting limbs are `pin`ned, so the hand stays and the shoulder flexes.
+    - Large rotations of arms drawn against the body are forbidden: shoulder about 6°, with gestures led by the elbow.
+    - Scenes crossfade directly into each other; no blank board.
+  - **Outputs:** `AK01-puppet-proto-v4-{en,hi}.mp4` (20.0 s / 21.7 s, −13.7 LUFS). All three shots pass QA, each with its recorded waivers.
+- **v5 after fourth owner review (2026-11-18):** owner: Dasharatha's "upper arm still breaks" on the throne, and "the background waving flag also moves along with Dasharatha's body" in the embrace. Both had passed v4 QA, so each became a new check before it was fixed:
+  - **`body_gap`.** An area of a character's body is uncovered with nothing behind it (counted where two traced parts overlap, or under another character).
+    - Cause: the raised forearm uncovered about 40 px of sleeve; completion was a fixed 10 px band, and meshes only covered visible pixels.
+    - Fix: each part's mesh covers its visible plus completed area, and the completion band adapts to the actual motion of the parts in front (`max_motion`, up to 70 px). Completion uses a drawn underlay when one exists (`underlay`: FLUX.2 klein edit of the character with the front part removed, for example `plates/p1_king_underlay.png`); otherwise it is inpainted from the part's own chalk and re-grained. Completion happens only under opaque front pixels.
+    - Movement rule learned: a forearm drawn in front of the shoulder may not swing outward, because the hidden shoulder edge has no reliable drawing. The weary hand drifts inward and returns exactly to its drawn pose; the proclamation is carried by head lift, chest and nod.
+  - **`line_captured`.** A straight scenery line (pole, rail) belongs to a moving character.
+    - Cause: the small flag's white pole ran behind the king's hair inside his traced outline.
+    - Fix: `scenery_lines` (Hough) are removed from character cut-outs whenever most of the line lies outside the figure mask. Near-vertical lines are extended through the character so pole pixels between hair strands stay still, and removed scenery always keeps the original pixels.
+  - **`object_captured`.** A character's cut-out contains a coloured object's pixels (flags, banners, flames are claimed first).
+  - **Physics rules added.** Cloth hanging from a shoulder (Rama's scarf) is `pin`ned: it blends with the shoulder at the top, and its hem stays put under gravity instead of swinging with the waist. Element holes cover only the ink they draw, so no blots appear around the tree.
+  - **Gate.** All three shots pass; verified waivers are recorded per shot.
+  - **Outputs:** `AK01-puppet-proto-v5-{en,hi}.mp4`.
+- **Owner approval and pivot system (2026-11-18):** the owner approved v5 ("approved") and asked for pivots on characters and objects, so parts can only move logically. Changes:
+  - **Templates, `profiles/rigs.json`.**
+    - `human_standing` and `human_seated` skeletons with named pivots: seat or ankle_mid, waist, neck, head_top, shoulder/elbow/wrist/hand on both sides, and hip/knee/ankle/toe on both sides.
+    - Each bone has an anatomical limit (degrees from the drawn pose), a blend width and contact rules: seated legs and standing hips stay put.
+    - Object pivot templates: flag (pole), banner (top edge), hanging lamp (chain point), tree (trunk base), flame (wick), wheel (axle, `spin`), door (hinge), handheld prop (follows a hand bone, `attach`, with optional swing about the grip), hanging cloth (pinned at the hem).
+    - Rules: only hips and torso may shift, at most 6 px; a joint may separate at most 2.5 px.
+  - **Rigs declare pivots only.** A rig gives `template` plus `joints` (pivot positions); `puppet.resolve` builds bones, hierarchy and limits. Custom bones are still allowed (joined palms, a hand resting on another character, a scarf).
+  - **New QA checks.**
+    - `joint_gap`: a part pulls off its pivot.
+    - `unpivoted_motion`: a part slides instead of turning, or shifts too far.
+    - `object_without_pivot`: a moving object has no declared pivot.
+    - Per-template joint limits.
+    - Every shot also gets a pivot sheet, `work/qa/<shot>_rig.png`, with joints, bones, pinned joints (red) and object pivots (cyan).
+  - **First run.** The checks caught v5's head sliding on the neck and the chest sliding off the waist; heads and chests now only turn about their pivots. All three prototype rigs migrated to the templates.
+  - **Outputs:** `AK01-puppet-proto-v6-{en,hi}.mp4`. All shots pass.
+- **Limits:** 2D only (a head can tilt, nod and shift but not truly turn from profile to front); large limb moves reveal a filled background, so actions stay small; rig fitting is manual today (about 10–15 min per illustration: trace parts, place joints); illustrations must be composed for puppetry (limbs clear of the body, side or three-quarter views). Rama's blue skin from the image model becomes a dusky dark tone through the series palette.
+- **Plan for all 11 shots:** `research_notes/Chalk puppet animation/ak01_shot_plan.md`.
+- **Full episode (2026-11-18, owner approved the v6 prototype and the pivot system):**
+  - **Rig.** `rigs/ak01.json`, 10 illustrations for 11 lines; the throne covers lines 2–3.
+  - **New drawings.** 7 new illustrations in `illus/`: s01_window, s04_peacocks, s05_rama, s07_dream, s08_urge, s09_fast, s11_manthara (seed 10303).
+  - **QA.** Every shot passes `proto.py --rig=ak01 --qa`. Waivers are recorded per shot, each verified on its QA sheet.
+  - **Engine and QA changes:**
+    - `exposed_patch` skips reveals that are plain dark board, matching the board around them (`plain_board`).
+    - Holes keep the original pixel where the drawing is board-dark and the rest cover is weak. This removes grey rings in dark gaps inside figures.
+    - Swing gains `side` (one-directional swing).
+    - `proto.py --only` now uses the same per-shot seed as the full render. Before this, a shot could pass alone and fail in the full run.
+  - **Motion learned the hard way** (each item failed QA first):
+    - A resting arm (elbow on an armrest, hand on a sill or parapet) is pinned, and then the torso may not lean, because the pinned limb tears from the moving chest. Weight and intent are carried by the head instead.
+    - A head whose hair overlaps a pillar or rail cannot turn: the cut-out carries the pillar strip with it (Sita, s09).
+    - A long tail lying over a railing stays still (peacock, s04).
+    - A flame's halo is never cut: flames flicker in brightness and sway at most 1.5 px.
+    - Hair and crown tips must sit inside the head part, and elbow tips inside the arm part.
+  - **Cut on purpose** (each looked wrong at frame scale and is noted for the owner):
+    - the chamara whisk swing on the throne: its arm turned about the hand, and moving the stick uncovered a grey patch on the pillar capital;
+    - the s07 curtain stir;
+    - the small peacock's head bobs (its neck shredded);
+    - Rama's and Sita's head moves at the fire (pillar overlap);
+    - torso leans in s01, s07 and s11.
+  - **Outputs:** `AK01-puppet-{en,hi}.mp4` (en 52.2 s, hi 56.9 s, −13.9 LUFS). **Owner approved 2026-11-18** after the chalk draw-in, the shloka slide and the chalk sound at 0.12. Nothing is published or scheduled; publishing still needs metadata, a schedule and G3 through the manual `/publish` skill.
+- **Owner review of the full episode (2026-11-18):** "video is good". The owner asked for two changes, both now in `proto.py`.
+  - **Chalk drawing first, then the drawing comes alive.** Each shot is drawn in stroke by stroke with the series engine's `chalk.reveal_order`, chalk stick and dust: 2.0 s for the first shot (`draw_first`), 1.0 s for the others (`draw`). The chalk-scratch sound plays during each draw at `CHALK_SFX_SCALE = 0.12` × the approved `CHALK_SFX_GAIN`. The owner asked three times for it quieter: 0.6, then 0.3, then 0.12.
+  - **Dedicated shloka slide, as in the series.** The rig shot `verse_card` (`card: "verse"`, `hold`) is drawn with `chalk.text_scene` in reading order. A preceding shot can end early with `cut_frac`: s08 cuts at 55 % of line 7, and the card carries the rest of the line plus `hold` (1.2 s) of verse-only time.
+  - `chalk.text_scene` now vertically centres verses with fewer than four lines. Four-line verses render exactly as before.
+  - **Open text question for the owner.** The card shows the script's half verse, श्व एव पुष्यो भविता / श्वोऽभिषेच्यस्तु मे सुतः (2.4.2). A search snippet from sanskritdocuments.org gives "श्वोऽभिषेच्येत मे सुतः" and the second half "रामो राजीवताम्राक्षो यौवराज्य इति प्रभुः". The page itself returned 403, so the full verse is unverified and not used.
+- **Production integration (2026-11-18, owner: "from ep10 onwards I want videos to be generated like this"):**
+  - **Engine v3.** `puppetstudio.py` renders inside `studio.step_render` whenever `engine_version >= 3`. It uses the series timings (`studio.scene_timings`), captions, titles, overlays and `chalk.plan` (draw windows and transitions).
+  - **Each scene:** drawn with the chalk stick, then animated from its `rig.json` shot. Verse and shloka scenes are chalk cards with their verse-only time.
+  - **Transitions:** `erase`, `black`, `crossfade` and `dip` work; others render as a cut.
+  - **Chalk sound:** scaled by `chalk.PUPPET_CHALK_SFX_SCALE = 0.12` in `chalk.sound`.
+  - **Gate:** `pipeline rig-qa <ID> --lang L` (also `python puppetstudio.py <content>/<lang>`) writes `<lang>/rigqa/` sheets plus a summary. Render runs the gate first and stops on failure; `STUDIO_RIG_FORCE=1` overrides, and only the owner may ask for that.
+  - **Rig file:** rig coordinates refer to the cropped scene still, the same one the chalk layer uses. One shot per scene (`"scene": i`); actions use `"line": i` (scene index) with `frac`/`offset`.
+- **Disk cleanup (2026-11-18, owner-approved):** about 61 GiB freed (34 → 95 GiB free). Removed:
+  - the discarded video models (Wan2.2 q8, LTX-2.3 q4, FastWan) and their lab environments (`venv-ltx`, `ltx-2-mlx`, `mlx-video`);
+  - Gemma 3 12B from the Hugging Face cache;
+  - puppet prototypes v1–v5 (v6 kept);
+  - the uv cache;
+  - `pipeline cleanup --apply --yes`.
+
+  FLUX.2 klein, BiRefNet, Maya2, Whisper and `models/` are kept.
 
 ## Progress log
 | Date | Work | Decisions |

@@ -16,6 +16,12 @@ The visual plan for each episode: prompts, the character bible, reference sheets
 
 ## Process
 1. Turn each scene's direction into a concrete prompt: subject, action, composition (subject centred, headroom for titles, lower 25% clear for captions), period-accurate costume and architecture.
+   - **From Episode 10 (engine v3, chalk puppets), compose every drawing for puppetry:**
+     - Draw the character in the key pose of the line.
+     - Side or three-quarter view.
+     - Keep limbs, hair, tails, scarves and held props clear of the body and of scenery. Nothing that should move may overlap a pillar, rail, window frame or another figure.
+     - Flags, banners, lamps and flames get open board around them.
+     - A part drawn over scenery cannot move without tearing it, so that motion is lost.
 2. **Positive phrasing only.** Z-Image Turbo runs with guidance 0, so negative prompts do nothing and negations can prime the forbidden concept (VIDEO_QUALITY_UPGRADE_PLAN D4). Describe what should be there ("plain black background", "two arms") instead of "no …".
 3. Use `{character}` tokens for recurring characters so the bible text is reused verbatim (expansion in `studio.py` once A8 lands; until then paste the bible text exactly).
 4. Respect depiction rules: deities symbolic; Rama calm; Sita never sexualised; gore off-screen; Ravana with ten crowned heads as a layered silhouette, ancient Indian ornaments, nothing Mughal-coded; no Western fantasy demons.

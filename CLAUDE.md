@@ -8,6 +8,12 @@
 - **Analytics checkup (workflow).** Before each new episode's scripts: `python -m pipeline analytics` (if the last snapshot is >12 h old) and `python -m pipeline insights`; the scriptwriter applies `data/reports/latest_insights.json`, and the learnings are shown with the scripts at G1 (no extra approval).
 - **Progress reporting.** During any long run (voice, images, render), post an update every 3–5 minutes using `python -m pipeline progress <ID> --oneline`. Each update covers the current step, its time left, total time left and finish time.
 - **Approved style.** Keep the approved chalkboard style and the reduced chalk SFX (`chalk.CHALK_SFX_GAIN = 0.035`).
+- **Chalk-puppet animation from Episode 10 (approved 2026-11-18).**
+  - New episodes are engine v3. Each scene is drawn in chalk, then comes alive as a Kathputli-style puppet, rigged with `content/<ID>/rig.json`.
+  - Chalk sound is at ×0.12 (`chalk.PUPPET_CHALK_SFX_SCALE`).
+  - Verse slides keep verse-only time.
+  - `python -m pipeline rig-qa` must pass before render. See PROJECT_CONTEXT §30.
+- **AK01 is on hold.** The approved Ayodhya Kanda sample (`data/anim_lab/AK01_puppet/AK01-puppet-{en,hi}.mp4`) is scheduled or published only when the series reaches that chapter. Raise it then; never before.
 - **Hindi voice.** Use Maya 2 Native `maya2:Malini` (also gu and te; Veena kavya is retired, 2026-11-16). QA must pass `speaker_consistency`, which checks that the whole narration is one voice.
 - **Duration.** Target 35–55 s per language, hard limit under 60 s. Run `python -m pipeline lint <ID>` before G1; it blocks estimates above 57 s. See the `storytelling` skill.
 - **AI disclosure.** New episodes set YouTube `synthetic: true` and Instagram `is_ai_generated: true`; Made for Kids = No. See `docs/PUBLISHING.md`.
