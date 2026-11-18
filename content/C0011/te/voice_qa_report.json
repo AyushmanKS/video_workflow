@@ -1,0 +1,795 @@
+{
+  "video": null,
+  "kind": "audio",
+  "mp4_sha256": null,
+  "verdict": "warn",
+  "families": {
+    "story": {
+      "score": 100,
+      "pass": true,
+      "rejects": [],
+      "warns": [],
+      "checks": 11
+    },
+    "audio": {
+      "score": 50,
+      "pass": false,
+      "rejects": [],
+      "warns": [
+        "narration_asr",
+        "speech_rate"
+      ],
+      "checks": 3
+    }
+  },
+  "checks": [
+    {
+      "name": "lint_duration",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "estimate_s": 570.29,
+        "basis": "letters"
+      }
+    },
+    {
+      "name": "lint_hook",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_scene_count",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_scene_length",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_keywords",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_digits",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_quote_src",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_sources",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_edition",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_silences",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_visual_parity",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "narration_asr",
+      "family": "audio",
+      "class": "warn",
+      "ok": false,
+      "issues": [
+        "scene 8: CER 0.188 length ratio 0.87 (warn) — listen and regenerate if mispronounced",
+        "scene 10: CER 0.164 length ratio 0.85 (warn) — listen and regenerate if mispronounced",
+        "scene 12: CER 0.365 length ratio 0.65 (warn) — listen and regenerate if mispronounced",
+        "scene 16: CER 0.338 length ratio 0.75 (warn) — listen and regenerate if mispronounced",
+        "scene 18: CER 0.214 length ratio 0.79 (warn) — listen and regenerate if mispronounced",
+        "scene 19: CER 0.219 length ratio 0.81 (warn) — listen and regenerate if mispronounced",
+        "scene 20: CER 0.154 length ratio 0.95 (warn) — listen and regenerate if mispronounced",
+        "scene 21: CER 0.444 length ratio 0.57 (warn) — listen and regenerate if mispronounced",
+        "scene 23: CER 0.27 length ratio 0.76 (warn) — listen and regenerate if mispronounced",
+        "scene 25: CER 0.264 length ratio 0.81 (warn) — listen and regenerate if mispronounced",
+        "scene 28: CER 0.303 length ratio 0.76 (warn) — listen and regenerate if mispronounced",
+        "scene 29: CER 0.151 length ratio 0.88 (warn) — listen and regenerate if mispronounced",
+        "scene 30: CER 0.525 length ratio 0.5 (warn) — listen and regenerate if mispronounced",
+        "scene 32: CER 0.304 length ratio 0.75 (warn) — listen and regenerate if mispronounced",
+        "scene 35: CER 0.154 length ratio 0.88 (warn) — listen and regenerate if mispronounced",
+        "scene 36: CER 0.379 length ratio 0.66 (warn) — listen and regenerate if mispronounced",
+        "scene 37: CER 0.26 length ratio 0.77 (warn) — listen and regenerate if mispronounced",
+        "scene 38: CER 0.203 length ratio 0.81 (warn) — listen and regenerate if mispronounced",
+        "scene 39: CER 0.222 length ratio 0.82 (warn) — listen and regenerate if mispronounced",
+        "scene 47: CER 0.247 length ratio 0.78 (warn) — listen and regenerate if mispronounced",
+        "scene 48: CER 0.416 length ratio 0.63 (warn) — listen and regenerate if mispronounced",
+        "scene 49: CER 0.25 length ratio 0.79 (warn) — listen and regenerate if mispronounced"
+      ],
+      "data": {
+        "scenes": [
+          {
+            "scene": 1,
+            "cer": 0.03,
+            "length_ratio": 0.97,
+            "heard": "రాముడు చిన్నవాడని తండ్రి భై పడ్డారు ఆరో రోజు రాక్షసులు రానే వచ్చారు"
+          },
+          {
+            "scene": 2,
+            "cer": 0.085,
+            "length_ratio": 0.95,
+            "heard": "ఆరు రాత్రింబవళ్లు నిద్రమాని అన్నదములు యగ్ణాగ్నిని కాపాడేరు ఇపుడు వానమబుల్లా రాక్షసులు వేదికపై విర్చుకు పడ్డారు"
+          },
+          {
+            "scene": 3,
+            "cer": 0.049,
+            "length_ratio": 0.95,
+            "heard": "అయతే తండ్రి భైపడిన ఆ బాలుడి చేతిలో దేవతల కైన దుర్లభమైన దివ్యాస్త్రాలున్నాయి."
+          },
+          {
+            "scene": 4,
+            "cer": 0.041,
+            "length_ratio": 1.0,
+            "heard": "కాని ఈ కదా అంతకు ఎంతో ముందే ప్రశాంతమైన నది ఉడ్డున ఒక కవితో ఒక ప్రశ్నతో రెండు పక్షులతో మొదలవుతుంది."
+          },
+          {
+            "scene": 5,
+            "cer": 0.103,
+            "length_ratio": 1.0,
+            "heard": "ఇంతు కాలం క్రితం వాల్మికి మహర్షి మాటలెలో మేటియఈన నారదుడిని ఉక ప్రష్న అడిగారు."
+          },
+          {
+            "scene": 6,
+            "cer": 0.036,
+            "length_ratio": 1.04,
+            "heard": "ఈ లోకన్లో గుణవంతుడు వీరుడు ధర్మగ్యుడు సత్యవాక్కు కోపాన్ని జయించినవాడు యుద్ధన్లో దేవతలే భయపడేవాడు ఎవరైన ఉన్నారా"
+          },
+          {
+            "scene": 7,
+            "cer": 0.037,
+            "length_ratio": 1.0,
+            "heard": "నారదడు సంతోషించారు. ఇన్ని గుణాలు ఆరుదు. కాని ఇక్ష్వాకు వంసంలో పుట్టిన రాముడు అనే ఒక్కడిలో అవన్ని ఉన్నాయి అన్నారు."
+          },
+          {
+            "scene": 8,
+            "cer": 0.188,
+            "length_ratio": 0.87,
+            "heard": "కదంతా చెప్పి నారదుడు ఆకాసన్లో కి విల్లి పోయారు తరవాత తమసా తిరాన ఒక దాన్ను కటి విడువకుండా తియగా కూస్తున్న క్రాంచ పక్షుల జ"
+          },
+          {
+            "scene": 9,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "అంత్లోనే ఆయన కళ్లముందే పాపపు మనసున్న వేటగాడు మగపక్షిని కూల్చాడు నేలపై పడిన తోడును చూసి ఆడపక్షి దీనంగా విలపించింది"
+          },
+          {
+            "scene": 10,
+            "cer": 0.164,
+            "length_ratio": 0.85,
+            "heard": "మహషి మనసు జాలితో కరిగి నోట అప్రయత్నంగా మాటలు విలువడ్డాయి. ఓ వేటగాడా ప్రేమలో ఉన్న జంటలో ఒకదాని చమ్పావు. నేకి ఎన్నటికి ప్ర�"
+          },
+          {
+            "scene": 11,
+            "cer": 0.143,
+            "length_ratio": 0.9,
+            "heard": "తాన మాటలకు తానే ఆస్చిర్యపోతు అవి నాలుగు పాదాలుగా పాడేందుకు తగినటు అచ్చాయని గమనించి శోకన్నుంచి పుట్టింది కాబట్టి ఇది శ్�"
+          },
+          {
+            "scene": 12,
+            "cer": 0.365,
+            "length_ratio": 0.65,
+            "heard": "తర్వాతా బ్రంహదేవుడు వచ్చి నా సంకల్పం తోని ఈ వాకు పుట్టింది రాముడి కధంతా చెప్పు కొండలు నదులు ఉన్నంత కాలం అది నిలుస్తుంది"
+          },
+          {
+            "scene": 13,
+            "cer": 0.051,
+            "length_ratio": 1.0,
+            "heard": "ఆ కతా సరయు తిరాన మనువే నిర్మించిన అయోధ్యలో ముదలవుతుంది. అక్కడి రాజు, దసరధుడు, సత్యవంతుడు, ప్రజలందరికి ప్రియమైన వాడు."
+          },
+          {
+            "scene": 14,
+            "cer": 0.044,
+            "length_ratio": 1.0,
+            "heard": "కాని ఆ మహారాజుకు వంసాని నిలిపే కొడుకు లేడు కొడుకు లేని జివితమ్లో సంతోషమే లేదని ఆయన బాధ పడ్డారు"
+          },
+          {
+            "scene": 15,
+            "cer": 0.07,
+            "length_ratio": 1.02,
+            "heard": "అందుకే ఆయన అశ్వమేధా యాగం సంకల్పించారు. వసిష్టుడు ముదలైన పురోహితులు ఆసిర్వదించగా యువముని రుష్యస్రుంగుడు యాగం నడిపించారు."
+          },
+          {
+            "scene": 16,
+            "cer": 0.338,
+            "length_ratio": 0.75,
+            "heard": "పుత్రుల కూసం రుష్యస్రుంగుడు మరో ఎగ్నం చేస్తుండగా దేవతలు బ్రంహతో మొరపెట్టుకున్నారు వరగర్వంతో రావనుడు ముల్లో కాలను పీడి�"
+          },
+          {
+            "scene": 17,
+            "cer": 0.074,
+            "length_ratio": 1.0,
+            "heard": "దేవదానవులనుంచి రక్షన కోరిన రావనుడు గర్వంతో మనుషులను లెక్క చేయలేదు. అందుకి విష్నువు దసరదుడి కొడుకుగా మనవుడిగా పుట్టడానికి అంగికరించారు."
+          },
+          {
+            "scene": 18,
+            "cer": 0.214,
+            "length_ratio": 0.79,
+            "heard": "అప్పుడు అగ్నినుంచి సూర్యుడిలా వెలిగే ఒక తేజో మూర్తి దివ్య పాయసంతో నిండిన బంగారు పాత్రతో లేచువచ్చారు దిన్ని రాణుల కుి వం"
+          },
+          {
+            "scene": 19,
+            "cer": 0.219,
+            "length_ratio": 0.81,
+            "heard": "నిధిదురికిన పేదవాడిలా పుంగిపోయిన రాజు సగం కఉసల్యకు మిగిలినదాంట్లో సగం సుమిత్రకు ఆపై సగం కఈకేకి ఇచ్చి కాసేపు ఆలో చించి చ"
+          },
+          {
+            "scene": 20,
+            "cer": 0.154,
+            "length_ratio": 0.95,
+            "heard": "చైత్రమాసం నవమినాడు కఉసల్యకు రాముడు పుట్టేడు. కఈకే ఈకి భరతుడు. సుమిత్రకు లక్ష్మణ సిత్రుగ్యులు పుట్టేడు. అయోధ్య ఆటపాటలతో �"
+          },
+          {
+            "scene": 21,
+            "cer": 0.444,
+            "length_ratio": 0.57,
+            "heard": "నలుగురు రాకుమారులు విద్యలో విలు విద్యలో ఆరి తేరారు లక్ష్మనుడు రాముడికి మరో ప్రాణ అతను లేనిదే రాముడు నిద్రించే వాడు కాదు"
+          },
+          {
+            "scene": 22,
+            "cer": 0.137,
+            "length_ratio": 0.98,
+            "heard": "ఆతిది మరేవరో కాదు విష్వామిత్ర మహర్షి దసరదుడు ఆనందంగా ఎదురెల్లి ఏది అడిగిన ఇస్తానని మాటయిచ్చారు"
+          },
+          {
+            "scene": 23,
+            "cer": 0.27,
+            "length_ratio": 0.76,
+            "heard": "నా వ్రతానికి మారిచ సుభాహులనే రాక్షసులు మామ్సం రక్తం కురిపించి భంగం కలగిస్తునారు వ్రతంలో శెపించ కోడదు అందుకే పది రాత్రు�"
+          },
+          {
+            "scene": 24,
+            "cer": 0.066,
+            "length_ratio": 0.95,
+            "heard": "రాజు స్ప్రోహ తప్పి పడి పోయారు. తేరు కున్నాక నా కమలన యనుడు రాముడికి పదహారేలు కూడా నిండలేదు. రాక్షసులతో పోరాడే వయసు కాదు. అ�"
+          },
+          {
+            "scene": 25,
+            "cer": 0.264,
+            "length_ratio": 0.81,
+            "heard": "నా సయిన్యాన్ని తీస్కెల్లండి నన్నే తీస్కెల్లండి రాముడు లేకా క్షనం బతకలేను అని వేడుకున్నారు ఈ రాక్షసుల వెనుక రావను డునాడ�"
+          },
+          {
+            "scene": 26,
+            "cer": 0.125,
+            "length_ratio": 0.95,
+            "heard": "నేయి పోసిన అగ్మిలా విష్వామిత్రుడి కోపం భగుమనగా రగువంసుపు రాజు మాటతప్పడమా అని ఆయనానగాని భూమి అంతా కంపించింది."
+          },
+          {
+            "scene": 27,
+            "cer": 0.115,
+            "length_ratio": 0.95,
+            "heard": "గురు వసిష్టుడు రాజుకు ధైరియం చెప్పారు. ధర్మాన్ని విడవకు. అగ్ని కాపాడే అమురు తన్లా ఈ మహర్షి రక్షనలో రాముడు క్షేమంగా ఉంటాడ"
+          },
+          {
+            "scene": 28,
+            "cer": 0.303,
+            "length_ratio": 0.76,
+            "heard": "తల్లి ఆసి సులతో దసరదుడు కొడుకు సిరస్సును ఆగ్రాణించి మహర్షికి అప్పగించారు మెల్లగా గాలి విచింది ఆకాసంనుంచి పూలవాన కురిసి"
+          },
+          {
+            "scene": 29,
+            "cer": 0.151,
+            "length_ratio": 0.88,
+            "heard": "సరయు ఉడ్డున మహర్షి రాముడికి బలా అతిబలా అనే మంత్రాలు ఉపదేసించారు వాటితో అలసట ఆకలి దరిచేరవు ఆ రాత్రి అన్నదములు గడ్డి పరుప�"
+          },
+          {
+            "scene": 30,
+            "cer": 0.525,
+            "length_ratio": 0.5,
+            "heard": "తెల్లవారు తుండగా మహర్షిలే పేరు కఉసల్యకు సుపుత్రుడి విరామా తొలి సంధ్యవచ్చింది లే నరశార్దూలా పదిహేనో శతాప్దపు స్రి వేంకట"
+          },
+          {
+            "scene": 31,
+            "cer": 0.098,
+            "length_ratio": 0.97,
+            "heard": "గంగదాటాకా ఒకప్పుడు మలదా కరూశ దేసాలు ఉన్న ఆ నేలను వెయి ఏనుగుల బలమున్న తాటకా అనే యక్షిని పాడు చేసిందని మహర్షి చేపేరు."
+          },
+          {
+            "scene": 32,
+            "cer": 0.304,
+            "length_ratio": 0.75,
+            "heard": "ఉకై ఎక్షనికి ఇంతా బలం యలా అని రాముడు అడిగితే అది బ్రంహ వరం అన్నారు మహషి కొడుకు మారి చుడితో కలిసి అగస్త్యుడి పై దాడి చేసిన"
+          },
+          {
+            "scene": 33,
+            "cer": 0.033,
+            "length_ratio": 0.98,
+            "heard": "స్త్రీ అని వెను కాడకు ప్రజలను కాపాడే వాడు పని క్రూరంగా కనిపించిన చేయక తప్పదు పాలించే వారికి అదే సాశ్వత ధర్మం అన్నారు మహర"
+          },
+          {
+            "scene": 34,
+            "cer": 0.035,
+            "length_ratio": 1.0,
+            "heard": "రాముడు ధనుష్టంకారం చేయగా అని తాటక దూస్కుచింది అప్పుడు కూడా ఆమిను చంపాలని లేదు అడ్డు కుంటే చాలు అని లక్ష్మనుడితో అన్నాడు"
+          },
+          {
+            "scene": 35,
+            "cer": 0.154,
+            "length_ratio": 0.88,
+            "heard": "కాని ఆమే దుమ్ము రేపి రాల్ళవాన కురిపించి మాయతో మాయమైంది చాలు ఇ జాలి రామా సంధ్య వస్తోంది అప్పుడు రాక్షసులను గెలవలేం అని మహ"
+          },
+          {
+            "scene": 36,
+            "cer": 0.379,
+            "length_ratio": 0.66,
+            "heard": "శబ్ధాని బట్టి గురి చూసి రాముడు బాణాలతో రాల్ల వానను అడ్డు కునాడు ఆమే మీదకు దూస్కురాగాని ఒకే బాణం వధిలాడు తాటక నేల కూలింది"
+          },
+          {
+            "scene": 37,
+            "cer": 0.26,
+            "length_ratio": 0.77,
+            "heard": "మర్నాడు మహర్షి చిరునవు తో కాలచక్రం వజ్రం బ్రమ్హాస్త్రం అగ్మి వాయువు నిద్రాస్త్రం సహా అస్త్రాలన్ని రాముడికిచరు అవి చేతు"
+          },
+          {
+            "scene": 38,
+            "cer": 0.203,
+            "length_ratio": 0.81,
+            "heard": "రాముడు వాటిని తాకి నా మనసులో ఉండండి అన్నాడు ఇక దేవతిలు కూడా నను జేంచలేరు కాని వీటుని వెనక్కి ఎలా రప్పించాలి అనే అడియాడు �"
+          },
+          {
+            "scene": 39,
+            "cer": 0.222,
+            "length_ratio": 0.82,
+            "heard": "చివరికి కొండపక్కన మేఘమ్లా కనిపించే సిద్ధాస్రమానికి చేరారు ఇక్కడే రాక్షసులు యాగాన్ని పాడు చేస్తారు నరసార్దూల ఇక్కడే వా�"
+          },
+          {
+            "scene": 40,
+            "cer": 0.067,
+            "length_ratio": 1.02,
+            "heard": "ఆరోజి విష్వామిత్రుడు మవ్నవరతం పూనారు మునుల కోరికపై ఆరు రాత్రింబవళ్ళు నిద్ర లేకుండ రామలక్ష్మనులు ఆయన పక్కని కాపు కాసారు"
+          },
+          {
+            "scene": 41,
+            "cer": 0.094,
+            "length_ratio": 0.98,
+            "heard": "ఆరు రోజు సిద్ధంగా ఉండు అని రాముడు లక్ష్మనుడితో అంటుండగానే వేదికమీదా అగ్మి భగుమంది ఆకాసం భయంకరంగా గర్చించింది"
+          },
+          {
+            "scene": 42,
+            "cer": 0.048,
+            "length_ratio": 0.98,
+            "heard": "వానమబుల్లా రాక్షసలు కమ్ము కొచ్చారు మారీచ సుభాహులు వేదికమీద రక్తధారలు కురిపించారు"
+          },
+          {
+            "scene": 43,
+            "cer": 0.0,
+            "length_ratio": 1.02,
+            "heard": "రాముడు మెరిసే మానవాస్త్రాన్ని సంధించి మారిచుడి గుండపై వదిలేడు. అది అతన్ని నూరు యోజనాల దూరాన సముద్రణ్లోకి విస్రేసింది."
+          },
+          {
+            "scene": 44,
+            "cer": 0.06,
+            "length_ratio": 1.0,
+            "heard": "చూడు లక్ష్నా ఈ చల్లని మానవాస్త్రం అతన్ని మూర్చపరిచి తీస్కు పోయంది కాని ప్రాణన్ తియలేదు అన్నాడు రాముడు"
+          },
+          {
+            "scene": 45,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "తరవాతా ఆగ్నియాస్త్రంతో సుబాహుడిని నేలకూల్చాడు, వాయవియాస్త్రంతో మిగిలినవారిని తుడిచి పెట్టాడు."
+          },
+          {
+            "scene": 46,
+            "cer": 0.111,
+            "length_ratio": 0.98,
+            "heard": "యాగం పూర్తయింది. నా పని నరవేరింది. సిద్ధాస్రమం పేరును నువు సార్ధకం చేసావు. అన్నారు విస్వామిత్రుడు."
+          },
+          {
+            "scene": 47,
+            "cer": 0.247,
+            "length_ratio": 0.78,
+            "heard": "అలా చిన్నవాడని తంరి భైపడిన ఆ రాకు మారుడు గురువుల మాటా నిలబెట్టాడు. ఆరు రోజులు నిద్రమాని యగ్యాగ్నిని కాపాడాడు. యుద్ధం లోన"
+          },
+          {
+            "scene": 48,
+            "cer": 0.416,
+            "length_ratio": 0.63,
+            "heard": "మర్నాడు ఉదేయం విష్వామిత్రోడిని ముందుంచుకొని మునులు మిథిలలో జనకుడి ఎగ్యంగురించి చెప్పారు దేవాసురులు రాక్షసులు ఎవ్వరు ఎ"
+          },
+          {
+            "scene": 49,
+            "cer": 0.25,
+            "length_ratio": 0.79,
+            "heard": "ఎందరో రాజులు ప్రయత్మించి ఓడి పోయారు ఆస్రమపు జింకలు పక్షులు కొంత దూరం వెంటరాగా విష్వామిత్రుడు ఉత్తరంగా ఆ విల్లు ఎదురు చూ"
+          },
+          {
+            "scene": 50,
+            "cer": 0.136,
+            "length_ratio": 0.93,
+            "heard": "బాలకాండలో మొదటి భాగం ఇక్కడా విస్రమిస్తుంది యగ్ఞాగని ప్రసాంతంగా విలగుతోంది మిథిలకు దారి తేరిచుకుంది రాముడి కధా ముందుకు"
+          }
+        ],
+        "transcripts": [
+          "QA cache (wav hash)",
+          "whisper large-v3-turbo"
+        ]
+      },
+      "note": "CER is warn-only for this language until Indic ASR is validated"
+    },
+    {
+      "name": "speech_rate",
+      "family": "audio",
+      "class": "warn",
+      "ok": false,
+      "issues": [
+        "scene 2: speech rate +26% vs te reference"
+      ],
+      "data": {
+        "reference_letters_per_s": 5.928,
+        "scenes": [
+          {
+            "scene": 1,
+            "seconds": 5.6,
+            "letters_per_s": 5.89,
+            "deviation": -0.006
+          },
+          {
+            "scene": 2,
+            "seconds": 7.92,
+            "letters_per_s": 7.45,
+            "deviation": 0.257
+          },
+          {
+            "scene": 3,
+            "seconds": 6.56,
+            "letters_per_s": 6.25,
+            "deviation": 0.054
+          },
+          {
+            "scene": 4,
+            "seconds": 9.12,
+            "letters_per_s": 5.37,
+            "deviation": -0.094
+          },
+          {
+            "scene": 5,
+            "seconds": 6.4,
+            "letters_per_s": 6.09,
+            "deviation": 0.027
+          },
+          {
+            "scene": 6,
+            "seconds": 10.56,
+            "letters_per_s": 5.3,
+            "deviation": -0.106
+          },
+          {
+            "scene": 7,
+            "seconds": 8.4,
+            "letters_per_s": 6.43,
+            "deviation": 0.085
+          },
+          {
+            "scene": 8,
+            "seconds": 9.76,
+            "letters_per_s": 7.07,
+            "deviation": 0.193
+          },
+          {
+            "scene": 9,
+            "seconds": 10.08,
+            "letters_per_s": 5.75,
+            "deviation": -0.03
+          },
+          {
+            "scene": 10,
+            "seconds": 11.92,
+            "letters_per_s": 6.12,
+            "deviation": 0.032
+          },
+          {
+            "scene": 11,
+            "seconds": 10.24,
+            "letters_per_s": 6.15,
+            "deviation": 0.037
+          },
+          {
+            "scene": 12,
+            "seconds": 15.12,
+            "letters_per_s": 5.62,
+            "deviation": -0.052
+          },
+          {
+            "scene": 13,
+            "seconds": 10.0,
+            "letters_per_s": 5.9,
+            "deviation": -0.005
+          },
+          {
+            "scene": 14,
+            "seconds": 8.56,
+            "letters_per_s": 5.26,
+            "deviation": -0.113
+          },
+          {
+            "scene": 15,
+            "seconds": 9.92,
+            "letters_per_s": 5.75,
+            "deviation": -0.03
+          },
+          {
+            "scene": 16,
+            "seconds": 12.64,
+            "letters_per_s": 6.09,
+            "deviation": 0.027
+          },
+          {
+            "scene": 17,
+            "seconds": 10.48,
+            "letters_per_s": 6.49,
+            "deviation": 0.095
+          },
+          {
+            "scene": 18,
+            "seconds": 12.16,
+            "letters_per_s": 5.76,
+            "deviation": -0.028
+          },
+          {
+            "scene": 19,
+            "seconds": 13.04,
+            "letters_per_s": 5.6,
+            "deviation": -0.055
+          },
+          {
+            "scene": 20,
+            "seconds": 11.68,
+            "letters_per_s": 5.57,
+            "deviation": -0.06
+          },
+          {
+            "scene": 21,
+            "seconds": 15.52,
+            "letters_per_s": 6.38,
+            "deviation": 0.076
+          },
+          {
+            "scene": 22,
+            "seconds": 8.24,
+            "letters_per_s": 6.19,
+            "deviation": 0.044
+          },
+          {
+            "scene": 23,
+            "seconds": 14.08,
+            "letters_per_s": 5.26,
+            "deviation": -0.113
+          },
+          {
+            "scene": 24,
+            "seconds": 10.56,
+            "letters_per_s": 5.78,
+            "deviation": -0.025
+          },
+          {
+            "scene": 25,
+            "seconds": 11.04,
+            "letters_per_s": 6.52,
+            "deviation": 0.1
+          },
+          {
+            "scene": 26,
+            "seconds": 9.84,
+            "letters_per_s": 5.69,
+            "deviation": -0.04
+          },
+          {
+            "scene": 27,
+            "seconds": 10.32,
+            "letters_per_s": 5.91,
+            "deviation": -0.003
+          },
+          {
+            "scene": 28,
+            "seconds": 11.76,
+            "letters_per_s": 6.46,
+            "deviation": 0.09
+          },
+          {
+            "scene": 29,
+            "seconds": 13.12,
+            "letters_per_s": 5.56,
+            "deviation": -0.062
+          },
+          {
+            "scene": 30,
+            "seconds": 20.8,
+            "letters_per_s": 5.67,
+            "deviation": -0.044
+          },
+          {
+            "scene": 31,
+            "seconds": 11.2,
+            "letters_per_s": 5.45,
+            "deviation": -0.081
+          },
+          {
+            "scene": 32,
+            "seconds": 13.6,
+            "letters_per_s": 5.81,
+            "deviation": -0.02
+          },
+          {
+            "scene": 33,
+            "seconds": 9.76,
+            "letters_per_s": 6.25,
+            "deviation": 0.054
+          },
+          {
+            "scene": 34,
+            "seconds": 8.32,
+            "letters_per_s": 6.85,
+            "deviation": 0.156
+          },
+          {
+            "scene": 35,
+            "seconds": 12.0,
+            "letters_per_s": 5.42,
+            "deviation": -0.086
+          },
+          {
+            "scene": 36,
+            "seconds": 15.76,
+            "letters_per_s": 5.52,
+            "deviation": -0.069
+          },
+          {
+            "scene": 37,
+            "seconds": 13.92,
+            "letters_per_s": 5.53,
+            "deviation": -0.067
+          },
+          {
+            "scene": 38,
+            "seconds": 11.68,
+            "letters_per_s": 5.91,
+            "deviation": -0.003
+          },
+          {
+            "scene": 39,
+            "seconds": 10.96,
+            "letters_per_s": 6.57,
+            "deviation": 0.108
+          },
+          {
+            "scene": 40,
+            "seconds": 10.64,
+            "letters_per_s": 5.64,
+            "deviation": -0.049
+          },
+          {
+            "scene": 41,
+            "seconds": 10.4,
+            "letters_per_s": 5.1,
+            "deviation": -0.14
+          },
+          {
+            "scene": 42,
+            "seconds": 6.72,
+            "letters_per_s": 6.25,
+            "deviation": 0.054
+          },
+          {
+            "scene": 43,
+            "seconds": 9.12,
+            "letters_per_s": 5.92,
+            "deviation": -0.001
+          },
+          {
+            "scene": 44,
+            "seconds": 7.84,
+            "letters_per_s": 6.38,
+            "deviation": 0.076
+          },
+          {
+            "scene": 45,
+            "seconds": 6.88,
+            "letters_per_s": 6.54,
+            "deviation": 0.103
+          },
+          {
+            "scene": 46,
+            "seconds": 7.6,
+            "letters_per_s": 5.92,
+            "deviation": -0.001
+          },
+          {
+            "scene": 47,
+            "seconds": 11.76,
+            "letters_per_s": 6.21,
+            "deviation": 0.048
+          },
+          {
+            "scene": 48,
+            "seconds": 14.08,
+            "letters_per_s": 6.32,
+            "deviation": 0.066
+          },
+          {
+            "scene": 49,
+            "seconds": 12.88,
+            "letters_per_s": 5.59,
+            "deviation": -0.057
+          },
+          {
+            "scene": 50,
+            "seconds": 10.0,
+            "letters_per_s": 5.9,
+            "deviation": -0.005
+          }
+        ]
+      }
+    },
+    {
+      "name": "speaker_consistency",
+      "family": "audio",
+      "class": "reject",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "windows": 360,
+        "window_median": 0.749,
+        "window_min": 0.499,
+        "scene_min": 0.787,
+        "median_f0": 174,
+        "calibration": "2026-11-16: 2.5s windows — consistent voice min 0.61 / known-mixed median 0.46 (50% < 0.5); 1s clips are unreliable (same voice down to 0.57)"
+      }
+    }
+  ],
+  "contact_sheet": null,
+  "manual_review_required": [
+    "character consistency",
+    "visual defects / wrong illustrations",
+    "storytelling quality",
+    "native-speaker listen for non-English"
+  ],
+  "created_at": "2026-11-18T20:56:55+0530",
+  "id": 129
+}

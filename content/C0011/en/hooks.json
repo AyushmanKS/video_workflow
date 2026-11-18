@@ -1,0 +1,75 @@
+[
+  {
+    "text": "His father said he was too young to fight rakshasas, and on the sixth day, they came.",
+    "type": "contrast / stakes-first in medias res",
+    "spoken_s": 5.5,
+    "scores": {
+      "curiosity": 5,
+      "emotion": 5,
+      "specificity": 4,
+      "speed": 4,
+      "resonance": 4,
+      "accuracy": 5
+    },
+    "total": 27,
+    "selected": true,
+    "visual_hook": true,
+    "cold_open_s": 32.0,
+    "hook_to_payoff": "The main question (can the boy his father feared for hold the altar?) is answered in chapter 5 at scenes 43–46 (about 8:16–8:51 of about 9:47, roughly 84–90%). The closing line, scene 47, mirrors it: 'the prince his father had called too young for battle'.",
+    "reasoning": "Selected: highest rubric total. It puts the stake in the first sentence (insights A1/A2) and sets a father's fear against the part's climax, so chapter 3 (Dasharatha's 'not yet sixteen', VR 1.20.2, and 'a boy', 1.20.7) pays it off halfway and chapter 5 (VR 1.30.7–26) closes it. Accurate: Dasharatha says Rama is not yet sixteen and not fit to fight rakshasas (1.20.2); the attack comes on the sixth day (1.30.7–12). The 17 words are spoken in an estimated 5.5 s, under the 6 s long-form warning. Frame 0 direction (two princes, a blazing altar, a sky full of cloud) reads with the sound off. hookscore.py second opinion (English-only, run 2026-11-18): 34/100 WEAK, specificity 40, the highest specificity of the four; its weakest property for every line is STAKES. It does not override the rubric."
+  },
+  {
+    "text": "Two young princes stood guard over a sacred fire, and the sky above it began to roar.",
+    "type": "sensory in medias res",
+    "spoken_s": 5.6,
+    "scores": {
+      "curiosity": 4,
+      "emotion": 4,
+      "specificity": 4,
+      "speed": 4,
+      "resonance": 4,
+      "accuracy": 5
+    },
+    "total": 25,
+    "selected": false,
+    "visual_hook": true,
+    "hook_to_payoff": "closes at scenes 43–46 (about 84–90%)",
+    "reasoning": "VR 1.30.5–10. A strong image that matches frame 0, but it carries no personal stake: it does not say who the princes are or why it matters. It also gives the bookend closing line nothing to echo. hookscore.py: 34/100 WEAK."
+  },
+  {
+    "text": "Six days and nights without sleep, and on the sixth day the sky above the altar began to roar.",
+    "type": "number",
+    "spoken_s": 6.1,
+    "scores": {
+      "curiosity": 4,
+      "emotion": 3,
+      "specificity": 5,
+      "speed": 3,
+      "resonance": 4,
+      "accuracy": 5
+    },
+    "total": 24,
+    "selected": false,
+    "visual_hook": true,
+    "hook_to_payoff": "closes at scenes 43–46 (about 84–90%)",
+    "reasoning": "VR 1.30.5–10. Specific and true, but it is spoken over the 6 s long-form warning, and 'six' repeated twice in the first second weakens it. The six-day vigil is kept in scene 2. hookscore.py: 34/100 WEAK."
+  },
+  {
+    "text": "A hunter's arrow, a bird's cry, and one sage's grief became the first poem on earth.",
+    "type": "text versus belief / origin",
+    "spoken_s": 5.2,
+    "scores": {
+      "curiosity": 4,
+      "emotion": 4,
+      "specificity": 4,
+      "speed": 4,
+      "resonance": 5,
+      "accuracy": 4
+    },
+    "total": 25,
+    "selected": false,
+    "visual_hook": true,
+    "hook_to_payoff": "would close at scene 10 (about 17%), far too early for a 9.8 min cold open",
+    "reasoning": "VR 1.2.10–18, 1.2.40. The text calls itself the adikavya (colophon of 1.2), but 'first poem on earth' overstates what the verse itself says, so accuracy scores 4. The long-form rule asks for the part's most gripping moment in the cold open, and this one resolves inside chapter 1. It is kept as chapter 1's re-hook (scenes 8–12) and suggested as the pinned-comment question (A3)."
+  }
+]

@@ -1,0 +1,40 @@
+{
+ "scene": 11,
+ "overlay": [
+  "godrays"
+ ],
+ "elements": [
+  {
+   "kind": "flash",
+   "poly": [
+    [
+     0.6,
+     0.0
+    ],
+    [
+     0.93,
+     0.0
+    ],
+    [
+     0.93,
+     0.46
+    ],
+    [
+     0.6,
+     0.46
+    ]
+   ],
+   "times": [
+    1.5,
+    4.2,
+    10.2,
+    16.9
+   ],
+   "strength": 0.35,
+   "saturation_min": 0.25,
+   "piece_min": 0.01,
+   "grow": 2,
+   "snap": 0
+  }
+ ]
+}

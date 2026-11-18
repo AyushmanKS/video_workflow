@@ -1,0 +1,10 @@
+{
+ "scene": 12,
+ "overlay": ["petals"],
+ "elements": [
+  {"kind": "flag", "poly": [[0.802, 0.085], [0.882, 0.085], [0.882, 0.182], [0.802, 0.182]], "anchor": [0.8, 0.13], "length": 0.075, "amp": 6, "freq": 0.8, "phase": 0.0, "saturation_min": 0.25, "snap": 6},
+  {"kind": "flag", "poly": [[0.629, 0.198], [0.693, 0.198], [0.693, 0.286], [0.629, 0.286]], "anchor": [0.627, 0.24], "length": 0.06, "amp": 5, "freq": 0.85, "phase": 1.2, "saturation_min": 0.25, "snap": 6},
+  {"kind": "flag", "poly": [[0.3705, 0.414], [0.395, 0.414], [0.395, 0.456], [0.3705, 0.456]], "anchor": [0.369, 0.435], "length": 0.022, "amp": 2, "freq": 0.9, "phase": 2.1, "saturation_min": 0.25, "snap": 4, "edge": 3},
+  {"kind": "flag", "poly": [[0.3, 0.448], [0.313, 0.448], [0.313, 0.472], [0.3, 0.472]], "anchor": [0.299, 0.46], "length": 0.012, "amp": 1.5, "freq": 0.95, "phase": 0.7, "saturation_min": 0.25, "snap": 4, "edge": 3}
+ ]
+}

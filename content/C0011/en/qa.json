@@ -1,0 +1,1307 @@
+{
+  "video": "/Users/ayushman/Desktop/work/shorts-studio/content/C0011/en/C0011-en.mp4",
+  "kind": "automated",
+  "mp4_sha256": "d8d08826fb42553bbe5c0c787fb4b11a8a042eca76978e0748ebcb737e8c68e5",
+  "verdict": "warn",
+  "families": {
+    "story": {
+      "score": 100,
+      "pass": true,
+      "rejects": [],
+      "warns": [],
+      "checks": 11
+    },
+    "visual": {
+      "score": 33,
+      "pass": false,
+      "rejects": [],
+      "warns": [
+        "near_duplicates",
+        "safe_zones"
+      ],
+      "checks": 3
+    },
+    "audio": {
+      "score": 100,
+      "pass": true,
+      "rejects": [],
+      "warns": [],
+      "checks": 4
+    },
+    "final": {
+      "score": 100,
+      "pass": true,
+      "rejects": [],
+      "warns": [],
+      "checks": 10
+    }
+  },
+  "checks": [
+    {
+      "name": "lint_duration",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "estimate_s": 586.77,
+        "basis": "letters"
+      }
+    },
+    {
+      "name": "lint_hook",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_scene_count",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_scene_length",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_keywords",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_digits",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_quote_src",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_sources",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_edition",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_silences",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_visual_parity",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "format",
+      "family": "final",
+      "class": "reject",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "video": "h264",
+        "audio": "aac",
+        "fps": 30.0,
+        "seconds": 561.27
+      }
+    },
+    {
+      "name": "duration",
+      "family": "final",
+      "class": "reject",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "seconds": 561.27
+      }
+    },
+    {
+      "name": "duration_target",
+      "family": "final",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "seconds": 561.27
+      }
+    },
+    {
+      "name": "loudness",
+      "family": "final",
+      "class": "reject",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "lufs": -14.0,
+        "true_peak_dbfs": -1.6,
+        "lra": 2.6
+      }
+    },
+    {
+      "name": "black_freeze",
+      "family": "final",
+      "class": "reject",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "black": 0,
+        "freeze": 0
+      }
+    },
+    {
+      "name": "silence",
+      "family": "final",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "gaps": 0
+      }
+    },
+    {
+      "name": "first_frame",
+      "family": "final",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "t0.0": 0.2456,
+        "t0.5": 0.2781
+      },
+      "note": "style decision: warn only"
+    },
+    {
+      "name": "narration_asr",
+      "family": "audio",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "scenes": [
+          {
+            "scene": 1,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "His father said he was too young to fight Rakshasas, and on the sixth day they came."
+          },
+          {
+            "scene": 2,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "For six days and nights, Rama and his brother had guarded a sacred fire without sleep. And now, like monsoon clouds, the Rakshasas came sweeping down upon the altar."
+          },
+          {
+            "scene": 3,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "Yet the boy his father had trembled for now-carried weapons that even the gods could hardly hope to own."
+          },
+          {
+            "scene": 4,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "But this story begins long before that day, beside a quiet river with a poet, a question, and two birds."
+          },
+          {
+            "scene": 5,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "Long ago, the sage Valmiki put a question to Narada, the wandering seer of the gods and the finest of all who speak."
+          },
+          {
+            "scene": 6,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "Is there anyone in this world today, he asked, who is good and brave, who knows Dharma, who is truthful and firm in his vows, who has conquered anger, and whom even the gods fear in battle?"
+          },
+          {
+            "scene": 7,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "Narada was glad at heart. Such qualities are rare, he said, yet one man has them all. He was born in the line of Ikshvaku and the people call him Rama."
+          },
+          {
+            "scene": 8,
+            "cer": 0.017,
+            "length_ratio": 1.0,
+            "heard": "Then he told Valmiki the whole of Rama's story and rose into the sky. Valmiki went down to the Tamasah River, and there, wandering the bank, he saw a pair of croncha birds singing sweetly, never leaving one another's side."
+          },
+          {
+            "scene": 9,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "But before his eyes, a hunter with a heart full of malice shot down the male bird, and his mate, seeing him fallen on the earth, cried out in grief."
+          },
+          {
+            "scene": 10,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "Pity filled the sage's heart, and these words broke from him. Hunter, may you never find rest through endless years, for you have struck down one of a pair lost in love."
+          },
+          {
+            "scene": 11,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "Afterwards he wondered at his own words, for they had come out in four even lines, fit to be sung to the strings, and he said that this verse, born of sorrow, should be called a shloka."
+          },
+          {
+            "scene": 12,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "Later Brahma the creator of the worlds came to him and said it was my will that this speech came to you So tell all of Rama's story and as long as mountains stand and rivers flow It will be told and so one sages sorrow became a shloka and the shloka became the Ramayana"
+          },
+          {
+            "scene": 13,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "The story he sang begins in Ayodhya, a city on the Sarayu built by Manu himself, and its king, Dasharatha, was truthful and wise and dear to all his people."
+          },
+          {
+            "scene": 14,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "Yet this great king had no son to carry on his line, and without one he said, there was no joy for him."
+          },
+          {
+            "scene": 15,
+            "cer": 0.007,
+            "length_ratio": 1.0,
+            "heard": "So he resolved on the great horse sacrifice. His priests, led by Vasishtha, blessed the plan, and the young sage Rishi Ashringa came to lead the rites on the bank of the Sarayu."
+          },
+          {
+            "scene": 16,
+            "cer": 0.01,
+            "length_ratio": 1.0,
+            "heard": "When it was done, Rishi Ashranga lit one more fire for the birth of sons. The gods who gathered there for their share cried to Brahma in fear, for the Rakshasa king Ravana, proud of his boon, was tormenting all three worlds, and even the sun dared not scorch him."
+          },
+          {
+            "scene": 17,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "He had asked to be safe from gods and demons, but in his scorn he never thought of men. And so the god Vishnu agreed to be born as a man, as the son of King Dasharatha."
+          },
+          {
+            "scene": 18,
+            "cer": 0.023,
+            "length_ratio": 1.0,
+            "heard": "Then from the fire rose a radiant being, bright as the sun, holding a golden vessel of piousa made by the gods. Give it to your queens, he said, and you will have sons."
+          },
+          {
+            "scene": 19,
+            "cer": 0.02,
+            "length_ratio": 1.0,
+            "heard": "The king, like a poor man who has found treasure, gave half to Khazaliya, half of what was left to Sumitra, half of the rest to Kaikei, and, after a moment's thought, the last share to Sumitra again."
+          },
+          {
+            "scene": 20,
+            "cer": 0.045,
+            "length_ratio": 0.97,
+            "heard": "In the spring month of Chaitra, on the ninth day, Kausalya gave birth to Rama, Kikebhor Bharata, and Sumitrabhor Lakshmana and Shatragna, and all Ayodhya filled with singing and dancing."
+          },
+          {
+            "scene": 21,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "The four princes grew in learning and in archery, and Lakshmana was like Rama's second life. Rama would not even sleep without him. And as the princes came of age, the king began to think of their weddings, never guessing who was about to come to his gate."
+          },
+          {
+            "scene": 22,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "It was then that the great sage Vishvamitra came to the palace, and Dasharatha, overjoyed, went out to meet him and promised to do whatever he might ask."
+          },
+          {
+            "scene": 23,
+            "cer": 0.007,
+            "length_ratio": 1.0,
+            "heard": "I am keeping a sacred vow, the sage said, and two rakshasas, Maricha and Sabahu, rain flesh and blood upon my altar. While the vow lasts, I may not curse them, so give me Rama for ten nights."
+          },
+          {
+            "scene": 24,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "The king fell senseless, and when he came to himself he said, My lotus-eyed Rama is not yet sixteen, and I do not see him fit to fight Rakshasas."
+          },
+          {
+            "scene": 25,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "Take my army instead, he begged, take me, for I cannot live a moment without Rama.\" And when he heard that Ravana stood behind these Rakshasas, his fear only grew."
+          },
+          {
+            "scene": 26,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "Then Vishvamitra's anger blazed like a fire fed with ghee. He said it was unworthy of Raghu's line for a king to break his word, and as he spoke, the whole earth trembled."
+          },
+          {
+            "scene": 27,
+            "cer": 0.014,
+            "length_ratio": 0.99,
+            "heard": "It was the guru Vasishtha who studied the king. You were born in Ikshvaku's line, he said, so do not abandon Dharma now, for guarded by this sage, Rama is as safe as nectar guarded by fire."
+          },
+          {
+            "scene": 28,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "So with his mother's blessing, Dasharatha kissed his son's head and gave him to the sage. A gentle wind blew, flowers fell from the sky, and Lakshmana walked behind his brother."
+          },
+          {
+            "scene": 29,
+            "cer": 0.007,
+            "length_ratio": 1.0,
+            "heard": "On the bank of the Sarayu, the sage gave Rama two mantras, Bala and Atabala, so that no weariness or hunger would touch him. And that night the princes slept on beds of grass."
+          },
+          {
+            "scene": 30,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "At dawn the sage woke him gently. Khausalya is blessed in her son Rama, the twilight is here, so rise, tiger among men. Centuries later a temple hymn would open with these words. That morning they walked on toward the Ganga, and beyond it lay a dreadful forest, and the one who had laid it waste."
+          },
+          {
+            "scene": 31,
+            "cer": 0.007,
+            "length_ratio": 1.0,
+            "heard": "They crossed the Ganga to a dreadful forest, once the rich land of Malata and Karusha, which a yakshi named Tataka, with the strength of a thousand elephants, had laid to waste."
+          },
+          {
+            "scene": 32,
+            "cer": 0.041,
+            "length_ratio": 0.99,
+            "heard": "How could a yak she hold such strength? Rama asked. It was Brahma's boon, said the sage. And when she and her son Maricha attacked the sage Agastya, his curse made her a man-eating roxasy."
+          },
+          {
+            "scene": 33,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "Do not shrink from this because she is a woman, the sage told him. Those who protect the people must act, cruel as the deed may seem, for that is the lasting duty of all who rule."
+          },
+          {
+            "scene": 34,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "Rama twanged his bowstring and Tataka came charging, yet even then he told Lakshmana he had no heart to kill her and meant only to stop her."
+          },
+          {
+            "scene": 35,
+            "cer": 0.022,
+            "length_ratio": 1.01,
+            "heard": "But she raised a storm of dust, rained down rocks and vanished into illusion, and the sage cried. Enough of this pity Rama, dusk is near when rock-shosses cannot be beaten."
+          },
+          {
+            "scene": 36,
+            "cer": 0.006,
+            "length_ratio": 1.01,
+            "heard": "With arrows aimed by sound alone, Rama checked her reign of stones, and as she rushed at him, he struck her chest with a single arrow and she fell. The gods praised him and the cursed forest bloomed again."
+          },
+          {
+            "scene": 37,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "Next morning the sage smiled and gave Rama all his weapons, the discus of time, the thunderbolt, the Brahma weapon, fire and wind and even sleep, and they stood before him with joined palms, saying, we are your servants."
+          },
+          {
+            "scene": 38,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "Rama touched them and bade them dwell in his mind. Then he asked the sage, now that not even the gods can overcome me, how do I call these weapons back? And the sage taught him that too."
+          },
+          {
+            "scene": 39,
+            "cer": 0.006,
+            "length_ratio": 1.0,
+            "heard": "At last they reached Siddhasrama, the hermitage of fulfillment, a grove like a cloud beside a mountain. Here, the sage said, the Rakshasas come to wreck my sacrifice, and here, tiger among men, you must strike them down."
+          },
+          {
+            "scene": 40,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "That day Vishvamitra entered his vow of silence, and the sages asked the princes to guard him. So for six days and nights, without sleep, Rama and Lakshmana stood watch beside him."
+          },
+          {
+            "scene": 41,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "On the sixth day Rama told Lakshmana to be ready, and as he spoke, the altar fire blazed up and a terrible sound filled the sky."
+          },
+          {
+            "scene": 42,
+            "cer": 0.034,
+            "length_ratio": 1.02,
+            "heard": "Like monsoon, clouds the rock-shauses swept in, and Maricha and Sabahu poured streams of blood upon the altar."
+          },
+          {
+            "scene": 43,
+            "cer": 0.008,
+            "length_ratio": 1.0,
+            "heard": "Rama fitted the shining manava weapon to his bow and loosed it at Maricha's chest and it hurled him a full hundred yajanas into the surging ocean"
+          },
+          {
+            "scene": 44,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "See Lakshmana Rama said this cold arrow of Manu stuns him and carries him away, but it does not take his life"
+          },
+          {
+            "scene": 45,
+            "cer": 0.011,
+            "length_ratio": 1.0,
+            "heard": "Then, with the fire weapon he struck Sabahu, who fell to the earth, and with the wind weapon he swept away all the rest."
+          },
+          {
+            "scene": 46,
+            "cer": 0.01,
+            "length_ratio": 0.99,
+            "heard": "The sacrifice was complete, and Vishvamitra said, My purpose is fulfilled, and you have made Siddhasrama true to its name."
+          },
+          {
+            "scene": 47,
+            "cer": 0.022,
+            "length_ratio": 0.99,
+            "heard": "And so the prince's father had called two young for battle did as his gurus asked, keeping a sage's fire safe through six sleepless days, and even in battle he spared a life."
+          },
+          {
+            "scene": 48,
+            "cer": 0.013,
+            "length_ratio": 1.0,
+            "heard": "Next morning the sages, with Vishvamitri at their head, spoke of King Janaka's sacrifice in Mithila, and of a wondrous bow there that no god, no usura, no rakshasa, still less any man could string."
+          },
+          {
+            "scene": 49,
+            "cer": 0.007,
+            "length_ratio": 0.99,
+            "heard": "Mighty princes had tried it and failed, and so Vishvamitra turned north, the deer and birds of Siddhasrama following him a while toward Mithila, where that bow was waiting."
+          },
+          {
+            "scene": 50,
+            "cer": 0.016,
+            "length_ratio": 1.0,
+            "heard": "Here the first part of the balaconda comes to rest. The sacred fire burns quietly now, and the road to Mithila lies open before the next part of Rama's story."
+          }
+        ],
+        "transcripts": [
+          "render-time transcript (heard.json)"
+        ]
+      },
+      "note": "digits vs number-words and Whisper spelling quirks inflate CER; review flagged scenes by ear"
+    },
+    {
+      "name": "speech_rate",
+      "family": "audio",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "reference_letters_per_s": 12.04,
+        "scenes": [
+          {
+            "scene": 1,
+            "seconds": 5.22,
+            "letters_per_s": 12.63,
+            "deviation": 0.049
+          },
+          {
+            "scene": 2,
+            "seconds": 10.78,
+            "letters_per_s": 12.25,
+            "deviation": 0.017
+          },
+          {
+            "scene": 3,
+            "seconds": 6.08,
+            "letters_per_s": 13.83,
+            "deviation": 0.149
+          },
+          {
+            "scene": 4,
+            "seconds": 6.8,
+            "letters_per_s": 11.91,
+            "deviation": -0.011
+          },
+          {
+            "scene": 5,
+            "seconds": 7.33,
+            "letters_per_s": 12.42,
+            "deviation": 0.032
+          },
+          {
+            "scene": 6,
+            "seconds": 11.3,
+            "letters_per_s": 12.92,
+            "deviation": 0.073
+          },
+          {
+            "scene": 7,
+            "seconds": 9.9,
+            "letters_per_s": 11.72,
+            "deviation": -0.027
+          },
+          {
+            "scene": 8,
+            "seconds": 13.72,
+            "letters_per_s": 12.75,
+            "deviation": 0.059
+          },
+          {
+            "scene": 9,
+            "seconds": 8.45,
+            "letters_per_s": 13.49,
+            "deviation": 0.12
+          },
+          {
+            "scene": 10,
+            "seconds": 10.2,
+            "letters_per_s": 12.94,
+            "deviation": 0.075
+          },
+          {
+            "scene": 11,
+            "seconds": 10.85,
+            "letters_per_s": 13.18,
+            "deviation": 0.095
+          },
+          {
+            "scene": 12,
+            "seconds": 17.43,
+            "letters_per_s": 12.28,
+            "deviation": 0.02
+          },
+          {
+            "scene": 13,
+            "seconds": 10.53,
+            "letters_per_s": 11.59,
+            "deviation": -0.037
+          },
+          {
+            "scene": 14,
+            "seconds": 6.4,
+            "letters_per_s": 12.19,
+            "deviation": 0.012
+          },
+          {
+            "scene": 15,
+            "seconds": 10.93,
+            "letters_per_s": 12.81,
+            "deviation": 0.064
+          },
+          {
+            "scene": 16,
+            "seconds": 15.9,
+            "letters_per_s": 13.02,
+            "deviation": 0.081
+          },
+          {
+            "scene": 17,
+            "seconds": 10.6,
+            "letters_per_s": 12.08,
+            "deviation": 0.003
+          },
+          {
+            "scene": 18,
+            "seconds": 10.47,
+            "letters_per_s": 12.32,
+            "deviation": 0.023
+          },
+          {
+            "scene": 19,
+            "seconds": 11.72,
+            "letters_per_s": 13.05,
+            "deviation": 0.084
+          },
+          {
+            "scene": 20,
+            "seconds": 11.75,
+            "letters_per_s": 13.19,
+            "deviation": 0.096
+          },
+          {
+            "scene": 21,
+            "seconds": 15.1,
+            "letters_per_s": 13.38,
+            "deviation": 0.111
+          },
+          {
+            "scene": 22,
+            "seconds": 9.25,
+            "letters_per_s": 13.19,
+            "deviation": 0.096
+          },
+          {
+            "scene": 23,
+            "seconds": 12.4,
+            "letters_per_s": 11.77,
+            "deviation": -0.022
+          },
+          {
+            "scene": 24,
+            "seconds": 9.38,
+            "letters_per_s": 11.95,
+            "deviation": -0.007
+          },
+          {
+            "scene": 25,
+            "seconds": 10.5,
+            "letters_per_s": 12.1,
+            "deviation": 0.005
+          },
+          {
+            "scene": 26,
+            "seconds": 10.9,
+            "letters_per_s": 12.2,
+            "deviation": 0.013
+          },
+          {
+            "scene": 27,
+            "seconds": 12.35,
+            "letters_per_s": 11.9,
+            "deviation": -0.012
+          },
+          {
+            "scene": 28,
+            "seconds": 11.1,
+            "letters_per_s": 12.61,
+            "deviation": 0.047
+          },
+          {
+            "scene": 29,
+            "seconds": 11.03,
+            "letters_per_s": 12.43,
+            "deviation": 0.032
+          },
+          {
+            "scene": 30,
+            "seconds": 18.18,
+            "letters_per_s": 12.71,
+            "deviation": 0.056
+          },
+          {
+            "scene": 31,
+            "seconds": 11.07,
+            "letters_per_s": 12.73,
+            "deviation": 0.057
+          },
+          {
+            "scene": 32,
+            "seconds": 11.7,
+            "letters_per_s": 12.65,
+            "deviation": 0.051
+          },
+          {
+            "scene": 33,
+            "seconds": 10.8,
+            "letters_per_s": 12.78,
+            "deviation": 0.061
+          },
+          {
+            "scene": 34,
+            "seconds": 8.97,
+            "letters_per_s": 12.48,
+            "deviation": 0.037
+          },
+          {
+            "scene": 35,
+            "seconds": 10.93,
+            "letters_per_s": 12.27,
+            "deviation": 0.019
+          },
+          {
+            "scene": 36,
+            "seconds": 12.3,
+            "letters_per_s": 13.09,
+            "deviation": 0.087
+          },
+          {
+            "scene": 37,
+            "seconds": 13.65,
+            "letters_per_s": 12.75,
+            "deviation": 0.059
+          },
+          {
+            "scene": 38,
+            "seconds": 10.97,
+            "letters_per_s": 13.12,
+            "deviation": 0.09
+          },
+          {
+            "scene": 39,
+            "seconds": 13.57,
+            "letters_per_s": 12.82,
+            "deviation": 0.065
+          },
+          {
+            "scene": 40,
+            "seconds": 11.53,
+            "letters_per_s": 12.49,
+            "deviation": 0.037
+          },
+          {
+            "scene": 41,
+            "seconds": 8.53,
+            "letters_per_s": 11.73,
+            "deviation": -0.026
+          },
+          {
+            "scene": 42,
+            "seconds": 6.85,
+            "letters_per_s": 12.7,
+            "deviation": 0.055
+          },
+          {
+            "scene": 43,
+            "seconds": 9.15,
+            "letters_per_s": 12.9,
+            "deviation": 0.071
+          },
+          {
+            "scene": 44,
+            "seconds": 7.35,
+            "letters_per_s": 11.84,
+            "deviation": -0.017
+          },
+          {
+            "scene": 45,
+            "seconds": 7.12,
+            "letters_per_s": 13.05,
+            "deviation": 0.084
+          },
+          {
+            "scene": 46,
+            "seconds": 7.88,
+            "letters_per_s": 12.7,
+            "deviation": 0.055
+          },
+          {
+            "scene": 47,
+            "seconds": 10.68,
+            "letters_per_s": 13.02,
+            "deviation": 0.081
+          },
+          {
+            "scene": 48,
+            "seconds": 12.55,
+            "letters_per_s": 12.35,
+            "deviation": 0.026
+          },
+          {
+            "scene": 49,
+            "seconds": 10.32,
+            "letters_per_s": 13.66,
+            "deviation": 0.135
+          },
+          {
+            "scene": 50,
+            "seconds": 10.22,
+            "letters_per_s": 12.22,
+            "deviation": 0.015
+          }
+        ]
+      }
+    },
+    {
+      "name": "speaker_consistency",
+      "family": "audio",
+      "class": "reject",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "windows": 348,
+        "window_median": 0.756,
+        "window_min": 0.637,
+        "scene_min": 0.858,
+        "median_f0": 197,
+        "calibration": "2026-11-16: 2.5s windows — consistent voice min 0.61 / known-mixed median 0.46 (50% < 0.5); 1s clips are unreliable (same voice down to 0.57)"
+      }
+    },
+    {
+      "name": "music_under_speech",
+      "family": "audio",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "median_db": 13.0,
+        "p10_db": 7.0,
+        "voice_gain": 3.797,
+        "frames": 1005
+      }
+    },
+    {
+      "name": "captions",
+      "family": "final",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "groups": 521,
+        "timing": "timeline.json",
+        "engine_version": 3,
+        "tight_info": [
+          "scene 40: 963 px"
+        ]
+      }
+    },
+    {
+      "name": "caption_overflow",
+      "family": "final",
+      "class": "reject",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "widest_px": 963,
+        "limit_px": 1020
+      }
+    },
+    {
+      "name": "glyph_coverage",
+      "family": "final",
+      "class": "reject",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "texts": 69,
+        "fontset": "mac"
+      }
+    },
+    {
+      "name": "text_artifacts",
+      "family": "visual",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {},
+      "skipped": true,
+      "note": "tesseract binary not installed (brew install tesseract, Apache-2.0); skipped"
+    },
+    {
+      "name": "near_duplicates",
+      "family": "visual",
+      "class": "warn",
+      "ok": false,
+      "issues": [
+        "scenes 19 and 24: perceptual hash distance 6 bits (< 8)",
+        "scenes 30 and 38: perceptual hash distance 6 bits (< 8)"
+      ],
+      "data": {
+        "images": 50
+      }
+    },
+    {
+      "name": "chalk_density",
+      "family": "visual",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "scenes": [
+          {
+            "scene": 1,
+            "density": 0.336,
+            "top": 1.249,
+            "bottom": 0.949
+          },
+          {
+            "scene": 2,
+            "density": 0.307,
+            "top": 1.164,
+            "bottom": 1.088
+          },
+          {
+            "scene": 3,
+            "density": 0.128,
+            "top": 0.131,
+            "bottom": 0.754
+          },
+          {
+            "scene": 4,
+            "density": 0.244,
+            "top": 0.075,
+            "bottom": 1.078
+          },
+          {
+            "scene": 5,
+            "density": 0.389,
+            "top": 0.777,
+            "bottom": 1.166
+          },
+          {
+            "scene": 6,
+            "density": 0.039,
+            "top": 0.0,
+            "bottom": 0.013
+          },
+          {
+            "scene": 7,
+            "density": 0.188,
+            "top": 0.15,
+            "bottom": 0.877
+          },
+          {
+            "scene": 8,
+            "density": 0.305,
+            "top": 0.161,
+            "bottom": 1.604
+          },
+          {
+            "scene": 9,
+            "density": 0.314,
+            "top": 0.104,
+            "bottom": 1.911
+          },
+          {
+            "scene": 10,
+            "density": 0.041,
+            "top": 0.0,
+            "bottom": 0.012
+          },
+          {
+            "scene": 11,
+            "density": 0.246,
+            "top": 0.085,
+            "bottom": 1.176
+          },
+          {
+            "scene": 12,
+            "density": 0.291,
+            "top": 0.319,
+            "bottom": 1.003
+          },
+          {
+            "scene": 13,
+            "density": 0.272,
+            "top": 0.097,
+            "bottom": 0.296
+          },
+          {
+            "scene": 14,
+            "density": 0.303,
+            "top": 0.745,
+            "bottom": 0.974
+          },
+          {
+            "scene": 15,
+            "density": 0.247,
+            "top": 0.088,
+            "bottom": 1.262
+          },
+          {
+            "scene": 16,
+            "density": 0.254,
+            "top": 0.432,
+            "bottom": 1.131
+          },
+          {
+            "scene": 17,
+            "density": 0.157,
+            "top": 0.76,
+            "bottom": 0.268
+          },
+          {
+            "scene": 18,
+            "density": 0.191,
+            "top": 0.171,
+            "bottom": 1.117
+          },
+          {
+            "scene": 19,
+            "density": 0.036,
+            "top": 0.0,
+            "bottom": 0.013
+          },
+          {
+            "scene": 20,
+            "density": 0.237,
+            "top": 0.203,
+            "bottom": 1.071
+          },
+          {
+            "scene": 21,
+            "density": 0.203,
+            "top": 0.097,
+            "bottom": 0.825
+          },
+          {
+            "scene": 22,
+            "density": 0.261,
+            "top": 0.228,
+            "bottom": 1.163
+          },
+          {
+            "scene": 23,
+            "density": 0.291,
+            "top": 0.568,
+            "bottom": 0.859
+          },
+          {
+            "scene": 24,
+            "density": 0.036,
+            "top": 0.0,
+            "bottom": 0.014
+          },
+          {
+            "scene": 25,
+            "density": 0.3,
+            "top": 0.288,
+            "bottom": 1.177
+          },
+          {
+            "scene": 26,
+            "density": 0.349,
+            "top": 0.441,
+            "bottom": 1.278
+          },
+          {
+            "scene": 27,
+            "density": 0.329,
+            "top": 0.589,
+            "bottom": 1.254
+          },
+          {
+            "scene": 28,
+            "density": 0.33,
+            "top": 0.12,
+            "bottom": 0.856
+          },
+          {
+            "scene": 29,
+            "density": 0.333,
+            "top": 0.146,
+            "bottom": 1.303
+          },
+          {
+            "scene": 30,
+            "density": 0.037,
+            "top": 0.0,
+            "bottom": 0.013
+          },
+          {
+            "scene": 31,
+            "density": 0.313,
+            "top": 0.122,
+            "bottom": 1.298
+          },
+          {
+            "scene": 32,
+            "density": 0.204,
+            "top": 0.947,
+            "bottom": 1.218
+          },
+          {
+            "scene": 33,
+            "density": 0.035,
+            "top": 0.0,
+            "bottom": 0.014
+          },
+          {
+            "scene": 34,
+            "density": 0.272,
+            "top": 0.964,
+            "bottom": 1.16
+          },
+          {
+            "scene": 35,
+            "density": 0.343,
+            "top": 0.637,
+            "bottom": 0.878
+          },
+          {
+            "scene": 36,
+            "density": 0.421,
+            "top": 0.801,
+            "bottom": 0.673
+          },
+          {
+            "scene": 37,
+            "density": 0.349,
+            "top": 0.234,
+            "bottom": 1.031
+          },
+          {
+            "scene": 38,
+            "density": 0.039,
+            "top": 0.0,
+            "bottom": 0.013
+          },
+          {
+            "scene": 39,
+            "density": 0.354,
+            "top": 0.658,
+            "bottom": 0.561
+          },
+          {
+            "scene": 40,
+            "density": 0.339,
+            "top": 0.19,
+            "bottom": 0.958
+          },
+          {
+            "scene": 41,
+            "density": 0.31,
+            "top": 0.519,
+            "bottom": 0.697
+          },
+          {
+            "scene": 42,
+            "density": 0.168,
+            "top": 0.949,
+            "bottom": 0.69
+          },
+          {
+            "scene": 43,
+            "density": 0.184,
+            "top": 0.05,
+            "bottom": 1.547
+          },
+          {
+            "scene": 44,
+            "density": 0.037,
+            "top": 0.0,
+            "bottom": 0.013
+          },
+          {
+            "scene": 45,
+            "density": 0.242,
+            "top": 0.748,
+            "bottom": 0.431
+          },
+          {
+            "scene": 46,
+            "density": 0.282,
+            "top": 0.132,
+            "bottom": 0.96
+          },
+          {
+            "scene": 47,
+            "density": 0.318,
+            "top": 0.397,
+            "bottom": 1.205
+          },
+          {
+            "scene": 48,
+            "density": 0.035,
+            "top": 0.0,
+            "bottom": 0.015
+          },
+          {
+            "scene": 49,
+            "density": 0.187,
+            "top": 0.066,
+            "bottom": 1.115
+          },
+          {
+            "scene": 50,
+            "density": 0.106,
+            "top": 0.083,
+            "bottom": 0.46
+          }
+        ]
+      }
+    },
+    {
+      "name": "safe_zones",
+      "family": "visual",
+      "class": "warn",
+      "ok": false,
+      "issues": [
+        "scene 1: stroke energy in the title zone (top 12%) 1.25 > p90 0.111",
+        "scene 2: stroke energy in the title zone (top 12%) 1.16 > p90 0.111",
+        "scene 3: stroke energy in the title zone (top 12%) 0.13 > p90 0.111",
+        "scene 5: stroke energy in the title zone (top 12%) 0.78 > p90 0.111",
+        "scene 7: stroke energy in the title zone (top 12%) 0.15 > p90 0.111",
+        "scene 8: stroke energy in the title zone (top 12%) 0.16 > p90 0.111",
+        "scene 8: stroke energy in the caption zone (bottom 25%) 1.60 > p90 1.519",
+        "scene 9: stroke energy in the caption zone (bottom 25%) 1.91 > p90 1.519",
+        "scene 12: stroke energy in the title zone (top 12%) 0.32 > p90 0.111",
+        "scene 14: stroke energy in the title zone (top 12%) 0.75 > p90 0.111",
+        "scene 16: stroke energy in the title zone (top 12%) 0.43 > p90 0.111",
+        "scene 17: stroke energy in the title zone (top 12%) 0.76 > p90 0.111",
+        "scene 18: stroke energy in the title zone (top 12%) 0.17 > p90 0.111",
+        "scene 20: stroke energy in the title zone (top 12%) 0.20 > p90 0.111",
+        "scene 22: stroke energy in the title zone (top 12%) 0.23 > p90 0.111",
+        "scene 23: stroke energy in the title zone (top 12%) 0.57 > p90 0.111",
+        "scene 25: stroke energy in the title zone (top 12%) 0.29 > p90 0.111",
+        "scene 26: stroke energy in the title zone (top 12%) 0.44 > p90 0.111",
+        "scene 27: stroke energy in the title zone (top 12%) 0.59 > p90 0.111",
+        "scene 28: stroke energy in the title zone (top 12%) 0.12 > p90 0.111",
+        "scene 29: stroke energy in the title zone (top 12%) 0.15 > p90 0.111",
+        "scene 31: stroke energy in the title zone (top 12%) 0.12 > p90 0.111",
+        "scene 32: stroke energy in the title zone (top 12%) 0.95 > p90 0.111",
+        "scene 34: stroke energy in the title zone (top 12%) 0.96 > p90 0.111",
+        "scene 35: stroke energy in the title zone (top 12%) 0.64 > p90 0.111",
+        "scene 36: stroke energy in the title zone (top 12%) 0.80 > p90 0.111",
+        "scene 37: stroke energy in the title zone (top 12%) 0.23 > p90 0.111",
+        "scene 39: stroke energy in the title zone (top 12%) 0.66 > p90 0.111",
+        "scene 40: stroke energy in the title zone (top 12%) 0.19 > p90 0.111",
+        "scene 41: stroke energy in the title zone (top 12%) 0.52 > p90 0.111",
+        "scene 42: stroke energy in the title zone (top 12%) 0.95 > p90 0.111",
+        "scene 43: stroke energy in the caption zone (bottom 25%) 1.55 > p90 1.519",
+        "scene 45: stroke energy in the title zone (top 12%) 0.75 > p90 0.111",
+        "scene 46: stroke energy in the title zone (top 12%) 0.13 > p90 0.111",
+        "scene 47: stroke energy in the title zone (top 12%) 0.40 > p90 0.111"
+      ],
+      "data": {
+        "calibration": {
+          "top_p90": 0.111,
+          "bottom_p90": 1.519,
+          "n": 243
+        }
+      }
+    },
+    {
+      "name": "character_similarity",
+      "family": "visual",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "model_present": false
+      },
+      "skipped": true,
+      "note": "DINOv2 similarity is a human flag only; model not present locally and not downloaded"
+    }
+  ],
+  "contact_sheet": "/Users/ayushman/Desktop/work/shorts-studio/content/C0011/en/C0011-en.qa.png",
+  "manual_review_required": [
+    "character consistency",
+    "visual defects / wrong illustrations",
+    "storytelling quality",
+    "native-speaker listen for non-English"
+  ],
+  "created_at": "2026-11-18T21:22:37+0530",
+  "id": 131
+}

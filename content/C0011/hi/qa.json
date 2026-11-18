@@ -1,0 +1,1304 @@
+{
+  "video": "/Users/ayushman/Desktop/work/shorts-studio/content/C0011/hi/C0011-hi.mp4",
+  "kind": "automated",
+  "mp4_sha256": "bc52cd250f82e3ea21b15d5cd7c3f481976ddad7a60afc6d1a3c58e5813dc130",
+  "verdict": "warn",
+  "families": {
+    "story": {
+      "score": 100,
+      "pass": true,
+      "rejects": [],
+      "warns": [],
+      "checks": 11
+    },
+    "visual": {
+      "score": 33,
+      "pass": false,
+      "rejects": [],
+      "warns": [
+        "near_duplicates",
+        "safe_zones"
+      ],
+      "checks": 3
+    },
+    "audio": {
+      "score": 100,
+      "pass": true,
+      "rejects": [],
+      "warns": [],
+      "checks": 4
+    },
+    "final": {
+      "score": 100,
+      "pass": true,
+      "rejects": [],
+      "warns": [],
+      "checks": 10
+    }
+  },
+  "checks": [
+    {
+      "name": "lint_duration",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "estimate_s": 606.33,
+        "basis": "letters"
+      }
+    },
+    {
+      "name": "lint_hook",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_scene_count",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_scene_length",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_keywords",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_digits",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_quote_src",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_sources",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_edition",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_silences",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_visual_parity",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "format",
+      "family": "final",
+      "class": "reject",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "video": "h264",
+        "audio": "aac",
+        "fps": 30.0,
+        "seconds": 600.67
+      }
+    },
+    {
+      "name": "duration",
+      "family": "final",
+      "class": "reject",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "seconds": 600.67
+      }
+    },
+    {
+      "name": "duration_target",
+      "family": "final",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "seconds": 600.67
+      }
+    },
+    {
+      "name": "loudness",
+      "family": "final",
+      "class": "reject",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "lufs": -14.0,
+        "true_peak_dbfs": -1.4,
+        "lra": 2.9
+      }
+    },
+    {
+      "name": "black_freeze",
+      "family": "final",
+      "class": "reject",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "black": 0,
+        "freeze": 0
+      }
+    },
+    {
+      "name": "silence",
+      "family": "final",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "gaps": 0
+      }
+    },
+    {
+      "name": "first_frame",
+      "family": "final",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "t0.0": 0.2426,
+        "t0.5": 0.275
+      },
+      "note": "style decision: warn only"
+    },
+    {
+      "name": "narration_asr",
+      "family": "audio",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "scenes": [
+          {
+            "scene": 1,
+            "cer": 0.029,
+            "length_ratio": 1.0,
+            "heard": "पिता ने कहा था, राम राक्षसों से लड़ने के लिए बहुत छोटे हैं और चठे दिन वे आ गए।"
+          },
+          {
+            "scene": 2,
+            "cer": 0.081,
+            "length_ratio": 0.97,
+            "heard": "छे दिन, छे राते, राम और उनके भाई बिना सोय यग्य की अगनी की रखवाली करते रहे, और अब बरसाती बादलों से राक्षस वेधी पर तूट पड़े."
+          },
+          {
+            "scene": 3,
+            "cer": 0.022,
+            "length_ratio": 1.0,
+            "heard": "पर पिता जिस बेटे के लिए इतने डरे थे, उनके हाथों में अब्वि दिव्य अस्त्र थे, जो देवताओं को भी दुरलब हैं।"
+          },
+          {
+            "scene": 4,
+            "cer": 0.019,
+            "length_ratio": 0.98,
+            "heard": "लेकिन ये कहानी उस दिन से बहुत पहले एक शांत नदी के किनारे शुरू होती है, एक कवी, एक सवाल और दो पक्षियों के साथ."
+          },
+          {
+            "scene": 5,
+            "cer": 0.08,
+            "length_ratio": 1.0,
+            "heard": "बहुत पहले की बात है, महर्शी वालमेकी ने देवर्शी नारत से जिन से बढ़कर वानी का धनी कोई ना था? एक सवाल पूछा."
+          },
+          {
+            "scene": 6,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "आज इस संसार में ऐसा कौन है? उन्होंने पूछा जो गुणवान भी हो और वीर भी धर्म को जाने, सच बोले, व्रत का पक्का हो, क्रोध को जीत चुका हो और युद्ध में जिससे देवता भी डरे?"
+          },
+          {
+            "scene": 7,
+            "cer": 0.05,
+            "length_ratio": 1.0,
+            "heard": "नारत का मन खिल उठा, बोले ऐसे गुण दुरलब हैं, फिर भी एक पुरुष में ये सब हैं, वे इक्ष्वाकु वंच में जन में हैं और लोग उन्हें राम कहते हैं."
+          },
+          {
+            "scene": 8,
+            "cer": 0.011,
+            "length_ratio": 1.0,
+            "heard": "फिर नारद राम की पूरी कथा सुना कर आकाश मार्ग से चले गए और तमसा के तठ पर घूमते हुए वालमिकी ने क्रॉंच पक्षियों का एक जोड़ा देखा जो मीठे स्वर में चहकता, पल भर भी एक दूसरे से अलग न होता."
+          },
+          {
+            "scene": 9,
+            "cer": 0.017,
+            "length_ratio": 1.0,
+            "heard": "तभी उनकी आँखों के सामने एक पापी बहेलिये ने नर पक्षी को बाण से गिरा दिया और उसे धर्ती पर पड़ा देख उसकी संगिनी दुख से चीक उठी."
+          },
+          {
+            "scene": 10,
+            "cer": 0.053,
+            "length_ratio": 1.01,
+            "heard": "रिशी का रिदय करुणा से भर गया, और मुख से अपने आप शब्द फूट पड़े, हे बहे लिए तुझे अनन्त वर्षों तक कभी चैन न मिले, क्यूंकि तुने प्रेम में डूबे जोडे में से एक को मार डाला."
+          },
+          {
+            "scene": 11,
+            "cer": 0.045,
+            "length_ratio": 0.98,
+            "heard": "फिर वे अपने ही शब्दों पर चकित हुए जो चार बराबर चरणों में ढले थे और वीना पर गाय जा सकते थे और बोले शोक से जन्मा ये छंद श्लोक कहलाएगा."
+          },
+          {
+            "scene": 12,
+            "cer": 0.077,
+            "length_ratio": 0.99,
+            "heard": "बाद में स्वयम भ्रह्मा जी आये और बोले ये वाणी मेरी ही इच्छा से निकली है। अब राम की पूरी कथा कहो। जब तक परवत खड़े हैं और नदिया भहती हैं ये कथा कही जाएगी। और इस तरह एक रिशी का शोक श्लोक बना और श्लोक बन गया रामायन।"
+          },
+          {
+            "scene": 13,
+            "cer": 0.047,
+            "length_ratio": 1.0,
+            "heard": "ये कथा शुरू होती है सर्यू तटपरबसी अयोध्या से, जिसे स्वयम मनू ने बसाया था, वहां के राजा दशरत सत्यवादी थे, ज्यानी थे और प्रजा के प्यारे थे."
+          },
+          {
+            "scene": 14,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "पर इतने महान राजा का वंश आगे बढ़ाने वाला कोई पुत्र नहीं था और उन्होंने कहा पुत्र के बिना मुझे कोई सुख नहीं।"
+          },
+          {
+            "scene": 15,
+            "cer": 0.074,
+            "length_ratio": 1.01,
+            "heard": "तब उन्होंने अश्वमेध यग्य का निश्चय किया, वसिष्थ जी और पुरोहितों ने आशिर्वाद दिया, और सर्यू के तट पर यग्य कराने युवा रिशी रिश्य श्रंग पधारे।"
+          },
+          {
+            "scene": 16,
+            "cer": 0.046,
+            "length_ratio": 1.0,
+            "heard": "याजिके बाद रिश्य श्रंग ने पुत्र प्राप्ती के लिए एक और अगनी जलाई। वहाँ जुटे देवता डर कर ब्रह्माजी से बोले। वर्दान के घमंड में रावण तीनों लोकों को सता रहा है। सूरज भी उसे तपाने से डरता है।"
+          },
+          {
+            "scene": 17,
+            "cer": 0.022,
+            "length_ratio": 1.0,
+            "heard": "उसे वर मिला था कि देवता और दानव उसे मार न सके। पर मनुष्यों को उसने इतना तुच्छ समझा कि उनका नाम तक ना लिया। इसलिए भगवान विश्णु ने मनुष्य बनकर दश्रत के घर जन्म लेना स्वीकार किया।"
+          },
+          {
+            "scene": 18,
+            "cer": 0.027,
+            "length_ratio": 1.0,
+            "heard": "अतब अगनी से सूर्य सा तेजस्वी एक दिव्यपुरुष प्रकट हुआ, हाथों में देवताओं की बनाई, खीर का सोने का पात्र लिए और बोला ये अपनी रानियों को दीजिये, आपको पुत्र होंगे।"
+          },
+          {
+            "scene": 19,
+            "cer": 0.014,
+            "length_ratio": 1.0,
+            "heard": "राजा को लगा जैसे निर्धन को खजाना मिल गया हो, उन्होंने आधी खीर कौशल्या को दी, बची का आधा सुमित्रा को, उसका आधा कैकेई को, और कुछ सोचकर आखरी भाग फिर सुमित्रा को."
+          },
+          {
+            "scene": 20,
+            "cer": 0.055,
+            "length_ratio": 1.0,
+            "heard": "फिर चेत्र की नवनी को कौशल्या की गोद में राम का जन्म हुआ, केकेई से भरत, सुमित्रा से लक्षमन और शत्रुगन जन्में और सारी अयोध्या गीत और नृत्य से गूंज उठी."
+          },
+          {
+            "scene": 21,
+            "cer": 0.045,
+            "length_ratio": 0.99,
+            "heard": "चारों राजकुमार विद्या और धनुर विद्या में निखरते गए और लक्षमन तो जैसे राम के दूसरे प्रांड थे। राम उनके बिना सोते तक नहीं थे और शिकार पर भी लक्षमन धनुश लिये साथ चलते। राजकुमार बड़े हो रहे थे और राजा उनकी विवाह की सोची रहे थे। उन्हीं क्या पता था कि उनके द्वार पर कौन आने वाला है।"
+          },
+          {
+            "scene": 22,
+            "cer": 0.062,
+            "length_ratio": 1.02,
+            "heard": "तभी एक दिन महरशी विश्वामित्र राजमहल आप पहुंचे, दश्रत हानन से भरकर उनकी अगवानी को निकले और वचन दिया कि वे जो मांगींगी मिलेगा."
+          },
+          {
+            "scene": 23,
+            "cer": 0.038,
+            "length_ratio": 1.0,
+            "heard": "रिशी बोले मैं एक व्रत में हूँ और मारीच और सुबाहु नाम के दो राक्षस मेरी वेदी पर मांस और रक्त बरसाते हैं। व्रत में मैं शाब भी नहीं दे सकता, सो दस रातों के लिए राम को मुझे सौप दो।"
+          },
+          {
+            "scene": 24,
+            "cer": 0.033,
+            "length_ratio": 0.97,
+            "heard": "ये सुनते ही राजा अचेत हो गए, होश आया तो बोले, मेरे कमलनयन राम अभी सोला बरस के भी नहीं हुए, वे राक्षसों से युद्ध के योग्य नहीं है।"
+          },
+          {
+            "scene": 25,
+            "cer": 0.03,
+            "length_ratio": 1.0,
+            "heard": "उन्होंने विनती की, मेरी सेना ले जाईए, मुझे ले चलिए, राम के बिना मैं पल भर नहीं जी सकता। और जब सुना कि इनके पीछे रावन है, तो उनका डर और गेहरा गया।"
+          },
+          {
+            "scene": 26,
+            "cer": 0.048,
+            "length_ratio": 1.0,
+            "heard": "तब विश्वामित्र का क्रोध ऐसे धदक उठा, जैसे घी पाकर अगनी धदकती है। बोले रगुकुल का राजा और अपना वचन तोड़े, और सारी धर्ती काप उठी।"
+          },
+          {
+            "scene": 27,
+            "cer": 0.076,
+            "length_ratio": 1.0,
+            "heard": "तब कुलगुरु वसिष्ठ ने राजा को संभाला, आप इक्ष्वा कुवंज के हैं, धर्म मत छोड़िये, इन रिशी की छाया में राम वैसे ही सुरक्षित हैं, जैसे अगनी से घिराम रित।"
+          },
+          {
+            "scene": 28,
+            "cer": 0.07,
+            "length_ratio": 1.0,
+            "heard": "तब मा का आशिरवाद लेकर दश्रत ने बेटे का माथा चूमा और उन्हें रिशी को सौप दिया। मंदमंध हवा चली, आकाश से फूल बरसे और लक्षमन भाई के पीछे-पीछे चल पड़े।"
+          },
+          {
+            "scene": 29,
+            "cer": 0.062,
+            "length_ratio": 1.0,
+            "heard": "सर्यू के तटपर रिशी ने राम को दो मंत्र दिये, बला और अतिबला, कि न थकान उन्हें छुए, न भूक, और उस रात दोनों राजकुमार घास के बिछौने पर सोए."
+          },
+          {
+            "scene": 30,
+            "cer": 0.059,
+            "length_ratio": 0.98,
+            "heard": "भोर में रिशी ने उन्हें जगाया, राम, कौशल्या, तुम जैसा पुत्र पाकर धन्य है, उठो पुरुष सिंग, संध्या का समय है, सदियों बाद रचा गया वेंकटेश सूप्रभातम, इनी शब्दों से शुरू होता है, उसी सुभवे गंगा की ओर चले, जिसके पार � एक भयानक वन था और उसे उजारने वाली भी वहीं थी,"
+          },
+          {
+            "scene": 31,
+            "cer": 0.058,
+            "length_ratio": 1.01,
+            "heard": "गंगा पार करके वे उसी वन में पहुचे जहां कभी मल्द और करूश के सम्रिद्ध जनपत थे, पर हजार हाथियों जितने बलवाली यक्षिनी ताटका ने सब उजार दिया था."
+          },
+          {
+            "scene": 32,
+            "cer": 0.068,
+            "length_ratio": 0.97,
+            "heard": "राम ने पूछा एक यक्षिनी में इतना बल कैसे। रिशी बोले ये ब्रह्मा जी का वर्दान था। फिर जब उसने पुत्र मारीच के साथ अगस्ते मुनी पर हमला किया तो उनके शाप से वो नर्भक्षी राक्षसी बन गई।"
+          },
+          {
+            "scene": 33,
+            "cer": 0.058,
+            "length_ratio": 0.99,
+            "heard": "वो अस्त्री है, ये सोचकर पीछे मत हटो, रिशी ने समझाया, प्रजा के रक्षक को कर्तव्य निभाना ही पड़ता है, काम कितना ही कठोर लगे, यही सदा से राजधर्म है."
+          },
+          {
+            "scene": 34,
+            "cer": 0.033,
+            "length_ratio": 1.0,
+            "heard": "राम ने धनुष की डोरी, टंकारी और ताटका गरच्ती हुई दोडी. फिर भी राम ने लक्षमन से कहा, इसे मारने का मेरा मन नहीं है, मैं बस इसे रोकूंगा."
+          },
+          {
+            "scene": 35,
+            "cer": 0.08,
+            "length_ratio": 1.0,
+            "heard": "पर उसने धूल का तूफान उठाया, पत्थर बरसाई और माया से अद्रिश्य हो गई। तब रिशी ने पुकारा, राम, बस करो, ये दया सांज होने को है और सांज ढले राक्षस अजेय हो जाते हैं।"
+          },
+          {
+            "scene": 36,
+            "cer": 0.094,
+            "length_ratio": 0.96,
+            "heard": "तब राम ने केवल आवाज के सहारे बांड चला कर पत्थरों की बोच्छार रोकती और जब वो जपटती हुई आई तो एक ही बांड से वो गिर पड़ी, देवताओं ने जैजैकार की और शापितवन फिर से खिल उठा."
+          },
+          {
+            "scene": 37,
+            "cer": 0.069,
+            "length_ratio": 0.99,
+            "heard": "अगली सुबह रिशी ने मुस्कुराकर अपने सारे अस्त्र राम को सौब दिये। कालचक्र, वज्र, भ्रमास्त्र, अग्नी, वायू। यहां तक की निद्रा का अस्त्र भी। और वे सब हाथ जोड़कर बोले। हम आपके सेवक हैं।"
+          },
+          {
+            "scene": 38,
+            "cer": 0.099,
+            "length_ratio": 0.98,
+            "heard": "राम ने उन्हें चूकर कहा, मेरे मन में वास करो. फिर रिशी से बोले, अब देवता भी मुझे हरा नहीं सकते, पर ये भी सिखाईए कि छोड़े हुए अस्तरों को वापस कैसे बुलाऊं। और रिशी ने वो भी सिखा दिया."
+          },
+          {
+            "scene": 39,
+            "cer": 0.066,
+            "length_ratio": 1.01,
+            "heard": "आखिर्वे सिध्धाश्रम पहुचे जो पर्वत के पास मेग सा छाया एक उपवन था। रिशी बोले यहीं राक्षस मेरा यग्यभंग करते हैं और यहीं हे पुरुष्यसिंग। तुम्हें उनका अंत करना है।"
+          },
+          {
+            "scene": 40,
+            "cer": 0.074,
+            "length_ratio": 0.97,
+            "heard": "उसी दिन विश्वामित्र ने दीक्षा लेकर मौन धारण किया और रिशियों के कहने पर छे दिन और छे रातें बिना सोए, राम और लक्षमन उनका पहरा देते रहे।"
+          },
+          {
+            "scene": 41,
+            "cer": 0.066,
+            "length_ratio": 1.0,
+            "heard": "चटे दिन राम ने लक्षमन से कहा, सावधान रहना। उनकी इतना कहते ही वेदी की अगनी धदक उठी और आकाश में एक भायानक गर्जना गुंजी।"
+          },
+          {
+            "scene": 42,
+            "cer": 0.067,
+            "length_ratio": 0.98,
+            "heard": "बरसाती बादलों की तरह राक्षस खिराए और मारीच और सुबाहु ने वेदी पर रक्त की धाराईं बरसा दी."
+          },
+          {
+            "scene": 43,
+            "cer": 0.05,
+            "length_ratio": 0.95,
+            "heard": "राम ने चमचमाता मानवास्त्र धनुष पर चढ़ा कर मारीच की छाती पर छोड़ा और वो उसे पूरे सौ योजन दूर उफंते समुद्र में फेकाया।"
+          },
+          {
+            "scene": 44,
+            "cer": 0.087,
+            "length_ratio": 0.98,
+            "heard": "राम बोले, देखो लक्षमन, मनू का ये शीतल बान इसे अचेत करके दूर ले गया, पर इसकी प्राण नहीं लिये."
+          },
+          {
+            "scene": 45,
+            "cer": 0.019,
+            "length_ratio": 0.98,
+            "heard": "फिर आगने अस्त्र से उन्होंनी सुबाहू को धर्ती पर गिरा दिया और वायव्या अस्त्र से बाकी सब राक्षसों को उड़ा दिया."
+          },
+          {
+            "scene": 46,
+            "cer": 0.02,
+            "length_ratio": 1.0,
+            "heard": "यग्य पूरा हुआ और विश्वामित्र बोले, मेरा प्रयोजन पूरा हुआ, राम तुमने सिध्धाश्रम का नाम सार्थक कर दिया।"
+          },
+          {
+            "scene": 47,
+            "cer": 0.077,
+            "length_ratio": 0.99,
+            "heard": "और इस तरह जिसे पिता ने युद्ध के लिए बहुत छोटा कहा था, उस राजकुमार ने गुरुओं की बात रखी, छे दिन बिना सोय रिशी की अगनी बचाई और युद्ध में भी एक शत्रु की जानबक्ष दी।"
+          },
+          {
+            "scene": 48,
+            "cer": 0.055,
+            "length_ratio": 1.0,
+            "heard": "अगली सुबय विश्वा मित्र को आगे करके रिश्यों ने मिथला में राजा जनक की यग्य की बाद छेडी और वहां रखे उस अद्भुध धनुष्की, जिस पर ना देवता प्रत्यांचा चढ़ा सकते हैं, ना असुर, ना राक्षस, मनुष्य तो क्या?"
+          },
+          {
+            "scene": 49,
+            "cer": 0.055,
+            "length_ratio": 0.99,
+            "heard": "बड़े बड़े राजकुमार उसे आजमा कर हार चुके थे, तब विश्वामित्र उत्तर की ओर चल पड़े, सिध्धाश्रम के हिरन और पक्षी कुछ दूर साथ आये, और राहमुर्चली मिथिला की ओर, जहां वो धनुष प्रतीक्षा में था."
+          },
+          {
+            "scene": 50,
+            "cer": 0.017,
+            "length_ratio": 0.98,
+            "heard": "यहां बालकांड का पहला भाग विश्राम लेता है, यग्य की अगनी अब शांत जल रही है और मिथला की राह खुली है, राम की कथा वहीं से आगे बढ़ेगी."
+          }
+        ],
+        "transcripts": [
+          "render-time transcript (heard.json)"
+        ]
+      },
+      "note": "digits vs number-words and Whisper spelling quirks inflate CER; review flagged scenes by ear"
+    },
+    {
+      "name": "speech_rate",
+      "family": "audio",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "reference_letters_per_s": 6.114,
+        "scenes": [
+          {
+            "scene": 1,
+            "seconds": 6.32,
+            "letters_per_s": 5.54,
+            "deviation": -0.094
+          },
+          {
+            "scene": 2,
+            "seconds": 9.68,
+            "letters_per_s": 6.4,
+            "deviation": 0.047
+          },
+          {
+            "scene": 3,
+            "seconds": 7.44,
+            "letters_per_s": 6.18,
+            "deviation": 0.011
+          },
+          {
+            "scene": 4,
+            "seconds": 8.96,
+            "letters_per_s": 5.92,
+            "deviation": -0.032
+          },
+          {
+            "scene": 5,
+            "seconds": 8.56,
+            "letters_per_s": 5.84,
+            "deviation": -0.045
+          },
+          {
+            "scene": 6,
+            "seconds": 12.08,
+            "letters_per_s": 6.04,
+            "deviation": -0.012
+          },
+          {
+            "scene": 7,
+            "seconds": 9.6,
+            "letters_per_s": 6.25,
+            "deviation": 0.022
+          },
+          {
+            "scene": 8,
+            "seconds": 15.2,
+            "letters_per_s": 5.86,
+            "deviation": -0.042
+          },
+          {
+            "scene": 9,
+            "seconds": 9.36,
+            "letters_per_s": 6.3,
+            "deviation": 0.03
+          },
+          {
+            "scene": 10,
+            "seconds": 13.2,
+            "letters_per_s": 5.68,
+            "deviation": -0.071
+          },
+          {
+            "scene": 11,
+            "seconds": 10.24,
+            "letters_per_s": 6.45,
+            "deviation": 0.055
+          },
+          {
+            "scene": 12,
+            "seconds": 16.64,
+            "letters_per_s": 6.25,
+            "deviation": 0.022
+          },
+          {
+            "scene": 13,
+            "seconds": 10.56,
+            "letters_per_s": 6.06,
+            "deviation": -0.009
+          },
+          {
+            "scene": 14,
+            "seconds": 8.16,
+            "letters_per_s": 6.13,
+            "deviation": 0.003
+          },
+          {
+            "scene": 15,
+            "seconds": 10.24,
+            "letters_per_s": 6.64,
+            "deviation": 0.086
+          },
+          {
+            "scene": 16,
+            "seconds": 15.36,
+            "letters_per_s": 5.66,
+            "deviation": -0.074
+          },
+          {
+            "scene": 17,
+            "seconds": 13.2,
+            "letters_per_s": 6.89,
+            "deviation": 0.127
+          },
+          {
+            "scene": 18,
+            "seconds": 11.04,
+            "letters_per_s": 6.7,
+            "deviation": 0.096
+          },
+          {
+            "scene": 19,
+            "seconds": 12.72,
+            "letters_per_s": 5.74,
+            "deviation": -0.061
+          },
+          {
+            "scene": 20,
+            "seconds": 11.12,
+            "letters_per_s": 6.56,
+            "deviation": 0.073
+          },
+          {
+            "scene": 21,
+            "seconds": 20.56,
+            "letters_per_s": 6.52,
+            "deviation": 0.066
+          },
+          {
+            "scene": 22,
+            "seconds": 10.48,
+            "letters_per_s": 6.11,
+            "deviation": -0.001
+          },
+          {
+            "scene": 23,
+            "seconds": 12.72,
+            "letters_per_s": 6.13,
+            "deviation": 0.003
+          },
+          {
+            "scene": 24,
+            "seconds": 10.4,
+            "letters_per_s": 5.87,
+            "deviation": -0.04
+          },
+          {
+            "scene": 25,
+            "seconds": 12.64,
+            "letters_per_s": 5.3,
+            "deviation": -0.133
+          },
+          {
+            "scene": 26,
+            "seconds": 10.64,
+            "letters_per_s": 5.92,
+            "deviation": -0.032
+          },
+          {
+            "scene": 27,
+            "seconds": 10.32,
+            "letters_per_s": 6.4,
+            "deviation": 0.047
+          },
+          {
+            "scene": 28,
+            "seconds": 11.28,
+            "letters_per_s": 6.29,
+            "deviation": 0.029
+          },
+          {
+            "scene": 29,
+            "seconds": 10.56,
+            "letters_per_s": 6.06,
+            "deviation": -0.009
+          },
+          {
+            "scene": 30,
+            "seconds": 22.08,
+            "letters_per_s": 5.39,
+            "deviation": -0.118
+          },
+          {
+            "scene": 31,
+            "seconds": 10.24,
+            "letters_per_s": 6.74,
+            "deviation": 0.102
+          },
+          {
+            "scene": 32,
+            "seconds": 12.96,
+            "letters_per_s": 6.79,
+            "deviation": 0.111
+          },
+          {
+            "scene": 33,
+            "seconds": 10.72,
+            "letters_per_s": 6.44,
+            "deviation": 0.053
+          },
+          {
+            "scene": 34,
+            "seconds": 10.32,
+            "letters_per_s": 5.81,
+            "deviation": -0.05
+          },
+          {
+            "scene": 35,
+            "seconds": 14.64,
+            "letters_per_s": 5.12,
+            "deviation": -0.163
+          },
+          {
+            "scene": 36,
+            "seconds": 13.52,
+            "letters_per_s": 6.29,
+            "deviation": 0.029
+          },
+          {
+            "scene": 37,
+            "seconds": 12.88,
+            "letters_per_s": 6.75,
+            "deviation": 0.104
+          },
+          {
+            "scene": 38,
+            "seconds": 12.64,
+            "letters_per_s": 6.41,
+            "deviation": 0.048
+          },
+          {
+            "scene": 39,
+            "seconds": 11.76,
+            "letters_per_s": 6.46,
+            "deviation": 0.057
+          },
+          {
+            "scene": 40,
+            "seconds": 10.4,
+            "letters_per_s": 6.54,
+            "deviation": 0.07
+          },
+          {
+            "scene": 41,
+            "seconds": 9.36,
+            "letters_per_s": 6.52,
+            "deviation": 0.066
+          },
+          {
+            "scene": 42,
+            "seconds": 6.56,
+            "letters_per_s": 6.86,
+            "deviation": 0.122
+          },
+          {
+            "scene": 43,
+            "seconds": 8.96,
+            "letters_per_s": 6.7,
+            "deviation": 0.096
+          },
+          {
+            "scene": 44,
+            "seconds": 8.48,
+            "letters_per_s": 5.42,
+            "deviation": -0.114
+          },
+          {
+            "scene": 45,
+            "seconds": 7.84,
+            "letters_per_s": 6.63,
+            "deviation": 0.084
+          },
+          {
+            "scene": 46,
+            "seconds": 8.96,
+            "letters_per_s": 5.58,
+            "deviation": -0.087
+          },
+          {
+            "scene": 47,
+            "seconds": 12.0,
+            "letters_per_s": 6.5,
+            "deviation": 0.063
+          },
+          {
+            "scene": 48,
+            "seconds": 15.2,
+            "letters_per_s": 5.99,
+            "deviation": -0.02
+          },
+          {
+            "scene": 49,
+            "seconds": 13.52,
+            "letters_per_s": 6.73,
+            "deviation": 0.101
+          },
+          {
+            "scene": 50,
+            "seconds": 9.76,
+            "letters_per_s": 6.15,
+            "deviation": 0.006
+          }
+        ]
+      }
+    },
+    {
+      "name": "speaker_consistency",
+      "family": "audio",
+      "class": "reject",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "windows": 386,
+        "window_median": 0.74,
+        "window_min": 0.539,
+        "scene_min": 0.733,
+        "median_f0": 167,
+        "calibration": "2026-11-16: 2.5s windows — consistent voice min 0.61 / known-mixed median 0.46 (50% < 0.5); 1s clips are unreliable (same voice down to 0.57)"
+      }
+    },
+    {
+      "name": "music_under_speech",
+      "family": "audio",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "median_db": 13.0,
+        "p10_db": 6.6,
+        "voice_gain": 3.771,
+        "frames": 1139
+      }
+    },
+    {
+      "name": "captions",
+      "family": "final",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "groups": 496,
+        "timing": "timeline.json",
+        "engine_version": 3
+      }
+    },
+    {
+      "name": "caption_overflow",
+      "family": "final",
+      "class": "reject",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "widest_px": 893,
+        "limit_px": 1020
+      }
+    },
+    {
+      "name": "glyph_coverage",
+      "family": "final",
+      "class": "reject",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "texts": 69,
+        "fontset": "mac"
+      }
+    },
+    {
+      "name": "text_artifacts",
+      "family": "visual",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {},
+      "skipped": true,
+      "note": "tesseract binary not installed (brew install tesseract, Apache-2.0); skipped"
+    },
+    {
+      "name": "near_duplicates",
+      "family": "visual",
+      "class": "warn",
+      "ok": false,
+      "issues": [
+        "scenes 19 and 24: perceptual hash distance 6 bits (< 8)",
+        "scenes 30 and 38: perceptual hash distance 6 bits (< 8)"
+      ],
+      "data": {
+        "images": 50
+      }
+    },
+    {
+      "name": "chalk_density",
+      "family": "visual",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "scenes": [
+          {
+            "scene": 1,
+            "density": 0.336,
+            "top": 1.249,
+            "bottom": 0.949
+          },
+          {
+            "scene": 2,
+            "density": 0.307,
+            "top": 1.164,
+            "bottom": 1.088
+          },
+          {
+            "scene": 3,
+            "density": 0.128,
+            "top": 0.131,
+            "bottom": 0.754
+          },
+          {
+            "scene": 4,
+            "density": 0.244,
+            "top": 0.075,
+            "bottom": 1.078
+          },
+          {
+            "scene": 5,
+            "density": 0.389,
+            "top": 0.777,
+            "bottom": 1.166
+          },
+          {
+            "scene": 6,
+            "density": 0.039,
+            "top": 0.0,
+            "bottom": 0.013
+          },
+          {
+            "scene": 7,
+            "density": 0.188,
+            "top": 0.15,
+            "bottom": 0.877
+          },
+          {
+            "scene": 8,
+            "density": 0.305,
+            "top": 0.161,
+            "bottom": 1.604
+          },
+          {
+            "scene": 9,
+            "density": 0.314,
+            "top": 0.104,
+            "bottom": 1.911
+          },
+          {
+            "scene": 10,
+            "density": 0.041,
+            "top": 0.0,
+            "bottom": 0.012
+          },
+          {
+            "scene": 11,
+            "density": 0.246,
+            "top": 0.085,
+            "bottom": 1.176
+          },
+          {
+            "scene": 12,
+            "density": 0.291,
+            "top": 0.319,
+            "bottom": 1.003
+          },
+          {
+            "scene": 13,
+            "density": 0.272,
+            "top": 0.097,
+            "bottom": 0.296
+          },
+          {
+            "scene": 14,
+            "density": 0.303,
+            "top": 0.745,
+            "bottom": 0.974
+          },
+          {
+            "scene": 15,
+            "density": 0.247,
+            "top": 0.088,
+            "bottom": 1.262
+          },
+          {
+            "scene": 16,
+            "density": 0.254,
+            "top": 0.432,
+            "bottom": 1.131
+          },
+          {
+            "scene": 17,
+            "density": 0.157,
+            "top": 0.76,
+            "bottom": 0.268
+          },
+          {
+            "scene": 18,
+            "density": 0.191,
+            "top": 0.171,
+            "bottom": 1.117
+          },
+          {
+            "scene": 19,
+            "density": 0.036,
+            "top": 0.0,
+            "bottom": 0.013
+          },
+          {
+            "scene": 20,
+            "density": 0.237,
+            "top": 0.203,
+            "bottom": 1.071
+          },
+          {
+            "scene": 21,
+            "density": 0.203,
+            "top": 0.097,
+            "bottom": 0.825
+          },
+          {
+            "scene": 22,
+            "density": 0.261,
+            "top": 0.228,
+            "bottom": 1.163
+          },
+          {
+            "scene": 23,
+            "density": 0.291,
+            "top": 0.568,
+            "bottom": 0.859
+          },
+          {
+            "scene": 24,
+            "density": 0.036,
+            "top": 0.0,
+            "bottom": 0.014
+          },
+          {
+            "scene": 25,
+            "density": 0.3,
+            "top": 0.288,
+            "bottom": 1.177
+          },
+          {
+            "scene": 26,
+            "density": 0.349,
+            "top": 0.441,
+            "bottom": 1.278
+          },
+          {
+            "scene": 27,
+            "density": 0.329,
+            "top": 0.589,
+            "bottom": 1.254
+          },
+          {
+            "scene": 28,
+            "density": 0.33,
+            "top": 0.12,
+            "bottom": 0.856
+          },
+          {
+            "scene": 29,
+            "density": 0.333,
+            "top": 0.146,
+            "bottom": 1.303
+          },
+          {
+            "scene": 30,
+            "density": 0.037,
+            "top": 0.0,
+            "bottom": 0.013
+          },
+          {
+            "scene": 31,
+            "density": 0.313,
+            "top": 0.122,
+            "bottom": 1.298
+          },
+          {
+            "scene": 32,
+            "density": 0.204,
+            "top": 0.947,
+            "bottom": 1.218
+          },
+          {
+            "scene": 33,
+            "density": 0.035,
+            "top": 0.0,
+            "bottom": 0.014
+          },
+          {
+            "scene": 34,
+            "density": 0.272,
+            "top": 0.964,
+            "bottom": 1.16
+          },
+          {
+            "scene": 35,
+            "density": 0.343,
+            "top": 0.637,
+            "bottom": 0.878
+          },
+          {
+            "scene": 36,
+            "density": 0.421,
+            "top": 0.801,
+            "bottom": 0.673
+          },
+          {
+            "scene": 37,
+            "density": 0.349,
+            "top": 0.234,
+            "bottom": 1.031
+          },
+          {
+            "scene": 38,
+            "density": 0.039,
+            "top": 0.0,
+            "bottom": 0.013
+          },
+          {
+            "scene": 39,
+            "density": 0.354,
+            "top": 0.658,
+            "bottom": 0.561
+          },
+          {
+            "scene": 40,
+            "density": 0.339,
+            "top": 0.19,
+            "bottom": 0.958
+          },
+          {
+            "scene": 41,
+            "density": 0.31,
+            "top": 0.519,
+            "bottom": 0.697
+          },
+          {
+            "scene": 42,
+            "density": 0.168,
+            "top": 0.949,
+            "bottom": 0.69
+          },
+          {
+            "scene": 43,
+            "density": 0.184,
+            "top": 0.05,
+            "bottom": 1.547
+          },
+          {
+            "scene": 44,
+            "density": 0.037,
+            "top": 0.0,
+            "bottom": 0.013
+          },
+          {
+            "scene": 45,
+            "density": 0.242,
+            "top": 0.748,
+            "bottom": 0.431
+          },
+          {
+            "scene": 46,
+            "density": 0.282,
+            "top": 0.132,
+            "bottom": 0.96
+          },
+          {
+            "scene": 47,
+            "density": 0.318,
+            "top": 0.397,
+            "bottom": 1.205
+          },
+          {
+            "scene": 48,
+            "density": 0.035,
+            "top": 0.0,
+            "bottom": 0.015
+          },
+          {
+            "scene": 49,
+            "density": 0.187,
+            "top": 0.066,
+            "bottom": 1.115
+          },
+          {
+            "scene": 50,
+            "density": 0.106,
+            "top": 0.083,
+            "bottom": 0.46
+          }
+        ]
+      }
+    },
+    {
+      "name": "safe_zones",
+      "family": "visual",
+      "class": "warn",
+      "ok": false,
+      "issues": [
+        "scene 1: stroke energy in the title zone (top 12%) 1.25 > p90 0.111",
+        "scene 2: stroke energy in the title zone (top 12%) 1.16 > p90 0.111",
+        "scene 3: stroke energy in the title zone (top 12%) 0.13 > p90 0.111",
+        "scene 5: stroke energy in the title zone (top 12%) 0.78 > p90 0.111",
+        "scene 7: stroke energy in the title zone (top 12%) 0.15 > p90 0.111",
+        "scene 8: stroke energy in the title zone (top 12%) 0.16 > p90 0.111",
+        "scene 8: stroke energy in the caption zone (bottom 25%) 1.60 > p90 1.519",
+        "scene 9: stroke energy in the caption zone (bottom 25%) 1.91 > p90 1.519",
+        "scene 12: stroke energy in the title zone (top 12%) 0.32 > p90 0.111",
+        "scene 14: stroke energy in the title zone (top 12%) 0.75 > p90 0.111",
+        "scene 16: stroke energy in the title zone (top 12%) 0.43 > p90 0.111",
+        "scene 17: stroke energy in the title zone (top 12%) 0.76 > p90 0.111",
+        "scene 18: stroke energy in the title zone (top 12%) 0.17 > p90 0.111",
+        "scene 20: stroke energy in the title zone (top 12%) 0.20 > p90 0.111",
+        "scene 22: stroke energy in the title zone (top 12%) 0.23 > p90 0.111",
+        "scene 23: stroke energy in the title zone (top 12%) 0.57 > p90 0.111",
+        "scene 25: stroke energy in the title zone (top 12%) 0.29 > p90 0.111",
+        "scene 26: stroke energy in the title zone (top 12%) 0.44 > p90 0.111",
+        "scene 27: stroke energy in the title zone (top 12%) 0.59 > p90 0.111",
+        "scene 28: stroke energy in the title zone (top 12%) 0.12 > p90 0.111",
+        "scene 29: stroke energy in the title zone (top 12%) 0.15 > p90 0.111",
+        "scene 31: stroke energy in the title zone (top 12%) 0.12 > p90 0.111",
+        "scene 32: stroke energy in the title zone (top 12%) 0.95 > p90 0.111",
+        "scene 34: stroke energy in the title zone (top 12%) 0.96 > p90 0.111",
+        "scene 35: stroke energy in the title zone (top 12%) 0.64 > p90 0.111",
+        "scene 36: stroke energy in the title zone (top 12%) 0.80 > p90 0.111",
+        "scene 37: stroke energy in the title zone (top 12%) 0.23 > p90 0.111",
+        "scene 39: stroke energy in the title zone (top 12%) 0.66 > p90 0.111",
+        "scene 40: stroke energy in the title zone (top 12%) 0.19 > p90 0.111",
+        "scene 41: stroke energy in the title zone (top 12%) 0.52 > p90 0.111",
+        "scene 42: stroke energy in the title zone (top 12%) 0.95 > p90 0.111",
+        "scene 43: stroke energy in the caption zone (bottom 25%) 1.55 > p90 1.519",
+        "scene 45: stroke energy in the title zone (top 12%) 0.75 > p90 0.111",
+        "scene 46: stroke energy in the title zone (top 12%) 0.13 > p90 0.111",
+        "scene 47: stroke energy in the title zone (top 12%) 0.40 > p90 0.111"
+      ],
+      "data": {
+        "calibration": {
+          "top_p90": 0.111,
+          "bottom_p90": 1.519,
+          "n": 243
+        }
+      }
+    },
+    {
+      "name": "character_similarity",
+      "family": "visual",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "model_present": false
+      },
+      "skipped": true,
+      "note": "DINOv2 similarity is a human flag only; model not present locally and not downloaded"
+    }
+  ],
+  "contact_sheet": "/Users/ayushman/Desktop/work/shorts-studio/content/C0011/hi/C0011-hi.qa.png",
+  "manual_review_required": [
+    "character consistency",
+    "visual defects / wrong illustrations",
+    "storytelling quality",
+    "native-speaker listen for non-English"
+  ],
+  "created_at": "2026-11-18T22:31:08+0530",
+  "id": 132
+}

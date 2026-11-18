@@ -1,0 +1,1298 @@
+{
+  "title": "Ramayana · Bala Kanda Part 1: From Valmiki's First Verse to Rama's First Battle",
+  "topic": "Bala Kanda Part 1 (Valmiki Ramayana 1.1–1.30, cliff from 1.31): Narada's question, the krauncha birds and the first shloka, Brahma's charge; Ayodhya, the sacrifice and the four princes; Vishvamitra asks for Rama; Tataka and the divine weapons; the defence of the six-day sacrifice",
+  "style": "chalk",
+  "language": "en",
+  "character": "",
+  "format": "long",
+  "kanda": "Bala Kanda",
+  "part": 1,
+  "engine_version": 3,
+  "edition": "vulgate (southern recension), sa.wikisource; verse numbers cross-checked on valmikiramayan.net (Internet Archive copy) where noted",
+  "chapters": [
+    {
+      "title": "The Birth of Poetry",
+      "first_scene": 5
+    },
+    {
+      "title": "The King's Long Wait",
+      "first_scene": 13
+    },
+    {
+      "title": "The Sage at the Gate",
+      "first_scene": 22
+    },
+    {
+      "title": "Tataka and the Gift",
+      "first_scene": 31
+    },
+    {
+      "title": "Six Nights of Fire",
+      "first_scene": 40
+    }
+  ],
+  "scenes": [
+    {
+      "narration": "His father said he was too young to fight rakshasas, and on the sixth day, they came.",
+      "tts": "His father said he was too young to fight raakshasas, and on the sixth day, they came.",
+      "visual": "night at a forest hermitage, a square red-brick fire altar at the left third of the frame with a tall blazing fire, its saffron and gold flames leaping upward on open dark board, {rama_teen} with exactly two arms standing to the right of the fire in three-quarter back view with his face turned away and hidden from the viewer, head tilted up toward the sky, his bow held upright in his left hand clear of his body, {lakshmana_teen} with exactly two arms standing a few paces further right in side view facing left, head tilted up, his bow held clear of his body, a wide gap of open board between the fire and Rama and between the two princes, dark monsoon storm clouds massing across the upper right with a band of open board between the clouds and the princes' heads, small thatched huts as dark shapes far behind, horizon line one third from the top, the lower fifth of the frame plain dark chalkboard",
+      "emphasis": "",
+      "keywords": [
+        "young",
+        "rakshasas,"
+      ],
+      "pause": 0.25,
+      "segment": "cold_open",
+      "sfx": [
+        {
+          "name": "fire"
+        },
+        {
+          "name": "rumble"
+        }
+      ],
+      "melody": "rise",
+      "tone": "tension",
+      "quote_src": "VR 1.20.2, 1.20.7, 1.30.7–10 (vulgate)",
+      "tier": "A",
+      "accent": "battle"
+    },
+    {
+      "narration": "For six days and nights Rama and his brother had guarded a sacred fire without sleep, and now, like monsoon clouds, the rakshasas came sweeping down upon the altar.",
+      "tts": "For six days and nights Raama and his brother had guarded a sacred fire without sleep, and now, like monsoon clouds, the raakshasas came sweeping down upon the altar.",
+      "visual": "low wide view from behind a square red-brick fire altar, a small fire burning at the lower left with open board around its flames, two huge shadow rakshasas diving out of dark monsoon clouds at the upper right, {maricha} and further right {subahu}, each with both arms stretched forward and wild hair streaming back, a wide gap of open board between the two silhouettes, {rama_teen} with exactly two arms and {lakshmana_teen} with exactly two arms small in the lower centre, both in three-quarter back view facing the sky, standing well apart with bows raised, jagged white chalk lightning between the clouds, horizon line one third from the top, the lower fifth of the frame plain dark chalkboard",
+      "emphasis": "",
+      "keywords": [
+        "monsoon",
+        "altar."
+      ],
+      "pause": 0.25,
+      "segment": "cold_open",
+      "sfx": [
+        {
+          "name": "wind"
+        }
+      ],
+      "tone": "tension",
+      "quote_src": "VR 1.30.5–6, 1.30.11–12 (vulgate)",
+      "tier": "B",
+      "accent": "battle"
+    },
+    {
+      "narration": "Yet the boy his father had trembled for now carried weapons that even the gods could hardly hope to own.",
+      "visual": "medium wide shot, {rama_teen} with exactly two arms drawn large at the left third of the frame in three-quarter back view with his face turned away and hidden from the viewer, facing right and drawing his bow at full stretch, the bow held out at arm's length in his left hand, his right elbow drawn back and raised clear of his body and hair against open dark board, a faint golden glow gathering at the arrowhead, a square red-brick altar fire glowing small on open board at the far right, a wide band of open board between the arrow tip and the fire, horizon line one third from the top, the lower fifth of the frame plain dark chalkboard",
+      "emphasis": "",
+      "keywords": [
+        "boy",
+        "weapons"
+      ],
+      "pause": 0.5,
+      "segment": "cold_open",
+      "tone": "awe",
+      "quote_src": "VR 1.19.21, 1.20.2, 1.27.23, 1.28.2 (vulgate)",
+      "tier": "A",
+      "accent": "divine"
+    },
+    {
+      "narration": "But this story begins long before that day, beside a quiet river, with a poet, a question, and two birds.",
+      "visual": "calm wide river landscape at dawn, the whole upper half of the frame left as plain open dark chalkboard for the title, a quiet river curving across the lower middle of the frame, a clump of tall reeds standing on open board on the right bank, {krauncha_pair} small at the left third on the near bank with open board around their necks and heads, a soft pale dawn glow low along the horizon just below the middle of the frame, the lower fifth of the frame plain dark chalkboard",
+      "emphasis": "Bala Kanda · Part 1",
+      "keywords": [
+        "poet,",
+        "birds."
+      ],
+      "pause": 0.9,
+      "segment": "title",
+      "sfx": [
+        {
+          "name": "river"
+        }
+      ],
+      "melody": "intro",
+      "pacing": "slow",
+      "quote_src": "VR 1.2.3–9 (vulgate)",
+      "tier": "B",
+      "accent": "forest"
+    },
+    {
+      "narration": "Long ago, the sage Valmiki put a question to Narada, the wandering seer of the gods and the finest of all who speak.",
+      "tts": "Long ago, the sage Vaalmeeki put a question to Naarada, the wandering seer of the gods and the finest of all who speak.",
+      "visual": "a quiet forest hermitage clearing in morning light, {valmiki} with exactly two arms seated cross-legged on a low flat rock at the left third of the frame in three-quarter view facing right, his right hand raised beside his shoulder with the palm open in a questioning gesture, held clear of his beard and body against open board, his left hand resting on his knee, {narada} with exactly two arms standing at the right third in side view facing left, his veena held upright in his left hand beside him and clear of his body, a wide gap of open board between the two sages, a small thatched hut far behind on the left and a single tree far behind on the right, horizon line one third from the top, the lower fifth of the frame plain dark chalkboard",
+      "emphasis": "",
+      "keywords": [
+        "Valmiki",
+        "Narada,"
+      ],
+      "pause": 0.25,
+      "chapter": 1,
+      "chapter_title": "The Birth of Poetry",
+      "sfx": [
+        {
+          "name": "birds"
+        }
+      ],
+      "melody": "calm",
+      "quote_src": "VR 1.1.1, 1.2.2 (vulgate)",
+      "tier": "C",
+      "accent": "ashram"
+    },
+    {
+      "narration": "Is there anyone in this world today, he asked, who is good and brave, who knows dharma, who is truthful and firm in his vows, who has conquered anger, and whom even the gods fear in battle?",
+      "visual": "the verse written in chalk on the open dark board, wide horizontal layout",
+      "emphasis": "",
+      "keywords": [
+        "dharma,",
+        "anger,"
+      ],
+      "pause": 0.5,
+      "chapter": 1,
+      "tone": "awe",
+      "pacing": "slow",
+      "kind": "verse",
+      "devanagari": [
+        "को न्वस्मिन् साम्प्रतं लोके",
+        "गुणवान् कश्च वीर्यवान्।",
+        "धर्मज्ञश्च कृतज्ञश्च",
+        "सत्यवाक्यो दृढव्रतः॥"
+      ],
+      "source": "Valmiki Ramayana 1.1.2 (vulgate)",
+      "edition": "vulgate (sa.wikisource)",
+      "quote_src": "VR 1.1.2–4 (vulgate)",
+      "tier": "C"
+    },
+    {
+      "narration": "Narada was glad at heart. Such qualities are rare, he said, yet one man has them all; he was born in the line of Ikshvaku, and the people call him Rama.",
+      "tts": "Naarada was glad at heart. Such qualities are rare, he said, yet one man has them all; he was born in the line of Ikshvaaku, and the people call him Raama.",
+      "visual": "a forest hermitage clearing, {narada} with exactly two arms standing at the right third of the frame in three-quarter view facing left, smiling, his right arm extended forward and upward with the open palm turned toward the left, the arm held clear of his body against open board above the level of Valmiki's head, his veena held upright in his left hand clear of his body, {valmiki} with exactly two arms seated cross-legged in the centre in three-quarter view facing Narada, listening with his hands resting on his knees, at the left third high on open board a faint glowing outline of {rama_teaser} drawn in soft golden chalk light like a vision, wide open board between all three figures, horizon line one third from the top, the lower fifth of the frame plain dark chalkboard",
+      "emphasis": "",
+      "keywords": [
+        "Ikshvaku,",
+        "Rama."
+      ],
+      "pause": 0.25,
+      "chapter": 1,
+      "melody": "calm",
+      "quote_src": "VR 1.1.6–8 (vulgate)",
+      "tier": "A",
+      "accent": "divine"
+    },
+    {
+      "narration": "Then he told Valmiki the whole of Rama's story and rose into the sky. Valmiki went down to the Tamasa river, and there, wandering the bank, he saw a pair of krauncha birds singing sweetly, never leaving one another's side.",
+      "tts": "Then he told Vaalmeeki the whole of Raama's story and rose into the sky. Vaalmeeki went down to the Tamasaa river, and there, wandering the bank, he saw a pair of krauncha birds singing sweetly, never leaving one another's side.",
+      "visual": "a wide river bank in morning light, the Tamasa river flowing across the lower middle of the frame, {valmiki} with exactly two arms standing at the right third in side view facing left, gazing at the birds, his hands held a little away from his body, {bharadvaja} small a few paces behind him further right with open board between them, at the left third {krauncha_pair} standing close together on the bank with their long necks raised in song against open board, high in the upper right {narada} very small rising into the sky on a faint trail of light with open board all around him, horizon line one third from the top, the lower fifth of the frame plain dark chalkboard",
+      "emphasis": "",
+      "keywords": [
+        "Tamasa",
+        "krauncha"
+      ],
+      "pause": 0.25,
+      "chapter": 1,
+      "sfx": [
+        {
+          "name": "birds"
+        },
+        {
+          "name": "river"
+        }
+      ],
+      "melody": "love",
+      "quote_src": "VR 1.1 (Narada's summary), 1.2.2–9 (vulgate)",
+      "tier": "B",
+      "accent": "forest"
+    },
+    {
+      "narration": "But before his eyes, a hunter with a heart full of malice shot down the male bird, and his mate, seeing him fallen on the earth, cried out in grief.",
+      "visual": "a riverbank among reeds, {valmiki} with exactly two arms standing at the left third of the frame in side view facing right, his right arm raised and stretched out toward the birds with the palm open, held clear of his body and beard against open board, his left hand pressed to his chest, in the centre of the frame on the open bank a female krauncha crane with her long neck stretched straight up toward the sky, beak open, crying, open board all around her neck and head, beside her a male crane lying still on the ground with wings folded, drawn gently and whole, far at the right edge a small dark silhouette of a hunter with a lowered bow half hidden among trees, wide open board between Valmiki, the birds and the hunter, horizon line one third from the top, the lower fifth of the frame plain dark chalkboard",
+      "emphasis": "",
+      "keywords": [
+        "hunter",
+        "grief."
+      ],
+      "pause": 0.6,
+      "chapter": 1,
+      "sfx": [
+        {
+          "name": "arrow"
+        },
+        {
+          "name": "cry"
+        }
+      ],
+      "melody": "grief",
+      "tone": "grief",
+      "quote_src": "VR 1.2.10–12 (vulgate)",
+      "tier": "A",
+      "accent": "forest"
+    },
+    {
+      "narration": "Pity filled the sage's heart, and these words broke from him: hunter, may you never find rest through endless years, for you have struck down one of a pair lost in love.",
+      "visual": "the verse written in chalk on the open dark board, wide horizontal layout",
+      "emphasis": "",
+      "keywords": [
+        "Pity",
+        "rest"
+      ],
+      "pause": 0.7,
+      "chapter": 1,
+      "tone": "grief",
+      "pacing": "slow",
+      "kind": "verse",
+      "devanagari": [
+        "मा निषाद प्रतिष्ठां त्वम्",
+        "अगमः शाश्वतीः समाः।",
+        "यत् क्रौञ्चमिथुनादेकम्",
+        "अवधीः काममोहितम्॥"
+      ],
+      "source": "Valmiki Ramayana 1.2.15 (vulgate)",
+      "edition": "vulgate (sa.wikisource)",
+      "quote_src": "VR 1.2.13–15 (vulgate)",
+      "tier": "C"
+    },
+    {
+      "narration": "Afterwards he wondered at his own words, for they had come out in four even lines, fit to be sung to the strings, and he said that this verse, born of sorrow, should be called a shloka.",
+      "visual": "medium wide shot at the river's edge, {valmiki} with exactly two arms standing at the left third of the frame in three-quarter view facing right, one hand at his chest and the other held open beside him, clear of his body, gazing in wonder at the open board on the right where four even horizontal lines of soft golden chalk light hang in the air, {bharadvaja} small further back on the left, listening, with open board between him and the sage, the river flowing across the lower middle, horizon line one third from the top, the lower fifth of the frame plain dark chalkboard",
+      "emphasis": "",
+      "keywords": [
+        "shloka.",
+        "sorrow,"
+      ],
+      "pause": 0.25,
+      "chapter": 1,
+      "tone": "wonder",
+      "quote_src": "VR 1.2.16–19 (vulgate)",
+      "tier": "C",
+      "accent": "ashram"
+    },
+    {
+      "narration": "Later Brahma, the creator of the worlds, came to him and said: it was my will that this speech came to you, so tell all of Rama's story, and as long as mountains stand and rivers flow, it will be told. And so one sage's sorrow became a shloka, and the shloka became the Ramayana.",
+      "tts": "Later Brahma, the creator of the worlds, came to him and said: it was my will that this speech came to you, so tell all of Raama's story, and as long as mountains stand and rivers flow, it will be told. And so one sage's sorrow became a shloka, and the shloka became the Ramayana.",
+      "visual": "a wide landscape, snowy mountain peaks low along the horizon one third from the top, a long river winding across the frame toward the viewer, {brahma_light} hovering at the right third in the open sky, {valmiki} with exactly two arms standing at the lower left third in side view facing right, palms joined in front of his chest and held a little away from his body, faint lines of chalk verse drifting from him in a gentle stream over the river toward the light, a wide band of open board between the sage and the light, the lower fifth of the frame plain dark chalkboard",
+      "emphasis": "",
+      "keywords": [
+        "Brahma,",
+        "Ramayana."
+      ],
+      "pause": 0.9,
+      "chapter": 1,
+      "sfx": [
+        {
+          "name": "bell"
+        },
+        {
+          "name": "river"
+        }
+      ],
+      "melody": "rise",
+      "tone": "awe",
+      "pacing": "slow",
+      "quote_src": "VR 1.2.22–24, 1.2.31–37, 1.2.40–41 (vulgate)",
+      "tier": "B",
+      "accent": "divine"
+    },
+    {
+      "narration": "The story he sang begins in Ayodhya, a city on the Sarayu built by Manu himself, and its king, Dasharatha, was truthful and wise and dear to all his people.",
+      "tts": "The story he sang begins in Ayodhyaa, a city on the Sarayoo built by Manu himself, and its king, Dasharatha, was truthful and wise and dear to all his people.",
+      "visual": "ancient Ayodhya on the Sarayu river in morning light, carved stone gateways and stepped shikhara towers across the right two thirds of the frame, tall slender poles on the tower tops with saffron flags flying against open dark board, open board all around each flag, a broad royal road strewn with flowers leading in from the left, the river flowing along the lower middle, horizon line one third from the top, the lower fifth of the frame plain dark chalkboard",
+      "emphasis": "",
+      "keywords": [
+        "Ayodhya,",
+        "Dasharatha,"
+      ],
+      "pause": 0.25,
+      "chapter": 2,
+      "chapter_title": "The King's Long Wait",
+      "sfx": [
+        {
+          "name": "birds"
+        }
+      ],
+      "melody": "calm",
+      "quote_src": "VR 1.5.5–9, 1.6.1–6 (vulgate)",
+      "tier": "B",
+      "accent": "ayodhya"
+    },
+    {
+      "narration": "Yet this great king had no son to carry on his line, and without one, he said, there was no joy for him.",
+      "visual": "a pillared palace hall at night, {dasharatha} with exactly two arms seated on a carved throne at the left third of the frame in three-quarter view facing right, chin lowered in sorrow, his right hand resting open on his knee, his left forearm resting on the armrest, his crown and shoulders against open dark board with the pillars far away at the edges of the hall, a tall standing brass oil lamp with a single flame on open board at the right third, open board all around the flame, a small empty cradle draped in white cloth faint in the shadows at the far right, horizon line one third from the top, the lower fifth of the frame plain dark chalkboard",
+      "emphasis": "",
+      "keywords": [
+        "son",
+        "joy"
+      ],
+      "pause": 0.25,
+      "chapter": 2,
+      "melody": "grief",
+      "tone": "longing",
+      "quote_src": "VR 1.8.1, 1.8.8 (vulgate)",
+      "tier": "A",
+      "accent": "ayodhya"
+    },
+    {
+      "narration": "So he resolved on the great horse sacrifice; his priests, led by Vasishtha, blessed the plan, and the young sage Rishyashringa came to lead the rites on the bank of the Sarayu.",
+      "tts": "So he resolved on the great horse sacrifice; his priests, led by Vasishtha, blessed the plan, and the young sage Rishyashringa came to lead the rites on the bank of the Sarayoo.",
+      "visual": "a sacrificial ground on the bank of the Sarayu river, {vasishtha} with exactly two arms standing at the left third of the frame in three-quarter view facing right, his right hand raised in blessing, held clear of his beard and body against open board, {rishyashringa} with exactly two arms standing at the right third in side view facing left, holding a long ladle out over a square red-brick fire altar, the flames rising on open board, a wide gap of open board between the two sages, a white horse with royal ornaments grazing small far in the background, the river along the horizon, horizon line one third from the top, the lower fifth of the frame plain dark chalkboard",
+      "emphasis": "",
+      "keywords": [
+        "Vasishtha,",
+        "Rishyashringa"
+      ],
+      "pause": 0.25,
+      "chapter": 2,
+      "sfx": [
+        {
+          "name": "fire"
+        }
+      ],
+      "quote_src": "VR 1.8.2–12, sargas 1.9–1.14 (vulgate)",
+      "tier": "B",
+      "accent": "ashram"
+    },
+    {
+      "narration": "When it was done, Rishyashringa lit one more fire for the birth of sons. The gods who gathered there for their share cried to Brahma in fear, for the rakshasa king Ravana, proud of his boon, was tormenting all three worlds, and even the sun dared not scorch him.",
+      "tts": "When it was done, Rishyashringa lit one more fire for the birth of sons. The gods who gathered there for their share cried to Brahma in fear, for the raakshasa king Raavana, proud of his boon, was tormenting all three worlds, and even the sun dared not scorch him.",
+      "visual": "a wide split sky, at the lower left {rishyashringa} with exactly two arms seated in side view facing right, pouring an offering from a ladle into a blazing altar fire with open board around the flames, above the fire in the sky {devas_light} gathered in a loose arc around {brahma_light}, far on the right {ravana_shadow} rising over the walls of a fortress city on a rocky island across a dark sea, a small dim sun above it, wide bands of open board between the fire, the lights and the shadow, horizon line one third from the top, the lower fifth of the frame plain dark chalkboard",
+      "emphasis": "",
+      "keywords": [
+        "gods",
+        "Ravana,"
+      ],
+      "pause": 0.25,
+      "chapter": 2,
+      "sfx": [
+        {
+          "name": "fire"
+        },
+        {
+          "name": "wind"
+        }
+      ],
+      "melody": "rise",
+      "tone": "dread",
+      "quote_src": "VR 1.15.1–10 (vulgate)",
+      "tier": "B",
+      "accent": "divine"
+    },
+    {
+      "narration": "He had asked to be safe from gods and demons, but in his scorn he never thought of men; and so the god Vishnu agreed to be born as a man, as the son of King Dasharatha.",
+      "visual": "a wide night sky, a great column of soft golden light descending from the upper left toward a small ancient Indian palace of Ayodhya with stepped shikhara towers at the right third, a faint golden conch and discus emblem glowing at the head of the column of light, open board all around the light, the palace windows glowing with warm lamplight, far beyond on the right horizon a small faint crowned shadow, horizon line one third from the top, the lower fifth of the frame plain dark chalkboard",
+      "emphasis": "",
+      "keywords": [
+        "scorn",
+        "Vishnu"
+      ],
+      "pause": 0.5,
+      "chapter": 2,
+      "melody": "rise",
+      "tone": "awe",
+      "quote_src": "VR 1.15.13–14, 1.16.3–8 (vulgate)",
+      "tier": "C",
+      "accent": "divine"
+    },
+    {
+      "narration": "Then from the fire rose a radiant being, bright as the sun, holding a golden vessel of payasa made by the gods; give it to your queens, he said, and you will have sons.",
+      "tts": "Then from the fire rose a radiant being, bright as the sun, holding a golden vessel of paayasa made by the gods; give it to your queens, he said, and you will have sons.",
+      "visual": "a square red-brick altar at the left third of the frame with a blazing fire, rising from its flames {fire_being} in three-quarter view facing right, holding out a round golden vessel in both hands at arm's length, clear of its body against open board, {dasharatha} with exactly two arms standing at the right third in side view facing left, both arms raised forward with open palms to receive the vessel, his hands held clear of his robes, a wide gap of open board between the vessel and the king's hands, horizon line one third from the top, the lower fifth of the frame plain dark chalkboard",
+      "emphasis": "",
+      "keywords": [
+        "payasa",
+        "queens,"
+      ],
+      "pause": 0.25,
+      "chapter": 2,
+      "sfx": [
+        {
+          "name": "fire"
+        },
+        {
+          "name": "bell"
+        }
+      ],
+      "tone": "wonder",
+      "quote_src": "VR 1.16.11–20 (vulgate)",
+      "tier": "A",
+      "accent": "divine"
+    },
+    {
+      "narration": "The king, like a poor man who has found treasure, gave half to Kausalya, half of what was left to Sumitra, half of the rest to Kaikeyi, and, after a moment's thought, the last share to Sumitra again.",
+      "tts": "The king, like a poor man who has found treasure, gave half to Kausalyaa, half of what was left to Sumitraa, half of the rest to Kaikeyee, and, after a moment's thought, the last share to Sumitraa again.",
+      "visual": "the verse written in chalk on the open dark board, wide horizontal layout",
+      "emphasis": "",
+      "keywords": [
+        "Kausalya,",
+        "Sumitra"
+      ],
+      "pause": 0.5,
+      "chapter": 2,
+      "pacing": "slow",
+      "kind": "verse",
+      "devanagari": [
+        "कौसल्यायै नरपतिः",
+        "पायसार्धं ददौ तदा।",
+        "अर्धादर्धं ददौ चापि",
+        "सुमित्रायै नराधिपः॥"
+      ],
+      "source": "Valmiki Ramayana 1.16.27 (vulgate)",
+      "edition": "vulgate (sa.wikisource)",
+      "quote_src": "VR 1.16.23, 1.16.27–29 (vulgate)",
+      "tier": "C"
+    },
+    {
+      "narration": "In the spring month of Chaitra, on the ninth day, Kausalya gave birth to Rama; Kaikeyi bore Bharata, and Sumitra bore Lakshmana and Shatrughna, and all Ayodhya filled with singing and dancing.",
+      "tts": "In the spring month of Chaitra, on the ninth day, Kausalyaa gave birth to Raama; Kaikeyee bore Bharata, and Sumitraa bore Lakshmana and Shatrughna, and all Ayodhyaa filled with singing and dancing.",
+      "visual": "a palace courtyard at festival time, {kausalya} with exactly two arms standing at the left third of the frame in three-quarter view facing right, gazing down tenderly at a cradle draped in white cloth, further right {kaikeyi} with exactly two arms beside one cradle and {sumitra} with exactly two arms beside two cradles, the three queens and the four cradles standing well apart with open board between them, flower petals falling across the open board above, small musicians with a drum far in the background, horizon line one third from the top, the lower fifth of the frame plain dark chalkboard",
+      "emphasis": "",
+      "keywords": [
+        "Chaitra,",
+        "Rama;"
+      ],
+      "pause": 0.25,
+      "chapter": 2,
+      "sfx": [
+        {
+          "name": "conch"
+        },
+        {
+          "name": "bell"
+        }
+      ],
+      "melody": "love",
+      "tone": "joy",
+      "quote_src": "VR 1.18.8–14, 1.18.17–19 (vulgate)",
+      "tier": "B",
+      "accent": "ayodhya"
+    },
+    {
+      "narration": "The four princes grew in learning and in archery, and Lakshmana was like Rama's second life; Rama would not even sleep without him. And as the princes came of age, the king began to think of their weddings, never guessing who was about to come to his gate.",
+      "tts": "The four princes grew in learning and in archery, and Lakshmana was like Raama's second life; Raama would not even sleep without him. And as the princes came of age, the king began to think of their weddings, never guessing who was about to come to his gate.",
+      "visual": "an open field at the forest edge in late afternoon, {rama_teen} with exactly two arms riding a horse at a walk from left to right at the left third of the frame, the horse in side view and Rama in three-quarter back view with his face turned away and hidden from the viewer, {lakshmana_teen} with exactly two arms walking a few paces behind him on the left in side view, his bow held clear of his body, a gap of open board between the brothers, a line of trees along the far right, horizon line one third from the top, the lower fifth of the frame plain dark chalkboard",
+      "emphasis": "",
+      "keywords": [
+        "Lakshmana",
+        "sleep"
+      ],
+      "pause": 0.9,
+      "chapter": 2,
+      "sfx": [
+        {
+          "name": "wind"
+        }
+      ],
+      "melody": "calm",
+      "quote_src": "VR 1.18.29–31, 1.18.36–39 (vulgate)",
+      "tier": "C",
+      "accent": "forest"
+    },
+    {
+      "narration": "It was then that the great sage Vishvamitra came to the palace, and Dasharatha, overjoyed, went out to meet him and promised to do whatever he might ask.",
+      "tts": "It was then that the great sage Vishvaamitra came to the palace, and Dasharatha, overjoyed, went out to meet him and promised to do whatever he might ask.",
+      "visual": "a carved stone palace gateway with pillars and a stepped stone tower on the right side of the frame, a saffron flag flying from a slender pole on top of the tower against open board, {vishvamitra} with dark hair streaked with grey tied in a topknot, a dark beard and a red tilak on his forehead, exactly two arms standing at the left third in side view facing right, his wooden staff planted upright in his right hand, clear of his body, {dasharatha} with exactly two arms hurrying out of the gateway toward him in three-quarter view facing left, palms joined in front of his chest and held clear of his body, his crown and shoulders against open board in front of the gateway, a wide gap of open board between the sage and the king, horizon line one third from the top, the lower fifth of the frame plain dark chalkboard",
+      "emphasis": "",
+      "keywords": [
+        "Vishvamitra",
+        "promised"
+      ],
+      "pause": 0.25,
+      "chapter": 3,
+      "chapter_title": "The Sage at the Gate",
+      "sfx": [
+        {
+          "name": "wind"
+        }
+      ],
+      "melody": "rise",
+      "quote_src": "VR 1.18.38–58 (vulgate)",
+      "tier": "B",
+      "accent": "ayodhya"
+    },
+    {
+      "narration": "I am keeping a sacred vow, the sage said, and two rakshasas, Maricha and Subahu, rain flesh and blood upon my altar; while the vow lasts I may not curse them, so give me Rama for ten nights.",
+      "tts": "I am keeping a sacred vow, the sage said, and two raakshasas, Maareecha and Subaahu, rain flesh and blood upon my altar; while the vow lasts I may not curse them, so give me Raama for ten nights.",
+      "visual": "a pillared palace hall, {vishvamitra} with dark hair streaked with grey tied in a topknot, a dark beard and a red tilak on his forehead, exactly two arms standing at the left third of the frame in three-quarter view facing right, speaking, his right hand raised beside his shoulder with the palm outward, held clear of his beard and body against open board, his staff planted upright in his left hand, on the open board at the right a faint chalk memory of a small forest altar inside a soft cloud-shaped vignette, streaks of dark red rain falling only onto its stones, the pillars far at the edges of the hall, horizon line one third from the top, the lower fifth of the frame plain dark chalkboard",
+      "emphasis": "",
+      "keywords": [
+        "Maricha",
+        "Rama"
+      ],
+      "pause": 0.25,
+      "chapter": 3,
+      "melody": "rise",
+      "tone": "dread",
+      "quote_src": "VR 1.19.4–9, 1.19.18 (vulgate)",
+      "tier": "C",
+      "accent": "ayodhya"
+    },
+    {
+      "narration": "The king fell senseless, and when he came to himself he said: my lotus-eyed Rama is not yet sixteen, and I do not see him fit to fight rakshasas.",
+      "tts": "The king fell senseless, and when he came to himself he said: my lotus-eyed Raama is not yet sixteen, and I do not see him fit to fight raakshasas.",
+      "visual": "the verse written in chalk on the open dark board, wide horizontal layout",
+      "emphasis": "",
+      "keywords": [
+        "sixteen,",
+        "rakshasas."
+      ],
+      "pause": 0.6,
+      "chapter": 3,
+      "tone": "grief",
+      "pacing": "slow",
+      "kind": "verse",
+      "devanagari": [
+        "ऊनषोडशवर्षो मे",
+        "रामो राजीवलोचनः।",
+        "न युद्धयोग्यतामस्य",
+        "पश्यामि सह राक्षसैः॥"
+      ],
+      "source": "Valmiki Ramayana 1.20.2 (vulgate)",
+      "edition": "vulgate (sa.wikisource)",
+      "quote_src": "VR 1.19.21, 1.20.1–2 (vulgate)",
+      "tier": "C"
+    },
+    {
+      "narration": "Take my army instead, he begged, take me, for I cannot live a moment without Rama; and when he heard that Ravana stood behind these rakshasas, his fear only grew.",
+      "tts": "Take my army instead, he begged, take me, for I cannot live a moment without Raama; and when he heard that Raavana stood behind these raakshasas, his fear only grew.",
+      "visual": "a pillared palace hall, {dasharatha} with exactly two arms half risen from his throne at the right third of the frame in three-quarter view facing left, both arms reaching forward in a pleading gesture with open palms, his forearms and hands held clear of his robes and the throne against open board, {vishvamitra} with dark hair streaked with grey tied in a topknot, a dark beard and a red tilak on his forehead, exactly two arms standing still at the left third in side view facing right, his staff planted upright, a wide gap of open board between them, far away on the open board high in the middle a small faint {ravana_shadow}, the pillars at the edges of the hall, horizon line one third from the top, the lower fifth of the frame plain dark chalkboard",
+      "emphasis": "",
+      "keywords": [
+        "army",
+        "Ravana"
+      ],
+      "pause": 0.25,
+      "chapter": 3,
+      "melody": "grief",
+      "tone": "fear",
+      "quote_src": "VR 1.20.3–9, 1.20.16–25 (vulgate)",
+      "tier": "A",
+      "accent": "ayodhya"
+    },
+    {
+      "narration": "Then Vishvamitra's anger blazed like a fire fed with ghee; he said it was unworthy of Raghu's line for a king to break his word, and as he spoke, the whole earth trembled.",
+      "tts": "Then Vishvaamitra's anger blazed like a fire fed with ghee; he said it was unworthy of Raghu's line for a king to break his word, and as he spoke, the whole earth trembled.",
+      "visual": "a pillared palace hall, {vishvamitra} with dark hair streaked with grey tied in a topknot, a dark beard and a red tilak on his forehead, exactly two arms at the left third of the frame in side view facing right, turning away in anger, his staff swung forward in his right hand and held clear of his body, his long matted hair flying out behind him against open board, saffron chalk flames rising from the floor in a wide circle around him with open board between the flames and his body, jagged cracks running across the stone floor toward a throne at the right third where {dasharatha} with exactly two arms sits small, recoiling, the pillars far at the edges, horizon line one third from the top, the lower fifth of the frame plain dark chalkboard",
+      "emphasis": "",
+      "keywords": [
+        "anger",
+        "trembled."
+      ],
+      "pause": 0.5,
+      "chapter": 3,
+      "sfx": [
+        {
+          "name": "rumble"
+        },
+        {
+          "name": "fire"
+        }
+      ],
+      "melody": "rise",
+      "tone": "fury",
+      "quote_src": "VR 1.20.28, 1.21.1–4 (vulgate)",
+      "tier": "A",
+      "accent": "ayodhya"
+    },
+    {
+      "narration": "It was the guru Vasishtha who steadied the king: you were born in Ikshvaku's line, he said, so do not abandon dharma now, for guarded by this sage, Rama is as safe as nectar guarded by fire.",
+      "tts": "It was the guru Vasishtha who steadied the king: you were born in Ikshvaku's line, he said, so do not abandon dharma now, for guarded by this sage, Raama is as safe as nectar guarded by fire.",
+      "visual": "a pillared palace hall, {vasishtha} with exactly two arms standing at the right third of the frame in three-quarter view facing left, his left hand resting gently on the shoulder of {dasharatha} with exactly two arms seated on a throne beside him, Vasishtha's right hand raised in counsel, held clear of his beard and body against open board, the king lifting his head toward the guru, open board across the left side, horizon line one third from the top, the lower fifth of the frame plain dark chalkboard",
+      "emphasis": "",
+      "keywords": [
+        "Vasishtha",
+        "nectar"
+      ],
+      "pause": 0.25,
+      "chapter": 3,
+      "melody": "calm",
+      "quote_src": "VR 1.21.5–9 (vulgate)",
+      "tier": "C",
+      "accent": "ayodhya"
+    },
+    {
+      "narration": "So, with his mother's blessing, Dasharatha kissed his son's head and gave him to the sage; a gentle wind blew, flowers fell from the sky, and Lakshmana walked behind his brother.",
+      "visual": "wide palace steps in morning light, {dasharatha} with exactly two arms at the left third of the frame in three-quarter view facing right, bending his head forward to kiss the top of the head of {rama_teen} with exactly two arms, who stands before him in three-quarter back view with his face turned away and hidden from the viewer with his head bowed, the king's hands resting on Rama's shoulders, {kausalya} with exactly two arms standing a step behind on the far left with palms joined, held a little away from her chest, at the right third {lakshmana_teen} with exactly two arms and {vishvamitra} with dark hair streaked with grey tied in a topknot, a dark beard and a red tilak on his forehead, exactly two arms waiting side by side with a gap between them, a wide band of open board between the family and the two waiting figures, flowers drifting down across the open board above, horizon line one third from the top, the lower fifth of the frame plain dark chalkboard",
+      "emphasis": "",
+      "keywords": [
+        "kissed",
+        "Lakshmana"
+      ],
+      "pause": 0.25,
+      "chapter": 3,
+      "sfx": [
+        {
+          "name": "wind"
+        },
+        {
+          "name": "conch"
+        }
+      ],
+      "melody": "love",
+      "quote_src": "VR 1.22.1–6 (vulgate)",
+      "tier": "A",
+      "accent": "ayodhya"
+    },
+    {
+      "narration": "On the bank of the Sarayu the sage gave Rama two mantras, Bala and Atibala, so that no weariness or hunger would touch him; and that night the princes slept on beds of grass.",
+      "tts": "On the bank of the Sarayoo the sage gave Raama two mantras, Balaa and Atibalaa, so that no weariness or hunger would touch him; and that night the princes slept on beds of grass.",
+      "visual": "a riverbank at dusk, {vishvamitra} with dark hair streaked with grey tied in a topknot, a dark beard and a red tilak on his forehead, exactly two arms standing at the left third of the frame in side view facing right, his right hand raised over the cupped hands of {rama_teen} with exactly two arms, who kneels before him in three-quarter back view with his face turned away and hidden from the viewer, holding water cupped in both hands held out clear of his body, a gap of open board between the sage's raised hand and Rama's hands, {lakshmana_teen} with exactly two arms kneeling at the right third, well apart, spreading a bed of grass, the Sarayu river flowing across the middle of the frame, the first stars above, horizon line one third from the top, the lower fifth of the frame plain dark chalkboard",
+      "emphasis": "",
+      "keywords": [
+        "Bala",
+        "Atibala,"
+      ],
+      "pause": 0.25,
+      "chapter": 3,
+      "sfx": [
+        {
+          "name": "river"
+        }
+      ],
+      "tone": "wonder",
+      "quote_src": "VR 1.22.11–18, 1.22.23–24 (vulgate)",
+      "tier": "B",
+      "accent": "ashram"
+    },
+    {
+      "narration": "At dawn the sage woke him gently: Kausalya is blessed in her son, Rama, the twilight is here, so rise, tiger among men; centuries later a temple hymn would open with these words. That morning they walked on toward the Ganga, and beyond it lay a dreadful forest, and the one who had laid it waste.",
+      "tts": "At dawn the sage woke him gently: Kausalyaa is blessed in her son, Raama, the twilight is here, so rise, tiger among men; centuries later a temple hymn would open with these words. That morning they walked on toward the Ganga, and beyond it lay a dreadful forest, and the one who had laid it waste.",
+      "visual": "the verse written in chalk on the open dark board, wide horizontal layout",
+      "emphasis": "",
+      "keywords": [
+        "dawn",
+        "Kausalya"
+      ],
+      "pause": 0.9,
+      "chapter": 3,
+      "sfx": [
+        {
+          "name": "birds"
+        }
+      ],
+      "melody": "calm",
+      "pacing": "slow",
+      "kind": "verse",
+      "devanagari": [
+        "कौसल्या सुप्रजा राम",
+        "पूर्वा सन्ध्या प्रवर्तते।",
+        "उत्तिष्ठ नरशार्दूल",
+        "कर्तव्यं दैवमाह्निकम्॥"
+      ],
+      "source": "Valmiki Ramayana 1.23.2 (vulgate)",
+      "edition": "vulgate (sa.wikisource)",
+      "quote_src": "VR 1.23.1–2, 1.23.5, 1.24.12–28 (vulgate); Venkatesha Suprabhatam opening (later tradition, Wikipedia 'Suprabhatam', accessed 2026-11-18)",
+      "tier": "C"
+    },
+    {
+      "narration": "They crossed the Ganga to a dreadful forest, once the rich land of Malada and Karusha, which a yakshi named Tataka, with the strength of a thousand elephants, had laid to waste.",
+      "tts": "They crossed the Ganga to a dreadful forest, once the rich land of Malada and Kaarusha, which a yakshi named Taatakaa, with the strength of a thousand elephants, had laid to waste.",
+      "visual": "a wide river crossing, a small wooden boat at the left third of the frame carrying {vishvamitra} with dark hair streaked with grey tied in a topknot, a dark beard and a red tilak on his forehead, exactly two arms, {rama_teen} with exactly two arms in three-quarter back view with his face turned away and hidden from the viewer and {lakshmana_teen} with exactly two arms seated well apart along its length, waves curling around the hull, on the far right bank a dark tangled forest of broken trees with the distant shadow {tataka} looming between them, her wild hair streaming out on open board, a wide stretch of open water between the boat and the far bank, horizon line one third from the top, the lower fifth of the frame plain dark chalkboard",
+      "emphasis": "",
+      "keywords": [
+        "Tataka,",
+        "elephants,"
+      ],
+      "pause": 0.25,
+      "chapter": 4,
+      "chapter_title": "Tataka and the Gift",
+      "sfx": [
+        {
+          "name": "river"
+        },
+        {
+          "name": "wind"
+        }
+      ],
+      "melody": "rise",
+      "tone": "dread",
+      "quote_src": "VR 1.23.5, 1.24.2–5, 1.24.12–32 (vulgate)",
+      "tier": "B",
+      "accent": "forest"
+    },
+    {
+      "narration": "How could a yakshi hold such strength, Rama asked; it was Brahma's boon, said the sage, and when she and her son Maricha attacked the sage Agastya, his curse made her a man-eating rakshasi.",
+      "tts": "How could a yakshi hold such strength, Raama asked; it was Brahma's boon, said the sage, and when she and her son Maareecha attacked the sage Agastya, his curse made her a man-eating raakshasee.",
+      "visual": "a forest clearing at dusk, {agastya} with exactly two arms standing at the left third of the frame in side view facing right, his kamandalu held out in his left hand clear of his body, his right hand raised palm outward in a curse with a soft glow around the palm against open board, at the right {tataka} and the smaller {maricha} recoiling, standing well apart from each other, a wide band of open board between the sage and the two shadows, trees at the far edges, horizon line one third from the top, the lower fifth of the frame plain dark chalkboard",
+      "emphasis": "",
+      "keywords": [
+        "boon,",
+        "Agastya,"
+      ],
+      "pause": 0.25,
+      "chapter": 4,
+      "melody": "grief",
+      "quote_src": "VR 1.25.2, 1.25.5–13 (vulgate)",
+      "tier": "C",
+      "accent": "forest"
+    },
+    {
+      "narration": "Do not shrink from this because she is a woman, the sage told him; those who protect the people must act, cruel as the deed may seem, for that is the lasting duty of all who rule.",
+      "visual": "the verse written in chalk on the open dark board, wide horizontal layout",
+      "emphasis": "",
+      "keywords": [
+        "protect",
+        "duty"
+      ],
+      "pause": 0.6,
+      "chapter": 4,
+      "pacing": "slow",
+      "kind": "verse",
+      "devanagari": [
+        "नृशंसमनृशंसं वा",
+        "प्रजारक्षणकारणात्।",
+        "पातकं वा सदोषं वा",
+        "कर्तव्यं रक्षता सदा॥"
+      ],
+      "source": "Valmiki Ramayana 1.25.18 (vulgate)",
+      "edition": "vulgate (sa.wikisource)",
+      "quote_src": "VR 1.25.17–19 (vulgate)",
+      "tier": "C"
+    },
+    {
+      "narration": "Rama twanged his bowstring and Tataka came charging, yet even then he told Lakshmana he had no heart to kill her, and meant only to stop her.",
+      "tts": "Raama twanged his bowstring and Taatakaa came charging, yet even then he told Lakshmana he had no heart to kill her, and meant only to stop her.",
+      "visual": "a dark forest at twilight, {rama_teen} with exactly two arms at the left third of the frame in three-quarter back view with his face turned away and hidden from the viewer, facing right, his bow held out at arm's length in his left hand, his right hand drawn back plucking the bowstring, the right elbow raised clear of his body and hair against open board, {lakshmana_teen} with exactly two arms a step behind him on the far left, his bow held clear of his body, the huge shadow {tataka} rushing in from the right between bending trees, both arms stretched forward, her hair streaming back on open board, a wide band of open board between Rama's bow and Tataka, horizon line one third from the top, the lower fifth of the frame plain dark chalkboard",
+      "emphasis": "",
+      "keywords": [
+        "bowstring",
+        "heart"
+      ],
+      "pause": 0.25,
+      "chapter": 4,
+      "sfx": [
+        {
+          "name": "bowstring"
+        },
+        {
+          "name": "rumble"
+        }
+      ],
+      "tone": "tension",
+      "quote_src": "VR 1.26.6–8, 1.26.12 (vulgate)",
+      "tier": "A",
+      "accent": "forest"
+    },
+    {
+      "narration": "But she raised a storm of dust, rained down rocks and vanished into illusion, and the sage cried: enough of this pity, Rama, dusk is near, when rakshasas cannot be beaten.",
+      "tts": "But she raised a storm of dust, rained down rocks and vanished into illusion, and the sage cried: enough of this pity, Raama, dusk is near, when raakshasas cannot be beaten.",
+      "visual": "a forest clearing in a whirling storm of dust, rocks falling from a dark sky on the right, the shadow {tataka} fading into the haze, {rama_teen} with exactly two arms at the left third of the frame in three-quarter back view with his face turned away and hidden from the viewer, raising one forearm to shield his face, the arm held clear of his bow, {vishvamitra} with dark hair streaked with grey tied in a topknot, a dark beard and a red tilak on his forehead, exactly two arms a few paces behind him on the far left in side view, calling out, his right arm raised high and clear of his body against open board, horizon line one third from the top, the lower fifth of the frame plain dark chalkboard",
+      "emphasis": "",
+      "keywords": [
+        "illusion,",
+        "pity,"
+      ],
+      "pause": 0.25,
+      "chapter": 4,
+      "sfx": [
+        {
+          "name": "rocks"
+        },
+        {
+          "name": "wind"
+        }
+      ],
+      "melody": "rise",
+      "tone": "fury",
+      "quote_src": "VR 1.26.15–23 (vulgate)",
+      "tier": "B",
+      "accent": "battle"
+    },
+    {
+      "narration": "With arrows aimed by sound alone, Rama checked her rain of stones, and as she rushed at him, he struck her chest with a single arrow, and she fell; the gods praised him, and the cursed forest bloomed again.",
+      "tts": "With arrows aimed by sound alone, Raama checked her rain of stones, and as she rushed at him, he struck her chest with a single arrow, and she fell; the gods praised him, and the cursed forest bloomed again.",
+      "visual": "a forest at sunset after the storm, {rama_teen} with exactly two arms at the left third of the frame in three-quarter back view with his face turned away and hidden from the viewer, facing right, his bow lowered in his left hand, a fading line of golden light from his arrow vanishing into settling dust on the right, the clearing beyond calm and empty, fresh flowers and green leaves returning on the bushes, a few birds flying back across the open sky, horizon line one third from the top, the lower fifth of the frame plain dark chalkboard",
+      "emphasis": "",
+      "keywords": [
+        "sound",
+        "bloomed"
+      ],
+      "pause": 0.7,
+      "chapter": 4,
+      "sfx": [
+        {
+          "name": "arrow"
+        },
+        {
+          "name": "birds"
+        }
+      ],
+      "melody": "calm",
+      "quote_src": "VR 1.26.23–28, 1.26.35 (vulgate)",
+      "tier": "C",
+      "accent": "forest"
+    },
+    {
+      "narration": "Next morning the sage smiled and gave Rama all his weapons, the discus of Time, the thunderbolt, the Brahma weapon, fire and wind and even sleep, and they stood before him with joined palms, saying, we are your servants.",
+      "tts": "Next morning the sage smiled and gave Raama all his weapons, the discus of Time, the thunderbolt, the Brahma weapon, fire and wind and even sleep, and they stood before him with joined palms, saying, we are your servants.",
+      "visual": "a forest clearing at sunrise, {vishvamitra} with dark hair streaked with grey tied in a topknot, a dark beard and a red tilak on his forehead, exactly two arms seated cross-legged at the left third of the frame in three-quarter view facing right, smiling, his right hand raised in blessing, held clear of his beard and body against open board, his staff lying on the ground in front of him, {rama_teen} with exactly two arms kneeling a little to his right, facing him in three-quarter back view with his face turned away and hidden from the viewer, across the right two thirds a row of four {astra_devas} standing well apart with open board between each figure, palms joined at the chest, heads slightly bowed, above each figure a floating chalk emblem: a golden discus, a vajra thunderbolt, a flame and a swirl of wind, soft morning rays, horizon line one third from the top, the lower fifth of the frame plain dark chalkboard",
+      "emphasis": "",
+      "keywords": [
+        "weapons,",
+        "servants."
+      ],
+      "pause": 0.25,
+      "chapter": 4,
+      "sfx": [
+        {
+          "name": "bell"
+        }
+      ],
+      "melody": "rise",
+      "tone": "awe",
+      "quote_src": "VR 1.27.1–15, 1.27.22–26 (vulgate)",
+      "tier": "A",
+      "accent": "divine"
+    },
+    {
+      "narration": "Rama touched them and bade them dwell in his mind; then he asked the sage, now that not even the gods can overcome me, how do I call these weapons back? And the sage taught him that too.",
+      "tts": "Raama touched them and bade them dwell in his mind; then he asked the sage, now that not even the gods can overcome me, how do I call these weapons back? And the sage taught him that too.",
+      "visual": "the verse written in chalk on the open dark board, wide horizontal layout",
+      "emphasis": "",
+      "keywords": [
+        "mind;",
+        "back?"
+      ],
+      "pause": 0.6,
+      "chapter": 4,
+      "pacing": "slow",
+      "kind": "verse",
+      "devanagari": [
+        "गृहीतास्त्रोऽस्मि भगवन्",
+        "दुराधर्षः सुरैरपि।",
+        "अस्त्राणां त्वहमिच्छामि",
+        "संहारान् मुनिपुङ्गव॥"
+      ],
+      "source": "Valmiki Ramayana 1.28.2 (vulgate)",
+      "edition": "vulgate (sa.wikisource)",
+      "quote_src": "VR 1.27.27, 1.28.2–3 (vulgate)",
+      "tier": "C"
+    },
+    {
+      "narration": "At last they reached Siddhashrama, the Hermitage of Fulfilment, a grove like a cloud beside a mountain; here, the sage said, the rakshasas come to wreck my sacrifice, and here, tiger among men, you must strike them down.",
+      "tts": "At last they reached Siddhaashrama, the Hermitage of Fulfilment, a grove like a cloud beside a mountain; here, the sage said, the raakshasas come to wreck my sacrifice, and here, tiger among men, you must strike them down.",
+      "visual": "a peaceful hermitage grove at the right third of the frame beneath a tall mountain, thatched huts among trees and a square red-brick altar with a thin line of smoke rising on open board, {vishvamitra} with dark hair streaked with grey tied in a topknot, a dark beard and a red tilak on his forehead, exactly two arms at the left third in side view facing right, pointing toward the grove with his staff held out at arm's length, clear of his body, {rama_teen} with exactly two arms and {lakshmana_teen} with exactly two arms a few paces behind him on the far left, Rama in three-quarter back view with his face turned away and hidden from the viewer, the brothers well apart, horizon line one third from the top, the lower fifth of the frame plain dark chalkboard",
+      "emphasis": "",
+      "keywords": [
+        "Siddhashrama,",
+        "sacrifice,"
+      ],
+      "pause": 0.9,
+      "chapter": 4,
+      "sfx": [
+        {
+          "name": "birds"
+        }
+      ],
+      "melody": "calm",
+      "quote_src": "VR 1.28.17–22, 1.29.3–4, 1.29.23 (vulgate)",
+      "tier": "B",
+      "accent": "ashram"
+    },
+    {
+      "narration": "That day Vishvamitra entered his vow of silence, and the sages asked the princes to guard him; so for six days and nights, without sleep, Rama and Lakshmana stood watch beside him.",
+      "tts": "That day Vishvaamitra entered his vow of silence, and the sages asked the princes to guard him; so for six days and nights, without sleep, Raama and Lakshmana stood watch beside him.",
+      "visual": "a hermitage at dusk, a square red-brick fire altar in the centre of the frame with steady flames on open board, {vishvamitra} with dark hair streaked with grey tied in a topknot, a dark beard and a red tilak on his forehead, exactly two arms seated cross-legged before it at the left third in three-quarter view facing right, eyes closed in a vow of silence, hands resting on his knees, {rama_teen} with exactly two arms standing guard at the far left in three-quarter back view with his face turned away and hidden from the viewer, facing the forest, {lakshmana_teen} with exactly two arms standing guard at the right third in side view facing right, both bows held clear of their bodies, {ashram_sages} small far behind the altar, the first stars appearing, horizon line one third from the top, the lower fifth of the frame plain dark chalkboard",
+      "emphasis": "",
+      "keywords": [
+        "silence,",
+        "sleep,"
+      ],
+      "pause": 0.25,
+      "chapter": 5,
+      "chapter_title": "Six Nights of Fire",
+      "sfx": [
+        {
+          "name": "fire"
+        }
+      ],
+      "melody": "calm",
+      "tone": "vigil",
+      "quote_src": "VR 1.29.26–30, 1.30.4–6 (vulgate)",
+      "tier": "B",
+      "accent": "ashram"
+    },
+    {
+      "narration": "On the sixth day Rama told Lakshmana to be ready, and as he spoke, the altar fire blazed up, and a terrible sound filled the sky.",
+      "tts": "On the sixth day Raama told Lakshmana to be ready, and as he spoke, the altar fire blazed up, and a terrible sound filled the sky.",
+      "visual": "a hermitage altar under gathering dark clouds, a square red-brick altar at the right third of the frame with its fire suddenly flaring tall, saffron and gold flames leaping on open board, {ashram_sages} small around the altar stepping back, {rama_teen} with exactly two arms at the left third in three-quarter back view with his face turned away and hidden from the viewer, turning toward {lakshmana_teen} with exactly two arms, who stands a few paces away on the far left in side view facing right, Rama's right hand raised beside his shoulder and held clear of his body and bow, his bow in his left hand, dark clouds low across the top of the frame, horizon line one third from the top, the lower fifth of the frame plain dark chalkboard",
+      "emphasis": "",
+      "keywords": [
+        "ready,",
+        "blazed"
+      ],
+      "pause": 0.25,
+      "chapter": 5,
+      "sfx": [
+        {
+          "name": "fire"
+        },
+        {
+          "name": "rumble"
+        }
+      ],
+      "melody": "rise",
+      "tone": "tension",
+      "quote_src": "VR 1.30.7–10 (vulgate)",
+      "tier": "A",
+      "accent": "ashram"
+    },
+    {
+      "narration": "Like monsoon clouds the rakshasas swept in, and Maricha and Subahu poured streams of blood upon the altar.",
+      "tts": "Like monsoon clouds the raakshasas swept in, and Maareecha and Subaahu poured streams of blood upon the altar.",
+      "visual": "a wide sky over the hermitage, the shadow silhouettes {maricha} on the left and {subahu} on the right, well apart, diving out of churning dark monsoon clouds, streaks of dark red rain falling only onto a square red-brick altar below, {rama_teen} with exactly two arms small in the lower centre in three-quarter back view with his face turned away and hidden from the viewer, running forward, his bow in hand, horizon line one third from the top, the lower fifth of the frame plain dark chalkboard",
+      "emphasis": "",
+      "keywords": [
+        "Maricha",
+        "Subahu"
+      ],
+      "pause": 0.5,
+      "chapter": 5,
+      "sfx": [
+        {
+          "name": "wind"
+        }
+      ],
+      "tone": "dread",
+      "quote_src": "VR 1.30.11–13 (vulgate)",
+      "tier": "C",
+      "accent": "battle"
+    },
+    {
+      "narration": "Rama fitted the shining Manava weapon to his bow and loosed it at Maricha's chest, and it hurled him a full hundred yojanas into the surging ocean.",
+      "tts": "Raama fitted the shining Maanava weapon to his bow and loosed it at Maareecha's chest, and it hurled him a full hundred yojanas into the surging ocean.",
+      "visual": "a hill at the edge of the hermitage with the distant ocean on the horizon, {rama_teen} with exactly two arms drawn large at the left third of the frame in three-quarter back view with his face turned away and hidden from the viewer, facing right, his bow held out in his left hand just after the release, his right hand flung back open after the shot, the right elbow clear of his body and hair against open board, a long streak of white light flying across open board to the right, far away over the ocean at the right third the small shadow {maricha} tumbling head over heels along a low arc of white chalk motion lines toward the horizon, tall rolling waves, horizon line one third from the top, the lower fifth of the frame plain dark chalkboard",
+      "emphasis": "",
+      "keywords": [
+        "Manava",
+        "ocean."
+      ],
+      "pause": 0.6,
+      "chapter": 5,
+      "sfx": [
+        {
+          "name": "arrow"
+        },
+        {
+          "name": "whoosh"
+        },
+        {
+          "name": "sea"
+        }
+      ],
+      "tone": "awe",
+      "quote_src": "VR 1.30.16–18 (vulgate)",
+      "tier": "A",
+      "accent": "battle"
+    },
+    {
+      "narration": "See, Lakshmana, Rama said, this cold arrow of Manu stuns him and carries him away, but it does not take his life.",
+      "tts": "See, Lakshmana, Raama said, this cold arrow of Manu stuns him and carries him away, but it does not take his life.",
+      "visual": "the verse written in chalk on the open dark board, wide horizontal layout",
+      "emphasis": "",
+      "keywords": [
+        "Lakshmana,",
+        "life."
+      ],
+      "pause": 0.6,
+      "chapter": 5,
+      "pacing": "slow",
+      "kind": "verse",
+      "devanagari": [
+        "पश्य लक्ष्मण शीतेषुं",
+        "मानवं मनुसंहितम्।",
+        "मोहयित्वा नयत्येनं",
+        "न च प्राणैर्वियुज्यते॥"
+      ],
+      "source": "Valmiki Ramayana 1.30.20 (vulgate)",
+      "edition": "vulgate (sa.wikisource)",
+      "quote_src": "VR 1.30.19–20 (vulgate)",
+      "tier": "C"
+    },
+    {
+      "narration": "Then with the fire weapon he struck Subahu, who fell to the earth, and with the wind weapon he swept away all the rest.",
+      "tts": "Then with the fire weapon he struck Subaahu, who fell to the earth, and with the wind weapon he swept away all the rest.",
+      "visual": "a hermitage sky, {rama_teen} with exactly two arms at the left third of the frame in three-quarter back view with his face turned away and hidden from the viewer, his bow raised just after the shot, a blazing chalk arrow wreathed in saffron flames flying across open board toward a tall column of drifting dark smoke on the right where the broad shadow {subahu} is falling away toward the earth, farther right a swirling spiral of white chalk wind sweeping tiny dark shadows into the clouds like dry leaves, horizon line one third from the top, the lower fifth of the frame plain dark chalkboard",
+      "emphasis": "",
+      "keywords": [
+        "Subahu,",
+        "wind"
+      ],
+      "pause": 0.25,
+      "chapter": 5,
+      "sfx": [
+        {
+          "name": "arrow"
+        },
+        {
+          "name": "wind"
+        }
+      ],
+      "tone": "fury",
+      "quote_src": "VR 1.30.22–23 (vulgate)",
+      "tier": "B",
+      "accent": "battle"
+    },
+    {
+      "narration": "The sacrifice was complete, and Vishvamitra said: my purpose is fulfilled, and you have made Siddhashrama true to its name.",
+      "tts": "The sacrifice was complete, and Vishvaamitra said: my purpose is fulfilled, and you have made Siddhaashrama true to its name.",
+      "visual": "a calm dawn at the hermitage, a square red-brick altar in the centre of the frame with a small steady flame on open board, {vishvamitra} with dark hair streaked with grey tied in a topknot, a dark beard and a red tilak on his forehead, exactly two arms standing at the right third in three-quarter view facing left, his right hand resting gently on the head of {rama_teen} with exactly two arms, who bows before him in three-quarter back view with his face turned away and hidden from the viewer, {lakshmana_teen} with exactly two arms standing a little apart on the left with palms joined, held a little away from his chest, {ashram_sages} far behind raising their hands in praise, a few birds flying across the open sky, horizon line one third from the top, the lower fifth of the frame plain dark chalkboard",
+      "emphasis": "",
+      "keywords": [
+        "sacrifice",
+        "Siddhashrama"
+      ],
+      "pause": 0.9,
+      "chapter": 5,
+      "sfx": [
+        {
+          "name": "birds"
+        },
+        {
+          "name": "bell"
+        }
+      ],
+      "melody": "calm",
+      "tone": "peace",
+      "quote_src": "VR 1.30.24–26 (vulgate)",
+      "tier": "B",
+      "accent": "ashram"
+    },
+    {
+      "narration": "And so the prince his father had called too young for battle did as his gurus asked, keeping a sage's fire safe through six sleepless days, and even in battle he spared a life.",
+      "visual": "a quiet misty morning, {rama_teen} with exactly two arms sitting on a rock at the left third of the frame in three-quarter back view with his face turned away and hidden from the viewer, facing right, his bow laid flat across his knees, looking out over the misty forest toward the open board on the right, {lakshmana_teen} with exactly two arms standing a little apart on the far left, his bow held clear of his body, horizon line one third from the top, the lower fifth of the frame plain dark chalkboard",
+      "emphasis": "",
+      "keywords": [
+        "prince",
+        "safe"
+      ],
+      "pause": 0.25,
+      "chapter": 5,
+      "segment": "closing",
+      "melody": "love",
+      "pacing": "slow",
+      "quote_src": "VR 1.20.2, 1.30.5, 1.30.16–20, 1.30.26 (vulgate)",
+      "tier": "C",
+      "accent": "forest"
+    },
+    {
+      "narration": "Next morning the sages, with Vishvamitra at their head, spoke of King Janaka's sacrifice in Mithila, and of a wondrous bow there that no god, no asura, no rakshasa, still less any man, could string.",
+      "tts": "Next morning the sages, with Vishvaamitra at their head, spoke of King Janaka's sacrifice in Mithilaa, and of a wondrous bow there that no god, no asura, no raakshasa, still less any man, could string.",
+      "visual": "the verse written in chalk on the open dark board, wide horizontal layout",
+      "emphasis": "",
+      "keywords": [
+        "Mithila,",
+        "bow"
+      ],
+      "pause": 0.6,
+      "chapter": 5,
+      "segment": "closing",
+      "melody": "rise",
+      "pacing": "slow",
+      "kind": "verse",
+      "devanagari": [
+        "नास्य देवा न गन्धर्वा",
+        "नासुरा न च राक्षसाः।",
+        "कर्तुमारोपणं शक्ता",
+        "न कथञ्चन मानुषाः॥"
+      ],
+      "source": "Valmiki Ramayana 1.31.9 (vulgate)",
+      "edition": "vulgate (sa.wikisource)",
+      "quote_src": "VR 1.31.1–9 (vulgate)",
+      "tier": "C"
+    },
+    {
+      "narration": "Mighty princes had tried it and failed; and so Vishvamitra turned north, the deer and birds of Siddhashrama following him a while, toward Mithila, where that bow was waiting.",
+      "tts": "Mighty princes had tried it and failed; and so Vishvaamitra turned north, the deer and birds of Siddhaashrama following him a while, toward Mithilaa, where that bow was waiting.",
+      "visual": "a road at sunrise heading north, {vishvamitra} with dark hair streaked with grey tied in a topknot, a dark beard and a red tilak on his forehead, exactly two arms walking from left to right at the right third of the frame in side view, his staff held clear of his body, {rama_teen} with exactly two arms and {lakshmana_teen} with exactly two arms following a few paces behind on the left, well apart, Rama in three-quarter back view with his face turned away and hidden from the viewer, a few deer and birds following on open board at the far left, far on the right horizon a small ancient Indian city of Mithila with stepped shikhara towers and a long golden bow resting on a stone platform, glowing faintly, horizon line one third from the top, the lower fifth of the frame plain dark chalkboard",
+      "emphasis": "",
+      "keywords": [
+        "north,",
+        "Mithila,"
+      ],
+      "pause": 0.9,
+      "chapter": 5,
+      "segment": "closing",
+      "sfx": [
+        {
+          "name": "birds"
+        }
+      ],
+      "melody": "rise",
+      "quote_src": "VR 1.31.10–11, 1.31.14–18 (vulgate)",
+      "tier": "B",
+      "accent": "mithila"
+    },
+    {
+      "narration": "Here the first part of the Bala Kanda comes to rest. The sacred fire burns quietly now, and the road to Mithila lies open before the next part of Rama's story.",
+      "tts": "Here the first part of the Baala Kaanda comes to rest. The sacred fire burns quietly now, and the road to Mithilaa lies open before the next part of Raama's story.",
+      "visual": "calm wide end board at night, a square red-brick hermitage altar at the left third of the frame with a low gentle fire, open board all around the flame, a long empty road winding away from it under a quiet starry sky, the whole right half and the lower part of the frame left as plain open dark chalkboard for end-screen elements, horizon line one third from the top",
+      "emphasis": "",
+      "keywords": [
+        "rest.",
+        "Mithila"
+      ],
+      "pause": 6.0,
+      "chapter": 5,
+      "segment": "end_board",
+      "sfx": [
+        {
+          "name": "fire"
+        }
+      ],
+      "melody": "calm",
+      "pacing": "slow",
+      "tier": "B",
+      "accent": "ashram"
+    }
+  ],
+  "description": "The first long-form chapter of RAMAYANA, The Epic in Chalk: how a sage's grief became the first shloka, how a childless king became the father of four princes, and how a boy not yet sixteen guarded a sacrifice for six sleepless days. Told from Valmiki's Ramayana, Bala Kanda sargas 1 to 31 (vulgate).",
+  "hashtags": [
+    "Ramayana",
+    "BalaKanda",
+    "Valmiki",
+    "Rama",
+    "Vishvamitra",
+    "IndianMythology",
+    "ChalkArt"
+  ],
+  "sources": [
+    {
+      "ref": "VR 1.1.1–8",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "Valmiki asks Narada who in the world has all the virtues (on-screen verse 1.1.2); Narada, delighted, names Rama of the Ikshvaku line"
+    },
+    {
+      "ref": "VR 1.2.2–19",
+      "edition": "vulgate (sa.wikisource; numbers cross-checked on valmikiramayan.net via the Internet Archive copy)",
+      "note": "Narada leaves; the Tamasa near the Ganga; Bharadvaja; the krauncha pair; the hunter; the female's cry; pity; on-screen verse 1.2.15 (ma nishada); four even quarters fit for the strings, let it be a shloka (1.2.18)"
+    },
+    {
+      "ref": "VR 1.2.22–41",
+      "edition": "vulgate (sa.wikisource; numbers cross-checked on valmikiramayan.net via the Internet Archive copy)",
+      "note": "Brahma visits; 'by my will this speech came to you' (1.2.31); tell Rama's whole story as heard from Narada (1.2.32–33); nothing false (1.2.35); as long as mountains and rivers stand (1.2.36–37); grief became shloka (1.2.40); resolve to compose the Ramayana (1.2.41)"
+    },
+    {
+      "ref": "VR 1.5.5–9, 1.6.1–6",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "Kosala on the Sarayu; Ayodhya built by Manu; the royal road sprinkled and strewn with flowers; Dasharatha truthful, learned, dear to the people"
+    },
+    {
+      "ref": "VR 1.8.1–12",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "no son to carry on the line; no joy without one (1.8.8); resolves on the horse sacrifice; priests led by Vasishtha approve; sacrificial ground on the north bank of the Sarayu"
+    },
+    {
+      "ref": "VR sargas 1.9–1.14",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "Rishyashringa is brought and leads the rites (sarga-level locator, as in C0003)"
+    },
+    {
+      "ref": "VR 1.15.1–14",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "Rishyashringa performs the putriya ishti; the gods complain to Brahma of Ravana; the sun does not scorch him nor the wind blow near him (1.15.10); he never named humans in his boon, out of contempt (1.15.13–14)"
+    },
+    {
+      "ref": "VR 1.16.3–29",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "Vishnu chooses Dasharatha as father; a radiant being rises from the fire with a golden vessel of divine payasa; 'like a poor man who finds wealth' (1.16.23); on-screen verse 1.16.27; distribution 1.16.27–29"
+    },
+    {
+      "ref": "VR 1.18.8–19, 1.18.29–32, 1.18.36–58",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "Rama born in Chaitra on the ninth day; Bharata; Lakshmana and Shatrughna; festival in Ayodhya; Lakshmana like Rama's second life, Rama will not sleep without him; the princes learned and skilled in archery; Vishvamitra arrives while the king considers their marriages; the king's promise"
+    },
+    {
+      "ref": "VR 1.19.4–21",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "the vow; Maricha and Subahu rain flesh and blood on the altar; the sage cannot release his anger in a curse during the vow (1.19.7–8); give me Rama for ten nights (1.19.18); the king faints (1.19.21)"
+    },
+    {
+      "ref": "VR 1.20.1–28",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "on-screen verse 1.20.2 (not yet sixteen); take my army, take me (1.20.3–6); a boy (1.20.7); cannot live a moment without Rama (1.20.8–9); Ravana behind the attacks (1.20.16–19); the sage's anger like a fire fed with ghee (1.20.28)"
+    },
+    {
+      "ref": "VR 1.21.1–9",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "breaking a promise unworthy of the Raghavas; the earth trembles; Vasishtha: do not abandon dharma; Rama safe as nectar guarded by fire (1.21.9)"
+    },
+    {
+      "ref": "VR 1.22.1–24",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "blessings of mother, father and Vasishtha; the king kisses Rama's head; gentle wind and flowers; order of the walk; Bala and Atibala on the south bank of the Sarayu (no fatigue, fever, hunger, thirst; not overpowered asleep); night on grass beds"
+    },
+    {
+      "ref": "VR 1.23.1–5",
+      "edition": "vulgate (sa.wikisource; numbers cross-checked on valmikiramayan.net via the Internet Archive copy)",
+      "note": "on-screen verse 1.23.2 (kausalya supraja rama); they reach the Ganga at its confluence with the Sarayu"
+    },
+    {
+      "ref": "VR 1.24.2–32",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "crossing the Ganga; the dreadful forest; Malada and Karusha; Tataka, strength of a thousand elephants (verified in C0005)"
+    },
+    {
+      "ref": "VR 1.25.2–19",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "Rama's question; Brahma's boon; Agastya's curse; on-screen verse 1.25.18 (verified in C0005)"
+    },
+    {
+      "ref": "VR 1.26.6–35",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "bowstring; Rama's reluctance (1.26.12); dust, rocks, illusion; 'enough pity', dusk; shooting by sound; one arrow; the forest freed (verified in C0005; mutilation 1.26.17–18 not narrated)"
+    },
+    {
+      "ref": "VR 1.27.1–27",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "the weapons given; discus of Time, vajra, Brahma weapon, fire, wind, sleep; facing east; 'we are your servants'; 'dwell in my mind' (verified in C0006)"
+    },
+    {
+      "ref": "VR 1.28.2–22",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "on-screen verse 1.28.2 (the withdrawals); the withdrawals taught; the grove like a cloud near a mountain (verified in C0006)"
+    },
+    {
+      "ref": "VR 1.29.3–4, 1.29.23, 1.29.26–30",
+      "edition": "vulgate (valmikiramayan.net; sa.wikisource sarga 29 numbering is broken)",
+      "note": "Siddhashrama; 'here, tiger among men, you must kill them'; the sage enters the diksha (verified in C0006 and C0007)"
+    },
+    {
+      "ref": "VR 1.30.4–26",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "six nights of guard, silence; sixth day; fire blazes; sound in the sky; monsoon cloud; streams of blood; Manava weapon, a hundred yojanas into the ocean; on-screen verse 1.30.20; Agneya fells Subahu, Vayavya the rest; Siddhashrama made true to its name (verified in C0007)"
+    },
+    {
+      "ref": "VR 1.31.1–18",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "dawn; the sages with Vishvamitra at their head speak of Janaka's sacrifice at Mithila and the bow; on-screen verse 1.31.9; princes failed to string it (1.31.10); the sage sets out north, deer and birds of Siddhashrama following (1.31.14–18)"
+    },
+    "https://sa.wikisource.org/wiki/रामायणम्/बालकाण्डम् (sargas 1, 2, 5, 6, 8, 9, 15, 16, 18–23, 31 raw text fetched 2026-11-18)",
+    "https://web.archive.org/web/2024/https://www.valmikiramayan.net/utf8/baala/sarga2/balasans2.htm (accessed 2026-11-18; live site returned HTTP 500)",
+    "https://web.archive.org/web/2024/https://www.valmikiramayan.net/utf8/baala/sarga23/balasans23.htm (accessed 2026-11-18)",
+    "https://en.wikipedia.org/wiki/Suprabhatam (later tradition: the Venkatesha Suprabhatam begins with VR 1.23.2; accessed 2026-11-18)"
+  ],
+  "learnings": [
+    {
+      "action": "A1",
+      "tier": "anecdote",
+      "n": 12,
+      "finding": "F1",
+      "how": "Partly applied. 'State the stakes early' is applied: the first line names the stake (a boy his father thought too young, and the rakshasas coming) and the cold open closes in about 27 s. The 35 s beat shape and the 18–25 s turn are Shorts-only and do not apply to the 8–12 min format."
+    },
+    {
+      "action": "A2",
+      "tier": "anecdote",
+      "n": 1,
+      "finding": "F2",
+      "how": "Applied in its long-form form: a short, stakes-first first line (17 words, estimated 5.6 s, under the 6 s long-form warning; the 3.0 s Shorts limit does not apply). Frame 0 direction is the guarded fire under a roaring sky, readable muted."
+    },
+    {
+      "action": "A3",
+      "tier": "anecdote",
+      "n": 12,
+      "finding": "F6",
+      "how": "Not applied in the narration: long-form has no engagement line and no subscribe lines. Suggested to the packager as a pinned comment with a real answer in the text: 'Which bird's death made the first shloka?' (the krauncha, 1.2.10–15)."
+    }
+  ],
+  "style_overrides": {
+    "caption_font": "/System/Library/Fonts/Supplemental/ChalkboardSE.ttc",
+    "caption_font_index": 2,
+    "caption_size": 76,
+    "caption_max_chars": 24
+  }
+}

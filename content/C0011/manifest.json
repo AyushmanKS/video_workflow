@@ -1,0 +1,251 @@
+{
+  "id": "C0011",
+  "series": "RAMAYANA — The Epic in Chalk",
+  "episode": null,
+  "topic": "Bala Kanda Part 1: From Valmiki's tears to the defence of the sacrifice",
+  "category": "mythology",
+  "style": "chalk",
+  "languages": [
+    "en",
+    "hi",
+    "te"
+  ],
+  "primary_language": "en",
+  "engine_version": 3,
+  "format": "long",
+  "stages": {
+    "script:en": {
+      "status": "done",
+      "at": "2026-11-18T16:10:33+0530",
+      "note": "long-form en primary: 50 scenes, 1561 words, est 566 s, lint WARN (silences rule is Shorts-only); research/report.md pending (content in scriptwriter handback)"
+    },
+    "script:hi": {
+      "status": "done",
+      "at": "2026-11-18T16:21:05+0530"
+    },
+    "script:te": {
+      "status": "done",
+      "at": "2026-11-18T16:21:08+0530"
+    },
+    "gate:script": {
+      "status": "approved",
+      "langs": [
+        "en",
+        "hi",
+        "te"
+      ],
+      "entries": {
+        "en": {
+          "status": "approved",
+          "at": "2026-11-18T16:59:36+0530",
+          "by": "owner",
+          "channel": "chat",
+          "note": "owner approved in chat 2026-11-18",
+          "sha256": "caf9fbe08ade983fab95e431202776ce8ff4c0020489c21f42025662f9f02d86",
+          "file": "content/C0011/en/script.json"
+        },
+        "hi": {
+          "status": "approved",
+          "at": "2026-11-18T16:59:36+0530",
+          "by": "owner",
+          "channel": "chat",
+          "note": "owner approved in chat 2026-11-18",
+          "sha256": "e4a469a051a65b90b7e9850e0d52559fa23745dd700fb7efadda2e7aaa7af5ab",
+          "file": "content/C0011/hi/script.json"
+        },
+        "te": {
+          "status": "approved",
+          "at": "2026-11-18T16:59:36+0530",
+          "by": "owner",
+          "channel": "chat",
+          "note": "owner approved in chat 2026-11-18",
+          "sha256": "868e8cdd9e6ddb0fbb3816ee0c642673a3bba4c64ebd42017402d6e899388efd",
+          "file": "content/C0011/te/script.json"
+        }
+      },
+      "history": [],
+      "at": "2026-11-18T16:59:36+0530",
+      "note": "owner approved in chat 2026-11-18"
+    },
+    "voice:en": {
+      "status": "done",
+      "at": "2026-11-18T17:00:31+0530"
+    },
+    "images:en": {
+      "status": "done",
+      "at": "2026-11-18T20:03:15+0530"
+    },
+    "voice:hi": {
+      "status": "done",
+      "at": "2026-11-18T20:57:43+0530"
+    },
+    "voice:te": {
+      "status": "done",
+      "at": "2026-11-18T20:55:36+0530"
+    },
+    "voice_qa:en": {
+      "status": "done",
+      "at": "2026-11-18T20:27:16+0530",
+      "note": "pass (report #123)"
+    },
+    "voice_qa:hi": {
+      "status": "done",
+      "at": "2026-11-18T20:58:10+0530",
+      "note": "warn (report #130)"
+    },
+    "voice_qa:te": {
+      "status": "done",
+      "at": "2026-11-18T20:56:55+0530",
+      "note": "warn (report #129)"
+    },
+    "render:en": {
+      "status": "done",
+      "at": "2026-11-18T21:18:32+0530",
+      "note": "long-form 16:9 render (extras step crashed on missing thumbnail spec after the video was complete; finished by hand)"
+    },
+    "video_qa:en": {
+      "status": "done",
+      "at": "2026-11-18T21:22:37+0530",
+      "note": "warn (report #131)"
+    },
+    "images:hi": {
+      "status": "done",
+      "at": "2026-11-18T21:53:39+0530"
+    },
+    "images:te": {
+      "status": "done",
+      "at": "2026-11-18T21:53:42+0530"
+    },
+    "render:hi": {
+      "status": "done",
+      "at": "2026-11-18T22:26:01+0530"
+    },
+    "render:te": {
+      "status": "done",
+      "at": "2026-11-18T23:07:45+0530"
+    },
+    "video_qa:te": {
+      "status": "done",
+      "at": "2026-11-18T23:10:53+0530",
+      "note": "warn (report #133)"
+    },
+    "gate:final": {
+      "status": "approved",
+      "langs": [
+        "en",
+        "hi",
+        "te"
+      ],
+      "entries": {
+        "en": {
+          "status": "approved",
+          "at": "2026-11-18T23:20:30+0530",
+          "by": "owner",
+          "channel": "chat",
+          "note": "owner in chat 2026-11-18: \"approved all\"",
+          "sha256": "d8d08826fb42553bbe5c0c787fb4b11a8a042eca76978e0748ebcb737e8c68e5",
+          "file": "content/C0011/en/C0011-en.mp4",
+          "qa_report_id": 131
+        },
+        "hi": {
+          "status": "approved",
+          "at": "2026-11-18T23:20:31+0530",
+          "by": "owner",
+          "channel": "chat",
+          "note": "owner in chat 2026-11-18: \"approved all\"",
+          "sha256": "bc52cd250f82e3ea21b15d5cd7c3f481976ddad7a60afc6d1a3c58e5813dc130",
+          "file": "content/C0011/hi/C0011-hi.mp4",
+          "qa_report_id": 132
+        },
+        "te": {
+          "status": "approved",
+          "at": "2026-11-18T23:20:31+0530",
+          "by": "owner",
+          "channel": "chat",
+          "note": "owner in chat 2026-11-18: \"approved all\"",
+          "sha256": "4bfa71db32ece72d0cdf99aa376db4d39a9a582431f9f7124872fc38ac119580",
+          "file": "content/C0011/te/C0011-te.mp4",
+          "qa_report_id": 133
+        }
+      },
+      "history": [],
+      "at": "2026-11-18T23:20:31+0530",
+      "note": "owner in chat 2026-11-18: \"approved all\""
+    },
+    "schedule:en": {
+      "status": "done",
+      "at": "2026-11-18T23:22:35+0530",
+      "note": "12:30 2026-11-19T12:30:00+05:30"
+    },
+    "schedule:hi": {
+      "status": "done",
+      "at": "2026-11-18T23:22:36+0530",
+      "note": "12:30 2026-11-19T12:30:00+05:30"
+    },
+    "schedule:te": {
+      "status": "done",
+      "at": "2026-11-18T23:22:36+0530",
+      "note": "12:30 2026-11-19T12:30:00+05:30"
+    },
+    "gate:publish:youtube": {
+      "status": "approved",
+      "langs": [
+        "en",
+        "hi",
+        "te"
+      ],
+      "entries": {
+        "en": {
+          "status": "approved",
+          "at": "2026-11-18T23:27:59+0530",
+          "by": "owner",
+          "channel": "chat",
+          "note": "owner in chat 2026-11-18: \"approved, publish tomorrow morning\"",
+          "platform": "youtube",
+          "time": "2026-11-19T12:00:00+05:30",
+          "video": "content/C0011/en/C0011-en.mp4",
+          "video_sha256": "d8d08826fb42553bbe5c0c787fb4b11a8a042eca76978e0748ebcb737e8c68e5",
+          "meta": "content/C0011/en/publish.json",
+          "meta_sha256": "3eeab31ef5bbcd975a24a986530dc62141a05ec8dfaf26187ba9830478b7aabb",
+          "meta_hash_scope": "publish.json['youtube']"
+        },
+        "hi": {
+          "status": "approved",
+          "at": "2026-11-18T23:28:00+0530",
+          "by": "owner",
+          "channel": "chat",
+          "note": "owner in chat 2026-11-18: \"approved, publish tomorrow morning\"",
+          "platform": "youtube",
+          "time": "2026-11-19T11:30:00+05:30",
+          "video": "content/C0011/hi/C0011-hi.mp4",
+          "video_sha256": "bc52cd250f82e3ea21b15d5cd7c3f481976ddad7a60afc6d1a3c58e5813dc130",
+          "meta": "content/C0011/hi/publish.json",
+          "meta_sha256": "3078957af523da0588309053048927d541749af0221136c735b5c393fdbb5f69",
+          "meta_hash_scope": "publish.json['youtube']"
+        },
+        "te": {
+          "status": "approved",
+          "at": "2026-11-18T23:28:01+0530",
+          "by": "owner",
+          "channel": "chat",
+          "note": "owner in chat 2026-11-18: \"approved, publish tomorrow morning\"",
+          "platform": "youtube",
+          "time": "2026-11-19T11:00:00+05:30",
+          "video": "content/C0011/te/C0011-te.mp4",
+          "video_sha256": "4bfa71db32ece72d0cdf99aa376db4d39a9a582431f9f7124872fc38ac119580",
+          "meta": "content/C0011/te/publish.json",
+          "meta_sha256": "69c34f7165b78b0362928f3f41db97328d93c55555f5a257ba7dea85a2bfd4e5",
+          "meta_hash_scope": "publish.json['youtube']"
+        }
+      },
+      "history": [],
+      "at": "2026-11-18T23:28:01+0530",
+      "note": "owner in chat 2026-11-18: \"approved, publish tomorrow morning\""
+    }
+  },
+  "kanda": "Bala Kanda",
+  "part": 1,
+  "platforms": [
+    "youtube"
+  ]
+}

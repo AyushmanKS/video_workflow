@@ -1,0 +1,57 @@
+[
+  {
+    "text": "రాముడు చిన్నవాడని తండ్రి భయపడ్డారు. ఆరో రోజు, రాక్షసులు రానే వచ్చారు.",
+    "type": "contrast / stakes-first in medias res",
+    "spoken_s": 5.6,
+    "scores": {
+      "curiosity": 5,
+      "emotion": 5,
+      "specificity": 4,
+      "speed": 4,
+      "resonance": 4,
+      "accuracy": 5
+    },
+    "total": 27,
+    "selected": true,
+    "visual_hook": true,
+    "cold_open_s": 33.0,
+    "hook_to_payoff": "The question (can the boy his father feared for hold the altar?) is answered in chapter 5, scenes 43–46 (about 7:55–8:30 of about 9:30, roughly 83–89%). Scene 47 echoes it word for word: చిన్నవాడని తండ్రి భయపడిన ఆ రాకుమారుడు.",
+    "reasoning": "Selected: highest rubric total, and the same stake as the approved English cold open, written natively as two short spoken Telugu sentences rather than the English single clause. 'రానే వచ్చారు' (they did come, as feared) carries the dread in the verb instead of a translated 'and on the sixth day, they came'. Accurate: Dasharatha says Rama is not yet sixteen and not fit to fight rakshasas (VR 1.20.2) and calls him a boy (1.20.7); the attack comes on the sixth day (1.30.7–12). Estimated 5.6 s by the calibrated letter rate, under the 6 s long-form warning. Frame 0 (two princes, a blazing altar, storm clouds) reads muted. hookscore.py not run: it is English-only."
+  },
+  {
+    "text": "ఇద్దరు రాకుమారులు యజ్ఞాగ్నికి కాపలా కాస్తుంటే, ఆకాశం గర్జించింది.",
+    "type": "sensory in medias res",
+    "spoken_s": 5.1,
+    "scores": {
+      "curiosity": 4,
+      "emotion": 4,
+      "specificity": 4,
+      "speed": 5,
+      "resonance": 3,
+      "accuracy": 5
+    },
+    "total": 25,
+    "selected": false,
+    "visual_hook": true,
+    "hook_to_payoff": "closes at scenes 43–46 (about 84–90%)",
+    "reasoning": "VR 1.30.5–10. Fastest and matches frame 0 exactly, but it carries no personal stake (who the princes are, why it matters) and gives the closing line (scene 47) nothing to echo."
+  },
+  {
+    "text": "ఒక వేటగాడి బాణం, ఒక పక్షి రోదన, ఒక మహర్షి శోకం కలిసి తొలి శ్లోకమయ్యాయి.",
+    "type": "origin / text versus belief",
+    "spoken_s": 6.1,
+    "scores": {
+      "curiosity": 4,
+      "emotion": 4,
+      "specificity": 4,
+      "speed": 3,
+      "resonance": 5,
+      "accuracy": 4
+    },
+    "total": 24,
+    "selected": false,
+    "visual_hook": true,
+    "hook_to_payoff": "would close at scene 11 (about 18%), far too early for a 9.5 min cold open",
+    "reasoning": "VR 1.2.10–18, 1.2.40. Strong resonance for Telugu viewers (శోకం → శ్లోకం is the text's own wordplay), but 'first shloka' as an absolute claim slightly overstates the verse (accuracy 4), it runs just over the 6 s warning, and it resolves inside chapter 1. Kept as the chapter 1 payoff line in scene 12 and as the pinned-comment question."
+  }
+]

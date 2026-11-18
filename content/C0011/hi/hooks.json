@@ -1,0 +1,57 @@
+[
+  {
+    "text": "पिता ने कहा था, राम राक्षसों से लड़ने के लिए बहुत छोटे हैं... और छठे दिन, वे आ गए।",
+    "type": "contrast / stakes-first in medias res",
+    "spoken_s": 5.7,
+    "scores": {
+      "curiosity": 5,
+      "emotion": 5,
+      "specificity": 4,
+      "speed": 4,
+      "resonance": 4,
+      "accuracy": 5
+    },
+    "total": 27,
+    "selected": true,
+    "visual_hook": true,
+    "cold_open_s": 34.0,
+    "hook_to_payoff": "The question (can the son his father feared for hold the altar?) is paid off halfway in chapter 3 (scene 24, Dasharatha's 'not yet sixteen', VR 1.20.2) and closed in chapter 5 at scenes 43-46 (about 8:29-9:05 of about 10:05, roughly 84-90%). Scene 47 mirrors it: 'जिसे पिता ने युद्ध के लिए बहुत छोटा कहा था'.",
+    "reasoning": "Selected: the same stake as the approved en hook, but written natively. The Hindi 'पिता ने कहा था' puts the father's voice first, and the ellipsis gives Maya 2 a natural breath before the turn. Accurate: VR 1.20.2 (not yet sixteen, not fit to fight rakshasas), 1.20.7 (a boy), and the attack on the sixth day (1.30.7-12). 19 words, estimated 5.7 s on the calibrated hi letter rate (6.114 letters/s), under the 6 s long-form warning. Frame 0 is the shared en direction (two princes, a blazing altar, a storm sky), readable muted. hookscore.py was not run: it uses English-only word lists."
+  },
+  {
+    "text": "दो राजकुमार यज्ञ की अग्नि की रखवाली कर रहे थे, और तभी ऊपर आकाश गरज उठा।",
+    "type": "sensory in medias res",
+    "spoken_s": 6.2,
+    "scores": {
+      "curiosity": 4,
+      "emotion": 3,
+      "specificity": 4,
+      "speed": 3,
+      "resonance": 4,
+      "accuracy": 5
+    },
+    "total": 23,
+    "selected": false,
+    "visual_hook": true,
+    "hook_to_payoff": "closes at scenes 41-46 (about 81-89%)",
+    "reasoning": "VR 1.30.5-10. It matches frame 0 closely, but it has no personal stake (who the princes are, why it matters), gives the closing scene 47 nothing to echo, and is spoken just over the 6 s long-form warning."
+  },
+  {
+    "text": "एक बहेलिये का बाण, एक पक्षी की चीख़, और एक ऋषि का शोक, जो पहला श्लोक बन गया।",
+    "type": "origin / text versus belief",
+    "spoken_s": 6.1,
+    "scores": {
+      "curiosity": 4,
+      "emotion": 4,
+      "specificity": 4,
+      "speed": 3,
+      "resonance": 5,
+      "accuracy": 5
+    },
+    "total": 25,
+    "selected": false,
+    "visual_hook": true,
+    "hook_to_payoff": "would close at scenes 10-12 (about 15-20%), far too early for a 9.5 min cold open",
+    "reasoning": "VR 1.2.10-18 and 1.2.40 (शोकः श्लोकत्वमागतः). In Hindi, शोक and श्लोक rhyme, so this line is stronger than its English version, and it says 'first shloka', not 'first poem on earth', so accuracy stays at 5. But the long-form rule wants the part's most gripping moment in the cold open, and this one resolves inside chapter 1. Kept as the chapter 1 re-hook (scene 12 closes on the same शोक-श्लोक turn) and as the Hindi pinned-comment idea."
+  }
+]

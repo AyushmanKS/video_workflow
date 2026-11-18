@@ -1,0 +1,1320 @@
+{
+  "video": "/Users/ayushman/Desktop/work/shorts-studio/content/C0011/te/C0011-te.mp4",
+  "kind": "automated",
+  "mp4_sha256": "4bfa71db32ece72d0cdf99aa376db4d39a9a582431f9f7124872fc38ac119580",
+  "verdict": "warn",
+  "families": {
+    "story": {
+      "score": 100,
+      "pass": true,
+      "rejects": [],
+      "warns": [],
+      "checks": 11
+    },
+    "visual": {
+      "score": 33,
+      "pass": false,
+      "rejects": [],
+      "warns": [
+        "near_duplicates",
+        "safe_zones"
+      ],
+      "checks": 3
+    },
+    "audio": {
+      "score": 60,
+      "pass": false,
+      "rejects": [],
+      "warns": [
+        "narration_asr",
+        "speech_rate"
+      ],
+      "checks": 4
+    },
+    "final": {
+      "score": 100,
+      "pass": true,
+      "rejects": [],
+      "warns": [],
+      "checks": 10
+    }
+  },
+  "checks": [
+    {
+      "name": "lint_duration",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "estimate_s": 570.29,
+        "basis": "letters"
+      }
+    },
+    {
+      "name": "lint_hook",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_scene_count",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_scene_length",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_keywords",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_digits",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_quote_src",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_sources",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_edition",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_silences",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_visual_parity",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "format",
+      "family": "final",
+      "class": "reject",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "video": "h264",
+        "audio": "aac",
+        "fps": 30.0,
+        "seconds": 570.13
+      }
+    },
+    {
+      "name": "duration",
+      "family": "final",
+      "class": "reject",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "seconds": 570.13
+      }
+    },
+    {
+      "name": "duration_target",
+      "family": "final",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "seconds": 570.13
+      }
+    },
+    {
+      "name": "loudness",
+      "family": "final",
+      "class": "reject",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "lufs": -14.0,
+        "true_peak_dbfs": -1.9,
+        "lra": 3.1
+      }
+    },
+    {
+      "name": "black_freeze",
+      "family": "final",
+      "class": "reject",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "black": 0,
+        "freeze": 0
+      }
+    },
+    {
+      "name": "silence",
+      "family": "final",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "gaps": 0
+      }
+    },
+    {
+      "name": "first_frame",
+      "family": "final",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "t0.0": 0.2479,
+        "t0.5": 0.2797
+      },
+      "note": "style decision: warn only"
+    },
+    {
+      "name": "narration_asr",
+      "family": "audio",
+      "class": "warn",
+      "ok": false,
+      "issues": [
+        "scene 10: CER 0.164 length ratio 0.85 (warn) — listen and regenerate if mispronounced",
+        "scene 16: CER 0.234 length ratio 0.86 (warn) — listen and regenerate if mispronounced",
+        "scene 24: CER 0.016 length ratio 1.26 (warn) — listen and regenerate if mispronounced",
+        "scene 28: CER 0.211 length ratio 1.25 (warn) — listen and regenerate if mispronounced",
+        "scene 30: CER 0.042 length ratio 1.58 (warn) — Whisper wrote digits where the script has number words; likely a false positive",
+        "scene 39: CER 0.222 length ratio 0.82 (warn) — listen and regenerate if mispronounced",
+        "scene 50: CER 0.119 length ratio 2.0 (warn) — listen and regenerate if mispronounced"
+      ],
+      "data": {
+        "scenes": [
+          {
+            "scene": 1,
+            "cer": 0.03,
+            "length_ratio": 0.97,
+            "heard": "రాముడు చిన్నవాడని తండ్రి భై పడ్డారు ఆరో రోజు రాక్షసులు రానే వచ్చారు"
+          },
+          {
+            "scene": 2,
+            "cer": 0.085,
+            "length_ratio": 0.95,
+            "heard": "ఆరు రాత్రింబవళ్లు నిద్రమాని అన్నదములు యగ్ణాగ్నిని కాపాడేరు ఇపుడు వానమబుల్లా రాక్షసులు వేదికపై విర్చుకు పడ్డారు"
+          },
+          {
+            "scene": 3,
+            "cer": 0.049,
+            "length_ratio": 0.95,
+            "heard": "అయతే తండ్రి భైపడిన ఆ బాలుడి చేతిలో దేవతల కైన దుర్లభమైన దివ్యాస్త్రాలున్నాయి."
+          },
+          {
+            "scene": 4,
+            "cer": 0.041,
+            "length_ratio": 1.0,
+            "heard": "కాని ఈ కదా అంతకు ఎంతో ముందే ప్రశాంతమైన నది ఉడ్డున ఒక కవితో ఒక ప్రశ్నతో రెండు పక్షులతో మొదలవుతుంది."
+          },
+          {
+            "scene": 5,
+            "cer": 0.103,
+            "length_ratio": 1.0,
+            "heard": "ఇంతు కాలం క్రితం వాల్మికి మహర్షి మాటలెలో మేటియఈన నారదుడిని ఉక ప్రష్న అడిగారు."
+          },
+          {
+            "scene": 6,
+            "cer": 0.036,
+            "length_ratio": 1.04,
+            "heard": "ఈ లోకన్లో గుణవంతుడు వీరుడు ధర్మగ్యుడు సత్యవాక్కు కోపాన్ని జయించినవాడు యుద్ధన్లో దేవతలే భయపడేవాడు ఎవరైన ఉన్నారా"
+          },
+          {
+            "scene": 7,
+            "cer": 0.037,
+            "length_ratio": 1.0,
+            "heard": "నారదడు సంతోషించారు. ఇన్ని గుణాలు ఆరుదు. కాని ఇక్ష్వాకు వంసంలో పుట్టిన రాముడు అనే ఒక్కడిలో అవన్ని ఉన్నాయి అన్నారు."
+          },
+          {
+            "scene": 8,
+            "cer": 0.101,
+            "length_ratio": 0.97,
+            "heard": "కదంతా చెప్పి నారదుడు ఆకాసన్లో కి విల్లి పోయారు తరవాత తమసా తిరాన ఒక దాన్ను కటి విడువకుండా తియగా కూస్తున్న క్రాంచ పక్షుల జ వాల్మి కి చూసేరు"
+          },
+          {
+            "scene": 9,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "అంత్లోనే ఆయన కళ్లముందే పాపపు మనసున్న వేటగాడు మగపక్షిని కూల్చాడు నేలపై పడిన తోడును చూసి ఆడపక్షి దీనంగా విలపించింది"
+          },
+          {
+            "scene": 10,
+            "cer": 0.164,
+            "length_ratio": 0.85,
+            "heard": "మహషి మనసు జాలితో కరిగి నోట అప్రయత్నంగా మాటలు విలువడ్డాయి. ఓ వేటగాడా ప్రేమలో ఉన్న జంటలో ఒకదాని చమ్పావు. నేకి ఎన్నటికి ప్ర�"
+          },
+          {
+            "scene": 11,
+            "cer": 0.143,
+            "length_ratio": 0.9,
+            "heard": "తాన మాటలకు తానే ఆస్చిర్యపోతు అవి నాలుగు పాదాలుగా పాడేందుకు తగినటు అచ్చాయని గమనించి శోకన్నుంచి పుట్టింది కాబట్టి ఇది శ్�"
+          },
+          {
+            "scene": 12,
+            "cer": 0.035,
+            "length_ratio": 0.98,
+            "heard": "తర్వాతా బ్రంహదేవుడు వచ్చి నా సంకల్పం తోని ఈ వాకు పుట్టింది రాముడి కధంతా చెప్పు కొండలు నదులు ఉన్నంత కాలం అది నిలుస్తుంది  అన్నారు అలా మహర్షి శోకం శ్లోకమైంది ఆ శ్లోకమీ రామయణమైంది"
+          },
+          {
+            "scene": 13,
+            "cer": 0.051,
+            "length_ratio": 1.0,
+            "heard": "ఆ కతా సరయు తిరాన మనువే నిర్మించిన అయోధ్యలో ముదలవుతుంది. అక్కడి రాజు, దసరధుడు, సత్యవంతుడు, ప్రజలందరికి ప్రియమైన వాడు."
+          },
+          {
+            "scene": 14,
+            "cer": 0.044,
+            "length_ratio": 1.0,
+            "heard": "కాని ఆ మహారాజుకు వంసాని నిలిపే కొడుకు లేడు కొడుకు లేని జివితమ్లో సంతోషమే లేదని ఆయన బాధ పడ్డారు"
+          },
+          {
+            "scene": 15,
+            "cer": 0.07,
+            "length_ratio": 1.02,
+            "heard": "అందుకే ఆయన అశ్వమేధా యాగం సంకల్పించారు. వసిష్టుడు ముదలైన పురోహితులు ఆసిర్వదించగా యువముని రుష్యస్రుంగుడు యాగం నడిపించారు."
+          },
+          {
+            "scene": 16,
+            "cer": 0.234,
+            "length_ratio": 0.86,
+            "heard": "పుత్రుల కూసం రుష్యస్రుంగుడు మరో ఎగ్నం చేస్తుండగా దేవతలు బ్రంహతో మొరపెట్టుకున్నారు వరగర్వంతో రావనుడు ముల్లో కాలను పీడి� అతనికి జంకు తాడు."
+          },
+          {
+            "scene": 17,
+            "cer": 0.074,
+            "length_ratio": 1.0,
+            "heard": "దేవదానవులనుంచి రక్షన కోరిన రావనుడు గర్వంతో మనుషులను లెక్క చేయలేదు. అందుకి విష్నువు దసరదుడి కొడుకుగా మనవుడిగా పుట్టడానికి అంగికరించారు."
+          },
+          {
+            "scene": 18,
+            "cer": 0.057,
+            "length_ratio": 0.94,
+            "heard": "అప్పుడు అగ్నినుంచి సూర్యుడిలా వెలిగే ఒక తేజో మూర్తి దివ్య పాయసంతో నిండిన బంగారు పాత్రతో లేచువచ్చారు దిన్ని రాణుల కుి వం కొడుకులు పుడతారు అనారు"
+          },
+          {
+            "scene": 19,
+            "cer": 0.027,
+            "length_ratio": 1.03,
+            "heard": "నిధిదురికిన పేదవాడిలా పుంగిపోయిన రాజు సగం కఉసల్యకు మిగిలినదాంట్లో సగం సుమిత్రకు ఆపై సగం కఈకేకి ఇచ్చి కాసేపు ఆలో చించి చ సివరిది మళ్డి సుమిత్రకే ఇచ్చారు"
+          },
+          {
+            "scene": 20,
+            "cer": 0.077,
+            "length_ratio": 1.03,
+            "heard": "చైత్రమాసం నవమినాడు కఉసల్యకు రాముడు పుట్టేడు. కఈకే ఈకి భరతుడు. సుమిత్రకు లక్ష్మణ సిత్రుగ్యులు పుట్టేడు. అయోధ్య ఆటపాటలతో � మారు మోగింది."
+          },
+          {
+            "scene": 21,
+            "cer": 0.081,
+            "length_ratio": 0.97,
+            "heard": "నలుగురు రాకుమారులు విద్యలో విలు విద్యలో ఆరి తేరారు లక్ష్మనుడు రాముడికి మరో ప్రాణ అతను లేనిదే రాముడు నిద్రించే వాడు కాదు రాజు వారి పెల్యల్లగురించి ఆలో చిస్తుండాగాని ఉహించని ఒకాతిదీ ద్వారందగరకురాబోతునారు"
+          },
+          {
+            "scene": 22,
+            "cer": 0.137,
+            "length_ratio": 0.98,
+            "heard": "ఆతిది మరేవరో కాదు విష్వామిత్ర మహర్షి దసరదుడు ఆనందంగా ఎదురెల్లి ఏది అడిగిన ఇస్తానని మాటయిచ్చారు"
+          },
+          {
+            "scene": 23,
+            "cer": 0.095,
+            "length_ratio": 0.93,
+            "heard": "నా వ్రతానికి మారిచ సుభాహులనే రాక్షసులు మామ్సం రక్తం కురిపించి భంగం కలగిస్తునారు వ్రతంలో శెపించ కోడదు అందుకే పది రాత్రు� ముడిని నాకివు అనారు మహర్షి"
+          },
+          {
+            "scene": 24,
+            "cer": 0.016,
+            "length_ratio": 1.26,
+            "heard": "రాజు స్ప్రోహ తప్పి పడి పోయారు. తేరు కున్నాక నా కమలన యనుడు రాముడికి పదహారేలు కూడా నిండలేదు. రాక్షసులతో పోరాడే వయసు కాదు. అ� ్నాానా మయనా 예నాన వయష వయేదారా కెడావత. ."
+          },
+          {
+            "scene": 25,
+            "cer": 0.097,
+            "length_ratio": 1.0,
+            "heard": "నా సయిన్యాన్ని తీస్కెల్లండి నన్నే తీస్కెల్లండి రాముడు లేకా క్షనం బతకలేను అని వేడుకున్నారు ఈ రాక్షసుల వెనుక రావను డునాడ� ని విని ఆయనభైయం రెక్టిం పయంది"
+          },
+          {
+            "scene": 26,
+            "cer": 0.125,
+            "length_ratio": 0.95,
+            "heard": "నేయి పోసిన అగ్మిలా విష్వామిత్రుడి కోపం భగుమనగా రగువంసుపు రాజు మాటతప్పడమా అని ఆయనానగాని భూమి అంతా కంపించింది."
+          },
+          {
+            "scene": 27,
+            "cer": 0.066,
+            "length_ratio": 1.0,
+            "heard": "గురు వసిష్టుడు రాజుకు ధైరియం చెప్పారు. ధర్మాన్ని విడవకు. అగ్ని కాపాడే అమురు తన్లా ఈ మహర్షి రక్షనలో రాముడు క్షేమంగా ఉంటాడ అనారు."
+          },
+          {
+            "scene": 28,
+            "cer": 0.211,
+            "length_ratio": 1.25,
+            "heard": "తల్లి ఆసి సులతో దసరదుడు కొడుకు సిరస్సును ఆగ్రాణించి మహర్షికి అప్పగించారు మెల్లగా గాలి విచింది ఆకాసంనుంచి పూలవాన కురిసి నింుారు అన తసిరాటిరాడించించింయ ఓడ్రిం఺ర్రా�reంన ూలా కఫిహిం blog. కా కాడాా కాాాిల కారాిండి."
+          },
+          {
+            "scene": 29,
+            "cer": 0.11,
+            "length_ratio": 1.03,
+            "heard": "సరయు ఉడ్డున మహర్షి రాముడికి బలా అతిబలా అనే మంత్రాలు ఉపదేసించారు వాటితో అలసట ఆకలి దరిచేరవు ఆ రాత్రి అన్నదములు గడ్డి పరుప�ంలాలు మైడికి ఉఇషిగ్డిని."
+          },
+          {
+            "scene": 30,
+            "cer": 0.042,
+            "length_ratio": 1.58,
+            "heard": "తెల్లవారు తుండగా మహర్షిలే పేరు కఉసల్యకు సుపుత్రుడి విరామా తొలి సంధ్యవచ్చింది లే నరశార్దూలా పదిహేనో శతాప్దపు స్రి వేంకట పేష్వరసుప్రభాతం ఈ మాటల్లతోనే మొదలై ఈ నాటికి తిరుమలలో వినిపిస్తుంది ఆవుదేయమే వారు గంగవఈపు సాగారు ఆవల భయంకరమైన అడవివంది ఖనిలేలంనా ఐరుంయడ నాలా తకు లూ సుష్«్యపుదదా 30 00 · చీరేడదిటధవివడి కీుపి అటికారిక్ంయసంనిన చాటర్ా చ్ంనారుకిలష్ంస్ాిటుంికి డరా"
+          },
+          {
+            "scene": 31,
+            "cer": 0.098,
+            "length_ratio": 0.97,
+            "heard": "గంగదాటాకా ఒకప్పుడు మలదా కరూశ దేసాలు ఉన్న ఆ నేలను వెయి ఏనుగుల బలమున్న తాటకా అనే యక్షిని పాడు చేసిందని మహర్షి చేపేరు."
+          },
+          {
+            "scene": 32,
+            "cer": 0.127,
+            "length_ratio": 0.95,
+            "heard": "ఉకై ఎక్షనికి ఇంతా బలం యలా అని రాముడు అడిగితే అది బ్రంహ వరం అన్నారు మహషి కొడుకు మారి చుడితో కలిసి అగస్త్యుడి పై దాడి చేసిన అయిన శాపంతో అమిరాక్షసిగా మారింది"
+          },
+          {
+            "scene": 33,
+            "cer": 0.033,
+            "length_ratio": 1.16,
+            "heard": "స్త్రీ అని వెను కాడకు ప్రజలను కాపాడే వాడు పని క్రూరంగా కనిపించిన చేయక తప్పదు పాలించే వారికి అదే సాశ్వత ధర్మం అన్నారు మహర ఠస్నారు ఉంసీశకెరు సారి."
+          },
+          {
+            "scene": 34,
+            "cer": 0.035,
+            "length_ratio": 1.0,
+            "heard": "రాముడు ధనుష్టంకారం చేయగా అని తాటక దూస్కుచింది అప్పుడు కూడా ఆమిను చంపాలని లేదు అడ్డు కుంటే చాలు అని లక్ష్మనుడితో అన్నాడు"
+          },
+          {
+            "scene": 35,
+            "cer": 0.046,
+            "length_ratio": 1.02,
+            "heard": "కాని ఆమే దుమ్ము రేపి రాల్ళవాన కురిపించి మాయతో మాయమైంది చాలు ఇ జాలి రామా సంధ్య వస్తోంది అప్పుడు రాక్షసులను గెలవలేం అని మహ మహర్షి హచరించారు"
+          },
+          {
+            "scene": 36,
+            "cer": 0.069,
+            "length_ratio": 0.98,
+            "heard": "శబ్ధాని బట్టి గురి చూసి రాముడు బాణాలతో రాల్ల వానను అడ్డు కునాడు ఆమే మీదకు దూస్కురాగాని ఒకే బాణం వధిలాడు తాటక నేల కూలింది దేవతలు పోగిడారు శాపంపట్టిన అడవి మళ్డి పచ్చగా విరిసింది"
+          },
+          {
+            "scene": 37,
+            "cer": 0.117,
+            "length_ratio": 0.91,
+            "heard": "మర్నాడు మహర్షి చిరునవు తో కాలచక్రం వజ్రం బ్రమ్హాస్త్రం అగ్మి వాయువు నిద్రాస్త్రం సహా అస్త్రాలన్ని రాముడికిచరు అవి చేతు మేము ని సేవకులం అన్నాయు"
+          },
+          {
+            "scene": 38,
+            "cer": 0.043,
+            "length_ratio": 0.97,
+            "heard": "రాముడు వాటిని తాకి నా మనసులో ఉండండి అన్నాడు ఇక దేవతిలు కూడా నను జేంచలేరు కాని వీటుని వెనక్కి ఎలా రప్పించాలి అనే అడియాడు � మహర్షి అది నిర్పించారు"
+          },
+          {
+            "scene": 39,
+            "cer": 0.222,
+            "length_ratio": 0.82,
+            "heard": "చివరికి కొండపక్కన మేఘమ్లా కనిపించే సిద్ధాస్రమానికి చేరారు ఇక్కడే రాక్షసులు యాగాన్ని పాడు చేస్తారు నరసార్దూల ఇక్కడే వా�"
+          },
+          {
+            "scene": 40,
+            "cer": 0.067,
+            "length_ratio": 1.02,
+            "heard": "ఆరోజి విష్వామిత్రుడు మవ్నవరతం పూనారు మునుల కోరికపై ఆరు రాత్రింబవళ్ళు నిద్ర లేకుండ రామలక్ష్మనులు ఆయన పక్కని కాపు కాసారు"
+          },
+          {
+            "scene": 41,
+            "cer": 0.094,
+            "length_ratio": 0.98,
+            "heard": "ఆరు రోజు సిద్ధంగా ఉండు అని రాముడు లక్ష్మనుడితో అంటుండగానే వేదికమీదా అగ్మి భగుమంది ఆకాసం భయంకరంగా గర్చించింది"
+          },
+          {
+            "scene": 42,
+            "cer": 0.048,
+            "length_ratio": 0.98,
+            "heard": "వానమబుల్లా రాక్షసలు కమ్ము కొచ్చారు మారీచ సుభాహులు వేదికమీద రక్తధారలు కురిపించారు"
+          },
+          {
+            "scene": 43,
+            "cer": 0.0,
+            "length_ratio": 1.02,
+            "heard": "రాముడు మెరిసే మానవాస్త్రాన్ని సంధించి మారిచుడి గుండపై వదిలేడు. అది అతన్ని నూరు యోజనాల దూరాన సముద్రణ్లోకి విస్రేసింది."
+          },
+          {
+            "scene": 44,
+            "cer": 0.06,
+            "length_ratio": 1.0,
+            "heard": "చూడు లక్ష్నా ఈ చల్లని మానవాస్త్రం అతన్ని మూర్చపరిచి తీస్కు పోయంది కాని ప్రాణన్ తియలేదు అన్నాడు రాముడు"
+          },
+          {
+            "scene": 45,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "తరవాతా ఆగ్నియాస్త్రంతో సుబాహుడిని నేలకూల్చాడు, వాయవియాస్త్రంతో మిగిలినవారిని తుడిచి పెట్టాడు."
+          },
+          {
+            "scene": 46,
+            "cer": 0.111,
+            "length_ratio": 0.98,
+            "heard": "యాగం పూర్తయింది. నా పని నరవేరింది. సిద్ధాస్రమం పేరును నువు సార్ధకం చేసావు. అన్నారు విస్వామిత్రుడు."
+          },
+          {
+            "scene": 47,
+            "cer": 0.082,
+            "length_ratio": 0.97,
+            "heard": "అలా చిన్నవాడని తంరి భైపడిన ఆ రాకు మారుడు గురువుల మాటా నిలబెట్టాడు. ఆరు రోజులు నిద్రమాని యగ్యాగ్నిని కాపాడాడు. యుద్ధం లోన ఓకరి ప్రాణం తీయకుండా వధిలాడు."
+          },
+          {
+            "scene": 48,
+            "cer": 0.067,
+            "length_ratio": 0.98,
+            "heard": "మర్నాడు ఉదేయం విష్వామిత్రోడిని ముందుంచుకొని మునులు మిథిలలో జనకుడి ఎగ్యంగురించి చెప్పారు దేవాసురులు రాక్షసులు ఎవ్వరు ఎ పెట్టలేని ఒకా అద్భుతమైన విల్లు అక్కడుంది ఇకం మనిషుల మాటే లేదు"
+          },
+          {
+            "scene": 49,
+            "cer": 0.083,
+            "length_ratio": 1.01,
+            "heard": "ఎందరో రాజులు ప్రయత్మించి ఓడి పోయారు ఆస్రమపు జింకలు పక్షులు కొంత దూరం వెంటరాగా విష్వామిత్రుడు ఉత్తరంగా ఆ విల్లు ఎదురు చూ ఉస్తున్మిత్రవఈపు బయిల్దేరారు"
+          },
+          {
+            "scene": 50,
+            "cer": 0.119,
+            "length_ratio": 2.0,
+            "heard": "బాలకాండలో మొదటి భాగం ఇక్కడా విస్రమిస్తుంది యగ్ఞాగని ప్రసాంతంగా విలగుతోంది మిథిలకు దారి తేరిచుకుంది రాముడి కధా ముందుకు  ప్ంగా ఎంయదూదా క్రాడిటుం చిలకుందాడిలకానదందారారారా � fమిని షినాడిలbereకోటుకు為unde కారందారా఺లడినాని కుకాం దేడకలాలుందకురాాం ఎసక్"
+          }
+        ],
+        "transcripts": [
+          "render-time transcript (heard.json)"
+        ]
+      },
+      "note": "CER is warn-only for this language until Indic ASR is validated"
+    },
+    {
+      "name": "speech_rate",
+      "family": "audio",
+      "class": "warn",
+      "ok": false,
+      "issues": [
+        "scene 2: speech rate +26% vs te reference"
+      ],
+      "data": {
+        "reference_letters_per_s": 5.928,
+        "scenes": [
+          {
+            "scene": 1,
+            "seconds": 5.6,
+            "letters_per_s": 5.89,
+            "deviation": -0.006
+          },
+          {
+            "scene": 2,
+            "seconds": 7.92,
+            "letters_per_s": 7.45,
+            "deviation": 0.257
+          },
+          {
+            "scene": 3,
+            "seconds": 6.56,
+            "letters_per_s": 6.25,
+            "deviation": 0.054
+          },
+          {
+            "scene": 4,
+            "seconds": 9.12,
+            "letters_per_s": 5.37,
+            "deviation": -0.094
+          },
+          {
+            "scene": 5,
+            "seconds": 6.4,
+            "letters_per_s": 6.09,
+            "deviation": 0.027
+          },
+          {
+            "scene": 6,
+            "seconds": 10.56,
+            "letters_per_s": 5.3,
+            "deviation": -0.106
+          },
+          {
+            "scene": 7,
+            "seconds": 8.4,
+            "letters_per_s": 6.43,
+            "deviation": 0.085
+          },
+          {
+            "scene": 8,
+            "seconds": 9.76,
+            "letters_per_s": 7.07,
+            "deviation": 0.193
+          },
+          {
+            "scene": 9,
+            "seconds": 10.08,
+            "letters_per_s": 5.75,
+            "deviation": -0.03
+          },
+          {
+            "scene": 10,
+            "seconds": 11.92,
+            "letters_per_s": 6.12,
+            "deviation": 0.032
+          },
+          {
+            "scene": 11,
+            "seconds": 10.24,
+            "letters_per_s": 6.15,
+            "deviation": 0.037
+          },
+          {
+            "scene": 12,
+            "seconds": 15.12,
+            "letters_per_s": 5.62,
+            "deviation": -0.052
+          },
+          {
+            "scene": 13,
+            "seconds": 10.0,
+            "letters_per_s": 5.9,
+            "deviation": -0.005
+          },
+          {
+            "scene": 14,
+            "seconds": 8.56,
+            "letters_per_s": 5.26,
+            "deviation": -0.113
+          },
+          {
+            "scene": 15,
+            "seconds": 9.92,
+            "letters_per_s": 5.75,
+            "deviation": -0.03
+          },
+          {
+            "scene": 16,
+            "seconds": 12.64,
+            "letters_per_s": 6.09,
+            "deviation": 0.027
+          },
+          {
+            "scene": 17,
+            "seconds": 10.48,
+            "letters_per_s": 6.49,
+            "deviation": 0.095
+          },
+          {
+            "scene": 18,
+            "seconds": 12.16,
+            "letters_per_s": 5.76,
+            "deviation": -0.028
+          },
+          {
+            "scene": 19,
+            "seconds": 13.04,
+            "letters_per_s": 5.6,
+            "deviation": -0.055
+          },
+          {
+            "scene": 20,
+            "seconds": 11.68,
+            "letters_per_s": 5.57,
+            "deviation": -0.06
+          },
+          {
+            "scene": 21,
+            "seconds": 15.52,
+            "letters_per_s": 6.38,
+            "deviation": 0.076
+          },
+          {
+            "scene": 22,
+            "seconds": 8.24,
+            "letters_per_s": 6.19,
+            "deviation": 0.044
+          },
+          {
+            "scene": 23,
+            "seconds": 14.08,
+            "letters_per_s": 5.26,
+            "deviation": -0.113
+          },
+          {
+            "scene": 24,
+            "seconds": 10.56,
+            "letters_per_s": 5.78,
+            "deviation": -0.025
+          },
+          {
+            "scene": 25,
+            "seconds": 11.04,
+            "letters_per_s": 6.52,
+            "deviation": 0.1
+          },
+          {
+            "scene": 26,
+            "seconds": 9.84,
+            "letters_per_s": 5.69,
+            "deviation": -0.04
+          },
+          {
+            "scene": 27,
+            "seconds": 10.32,
+            "letters_per_s": 5.91,
+            "deviation": -0.003
+          },
+          {
+            "scene": 28,
+            "seconds": 11.76,
+            "letters_per_s": 6.46,
+            "deviation": 0.09
+          },
+          {
+            "scene": 29,
+            "seconds": 13.12,
+            "letters_per_s": 5.56,
+            "deviation": -0.062
+          },
+          {
+            "scene": 30,
+            "seconds": 20.8,
+            "letters_per_s": 5.67,
+            "deviation": -0.044
+          },
+          {
+            "scene": 31,
+            "seconds": 11.2,
+            "letters_per_s": 5.45,
+            "deviation": -0.081
+          },
+          {
+            "scene": 32,
+            "seconds": 13.6,
+            "letters_per_s": 5.81,
+            "deviation": -0.02
+          },
+          {
+            "scene": 33,
+            "seconds": 9.76,
+            "letters_per_s": 6.25,
+            "deviation": 0.054
+          },
+          {
+            "scene": 34,
+            "seconds": 8.32,
+            "letters_per_s": 6.85,
+            "deviation": 0.156
+          },
+          {
+            "scene": 35,
+            "seconds": 12.0,
+            "letters_per_s": 5.42,
+            "deviation": -0.086
+          },
+          {
+            "scene": 36,
+            "seconds": 15.76,
+            "letters_per_s": 5.52,
+            "deviation": -0.069
+          },
+          {
+            "scene": 37,
+            "seconds": 13.92,
+            "letters_per_s": 5.53,
+            "deviation": -0.067
+          },
+          {
+            "scene": 38,
+            "seconds": 11.68,
+            "letters_per_s": 5.91,
+            "deviation": -0.003
+          },
+          {
+            "scene": 39,
+            "seconds": 10.96,
+            "letters_per_s": 6.57,
+            "deviation": 0.108
+          },
+          {
+            "scene": 40,
+            "seconds": 10.64,
+            "letters_per_s": 5.64,
+            "deviation": -0.049
+          },
+          {
+            "scene": 41,
+            "seconds": 10.4,
+            "letters_per_s": 5.1,
+            "deviation": -0.14
+          },
+          {
+            "scene": 42,
+            "seconds": 6.72,
+            "letters_per_s": 6.25,
+            "deviation": 0.054
+          },
+          {
+            "scene": 43,
+            "seconds": 9.12,
+            "letters_per_s": 5.92,
+            "deviation": -0.001
+          },
+          {
+            "scene": 44,
+            "seconds": 7.84,
+            "letters_per_s": 6.38,
+            "deviation": 0.076
+          },
+          {
+            "scene": 45,
+            "seconds": 6.88,
+            "letters_per_s": 6.54,
+            "deviation": 0.103
+          },
+          {
+            "scene": 46,
+            "seconds": 7.6,
+            "letters_per_s": 5.92,
+            "deviation": -0.001
+          },
+          {
+            "scene": 47,
+            "seconds": 11.76,
+            "letters_per_s": 6.21,
+            "deviation": 0.048
+          },
+          {
+            "scene": 48,
+            "seconds": 14.08,
+            "letters_per_s": 6.32,
+            "deviation": 0.066
+          },
+          {
+            "scene": 49,
+            "seconds": 12.88,
+            "letters_per_s": 5.59,
+            "deviation": -0.057
+          },
+          {
+            "scene": 50,
+            "seconds": 10.0,
+            "letters_per_s": 5.9,
+            "deviation": -0.005
+          }
+        ]
+      }
+    },
+    {
+      "name": "speaker_consistency",
+      "family": "audio",
+      "class": "reject",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "windows": 360,
+        "window_median": 0.749,
+        "window_min": 0.499,
+        "scene_min": 0.787,
+        "median_f0": 174,
+        "calibration": "2026-11-16: 2.5s windows — consistent voice min 0.61 / known-mixed median 0.46 (50% < 0.5); 1s clips are unreliable (same voice down to 0.57)"
+      }
+    },
+    {
+      "name": "music_under_speech",
+      "family": "audio",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "median_db": 14.6,
+        "p10_db": 5.9,
+        "voice_gain": 3.654,
+        "frames": 1081
+      }
+    },
+    {
+      "name": "captions",
+      "family": "final",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "groups": 472,
+        "timing": "timeline.json",
+        "engine_version": 3,
+        "tight_info": [
+          "scene 15: 1001 px"
+        ]
+      }
+    },
+    {
+      "name": "caption_overflow",
+      "family": "final",
+      "class": "reject",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "widest_px": 1001,
+        "limit_px": 1020
+      }
+    },
+    {
+      "name": "glyph_coverage",
+      "family": "final",
+      "class": "reject",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "texts": 69,
+        "fontset": "mac"
+      }
+    },
+    {
+      "name": "text_artifacts",
+      "family": "visual",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {},
+      "skipped": true,
+      "note": "tesseract binary not installed (brew install tesseract, Apache-2.0); skipped"
+    },
+    {
+      "name": "near_duplicates",
+      "family": "visual",
+      "class": "warn",
+      "ok": false,
+      "issues": [
+        "scenes 19 and 24: perceptual hash distance 6 bits (< 8)",
+        "scenes 30 and 38: perceptual hash distance 6 bits (< 8)"
+      ],
+      "data": {
+        "images": 50
+      }
+    },
+    {
+      "name": "chalk_density",
+      "family": "visual",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "scenes": [
+          {
+            "scene": 1,
+            "density": 0.336,
+            "top": 1.249,
+            "bottom": 0.949
+          },
+          {
+            "scene": 2,
+            "density": 0.307,
+            "top": 1.164,
+            "bottom": 1.088
+          },
+          {
+            "scene": 3,
+            "density": 0.128,
+            "top": 0.131,
+            "bottom": 0.754
+          },
+          {
+            "scene": 4,
+            "density": 0.244,
+            "top": 0.075,
+            "bottom": 1.078
+          },
+          {
+            "scene": 5,
+            "density": 0.389,
+            "top": 0.777,
+            "bottom": 1.166
+          },
+          {
+            "scene": 6,
+            "density": 0.039,
+            "top": 0.0,
+            "bottom": 0.013
+          },
+          {
+            "scene": 7,
+            "density": 0.188,
+            "top": 0.15,
+            "bottom": 0.877
+          },
+          {
+            "scene": 8,
+            "density": 0.305,
+            "top": 0.161,
+            "bottom": 1.604
+          },
+          {
+            "scene": 9,
+            "density": 0.314,
+            "top": 0.104,
+            "bottom": 1.911
+          },
+          {
+            "scene": 10,
+            "density": 0.041,
+            "top": 0.0,
+            "bottom": 0.012
+          },
+          {
+            "scene": 11,
+            "density": 0.246,
+            "top": 0.085,
+            "bottom": 1.176
+          },
+          {
+            "scene": 12,
+            "density": 0.291,
+            "top": 0.319,
+            "bottom": 1.003
+          },
+          {
+            "scene": 13,
+            "density": 0.272,
+            "top": 0.097,
+            "bottom": 0.296
+          },
+          {
+            "scene": 14,
+            "density": 0.303,
+            "top": 0.745,
+            "bottom": 0.974
+          },
+          {
+            "scene": 15,
+            "density": 0.247,
+            "top": 0.088,
+            "bottom": 1.262
+          },
+          {
+            "scene": 16,
+            "density": 0.254,
+            "top": 0.432,
+            "bottom": 1.131
+          },
+          {
+            "scene": 17,
+            "density": 0.157,
+            "top": 0.76,
+            "bottom": 0.268
+          },
+          {
+            "scene": 18,
+            "density": 0.191,
+            "top": 0.171,
+            "bottom": 1.117
+          },
+          {
+            "scene": 19,
+            "density": 0.036,
+            "top": 0.0,
+            "bottom": 0.013
+          },
+          {
+            "scene": 20,
+            "density": 0.237,
+            "top": 0.203,
+            "bottom": 1.071
+          },
+          {
+            "scene": 21,
+            "density": 0.203,
+            "top": 0.097,
+            "bottom": 0.825
+          },
+          {
+            "scene": 22,
+            "density": 0.261,
+            "top": 0.228,
+            "bottom": 1.163
+          },
+          {
+            "scene": 23,
+            "density": 0.291,
+            "top": 0.568,
+            "bottom": 0.859
+          },
+          {
+            "scene": 24,
+            "density": 0.036,
+            "top": 0.0,
+            "bottom": 0.014
+          },
+          {
+            "scene": 25,
+            "density": 0.3,
+            "top": 0.288,
+            "bottom": 1.177
+          },
+          {
+            "scene": 26,
+            "density": 0.349,
+            "top": 0.441,
+            "bottom": 1.278
+          },
+          {
+            "scene": 27,
+            "density": 0.329,
+            "top": 0.589,
+            "bottom": 1.254
+          },
+          {
+            "scene": 28,
+            "density": 0.33,
+            "top": 0.12,
+            "bottom": 0.856
+          },
+          {
+            "scene": 29,
+            "density": 0.333,
+            "top": 0.146,
+            "bottom": 1.303
+          },
+          {
+            "scene": 30,
+            "density": 0.037,
+            "top": 0.0,
+            "bottom": 0.013
+          },
+          {
+            "scene": 31,
+            "density": 0.313,
+            "top": 0.122,
+            "bottom": 1.298
+          },
+          {
+            "scene": 32,
+            "density": 0.204,
+            "top": 0.947,
+            "bottom": 1.218
+          },
+          {
+            "scene": 33,
+            "density": 0.035,
+            "top": 0.0,
+            "bottom": 0.014
+          },
+          {
+            "scene": 34,
+            "density": 0.272,
+            "top": 0.964,
+            "bottom": 1.16
+          },
+          {
+            "scene": 35,
+            "density": 0.343,
+            "top": 0.637,
+            "bottom": 0.878
+          },
+          {
+            "scene": 36,
+            "density": 0.421,
+            "top": 0.801,
+            "bottom": 0.673
+          },
+          {
+            "scene": 37,
+            "density": 0.349,
+            "top": 0.234,
+            "bottom": 1.031
+          },
+          {
+            "scene": 38,
+            "density": 0.039,
+            "top": 0.0,
+            "bottom": 0.013
+          },
+          {
+            "scene": 39,
+            "density": 0.354,
+            "top": 0.658,
+            "bottom": 0.561
+          },
+          {
+            "scene": 40,
+            "density": 0.339,
+            "top": 0.19,
+            "bottom": 0.958
+          },
+          {
+            "scene": 41,
+            "density": 0.31,
+            "top": 0.519,
+            "bottom": 0.697
+          },
+          {
+            "scene": 42,
+            "density": 0.168,
+            "top": 0.949,
+            "bottom": 0.69
+          },
+          {
+            "scene": 43,
+            "density": 0.184,
+            "top": 0.05,
+            "bottom": 1.547
+          },
+          {
+            "scene": 44,
+            "density": 0.037,
+            "top": 0.0,
+            "bottom": 0.013
+          },
+          {
+            "scene": 45,
+            "density": 0.242,
+            "top": 0.748,
+            "bottom": 0.431
+          },
+          {
+            "scene": 46,
+            "density": 0.282,
+            "top": 0.132,
+            "bottom": 0.96
+          },
+          {
+            "scene": 47,
+            "density": 0.318,
+            "top": 0.397,
+            "bottom": 1.205
+          },
+          {
+            "scene": 48,
+            "density": 0.035,
+            "top": 0.0,
+            "bottom": 0.015
+          },
+          {
+            "scene": 49,
+            "density": 0.187,
+            "top": 0.066,
+            "bottom": 1.115
+          },
+          {
+            "scene": 50,
+            "density": 0.106,
+            "top": 0.083,
+            "bottom": 0.46
+          }
+        ]
+      }
+    },
+    {
+      "name": "safe_zones",
+      "family": "visual",
+      "class": "warn",
+      "ok": false,
+      "issues": [
+        "scene 1: stroke energy in the title zone (top 12%) 1.25 > p90 0.111",
+        "scene 2: stroke energy in the title zone (top 12%) 1.16 > p90 0.111",
+        "scene 3: stroke energy in the title zone (top 12%) 0.13 > p90 0.111",
+        "scene 5: stroke energy in the title zone (top 12%) 0.78 > p90 0.111",
+        "scene 7: stroke energy in the title zone (top 12%) 0.15 > p90 0.111",
+        "scene 8: stroke energy in the title zone (top 12%) 0.16 > p90 0.111",
+        "scene 8: stroke energy in the caption zone (bottom 25%) 1.60 > p90 1.519",
+        "scene 9: stroke energy in the caption zone (bottom 25%) 1.91 > p90 1.519",
+        "scene 12: stroke energy in the title zone (top 12%) 0.32 > p90 0.111",
+        "scene 14: stroke energy in the title zone (top 12%) 0.75 > p90 0.111",
+        "scene 16: stroke energy in the title zone (top 12%) 0.43 > p90 0.111",
+        "scene 17: stroke energy in the title zone (top 12%) 0.76 > p90 0.111",
+        "scene 18: stroke energy in the title zone (top 12%) 0.17 > p90 0.111",
+        "scene 20: stroke energy in the title zone (top 12%) 0.20 > p90 0.111",
+        "scene 22: stroke energy in the title zone (top 12%) 0.23 > p90 0.111",
+        "scene 23: stroke energy in the title zone (top 12%) 0.57 > p90 0.111",
+        "scene 25: stroke energy in the title zone (top 12%) 0.29 > p90 0.111",
+        "scene 26: stroke energy in the title zone (top 12%) 0.44 > p90 0.111",
+        "scene 27: stroke energy in the title zone (top 12%) 0.59 > p90 0.111",
+        "scene 28: stroke energy in the title zone (top 12%) 0.12 > p90 0.111",
+        "scene 29: stroke energy in the title zone (top 12%) 0.15 > p90 0.111",
+        "scene 31: stroke energy in the title zone (top 12%) 0.12 > p90 0.111",
+        "scene 32: stroke energy in the title zone (top 12%) 0.95 > p90 0.111",
+        "scene 34: stroke energy in the title zone (top 12%) 0.96 > p90 0.111",
+        "scene 35: stroke energy in the title zone (top 12%) 0.64 > p90 0.111",
+        "scene 36: stroke energy in the title zone (top 12%) 0.80 > p90 0.111",
+        "scene 37: stroke energy in the title zone (top 12%) 0.23 > p90 0.111",
+        "scene 39: stroke energy in the title zone (top 12%) 0.66 > p90 0.111",
+        "scene 40: stroke energy in the title zone (top 12%) 0.19 > p90 0.111",
+        "scene 41: stroke energy in the title zone (top 12%) 0.52 > p90 0.111",
+        "scene 42: stroke energy in the title zone (top 12%) 0.95 > p90 0.111",
+        "scene 43: stroke energy in the caption zone (bottom 25%) 1.55 > p90 1.519",
+        "scene 45: stroke energy in the title zone (top 12%) 0.75 > p90 0.111",
+        "scene 46: stroke energy in the title zone (top 12%) 0.13 > p90 0.111",
+        "scene 47: stroke energy in the title zone (top 12%) 0.40 > p90 0.111"
+      ],
+      "data": {
+        "calibration": {
+          "top_p90": 0.111,
+          "bottom_p90": 1.519,
+          "n": 243
+        }
+      }
+    },
+    {
+      "name": "character_similarity",
+      "family": "visual",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "model_present": false
+      },
+      "skipped": true,
+      "note": "DINOv2 similarity is a human flag only; model not present locally and not downloaded"
+    }
+  ],
+  "contact_sheet": "/Users/ayushman/Desktop/work/shorts-studio/content/C0011/te/C0011-te.qa.png",
+  "manual_review_required": [
+    "character consistency",
+    "visual defects / wrong illustrations",
+    "storytelling quality",
+    "native-speaker listen for non-English"
+  ],
+  "created_at": "2026-11-18T23:10:53+0530",
+  "id": 133
+}

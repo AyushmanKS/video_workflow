@@ -131,6 +131,36 @@
       "prompt": "the gods shown as a loose row of five small glowing orbs of soft golden chalk light, each with a faint round halo, floating well apart from one another",
       "source_episode": "C0010",
       "notes": "The gods (सुराः, VR 1.35.17, 19) are symbolic lights, never figures. Keep the orbs well apart with open board around each, so each can move on its own."
+    },
+    "krauncha_pair": {
+      "prompt": "a pair of krauncha birds, two graceful tall grey cranes with long slender necks, long thin legs, pale grey feathers with darker wing tips and a small red patch on the crown, standing close together side by side",
+      "source_episode": "C0011",
+      "notes": "The pair on the Tamasa (VR 1.2.9-10), drawn as cranes as in C0002 scene 11. Side view, necks and heads against open board so each neck can move. The fallen male is always drawn whole, wings folded, with the wound kept out of the drawing."
+    },
+    "brahma_light": {
+      "prompt": "Brahma shown only as a radiant golden lotus of soft light floating in the sky, eight broad petals glowing from within, gentle golden rays spreading outward on the dark board",
+      "source_episode": "C0011",
+      "notes": "Deity rule: Brahma is a symbol of light (as in C0003 and C0005), never a figure. Keep open board around the rays so they can pulse."
+    },
+    "fire_being": {
+      "prompt": "a tall slender human-shaped figure made entirely of glowing saffron and gold flame light, exactly two arms, a smooth glowing featureless face, bare-headed, a simple robe drawn in light",
+      "source_episode": "C0011",
+      "notes": "The radiant being who rises from the putriya fire with the vessel of payasa (VR 1.16.11-20). Symbolic light figure, as in C0003 scene 8. Arms and the vessel held clear of the body for puppetry."
+    },
+    "astra_devas": {
+      "prompt": "tall slender human-shaped figures made entirely of soft glowing golden chalk light, exactly two arms each, smooth glowing featureless faces, bare heads, simple dhoti wraps drawn in light, bare shoulders, each figure marked by its own weapon emblem glowing at its chest",
+      "source_episode": "C0006",
+      "notes": "The weapons in embodied form (VR 1.27). Text taken verbatim from the approved C0006 prompts. Keep the figures well apart with open board between them (Ep07 lesson: crowded figures grow extra arms)."
+    },
+    "ravana_shadow": {
+      "prompt": "a looming solid black shadow silhouette of a demon king's head and shoulders, ten crowned heads layered side by side in a wide row, each wearing a tall ancient Indian temple-style crown, smooth featureless shadowed faces, rising like a dark storm cloud",
+      "source_episode": "C0011",
+      "notes": "Ravana is symbolic only: a layered ten-headed crowned silhouette, head and shoulders, with ancient Indian crowns (bible rule; Ep03 lesson). Arms stay out of the drawing so it never reads as a multi-armed deity form. Nothing Mughal-coded, nothing Western-fantasy."
+    },
+    "ashram_sages": {
+      "prompt": "a few Indian sages with brown skin, dark hair in topknots and short dark beards, wearing white dhotis with white cloth over one shoulder, each with exactly two arms, standing well apart from one another",
+      "source_episode": "C0007",
+      "notes": "The Siddhashrama sages, text from the approved C0007 prompts. Always small and in the background, well apart."
     }
   },
   "rules": [
@@ -139,7 +169,8 @@
     "Composition: subject centred, title headroom top 12%, captions lower 25% clear",
     "Ravana: symbolic only (Lanka fortress / looming crowned shadow). Never a multi-armed or third-eyed dark figure, which reads as a Hindu deity form (Bhairava/Kali). Ep03 lesson.",
     "Architecture: ancient Indian (carved stone gateways, stepped shikhara towers, pillared halls). No onion domes or minarets (Mughal-era). Ep03 lesson.",
-    "Character tokens: write {id} (e.g. {vishvamitra}) in a scene `visual`; step_images expands it verbatim from characters.<id>.prompt (engine_version 2 prefers prompt_positive when present)."
+    "Character tokens: write {id} (e.g. {vishvamitra}) in a scene `visual`; step_images expands it verbatim from characters.<id>.prompt (engine_version 2 prefers prompt_positive when present).",
+    "Long-form (format long, 16:9): main figure at about a third of the width, open board on the far side for camera drift, horizon about a third from the top, lower fifth plain board for captions. Rama's face stays hidden (three-quarter back view)."
   ],
   "worlds": {
     "_doc": "Accent hues (HSV degrees) per world for the per-scene `accent` field; at most 3 hues per frame. The board always stays black. Source: docs/VIDEO_QUALITY_UPGRADE_PLAN.md §3.2",
