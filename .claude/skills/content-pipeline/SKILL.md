@@ -7,6 +7,8 @@ description: Runbook to take one content piece from idea to the G3 bundle in sho
 
 Always start: read `PROJECT_CONTEXT.md` (§22 status, §23 next steps), then `python -m pipeline status` to find the next pending stage. Resume there. One episode per day, and only when the owner asks.
 
+**YouTube long-form (2 per Kanda, 8–12 min, 16:9, en/hi/te):** same flow with `pipeline new … --format long`. Follow `docs/LONGFORM_ARCHITECTURE.md` (story shape, word budgets, rig tiers, chapters, publishing). Shorts continue unchanged.
+
 **From Episode 10 on, every episode uses the chalk-puppet animation (engine v3, approved 2026-11-18).** `pipeline new` sets `engine_version: 3`. Each scene is drawn in chalk, then its characters and objects move about real pivots (`puppetstudio.py`), checked by the motion QA gate. Ep01–09 stay on engine v2.
 
 | # | Stage | Who | Command / output | Gate check |

@@ -26,6 +26,13 @@ Verify sources, then write hooks and scripts for every target language within th
    - Approved rules (storytelling skill, O1/O5, lint) always win. An anecdote never overrides them; it only chooses among options the rules already allow.
 6. **Lint.** Run `python -m pipeline lint <ID>`. Fix every error (estimated duration >57 s, hook >3.0 s, scene count or length, missing keywords, digits in gu/te, missing source edition or `quote_src`, visual parity, silences). Warnings are listed for the owner.
 
+## Long-form videos (manifest `"format": "long"`)
+Follow the "Long-form YouTube" section of the storytelling skill instead of the Shorts beats.
+- **Story:** one continuous story of 8–12 min in 4–6 chapters, with a cold open, a part title, verse slides, a closing cliff and a calm end board.
+- **Budgets:** en ≈ 1,520, hi ≈ 1,430, te ≈ 840 words per 10 minutes.
+- **Hooks:** write 3–4 cold-open options per language instead of six short hooks.
+- **Sources:** reuse verified verse tables from earlier episodes' `research/report.md` where they cover the same sargas, and re-check every new claim.
+
 ## Outputs
 `research/report.md` (verse table), `<lang>/hooks.json`, `<lang>/script.json`, `<lang>/script.md`; then `python -m pipeline done <ID> script --lang <lang>`.
 

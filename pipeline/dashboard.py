@@ -610,7 +610,7 @@ class Handler(BaseHTTPRequestHandler):
             return self.send(303, "", extra={"Location": "/", "Set-Cookie": f"{COOKIE}=; Path=/; Max-Age=0; HttpOnly; Secure; SameSite=Lax"})
         nonce = self.session()
         api = path.startswith("/api/") or path == "/events/stream"
-        pages = ("/", "/progress", "/uploads", "/problems", "/results")
+        pages = ("/", "/progress", "/uploads", "/problems", "/results", "/long")
         episode = EPISODE_RX.fullmatch(path)
         if path not in pages and path not in OLD_ROUTES and not episode and path not in ("/api/events", "/api/overview", "/events/stream"):
             return self.send(404, NOT_FOUND)
@@ -642,6 +642,8 @@ class Handler(BaseHTTPRequestHandler):
                 return self.send(200, dashui.render_problems(con, csrf_for(nonce), q))
             if path == "/results":
                 return self.send(200, dashui.render_results(con, q))
+            if path == "/long":
+                return self.send(200, dashui.render_long(con))
             if episode:
                 body = dashui.render_episode(con, episode.group(1))
                 return self.send(200, body) if body else self.send(404, NOT_FOUND)

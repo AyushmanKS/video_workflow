@@ -90,7 +90,7 @@ def test_cta_strings_short_and_marked(brand):
         assert (c["review"] == "needs native review") == (lang in ("gu", "te", "mr"))
     assert brand["email"] == EMAIL
     assert brand["instagram"]["url"] == IG_URL
-    assert brand["youtube"]["active_url"] == brand["youtube"]["current_url"] == "https://www.youtube.com/@knowledgepowerbank"
+    assert brand["youtube"]["active_url"] == brand["youtube"]["current_url"] == "https://www.youtube.com/@aks.chalktales"
 
 
 @pytest.mark.parametrize("lang", LANGS)

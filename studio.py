@@ -19,7 +19,8 @@ from PIL import Image, ImageDraw, ImageFilter, ImageFont
 from styles import FONT_DIR, MAC_TO_OFL, OFL, STYLES
 
 ROOT = Path(__file__).parent
-W, H, FPS, SR = 1080, 1920, 30, 24000
+FPS, SR = 30, 24000
+from frame import H, W
 OLLAMA = "http://localhost:11434"
 BIBLE = ROOT / "profiles" / "characters" / "ramayana.json"
 CAPTION_MAX_W = W - 60
@@ -56,7 +57,13 @@ def engine_version(script):
 
 
 def effective_style(style_name, script):
+    import frame
+
     st = {**STYLES[style_name], **script.get("style_overrides", {})}
+    if frame.LONG:
+        st["size"] = frame.IMAGE_SIZE
+        st["prefix"] = st.get("prefix", "") + frame.PROMPT_SUFFIX
+        st["caption_y"] = 0.88
     if engine_version(script) < 2:
         return st
     if script.get("fonts", "mac") == "ofl":
@@ -490,7 +497,7 @@ def image_model_id(st, steps, model_args):
 def generate_still(prompt, negative, seed, raw, st, steps, model_args):
     width, height = st.get("size", (576, 1024))
     cmd = [
-        "mflux-generate-z-image-turbo", *model_args, "--steps", str(steps),
+        shutil.which("mflux-generate-z-image-turbo") or str(Path(sys.executable).parent / "mflux-generate-z-image-turbo"), *model_args, "--steps", str(steps),
         "--width", str(width), "--height", str(height), "--seed", str(seed),
         "--prompt", prompt,
     ]
@@ -505,7 +512,9 @@ def step_images(script, style, seed, steps, out):
     st = effective_style(style, script)
     ev = engine_version(script)
     bible = load_bible()
-    have_mflux = shutil.which("mflux-generate-z-image-turbo") is not None
+    have_mflux = shutil.which("mflux-generate-z-image-turbo") is not None or (Path(sys.executable).parent / "mflux-generate-z-image-turbo").exists()
+    if not have_mflux and os.environ.get("STUDIO_ALLOW_PLACEHOLDER") != "1":
+        raise SystemExit("images: the image model (mflux-generate-z-image-turbo) was not found; refusing to write placeholder pictures. Activate .venv or set STUDIO_ALLOW_PLACEHOLDER=1 for a test run.")
     local = ROOT / "models" / "z-image-turbo-4bit"
     model_args = ["--model", str(local)] if local.exists() else ["--quantize", "4"]
     flags = {}
@@ -1209,9 +1218,12 @@ def step_extras(script, st, out):
     if st.get("thumbnail") == "chalk":
         import chalk
 
-        chalk.thumbnail(script, raw_path(script, out, script["thumbnail"]["scene"]), out / "thumbnail.png", 42)
-        tags = " ".join("#" + h.lstrip("#").replace(" ", "") for h in script["hashtags"])
-        (out / "post.txt").write_text(f"{script['title']}\n\n{script['description']}\n\n{tags}\n")
+        if script.get("thumbnail"):
+            chalk.thumbnail(script, raw_path(script, out, script["thumbnail"]["scene"]), out / "thumbnail.png", 42)
+        else:
+            log("extras: no thumbnail spec in the script; skipped (long-form thumbnails are made at the packaging step)")
+        tags = " ".join("#" + h.lstrip("#").replace(" ", "") for h in script.get("hashtags", []))
+        (out / "post.txt").write_text(f"{script['title']}\n\n{script.get('description', '')}\n\n{tags}\n")
         return out / "post.txt"
     first = load_scene_image(raw_path(script, out, 0), st)
     thumb = scene_frame(first, st, 0.5, 1, 0)

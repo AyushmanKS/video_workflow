@@ -139,7 +139,8 @@ def youtube_upload(video, meta, thumb, privacy, assume_yes, publish_at=None, var
                 bucket = b
                 emit("progress", f"uploading {status.progress() * 100:.0f}%", progress=status.progress(), detail={"measured": "resumable upload chunks"})
     vid = resp["id"]
-    result = {"platform": "youtube", "id": vid, "url": f"https://www.youtube.com/shorts/{vid}", "privacy": resp["status"]["privacyStatus"], "scheduled_for": resp["status"].get("publishAt"), "time": time.strftime("%Y-%m-%d %H:%M:%S")}
+    long_form = (meta.get("youtube") or {}).get("format") == "long" or yt.get("format") == "long"
+    result = {"platform": "youtube", "id": vid, "url": f"https://www.youtube.com/watch?v={vid}" if long_form else f"https://www.youtube.com/shorts/{vid}", "privacy": resp["status"]["privacyStatus"], "scheduled_for": resp["status"].get("publishAt"), "time": time.strftime("%Y-%m-%d %H:%M:%S")}
     print(f"  uploaded: {result['url']} (privacy reported: {result['privacy']})")
     check = svc.videos().list(part="status", id=vid).execute()["items"][0]["status"]
     result["verified"] = {"privacy": check.get("privacyStatus"), "publishAt": check.get("publishAt")}
@@ -155,7 +156,7 @@ def youtube_upload(video, meta, thumb, privacy, assume_yes, publish_at=None, var
             print(f"  added to playlist '{yt['playlist']}'")
         else:
             print(f"  playlist '{yt['playlist']}' not found; skipped")
-    lang_pl = language_playlist(variant)
+    lang_pl = None if long_form else language_playlist(variant)
     if lang_pl:
         try:
             svc.playlistItems().insert(part="snippet", body={"snippet": {"playlistId": lang_pl["id"], "resourceId": {"kind": "youtube#video", "videoId": vid}}}).execute()

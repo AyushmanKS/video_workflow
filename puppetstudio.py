@@ -12,6 +12,20 @@ from chalk import CH, CW, FPS, H, W
 
 INDIGO = np.array([31, 37, 71], np.float32) / 255
 CROSSFADE = 0.5
+CHAPTER_WORD = {"en": "Chapter", "hi": "अध्याय", "te": "అధ్యాయం", "gu": "અધ્યાય", "mr": "अध्याय"}
+CHAPTER_SHOW = 4.0
+
+
+def chapter_layers(script, seed):
+    word = CHAPTER_WORD.get(script.get("language") or "en", "")
+    out = {}
+    n = 0
+    for i, sc in enumerate(script["scenes"]):
+        if sc.get("chapter_title"):
+            n = sc.get("chapter") or n + 1
+            text = f"{word} {n} · {sc['chapter_title']}" if word else sc["chapter_title"]
+            out[i] = chalk.title_layer(text, seed + 300 + i)
+    return out
 
 
 def rig_path(out):
@@ -20,7 +34,16 @@ def rig_path(out):
 
 def load_rig(out):
     p = rig_path(out)
-    return json.loads(p.read_text()) if p.exists() else {"shots": []}
+    rig = json.loads(p.read_text()) if p.exists() else {"shots": []}
+    parts = p.parent / "rig_parts"
+    if parts.is_dir():
+        by = {s["scene"]: s for s in rig.get("shots", [])}
+        for f in sorted(parts.glob("*.json")):
+            d = json.loads(f.read_text())
+            for s in d.get("shots", [d]) if isinstance(d, dict) else d:
+                by[s["scene"]] = s
+        rig["shots"] = [by[k] for k in sorted(by)]
+    return rig
 
 
 def shot_for(rig, i):
@@ -123,6 +146,7 @@ def render(script, st, timings, total, raws, writer, captioner, groups, seed, lo
     dust = chalk.Particles(seed)
     over = chalk.Overlays(seed)
     titles = {i: chalk.title_layer(sc["emphasis"].upper(), seed + 100 + i) for i, sc in enumerate(script["scenes"]) if sc.get("emphasis")}
+    chapter_titles = chapter_layers(script, seed)
     cache = {}
 
     def get(i):
@@ -193,12 +217,24 @@ def render(script, st, timings, total, raws, writer, captioner, groups, seed, lo
         over.draw(frame, kinds if level > 0 else [], 1 / FPS, level)
         if tip is not None:
             frame.paste(stick, (int(tip[0]) - 6, int(tip[1]) - 4), stick)
+        y_title = int(H * 0.055) - 40
+        ct = chapter_titles.get(i)
+        if ct is not None and p["vs"] <= t < p["vs"] + CHAPTER_SHOW:
+            age = t - p["vs"]
+            cw = int(ct.width * min(1.0, age / 1.0))
+            fade = min(1.0, (CHAPTER_SHOW - age) / 0.5)
+            if cw > 0 and fade > 0:
+                part = ct.crop((0, 0, cw, ct.height))
+                if fade < 1:
+                    part = Image.fromarray((np.asarray(part).astype(np.float32) * [1, 1, 1, fade]).astype(np.uint8), "RGBA")
+                frame.paste(part, ((W - ct.width) // 2, y_title), part)
+            y_title += ct.height - 60
         tl = titles.get(i)
         if tl is not None and t >= p["ds"]:
             cw = int(tl.width * min(1.0, (t - p["ds"]) / 0.8))
             if cw > 0:
                 part = tl.crop((0, 0, cw, tl.height))
-                frame.paste(part, ((W - tl.width) // 2, int(H * 0.055) - 40), part)
+                frame.paste(part, ((W - tl.width) // 2, y_title), part)
         group = next((g for g in groups if g["start"] <= t < g["end"] + 0.1), None)
         captioner.draw(frame, group, t, "", 99)
         writer.stdin.write(frame.tobytes())
@@ -207,7 +243,7 @@ def render(script, st, timings, total, raws, writer, captioner, groups, seed, lo
     return pl
 
 
-def qa(script, timings, total, out, seed, raws, masks, log):
+def qa(script, timings, total, out, seed, raws, masks, log, only=None):
     from pipeline import puppetqa
 
     pl = chalk.plan(script, timings, total)
@@ -219,7 +255,7 @@ def qa(script, timings, total, out, seed, raws, masks, log):
     results = {}
     for shot in rig.get("shots", []):
         i = shot["scene"]
-        if not (shot.get("puppets") or shot.get("elements")):
+        if not (shot.get("puppets") or shot.get("elements")) or (only and i not in only):
             continue
         span = scene_span(pl, i)
         s = resolve(shot, timings, pl[i]["vs"], span)
@@ -235,6 +271,8 @@ def qa(script, timings, total, out, seed, raws, masks, log):
         allpass &= rep["pass"]
         results[i] = rep["pass"]
         log(f"rig qa: scene {i + 1} {'PASS' if rep['pass'] else 'FAIL'} {rep['counts']} {sheet or ''}")
+    if only:
+        return allpass
     (dst / "summary.json").write_text(json.dumps({"pass": bool(allpass), "scenes": {str(k): v for k, v in results.items()}, "rig_sha": rig_hash(out)}, indent=1))
     return allpass
 
@@ -242,8 +280,7 @@ def qa(script, timings, total, out, seed, raws, masks, log):
 def rig_hash(out):
     import hashlib
 
-    p = rig_path(out)
-    return hashlib.sha256(p.read_bytes()).hexdigest() if p.exists() else None
+    return hashlib.sha256(json.dumps(load_rig(out), sort_keys=True).encode()).hexdigest()
 
 
 def main():
@@ -256,6 +293,7 @@ def main():
     ap.add_argument("out")
     ap.add_argument("--style", default="chalk")
     ap.add_argument("--seed", type=int, default=42)
+    ap.add_argument("--scenes", help="comma list of 0-based scene indexes to check (no summary written)")
     a = ap.parse_args()
     out = Path(a.out)
     script = json.loads((out / "script.json").read_text())
@@ -266,7 +304,8 @@ def main():
     n = len(script["scenes"])
     raws = [studio.raw_path(script, out, i) for i in range(n)]
     masks = [out / "img" / f"{studio.scene_still(script, i):02d}_mask.png" for i in range(n)]
-    sys.exit(0 if qa(script, timings, total, out, a.seed, raws, masks, studio.log) else 1)
+    only = {int(x) for x in a.scenes.split(",")} if a.scenes else None
+    sys.exit(0 if qa(script, timings, total, out, a.seed, raws, masks, studio.log, only) else 1)
 
 
 if __name__ == "__main__":

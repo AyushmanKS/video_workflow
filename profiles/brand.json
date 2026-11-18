@@ -24,14 +24,13 @@
       "display_name": "Chalk Tales · Ramayana & More"
     },
     "youtube": {
-      "current_name": "Knowledge PowerBank",
-      "current_handle": "@knowledgepowerbank",
-      "current_url": "https://www.youtube.com/@knowledgepowerbank",
-      "planned_name": "Chalk Tales",
-      "planned_handle": "@aks.chalk.tales",
-      "planned_url": "https://www.youtube.com/@aks.chalk.tales",
-      "status": "rename pending",
-      "active_url": "https://www.youtube.com/@knowledgepowerbank",
+      "current_name": "Chalk Tales",
+      "current_handle": "@aks.chalktales",
+      "current_url": "https://www.youtube.com/@aks.chalktales",
+      "previous_name": "Knowledge PowerBank",
+      "previous_handle": "@knowledgepowerbank",
+      "status": "renamed 2026-11-18",
+      "active_url": "https://www.youtube.com/@aks.chalktales",
       "external_channel_items": {
         "note": "Older YouTube videos outside the pipeline that conflict with the Chalk Tales brand. Recommendation (owner decision, not applied): set the public ones to Unlisted or Private before the rebrand so the channel page shows only Chalk Tales content; deleting is not necessary.",
         "items": [

@@ -138,3 +138,25 @@ Check in the text before using: the squirrel at the setu, Hanuman's gada, "Kodan
 
 ## Engine version
 New scripts set `"engine_version": 2` at the top level (owner approved 2026-11-16: readable frame 0, fast reveals, two-pass loudness, automatic parallax with breathing; macOS fonts stay unless `"fonts": "ofl"`). `python -m pipeline new` records it in the manifest and `produce` adds it to any script that lacks it. Published episodes C0001–C0005 stay on engine 1.
+
+## Long-form YouTube (format "long": 8–12 min, 16:9)
+Applies when `content/<ID>/manifest.json` has `"format": "long"` (owner decision 2026-11-18). Full design: `docs/LONGFORM_ARCHITECTURE.md`. The Shorts rules above (35–55 s, 8–11 scenes, ≤3.0 s hook, "Next:" card, engagement line) do **not** apply. The accuracy, sensitivity, pronunciation, narration-style and per-language rules **do**.
+
+**Shape**
+- **Cold open (20–40 s, before chapter 1):** the part's most gripping moment in 2–3 flowing lines, then a turn back to the beginning ("But this story begins long before…"). The first line is short and stakes-first (spoken ≤6 s).
+- **Part title** follows the cold open: the scene's `emphasis` carries "Bala Kanda · Part 1".
+- **4–6 chapters, 60–180 s each.** Each is a mini-arc (situation → turn → consequence) and ends with a line that pulls into the next chapter. Mark the chapter's first scene with `chapter_title` (3–5 words, in that language) and give every scene its `chapter` number.
+- **Re-hook every 60–90 s** with a question, a reveal or a turn. Never two consecutive scenes without visible action in the visual direction.
+- **Verse slides:** 1–2 per chapter, `kind: "verse"` with `devanagari` lines and `source` (with edition). The narration around it gives the meaning; the verse itself is never read out in full.
+- **Closing (about 45 s):** land the emotional point of the part, then a one-line cliff into the next part ("And in Mithila, a bow no king could lift was waiting…").
+- **End board:** the last scene is calm, with 15–20 s of soft narration or music only, and leaves room for YouTube end-screen elements. No "subscribe" lines in the narration.
+- **One continuous story:** no "Episode N", no per-episode hooks, no repeated recaps.
+
+**Scenes and budgets**
+- 35–55 scenes of 6–20 s each (a verse slide about 8–10 s; chapter openers can be shorter).
+- Word budgets for 10 minutes, from measured voice rates: **en ≈ 1,520 words (2.82 w/s), hi ≈ 1,430 (2.64 w/s), te ≈ 840 (1.56 w/s)**. Scale linearly for 8 min (×0.8) or 12 min (×1.2).
+- The same scene count and `visual` in every language, because images are shared. Telugu shortens each scene, never drops scenes.
+- Planned silences via `pause` (0.4–1.0 s) at chapter ends and after big moments.
+- `pipeline lint` for long: estimate 480–720 s (fail above 780 s), 35–60 scenes, 4–6 chapters, cold open 20–40 s, chapters 60–180 s.
+
+**Schema additions:** top level `"format": "long"`, `"kanda"`, `"part"`, `"chapters": [{"title", "first_scene"}]`. Per scene: `chapter` (1-based) and `chapter_title` on each chapter's first scene. The visual direction includes the key pose and notes which character or object should move (creative-director turns this into prompts and rig tiers).

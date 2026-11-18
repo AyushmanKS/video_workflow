@@ -98,7 +98,18 @@ def probe(video):
     return json.loads(out.stdout)
 
 
-def check_format(video):
+def format_of(work_dir):
+    mp = Path(work_dir).parent / "manifest.json" if work_dir else None
+    fmt = json.loads(mp.read_text()).get("format", "short") if mp and mp.exists() else "short"
+    sys.path.insert(0, str(ROOT))
+    import frame
+
+    lim = frame.limits(fmt)
+    return fmt, {**STANDARD, "width": lim["width"], "height": lim["height"], "max_seconds": lim["max"], "target_seconds": lim["target"]}
+
+
+def check_format(video, std=None):
+    STANDARD = std or globals()["STANDARD"]
     p = probe(video)
     v = next(s for s in p["streams"] if s["codec_type"] == "video")
     a = next((s for s in p["streams"] if s["codec_type"] == "audio"), None)
@@ -107,7 +118,7 @@ def check_format(video):
     dur = float(p["format"]["duration"])
     issues = []
     if (v["width"], v["height"]) != (STANDARD["width"], STANDARD["height"]):
-        issues.append(f"resolution {v['width']}x{v['height']} (expected 1080x1920)")
+        issues.append(f"resolution {v['width']}x{v['height']} (expected {STANDARD['width']}x{STANDARD['height']})")
     if abs(fps - STANDARD["fps"]) > 0.1:
         issues.append(f"fps {fps}")
     if not a:
@@ -115,7 +126,8 @@ def check_format(video):
     return chk("format", "final", "reject", not issues, issues, {"video": v["codec_name"], "audio": a and a["codec_name"], "fps": fps, "seconds": round(dur, 2)})
 
 
-def duration_checks(seconds):
+def duration_checks(seconds, std=None):
+    STANDARD = std or globals()["STANDARD"]
     lo, hi = STANDARD["target_seconds"]
     out = [chk("duration", "final", "reject", seconds < STANDARD["max_seconds"], [] if seconds < STANDARD["max_seconds"] else [f"duration {seconds:.2f} s ≥ {STANDARD['max_seconds']:.1f} s"], {"seconds": round(seconds, 2)})]
     out.append(chk("duration_target", "final", "warn", lo <= seconds <= hi, [] if lo <= seconds <= hi else [f"duration {seconds:.2f} s outside {lo:.0f}–{hi:.0f} s"], {"seconds": round(seconds, 2)}))
@@ -726,11 +738,13 @@ def run(video, work_dir=None,script_path=None, language="en", variant_id=None, s
     checks = []
     try:
         script = json.loads(Path(script_path).read_text()) if script_path else None
+        fmt_name, std = format_of(work_dir)
         if script:
+            script.setdefault("format", fmt_name)
             checks += story_checks(script, language, primary_script(work_dir))
         if not audio_only:
-            fmt = check_format(video)
-            checks += [fmt, *duration_checks(fmt["data"]["seconds"]), check_loudness(video), check_black_and_freeze(video), check_silence(video), check_first_frame(video)]
+            fmt = check_format(video, std)
+            checks += [fmt, *duration_checks(fmt["data"]["seconds"], std), check_loudness(video), check_black_and_freeze(video), check_silence(video), check_first_frame(video)]
         if work_dir and script:
             voices = json.loads((ROOT / "profiles" / "voices.json").read_text())
             used = Path(work_dir) / "audio" / "voice.txt"

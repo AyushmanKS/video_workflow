@@ -6,6 +6,15 @@ import unicodedata
 
 from . import CONTENT, DATA, PROFILES, ROOT, db
 
+
+def frame_limits(fmt):
+    import sys
+
+    sys.path.insert(0, str(ROOT))
+    import frame
+
+    return frame.limits(fmt)
+
 DEFAULT_RATES = {"en": 2.81, "hi": 2.80, "gu": 2.3, "te": 1.66}
 FALLBACK_RATE = 2.3
 LEAD_TAIL = 1.15
@@ -192,6 +201,26 @@ def title_pattern(title):
     return "statement"
 
 
+def chapter_findings(scenes, secs):
+    out = []
+    starts = [i for i, sc in enumerate(scenes) if sc.get("chapter_title")]
+    if not 4 <= len(starts) <= 6:
+        out.append(finding("chapters", "fail", f"{len(starts)} chapters (need 4–6; mark each chapter's first scene with chapter_title)"))
+    if starts:
+        cold = sum(secs[:starts[0]])
+        if not 15.0 <= cold <= 45.0:
+            out.append(finding("cold_open", "warn", f"cold open before the first chapter is {cold:.0f} s (target 20–40 s)"))
+        bounds = starts + [len(scenes)]
+        for k in range(len(starts)):
+            sec = sum(secs[bounds[k]:bounds[k + 1]])
+            title = scenes[starts[k]].get("chapter_title")
+            if not 50.0 <= sec <= 200.0:
+                out.append(finding("chapter_length", "warn", f"chapter {k + 1} “{title}” is {sec:.0f} s (target 60–180 s)", starts[k] + 1))
+            if any(sc.get("chapter") not in (None, k + 1) for sc in scenes[bounds[k]:bounds[k + 1]]):
+                out.append(finding("chapter_index", "warn", f"chapter {k + 1}: scenes carry a different chapter number", starts[k] + 1))
+    return out
+
+
 def finding(rule, level, msg, scene=None):
     return {"rule": rule, "level": level, "message": msg, **({"scene": scene} if scene is not None else {})}
 
@@ -202,6 +231,10 @@ def lint_script(script, lang, primary=None, rates=None):
     f = []
     scenes = script.get("scenes", [])
     total = est["total"]
+    lim = frame_limits(script.get("format", "short"))
+    MAX_EST, TARGET = lim["lint_max"], lim["target"]
+    long_form = script.get("format") == "long"
+    SCENES, SCENE_SECONDS, HOOK_WARN, HOOK_FAIL = ((35, 60), (2.0, 25.0), 6.0, 10.0) if long_form else (globals()["SCENES"], globals()["SCENE_SECONDS"], globals()["HOOK_WARN"], globals()["HOOK_FAIL"])
     if total > MAX_EST:
         f.append(finding("duration", "fail", f"estimated {total:.1f} s > {MAX_EST:.0f} s (rate {est['rate']} w/s, {est['words']} words, pauses {est['pauses']} s, lead/tail {LEAD_TAIL} s)"))
     elif not TARGET[0] <= total <= TARGET[1]:
@@ -217,6 +250,8 @@ def lint_script(script, lang, primary=None, rates=None):
     for i, s in enumerate(est["scene_seconds"]):
         if i and not SCENE_SECONDS[0] <= s <= SCENE_SECONDS[1]:
             f.append(finding("scene_length", "warn", f"scene {i + 1} spoken {s:.1f} s (target {SCENE_SECONDS[0]}–{SCENE_SECONDS[1]} s)", i + 1))
+    if long_form:
+        f += chapter_findings(scenes, est["scene_seconds"])
     for i, sc in enumerate(scenes):
         toks = {norm(t) for t in words(sc.get("narration"))}
         missing = [k for k in sc.get("keywords", []) if norm(k) and norm(k) not in toks]
@@ -242,6 +277,7 @@ def lint_script(script, lang, primary=None, rates=None):
         f.append(finding("edition", "warn", "no edition: set script 'edition' or give every source one ({\"ref\", \"edition\"} or \"VR 1.26.12 (vulgate)\")"))
     f += engine_value_findings(script)
     silences = sum(1 for sc in scenes if float(sc.get("pause", DEFAULT_PAUSE)) >= SILENCE_MIN)
+    SILENCES = (8, 30) if long_form else globals()["SILENCES"]
     if not SILENCES[0] <= silences <= SILENCES[1]:
         f.append(finding("silences", "warn", f"{silences} planned silences (pause ≥{SILENCE_MIN} s); target {SILENCES[0]}–{SILENCES[1]}"))
     if any("reveal" in sc for sc in scenes):
@@ -295,6 +331,7 @@ def lint(cid, langs=None, write=True):
             out[lang] = {"language": lang, "verdict": "fail", "findings": [finding("script", "fail", f"missing {p.relative_to(CONTENT.parent)}")], "estimate": None}
             continue
         script = json.loads(p.read_text())
+        script.setdefault("format", m.get("format", "short"))
         rep = lint_script(script, lang, primary if lang != prim_lang else None)
         from .gates import script_sha256
 

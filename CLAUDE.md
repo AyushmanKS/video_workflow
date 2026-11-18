@@ -13,6 +13,12 @@
   - Chalk sound is at ×0.12 (`chalk.PUPPET_CHALK_SFX_SCALE`).
   - Verse slides keep verse-only time.
   - `python -m pipeline rig-qa` must pass before render. See PROJECT_CONTEXT §30.
+- **YouTube long-form (owner, 2026-11-18).**
+  - **What:** 2 videos per Kanda (Bala Kanda first), each a new continuous story, 8–12 min, horizontal 16:9, in en, hi and te, using the chalk-puppet engine.
+  - **Shorts continue unchanged.**
+  - **Duration rule:** the 35–55 s rule applies to Shorts only.
+  - **Gates:** same three gates.
+  - **Details:** PROJECT_CONTEXT §23.0.
 - **AK01 is on hold.** The approved Ayodhya Kanda sample (`data/anim_lab/AK01_puppet/AK01-puppet-{en,hi}.mp4`) is scheduled or published only when the series reaches that chapter. Raise it then; never before.
 - **Hindi voice.** Use Maya 2 Native `maya2:Malini` (also gu and te; Veena kavya is retired, 2026-11-16). QA must pass `speaker_consistency`, which checks that the whole narration is one voice.
 - **Duration.** Target 35–55 s per language, hard limit under 60 s. Run `python -m pipeline lint <ID>` before G1; it blocks estimates above 57 s. See the `storytelling` skill.

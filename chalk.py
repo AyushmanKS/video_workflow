@@ -15,8 +15,8 @@ import parallax
 from styles import FONT_DIR, OFL
 
 ROOT = Path(__file__).parent
-W, H, FPS, SR = 1080, 1920, 30, 24000
-CW, CH = 1188, 2112
+FPS, SR = 30, 24000
+from frame import CH, CW, H, W
 ERASE = 0.55
 CHALKDUSTER = "/System/Library/Fonts/Supplemental/Chalkduster.ttf"
 DEVANAGARI = "/System/Library/Fonts/Supplemental/ITFDevanagari.ttc"
@@ -279,18 +279,19 @@ def text_scene(sc, path, seed):
             size -= 4
             dev = font_for("".join(lines), size)
         small = font_for(sc["source"], 40)
-        y0 = 560 + (4 - len(lines)) * 84
+        step = 168 if CH > CW else 128
+        y0 = 560 + (4 - len(lines)) * 84 if CH > CW else int((CH - (len(lines) * step + 170)) / 2)
         for i, line in enumerate(lines):
             col = (0.96, 0.66, 0.32) if i < 2 else (0.95, 0.94, 0.9)
 
-            def fn(d, line=line, y=y0 + i * 168):
+            def fn(d, line=line, y=y0 + i * step):
                 tw = d.textlength(line, font=dev)
                 d.text(((CW - tw) / 2, y), line, font=dev, fill=255)
 
             layers.append((fn, col))
 
         def orn(d):
-            y = y0 + len(lines) * 168 + 40
+            y = y0 + len(lines) * step + 40
             d.line([CW / 2 - 300, y, CW / 2 - 40, y], fill=255, width=4)
             d.line([CW / 2 + 40, y, CW / 2 + 300, y], fill=255, width=4)
             d.ellipse([CW / 2 - 14, y - 14, CW / 2 + 14, y + 14], outline=255, width=4)
@@ -299,9 +300,10 @@ def text_scene(sc, path, seed):
 
         layers.append((orn, (0.86, 0.74, 0.44)))
     elif sc["kind"] == "shloka":
-        dev = font_for(sc["from"] + sc["to"], 183)
+        k = 1.0 if CH > CW else CH / 2112
+        dev = font_for(sc["from"] + sc["to"], int(183 * k))
         def word(text, y, label, ly):
-            lab = font_for(label, 62)
+            lab = font_for(label, int(62 * k))
 
             def fn(d):
                 tw = d.textlength(text, font=dev)
@@ -311,13 +313,13 @@ def text_scene(sc, path, seed):
                 d.text(((CW - tw) / 2, ly), label, font=lab, fill=255)
             return fn, fl
 
-        a, al = word(sc["from"], 330, sc["from_label"], 640)
-        b, bl = word(sc["to"], 960, sc["to_label"], 1270)
+        a, al = word(sc["from"], int(330 * k), sc["from_label"], int(640 * k))
+        b, bl = word(sc["to"], int(960 * k), sc["to_label"], int(1270 * k))
 
         def arrow(d):
             x = CW / 2
-            d.line([x, 760, x, 920], fill=255, width=8)
-            d.line([x - 40, 870, x, 925, x + 40, 870], fill=255, width=8)
+            d.line([x, 760 * k, x, 920 * k], fill=255, width=8)
+            d.line([x - 40, 870 * k, x, 925 * k, x + 40, 870 * k], fill=255, width=8)
 
         layers += [(a, (0.95, 0.94, 0.9)), (al, (0.86, 0.74, 0.44)), (arrow, (0.95, 0.94, 0.9)), (b, (0.96, 0.66, 0.32)), (bl, (0.86, 0.74, 0.44))]
     for k, (fn, col) in enumerate(layers):

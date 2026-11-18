@@ -25,8 +25,8 @@ Everything in this document was built locally. Nothing on the live accounts has 
 | Brand name | Chalk Tales | approved |
 | Instagram handle | `@aks.chalk.tales` (https://www.instagram.com/aks.chalk.tales/) | live |
 | Instagram display name | `Chalk Tales · Ramayana & More` (29 characters, limit 30) | to apply (currently "chalk tales") |
-| YouTube channel name | Knowledge PowerBank → **Chalk Tales** | rename pending (owner, in Studio) |
-| YouTube handle | `@knowledgepowerbank` → `@aks.chalk.tales` if available | pending |
+| YouTube channel name | **Chalk Tales** (was Knowledge PowerBank) | renamed 2026-11-18 |
+| YouTube handle | `@aks.chalktales` (https://www.youtube.com/@aks.chalktales); `@aks.chalk.tales` was taken | live 2026-11-18 |
 | Contact email | ayushman.k.singh@gmail.com | approved |
 
 `profiles/brand.json → brand.youtube.active_url` is the one YouTube link the pipeline uses. It stays at the current URL until the owner confirms the rename. After that, change `active_url` (and `status`) and nothing else needs to change.
@@ -94,7 +94,7 @@ Paid collabs: ayushman.k.singh@gmail.com
 Add **History** and **Science** highlights only when those series start.
 
 ## YouTube channel
-**Name:** Chalk Tales (after the rename). **Handle:** `@aks.chalk.tales` if available.
+**Name:** Chalk Tales. **Handle:** `@aks.chalktales` (no dot between chalk and tales, unlike Instagram's `@aks.chalk.tales`).
 
 **Description** (792 characters; YouTube shows about the first 1,000, so all of it is visible):
 ```
@@ -156,7 +156,7 @@ Do these in the apps. Claude does not change live accounts.
 **YouTube (Studio → Customisation)**
 0. **Content → older videos:** set the July 2025 non-Chalk-Tales public videos (London plane crash, Brainrot, Born in Fire, Facing the Shadows) to Unlisted or Private (Visibility). Deleting them is not necessary.
 1. **Profile → Name:** Chalk Tales. YouTube limits how often the name and handle can change; Studio shows the limit.
-2. **Profile → Handle:** `@aks.chalk.tales` if available. The old handle URL redirects for a while.
+2. **Profile → Handle:** `@aks.chalktales` (done 2026-11-18). The old handle URL redirects for a while.
 3. **Profile → Description:** paste the description above (792 characters).
 4. **Profile → Contact info:** ayushman.k.singh@gmail.com. This is also the business email in Basic info.
 5. **Profile → Links:** Instagram, https://www.instagram.com/aks.chalk.tales/ (shown on the banner).

@@ -3,7 +3,7 @@ import re
 import time
 from datetime import datetime, timedelta, timezone
 
-from . import CONTENT
+from . import CONTENT, PROFILES
 
 IST = timezone(timedelta(hours=5, minutes=30))
 LANG_NAMES = {"en": "English", "hi": "Hindi", "gu": "Gujarati", "te": "Telugu", "mr": "Marathi", "ta": "Tamil", "bn": "Bengali", "kn": "Kannada", "ml": "Malayalam",
@@ -13,10 +13,10 @@ ORDER = ["idea", "writing", "script_ok", "making", "video_ok", "ready", "schedul
 LABELS = {"idea": "Idea", "writing": "Writing", "script_ok": "Waiting for your OK (script)", "making": "Making video", "video_ok": "Waiting for your OK (video)",
           "ready": "Ready to post", "scheduled": "Scheduled", "partly_live": "Partly live", "live": "Live", "problem": "Problem"}
 TONES = {"idea": "grey", "writing": "work", "script_ok": "wait", "making": "work", "video_ok": "wait", "ready": "wait", "scheduled": "gold", "partly_live": "gold", "live": "done", "problem": "bad"}
-STEPS = [("script", "Script"), ("ok_script", "Your OK"), ("voice", "Voice"), ("pictures", "Pictures"), ("video", "Video"), ("check", "Quality check"),
+STEPS = [("script", "Script"), ("ok_script", "Your OK"), ("voice", "Voice"), ("pictures", "Pictures"), ("puppets", "Puppets"), ("video", "Video"), ("check", "Quality check"),
          ("ok_video", "Your OK"), ("scheduled", "Scheduled"), ("live", "Live")]
 STEP_HELP = {"script": "The story is written in each language.", "ok_script": "You read the scripts and say OK.", "voice": "The narration is recorded.",
-             "pictures": "The chalk drawings are made.", "video": "Voice, pictures and music are put together.", "check": "An automatic check looks for mistakes.",
+             "pictures": "The chalk drawings are made.", "puppets": "Characters and objects get their joints and moves, and the motion check passes.", "video": "Voice, pictures and music are put together.", "check": "An automatic check looks for mistakes.",
              "ok_video": "You watch the videos and say OK.", "scheduled": "Posting times are set.", "live": "The videos are public."}
 RUNNING_WORDS = {"research": "Researching the story", "strategy": "Planning the episode", "script": "Writing the script", "voice": "Recording the voice",
                  "voice_takes": "Recording extra voice takes", "images": "Drawing the pictures", "render": "Putting the video together", "video_qa": "Checking the video",
@@ -148,6 +148,87 @@ def ep_label(episode, cid):
     return f"Ep {int(m.group(1)):02d}" if m else (cid or "Ep ?")
 
 
+def steps_for(m):
+    if int((m or {}).get("engine_version") or 0) >= 3:
+        return STEPS
+    return [s for s in STEPS if s[0] != "puppets"]
+
+
+def label_of(ep):
+    if ep.get("format") == "long":
+        return f"{ep.get('kanda') or 'Long video'} · Part {ep.get('part') or '?'}"
+    return ep_label(ep.get("episode"), ep.get("id"))
+
+
+def rig_passed(cid, lang):
+    try:
+        return bool(json.loads((CONTENT / cid / lang / "rigqa" / "summary.json").read_text()).get("pass"))
+    except (OSError, ValueError):
+        return False
+
+
+def fmt_len(sec):
+    if sec is None:
+        return None
+    sec = int(round(float(sec)))
+    return f"{sec // 60}:{sec % 60:02d}"
+
+
+def length_info(cid, lang, con=None):
+    v = None
+    if con is not None:
+        r = con.execute("SELECT duration_s FROM variants WHERE id=?", (f"{cid}-{lang}",)).fetchone()
+        v = r["duration_s"] if r and r["duration_s"] else None
+    if v and (CONTENT / cid / lang / f"{cid}-{lang}.mp4").exists():
+        return {"seconds": float(v), "kind": "video"}
+    try:
+        est = json.loads((CONTENT / cid / lang / "lint.json").read_text()).get("estimate") or {}
+        if est.get("total"):
+            return {"seconds": float(est["total"]), "kind": "estimate"}
+    except (OSError, ValueError):
+        pass
+    return None
+
+
+def chapters(cid, lang):
+    try:
+        s = json.loads((CONTENT / cid / lang / "script.json").read_text())
+    except (OSError, ValueError):
+        return []
+    if s.get("chapters"):
+        return [c.get("title") for c in s["chapters"] if c.get("title")]
+    return [sc["chapter_title"] for sc in s.get("scenes", []) if sc.get("chapter_title")]
+
+
+def rig_summary(cid):
+    shots = {}
+    try:
+        for s in json.loads((CONTENT / cid / "rig.json").read_text()).get("shots") or []:
+            shots[s.get("scene")] = s
+    except (OSError, ValueError):
+        pass
+    parts = CONTENT / cid / "rig_parts"
+    if parts.is_dir():
+        for f in parts.glob("*.json"):
+            try:
+                d = json.loads(f.read_text())
+            except ValueError:
+                continue
+            for s in d.get("shots", [d]) if isinstance(d, dict) else d:
+                shots[s.get("scene")] = s
+    if not shots:
+        return None
+    shots = list(shots.values())
+    return {"puppets": sum(1 for s in shots if s.get("puppets")), "objects": sum(1 for s in shots if s.get("elements") and not s.get("puppets"))}
+
+
+def longform_plan():
+    try:
+        return json.loads((PROFILES / "longform.json").read_text())
+    except (OSError, ValueError):
+        return {"kandas": []}
+
+
 def read_manifest(cid):
     try:
         return json.loads((CONTENT / cid / "manifest.json").read_text())
@@ -255,13 +336,14 @@ def lang_status(m, lang, ctx, now=None):
         "ok_script": gate_ok(m, "gate:script", lang),
         "voice": _stage_done(st, f"voice:{lang}"),
         "pictures": _stage_done(st, f"images:{lang}"),
+        "puppets": rig_passed(cid, lang) or _stage_done(st, f"render:{lang}") or int(m.get("engine_version") or 0) < 3,
         "video": _stage_done(st, f"render:{lang}"),
         "check": _stage_done(st, f"video_qa:{lang}") and not _qa_failed(st, lang),
         "ok_video": gate_ok(m, "gate:final", lang),
         "scheduled": bool(plats) and all(p["state"] in ("scheduled", "live", "waiting") for p in plats.values()),
         "live": bool(plats) and all(p["state"] == "live" for p in plats.values()),
     }
-    keys = [k for k, _ in STEPS]
+    keys = [k for k, _ in steps_for(m)]
     last = max([i for i, k in enumerate(keys) if done[k]], default=-1)
     for i in range(last):
         if keys[i] not in ("scheduled",):
@@ -289,9 +371,9 @@ def lang_status(m, lang, ctx, now=None):
     detail = ""
     counts = None
     if stage == "making":
-        current = next((k for k in ("voice", "pictures", "video", "check") if not done[k]), "check")
+        current = next((k for k in ("voice", "pictures", "puppets", "video", "check") if k in keys and not done[k]), "check")
         counts = file_counts(cid, lang, current)
-        names = {"voice": "voice", "pictures": "pictures", "video": "putting the video together", "check": "quality check"}
+        names = {"voice": "voice", "pictures": "pictures", "puppets": "setting up the puppets", "video": "putting the video together", "check": "quality check"}
         detail = f"{names[current]} {counts[0]} of {counts[1]}" if counts else names[current]
         if _qa_failed(st, lang):
             detail = "quality check found problems"
@@ -306,7 +388,7 @@ def lang_status(m, lang, ctx, now=None):
             problems.append({"id": None, "title": f"{platform_name(p)}: {platform_words(ps, now)}", "severity": "recoverable", "platform": p, "stage": "publish"})
     if _qa_failed(st, lang) and not done["ok_video"] and not problems:
         problems.append({"id": None, "title": "The quality check found problems", "severity": "recoverable", "platform": None, "stage": "video_qa"})
-    return {"lang": lang, "name": lang_name(lang), "stage": stage, "label": LABELS[stage], "done": done, "current": current, "detail": detail, "counts": counts,
+    return {"lang": lang, "name": lang_name(lang), "stage": stage, "label": LABELS[stage], "done": done, "current": current, "detail": detail, "counts": counts, "steps": keys,
             "platforms": plats, "problems": problems, "relevant": relevant, "running": run}
 
 
@@ -382,7 +464,10 @@ def overall(langs, now=None):
 def combined_steps(langs):
     out = []
     n = len(langs)
+    allowed = set(langs[0]["steps"]) if langs and langs[0].get("steps") else {k for k, _ in STEPS}
     for key, name in STEPS:
+        if key not in allowed:
+            continue
         k = sum(1 for l in langs if l["done"].get(key))
         working = [l for l in langs if not l["done"].get(key) and l["current"] == key]
         if n and k == n:
@@ -437,7 +522,8 @@ def load(con, jobs=None, now=None):
         ov = overall(langs, now)
         out.append({"id": c["id"], "episode": c["episode"] or (m or {}).get("episode"), "title": short_title(c["topic"], c["episode"]), "topic": c["topic"],
                     "project_id": c["project_id"], "project_name": c["project_name"], "milestone": cfg_m or notes_m, "langs": langs, "status": ov,
-                    "platforms": (m or {}).get("platforms") or ["youtube"]})
+                    "platforms": (m or {}).get("platforms") or ["youtube"], "format": (m or {}).get("format") or "short", "kanda": (m or {}).get("kanda"),
+                    "part": (m or {}).get("part"), "engine": int((m or {}).get("engine_version") or 0)})
     return out
 
 

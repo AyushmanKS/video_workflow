@@ -1,0 +1,18 @@
+{
+  "doc": "YouTube long-form plan (owner decision 2026-11-18): 2 videos per Kanda, each a new continuous story, 8-12 min, 16:9, en/hi/te. The dashboard matches content by manifest kanda + part.",
+  "target_minutes": [8, 12],
+  "languages": ["en", "hi", "te"],
+  "frame": "16:9",
+  "kandas": [
+    {"name": "Bala Kanda", "parts": [
+      {"part": 1, "title": "Valmiki to the divine weapons"},
+      {"part": 2, "title": "The road to Mithila to Rama and Sita's wedding"}
+    ]},
+    {"name": "Ayodhya Kanda", "parts": [{"part": 1, "title": "To be planned"}, {"part": 2, "title": "To be planned"}]},
+    {"name": "Aranya Kanda", "parts": [{"part": 1, "title": "To be planned"}, {"part": 2, "title": "To be planned"}]},
+    {"name": "Kishkindha Kanda", "parts": [{"part": 1, "title": "To be planned"}, {"part": 2, "title": "To be planned"}]},
+    {"name": "Sundara Kanda", "parts": [{"part": 1, "title": "To be planned"}, {"part": 2, "title": "To be planned"}]},
+    {"name": "Yuddha Kanda", "parts": [{"part": 1, "title": "To be planned"}, {"part": 2, "title": "To be planned"}]},
+    {"name": "Uttara Kanda", "parts": [{"part": 1, "title": "To be planned"}, {"part": 2, "title": "To be planned"}]}
+  ]
+}

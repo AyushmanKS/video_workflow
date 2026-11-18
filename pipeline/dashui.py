@@ -122,8 +122,9 @@ def lang_chips(ep):
 
 def ep_row(ep):
     st = ep["status"]
-    return (f'<a class="row ep" href="/episode/{quote(ep["id"])}"><span class="epn">{e(E.ep_label(ep["episode"], ep["id"]))}</span>'
-            f'<span class="grow"><span class="t">{e(ep["title"])}</span><span class="meta">{pill(st["label"], st["tone"])}</span>'
+    fmt = pill("Long video · 16:9", "gold") if ep.get("format") == "long" else ""
+    return (f'<a class="row ep" href="/episode/{quote(ep["id"])}"><span class="epn">{e(E.label_of(ep))}</span>'
+            f'<span class="grow"><span class="t">{e(ep["title"])}</span><span class="meta">{pill(st["label"], st["tone"])} {fmt}</span>'
             f'{lang_chips(ep)}</span>{icon("next", "chev")}</a>')
 
 
@@ -156,11 +157,13 @@ def projects(con):
 
 def project_progress(con, eps, p):
     plan = E.project_plan(p["config"])
-    mine = [x for x in eps if x["project_id"] == p["id"]]
+    mine = [x for x in eps if x["project_id"] == p["id"] and x.get("format") != "long"]
     return plan, E.progress(mine, plan), mine
 
 
 def ep_name(ep):
+    if ep.get("format") == "long":
+        return E.label_of(ep)
     return f"Episode {ep['episode']}" if ep.get("episode") else ep["title"]
 
 
@@ -280,7 +283,7 @@ def up_row(x, show_day=True):
             time_txt, status = (E.when(ps["t"]) if show_day else E.clock(E.to_dt(ps["t"]))), E.platform_words(ps)
         tone = "wait"
     return (f'<a class="row up" href="/episode/{quote(x["ep"]["id"])}"><span class="pl pl-{x["platform"]}">{icon(x["platform"])}</span>'
-            f'<span class="grow"><span class="t">{e(E.ep_label(x["ep"]["episode"], x["ep"]["id"]))} · {e(x["lang"]["name"])}</span>'
+            f'<span class="grow"><span class="t">{e(E.label_of(x["ep"]))} · {e(x["lang"]["name"])}</span>'
             f'<span class="meta">{e(time_txt)} · {e(E.platform_name(x["platform"]))} · <span class="tx-{tone}">{e(status)}</span></span></span></a>')
 
 
@@ -336,6 +339,7 @@ def render_home(con):
         else:
             body.append(f'<a class="card goal" href="/progress?p={quote(p["id"])}"><span class="grow"><span class="t">{e(name)}</span>'
                         f'<span class="meta">{len(mine)} episodes · goal not set</span></span>{icon("next", "chev")}</a>')
+    body.append(long_card(eps))
     body.append(f'<a class="card linkcard" href="/results">{icon("stats")}<span class="grow"><span class="t">How videos are doing</span>'
                 f'<span class="meta">Views, likes and watch time</span></span>{icon("next", "chev")}</a>')
     after = con.execute("SELECT COALESCE(MAX(rowid),0) FROM events").fetchone()[0]
@@ -357,6 +361,8 @@ def render_progress(con, q):
         on = p["id"] == sel["id"]
         picker.append(f'<a class="proj{" on" if on else ""}" href="/progress?p={quote(p["id"])}"{" aria-current=true" if on else ""}>'
                       f'<span class="t">{e(D.short_project(p["name"], p["id"]))}</span><span class="meta">{e(sub)}</span></a>')
+    longs = [x for x in eps if x.get("format") == "long"]
+    picker.append(f'<a class="proj" href="/long"><span class="t">YouTube long videos</span><span class="meta">{len(longs)} made or in progress · 2 per Kanda</span></a>')
     body = [f'<div class="projs">{"".join(picker)}</div>']
     plan, pr, mine = project_progress(con, eps, sel)
     if pr["goal"]:
@@ -436,6 +442,8 @@ def render_episode(con, cid):
                      f'{probs}<ul class="plats">{lines}</ul></span></div>')
     if langs:
         body.append(card("Each language", "".join(langs), "", None))
+    if ep.get("format") == "long":
+        body.append(long_details(con, ep))
     hist = E.history(con, cid)
     hrows = "".join(f'<li><span class="when">{e(h["when"])}</span><span>{e(h["text"])}{(" · " + e(h["who"])) if h["who"] else ""}</span></li>' for h in hist)
     body.append(card("What happened", f'<ul class="hist">{hrows}</ul>' if hrows else empty("Nothing has happened yet."), "", None))
@@ -443,7 +451,7 @@ def render_episode(con, cid):
     if any(r["variant"].startswith(cid + "-") for r in D.analytics_rows(con)):
         body.append(f'<a class="card linkcard" href="/results?ep={quote(cid)}">{icon("stats")}<span class="grow"><span class="t">How this episode is doing</span>'
                     f'<span class="meta">Views, likes and watch time</span></span>{icon("next", "chev")}</a>')
-    title = f"{E.ep_label(ep['episode'], cid)} · {ep['title']}"
+    title = f"{E.label_of(ep)} · {ep['title']}"
     after = con.execute("SELECT COALESCE(MAX(rowid),0) FROM events").fetchone()[0]
     return page(title, "".join(body), "/progress", after, problem_count(con, eps), sub or None, ("/progress?p=" + quote(ep["project_id"] or ""), "Progress"))
 
@@ -513,6 +521,93 @@ def compact_list(groups, epmap, word):
     return f'<ul class="fx">{items}</ul>'
 
 
+def long_status(ep):
+    if not ep:
+        return pill("Not started", "grey")
+    st = ep["status"]
+    return pill(st["label"], st["tone"])
+
+
+def long_rows(eps):
+    plan = E.longform_plan()
+    longs = [x for x in eps if x.get("format") == "long"]
+    out = []
+    for k in plan.get("kandas", []):
+        rows = []
+        for pt in k.get("parts", []):
+            ep = next((x for x in longs if str(x.get("kanda") or "").lower() == k["name"].lower() and int(x.get("part") or 0) == int(pt["part"])), None)
+            out.append({"kanda": k["name"], "part": pt["part"], "title": pt.get("title"), "ep": ep})
+    return out
+
+
+def long_card(eps):
+    rows = long_rows(eps)
+    if not rows:
+        return ""
+    started = [r for r in rows if r["ep"]]
+    nxt = next((r for r in rows if not r["ep"] or not r["ep"]["status"]["done"]), None)
+    line = f'Next: {nxt["kanda"]} · Part {nxt["part"]}' + (f' · {E.LABELS.get(nxt["ep"]["status"]["base"], "")}' if nxt and nxt["ep"] else " · not started") if nxt else "All planned parts are done"
+    return (f'<a class="card linkcard" href="/long">{icon("youtube")}<span class="grow"><span class="t">YouTube long videos</span>'
+            f'<span class="meta">{len(started)} of {len(rows)} parts started · 8–12 min, 16:9, English · Hindi · Telugu</span>'
+            f'<span class="meta">{e(line)}</span></span>{icon("next", "chev")}</a>')
+
+
+def long_details(con, ep):
+    plan = E.longform_plan()
+    lo, hi = plan.get("target_minutes", [8, 12])
+    lines = [f'<p><b>Format:</b> long YouTube video · {e(plan.get("frame", "16:9"))} horizontal · target {lo}–{hi} minutes</p>']
+    lens = []
+    for l in ep["langs"]:
+        info = E.length_info(ep["id"], l["lang"], con)
+        if info:
+            m = info["seconds"] / 60
+            tone = "done" if lo <= m <= hi else "wait"
+            word = "video" if info["kind"] == "video" else "estimated"
+            lens.append(f'<li><span>{e(l["name"])}</span><span class="meta"><span class="tx-{tone}">{e(E.fmt_len(info["seconds"]))}</span> ({word})</span></li>')
+        else:
+            lens.append(f'<li><span>{e(l["name"])}</span><span class="meta">not measured yet</span></li>')
+    lines.append(f'<h4>Length</h4><ul class="langs">{"".join(lens)}</ul>')
+    prim = ep["langs"][0]["lang"] if ep["langs"] else "en"
+    ch = E.chapters(ep["id"], prim)
+    lines.append(f'<h4>Chapters</h4>' + (f'<ol class="hist">{"".join(f"<li><span>{e(c)}</span></li>" for c in ch)}</ol>' if ch else empty("Chapters appear once the script is written.")))
+    rs = E.rig_summary(ep["id"])
+    lines.append("<h4>Puppets</h4>" + (f'<p>{rs["puppets"]} scene{"s" if rs["puppets"] != 1 else ""} with moving characters · {rs["objects"]} scene{"s" if rs["objects"] != 1 else ""} with moving objects only</p>' if rs else empty("The puppet setup starts after the pictures are drawn.")))
+    return card("About this long video", "".join(lines), "", "youtube")
+
+
+def render_long(con):
+    eps = load_all(con)
+    plan = E.longform_plan()
+    lo, hi = plan.get("target_minutes", [8, 12])
+    body = [f'<section class="card"><p class="lead">Two long videos per Kanda on YouTube: a new continuous story, {lo}–{hi} minutes, horizontal 16:9, in English, Hindi and Telugu.</p>'
+            '<p class="meta">Shorts and Reels continue as before.</p></section>']
+    cur = None
+    rows = []
+    for r in long_rows(eps):
+        if r["kanda"] != cur:
+            if rows:
+                body.append(card(cur, "".join(rows)))
+            cur, rows = r["kanda"], []
+        ep = r["ep"]
+        sub = r["title"] or ""
+        if ep:
+            lens = []
+            for l in ep["langs"]:
+                info = E.length_info(ep["id"], l["lang"], con)
+                if info:
+                    lens.append(f'{l["lang"].upper()} {E.fmt_len(info["seconds"])}')
+            extra = f'<span class="meta">{e(" · ".join(lens))}</span>' if lens else ""
+            rows.append(f'<a class="row ep" href="/episode/{quote(ep["id"])}"><span class="epn">Part {r["part"]}</span><span class="grow"><span class="t">{e(sub)}</span>'
+                        f'<span class="meta">{long_status(ep)}</span>{lang_chips(ep)}{extra}</span>{icon("next", "chev")}</a>')
+        else:
+            rows.append(f'<div class="row ep"><span class="epn">Part {r["part"]}</span><span class="grow"><span class="t">{e(sub)}</span>'
+                        f'<span class="meta">{long_status(None)}</span></span></div>')
+    if rows:
+        body.append(card(cur, "".join(rows)))
+    after = con.execute("SELECT COALESCE(MAX(rowid),0) FROM events").fetchone()[0]
+    return page("YouTube long videos", "".join(body), "/progress", after, problem_count(con, eps), None, ("/progress", "Progress"))
+
+
 def render_uploads(con):
     D = dash()
     eps = load_all(con)
@@ -564,7 +659,7 @@ def render_uploads(con):
             link = f'<a class="open" href="{e(url)}" rel="noreferrer" target="_blank">Open</a>' if url else ""
             tm = E.clock(E.to_dt(x["t"])) if x["t"] else ""
             rows.append(f'<div class="row up"><span class="pl pl-{x["platform"]}">{icon(x["platform"])}</span><span class="grow">'
-                        f'<span class="t">{e(E.ep_label(x["ep"]["episode"], x["ep"]["id"]))} · {e(x["lang"]["name"])}</span>'
+                        f'<span class="t">{e(E.label_of(x["ep"]))} · {e(x["lang"]["name"])}</span>'
                         f'<span class="meta">{e(tm + " · " if tm else "")}{e(E.platform_name(x["platform"]))} · <span class="tx-done">Posted</span></span></span>{link}</div>')
     body.append(f'<section class="card"><h2>{icon("check")}Posted</h2>{"".join(rows) or empty("Nothing posted yet.")}</section>')
     after = con.execute("SELECT COALESCE(MAX(rowid),0) FROM events").fetchone()[0]
@@ -664,7 +759,16 @@ def render_results(con, q):
     groups = {}
     for r in rows:
         groups.setdefault(r["variant"].rsplit("-", 1)[0], []).append(r)
-    for cid in sorted(groups, reverse=True):
+    order = sorted([c for c in groups if (epmap.get(c) or {}).get("format") == "long"], reverse=True) + sorted([c for c in groups if (epmap.get(c) or {}).get("format") != "long"], reverse=True)
+    shown_long = shown_short = False
+    for cid in order:
+        is_long = (epmap.get(cid) or {}).get("format") == "long"
+        if is_long and not shown_long and not only:
+            body.append('<h2 class="sec">Long videos</h2>')
+            shown_long = True
+        if not is_long and shown_long and not shown_short and not only:
+            body.append('<h2 class="sec">Shorts and Reels</h2>')
+            shown_short = True
         ep = epmap.get(cid)
         items = []
         for r in sorted(groups[cid], key=lambda r: (r["variant"], r["platform"])):
@@ -683,7 +787,7 @@ def render_results(con, q):
             items.append(f'<div class="row res"><span class="pl pl-{e(r["platform"])}">{icon(r["platform"]) if r["platform"] in ("youtube", "instagram") else ""}</span><span class="grow">'
                          f'<span class="t">{e(E.lang_name(lang))} · {e(E.platform_name(r["platform"]))}</span><span class="stats">{" · ".join(bits) or "No numbers yet"}</span>'
                          + (f'<span class="meta">{watch}</span>' if watch else "") + (f'<span class="meta">Measured {e(agetxt)}</span>' if agetxt else "") + "</span></div>")
-        title = f"{E.ep_label(ep['episode'], cid)} · {ep['title']}" if ep else E.plain(cid)
+        title = f"{E.label_of(ep)} · {ep['title']}" if ep else E.plain(cid)
         body.append(card(title, "".join(items)))
     if not rows:
         body.append(empty("No numbers yet. They appear about a day after a video is posted."))

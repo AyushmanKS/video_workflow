@@ -264,6 +264,30 @@ shorts-studio/
   - **Dashboard address:** the current address is in `data/dashboard_url.json`, and a new sign-in link is sent to Telegram whenever it changes (`/link` re-sends it).
   - **Approvals** stay in chat; the bot and dashboard can only acknowledge issues.
 
+- **C0011 · Bala Kanda Part 1, first YouTube long-form video (2026-11-18):**
+  - Scripts en/hi/te: G1 approved by the owner in chat and recorded by the owner.
+  - 41 wide 16:9 drawings, shared by all three languages.
+  - 31 rigged scenes (13 character puppets, 18 objects), all passing rig QA.
+  - Voices: hi needed 6 scenes and te 1 scene re-recorded for speaker consistency.
+  - Rendered: en 9:21, hi 10:01, te 9:30, all at −14.0 LUFS, 1920×1080.
+  - QA: Story and Final 100 in all three.
+    - Visual warnings in all three: near_duplicates, because verse slides look alike, and safe_zones, calibrated on vertical Shorts.
+    - Telugu also has the expected warn-only narration_asr and speech_rate.
+  - **G2:** approved by the owner in chat, with waivers recorded (2026-11-18 23:20).
+  - **G3 (YouTube):** approved for Thu 2026-11-19, te 11:00, hi 11:30, en 12:00 IST.
+  - **Queue:** `/publish` added the three videos at the front of the publish-queue. The daily cap frees at about 10:21; the videos upload as private with `publishAt`.
+  - **Packaging:**
+    - Thumbnails 1280×720 (`pipeline/longform.py`): "Too young to fight?" per language, on scene 3.
+    - Chapters come from timeline.json.
+    - Titles are 42–49 chars; the en title lint scores 98.
+    - Promo lines applied.
+    - The "Full Kandas" playlists don't exist yet, so the uploader skips them; the owner hasn't asked for them.
+  - **Owner, after going live:** pin the comment and add end screens in Studio.
+  - **Fixes made during production:**
+    - Images refused a silent placeholder fallback; mflux now runs from .venv.
+    - `step_extras` skips a missing thumbnail spec.
+    - Render now shares the primary-language images first.
+    - Rig QA gained a `--scenes` filter, and rigs merge per-scene files from `content/<ID>/rig_parts/`.
 - **Animation (2026-11-18):** chalk puppets (engine v3) are active for Ep10 onwards: `puppetstudio.py`, `pipeline rig-qa`, `content/<ID>/rig.json`. The AK01 puppet episode is approved and on hold until the Ayodhya Kanda chapter (§23.0).
 - **Dashboard phone app (2026-11-18, owner chose option A):**
   - **Why:** the quick tunnel's address changes whenever the Mac sleeps or the network drops, so the home-screen web app kept breaking.
@@ -277,6 +301,17 @@ shorts-studio/
 
 ## 23. Exact next steps
 0. **Standing decisions (owner, 2026-11-18):**
+   - **YouTube long-form strategy (owner, 2026-11-18, after the analytics review).** YouTube Shorts barely reached anyone (about 175 views for Ep01–03; only Ep01 Hindi entered the Shorts feed), while the same Reels drew about 14,000 views on Instagram (`data/reports/insights-2026-11-18.md`).
+     - **Format:** **2 long videos per Kanda** on YouTube, each a **new continuous story** (one flowing narration, no per-episode hooks or end cards), **8–12 minutes**, **horizontal 16:9**, in **English, Hindi and Telugu**. Each uses the chalk-puppet engine with new wide drawings.
+     - **Bala Kanda:** Part 1 runs from Valmiki to the divine weapons (Ep01–06 ground). Part 2 runs from the road to Mithila to Rama and Sita's wedding and Parashurama.
+     - **Shorts:** unchanged on both platforms (all languages, daily, 35–55 s).
+     - **Gates and duration:** the same three gates apply to each long video. The 35–55 s duration rule is for Shorts only; long videos target 8–12 min.
+     - **Engine (built and tested 2026-11-18).**
+       - `pipeline new … --format long` writes `format: "long"` in the manifest. `produce` and `rig-qa` then run the engine with `STUDIO_FORMAT=long`, and `frame.py` switches every size: 1920×1080 frame, 2112×1188 canvas, 1344×768 images, a wide-composition prompt suffix and captions at 0.88.
+       - Lint and QA read the manifest format. Long videos target 480–720 s, warn above that, fail an estimate above 780 s, and reject renders at 900 s or longer at 1920×1080.
+       - Verse and word cards are re-laid out for the wide frame.
+       - Shorts (no format, or `short`) are byte-for-byte unchanged.
+       - Still to do when the first long video reaches G3: the YouTube upload as a regular video (not a Short) with a 1280×720 thumbnail and chapters in the description.
    - **Animation from Episode 10 onwards** is the chalk-puppet engine v3 (§30). `pipeline new` defaults to `engine_version: 3`.
    - **Per-episode flow:** after images, write `content/<ID>/rig.json`, then run `python -m pipeline rig-qa <ID> --lang <primary>` until every scene passes, then render. The creative-director composes drawings for puppetry.
    - **Unchanged:** Ep01–09 stay on engine v2.
@@ -335,7 +370,7 @@ The owner asked for a full audit and research plan before any change. Nothing wa
 - **Owner optional:** `instagram_manage_insights` permission + a new token, for Reel stats.
 
 ## 27. Brand: Chalk Tales and cross-promotion (2026-11-17)
-- **Owner decision:** one brand name, **Chalk Tales**, on Instagram (@aks.chalk.tales, live) and YouTube (rename from Knowledge PowerBank and handle @aks.chalk.tales pending; the owner does it in Studio). Everything was built locally; no live account, published or scheduled item was changed.
+- **Owner decision:** one brand name, **Chalk Tales**, on Instagram (@aks.chalk.tales, live) and YouTube (renamed by the owner on 2026-11-18 from Knowledge PowerBank to **Chalk Tales**, handle **@aks.chalktales**; @aks.chalk.tales was taken; `brand.youtube.active_url` switched). Everything was built locally; no live account, published or scheduled item was changed.
 - **Config:** `profiles/brand.json` (name, positioning, colours slate #14191C / chalk #F2EFE6 / gold #E8BE6E, fonts, IG handle/url, YouTube current/planned with one `active_url` that stays on the current channel until the rename is confirmed, collab email, per-language CTA lines en/hi/gu/te/mr with gu/te/mr "needs native review"; `projects.<slug>.overrides` for other series).
 - **Promo:** `python -m pipeline promo <ID> [--lang] [--platform] [--dry-run|--apply] [--force-reapproval-needed]` (`pipeline/promo.py`) inserts the Instagram follow + collab lines into the YouTube description, the IG handle into `pinned_comment`, and one "watch on YouTube, link in profile" line above the Instagram hashtags; idempotent; enforces IG 2,200 chars / ≤5 hashtags and YT 5,000 chars; refuses G3-approved sections (G3 hashes each platform section) and anything already uploaded. Runs **before G3** (content-pipeline step 11b, packager notes). `publish.py` warns (never blocks) when the line is missing. `promo --audit` → `data/reports/promo-audit-<date>.md`.
 - **Audit 2026-11-17:** all 60 platform sections of C0001–C0007 lack promo and all are G3-approved, scheduled, queued or live, so nothing was applied; proposed text is in the audit for manual Studio/app edits if the owner wants them. C0008 has no publish.json yet and will get promo before its G3.
@@ -475,6 +510,24 @@ The owner asked for a full audit and research plan before any change. Nothing wa
   - `pipeline cleanup --apply --yes`.
 
   FLUX.2 klein, BiRefNet, Maya2, Whisper and `models/` are kept.
+
+## 31. YouTube long-form (2026-11-18): architecture and plan
+- **Full design:** `docs/LONGFORM_ARCHITECTURE.md`. It covers:
+  - vision, architecture diagram and components;
+  - agent jobs, execution order with gates, story shape and word budgets;
+  - wide visual design with rig tiers, sound, YouTube publishing and long-form analytics;
+  - per-part timeline, build plan L1–L12, risks and owner actions.
+- **Built and tested:** L1–L3 (format switch, format-aware lint and QA, wide cards).
+- **Dashboard (2026-11-18):** long videos now have their own place in the dashboard.
+  - New `/long` page, reached from Home and Progress: each Kanda's Part 1 and Part 2 against the plan in `profiles/longform.json`, with status, languages and length.
+  - An "About this long video" card on the episode page: format and target, length per language (from the video or the script estimate), chapters, and the puppet scene counts from `rig.json`.
+  - Results put long videos in their own section; long videos don't count toward the Shorts episode goal; labels read "Bala Kanda · Part 1".
+  - A **Puppets** step for every engine-v3 video (Ep10 onward), done once `<lang>/rigqa/summary.json` passes.
+  - Tests: `tests/test_dashboard_long.py`.
+- **Next:**
+  - L4, L5 and L12, then the Bala Kanda Part 1 scripts to G1.
+  - Then L6–L9 (owner A/B for music, L7) before production.
+  - L10 before the first long-form G3.
 
 ## Progress log
 | Date | Work | Decisions |

@@ -83,7 +83,9 @@ def cmd_new(a):
         db.upsert(con, "contents", {"id": cid, "series": a.series, "episode": a.episode, "topic": a.topic, "category": a.category, "style": a.style, "status": "research", "folder": str(folder.relative_to(ROOT)), "notes": None, "created_at": db.now(), "updated_at": db.now()})
         for lang in langs:
             db.upsert(con, "variants", {"id": f"{cid}-{lang}", "content_id": cid, "language": lang, "voice": None, "script_path": f"content/{cid}/{lang}/script.json", "video_path": None, "thumbnail_path": None, "duration_s": None, "status": "planned", "cohort": db.cohort_for(lang), "created_at": db.now(), "updated_at": db.now()})
-    m = {"id": cid, "series": a.series, "episode": a.episode, "topic": a.topic, "category": a.category, "style": a.style, "languages": langs, "primary_language": langs[0], "engine_version": 3, "stages": {}}
+    m = {"id": cid, "series": a.series, "episode": a.episode, "topic": a.topic, "category": a.category, "style": a.style, "languages": langs, "primary_language": langs[0], "engine_version": 3, "format": a.format, "stages": {}}
+    if a.format == "long":
+        m.update(kanda=a.kanda, part=a.part, platforms=["youtube"])
     save(m)
     (folder / "brief.md").write_text(f"# {cid}: {a.topic}\n\n- Series: {a.series or '-'} · Episode: {a.episode or '-'}\n- Category: {a.category} · Style: {a.style}\n- Languages: {', '.join(langs)} (primary {langs[0]})\n\n## Goal\n\n## Constraints\n")
     print(f"Created {cid} at content/{cid}")
@@ -443,10 +445,21 @@ def watch(cid, lang, step):
         return nullcontext()
 
 
-def studio(args):
+def format_env(m):
+    import os
+
+    env = dict(os.environ)
+    if m.get("format") == "long":
+        env["STUDIO_FORMAT"] = "long"
+    else:
+        env.pop("STUDIO_FORMAT", None)
+    return env
+
+
+def studio(args, m=None):
     cmd = [sys.executable, str(ROOT / "studio.py"), *args]
     print("$", " ".join(cmd))
-    subprocess.run(cmd, check=True, cwd=ROOT)
+    subprocess.run(cmd, check=True, cwd=ROOT, env=format_env(m or {}))
 
 
 def cmd_produce(a):
@@ -480,17 +493,18 @@ def cmd_produce(a):
     if "voice" in steps:
         with db.Run("voice", a.id, f"{a.id}-{a.lang}"):
             with watch(a.id, a.lang, "voice"):
-                studio(base + ["--stop-after", "voice"])
+                studio(base + ["--stop-after", "voice"], m)
         mark(m, "voice", a.lang)
     if "images" in steps:
         share_images(m, a.lang)
         with db.Run("images", a.id, f"{a.id}-{a.lang}"):
             with watch(a.id, a.lang, "images"):
-                studio(base + ["--stop-after", "images"])
+                studio(base + ["--stop-after", "images"], m)
         mark(m, "images", a.lang)
     if "render" in steps:
+        share_images(m, a.lang)
         with db.Run("render", a.id, f"{a.id}-{a.lang}"):
-            studio(base)
+            studio(base, m)
         vids = sorted(work.glob("*.mp4"), key=lambda p: p.stat().st_mtime)
         if vids:
             final = work / f"{a.id}-{a.lang}.mp4"
@@ -510,7 +524,7 @@ def cmd_produce(a):
 def cmd_rig_qa(a):
     work = CONTENT / a.id / a.lang
     m = load(a.id)
-    r = subprocess.run([sys.executable, str(ROOT / "puppetstudio.py"), str(work), "--style", m["style"]], cwd=ROOT)
+    r = subprocess.run([sys.executable, str(ROOT / "puppetstudio.py"), str(work), "--style", m["style"]], cwd=ROOT, env=format_env(m))
     print(f"Rig QA {'passed' if r.returncode == 0 else 'FAILED'}: sheets in {work / 'rigqa'}")
     sys.exit(r.returncode)
 
@@ -1058,7 +1072,7 @@ def cmd_service(a):
 def main():
     ap = argparse.ArgumentParser(prog="python -m pipeline", description="shorts-studio orchestration: research → script → production → QA → publish → analytics")
     sp = ap.add_subparsers(dest="cmd", required=True)
-    p = sp.add_parser("new"); p.add_argument("--topic", required=True); p.add_argument("--series"); p.add_argument("--episode", type=int); p.add_argument("--category", default="mythology"); p.add_argument("--style", default="chalk"); p.add_argument("--langs", default="en,hi"); p.set_defaults(fn=cmd_new)
+    p = sp.add_parser("new"); p.add_argument("--topic", required=True); p.add_argument("--series"); p.add_argument("--episode", type=int); p.add_argument("--category", default="mythology"); p.add_argument("--style", default="chalk"); p.add_argument("--langs", default="en,hi"); p.add_argument("--format", default="short", choices=["short", "long"], help="short = 9:16 Short/Reel (35–55 s); long = 16:9 YouTube video (8–12 min)"); p.add_argument("--kanda", help="long only, e.g. 'Bala Kanda'"); p.add_argument("--part", type=int, help="long only: 1 or 2"); p.set_defaults(fn=cmd_new)
     p = sp.add_parser("status"); p.add_argument("id", nargs="?"); p.set_defaults(fn=cmd_status)
     p = sp.add_parser("trending"); p.add_argument("--region", default="IN"); p.set_defaults(fn=cmd_trending)
     p = sp.add_parser("research"); p.add_argument("id"); p.add_argument("--query", required=True, help='string, or JSON {"en": "...", "hi": "..."}'); p.add_argument("--wiki", required=True, help="English Wikipedia title"); p.add_argument("--langs", default="en,hi"); p.set_defaults(fn=cmd_research)
