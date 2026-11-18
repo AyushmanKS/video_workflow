@@ -95,6 +95,42 @@
       "prompt": "a distant crowd of small simple silhouettes of young Indian princesses with brown skin and long dark braided hair, each modestly dressed in a full-length sari with the end drawn over her head, each with exactly two arms, standing well apart from one another in loose rows",
       "source_episode": "C0008",
       "notes": "The hundred daughters: always distant, small, well separated, modest saris, usually seen from behind. Ep07 lesson: crowded or overlapping figures grow extra arms. The curse is bending like reeds in the wind, never deformity."
+    },
+    "himavan": {
+      "prompt": "Himavan, the king of the mountains, a tall regal elderly Indian king with brown skin, a long flowing white beard and long white hair falling to his shoulders under a tall simple gold crown shaped like three small snowy peaks, a white shawl draped over a pale blue-grey robe and a white dhoti, a gold necklace, exactly two arms",
+      "prompt_positive": "Himavan, the king of the mountains, a tall regal elderly Indian king with brown skin, a long flowing white beard and long white hair falling to his shoulders under a tall simple gold crown shaped like three small snowy peaks, a white shawl draped over a pale blue-grey robe and a white dhoti, a gold necklace, exactly two arms, an ancient Indian king with snowy Himalayan peaks behind him",
+      "source_episode": "C0010",
+      "notes": "Lord of mountains (शैलेन्द्र, VR 1.35.14). A dignified ancient Indian king, always with snowy peaks behind him; never a Western wizard, giant or Father Christmas. Draw in three-quarter view with the gesturing arm held clear of the robe and the beard (puppet rule); the beard ends above the chest so the arms stay free."
+    },
+    "mena": {
+      "prompt": "Queen Mena, a graceful middle-aged Indian queen with brown skin, a gentle face, long dark braided hair under a small gold crown, a full-length deep green and gold silk sari with the end drawn over her head and shoulders, gold bangles, exactly two arms",
+      "source_episode": "C0010",
+      "notes": "Himavan's dear wife, daughter of Meru, mother of Ganga and Uma (VR 1.35.15). The text calls her सुमध्यमा and मनोज्ञा; render that only as grace and a gentle face, fully and modestly dressed. Three-quarter view, arms clear of the sari folds."
+    },
+    "uma": {
+      "prompt": "Uma, a young Indian ascetic woman about eighteen with brown skin, a calm serene face with closed or lowered eyes, long dark hair gathered in a simple high topknot of matted locks, the topknot clearly visible, a plain full-length ochre cotton sari with its end draped over both shoulders, a single string of rudraksha beads, bare feet, exactly two arms",
+      "source_episode": "C0010",
+      "notes": "Himavan's younger daughter, rich in austerity (तपोधना, VR 1.35.20). Always modest and dignified, never glamorous, never sexualised. Usually seated cross-legged in meditation in side or three-quarter view, hands resting open on her knees and clear of the body. Distinct from Sita and the queens: no crown, no jewellery beyond the beads. Reviewer V5 (Ep10): the sari end lies over both shoulders and the topknot stays visible (never both a head covering and a topknot)."
+    },
+    "uma_girl": {
+      "prompt": "Uma as a young girl about ten with brown skin, a bright gentle face, long dark hair in a single braid, a simple ankle-length ochre cotton skirt, a long-sleeved ochre blouse and a light cream shawl over her shoulders, bare feet, exactly two arms",
+      "source_episode": "C0010",
+      "notes": "Uma as Himavan's second daughter in the family scene (VR 1.35.16). Same ochre colour as the adult ascetic so the viewer links them. Stands apart from her mother with open board between them."
+    },
+    "rudra_symbol": {
+      "prompt": "a calm seated ascetic silhouette of Rudra in solid dark grey chalk shadow, seen in three-quarter side view, seated cross-legged in deep meditation on a flat snowy rock, matted hair piled in a high topknot with a thin pale crescent moon resting in it, both hands resting on his knees, a smooth featureless shadowed face, exactly two arms, a tall plain trident standing upright planted in the rock beside him with open board around its three prongs",
+      "source_episode": "C0010",
+      "notes": "Rudra is symbolic only (deity rule): a calm seated silhouette with crescent moon and trident, the trident planted in the rock and never held across the body. Never multi-armed, never a third eye, never a blue-skinned figurative portrait, nothing Western-fantasy. Uma's husband (VR 1.35.21)."
+    },
+    "ganga_light": {
+      "prompt": "the Ganga drawn as a river of light, a broad ribbon of rippling pale silver-white chalk water glowing softly from within, with small sparkles of light along its surface, drawn as plain flowing water",
+      "source_episode": "C0010",
+      "notes": "The Ganga is always a river of light or water, never a woman (as in Ep09). Himavan's elder daughter (VR 1.35.16), the river of three paths."
+    },
+    "devas_light": {
+      "prompt": "the gods shown as a loose row of five small glowing orbs of soft golden chalk light, each with a faint round halo, floating well apart from one another",
+      "source_episode": "C0010",
+      "notes": "The gods (सुराः, VR 1.35.17, 19) are symbolic lights, never figures. Keep the orbs well apart with open board around each, so each can move on its own."
     }
   },
   "rules": [

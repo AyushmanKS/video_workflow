@@ -1,0 +1,303 @@
+{
+  "video": null,
+  "kind": "audio",
+  "mp4_sha256": null,
+  "verdict": "warn",
+  "families": {
+    "story": {
+      "score": 100,
+      "pass": true,
+      "rejects": [],
+      "warns": [],
+      "checks": 11
+    },
+    "audio": {
+      "score": 75,
+      "pass": false,
+      "rejects": [],
+      "warns": [
+        "speech_rate"
+      ],
+      "checks": 3
+    }
+  },
+  "checks": [
+    {
+      "name": "lint_duration",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "estimate_s": 52.96,
+        "basis": "letters"
+      }
+    },
+    {
+      "name": "lint_hook",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_scene_count",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_scene_length",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_keywords",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_digits",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_quote_src",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_sources",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_edition",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_silences",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_visual_parity",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "narration_asr",
+      "family": "audio",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "scenes": [
+          {
+            "scene": 1,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "गंगा और उमा सगी बहने थी"
+          },
+          {
+            "scene": 2,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "राम के पूछने पर विश्वामित्र गंगा के जन्म की कथा सुनाने लगे।"
+          },
+          {
+            "scene": 3,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "पर्वत्राज हिम्वान की दो बेटियां थी, जिनके रूप की धर्ती पर कोई बराबरी न थी."
+          },
+          {
+            "scene": 4,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "उनकी मा थी मेरू की बेटी मेना और दोनों में बड़ी थी गंगा छोटी उमा"
+          },
+          {
+            "scene": 5,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "फिर सारे देवता पर्वतराज से बड़ी बेटी गंगा को मांगने आए।"
+          },
+          {
+            "scene": 6,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "और धर्म निभाते हुए हिमवान ने तीनों लोकों के हित में अपनी बेटी सौंप दी."
+          },
+          {
+            "scene": 7,
+            "cer": 0.087,
+            "length_ratio": 0.96,
+            "heard": "तब दीवता प्रसंद मन से गंगा को स्वर्ग ले गए।"
+          },
+          {
+            "scene": 8,
+            "cer": 0.067,
+            "length_ratio": 1.0,
+            "heard": "चोटी बेटी उमा ने कठोर व्रत लिया और तब को ही अपना धन बना लिया"
+          },
+          {
+            "scene": 9,
+            "cer": 0.04,
+            "length_ratio": 0.96,
+            "heard": "और हिमवान ने उमा का ब्या अनुपम्रुद्र से कर दिया."
+          },
+          {
+            "scene": 10,
+            "cer": 0.088,
+            "length_ratio": 1.0,
+            "heard": "रिशी बोले, यहीं है परवत राज की दो बेटिया, नदियों में श्रेष्ट गंगा और उमादेवी."
+          },
+          {
+            "scene": 11,
+            "cer": 0.033,
+            "length_ratio": 1.0,
+            "heard": "यूँ तीन पथों वाली गंगा पहले आकाश की ओर चली और देवलोग जा पहुची."
+          }
+        ],
+        "transcripts": [
+          "render-time transcript (heard.json)",
+          "whisper large-v3-turbo"
+        ]
+      },
+      "note": "digits vs number-words and Whisper spelling quirks inflate CER; review flagged scenes by ear"
+    },
+    {
+      "name": "speech_rate",
+      "family": "audio",
+      "class": "warn",
+      "ok": false,
+      "issues": [
+        "scene 4: speech rate -28% vs hi reference"
+      ],
+      "data": {
+        "reference_letters_per_s": 6.114,
+        "scenes": [
+          {
+            "scene": 1,
+            "seconds": 2.24,
+            "letters_per_s": 5.36,
+            "deviation": -0.123
+          },
+          {
+            "scene": 2,
+            "seconds": 4.48,
+            "letters_per_s": 6.25,
+            "deviation": 0.022
+          },
+          {
+            "scene": 3,
+            "seconds": 5.44,
+            "letters_per_s": 6.43,
+            "deviation": 0.052
+          },
+          {
+            "scene": 4,
+            "seconds": 5.92,
+            "letters_per_s": 4.39,
+            "deviation": -0.282
+          },
+          {
+            "scene": 5,
+            "seconds": 4.08,
+            "letters_per_s": 6.37,
+            "deviation": 0.042
+          },
+          {
+            "scene": 6,
+            "seconds": 5.52,
+            "letters_per_s": 5.62,
+            "deviation": -0.081
+          },
+          {
+            "scene": 7,
+            "seconds": 3.68,
+            "letters_per_s": 6.25,
+            "deviation": 0.022
+          },
+          {
+            "scene": 8,
+            "seconds": 4.32,
+            "letters_per_s": 6.94,
+            "deviation": 0.135
+          },
+          {
+            "scene": 9,
+            "seconds": 4.16,
+            "letters_per_s": 6.01,
+            "deviation": -0.017
+          },
+          {
+            "scene": 10,
+            "seconds": 6.8,
+            "letters_per_s": 5.0,
+            "deviation": -0.182
+          },
+          {
+            "scene": 11,
+            "seconds": 5.6,
+            "letters_per_s": 5.36,
+            "deviation": -0.123
+          }
+        ]
+      }
+    },
+    {
+      "name": "speaker_consistency",
+      "family": "audio",
+      "class": "reject",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "windows": 25,
+        "window_median": 0.722,
+        "window_min": 0.604,
+        "scene_min": 0.687,
+        "median_f0": 170,
+        "calibration": "2026-11-16: 2.5s windows — consistent voice min 0.61 / known-mixed median 0.46 (50% < 0.5); 1s clips are unreliable (same voice down to 0.57)"
+      }
+    }
+  ],
+  "contact_sheet": null,
+  "manual_review_required": [
+    "character consistency",
+    "visual defects / wrong illustrations",
+    "storytelling quality",
+    "native-speaker listen for non-English"
+  ],
+  "created_at": "2026-11-18T13:43:28+0530",
+  "id": 112
+}

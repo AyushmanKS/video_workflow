@@ -1,0 +1,529 @@
+{
+  "id": "C0010",
+  "series": "RAMAYANA — The Epic in Chalk",
+  "episode": 10,
+  "topic": "Ramayana Episode 10: Ganga's Birth",
+  "category": "mythology",
+  "style": "chalk",
+  "languages": [
+    "en",
+    "hi",
+    "gu",
+    "te",
+    "mr"
+  ],
+  "primary_language": "en",
+  "engine_version": 3,
+  "stages": {
+    "script:en": {
+      "status": "done",
+      "at": "2026-11-18T11:43:26+0530",
+      "note": "review fixes applied"
+    },
+    "script:hi": {
+      "status": "done",
+      "at": "2026-11-18T11:43:26+0530",
+      "note": "review fixes applied"
+    },
+    "script:gu": {
+      "status": "done",
+      "at": "2026-11-18T11:43:26+0530",
+      "note": "review fixes applied"
+    },
+    "script:te": {
+      "status": "done",
+      "at": "2026-11-18T11:43:26+0530",
+      "note": "review fixes applied"
+    },
+    "script:mr": {
+      "status": "done",
+      "at": "2026-11-18T11:43:26+0530",
+      "note": "review fixes applied"
+    },
+    "gate:script": {
+      "status": "approved",
+      "langs": [
+        "en",
+        "hi",
+        "gu",
+        "te",
+        "mr"
+      ],
+      "entries": {
+        "en": {
+          "status": "approved",
+          "at": "2026-11-18T13:08:11+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "owner re-approved Ep10 scripts in chat: chalk colour accent of scenes 3 and 9 set to divine (green stain fix); narration unchanged",
+          "sha256": "4d0303a116cae85305ac87f4c40cde3430861f4b9b73cd3673355cc3dfb68c25",
+          "file": "content/C0010/en/script.json"
+        },
+        "hi": {
+          "status": "approved",
+          "at": "2026-11-18T13:08:11+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "owner re-approved Ep10 scripts in chat: chalk colour accent of scenes 3 and 9 set to divine (green stain fix); narration unchanged",
+          "sha256": "90267c1f77a4f39224027e6589233048f86090b52fef7bd949b8c9d61fe64444",
+          "file": "content/C0010/hi/script.json"
+        },
+        "gu": {
+          "status": "approved",
+          "at": "2026-11-18T13:08:11+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "owner re-approved Ep10 scripts in chat: chalk colour accent of scenes 3 and 9 set to divine (green stain fix); narration unchanged",
+          "sha256": "420e19c8603d6f41136130860ebcdba169e496ee863e1228fc1a58d44eb33e86",
+          "file": "content/C0010/gu/script.json"
+        },
+        "te": {
+          "status": "approved",
+          "at": "2026-11-18T13:08:11+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "owner re-approved Ep10 scripts in chat: chalk colour accent of scenes 3 and 9 set to divine (green stain fix); narration unchanged",
+          "sha256": "5e59fa3c94e435dce39b5e7e0f5c52004765e003ac6dc18d6ec58fbef8ec9d5f",
+          "file": "content/C0010/te/script.json"
+        },
+        "mr": {
+          "status": "approved",
+          "at": "2026-11-18T13:08:11+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "owner re-approved Ep10 scripts in chat: chalk colour accent of scenes 3 and 9 set to divine (green stain fix); narration unchanged",
+          "sha256": "5a2adb5449d0c8c501a53c1fa7cbaf258f626514a35a7cf4deee66429ac5c1c6",
+          "file": "content/C0010/mr/script.json"
+        }
+      },
+      "history": [
+        {
+          "lang": "en",
+          "status": "approved",
+          "at": "2026-11-18T11:48:35+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "owner approved Ep10 scripts in chat",
+          "sha256": "458a63afd1f2009547cca808f5059749d512818e21fdd4af77e88a362263511e",
+          "file": "content/C0010/en/script.json"
+        },
+        {
+          "lang": "hi",
+          "status": "approved",
+          "at": "2026-11-18T11:48:35+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "owner approved Ep10 scripts in chat",
+          "sha256": "6af4b0cd2b8ab0711893dffa68f033648bcc42d41f3dc0dd7270bef288e10758",
+          "file": "content/C0010/hi/script.json"
+        },
+        {
+          "lang": "gu",
+          "status": "approved",
+          "at": "2026-11-18T11:48:35+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "owner approved Ep10 scripts in chat",
+          "sha256": "ca0bd99cbab90ab9404b586cb24d6b0a0408b22106fae575404eb53df42afc7e",
+          "file": "content/C0010/gu/script.json"
+        },
+        {
+          "lang": "te",
+          "status": "approved",
+          "at": "2026-11-18T11:48:35+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "owner approved Ep10 scripts in chat",
+          "sha256": "52b58991d2e481e5e53f6b8e58d1b1808f43c8ba9c113cc10a81d7af7afa2b48",
+          "file": "content/C0010/te/script.json"
+        },
+        {
+          "lang": "mr",
+          "status": "approved",
+          "at": "2026-11-18T11:48:35+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "owner approved Ep10 scripts in chat",
+          "sha256": "87241fcb776ab0b8f6ef4ae047ff231700cbdcb7254f41fd4e2d250f6375e3b3",
+          "file": "content/C0010/mr/script.json"
+        }
+      ],
+      "at": "2026-11-18T13:08:11+0530",
+      "note": "owner re-approved Ep10 scripts in chat: chalk colour accent of scenes 3 and 9 set to divine (green stain fix); narration unchanged"
+    },
+    "voice:en": {
+      "status": "done",
+      "at": "2026-11-18T11:49:03+0530"
+    },
+    "voice_qa:en": {
+      "status": "done",
+      "at": "2026-11-18T11:49:19+0530",
+      "note": "warn (report #100)"
+    },
+    "voice:hi": {
+      "status": "done",
+      "at": "2026-11-18T11:50:33+0530"
+    },
+    "voice_qa:hi": {
+      "status": "failed",
+      "at": "2026-11-18T12:16:50+0530",
+      "note": "fail (report #105)"
+    },
+    "voice:gu": {
+      "status": "done",
+      "at": "2026-11-18T11:52:55+0530"
+    },
+    "voice_qa:gu": {
+      "status": "done",
+      "at": "2026-11-18T12:16:59+0530",
+      "note": "warn (report #106)"
+    },
+    "voice:te": {
+      "status": "done",
+      "at": "2026-11-18T11:56:07+0530"
+    },
+    "voice_qa:te": {
+      "status": "done",
+      "at": "2026-11-18T14:27:02+0530",
+      "note": "warn (report #117)"
+    },
+    "voice:mr": {
+      "status": "done",
+      "at": "2026-11-18T11:58:29+0530"
+    },
+    "voice_qa:mr": {
+      "status": "done",
+      "at": "2026-11-18T12:17:51+0530",
+      "note": "warn (report #108)"
+    },
+    "images:en": {
+      "status": "done",
+      "at": "2026-11-18T14:27:43+0530"
+    },
+    "render:en": {
+      "status": "done",
+      "at": "2026-11-18T14:38:35+0530"
+    },
+    "video_qa:en": {
+      "status": "done",
+      "at": "2026-11-18T14:38:43+0530",
+      "note": "warn (report #118)"
+    },
+    "images:hi": {
+      "status": "done",
+      "at": "2026-11-18T14:38:45+0530"
+    },
+    "render:hi": {
+      "status": "done",
+      "at": "2026-11-18T14:47:40+0530"
+    },
+    "video_qa:hi": {
+      "status": "done",
+      "at": "2026-11-18T14:47:51+0530",
+      "note": "warn (report #119)"
+    },
+    "images:gu": {
+      "status": "done",
+      "at": "2026-11-18T14:47:52+0530"
+    },
+    "render:gu": {
+      "status": "done",
+      "at": "2026-11-18T14:53:48+0530"
+    },
+    "video_qa:gu": {
+      "status": "done",
+      "at": "2026-11-18T14:53:57+0530",
+      "note": "warn (report #120)"
+    },
+    "images:te": {
+      "status": "done",
+      "at": "2026-11-18T14:53:58+0530"
+    },
+    "render:te": {
+      "status": "done",
+      "at": "2026-11-18T15:01:12+0530"
+    },
+    "video_qa:te": {
+      "status": "done",
+      "at": "2026-11-18T15:01:31+0530",
+      "note": "warn (report #121)"
+    },
+    "images:mr": {
+      "status": "done",
+      "at": "2026-11-18T15:01:33+0530"
+    },
+    "render:mr": {
+      "status": "done",
+      "at": "2026-11-18T15:16:57+0530"
+    },
+    "video_qa:mr": {
+      "status": "done",
+      "at": "2026-11-18T15:17:07+0530",
+      "note": "warn (report #122)"
+    },
+    "gate:final": {
+      "status": "approved",
+      "langs": [
+        "en",
+        "hi",
+        "gu",
+        "te",
+        "mr"
+      ],
+      "entries": {
+        "en": {
+          "status": "approved",
+          "at": "2026-11-18T15:31:34+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "owner watched and approved the Ep10 videos",
+          "sha256": "6c08d78b17642fd3f06eb7e0c742dfae7a085261bd9229489edbbb9441065eb2",
+          "file": "content/C0010/en/C0010-en.mp4",
+          "qa_report_id": 118
+        },
+        "hi": {
+          "status": "approved",
+          "at": "2026-11-18T15:31:34+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "owner watched and approved the Ep10 videos",
+          "sha256": "81e066bbd6723befe5014fc6eda606f2abc8bb7728ff4603915d42197c59d1ed",
+          "file": "content/C0010/hi/C0010-hi.mp4",
+          "qa_report_id": 119
+        },
+        "gu": {
+          "status": "approved",
+          "at": "2026-11-18T15:31:34+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "owner watched and approved the Ep10 videos",
+          "sha256": "3ed64e64ba0cc0165cce0974ff138c453dbbfa6854570ef45053a36332604678",
+          "file": "content/C0010/gu/C0010-gu.mp4",
+          "qa_report_id": 120
+        },
+        "te": {
+          "status": "approved",
+          "at": "2026-11-18T15:31:34+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "owner watched and approved the Ep10 videos",
+          "sha256": "924b1b30ca7b30290155ecb325b9df579d0f3278003344fb81d721c39741f072",
+          "file": "content/C0010/te/C0010-te.mp4",
+          "qa_report_id": 121
+        },
+        "mr": {
+          "status": "approved",
+          "at": "2026-11-18T15:31:34+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "owner watched and approved the Ep10 videos",
+          "sha256": "58b4f13513fa0aa00a3e2c3a46513a5a096b3f1b434203ed01eac504d25b492f",
+          "file": "content/C0010/mr/C0010-mr.mp4",
+          "qa_report_id": 122
+        }
+      },
+      "history": [],
+      "at": "2026-11-18T15:31:34+0530",
+      "note": "owner watched and approved the Ep10 videos"
+    },
+    "gate:publish:youtube": {
+      "status": "approved",
+      "langs": [
+        "te",
+        "mr",
+        "gu",
+        "hi",
+        "en"
+      ],
+      "entries": {
+        "te": {
+          "status": "approved",
+          "at": "2026-11-18T15:31:34+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "Tue Nov 24 evening slots",
+          "platform": "youtube",
+          "time": "2026-11-24T18:30:00+05:30",
+          "video": "content/C0010/te/C0010-te.mp4",
+          "video_sha256": "924b1b30ca7b30290155ecb325b9df579d0f3278003344fb81d721c39741f072",
+          "meta": "content/C0010/te/publish.json",
+          "meta_sha256": "1eeebd7caeb5de41c1de72012e5c2490102ef7bb556e9ade8aec54620123c54b",
+          "meta_hash_scope": "publish.json['youtube']"
+        },
+        "mr": {
+          "status": "approved",
+          "at": "2026-11-18T15:31:34+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "Tue Nov 24 evening slots",
+          "platform": "youtube",
+          "time": "2026-11-24T19:00:00+05:30",
+          "video": "content/C0010/mr/C0010-mr.mp4",
+          "video_sha256": "58b4f13513fa0aa00a3e2c3a46513a5a096b3f1b434203ed01eac504d25b492f",
+          "meta": "content/C0010/mr/publish.json",
+          "meta_sha256": "3324e20ffccdc48c91061dc768f00d573ba29ed4bd85abaf1dac69d1e79c951f",
+          "meta_hash_scope": "publish.json['youtube']"
+        },
+        "gu": {
+          "status": "approved",
+          "at": "2026-11-18T15:31:35+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "Tue Nov 24 evening slots",
+          "platform": "youtube",
+          "time": "2026-11-24T19:30:00+05:30",
+          "video": "content/C0010/gu/C0010-gu.mp4",
+          "video_sha256": "3ed64e64ba0cc0165cce0974ff138c453dbbfa6854570ef45053a36332604678",
+          "meta": "content/C0010/gu/publish.json",
+          "meta_sha256": "713913d50949dff940fcf90b2975db03b5a707631db0d49dc03b1898a4461d6f",
+          "meta_hash_scope": "publish.json['youtube']"
+        },
+        "hi": {
+          "status": "approved",
+          "at": "2026-11-18T15:31:35+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "Tue Nov 24 evening slots",
+          "platform": "youtube",
+          "time": "2026-11-24T20:30:00+05:30",
+          "video": "content/C0010/hi/C0010-hi.mp4",
+          "video_sha256": "81e066bbd6723befe5014fc6eda606f2abc8bb7728ff4603915d42197c59d1ed",
+          "meta": "content/C0010/hi/publish.json",
+          "meta_sha256": "1c5b1bda5e40dee81734cfe9ea388328125b010801261148e35ab8bc29843284",
+          "meta_hash_scope": "publish.json['youtube']"
+        },
+        "en": {
+          "status": "approved",
+          "at": "2026-11-18T15:31:35+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "Tue Nov 24 evening slots",
+          "platform": "youtube",
+          "time": "2026-11-24T21:30:00+05:30",
+          "video": "content/C0010/en/C0010-en.mp4",
+          "video_sha256": "6c08d78b17642fd3f06eb7e0c742dfae7a085261bd9229489edbbb9441065eb2",
+          "meta": "content/C0010/en/publish.json",
+          "meta_sha256": "88ace16dd06395e2a6d3a71bceded5be8719e745c71e81f66db1fb5c6d355301",
+          "meta_hash_scope": "publish.json['youtube']"
+        }
+      },
+      "history": [],
+      "at": "2026-11-18T15:31:35+0530",
+      "note": "Tue Nov 24 evening slots"
+    },
+    "gate:publish:instagram": {
+      "status": "approved",
+      "langs": [
+        "te",
+        "mr",
+        "gu",
+        "hi",
+        "en"
+      ],
+      "entries": {
+        "te": {
+          "status": "approved",
+          "at": "2026-11-18T15:31:35+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "Tue Nov 24 evening slots",
+          "platform": "instagram",
+          "time": "2026-11-24T19:00:00+05:30",
+          "video": "content/C0010/te/C0010-te.mp4",
+          "video_sha256": "924b1b30ca7b30290155ecb325b9df579d0f3278003344fb81d721c39741f072",
+          "meta": "content/C0010/te/publish.json",
+          "meta_sha256": "20df6695952f181f2d8e6e43220f96063673f8ed51bb8d046f809e6b64739986",
+          "meta_hash_scope": "publish.json['instagram']"
+        },
+        "mr": {
+          "status": "approved",
+          "at": "2026-11-18T15:31:35+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "Tue Nov 24 evening slots",
+          "platform": "instagram",
+          "time": "2026-11-24T19:15:00+05:30",
+          "video": "content/C0010/mr/C0010-mr.mp4",
+          "video_sha256": "58b4f13513fa0aa00a3e2c3a46513a5a096b3f1b434203ed01eac504d25b492f",
+          "meta": "content/C0010/mr/publish.json",
+          "meta_sha256": "10b56cb415d61bee89407bedb2f9cb653914d180d6d44f2956cceef10186a0e1",
+          "meta_hash_scope": "publish.json['instagram']"
+        },
+        "gu": {
+          "status": "approved",
+          "at": "2026-11-18T15:31:35+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "Tue Nov 24 evening slots",
+          "platform": "instagram",
+          "time": "2026-11-24T19:30:00+05:30",
+          "video": "content/C0010/gu/C0010-gu.mp4",
+          "video_sha256": "3ed64e64ba0cc0165cce0974ff138c453dbbfa6854570ef45053a36332604678",
+          "meta": "content/C0010/gu/publish.json",
+          "meta_sha256": "d816312529a9717485f6a0809241c6db9229e85bf9ceff7df6b01d13234358ab",
+          "meta_hash_scope": "publish.json['instagram']"
+        },
+        "hi": {
+          "status": "approved",
+          "at": "2026-11-18T15:31:35+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "Tue Nov 24 evening slots",
+          "platform": "instagram",
+          "time": "2026-11-24T20:00:00+05:30",
+          "video": "content/C0010/hi/C0010-hi.mp4",
+          "video_sha256": "81e066bbd6723befe5014fc6eda606f2abc8bb7728ff4603915d42197c59d1ed",
+          "meta": "content/C0010/hi/publish.json",
+          "meta_sha256": "be063cf98e763e1d049755ac2eb16571bf4418a829d21ca9d6043e3c66f030b4",
+          "meta_hash_scope": "publish.json['instagram']"
+        },
+        "en": {
+          "status": "approved",
+          "at": "2026-11-18T15:31:35+0530",
+          "by": "owner",
+          "channel": "terminal",
+          "note": "Tue Nov 24 evening slots",
+          "platform": "instagram",
+          "time": "2026-11-24T20:30:00+05:30",
+          "video": "content/C0010/en/C0010-en.mp4",
+          "video_sha256": "6c08d78b17642fd3f06eb7e0c742dfae7a085261bd9229489edbbb9441065eb2",
+          "meta": "content/C0010/en/publish.json",
+          "meta_sha256": "6c5e0fe79faba25ddc2b38d5057e827cc53ccc902606533196cc15e946d2ae27",
+          "meta_hash_scope": "publish.json['instagram']"
+        }
+      },
+      "history": [],
+      "at": "2026-11-18T15:31:35+0530",
+      "note": "Tue Nov 24 evening slots"
+    },
+    "instagram_scheduled:te": {
+      "status": "done",
+      "at": "2026-11-18T15:31:36+0530",
+      "note": "2026-11-24T19:00:00+05:30"
+    },
+    "instagram_scheduled:mr": {
+      "status": "done",
+      "at": "2026-11-18T15:31:36+0530",
+      "note": "2026-11-24T19:15:00+05:30"
+    },
+    "instagram_scheduled:gu": {
+      "status": "done",
+      "at": "2026-11-18T15:31:36+0530",
+      "note": "2026-11-24T19:30:00+05:30"
+    },
+    "instagram_scheduled:hi": {
+      "status": "done",
+      "at": "2026-11-18T15:31:36+0530",
+      "note": "2026-11-24T20:00:00+05:30"
+    },
+    "instagram_scheduled:en": {
+      "status": "done",
+      "at": "2026-11-18T15:31:36+0530",
+      "note": "2026-11-24T20:30:00+05:30"
+    }
+  },
+  "platforms": [
+    "youtube",
+    "instagram"
+  ]
+}

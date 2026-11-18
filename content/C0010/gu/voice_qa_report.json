@@ -1,0 +1,307 @@
+{
+  "video": null,
+  "kind": "audio",
+  "mp4_sha256": null,
+  "verdict": "warn",
+  "families": {
+    "story": {
+      "score": 91,
+      "pass": true,
+      "rejects": [],
+      "warns": [
+        "lint_hook"
+      ],
+      "checks": 11
+    },
+    "audio": {
+      "score": 75,
+      "pass": false,
+      "rejects": [],
+      "warns": [
+        "narration_asr"
+      ],
+      "checks": 3
+    }
+  },
+  "checks": [
+    {
+      "name": "lint_duration",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "estimate_s": 53.82,
+        "basis": "letters"
+      }
+    },
+    {
+      "name": "lint_hook",
+      "family": "story",
+      "class": "warn",
+      "ok": false,
+      "issues": [
+        "hook scene spoken 2.2 s > 2.2 s"
+      ],
+      "data": {}
+    },
+    {
+      "name": "lint_scene_count",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_scene_length",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_keywords",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_digits",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_quote_src",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_sources",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_edition",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_silences",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_visual_parity",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "narration_asr",
+      "family": "audio",
+      "class": "warn",
+      "ok": false,
+      "issues": [
+        "scene 1: CER 0.154 length ratio 0.85 (warn) — listen and regenerate if mispronounced"
+      ],
+      "data": {
+        "scenes": [
+          {
+            "scene": 1,
+            "cer": 0.154,
+            "length_ratio": 0.85,
+            "heard": "ગंગા ને ઉમા સગી બેનો હતા."
+          },
+          {
+            "scene": 2,
+            "cer": 0.083,
+            "length_ratio": 0.96,
+            "heard": "રામના પૂછવાથી વિશ્વામિત્રે ગંગાના જંમની ગથા માંડી"
+          },
+          {
+            "scene": 3,
+            "cer": 0.083,
+            "length_ratio": 0.94,
+            "heard": "પર્વત રાજ હિમવાને બે દિકર્યો હતી જેમના રૂપની ધર્તી પર કોઈ જોડ નોતી"
+          },
+          {
+            "scene": 4,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "એમના માતાહતા મેરુના દિકરીમેના નેબેમાં મૂટા ગંગા નાનાઉમાં."
+          },
+          {
+            "scene": 5,
+            "cer": 0.0,
+            "length_ratio": 1.04,
+            "heard": "પચ્છી સો દેવો પરવતરાજ પાસે મોટાં દિક્રી ગંગાને માગવા આવ્યા."
+          },
+          {
+            "scene": 6,
+            "cer": 0.111,
+            "length_ratio": 0.96,
+            "heard": "ધર્મ ની ભાવી હિંબાને ત્રણે લોકના હીત માટે દીક્રી સોપિ દીથી"
+          },
+          {
+            "scene": 7,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "દેવો રાજી થઈ ગંગા ને સવર્ગે લઈ ગયા"
+          },
+          {
+            "scene": 8,
+            "cer": 0.133,
+            "length_ratio": 0.97,
+            "heard": "નાની દિક્રી ઉમાય કટોર વ્રત લીધું ને તપણે જ પોતાનું ધન બનાવીં"
+          },
+          {
+            "scene": 9,
+            "cer": 0.043,
+            "length_ratio": 1.0,
+            "heard": "પચી હિમવાને ઉમાને અનુપમ રુદ્ર સાથે પરણાવ્યા."
+          },
+          {
+            "scene": 10,
+            "cer": 0.081,
+            "length_ratio": 1.0,
+            "heard": "રૂશીએ કહ્યું આજ છે પરવત્રાજની બે દી કર્યું નદીઓમાં શ્રેષ્ઠ ગંગા અને ઉમાદેવી"
+          },
+          {
+            "scene": 11,
+            "cer": 0.1,
+            "length_ratio": 0.93,
+            "heard": "આમ ત્રોણ માર્ગ વાળા ગંગા પેલા આકાશી ગેય અને દેવલોગ પોંચેયા"
+          }
+        ],
+        "transcripts": [
+          "QA cache (wav hash)",
+          "whisper large-v3-turbo"
+        ]
+      },
+      "note": "CER is warn-only for this language until Indic ASR is validated"
+    },
+    {
+      "name": "speech_rate",
+      "family": "audio",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "reference_letters_per_s": 5.808,
+        "scenes": [
+          {
+            "scene": 1,
+            "seconds": 2.08,
+            "letters_per_s": 6.25,
+            "deviation": 0.076
+          },
+          {
+            "scene": 2,
+            "seconds": 4.88,
+            "letters_per_s": 4.92,
+            "deviation": -0.153
+          },
+          {
+            "scene": 3,
+            "seconds": 5.12,
+            "letters_per_s": 7.03,
+            "deviation": 0.21
+          },
+          {
+            "scene": 4,
+            "seconds": 5.44,
+            "letters_per_s": 4.78,
+            "deviation": -0.177
+          },
+          {
+            "scene": 5,
+            "seconds": 5.36,
+            "letters_per_s": 5.04,
+            "deviation": -0.132
+          },
+          {
+            "scene": 6,
+            "seconds": 4.72,
+            "letters_per_s": 5.72,
+            "deviation": -0.015
+          },
+          {
+            "scene": 7,
+            "seconds": 3.6,
+            "letters_per_s": 4.72,
+            "deviation": -0.187
+          },
+          {
+            "scene": 8,
+            "seconds": 4.64,
+            "letters_per_s": 6.47,
+            "deviation": 0.114
+          },
+          {
+            "scene": 9,
+            "seconds": 3.44,
+            "letters_per_s": 6.69,
+            "deviation": 0.152
+          },
+          {
+            "scene": 10,
+            "seconds": 7.28,
+            "letters_per_s": 5.08,
+            "deviation": -0.125
+          },
+          {
+            "scene": 11,
+            "seconds": 5.6,
+            "letters_per_s": 5.36,
+            "deviation": -0.077
+          }
+        ]
+      }
+    },
+    {
+      "name": "speaker_consistency",
+      "family": "audio",
+      "class": "reject",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "windows": 24,
+        "window_median": 0.721,
+        "window_min": 0.504,
+        "scene_min": 0.641,
+        "median_f0": 178,
+        "calibration": "2026-11-16: 2.5s windows — consistent voice min 0.61 / known-mixed median 0.46 (50% < 0.5); 1s clips are unreliable (same voice down to 0.57)"
+      }
+    }
+  ],
+  "contact_sheet": null,
+  "manual_review_required": [
+    "character consistency",
+    "visual defects / wrong illustrations",
+    "storytelling quality",
+    "native-speaker listen for non-English"
+  ],
+  "created_at": "2026-11-18T12:16:59+0530",
+  "id": 106
+}

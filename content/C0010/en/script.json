@@ -1,0 +1,389 @@
+{
+  "title": "The Ganga and Her Sister Uma | Ramayana Ep 10",
+  "topic": "Vishvamitra begins the Ganga's origin: Himavan and Mena's two daughters, Ganga the elder and Uma; the gods ask for Ganga and Himavan gives her for the good of the three worlds; Uma's austerity and her marriage to Rudra (Valmiki Ramayana 1.35.13–24; teaser 1.35.23–24)",
+  "style": "chalk",
+  "language": "en",
+  "character": "",
+  "engine_version": 3,
+  "edition": "vulgate (southern recension), sa.wikisource; verse numbers cross-checked on valmikiramayan.net (Internet Archive copy)",
+  "scenes": [
+    {
+      "narration": "The Ganga and Goddess Uma were sisters.",
+      "tts": "The Ganga and Goddess Oomaa were sisters.",
+      "keywords": [
+        "Ganga",
+        "sisters."
+      ],
+      "emphasis": "",
+      "pause": 0.18,
+      "sfx": [
+        {
+          "name": "impact"
+        },
+        {
+          "name": "river"
+        }
+      ],
+      "melody": "intro",
+      "swell": true,
+      "visual": "the whole top third of the frame left as plain empty dark chalkboard, {uma} drawn large in the lower right foreground, about half the frame height, seated cross-legged in meditation on a broad flat grey rock in three-quarter side view facing left toward the river, her back straight, both hands resting open on her knees and clear of her body, open dark board around her head, topknot and shoulders, behind her on the left side of the frame snowy Himalayan peaks at first light, from the highest peak {ganga_light} pouring down as a long white waterfall and winding in wide curves toward the viewer on the left, a wide band of plain dark board between Uma and the river, the peaks and the waterfall staying below the top third of the frame, vertical composition, subject in the center of the frame, open dark chalkboard space at the top, lower quarter of the frame plain dark chalkboard",
+      "shot": "WS",
+      "move": "push",
+      "accent": "divine",
+      "seed": 10200
+    },
+    {
+      "narration": "At Rama's asking, Vishvamitra began the tale of the Ganga's birth.",
+      "tts": "At Raama's asking, Vishvaamitra began the tale of the Ganga's birth.",
+      "keywords": [
+        "Vishvamitra",
+        "birth."
+      ],
+      "emphasis": "By the Ganga",
+      "pause": 0.18,
+      "sfx": [
+        {
+          "name": "river"
+        }
+      ],
+      "melody": "calm",
+      "quote_src": "VR 1.35.12–13 (vulgate)",
+      "visual": "the whole top third of the frame left as plain empty dark chalkboard, a quiet camp on the sandy bank of the broad Ganga river in calm late afternoon light, {vishvamitra} with dark hair streaked with grey tied in a topknot, a dark beard and a red tilak on his forehead, with exactly two arms, seated cross-legged on the right in three-quarter view facing left and speaking, his right hand raised beside his shoulder with the palm open in a teaching gesture, held clear of his beard and body against open dark board, his left hand resting on his knee, his wooden staff lying flat on the sand in front of him, {rama_teen} with exactly two arms seated cross-legged on the left in three-quarter back view, listening, his face turned toward the sage and hidden from the viewer, his hands resting on his knees, a wide gap of open sand between the two figures, the calm river and a low far bank behind them, the river drawn as plain flowing water, vertical composition, subject in the center of the frame, open dark chalkboard space at the top, lower quarter of the frame plain dark chalkboard",
+      "shot": "WS",
+      "move": "pull",
+      "transition": "erase",
+      "accent": "forest",
+      "seed": 10001
+    },
+    {
+      "narration": "Himavan, lord of the mountains, had two daughters of matchless beauty.",
+      "tts": "Himavaan, lord of the mountains, had two daughters of matchless beauty.",
+      "keywords": [
+        "Himavan,",
+        "matchless"
+      ],
+      "emphasis": "Himavan",
+      "pause": 0.18,
+      "sfx": [
+        {
+          "name": "wind"
+        }
+      ],
+      "melody": "rise",
+      "visual": "{himavan} standing tall in three-quarter view facing right, shown from the knees up, large in the frame, his left arm extended outward away from his body with the open palm turned up toward the mountains, his right arm hanging a little away from his side with the open hand relaxed and open dark board between the arm and the robe, a range of great snowy peaks rising behind him at a distance with open dark board between his crown and the peaks, bright veins of glittering ore and small gems traced in the grey rocks at his feet, vertical composition, subject in the center of the frame, open dark chalkboard space at the top, lower quarter of the frame plain dark chalkboard",
+      "shot": "MS",
+      "move": "push",
+      "transition": "cut",
+      "accent": "divine",
+      "seed": 10202
+    },
+    {
+      "narration": "Mena, his dear queen, bore them both, the Ganga first and Uma after.",
+      "tts": "Maynaa, his dear queen, bore them both, the Ganga first and Oomaa after.",
+      "keywords": [
+        "Mena,",
+        "first"
+      ],
+      "emphasis": "",
+      "pause": 0.18,
+      "melody": "love",
+      "visual": "the whole top third of the frame left as plain empty dark chalkboard, a terrace of smooth grey stone high in the snowy mountains, {mena} standing in three-quarter view in the centre facing left, gazing down tenderly, her right arm extended low and forward with the open palm turned toward a small spring of glowing silver-white light welling up from the rocks on the left, on the right a little apart {uma_girl} standing in three-quarter view facing her mother, her right hand raised a little toward her mother and held clear of her body, a wide gap of open stone between mother and daughter, distant snowy peaks kept below the top third, vertical composition, subject in the center of the frame, open dark chalkboard space at the top, lower quarter of the frame plain dark chalkboard",
+      "shot": "WS",
+      "move": "static",
+      "transition": "dust",
+      "accent": "default",
+      "seed": 10003
+    },
+    {
+      "narration": "Then all the gods came and asked the mountain king for his elder daughter.",
+      "keywords": [
+        "gods",
+        "daughter."
+      ],
+      "emphasis": "",
+      "pause": 0.5,
+      "sfx": [
+        {
+          "name": "bell"
+        }
+      ],
+      "melody": "rise",
+      "swell": true,
+      "visual": "the whole top third of the frame left as plain empty dark chalkboard, a high snowy mountain ledge at dusk, {himavan} standing on the right in three-quarter view facing left toward the sky, his right arm raised forward with the open palm in welcome, held clear of his body and beard, on the left side of the frame {devas_light} descending in a gentle curve from the dark sky and floating at the height of his head, a wide band of open dark board between the lights and the king, the snowy peaks behind kept below the top third, vertical composition, subject in the center of the frame, open dark chalkboard space at the top, lower quarter of the frame plain dark chalkboard",
+      "shot": "WS",
+      "move": {
+        "type": "truck",
+        "dir": "left"
+      },
+      "transition": "cut",
+      "accent": "divine",
+      "overlay": [
+        "godrays"
+      ],
+      "seed": 10004
+    },
+    {
+      "narration": "And Himavan, true to dharma, gave her away for the good of all three worlds.",
+      "tts": "And Himavaan, true to dharma, gave her away for the good of all three worlds.",
+      "keywords": [
+        "dharma,",
+        "worlds."
+      ],
+      "emphasis": "",
+      "visual": "the verse written in chalk",
+      "pause": 0.5,
+      "sfx": [],
+      "kind": "verse",
+      "tone": "awe",
+      "pacing": "slow",
+      "quote_src": "VR 1.35.18 (vulgate)",
+      "devanagari": [
+        "ददौ धर्मेण हिमवांस्",
+        "तनयां लोकपावनीम्।",
+        "स्वच्छन्दपथगां गङ्गां",
+        "त्रैलोक्यहितकाम्यया॥"
+      ],
+      "source": "Valmiki Ramayana 1.35.18 (vulgate)",
+      "edition": "vulgate (sa.wikisource)"
+    },
+    {
+      "narration": "Glad at heart, the gods carried the Ganga up to heaven.",
+      "keywords": [
+        "heaven."
+      ],
+      "emphasis": "",
+      "pause": 0.18,
+      "sfx": [
+        {
+          "name": "whoosh"
+        },
+        {
+          "name": "river"
+        }
+      ],
+      "melody": "rise",
+      "swell": true,
+      "visual": "symbolic scene, snowy Himalayan peaks across the middle of the frame, from the highest peak on the left {ganga_light} rises in a long smooth S-curve up through layered chalk clouds toward the open starry sky, {devas_light} travelling above the rising river and leading it upward, {himavan} drawn large in the lower right foreground in three-quarter back view, standing on a snowy ledge and watching the river rise, his right arm raised high in farewell with the open hand held clear of his body and crown against open dark board, his left arm hanging a little away from his side, vertical composition, subject in the center of the frame, open dark chalkboard space at the top, lower quarter of the frame plain dark chalkboard",
+      "shot": "EWS",
+      "angle": "low",
+      "move": "tilt",
+      "transition": "erase",
+      "accent": "divine",
+      "overlay": [
+        "godrays"
+      ],
+      "seed": 10206
+    },
+    {
+      "narration": "Her sister Uma took a stern vow and made austerity her wealth.",
+      "tts": "Her sister Oomaa took a stern vow and made austerity her wealth.",
+      "keywords": [
+        "Uma",
+        "austerity"
+      ],
+      "emphasis": "Uma",
+      "pause": 0.18,
+      "sfx": [
+        {
+          "name": "fire"
+        },
+        {
+          "name": "wind"
+        }
+      ],
+      "melody": "calm",
+      "visual": "the whole top third of the frame left as plain empty dark chalkboard, {uma} seated cross-legged in deep meditation on a flat snowy rock, drawn large in side view facing right, eyes closed, back straight, both hands resting on her knees with the palms open and clear of her body, a small clay water pot standing on the rock behind her with space around it, a small steady flame of a sacred fire in a ring of stones in front of her with open dark board all around the flame, a few snowflakes drifting, snowy peaks far behind kept below the top third, vertical composition, subject in the center of the frame, open dark chalkboard space at the top, lower quarter of the frame plain dark chalkboard",
+      "shot": "MS",
+      "move": "push",
+      "transition": "black",
+      "accent": "ashram",
+      "overlay": [
+        "embers"
+      ],
+      "seed": 10207
+    },
+    {
+      "narration": "And to Rudra, the peerless one, Himavan gave her in marriage.",
+      "tts": "And to Roodra, the peerless one, Himavaan gave her in marriage.",
+      "keywords": [
+        "Rudra,",
+        "marriage."
+      ],
+      "emphasis": "",
+      "pause": 0.18,
+      "sfx": [
+        {
+          "name": "conch"
+        }
+      ],
+      "melody": "love",
+      "swell": true,
+      "visual": "the whole top third of the frame left as plain empty dark chalkboard, a snowy mountain plateau in soft silver light, three figures staggered in depth with wide open board between them, {himavan} drawn large in the left foreground in three-quarter view facing right, his right arm extended forward with the open palm presenting his daughter, {uma} standing in the centre middle ground in side view facing right, smaller, her palms joined in greeting held a little away from her chest, on the right on a higher snowy rock further back {rudra_symbol}, open dark board all around the trident and its three prongs, distant peaks kept below the top third, vertical composition, subject in the center of the frame, open dark chalkboard space at the top, lower quarter of the frame plain dark chalkboard",
+      "shot": "WS",
+      "move": "static",
+      "transition": "cut",
+      "accent": "divine",
+      "seed": 10208
+    },
+    {
+      "narration": "These, said the sage, are the mountain king's daughters, the Ganga and the Goddess Uma.",
+      "tts": "These, said the sage, are the mountain king's daughters, the Ganga and the Goddess Oomaa.",
+      "keywords": [
+        "Ganga",
+        "Uma."
+      ],
+      "emphasis": "Which sister was the elder?",
+      "pause": 0.3,
+      "sfx": [
+        {
+          "name": "river"
+        }
+      ],
+      "melody": "rise",
+      "quote_src": "VR 1.35.22 (vulgate)",
+      "visual": "the whole top third of the frame left as plain empty dark chalkboard, {himavan} standing in the centre in three-quarter view, large in the frame, both arms lowered a little away from his body with the open palms turned outward, a great snowy peak behind him, on the left side {ganga_light} flowing from the peak in a bright curve upward toward the sky, on the right on a lower rock {uma} seated in meditation in three-quarter side view with her hands resting on her knees, a wide band of open board between the king, the river and Uma, vertical composition, subject in the center of the frame, open dark chalkboard space at the top, lower quarter of the frame plain dark chalkboard",
+      "shot": "WS",
+      "move": "pull",
+      "transition": "cut",
+      "accent": "divine",
+      "seed": 10209
+    },
+    {
+      "narration": "So the river of three paths went first to the sky, rising to the world of the gods.",
+      "keywords": [
+        "sky,",
+        "gods."
+      ],
+      "emphasis": "Next: Three Paths",
+      "pause": 0.18,
+      "sfx": [
+        {
+          "name": "river"
+        }
+      ],
+      "melody": "calm",
+      "quote_src": "VR 1.35.23–24 (vulgate)",
+      "visual": "the whole top third of the frame left as plain empty dark chalkboard, the same framing as the opening: {uma} drawn large in the lower right foreground, about half the frame height, seated cross-legged in meditation on the broad flat grey rock in three-quarter side view, her head lifted toward the sky, both hands resting open on her knees and clear of her body, open dark board around her head, topknot and shoulders, behind her on the left side of the frame snowy Himalayan peaks under a starry night sky, from the highest peak {ganga_light} rising in a long glowing curve up into the starry sky toward a soft cluster of golden light floating just below the top third, a wide band of plain dark board between Uma and the river, vertical composition, subject in the center of the frame, open dark chalkboard space at the top, lower quarter of the frame plain dark chalkboard",
+      "shot": "WS",
+      "move": "push",
+      "transition": "black",
+      "accent": "divine",
+      "seed": 10210
+    }
+  ],
+  "description": "",
+  "hashtags": [],
+  "thumbnail": {
+    "scene": 0,
+    "devanagari": "",
+    "title": "GANGA'S SISTER",
+    "series": "The Epic in Chalk",
+    "episode": "Episode 10",
+    "subtitle": ""
+  },
+  "sources": [
+    {
+      "ref": "VR 1.35.12",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "Rama: I wish to hear of the Ganga, the river of three paths; how did she pervade the three worlds and reach the lord of rivers? (Ep09 teaser, paid off here)"
+    },
+    {
+      "ref": "VR 1.35.13",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "urged by Rama's words, the great sage Vishvamitra began to tell the Ganga's birth and growth"
+    },
+    {
+      "ref": "VR 1.35.14",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "Himavan, lord of mountains (शैलेन्द्र), great mine of ores (धातूनामाकरो महान्), had two daughters unequalled in beauty on earth"
+    },
+    {
+      "ref": "VR 1.35.15",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "their mother, Meru's daughter, slender-waisted and lovely, Mena by name, Himavan's dear wife"
+    },
+    {
+      "ref": "VR 1.35.16",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "from her this Ganga was born, Himavan's elder daughter (ज्येष्ठा); Uma by name was his second daughter"
+    },
+    {
+      "ref": "VR 1.35.17",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "then all the gods, wishing to accomplish the gods' work (देवकार्यचिकीर्षया), asked the mountain lord for his elder daughter, the Ganga, river of three paths"
+    },
+    {
+      "ref": "VR 1.35.18",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "Himavan, by dharma (धर्मेण), gave his daughter, purifier of the worlds, the Ganga who flows where she wills, wishing the good of the three worlds (verse card)"
+    },
+    {
+      "ref": "VR 1.35.19",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "receiving her for the sake of the three worlds, the gods, wishers of the worlds' good, took the Ganga and went, their purpose fulfilled"
+    },
+    {
+      "ref": "VR 1.35.20",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "the other daughter of the mountain, a maiden whose wealth was austerity (तपोधना), took up a stern vow and performed tapas"
+    },
+    {
+      "ref": "VR 1.35.21",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "the best of mountains gave his daughter Uma, endowed with fierce austerity and honoured by the worlds, to Rudra the peerless (रुद्रायाप्रतिरूपाय)"
+    },
+    {
+      "ref": "VR 1.35.22",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "these are the mountain king's two daughters, honoured by the worlds: the Ganga, best of rivers, and Uma Devi"
+    },
+    {
+      "ref": "VR 1.35.23",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "I have told you all of how the river of three paths first (प्रथमं) went to the sky (teaser verse)"
+    },
+    {
+      "ref": "VR 1.35.24",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "so this lovely river of the gods, the mountain lord's daughter, sinless, flowing as water, rose to the world of the gods (teaser verse)"
+    },
+    {
+      "ref": "VR 1.36.1–3",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "Rama and Lakshmana ask the sage to tell the elder daughter's story in full: by what cause does she flood three paths? (next episode, not narrated)"
+    },
+    "https://sa.wikisource.org/wiki/रामायणम्/बालकाण्डम्/सर्गः_३५ (accessed 2026-11-18)",
+    "https://www.valmikiramayan.net/utf8/baala/sarga35/balasans35.htm (live site returned HTTP 509 on 2026-11-18; read via the Internet Archive copy, accessed 2026-11-18)"
+  ],
+  "style_overrides": {
+    "caption_font": "/System/Library/Fonts/Supplemental/ChalkboardSE.ttc",
+    "caption_font_index": 2,
+    "caption_size": 76,
+    "caption_max_chars": 24
+  },
+  "loop": "composition",
+  "learnings": [
+    {
+      "action": "A1",
+      "tier": "anecdote",
+      "n": 12,
+      "finding": "F1",
+      "how": "Applied. The stakes and the wonder are in the first sentence (the Ganga and Uma were sisters, paying off the Ep09 question about the Ganga), and the turn, the verse card where Himavan gives his daughter away for the three worlds, starts at about 22.8 s, inside the 18–25 s window. The 35 s shape is not used: the sarga needs both daughters, the gods' request, the gift, Uma's austerity and her marriage, so the 55 s two-beat shape is used, at about 52.48 s for flow."
+    },
+    {
+      "action": "A2",
+      "tier": "anecdote",
+      "n": 1,
+      "finding": "F2",
+      "how": "Applied. The hook is 2.66 s, under the 3.0 s limit, with the stake in the first sentence, written natively short in each language (gu: ગંગા અને ઉમા સગી બહેનો હતાં.). The en hook is 2.66 s, inside the 2.5–2.8 s Kokoro-safe band. Frame 0 is the river of light pouring from the peak with Uma in meditation beside it, which the engine draws at least 70% by frame 0 (O5)."
+    },
+    {
+      "action": "A3",
+      "tier": "anecdote",
+      "n": 12,
+      "finding": "F6",
+      "how": "Applied on screen. Scene 10 carries the share prompt 'Which sister was the elder?' (6 words or fewer) as its title card. It is answered in the text in scene 4 (1.35.16): the Ganga was the elder. It is not spoken, because no language has seconds to spare. The same line is suggested as the pinned comment so shares/reach can be compared."
+    }
+  ],
+  "estimated_seconds": 52
+}

@@ -1,0 +1,116 @@
+[
+  {
+    "text": "गंगा आणि उमा सख्ख्या बहिणी होत्या.",
+    "type": "contradiction / teaser payoff",
+    "spoken_s": 2.65,
+    "scores": {
+      "curiosity": 5,
+      "emotion": 4,
+      "specificity": 5,
+      "speed": 5,
+      "resonance": 5,
+      "accuracy": 5
+    },
+    "total": 29,
+    "selected": true,
+    "visual_hook": true,
+    "hook_to_payoff": "Main loop (how were the Ganga and Uma sisters, and how did one of them become the river of three paths?) answers in scenes 3–4 (Himavan and Mena's two daughters, the Ganga the elder), turns at the verse card (scene 6, Himavan gives the Ganga away for the good of the three worlds), pays off the river's half at scene 7 (the gods carry her to heaven) and closes at scene 10, when the sage names both daughters, the Ganga and Uma Devi, at about 88–91% of runtime. The Ep09 question (how did she cross three worlds?) is answered for her first path only, and scene 11 opens the rest. The next-episode question is not counted as the payoff.",
+    "reasoning": "Selected. Standard Marathi, written natively short; सख्ख्या बहिणी carries the surprise. Pays off the Ep09 mr teaser (1.35.16, 1.35.22).",
+    "speed_rule": "speed score from the lint estimate: >3.0 s = 1 (fails the hard limit), 2.8–3.0 s = 4, ≤2.8 s = 5"
+  },
+  {
+    "text": "पर्वतराजाने आपली कन्या देवांना दिली.",
+    "type": "request with a twist (stake)",
+    "spoken_s": 2.98,
+    "scores": {
+      "curiosity": 4,
+      "emotion": 5,
+      "specificity": 3,
+      "speed": 4,
+      "resonance": 4,
+      "accuracy": 4
+    },
+    "total": 24,
+    "selected": false,
+    "visual_hook": false,
+    "hook_to_payoff": "",
+    "reasoning": "Strong stake (1.35.17–18) but no known name.",
+    "speed_rule": "speed score from the lint estimate: >3.0 s = 1 (fails the hard limit), 2.8–3.0 s = 4, ≤2.8 s = 5"
+  },
+  {
+    "text": "गंगा स्वर्गात कशी पोहोचली?",
+    "type": "question (teaser payoff)",
+    "spoken_s": 2.15,
+    "scores": {
+      "curiosity": 4,
+      "emotion": 3,
+      "specificity": 3,
+      "speed": 5,
+      "resonance": 4,
+      "accuracy": 5
+    },
+    "total": 24,
+    "selected": false,
+    "visual_hook": false,
+    "hook_to_payoff": "",
+    "reasoning": "True (1.35.19, 1.35.24) but a plain question.",
+    "speed_rule": "speed score from the lint estimate: >3.0 s = 1 (fails the hard limit), 2.8–3.0 s = 4, ≤2.8 s = 5"
+  },
+  {
+    "text": "गंगा हिमालयाची थोरली कन्या होती.",
+    "type": "bold claim",
+    "spoken_s": 2.48,
+    "scores": {
+      "curiosity": 4,
+      "emotion": 3,
+      "specificity": 4,
+      "speed": 5,
+      "resonance": 4,
+      "accuracy": 5
+    },
+    "total": 25,
+    "selected": false,
+    "visual_hook": true,
+    "hook_to_payoff": "",
+    "reasoning": "Accurate (1.35.16) but less surprising than naming Uma.",
+    "speed_rule": "speed score from the lint estimate: >3.0 s = 1 (fails the hard limit), 2.8–3.0 s = 4, ≤2.8 s = 5"
+  },
+  {
+    "text": "उमेने तपालाच आपले धन मानले.",
+    "type": "forbidden or unknown detail",
+    "spoken_s": 2.48,
+    "scores": {
+      "curiosity": 3,
+      "emotion": 3,
+      "specificity": 3,
+      "speed": 5,
+      "resonance": 4,
+      "accuracy": 5
+    },
+    "total": 23,
+    "selected": false,
+    "visual_hook": true,
+    "hook_to_payoff": "",
+    "reasoning": "Renders तपोधना (1.35.20) but opens on the second daughter.",
+    "speed_rule": "speed score from the lint estimate: >3.0 s = 1 (fails the hard limit), 2.8–3.0 s = 4, ≤2.8 s = 5"
+  },
+  {
+    "text": "थोरली नदी झाली, धाकटी रुद्राची पत्नी.",
+    "type": "contrast",
+    "spoken_s": 2.82,
+    "scores": {
+      "curiosity": 5,
+      "emotion": 4,
+      "specificity": 5,
+      "speed": 4,
+      "resonance": 5,
+      "accuracy": 3
+    },
+    "total": 26,
+    "selected": false,
+    "visual_hook": true,
+    "hook_to_payoff": "",
+    "reasoning": "Strong contrast, but 'नदी झाली' flattens the text: the Ganga is the river from birth.",
+    "speed_rule": "speed score from the lint estimate: >3.0 s = 1 (fails the hard limit), 2.8–3.0 s = 4, ≤2.8 s = 5"
+  }
+]

@@ -1,0 +1,302 @@
+{
+  "video": null,
+  "kind": "audio",
+  "mp4_sha256": null,
+  "verdict": "warn",
+  "families": {
+    "story": {
+      "score": 91,
+      "pass": true,
+      "rejects": [],
+      "warns": [
+        "lint_hook"
+      ],
+      "checks": 11
+    },
+    "audio": {
+      "score": 100,
+      "pass": true,
+      "rejects": [],
+      "warns": [],
+      "checks": 3
+    }
+  },
+  "checks": [
+    {
+      "name": "lint_duration",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "estimate_s": 52.48,
+        "basis": "letters"
+      }
+    },
+    {
+      "name": "lint_hook",
+      "family": "story",
+      "class": "warn",
+      "ok": false,
+      "issues": [
+        "hook scene spoken 2.7 s > 2.2 s"
+      ],
+      "data": {}
+    },
+    {
+      "name": "lint_scene_count",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_scene_length",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_keywords",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_digits",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_quote_src",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_sources",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_edition",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_silences",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_visual_parity",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "narration_asr",
+      "family": "audio",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "scenes": [
+          {
+            "scene": 1,
+            "cer": 0.0,
+            "length_ratio": 1.03,
+            "heard": "The Ganga and Goddess Umar were sisters."
+          },
+          {
+            "scene": 2,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "At Rama's asking, Vishvamitra began the tale of the Ganga's birth."
+          },
+          {
+            "scene": 3,
+            "cer": 0.018,
+            "length_ratio": 1.0,
+            "heard": "Himavon, Lord of the Mountains, had two daughters of matchless beauty."
+          },
+          {
+            "scene": 4,
+            "cer": 0.0,
+            "length_ratio": 1.02,
+            "heard": "Meina, his dear queen, bore them both, the Ganga first and Uma after."
+          },
+          {
+            "scene": 5,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "Then all the gods came and asked the mountain king for his elder daughter."
+          },
+          {
+            "scene": 6,
+            "cer": 0.017,
+            "length_ratio": 1.0,
+            "heard": "And Himavon, true to Dharma, gave her a way for the good of all three worlds."
+          },
+          {
+            "scene": 7,
+            "cer": 0.023,
+            "length_ratio": 1.0,
+            "heard": "Glad at heart, the gods carried the gunga up to heaven."
+          },
+          {
+            "scene": 8,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "Her sister Uma took a stern vow and made austerity her wealth."
+          },
+          {
+            "scene": 9,
+            "cer": 0.021,
+            "length_ratio": 1.0,
+            "heard": "And to Rudra, the peerless one, Himavon gave her in marriage."
+          },
+          {
+            "scene": 10,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "These, said the sage, are the Mountain King's daughters, the Ganga and the Goddess Uma."
+          },
+          {
+            "scene": 11,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "So the river of three paths went first to the sky, rising to the world of the gods."
+          }
+        ],
+        "transcripts": [
+          "whisper small"
+        ]
+      },
+      "note": "digits vs number-words and Whisper spelling quirks inflate CER; review flagged scenes by ear"
+    },
+    {
+      "name": "speech_rate",
+      "family": "audio",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "reference_letters_per_s": 12.04,
+        "scenes": [
+          {
+            "scene": 1,
+            "seconds": 2.73,
+            "letters_per_s": 11.74,
+            "deviation": -0.025
+          },
+          {
+            "scene": 2,
+            "seconds": 4.47,
+            "letters_per_s": 11.62,
+            "deviation": -0.035
+          },
+          {
+            "scene": 3,
+            "seconds": 4.47,
+            "letters_per_s": 12.74,
+            "deviation": 0.058
+          },
+          {
+            "scene": 4,
+            "seconds": 4.6,
+            "letters_per_s": 11.3,
+            "deviation": -0.061
+          },
+          {
+            "scene": 5,
+            "seconds": 4.5,
+            "letters_per_s": 13.33,
+            "deviation": 0.107
+          },
+          {
+            "scene": 6,
+            "seconds": 4.85,
+            "letters_per_s": 12.16,
+            "deviation": 0.01
+          },
+          {
+            "scene": 7,
+            "seconds": 3.5,
+            "letters_per_s": 12.29,
+            "deviation": 0.021
+          },
+          {
+            "scene": 8,
+            "seconds": 4.12,
+            "letters_per_s": 12.12,
+            "deviation": 0.007
+          },
+          {
+            "scene": 9,
+            "seconds": 3.83,
+            "letters_per_s": 12.55,
+            "deviation": 0.042
+          },
+          {
+            "scene": 10,
+            "seconds": 5.1,
+            "letters_per_s": 13.33,
+            "deviation": 0.107
+          },
+          {
+            "scene": 11,
+            "seconds": 5.25,
+            "letters_per_s": 12.19,
+            "deviation": 0.012
+          }
+        ]
+      }
+    },
+    {
+      "name": "speaker_consistency",
+      "family": "audio",
+      "class": "reject",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "windows": 22,
+        "window_median": 0.761,
+        "window_min": 0.657,
+        "scene_min": 0.754,
+        "median_f0": 195,
+        "calibration": "2026-11-16: 2.5s windows — consistent voice min 0.61 / known-mixed median 0.46 (50% < 0.5); 1s clips are unreliable (same voice down to 0.57)"
+      }
+    }
+  ],
+  "contact_sheet": null,
+  "manual_review_required": [
+    "character consistency",
+    "visual defects / wrong illustrations",
+    "storytelling quality",
+    "native-speaker listen for non-English"
+  ],
+  "created_at": "2026-11-18T11:49:19+0530",
+  "id": 100
+}

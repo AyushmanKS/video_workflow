@@ -1,0 +1,572 @@
+{
+  "video": "/Users/ayushman/Desktop/work/shorts-studio/content/C0010/en/C0010-en.mp4",
+  "kind": "automated",
+  "mp4_sha256": "6c08d78b17642fd3f06eb7e0c742dfae7a085261bd9229489edbbb9441065eb2",
+  "verdict": "warn",
+  "families": {
+    "story": {
+      "score": 91,
+      "pass": true,
+      "rejects": [],
+      "warns": [
+        "lint_hook"
+      ],
+      "checks": 11
+    },
+    "visual": {
+      "score": 67,
+      "pass": false,
+      "rejects": [],
+      "warns": [
+        "safe_zones"
+      ],
+      "checks": 3
+    },
+    "audio": {
+      "score": 80,
+      "pass": true,
+      "rejects": [],
+      "warns": [
+        "music_under_speech"
+      ],
+      "checks": 4
+    },
+    "final": {
+      "score": 100,
+      "pass": true,
+      "rejects": [],
+      "warns": [],
+      "checks": 10
+    }
+  },
+  "checks": [
+    {
+      "name": "lint_duration",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "estimate_s": 52.48,
+        "basis": "letters"
+      }
+    },
+    {
+      "name": "lint_hook",
+      "family": "story",
+      "class": "warn",
+      "ok": false,
+      "issues": [
+        "hook scene spoken 2.7 s > 2.2 s"
+      ],
+      "data": {}
+    },
+    {
+      "name": "lint_scene_count",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_scene_length",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_keywords",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_digits",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_quote_src",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_sources",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_edition",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_silences",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_visual_parity",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "format",
+      "family": "final",
+      "class": "reject",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "video": "h264",
+        "audio": "aac",
+        "fps": 30.0,
+        "seconds": 51.1
+      }
+    },
+    {
+      "name": "duration",
+      "family": "final",
+      "class": "reject",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "seconds": 51.1
+      }
+    },
+    {
+      "name": "duration_target",
+      "family": "final",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "seconds": 51.1
+      }
+    },
+    {
+      "name": "loudness",
+      "family": "final",
+      "class": "reject",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "lufs": -14.0,
+        "true_peak_dbfs": -1.7,
+        "lra": 2.4
+      }
+    },
+    {
+      "name": "black_freeze",
+      "family": "final",
+      "class": "reject",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "black": 0,
+        "freeze": 0
+      }
+    },
+    {
+      "name": "silence",
+      "family": "final",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "gaps": 0
+      }
+    },
+    {
+      "name": "first_frame",
+      "family": "final",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "t0.0": 0.2793,
+        "t0.5": 0.3192
+      },
+      "note": "style decision: warn only"
+    },
+    {
+      "name": "narration_asr",
+      "family": "audio",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "scenes": [
+          {
+            "scene": 1,
+            "cer": 0.0,
+            "length_ratio": 1.03,
+            "heard": "The Ganga and Goddess Umar were sisters."
+          },
+          {
+            "scene": 2,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "At Rama's asking, Vishvamitra began the tale of the Ganga's birth."
+          },
+          {
+            "scene": 3,
+            "cer": 0.018,
+            "length_ratio": 1.0,
+            "heard": "Himavon, Lord of the Mountains, had two daughters of matchless beauty."
+          },
+          {
+            "scene": 4,
+            "cer": 0.0,
+            "length_ratio": 1.02,
+            "heard": "Meina, his dear queen, bore them both, the Ganga first and Uma after."
+          },
+          {
+            "scene": 5,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "Then all the gods came and asked the mountain king for his elder daughter."
+          },
+          {
+            "scene": 6,
+            "cer": 0.017,
+            "length_ratio": 1.0,
+            "heard": "And Himavon, true to Dharma, gave her a way for the good of all three worlds."
+          },
+          {
+            "scene": 7,
+            "cer": 0.023,
+            "length_ratio": 1.0,
+            "heard": "Glad at heart, the gods carried the gunga up to heaven."
+          },
+          {
+            "scene": 8,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "Her sister Uma took a stern vow and made austerity her wealth."
+          },
+          {
+            "scene": 9,
+            "cer": 0.021,
+            "length_ratio": 1.0,
+            "heard": "And to Rudra, the peerless one, Himavon gave her in marriage."
+          },
+          {
+            "scene": 10,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "These, said the sage, are the Mountain King's daughters, the Ganga and the Goddess Uma."
+          },
+          {
+            "scene": 11,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "So the river of three paths went first to the sky, rising to the world of the gods."
+          }
+        ],
+        "transcripts": [
+          "render-time transcript (heard.json)"
+        ]
+      },
+      "note": "digits vs number-words and Whisper spelling quirks inflate CER; review flagged scenes by ear"
+    },
+    {
+      "name": "speech_rate",
+      "family": "audio",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "reference_letters_per_s": 12.04,
+        "scenes": [
+          {
+            "scene": 1,
+            "seconds": 2.73,
+            "letters_per_s": 11.74,
+            "deviation": -0.025
+          },
+          {
+            "scene": 2,
+            "seconds": 4.47,
+            "letters_per_s": 11.62,
+            "deviation": -0.035
+          },
+          {
+            "scene": 3,
+            "seconds": 4.47,
+            "letters_per_s": 12.74,
+            "deviation": 0.058
+          },
+          {
+            "scene": 4,
+            "seconds": 4.6,
+            "letters_per_s": 11.3,
+            "deviation": -0.061
+          },
+          {
+            "scene": 5,
+            "seconds": 4.5,
+            "letters_per_s": 13.33,
+            "deviation": 0.107
+          },
+          {
+            "scene": 6,
+            "seconds": 4.85,
+            "letters_per_s": 12.16,
+            "deviation": 0.01
+          },
+          {
+            "scene": 7,
+            "seconds": 3.5,
+            "letters_per_s": 12.29,
+            "deviation": 0.021
+          },
+          {
+            "scene": 8,
+            "seconds": 4.12,
+            "letters_per_s": 12.12,
+            "deviation": 0.007
+          },
+          {
+            "scene": 9,
+            "seconds": 3.83,
+            "letters_per_s": 12.55,
+            "deviation": 0.042
+          },
+          {
+            "scene": 10,
+            "seconds": 5.1,
+            "letters_per_s": 13.33,
+            "deviation": 0.107
+          },
+          {
+            "scene": 11,
+            "seconds": 5.25,
+            "letters_per_s": 12.19,
+            "deviation": 0.012
+          }
+        ]
+      }
+    },
+    {
+      "name": "speaker_consistency",
+      "family": "audio",
+      "class": "reject",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "windows": 22,
+        "window_median": 0.761,
+        "window_min": 0.657,
+        "scene_min": 0.754,
+        "median_f0": 195,
+        "calibration": "2026-11-16: 2.5s windows — consistent voice min 0.61 / known-mixed median 0.46 (50% < 0.5); 1s clips are unreliable (same voice down to 0.57)"
+      }
+    },
+    {
+      "name": "music_under_speech",
+      "family": "audio",
+      "class": "warn",
+      "ok": false,
+      "issues": [
+        "speech-band narration only 11.1 dB above the bed (target ≥12 dB)"
+      ],
+      "data": {
+        "median_db": 11.1,
+        "p10_db": 1.8,
+        "voice_gain": 3.777,
+        "frames": 85
+      }
+    },
+    {
+      "name": "captions",
+      "family": "final",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "groups": 47,
+        "timing": "timeline.json",
+        "engine_version": 3
+      }
+    },
+    {
+      "name": "caption_overflow",
+      "family": "final",
+      "class": "reject",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "widest_px": 795,
+        "limit_px": 1020
+      }
+    },
+    {
+      "name": "glyph_coverage",
+      "family": "final",
+      "class": "reject",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "texts": 21,
+        "fontset": "mac"
+      }
+    },
+    {
+      "name": "text_artifacts",
+      "family": "visual",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {},
+      "skipped": true,
+      "note": "tesseract binary not installed (brew install tesseract, Apache-2.0); skipped"
+    },
+    {
+      "name": "near_duplicates",
+      "family": "visual",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "images": 11
+      }
+    },
+    {
+      "name": "chalk_density",
+      "family": "visual",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "scenes": [
+          {
+            "scene": 1,
+            "density": 0.387,
+            "top": 0.047,
+            "bottom": 1.508
+          },
+          {
+            "scene": 2,
+            "density": 0.43,
+            "top": 0.067,
+            "bottom": 1.221
+          },
+          {
+            "scene": 3,
+            "density": 0.335,
+            "top": 0.03,
+            "bottom": 1.081
+          },
+          {
+            "scene": 4,
+            "density": 0.322,
+            "top": 0.031,
+            "bottom": 1.349
+          },
+          {
+            "scene": 5,
+            "density": 0.225,
+            "top": 0.045,
+            "bottom": 0.954
+          },
+          {
+            "scene": 6,
+            "density": 0.034,
+            "top": 0.0,
+            "bottom": 0.0
+          },
+          {
+            "scene": 7,
+            "density": 0.207,
+            "top": 0.075,
+            "bottom": 1.332
+          },
+          {
+            "scene": 8,
+            "density": 0.252,
+            "top": 0.034,
+            "bottom": 1.876
+          },
+          {
+            "scene": 9,
+            "density": 0.397,
+            "top": 0.028,
+            "bottom": 1.505
+          },
+          {
+            "scene": 10,
+            "density": 0.392,
+            "top": 0.044,
+            "bottom": 1.034
+          },
+          {
+            "scene": 11,
+            "density": 0.32,
+            "top": 0.06,
+            "bottom": 1.346
+          }
+        ]
+      }
+    },
+    {
+      "name": "safe_zones",
+      "family": "visual",
+      "class": "warn",
+      "ok": false,
+      "issues": [
+        "scene 8: stroke energy in the caption zone (bottom 25%) 1.88 > p90 1.519"
+      ],
+      "data": {
+        "calibration": {
+          "top_p90": 0.111,
+          "bottom_p90": 1.519,
+          "n": 243
+        }
+      }
+    },
+    {
+      "name": "character_similarity",
+      "family": "visual",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "model_present": false
+      },
+      "skipped": true,
+      "note": "DINOv2 similarity is a human flag only; model not present locally and not downloaded"
+    }
+  ],
+  "contact_sheet": "/Users/ayushman/Desktop/work/shorts-studio/content/C0010/en/C0010-en.qa.png",
+  "manual_review_required": [
+    "character consistency",
+    "visual defects / wrong illustrations",
+    "storytelling quality",
+    "native-speaker listen for non-English"
+  ],
+  "created_at": "2026-11-18T14:38:43+0530",
+  "id": 118
+}
