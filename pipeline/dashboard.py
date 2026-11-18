@@ -20,7 +20,7 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import parse_qs, quote, urlsplit
 
-from . import DATA, ROOT, dashui, db, events, explain, monitor, notify
+from . import DATA, ROOT, dashui, db, events, explain, linkgist, monitor, notify
 
 PORT = 8765
 KEYFILE = ROOT / "secrets" / "dashboard.json"
@@ -847,9 +847,10 @@ class Tunnel:
         tmp.write_text(json.dumps(info, indent=2))
         os.chmod(tmp, 0o600)
         os.replace(tmp, URLFILE)
+        gist_ok = linkgist.sync(url, log) if linkgist.configured() else False
         if old.get("url") != url:
             log(f"tunnel address changed (was {'set' if old.get('url') else 'none'})")
-            if self.announce:
+            if self.announce and not gist_ok:
                 msg = link_message("new address" if old.get("url") else "now online")
                 if msg:
                     notify.enqueue_local("Dashboard link", msg, secret=True, kind="local")
@@ -882,6 +883,8 @@ class Tunnel:
                             break
                         if self.reachable(url, tries=1):
                             fails = 0
+                            if linkgist.configured() and not linkgist.synced(url):
+                                linkgist.sync(url, log)
                             info = read_url()
                             if info.get("url") == url:
                                 info["checked_at"] = db.now()

@@ -14,7 +14,7 @@ DRAIN_S = 5
 IDLE_S = 60
 HELP = ("<b>shorts-studio bot</b> (read-only)\n/status — health and what is running\n/overview — workspace counts\n/issues — open problems\n"
         "/queue — videos in production\n/uploads — YouTube queue, Instagram jobs, recent posts\n/timeline [C0006-hi] — recent events\n"
-        "/link — dashboard sign-in link\n/ack &lt;issue id&gt; — acknowledge an issue\nApprovals stay in the Claude chat.")
+        "/link — dashboard sign-in link\n/app — setup code for the phone app\n/ack &lt;issue id&gt; — acknowledge an issue\nApprovals stay in the Claude chat.")
 
 
 def log(msg):
@@ -165,6 +165,21 @@ def cmd_link(_args):
     return msg
 
 
+def cmd_app(_args):
+    from . import dashboard, linkgist
+
+    if not linkgist.configured():
+        return "The phone app is not set up yet: the GitHub gist token is missing on the Mac (secrets/github_gist.json)."
+    url = dashboard.read_url().get("url")
+    if url and not linkgist.synced(url):
+        linkgist.sync(url, log)
+    code = linkgist.setup_code(dashboard.keys()["login_key"])
+    if not code:
+        return "The address gist has not been created yet (the tunnel is not up). Try again in a minute."
+    return ("📱 <b>Chalk Dashboard app setup code</b>\nOpen the app once and paste this code. Do not forward it.\n\n"
+            f"<code>{esc(code)}</code>")
+
+
 def cmd_ack(args):
     if not args or not args[0].lstrip("#").isdigit():
         return "Usage: /ack 12"
@@ -183,7 +198,7 @@ def cmd_ack(args):
 
 
 COMMANDS = {"/status": cmd_status, "/overview": cmd_overview, "/issues": cmd_issues, "/queue": cmd_queue, "/uploads": cmd_uploads, "/timeline": cmd_timeline,
-            "/link": cmd_link, "/ack": cmd_ack}
+            "/link": cmd_link, "/app": cmd_app, "/ack": cmd_ack}
 
 
 def dispatch(text):
