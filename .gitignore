@@ -31,3 +31,4 @@ __pycache__/
 # Run logs and personal Claude settings
 content/**/*.log
 .claude/settings.local.json
+.vscode/

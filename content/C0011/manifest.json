@@ -241,6 +241,21 @@
       "history": [],
       "at": "2026-11-18T23:28:01+0530",
       "note": "owner in chat 2026-11-18: \"approved, publish tomorrow morning\""
+    },
+    "published:te": {
+      "status": "done",
+      "at": "2026-11-19T10:26:38+0530",
+      "note": "2026-11-19T11:00:00+05:30"
+    },
+    "published:hi": {
+      "status": "done",
+      "at": "2026-11-19T10:28:52+0530",
+      "note": "2026-11-19T11:30:00+05:30"
+    },
+    "published:en": {
+      "status": "done",
+      "at": "2026-11-19T10:30:47+0530",
+      "note": "2026-11-19T12:00:00+05:30"
     }
   },
   "kanda": "Bala Kanda",
