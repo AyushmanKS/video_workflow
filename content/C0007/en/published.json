@@ -1,0 +1,27 @@
+[
+  {
+    "video": "/Users/ayushman/Desktop/work/shorts-studio/content/C0007/en/C0007-en.mp4",
+    "platform": "youtube",
+    "id": "WTG5Skbh0vE",
+    "url": "https://www.youtube.com/shorts/WTG5Skbh0vE",
+    "privacy": "private",
+    "scheduled_for": "2026-11-21T16:00:00Z",
+    "time": "2026-11-21 10:50:54",
+    "verified": {
+      "privacy": "private",
+      "publishAt": "2026-11-21T16:00:00Z"
+    },
+    "playlist": "PLWVy3EI3zAVs",
+    "language_playlist": "PLIO6mtj9-ckQ",
+    "thumbnail": "set"
+  },
+  {
+    "video": "/Users/ayushman/Desktop/work/shorts-studio/content/C0007/en/C0007-en.mp4",
+    "platform": "instagram",
+    "id": "18127519729718691",
+    "url": "https://www.instagram.com/reel/DgCPx-YjvhY/",
+    "privacy": "public",
+    "media_product_type": "REELS",
+    "time": "2026-11-22T07:16:51+0000"
+  }
+]
