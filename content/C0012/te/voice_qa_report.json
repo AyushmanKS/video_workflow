@@ -1,0 +1,302 @@
+{
+  "video": null,
+  "kind": "audio",
+  "mp4_sha256": null,
+  "verdict": "warn",
+  "families": {
+    "story": {
+      "score": 91,
+      "pass": true,
+      "rejects": [],
+      "warns": [
+        "lint_hook"
+      ],
+      "checks": 11
+    },
+    "audio": {
+      "score": 100,
+      "pass": true,
+      "rejects": [],
+      "warns": [],
+      "checks": 3
+    }
+  },
+  "checks": [
+    {
+      "name": "lint_duration",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "estimate_s": 53.32,
+        "basis": "letters"
+      }
+    },
+    {
+      "name": "lint_hook",
+      "family": "story",
+      "class": "warn",
+      "ok": false,
+      "issues": [
+        "hook scene spoken 2.7 s > 2.2 s"
+      ],
+      "data": {}
+    },
+    {
+      "name": "lint_scene_count",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_scene_length",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_keywords",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_digits",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_quote_src",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_sources",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_edition",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_silences",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_visual_parity",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "narration_asr",
+      "family": "audio",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "scenes": [
+          {
+            "scene": 1,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "పుట్టని బిడ్డకు దేవతలు జడిశారు."
+          },
+          {
+            "scene": 2,
+            "cer": 0.087,
+            "length_ratio": 1.0,
+            "heard": "రాముని మూడు దారుల ప్రష్నకు ముని ఉమకత చెప్పారు."
+          },
+          {
+            "scene": 3,
+            "cer": 0.107,
+            "length_ratio": 0.93,
+            "heard": "రుద్రుడు ఉమను పెల్లాడి దివ్యమైన వందైలు కలిసి ఉన్నారు."
+          },
+          {
+            "scene": 4,
+            "cer": 0.031,
+            "length_ratio": 1.0,
+            "heard": "కొడుకు పుట్టలేదు. రాబోయే బిడ్డను ఎవరు తాళగలరని దేవతలు జడిసేరు."
+          },
+          {
+            "scene": 5,
+            "cer": 0.04,
+            "length_ratio": 0.96,
+            "heard": "లోకహితానికి తేజసును లోని నిలుపుమని రుద్రుని వేడారు."
+          },
+          {
+            "scene": 6,
+            "cer": 0.038,
+            "length_ratio": 0.96,
+            "heard": "రుద్రుడు సరే నని కదిలిన తేజసును భరించే దెవరన్నారు."
+          },
+          {
+            "scene": 7,
+            "cer": 0.111,
+            "length_ratio": 0.89,
+            "heard": "దేవతలు భూమిని చూపగా ఆ తేజసు కొండలో అడవులో నిండింది."
+          },
+          {
+            "scene": 8,
+            "cer": 0.071,
+            "length_ratio": 0.96,
+            "heard": "అగ్ని వాయువులు చేరగా అది తెల్లని పర్వతం రెల్లు వన మైంది."
+          },
+          {
+            "scene": 9,
+            "cer": 0.028,
+            "length_ratio": 1.0,
+            "heard": "కోరిన కొడుకు దక్కకా ఉమా దేవతల భార్యలకు సంతానం కలగదని కోపంతో సెపించింది."
+          },
+          {
+            "scene": 10,
+            "cer": 0.1,
+            "length_ratio": 1.0,
+            "heard": "బూమిని సేపించింది ఆమేకు పుత్రసుఖం దక్కదని."
+          },
+          {
+            "scene": 11,
+            "cer": 0.031,
+            "length_ratio": 1.0,
+            "heard": "రుద్రుడు ఉమతో హిమమంతుని చేరి తపించారు ఇక గంగ కథవినమన్నారు ముని"
+          }
+        ],
+        "transcripts": [
+          "whisper large-v3-turbo"
+        ]
+      },
+      "note": "CER is warn-only for this language until Indic ASR is validated"
+    },
+    {
+      "name": "speech_rate",
+      "family": "audio",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "reference_letters_per_s": 5.928,
+        "scenes": [
+          {
+            "scene": 1,
+            "seconds": 2.8,
+            "letters_per_s": 5.71,
+            "deviation": -0.037
+          },
+          {
+            "scene": 2,
+            "seconds": 4.0,
+            "letters_per_s": 5.75,
+            "deviation": -0.03
+          },
+          {
+            "scene": 3,
+            "seconds": 4.72,
+            "letters_per_s": 5.93,
+            "deviation": 0.0
+          },
+          {
+            "scene": 4,
+            "seconds": 5.28,
+            "letters_per_s": 6.06,
+            "deviation": 0.022
+          },
+          {
+            "scene": 5,
+            "seconds": 3.76,
+            "letters_per_s": 6.65,
+            "deviation": 0.122
+          },
+          {
+            "scene": 6,
+            "seconds": 3.68,
+            "letters_per_s": 7.07,
+            "deviation": 0.193
+          },
+          {
+            "scene": 7,
+            "seconds": 4.64,
+            "letters_per_s": 5.82,
+            "deviation": -0.018
+          },
+          {
+            "scene": 8,
+            "seconds": 4.88,
+            "letters_per_s": 5.74,
+            "deviation": -0.032
+          },
+          {
+            "scene": 9,
+            "seconds": 6.64,
+            "letters_per_s": 5.42,
+            "deviation": -0.086
+          },
+          {
+            "scene": 10,
+            "seconds": 3.44,
+            "letters_per_s": 5.81,
+            "deviation": -0.02
+          },
+          {
+            "scene": 11,
+            "seconds": 5.36,
+            "letters_per_s": 5.97,
+            "deviation": 0.007
+          }
+        ]
+      }
+    },
+    {
+      "name": "speaker_consistency",
+      "family": "audio",
+      "class": "reject",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "windows": 23,
+        "window_median": 0.735,
+        "window_min": 0.609,
+        "scene_min": 0.711,
+        "median_f0": 186,
+        "calibration": "2026-11-16: 2.5s windows — consistent voice min 0.61 / known-mixed median 0.46 (50% < 0.5); 1s clips are unreliable (same voice down to 0.57)"
+      }
+    }
+  ],
+  "contact_sheet": null,
+  "manual_review_required": [
+    "character consistency",
+    "visual defects / wrong illustrations",
+    "storytelling quality",
+    "native-speaker listen for non-English"
+  ],
+  "created_at": "2026-11-23T17:11:05+0530",
+  "id": 137
+}

@@ -1,0 +1,116 @@
+[
+  {
+    "text": "देव एका अजन्म्या बाळाला घाबरले.",
+    "type": "contradiction / forbidden detail",
+    "spoken_s": 2.65,
+    "scores": {
+      "curiosity": 5,
+      "emotion": 4,
+      "specificity": 4,
+      "speed": 5,
+      "resonance": 5,
+      "accuracy": 5
+    },
+    "total": 28,
+    "selected": true,
+    "visual_hook": true,
+    "hook_to_payoff": "Main loop (why did the gods fear a child, and what became of it?) turns at the verse card (scene 5, the gods beg Rudra to hold his power within, 1.36.11), answers the fear in scenes 6–8 (Rudra agrees; the Earth bears what has stirred; Agni and Vayu make it the white mountain and the reed forest, 1.36.12–18) and closes at scenes 9–10, when Uma, denied the son she longed for, curses the gods and the Earth (1.36.20–24), at about 87–90% of runtime. Scene 11 (Rudra's tapas and the sage's turn to the Ganga, 1.36.25–27) opens the next question; it is not counted as the payoff.",
+    "reasoning": "Selected: highest total. A stake the viewer feels at once (the all-powerful gods afraid) built on a gap only the story can close (what child, and why fear it?). True to 1.36.7–8: the gods, led by Brahma, ask who could withstand the being that would be born (कस्तत् प्रतिसहिष्यति). It opens the main loop without leading on the union or the curse, which keeps the sensitivity plan intact. Frame 0 (dimmed orbs of the gods hovering before Rudra's calm silhouette on a night summit) reads muted as 'the gods before a great power'.",
+    "speed_rule": "speed score from the lint estimate: >3.0 s = 1 (fails the hard limit), 2.8–3.0 s = 4, ≤2.8 s = 5"
+  },
+  {
+    "text": "उमेने सगळ्या देवांना शाप दिला.",
+    "type": "bold claim",
+    "spoken_s": 2.32,
+    "scores": {
+      "curiosity": 4,
+      "emotion": 4,
+      "specificity": 4,
+      "speed": 5,
+      "resonance": 5,
+      "accuracy": 5
+    },
+    "total": 27,
+    "selected": false,
+    "visual_hook": false,
+    "hook_to_payoff": "",
+    "reasoning": "True (1.36.21, सर्वान्) and strong, but it leads with the most sensitive beat, out of story order, and the sensitivity plan asks that Uma's curse be told with dignity, not used as bait. Kept for the owner's choice.",
+    "speed_rule": "speed score from the lint estimate: >3.0 s = 1 (fails the hard limit), 2.8–3.0 s = 4, ≤2.8 s = 5"
+  },
+  {
+    "text": "उमेने देवांना शाप का दिला?",
+    "type": "question",
+    "spoken_s": 1.82,
+    "scores": {
+      "curiosity": 4,
+      "emotion": 3,
+      "specificity": 3,
+      "speed": 5,
+      "resonance": 4,
+      "accuracy": 5
+    },
+    "total": 24,
+    "selected": false,
+    "visual_hook": false,
+    "hook_to_payoff": "",
+    "reasoning": "Accurate and short, but a plain question about the curse; the same sensitivity concern as the bold claim, with a weaker stake.",
+    "speed_rule": "speed score from the lint estimate: >3.0 s = 1 (fails the hard limit), 2.8–3.0 s = 4, ≤2.8 s = 5"
+  },
+  {
+    "text": "दिव्य शंभर वर्षे गेली, पण पुत्र झाला नाही.",
+    "type": "number",
+    "spoken_s": 3.31,
+    "scores": {
+      "curiosity": 3,
+      "emotion": 3,
+      "specificity": 5,
+      "speed": 1,
+      "resonance": 3,
+      "accuracy": 5
+    },
+    "total": 20,
+    "selected": false,
+    "visual_hook": false,
+    "hook_to_payoff": "",
+    "reasoning": "Specific (दिव्यं वर्षशतम्, 1.36.6) but it points at the union, which the plan keeps in the background, and the fear is not yet felt.",
+    "speed_rule": "speed score from the lint estimate: >3.0 s = 1 (fails the hard limit), 2.8–3.0 s = 4, ≤2.8 s = 5"
+  },
+  {
+    "text": "देवांनी रुद्रांना तेज रोखण्याची विनंती केली.",
+    "type": "request with a twist",
+    "spoken_s": 3.15,
+    "scores": {
+      "curiosity": 4,
+      "emotion": 4,
+      "specificity": 4,
+      "speed": 1,
+      "resonance": 4,
+      "accuracy": 5
+    },
+    "total": 22,
+    "selected": false,
+    "visual_hook": false,
+    "hook_to_payoff": "",
+    "reasoning": "True to 1.36.9–11 and a real twist (the gods asking a god to hold back), but less immediate than the fear itself; close to the speed limit.",
+    "speed_rule": "speed score from the lint estimate: >3.0 s = 1 (fails the hard limit), 2.8–3.0 s = 4, ≤2.8 s = 5"
+  },
+  {
+    "text": "गंगेचे तीन मार्ग कसे झाले?",
+    "type": "question (Ep10 teaser payoff)",
+    "spoken_s": 1.99,
+    "scores": {
+      "curiosity": 3,
+      "emotion": 2,
+      "specificity": 4,
+      "speed": 5,
+      "resonance": 4,
+      "accuracy": 5
+    },
+    "total": 23,
+    "selected": false,
+    "visual_hook": true,
+    "hook_to_payoff": "",
+    "reasoning": "Pays off the Ep10 card directly, but this episode does not answer it (the sage tells Uma's story first; the Ganga's part is sarga 37), so the main loop could not close by 85–90%. Scene 2 pays off the card instead.",
+    "speed_rule": "speed score from the lint estimate: >3.0 s = 1 (fails the hard limit), 2.8–3.0 s = 4, ≤2.8 s = 5"
+  }
+]

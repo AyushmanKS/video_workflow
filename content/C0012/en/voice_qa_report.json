@@ -1,0 +1,302 @@
+{
+  "video": null,
+  "kind": "audio",
+  "mp4_sha256": null,
+  "verdict": "warn",
+  "families": {
+    "story": {
+      "score": 91,
+      "pass": true,
+      "rejects": [],
+      "warns": [
+        "lint_hook"
+      ],
+      "checks": 11
+    },
+    "audio": {
+      "score": 100,
+      "pass": true,
+      "rejects": [],
+      "warns": [],
+      "checks": 3
+    }
+  },
+  "checks": [
+    {
+      "name": "lint_duration",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "estimate_s": 54.31,
+        "basis": "letters"
+      }
+    },
+    {
+      "name": "lint_hook",
+      "family": "story",
+      "class": "warn",
+      "ok": false,
+      "issues": [
+        "hook scene spoken 2.7 s > 2.2 s"
+      ],
+      "data": {}
+    },
+    {
+      "name": "lint_scene_count",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_scene_length",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_keywords",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_digits",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_quote_src",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_sources",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_edition",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_silences",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_visual_parity",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "narration_asr",
+      "family": "audio",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "scenes": [
+          {
+            "scene": 1,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "The gods once feared a child, not yet born."
+          },
+          {
+            "scene": 2,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "Rama asked of the three paths and the sage began with Uma."
+          },
+          {
+            "scene": 3,
+            "cer": 0.0,
+            "length_ratio": 1.02,
+            "heard": "Rudra and Umar were wed and dwelt as one for a hundred years of the gods."
+          },
+          {
+            "scene": 4,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "Yet no son came, and the gods wondered who could withstand the child to come."
+          },
+          {
+            "scene": 5,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "They begged Rudra to hold his power within for the good of the three worlds."
+          },
+          {
+            "scene": 6,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "Rudra agreed, but asked who would bear the power already stirred."
+          },
+          {
+            "scene": 7,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "The gods chose the earth and his power spread over hills and woods."
+          },
+          {
+            "scene": 8,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "Agni entered it with the wind, and it became a white mountain and a reed forest."
+          },
+          {
+            "scene": 9,
+            "cer": 0.014,
+            "length_ratio": 1.0,
+            "heard": "Denied the sun she longed for, Uma cursed the gods in anger. Their wives would bear no child."
+          },
+          {
+            "scene": 10,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "And she cursed the earth never to know the joy of a son."
+          },
+          {
+            "scene": 11,
+            "cer": 0.062,
+            "length_ratio": 1.0,
+            "heard": "Rudra went with Umatahimavan for Tupus. Now, said the sage, hear the Gunga's tale."
+          }
+        ],
+        "transcripts": [
+          "whisper small"
+        ]
+      },
+      "note": "digits vs number-words and Whisper spelling quirks inflate CER; review flagged scenes by ear"
+    },
+    {
+      "name": "speech_rate",
+      "family": "audio",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "reference_letters_per_s": 12.04,
+        "scenes": [
+          {
+            "scene": 1,
+            "seconds": 2.92,
+            "letters_per_s": 11.28,
+            "deviation": -0.063
+          },
+          {
+            "scene": 2,
+            "seconds": 4.03,
+            "letters_per_s": 11.43,
+            "deviation": -0.051
+          },
+          {
+            "scene": 3,
+            "seconds": 5.03,
+            "letters_per_s": 11.14,
+            "deviation": -0.075
+          },
+          {
+            "scene": 4,
+            "seconds": 4.8,
+            "letters_per_s": 12.71,
+            "deviation": 0.056
+          },
+          {
+            "scene": 5,
+            "seconds": 4.58,
+            "letters_per_s": 13.33,
+            "deviation": 0.107
+          },
+          {
+            "scene": 6,
+            "seconds": 4.05,
+            "letters_per_s": 13.09,
+            "deviation": 0.087
+          },
+          {
+            "scene": 7,
+            "seconds": 4.17,
+            "letters_per_s": 12.93,
+            "deviation": 0.074
+          },
+          {
+            "scene": 8,
+            "seconds": 5.1,
+            "letters_per_s": 12.35,
+            "deviation": 0.026
+          },
+          {
+            "scene": 9,
+            "seconds": 5.83,
+            "letters_per_s": 12.53,
+            "deviation": 0.041
+          },
+          {
+            "scene": 10,
+            "seconds": 3.6,
+            "letters_per_s": 11.94,
+            "deviation": -0.008
+          },
+          {
+            "scene": 11,
+            "seconds": 5.72,
+            "letters_per_s": 11.18,
+            "deviation": -0.071
+          }
+        ]
+      }
+    },
+    {
+      "name": "speaker_consistency",
+      "family": "audio",
+      "class": "reject",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "windows": 24,
+        "window_median": 0.724,
+        "window_min": 0.637,
+        "scene_min": 0.708,
+        "median_f0": 199,
+        "calibration": "2026-11-16: 2.5s windows — consistent voice min 0.61 / known-mixed median 0.46 (50% < 0.5); 1s clips are unreliable (same voice down to 0.57)"
+      }
+    }
+  ],
+  "contact_sheet": null,
+  "manual_review_required": [
+    "character consistency",
+    "visual defects / wrong illustrations",
+    "storytelling quality",
+    "native-speaker listen for non-English"
+  ],
+  "created_at": "2026-11-23T17:03:26+0530",
+  "id": 134
+}

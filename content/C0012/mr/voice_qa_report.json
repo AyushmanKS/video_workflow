@@ -1,0 +1,306 @@
+{
+  "video": null,
+  "kind": "audio",
+  "mp4_sha256": null,
+  "verdict": "warn",
+  "families": {
+    "story": {
+      "score": 91,
+      "pass": true,
+      "rejects": [],
+      "warns": [
+        "lint_hook"
+      ],
+      "checks": 11
+    },
+    "audio": {
+      "score": 75,
+      "pass": false,
+      "rejects": [],
+      "warns": [
+        "narration_asr"
+      ],
+      "checks": 3
+    }
+  },
+  "checks": [
+    {
+      "name": "lint_duration",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "estimate_s": 54.41,
+        "basis": "letters"
+      }
+    },
+    {
+      "name": "lint_hook",
+      "family": "story",
+      "class": "warn",
+      "ok": false,
+      "issues": [
+        "hook scene spoken 2.6 s > 2.2 s"
+      ],
+      "data": {}
+    },
+    {
+      "name": "lint_scene_count",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_scene_length",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_keywords",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_digits",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_quote_src",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_sources",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_edition",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_silences",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_visual_parity",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "narration_asr",
+      "family": "audio",
+      "class": "warn",
+      "ok": false,
+      "issues": [
+        "scene 11: CER 0.152 length ratio 1.0 (warn) — listen and regenerate if mispronounced"
+      ],
+      "data": {
+        "scenes": [
+          {
+            "scene": 1,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "देव एका अजन्म्या बाळाला घबर ले।"
+          },
+          {
+            "scene": 2,
+            "cer": 0.143,
+            "length_ratio": 0.96,
+            "heard": "रामाचा तीन मारगांचा प्रश्णावर रुषिन्नी उमेची कथा छेडली।"
+          },
+          {
+            "scene": 3,
+            "cer": 0.069,
+            "length_ratio": 1.0,
+            "heard": "रुद्राचा उमेशी विवाह जाला, आणी दिव्य शंभर वर्षे सोगत राहीले।"
+          },
+          {
+            "scene": 4,
+            "cer": 0.143,
+            "length_ratio": 1.0,
+            "heard": "पुत्र जाला नहीं, तरी देव घाबरले की येनार्या बालाला कोण सोसेल।"
+          },
+          {
+            "scene": 5,
+            "cer": 0.12,
+            "length_ratio": 1.04,
+            "heard": "देवान्नी विनवले लोकिता साथी रुद्रान्नी तेज आतस धरावे।"
+          },
+          {
+            "scene": 6,
+            "cer": 0.077,
+            "length_ratio": 1.04,
+            "heard": "रुद्र तयार जाले, पण विच्चारले कि जागलेले तेज कोंड धरेल।"
+          },
+          {
+            "scene": 7,
+            "cer": 0.036,
+            "length_ratio": 1.07,
+            "heard": "देवाननी प्रुथ्वी निवडली आणी तेज तीचा डोंगर वनान्वर पसरले।"
+          },
+          {
+            "scene": 8,
+            "cer": 0.069,
+            "length_ratio": 0.97,
+            "heard": "अग्नी ववायू ताच शिर्ताच ते श्वेत परवत्व बोरुवन बनले।"
+          },
+          {
+            "scene": 9,
+            "cer": 0.073,
+            "length_ratio": 0.95,
+            "heard": "इच्छित पुत्रापासून वंचित उमेने रागाने देवानना शापले कि तैंचा पत्नी नी संतान रहती।"
+          },
+          {
+            "scene": 10,
+            "cer": 0.045,
+            "length_ratio": 1.05,
+            "heard": "प्रुत्वी लाही शापले कि तिला पुत्र सुखलाभणार नहीं।"
+          },
+          {
+            "scene": 11,
+            "cer": 0.152,
+            "length_ratio": 1.0,
+            "heard": "रुद्र उमेसह हिम्बानावर्त पाला गिले। रुशी महनाले आता गंगीची कथा एका।"
+          }
+        ],
+        "transcripts": [
+          "whisper large-v3-turbo"
+        ]
+      },
+      "note": "CER is warn-only for this language until Indic ASR is validated"
+    },
+    {
+      "name": "speech_rate",
+      "family": "audio",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "reference_letters_per_s": 6.037,
+        "scenes": [
+          {
+            "scene": 1,
+            "seconds": 2.48,
+            "letters_per_s": 6.45,
+            "deviation": 0.068
+          },
+          {
+            "scene": 2,
+            "seconds": 3.92,
+            "letters_per_s": 7.14,
+            "deviation": 0.183
+          },
+          {
+            "scene": 3,
+            "seconds": 4.64,
+            "letters_per_s": 6.25,
+            "deviation": 0.035
+          },
+          {
+            "scene": 4,
+            "seconds": 4.4,
+            "letters_per_s": 6.36,
+            "deviation": 0.054
+          },
+          {
+            "scene": 5,
+            "seconds": 4.64,
+            "letters_per_s": 5.39,
+            "deviation": -0.107
+          },
+          {
+            "scene": 6,
+            "seconds": 4.4,
+            "letters_per_s": 5.91,
+            "deviation": -0.021
+          },
+          {
+            "scene": 7,
+            "seconds": 4.56,
+            "letters_per_s": 6.14,
+            "deviation": 0.017
+          },
+          {
+            "scene": 8,
+            "seconds": 4.88,
+            "letters_per_s": 5.94,
+            "deviation": -0.016
+          },
+          {
+            "scene": 9,
+            "seconds": 6.0,
+            "letters_per_s": 6.83,
+            "deviation": 0.131
+          },
+          {
+            "scene": 10,
+            "seconds": 3.52,
+            "letters_per_s": 6.25,
+            "deviation": 0.035
+          },
+          {
+            "scene": 11,
+            "seconds": 5.44,
+            "letters_per_s": 6.07,
+            "deviation": 0.005
+          }
+        ]
+      }
+    },
+    {
+      "name": "speaker_consistency",
+      "family": "audio",
+      "class": "reject",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "windows": 21,
+        "window_median": 0.733,
+        "window_min": 0.646,
+        "scene_min": 0.75,
+        "median_f0": 189,
+        "calibration": "2026-11-16: 2.5s windows — consistent voice min 0.61 / known-mixed median 0.46 (50% < 0.5); 1s clips are unreliable (same voice down to 0.57)"
+      }
+    }
+  ],
+  "contact_sheet": null,
+  "manual_review_required": [
+    "character consistency",
+    "visual defects / wrong illustrations",
+    "storytelling quality",
+    "native-speaker listen for non-English"
+  ],
+  "created_at": "2026-11-23T17:49:14+0530",
+  "id": 138
+}

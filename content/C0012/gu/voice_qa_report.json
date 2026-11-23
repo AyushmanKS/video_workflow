@@ -1,0 +1,306 @@
+{
+  "video": null,
+  "kind": "audio",
+  "mp4_sha256": null,
+  "verdict": "warn",
+  "families": {
+    "story": {
+      "score": 91,
+      "pass": true,
+      "rejects": [],
+      "warns": [
+        "lint_hook"
+      ],
+      "checks": 11
+    },
+    "audio": {
+      "score": 75,
+      "pass": false,
+      "rejects": [],
+      "warns": [
+        "narration_asr"
+      ],
+      "checks": 3
+    }
+  },
+  "checks": [
+    {
+      "name": "lint_duration",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "estimate_s": 52.1,
+        "basis": "letters"
+      }
+    },
+    {
+      "name": "lint_hook",
+      "family": "story",
+      "class": "warn",
+      "ok": false,
+      "issues": [
+        "hook scene spoken 2.6 s > 2.2 s"
+      ],
+      "data": {}
+    },
+    {
+      "name": "lint_scene_count",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_scene_length",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_keywords",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_digits",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_quote_src",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_sources",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_edition",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_silences",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_visual_parity",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "narration_asr",
+      "family": "audio",
+      "class": "warn",
+      "ok": false,
+      "issues": [
+        "scene 11: CER 0.167 length ratio 0.97 (warn) — listen and regenerate if mispronounced"
+      ],
+      "data": {
+        "scenes": [
+          {
+            "scene": 1,
+            "cer": 0.067,
+            "length_ratio": 1.0,
+            "heard": "દેવો અજિણમાં બાળકથી ડરતા હતા."
+          },
+          {
+            "scene": 2,
+            "cer": 0.083,
+            "length_ratio": 1.0,
+            "heard": "રામના ત્રોણ માર્ગના પ્રશ્ને રુશીએ ઉમાની કથા માડી"
+          },
+          {
+            "scene": 3,
+            "cer": 0.042,
+            "length_ratio": 0.96,
+            "heard": "રુદ્રા અને ઉમા પરણ્યા ને દિવ્ય સો વર સાથે રહ્યા"
+          },
+          {
+            "scene": 4,
+            "cer": 0.037,
+            "length_ratio": 0.96,
+            "heard": "પુત્ર ન થયો છતા દેવો ડર્યા કે આવનાર બાળકને કોણ ખંશે"
+          },
+          {
+            "scene": 5,
+            "cer": 0.125,
+            "length_ratio": 1.0,
+            "heard": "દેવોઈ વિનંતી કરીકે લોખીતે રૂદ્ર તેજ ભીતર રજ રાખે."
+          },
+          {
+            "scene": 6,
+            "cer": 0.045,
+            "length_ratio": 1.0,
+            "heard": "રુદ્રમાન્ય પણ પુછ્યું કે જાગેલું તેજ કોણ જીલ શે"
+          },
+          {
+            "scene": 7,
+            "cer": 0.077,
+            "length_ratio": 1.0,
+            "heard": "દેવોઈ ઘર્તી પસંદ કરી, ને તેજ તેના પરવત વનમાં ફેલાયું."
+          },
+          {
+            "scene": 8,
+            "cer": 0.103,
+            "length_ratio": 1.0,
+            "heard": "અગ્નિવાયુ તેમાં પ્રવેશ્ય તોતે શ્વેદ પરવતને બરુવણ બણ્યુ"
+          },
+          {
+            "scene": 9,
+            "cer": 0.054,
+            "length_ratio": 1.0,
+            "heard": "ઇચ્છિત પુત્રથી વંચિત ઉ�માયે ક્રોધે દેવોને શાપ્યા કે તેમી પત્નીઓ નીહિ સંતાન રહે."
+          },
+          {
+            "scene": 10,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "ધર્તીને પણ શાપ આપ્યો કે તેને પુત્રસુખ ન મળે."
+          },
+          {
+            "scene": 11,
+            "cer": 0.167,
+            "length_ratio": 0.97,
+            "heard": "રુદ્ર ઉમાસંગ હિંબાને તપે બેઠા રુશી બોલ્યા હવે ગંગાની કથા સાંબળો"
+          }
+        ],
+        "transcripts": [
+          "whisper large-v3-turbo"
+        ]
+      },
+      "note": "CER is warn-only for this language until Indic ASR is validated"
+    },
+    {
+      "name": "speech_rate",
+      "family": "audio",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "reference_letters_per_s": 5.808,
+        "scenes": [
+          {
+            "scene": 1,
+            "seconds": 2.64,
+            "letters_per_s": 5.68,
+            "deviation": -0.022
+          },
+          {
+            "scene": 2,
+            "seconds": 4.0,
+            "letters_per_s": 6.0,
+            "deviation": 0.033
+          },
+          {
+            "scene": 3,
+            "seconds": 4.88,
+            "letters_per_s": 4.92,
+            "deviation": -0.153
+          },
+          {
+            "scene": 4,
+            "seconds": 4.88,
+            "letters_per_s": 5.53,
+            "deviation": -0.048
+          },
+          {
+            "scene": 5,
+            "seconds": 4.24,
+            "letters_per_s": 5.66,
+            "deviation": -0.025
+          },
+          {
+            "scene": 6,
+            "seconds": 4.08,
+            "letters_per_s": 5.39,
+            "deviation": -0.072
+          },
+          {
+            "scene": 7,
+            "seconds": 4.08,
+            "letters_per_s": 6.37,
+            "deviation": 0.097
+          },
+          {
+            "scene": 8,
+            "seconds": 4.56,
+            "letters_per_s": 6.36,
+            "deviation": 0.095
+          },
+          {
+            "scene": 9,
+            "seconds": 6.24,
+            "letters_per_s": 5.93,
+            "deviation": 0.021
+          },
+          {
+            "scene": 10,
+            "seconds": 3.76,
+            "letters_per_s": 5.85,
+            "deviation": 0.007
+          },
+          {
+            "scene": 11,
+            "seconds": 5.6,
+            "letters_per_s": 5.36,
+            "deviation": -0.077
+          }
+        ]
+      }
+    },
+    {
+      "name": "speaker_consistency",
+      "family": "audio",
+      "class": "reject",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "windows": 23,
+        "window_median": 0.696,
+        "window_min": 0.581,
+        "scene_min": 0.706,
+        "median_f0": 180,
+        "calibration": "2026-11-16: 2.5s windows — consistent voice min 0.61 / known-mixed median 0.46 (50% < 0.5); 1s clips are unreliable (same voice down to 0.57)"
+      }
+    }
+  ],
+  "contact_sheet": null,
+  "manual_review_required": [
+    "character consistency",
+    "visual defects / wrong illustrations",
+    "storytelling quality",
+    "native-speaker listen for non-English"
+  ],
+  "created_at": "2026-11-23T17:07:18+0530",
+  "id": 136
+}

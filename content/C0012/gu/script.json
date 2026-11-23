@@ -1,0 +1,440 @@
+{
+  "title": "જે બાળકથી દેવો ડર્યા | રામાયણ ભાગ 11",
+  "topic": "Vishvamitra answers Rama's question about the river of three paths by first telling Uma's story: Rudra and Uma wed and dwell as one for a hundred divine years with no son; the gods, fearing a child of such power, beg Rudra to hold his energy within; the Earth receives what has stirred, Agni and Vayu enter it and it becomes the white mountain and the reed forest; Uma, denied a son, curses the gods and the Earth; Rudra and Uma go to Himavan for tapas (Valmiki Ramayana 1.36.1–27; teaser 1.36.27)",
+  "style": "chalk",
+  "language": "gu",
+  "character": "",
+  "engine_version": 3,
+  "edition": "vulgate (southern recension), sa.wikisource; verse numbers cross-checked on valmikiramayan.net (Internet Archive copy)",
+  "scenes": [
+    {
+      "narration": "દેવો અજન્મા બાળકથી ડરતા હતા.",
+      "keywords": [
+        "અજન્મા",
+        "બાળકથી"
+      ],
+      "emphasis": "",
+      "pause": 0.18,
+      "sfx": [
+        {
+          "name": "impact"
+        },
+        {
+          "name": "wind"
+        }
+      ],
+      "melody": "intro",
+      "swell": true,
+      "visual": "the whole top third of the frame left as plain empty dark chalkboard, a high snowy Himalayan summit at night under a few faint stars, {rudra_symbol} drawn large in the lower right foreground, about half the frame height, seated cross-legged on a broad flat snowy rock in three-quarter side view facing left, both hands resting on his knees, open dark board all around his head, topknot, crescent moon and the three prongs of the trident, on the left side of the frame {devas_light} hovering low at the height of his shoulders, drawn small and softly dimmed, each orb with open dark board around it, a wide band of plain dark board between the orbs and Rudra, the snowy ridges staying below the top third of the frame, vertical composition, subject in the center of the frame, open dark chalkboard space at the top, lower quarter of the frame plain dark chalkboard",
+      "shot": "WS",
+      "move": "push",
+      "accent": "divine",
+      "seed": 12001
+    },
+    {
+      "narration": "રામના ત્રણ માર્ગના પ્રશ્ને ઋષિએ ઉમાની કથા માંડી.",
+      "keywords": [
+        "ત્રણ",
+        "ઉમાની"
+      ],
+      "emphasis": "ગંગાને કાંઠે",
+      "pause": 0.18,
+      "sfx": [
+        {
+          "name": "river"
+        }
+      ],
+      "melody": "calm",
+      "quote_src": "VR 1.36.1–5 (vulgate)",
+      "visual": "the whole top third of the frame left as plain empty dark chalkboard, a quiet camp on the sandy bank of the broad Ganga river in calm evening light, {vishvamitra} with dark hair streaked with grey tied in a topknot, a dark beard and a red tilak on his forehead, with exactly two arms, seated cross-legged on the right in three-quarter view facing left and speaking, his right hand raised beside his shoulder with the palm open in a teaching gesture, held clear of his beard and body against open dark board, his left hand resting on his knee, his wooden staff lying flat on the sand in front of him, on the left {rama_teen} and {lakshmana_teen} each with exactly two arms seated cross-legged side by side in three-quarter back view with a clear gap of open sand between them, listening, their faces turned toward the sage and hidden from the viewer, their hands resting on their knees, their two bows and Lakshmana's quiver lying flat on the sand beside them, clear of their backs and heads, a wide gap of open sand between the princes and the sage, the calm river and a low far bank behind them, the river drawn as plain flowing water, vertical composition, subject in the center of the frame, open dark chalkboard space at the top, lower quarter of the frame plain dark chalkboard",
+      "shot": "WS",
+      "move": "pull",
+      "transition": "erase",
+      "accent": "divine",
+      "seed": 12102
+    },
+    {
+      "narration": "રુદ્ર અને ઉમા પરણ્યાં, ને દિવ્ય સો વરસ સાથે રહ્યાં.",
+      "keywords": [
+        "પરણ્યાં,",
+        "સો"
+      ],
+      "emphasis": "રુદ્ર અને ઉમા",
+      "pause": 0.18,
+      "sfx": [
+        {
+          "name": "wind"
+        }
+      ],
+      "melody": "love",
+      "visual": "the whole top third of the frame left as plain empty dark chalkboard, symbolic scene, the broad snowy summit of a Himalayan peak under a calm night sky, two soft round glows of light resting on the summit well apart from each other, one pale silver-white and one warm golden, each glow with open dark board all around it, above the summit a wide gentle arc of eleven small moons in their phases, from a thin crescent to full and back to a crescent, marking the passing years, the arc of moons kept just below the top third of the frame, landscape and lights only, vertical composition, subject in the center of the frame, open dark chalkboard space at the top, lower quarter of the frame plain dark chalkboard",
+      "shot": "EWS",
+      "move": "static",
+      "transition": "dust",
+      "accent": "divine",
+      "seed": 12003
+    },
+    {
+      "narration": "પુત્ર ન થયો, છતાં દેવો ડર્યા કે આવનાર બાળકને કોણ ખમશે.",
+      "keywords": [
+        "પુત્ર",
+        "ખમશે."
+      ],
+      "emphasis": "",
+      "pause": 0.5,
+      "sfx": [
+        {
+          "name": "bell"
+        }
+      ],
+      "melody": "rise",
+      "swell": true,
+      "visual": "the whole top third of the frame left as plain empty dark chalkboard, symbolic scene, high in the dark sky above the mountains, {brahma_light} floating on the right at mid height, {devas_light} gathered on the left in a loose cluster just behind it, drawn softly dimmed, each orb with open dark board around it, a band of open dark board between the lotus and the orbs, far below them a broad snowy summit with a faint silver and golden glow resting on it, the summit staying in the lower half of the frame, lights and landscape only, vertical composition, subject in the center of the frame, open dark chalkboard space at the top, lower quarter of the frame plain dark chalkboard",
+      "shot": "WS",
+      "move": {
+        "type": "truck",
+        "dir": "left"
+      },
+      "transition": "cut",
+      "accent": "divine",
+      "overlay": [
+        "godrays"
+      ],
+      "seed": 12004
+    },
+    {
+      "narration": "દેવોએ વિનંતી કરી કે લોકહિતે રુદ્ર તેજ ભીતર જ રાખે.",
+      "keywords": [
+        "લોકહિતે",
+        "તેજ"
+      ],
+      "emphasis": "",
+      "pause": 0.5,
+      "sfx": [],
+      "quote_src": "VR 1.36.11 (vulgate)",
+      "visual": "the verse written in chalk",
+      "kind": "verse",
+      "tone": "awe",
+      "pacing": "slow",
+      "devanagari": [
+        "ત્રૈલોક્યહિતકામાર્થં",
+        "તેજસ્તેજસિ ધારય।",
+        "રક્ષ સર્વાનિમાઁલ્લોકાન્",
+        "નાલોકં કર્તુમર્હસિ॥"
+      ],
+      "source": "વાલ્મીકિ રામાયણ 1.36.11 (દાક્ષિણાત્ય પાઠ)",
+      "edition": "vulgate (sa.wikisource)"
+    },
+    {
+      "narration": "રુદ્ર માન્યા, પણ પૂછ્યું કે જાગેલું તેજ કોણ ઝીલશે.",
+      "keywords": [
+        "જાગેલું",
+        "ઝીલશે."
+      ],
+      "emphasis": "",
+      "pause": 0.18,
+      "sfx": [
+        {
+          "name": "wind"
+        }
+      ],
+      "melody": "rise",
+      "quote_src": "VR 1.36.12–14 (vulgate)",
+      "visual": "the whole top third of the frame left as plain empty dark chalkboard, {rudra_symbol} drawn large in the centre of the frame, shown from the knees up, seated cross-legged on the snowy summit in three-quarter side view facing left, his crossed legs and both hands resting on his knees fully visible, open dark board all around his head, topknot, crescent moon and the three prongs of the trident, high on the left in the open dark sky a soft blaze of white light gathering like a bright star with short rays, well apart from his head and the trident, below the blaze on the far left {devas_light} hovering at the height of his shoulders, a wide band of open dark board between the orbs, the blaze and Rudra, vertical composition, subject in the center of the frame, open dark chalkboard space at the top, lower quarter of the frame plain dark chalkboard",
+      "shot": "WS",
+      "move": "push",
+      "transition": "cut",
+      "accent": "divine",
+      "seed": 12106
+    },
+    {
+      "narration": "દેવોએ ધરતી પસંદ કરી, ને તેજ તેના પર્વત-વનમાં ફેલાયું.",
+      "keywords": [
+        "ધરતી",
+        "ફેલાયું."
+      ],
+      "emphasis": "",
+      "pause": 0.18,
+      "sfx": [
+        {
+          "name": "rumble"
+        },
+        {
+          "name": "wind"
+        }
+      ],
+      "melody": "rise",
+      "swell": true,
+      "quote_src": "VR 1.36.15 (vulgate)",
+      "visual": "the whole top third of the frame left as plain empty dark chalkboard, symbolic scene, high angle view of {prithvi_land}, a tall column of soft white light descending gently from the dark sky onto the centre of the land and settling outward over the hills and forests as a glowing white haze, open dark board around the upper part of the column, a few tall trees in the foreground standing well apart with open board around their crowns, landscape and light only, vertical composition, subject in the center of the frame, open dark chalkboard space at the top, lower quarter of the frame plain dark chalkboard",
+      "shot": "EWS",
+      "angle": "high",
+      "move": "tilt",
+      "transition": "erase",
+      "accent": "default",
+      "overlay": [
+        "godrays"
+      ],
+      "seed": 12107
+    },
+    {
+      "narration": "અગ્નિ-વાયુ તેમાં પ્રવેશ્યા, તો તે શ્વેત પર્વત ને બરુવન બન્યું.",
+      "keywords": [
+        "શ્વેત",
+        "બરુવન"
+      ],
+      "emphasis": "શ્વેત પર્વત",
+      "pause": 0.18,
+      "sfx": [
+        {
+          "name": "fire"
+        },
+        {
+          "name": "wind"
+        }
+      ],
+      "melody": "rise",
+      "swell": true,
+      "visual": "the whole top third of the frame left as plain empty dark chalkboard, symbolic scene, {shvetaparvata_sharavana} in the centre of the frame, the white mountain's peak staying below the top third, on the left {agni_light} with a wide ring of open dark board all around the flame and its halo, on the right {vayu_wind} sweeping in toward the mountain, a band of open dark board between the flame, the wind and the mountain, the reed tops standing apart against open board, landscape and light only, vertical composition, subject in the center of the frame, open dark chalkboard space at the top, lower quarter of the frame plain dark chalkboard",
+      "shot": "WS",
+      "move": "push",
+      "transition": "cut",
+      "accent": "divine",
+      "overlay": [
+        "embers"
+      ],
+      "seed": 12008
+    },
+    {
+      "narration": "ઇચ્છિત પુત્રથી વંચિત ઉમાએ ક્રોધે દેવોને શાપ્યા, કે તેમની પત્નીઓ નિઃસંતાન રહે.",
+      "keywords": [
+        "શાપ્યા,",
+        "નિઃસંતાન"
+      ],
+      "emphasis": "",
+      "pause": 0.18,
+      "sfx": [
+        {
+          "name": "wind"
+        }
+      ],
+      "melody": "grief",
+      "visual": "the whole top third of the frame left as plain empty dark chalkboard, a high snowy ledge at dusk, {uma} standing large in the right half of the frame, shown from the knees up, in three-quarter view facing left, her face grave and sorrowful with lowered eyes, her right arm extended forward at chest height with the open palm turned a little downward in a solemn gesture of pronouncement, held clear of her body against open dark board, her left arm hanging a little away from her side with open board between the arm and the sari, open dark board around her head and topknot, on the left side at a distance {devas_light} drawn dimmed and sinking a little lower, each orb with open board around it, a wide band of plain dark board between her hand and the orbs, distant snowy peaks drawn low, below the level of her shoulders, vertical composition, subject in the center of the frame, open dark chalkboard space at the top, lower quarter of the frame plain dark chalkboard",
+      "shot": "MS",
+      "move": "push",
+      "transition": "black",
+      "accent": "divine",
+      "seed": 12109
+    },
+    {
+      "narration": "ધરતીને પણ શાપ આપ્યો કે તેને પુત્રસુખ ન મળે.",
+      "keywords": [
+        "ધરતીને",
+        "પુત્રસુખ"
+      ],
+      "emphasis": "અગ્નિ અને વાયુએ શું સર્જ્યું?",
+      "pause": 0.3,
+      "sfx": [
+        {
+          "name": "wind"
+        },
+        {
+          "name": "birds"
+        }
+      ],
+      "melody": "grief",
+      "visual": "the whole top third of the frame left as plain empty dark chalkboard, symbolic scene, a broad landscape seen from high above, in many forms under a dim grey sky: snowy hills on the left, a dry sandy plain with scattered rocks in the middle, a dark green forest and a winding river on the right, a single tall tree standing alone in the right foreground with open board around its crown, a few small chalk birds flying low and well apart, landscape only, vertical composition, subject in the center of the frame, open dark chalkboard space at the top, lower quarter of the frame plain dark chalkboard",
+      "shot": "EWS",
+      "angle": "high",
+      "move": "pull",
+      "transition": "dust",
+      "accent": "default",
+      "seed": 12110
+    },
+    {
+      "narration": "રુદ્ર ઉમા સંગ હિમવાને તપે બેઠા. ઋષિ બોલ્યા, હવે ગંગાની કથા સાંભળો.",
+      "keywords": [
+        "તપે",
+        "ગંગાની"
+      ],
+      "emphasis": "આગળ: દેવોના સેનાપતિ",
+      "pause": 0.18,
+      "sfx": [
+        {
+          "name": "wind"
+        }
+      ],
+      "melody": "calm",
+      "quote_src": "VR 1.36.25–27 (vulgate)",
+      "visual": "the whole top third of the frame left as plain empty dark chalkboard, the same framing as the opening: a high snowy Himalayan summit at night under a starry sky, {rudra_symbol} drawn large in the lower right foreground, about half the frame height, seated cross-legged on the broad flat snowy rock in three-quarter side view facing left, both hands resting on his knees, open dark board all around his head, topknot, crescent moon and the three prongs of the trident, on the left side of the frame, where the lights hovered before, {uma} seated cross-legged in meditation on a lower flat snowy rock in three-quarter side view facing right, eyes closed, back straight, both hands resting open on her knees and clear of her body, open dark board around her head and topknot, a very wide band of plain dark board between the two seated figures, the snowy ridges staying below the top third of the frame, vertical composition, subject in the center of the frame, open dark chalkboard space at the top, lower quarter of the frame plain dark chalkboard",
+      "shot": "WS",
+      "move": "push",
+      "transition": "black",
+      "accent": "divine",
+      "seed": 12011
+    }
+  ],
+  "description": "",
+  "hashtags": [],
+  "thumbnail": {
+    "scene": 0,
+    "devanagari": "",
+    "title": "અજન્મું બાળક",
+    "series": "The Epic in Chalk",
+    "episode": "ભાગ 11",
+    "subtitle": ""
+  },
+  "sources": [
+    {
+      "ref": "VR 1.36.1–4",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "Rama and Lakshmana praise the tale and ask the sage to tell the elder daughter's story in full: by what cause does the purifier of the worlds flood three paths, and by what deeds is she renowned in the three worlds? (pays off the Ep10 card 'Three Paths')"
+    },
+    {
+      "ref": "VR 1.36.5",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "asked thus, Vishvamitra told the whole tale among the sages: long ago, Rama, the blue-throated great ascetic (शितिकण्ठः) had married (कृतोद्वाहः)"
+    },
+    {
+      "ref": "VR 1.36.6",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "the union of the god and the Devi; a hundred divine years passed (दिव्यं वर्षशतं गतम्); narrated only as 'dwelt as one for a hundred years of the gods'"
+    },
+    {
+      "ref": "VR 1.36.7",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "yet no son was born to her (न चापि तनयो… आसीत्); all the gods, led by Brahma (पितामहपुरोगमाः), were stirred to act"
+    },
+    {
+      "ref": "VR 1.36.8",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "'whatever being is born here, who will withstand it?' (कस्तत् प्रतिसहिष्यति); the gods approached and bowed"
+    },
+    {
+      "ref": "VR 1.36.9–10",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "O god of gods, devoted to the good of this world, be gracious; the worlds cannot bear your power (न लोका धारयिष्यन्ति तव तेजः); with Brahmic austerity, do tapas with the Devi"
+    },
+    {
+      "ref": "VR 1.36.11",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "for the good of the three worlds hold your power within your power (तेजस्तेजसि धारय); protect all these worlds, do not unmake them (verse card)"
+    },
+    {
+      "ref": "VR 1.36.12–13",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "the great lord of all worlds said 'so be it' (बाढम्): I will hold my power within, together with Uma; let the gods and the Earth be at peace"
+    },
+    {
+      "ref": "VR 1.36.14",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "but who will bear this unsurpassed power of mine that has already stirred from its place (क्षुभितं स्थानात्)? Tell me"
+    },
+    {
+      "ref": "VR 1.36.15",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "the gods replied: the power that has stirred today, the Earth (धरा) will bear it"
+    },
+    {
+      "ref": "VR 1.36.16",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "he released it, and the Earth with her mountains and forests (सगिरिकानना) was pervaded by that power"
+    },
+    {
+      "ref": "VR 1.36.17",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "then the gods told Agni: joined with Vayu (वायुसमन्वितः), enter this great power of Rudra"
+    },
+    {
+      "ref": "VR 1.36.18",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "pervaded again by Agni, it became the white mountain (श्वेतपर्वतम्) and a divine reed forest (दिव्यं शरवणम्) like fire and the sun"
+    },
+    {
+      "ref": "VR 1.36.19–20",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "where Kartikeya, born of Agni, was born; the gods and sages worshipped Uma and Shiva, glad at heart (not narrated: Kartikeya's birth belongs to sarga 37)"
+    },
+    {
+      "ref": "VR 1.36.20–21",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "then the mountain's daughter, in anger (समन्युः), eyes red with wrath, cursed them all: since I was stopped when I longed for a son (पुत्रकाम्यया)…"
+    },
+    {
+      "ref": "VR 1.36.22",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "…you shall beget no offspring in your own wives; from today let your wives be childless (अप्रजाः सन्तु पत्नयः)"
+    },
+    {
+      "ref": "VR 1.36.23",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "having said this to all the gods she cursed the Earth too: O Earth, you will take many forms (नैकरूपा) and be the wife of many (बहुभार्या)"
+    },
+    {
+      "ref": "VR 1.36.24",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "sullied by my anger, you will not know the joy of sons (पुत्रकृतां प्रीतिम्), since you did not want my son"
+    },
+    {
+      "ref": "VR 1.36.25",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "seeing all the gods afflicted, the lord of the gods set out toward the quarter guarded by Varuna (the west)"
+    },
+    {
+      "ref": "VR 1.36.26",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "having gone there, the great lord did tapas with the Devi on the northern side of that mountain, on a peak arising from Himavat (हिमवत्प्रभवे शृङ्गे)"
+    },
+    {
+      "ref": "VR 1.36.27",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "this, Rama, is the full account of the mountain's daughter; now, with Lakshmana, hear from me the Ganga's origin (गङ्गायाः प्रभवं… शृणु) (teaser verse)"
+    },
+    {
+      "ref": "VR 1.37.1",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "while the god did tapas, the gods with Indra, led by Agni, seeking a commander (सेनापतिमभीप्सन्तः), went to Brahma (Next card only, not narrated)"
+    },
+    "https://sa.wikisource.org/wiki/रामायणम्/बालकाण्डम्/सर्गः_३६ (accessed 2026-11-23)",
+    "https://www.valmikiramayan.net/utf8/baala/sarga36/balasans36.htm (live site returned HTTP 509 on 2026-11-23; read via the Internet Archive copy, accessed 2026-11-23)",
+    "https://sa.wikisource.org/wiki/रामायणम्/बालकाण्डम्/सर्गः_३७ (Next-card label only, accessed 2026-11-23)"
+  ],
+  "style_overrides": {
+    "caption_font": "/System/Library/Fonts/KohinoorGujarati.ttc",
+    "caption_font_index": 0,
+    "caption_size": 80,
+    "caption_max_chars": 22
+  },
+  "loop": "composition",
+  "learnings": [
+    {
+      "action": "A1",
+      "tier": "anecdote",
+      "n": 25,
+      "finding": "F1",
+      "how": "Applied. The stakes are in the first sentence (the gods feared a child not yet born, 1.36.7–8), and the turn, the verse card where the gods beg Rudra to hold his power within for the three worlds (1.36.11), starts at about 17.1 s. The episode uses the 55 s two-beat shape, whose T1 window is 24–33 s; the card comes early by design, near the 18–25 s window A1 names, so the stakes rise before the 13 s drop-off. The 35 s shape is not used: sarga 36 carries the marriage, the gods' fear, the plea, the Earth, Agni and Vayu, the white mountain, two curses and Rudra's tapas, this script is at about 52.10 s by lint."
+    },
+    {
+      "action": "A2",
+      "tier": "anecdote",
+      "n": 1,
+      "finding": "F2",
+      "how": "Applied. The hook is 2.58 s, under the 3.0 s limit, with the stake in the first sentence, written natively short in each language (gu: દેવો અજન્મા બાળકથી ડરતા હતા.; te: పుట్టని బిడ్డకు దేవతలు జడిశారు.). The en hook is 2.74 s, inside the 2.5–2.8 s Kokoro-safe band. Frame 0 is the night summit with Rudra's silhouette and the dimmed orbs of the gods, which the engine draws at least 70% by frame 0 (O5)."
+    },
+    {
+      "action": "A3",
+      "tier": "anecdote",
+      "n": 25,
+      "finding": "F7",
+      "how": "Partly applied. The density of sarga 36 needs the 55 s shape, so the lower half of 35–55 s is not reachable without dropping beats the owner listed. Every language was cut to the owner's 50–53 s target instead: this script is 52.10 s by lint (Ep10 rendered hi 55.9 s and gu 55.83 s; this episode's hi and gu lint estimates are about 2 s below Ep10's)."
+    },
+    {
+      "action": "A4",
+      "tier": "anecdote",
+      "n": 25,
+      "finding": "F8",
+      "how": "Applied on screen. Scene 10 carries the share prompt 'અગ્નિ અને વાયુએ શું સર્જ્યું?' (6 words or fewer) as its title card. It is answered in the text in scene 8 (1.36.17–18): the white mountain and the reed forest. It replaces the first draft's prompt after review F3, which could invite anatomical replies. It is not spoken, because no language has seconds to spare. The same line is suggested as the pinned comment so shares/reach can be compared with Ep10."
+    }
+  ],
+  "estimated_seconds": 52
+}

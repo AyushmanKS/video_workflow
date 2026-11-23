@@ -108,9 +108,9 @@
       "notes": "Himavan's dear wife, daughter of Meru, mother of Ganga and Uma (VR 1.35.15). The text calls her सुमध्यमा and मनोज्ञा; render that only as grace and a gentle face, fully and modestly dressed. Three-quarter view, arms clear of the sari folds."
     },
     "uma": {
-      "prompt": "Uma, a young Indian ascetic woman about eighteen with brown skin, a calm serene face with closed or lowered eyes, long dark hair gathered in a simple high topknot of matted locks, the topknot clearly visible, a plain full-length ochre cotton sari with its end draped over both shoulders, a single string of rudraksha beads, bare feet, exactly two arms",
+      "prompt": "Uma, a young Indian ascetic woman about eighteen with brown skin, a calm serene face with closed or lowered eyes, long dark hair gathered in a simple high topknot of matted locks, the topknot clearly visible, a plain full-length ochre cotton sari with its end draped over both shoulders, a single string of rudraksha beads, bare feet, exactly two arms, her ears, wrists and forehead plain and unadorned, the hair in one high topknot on the crown of her head",
       "source_episode": "C0010",
-      "notes": "Himavan's younger daughter, rich in austerity (तपोधना, VR 1.35.20). Always modest and dignified, never glamorous, never sexualised. Usually seated cross-legged in meditation in side or three-quarter view, hands resting open on her knees and clear of the body. Distinct from Sita and the queens: no crown, no jewellery beyond the beads. Reviewer V5 (Ep10): the sari end lies over both shoulders and the topknot stays visible (never both a head covering and a topknot)."
+      "notes": "Himavan's younger daughter, rich in austerity (तपोधना, VR 1.35.20). Always modest and dignified, never glamorous, never sexualised. Usually seated cross-legged in meditation in side or three-quarter view, hands resting open on her knees and clear of the body. Distinct from Sita and the queens: no crown, no jewellery beyond the beads. Reviewer V5 (Ep10): the sari end lies over both shoulders and the topknot stays visible (never both a head covering and a topknot). Ep10 G2 (fix 5): the image model drifted to a low bun, earrings, bangles, bindi and jasmine, so the prompt now states plain, unadorned ears, wrists and forehead and a single high topknot (C0012)."
     },
     "uma_girl": {
       "prompt": "Uma as a young girl about ten with brown skin, a bright gentle face, long dark hair in a single braid, a simple ankle-length ochre cotton skirt, a long-sleeved ochre blouse and a light cream shawl over her shoulders, bare feet, exactly two arms",
@@ -118,9 +118,9 @@
       "notes": "Uma as Himavan's second daughter in the family scene (VR 1.35.16). Same ochre colour as the adult ascetic so the viewer links them. Stands apart from her mother with open board between them."
     },
     "rudra_symbol": {
-      "prompt": "a calm seated ascetic silhouette of Rudra in solid dark grey chalk shadow, seen in three-quarter side view, seated cross-legged in deep meditation on a flat snowy rock, matted hair piled in a high topknot with a thin pale crescent moon resting in it, both hands resting on his knees, a smooth featureless shadowed face, exactly two arms, a tall plain trident standing upright planted in the rock beside him with open board around its three prongs",
+      "prompt": "a calm seated ascetic silhouette of Rudra in solid dark grey chalk shadow, seen in three-quarter side view, seated cross-legged in deep meditation on a flat snowy rock, matted hair piled in a high topknot with a thin pale crescent moon resting in it, both hands resting on his knees, a smooth featureless shadowed face, exactly two arms, a tall plain trident standing upright planted in the rock beside him with open board around its three prongs, the whole figure one flat solid dark grey shadow shape like a shadow puppet, the head a smooth rounded shadow",
       "source_episode": "C0010",
-      "notes": "Rudra is symbolic only (deity rule): a calm seated silhouette with crescent moon and trident, the trident planted in the rock and never held across the body. Never multi-armed, never a third eye, never a blue-skinned figurative portrait, nothing Western-fantasy. Uma's husband (VR 1.35.21)."
+      "notes": "Rudra is symbolic only (deity rule): a calm seated silhouette with crescent moon and trident, the trident planted in the rock and never held across the body. Never multi-armed, never a third eye, never a blue-skinned figurative portrait, nothing Western-fantasy. Uma's husband (VR 1.35.21). Ep10 G2 (fix 1): a featured profile face and joined palms were drawn and had to be edited out, so the prompt now asks for one flat solid shadow shape with a smooth rounded head and the hands on the knees (C0012)."
     },
     "ganga_light": {
       "prompt": "the Ganga drawn as a river of light, a broad ribbon of rippling pale silver-white chalk water glowing softly from within, with small sparkles of light along its surface, drawn as plain flowing water",
@@ -161,6 +161,26 @@
       "prompt": "a few Indian sages with brown skin, dark hair in topknots and short dark beards, wearing white dhotis with white cloth over one shoulder, each with exactly two arms, standing well apart from one another",
       "source_episode": "C0007",
       "notes": "The Siddhashrama sages, text from the approved C0007 prompts. Always small and in the background, well apart."
+    },
+    "agni_light": {
+      "prompt": "Agni, the fire god, shown only as a tall graceful teardrop flame of saffron and gold chalk light rising from a small ring of glowing embers, with a soft round halo of warm light around the flame",
+      "source_episode": "C0012",
+      "notes": "Agni (हुताशन, VR 1.36.17–18) is symbolic only (deity rule): a flame, never a figure. Keep a wide ring of open board around the halo; per PROJECT_CONTEXT §30 a flame flickers in brightness and sways at most 1.5 px, and its halo is never cut."
+    },
+    "vayu_wind": {
+      "prompt": "Vayu, the wind god, shown only as three long curling ribbons of pale silver-white chalk wind lines sweeping in a wide arc, each ribbon ending in a small swirl, the ribbons drawn well apart from one another",
+      "source_episode": "C0012",
+      "notes": "Vayu (वायु, VR 1.36.17) is symbolic only (deity rule): ribbons of wind, never a figure. Keep the ribbons apart with open board between them so each can drift as its own element."
+    },
+    "prithvi_land": {
+      "prompt": "a broad landscape seen from high above, rolling hills, dark green forests, a winding river and open plains stretching to a low horizon",
+      "source_episode": "C0012",
+      "notes": "The Earth (पृथिवी, धरा, अवनि; VR 1.36.15–16, 23–24) is always a landscape, never a woman or a goddess figure (C0012 sensitivity plan). Trees stand apart with open board around their crowns so they can sway from the base. Review V4 (C0012): the visible prompt says only 'a broad landscape seen from high above', so the image model draws land, not a figure."
+    },
+    "shvetaparvata_sharavana": {
+      "prompt": "a tall white mountain glowing softly from within, drawn in bright white chalk with gentle snow-like ridges, and at its foot a wide forest of tall slender reeds with feathery tops, the reeds glowing gold and saffron like firelight and sunlight",
+      "source_episode": "C0012",
+      "notes": "The white mountain (श्वेतपर्वत) and the divine reed forest (दिव्यं शरवणं पावकादित्यसंनिभम्), VR 1.36.18, formed when Agni and Vayu entered Rudra's power. Returns in sarga 37 as the place of Kartikeya's birth. Reed tops stand apart against open board so they can sway in small arcs from their bases."
     }
   },
   "rules": [
