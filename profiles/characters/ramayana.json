@@ -181,6 +181,16 @@
       "prompt": "a tall white mountain glowing softly from within, drawn in bright white chalk with gentle snow-like ridges, and at its foot a wide forest of tall slender reeds with feathery tops, the reeds glowing gold and saffron like firelight and sunlight",
       "source_episode": "C0012",
       "notes": "The white mountain (श्वेतपर्वत) and the divine reed forest (दिव्यं शरवणं पावकादित्यसंनिभम्), VR 1.36.18, formed when Agni and Vayu entered Rudra's power. Returns in sarga 37 as the place of Kartikeya's birth. Reed tops stand apart against open board so they can sway in small arcs from their bases."
+    },
+    "kumara_light": {
+      "prompt": "a divine child shown only as a small radiant child made entirely of soft golden fire-light, seated cross-legged, one round glowing head with a smooth glowing featureless face, exactly two arms held a little away from the body with both hands resting open on the knees, a simple dhoti drawn in light, a soft round halo of warm golden light around the whole child",
+      "source_episode": "C0013",
+      "notes": "Kartikeya / Skanda as a newborn (VR 1.37.23–30) is a deity, so he is symbolic only (deity rule): a small seated child of golden light with one head and a featureless glowing face. The six faces (षडानन, 1.37.28) are never drawn as six heads (image models and puppet rigs break on multiple heads); the six Krittika stars (krittika_stars) stand in for them. No spear, peacock, rooster banner or other later iconography. Hands rest on the knees, clear of the body, and the halo keeps open board around it so it can pulse. C0013 review V3: 'a divine child' replaces the name in the visible prompt, 'short glowing hair' is dropped, and the arms are held a little away from the body for rigging."
+    },
+    "krittika_stars": {
+      "prompt": "six small bright stars of bright white chalk light, each a simple point of light with short gentle rays and a faint round halo, spaced well apart in a loose gentle arc like the Pleiades cluster",
+      "source_episode": "C0013",
+      "notes": "The Krittikas who nurture the newborn (VR 1.37.23–24, 28) are always six stars, never women or figures (C0013 sensitivity plan). Nothing about feeding is drawn; at most soft beams of starlight fall toward the child. Keep each star apart with open board so each can twinkle on its own. C0013 review V4/V8: the visible prompt drops the word 'Krittika' and uses bright white instead of silver-white (cool tones drift green)."
     }
   },
   "rules": [

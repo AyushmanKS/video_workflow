@@ -1,0 +1,310 @@
+{
+  "video": null,
+  "kind": "audio",
+  "mp4_sha256": null,
+  "verdict": "warn",
+  "families": {
+    "story": {
+      "score": 91,
+      "pass": true,
+      "rejects": [],
+      "warns": [
+        "lint_hook"
+      ],
+      "checks": 11
+    },
+    "audio": {
+      "score": 50,
+      "pass": false,
+      "rejects": [],
+      "warns": [
+        "narration_asr",
+        "speech_rate"
+      ],
+      "checks": 3
+    }
+  },
+  "checks": [
+    {
+      "name": "lint_duration",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "estimate_s": 53.58,
+        "basis": "letters"
+      }
+    },
+    {
+      "name": "lint_hook",
+      "family": "story",
+      "class": "warn",
+      "ok": false,
+      "issues": [
+        "hook scene spoken 2.5 s > 2.2 s"
+      ],
+      "data": {}
+    },
+    {
+      "name": "lint_scene_count",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_scene_length",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_keywords",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_digits",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_quote_src",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_sources",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_edition",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_silences",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_visual_parity",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "narration_asr",
+      "family": "audio",
+      "class": "warn",
+      "ok": false,
+      "issues": [
+        "scene 3: CER 0.241 length ratio 0.93 (warn) — listen and regenerate if mispronounced",
+        "scene 11: CER 0.174 length ratio 0.96 (warn) — listen and regenerate if mispronounced"
+      ],
+      "data": {
+        "scenes": [
+          {
+            "scene": 1,
+            "cer": 0.133,
+            "length_ratio": 1.0,
+            "heard": "देवांचा सेनापती नवजाद बाल होता."
+          },
+          {
+            "scene": 2,
+            "cer": 0.037,
+            "length_ratio": 1.04,
+            "heard": "रुद्रत अपात अस्ताना देव सेनापती साथी ब्रह्म्या कड़े गेले।"
+          },
+          {
+            "scene": 3,
+            "cer": 0.241,
+            "length_ratio": 0.93,
+            "heard": "ब्रह्म्मा मनाले, उमेचा शाप अटल, पन गंगे मुले सेना पतिये।"
+          },
+          {
+            "scene": 4,
+            "cer": 0.0,
+            "length_ratio": 1.04,
+            "heard": "कैला सावर देवाननी अग्नीला सांगीतले, रुद्राचे तेज, गंगेला सोपवा."
+          },
+          {
+            "scene": 5,
+            "cer": 0.133,
+            "length_ratio": 0.97,
+            "heard": "गंगे चा धारा तलपल्या, आणी त्या महनाल्या, हे तेज पेलवनार नहीं।"
+          },
+          {
+            "scene": 6,
+            "cer": 0.125,
+            "length_ratio": 0.91,
+            "heard": "अगनीचा सांग्णयावरुन गंगेने ज्वाला हिंबानाचा उतारावर ठेवली।"
+          },
+          {
+            "scene": 7,
+            "cer": 0.0,
+            "length_ratio": 1.04,
+            "heard": "धारतीला टेकताच सोने चांदी, तामबे, लोखंड, कथील आणी शिसे उपजले."
+          },
+          {
+            "scene": 8,
+            "cer": 0.034,
+            "length_ratio": 1.03,
+            "heard": "बोरू आणी व्रुक्ष सोन्याची जाले, तीथेच अगनी सार्खा बालक जन्मला।"
+          },
+          {
+            "scene": 9,
+            "cer": 0.133,
+            "length_ratio": 0.97,
+            "heard": "सहकृत्तिका तार्यानी तला वाढ़ होले, देवानी ना उठेवले कार्तिकेय."
+          },
+          {
+            "scene": 10,
+            "cer": 0.103,
+            "length_ratio": 1.0,
+            "heard": "कूलया शडानानाने दैत्य सेना जिंकली, देवाननी त्याला सेना पती केले।"
+          },
+          {
+            "scene": 11,
+            "cer": 0.174,
+            "length_ratio": 0.96,
+            "heard": "रुशी मनाले, ही गंगेची कथा आणी कार्तिके याचा जन्म."
+          }
+        ],
+        "transcripts": [
+          "whisper large-v3-turbo"
+        ]
+      },
+      "note": "CER is warn-only for this language until Indic ASR is validated"
+    },
+    {
+      "name": "speech_rate",
+      "family": "audio",
+      "class": "warn",
+      "ok": false,
+      "issues": [
+        "scene 7: speech rate -34% vs mr reference"
+      ],
+      "data": {
+        "reference_letters_per_s": 6.037,
+        "scenes": [
+          {
+            "scene": 1,
+            "seconds": 2.4,
+            "letters_per_s": 6.25,
+            "deviation": 0.035
+          },
+          {
+            "scene": 2,
+            "seconds": 3.92,
+            "letters_per_s": 6.89,
+            "deviation": 0.141
+          },
+          {
+            "scene": 3,
+            "seconds": 4.72,
+            "letters_per_s": 6.14,
+            "deviation": 0.017
+          },
+          {
+            "scene": 4,
+            "seconds": 4.88,
+            "letters_per_s": 5.74,
+            "deviation": -0.049
+          },
+          {
+            "scene": 5,
+            "seconds": 4.64,
+            "letters_per_s": 6.47,
+            "deviation": 0.072
+          },
+          {
+            "scene": 6,
+            "seconds": 4.32,
+            "letters_per_s": 7.41,
+            "deviation": 0.227
+          },
+          {
+            "scene": 7,
+            "seconds": 7.04,
+            "letters_per_s": 3.98,
+            "deviation": -0.341
+          },
+          {
+            "scene": 8,
+            "seconds": 4.4,
+            "letters_per_s": 6.59,
+            "deviation": 0.092
+          },
+          {
+            "scene": 9,
+            "seconds": 4.96,
+            "letters_per_s": 6.05,
+            "deviation": 0.002
+          },
+          {
+            "scene": 10,
+            "seconds": 4.56,
+            "letters_per_s": 6.36,
+            "deviation": 0.054
+          },
+          {
+            "scene": 11,
+            "seconds": 4.32,
+            "letters_per_s": 5.32,
+            "deviation": -0.119
+          }
+        ]
+      }
+    },
+    {
+      "name": "speaker_consistency",
+      "family": "audio",
+      "class": "reject",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "windows": 22,
+        "window_median": 0.704,
+        "window_min": 0.592,
+        "scene_min": 0.686,
+        "median_f0": 181,
+        "calibration": "2026-11-16: 2.5s windows — consistent voice min 0.61 / known-mixed median 0.46 (50% < 0.5); 1s clips are unreliable (same voice down to 0.57)"
+      }
+    }
+  ],
+  "contact_sheet": null,
+  "manual_review_required": [
+    "character consistency",
+    "visual defects / wrong illustrations",
+    "storytelling quality",
+    "native-speaker listen for non-English"
+  ],
+  "created_at": "2026-11-24T21:18:37+0530",
+  "id": 153
+}

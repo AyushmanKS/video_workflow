@@ -1,0 +1,116 @@
+[
+  {
+    "text": "The gods' commander was a newborn child.",
+    "type": "contradiction (pays off the Ep11 card)",
+    "spoken_s": 2.66,
+    "scores": {
+      "curiosity": 5,
+      "emotion": 4,
+      "specificity": 4,
+      "speed": 5,
+      "resonance": 5,
+      "accuracy": 5
+    },
+    "total": 28,
+    "selected": true,
+    "visual_hook": true,
+    "hook_to_payoff": "Main loop (how could a newborn be the gods' commander, when Uma's curse left the gods without sons?) is opened by the hook, tightened in scenes 2–3 (the gods seek a commander; Brahma: the curse stands, but Agni and the Ganga will bring one, 1.37.1–8), turns at the verse card (scene 5, the Ganga cannot hold the radiance, 1.37.15), and closes in scene 10, when the six-faced child, still tender, routs the demon hosts and the gods anoint him commander (1.37.29–30), at about 90–91% of runtime by lint, at the late edge of the 85–90% guide (review F3 lengthened the closing line). Scene 11 (the sage closes the tale, 1.37.31) and the Next card open the next question; they are not counted as the payoff.",
+    "reasoning": "Selected: highest total. It names the answer to Ep11's card at once and makes it impossible (a newborn leading the gods), so the viewer must stay to learn how. True to 1.37.23–30: the child just born (जातमात्रस्य), tender of body (सुकुमारवपुः), is anointed commander of the gods' armies. It leads on wonder and contradiction, never on the radiance's passage through Agni and the Ganga, as the sensitivity plan asks. Frame 0 (a small child of golden light in the golden reed forest with the gods' orbs bowed before him) reads muted as 'the gods before a radiant child'. hookscore.py (English-only second opinion, run 2026-11-23): all six WEAK, 31–36/100; highest 'Who could lead the gods, if they had no sons?' (36); selected hook 31; weakest property STAKES for every line, as in Ep06–11. Not used to override the rubric.",
+    "speed_rule": "speed score from the lint estimate: >3.0 s = 1 (fails the hard limit), 2.8–3.0 s = 4, ≤2.8 s = 5"
+  },
+  {
+    "text": "Even the Ganga could not hold this fire.",
+    "type": "sensory wonder / contradiction",
+    "spoken_s": 2.66,
+    "scores": {
+      "curiosity": 4,
+      "emotion": 4,
+      "specificity": 4,
+      "speed": 5,
+      "resonance": 4,
+      "accuracy": 5
+    },
+    "total": 26,
+    "selected": false,
+    "visual_hook": false,
+    "hook_to_payoff": "",
+    "reasoning": "True (1.37.15, अशक्ता धारणे) and vivid, and it sits on the verse card. Weaker as an opening: it starts mid-story without saying what the fire is, and the payoff (the commander) is not in it.",
+    "speed_rule": "speed score from the lint estimate: >3.0 s = 1 (fails the hard limit), 2.8–3.0 s = 4, ≤2.8 s = 5"
+  },
+  {
+    "text": "In Valmiki, gold was born of a god's fire.",
+    "type": "bold claim (wonder)",
+    "spoken_s": 2.57,
+    "scores": {
+      "curiosity": 4,
+      "emotion": 3,
+      "specificity": 4,
+      "speed": 5,
+      "resonance": 3,
+      "accuracy": 4
+    },
+    "total": 23,
+    "selected": false,
+    "visual_hook": false,
+    "hook_to_payoff": "",
+    "reasoning": "Gold and the other metals arising from the radiance is the safe wonder beat (1.37.18–22), but 'gold born of a god's fire' compresses Rudra's radiance carried by Agni into one phrase; it is kept as the scene 7 title idea instead.",
+    "speed_rule": "speed score from the lint estimate: >3.0 s = 1 (fails the hard limit), 2.8–3.0 s = 4, ≤2.8 s = 5"
+  },
+  {
+    "text": "One day old, he beat a demon army.",
+    "type": "number",
+    "spoken_s": 2.08,
+    "scores": {
+      "curiosity": 5,
+      "emotion": 4,
+      "specificity": 5,
+      "speed": 5,
+      "resonance": 4,
+      "accuracy": 3
+    },
+    "total": 26,
+    "selected": false,
+    "visual_hook": false,
+    "hook_to_payoff": "",
+    "reasoning": "Strongest gap, but एकाह्ना (1.37.29) can attach to the milk-taking rather than the victory, and 'one day old' stretches either reading. Accuracy 3: rejected as a hook. After review F2 the body also drops 'in one day' and says 'still tender' (सुकुमारवपुः), which is unambiguous; the owner can restore 'in one day' at G1.",
+    "speed_rule": "speed score from the lint estimate: >3.0 s = 1 (fails the hard limit), 2.8–3.0 s = 4, ≤2.8 s = 5"
+  },
+  {
+    "text": "Cursed to have no sons, the gods needed a commander.",
+    "type": "contrast (continuity from Ep11)",
+    "spoken_s": 3.41,
+    "scores": {
+      "curiosity": 4,
+      "emotion": 4,
+      "specificity": 4,
+      "speed": 1,
+      "resonance": 5,
+      "accuracy": 5
+    },
+    "total": 23,
+    "selected": false,
+    "visual_hook": false,
+    "hook_to_payoff": "",
+    "reasoning": "Accurate (1.37.6, Brahma confirms Uma's curse) and continues Ep11, but it leads on the curse and reads as a summary.",
+    "speed_rule": "speed score from the lint estimate: >3.0 s = 1 (fails the hard limit), 2.8–3.0 s = 4, ≤2.8 s = 5"
+  },
+  {
+    "text": "Who could lead the gods, if they had no sons?",
+    "type": "question",
+    "spoken_s": 2.82,
+    "scores": {
+      "curiosity": 4,
+      "emotion": 3,
+      "specificity": 3,
+      "speed": 4,
+      "resonance": 4,
+      "accuracy": 5
+    },
+    "total": 23,
+    "selected": false,
+    "visual_hook": false,
+    "hook_to_payoff": "",
+    "reasoning": "Accurate and clear, but a plain question with a weaker image; it repeats the curse framing.",
+    "speed_rule": "speed score from the lint estimate: >3.0 s = 1 (fails the hard limit), 2.8–3.0 s = 4, ≤2.8 s = 5"
+  }
+]

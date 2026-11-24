@@ -1,0 +1,302 @@
+{
+  "video": null,
+  "kind": "audio",
+  "mp4_sha256": null,
+  "verdict": "warn",
+  "families": {
+    "story": {
+      "score": 91,
+      "pass": true,
+      "rejects": [],
+      "warns": [
+        "lint_hook"
+      ],
+      "checks": 11
+    },
+    "audio": {
+      "score": 100,
+      "pass": true,
+      "rejects": [],
+      "warns": [],
+      "checks": 3
+    }
+  },
+  "checks": [
+    {
+      "name": "lint_duration",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "estimate_s": 53.06,
+        "basis": "letters"
+      }
+    },
+    {
+      "name": "lint_hook",
+      "family": "story",
+      "class": "warn",
+      "ok": false,
+      "issues": [
+        "hook scene spoken 2.7 s > 2.2 s"
+      ],
+      "data": {}
+    },
+    {
+      "name": "lint_scene_count",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_scene_length",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_keywords",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_digits",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_quote_src",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_sources",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_edition",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_silences",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_visual_parity",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "narration_asr",
+      "family": "audio",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "scenes": [
+          {
+            "scene": 1,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "The God's commander was a newborn child."
+          },
+          {
+            "scene": 2,
+            "cer": 0.022,
+            "length_ratio": 1.0,
+            "heard": "As Rudra did Tupas, the gods asked Brahma for a commander."
+          },
+          {
+            "scene": 3,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "Brahma said Uma's curse stood, but Agni and the Ganga would bring one."
+          },
+          {
+            "scene": 4,
+            "cer": 0.018,
+            "length_ratio": 1.02,
+            "heard": "On Kailasa, the gods bade Agni and trust Rudra's radiance to the Ganga."
+          },
+          {
+            "scene": 5,
+            "cer": 0.019,
+            "length_ratio": 1.0,
+            "heard": "Her streams blazed, and the gunga said she could not hold such fire."
+          },
+          {
+            "scene": 6,
+            "cer": 0.056,
+            "length_ratio": 1.04,
+            "heard": "Agni baited her place it on Hemavon's slope and she set the blaze down."
+          },
+          {
+            "scene": 7,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "Where it touched the earth rose gold and silver, copper, iron, tin and lead."
+          },
+          {
+            "scene": 8,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "Reeds and trees turned gold. There the child was born, bright as fire."
+          },
+          {
+            "scene": 9,
+            "cer": 0.13,
+            "length_ratio": 0.98,
+            "heard": "Six critical stars nurtured him, and the gods named him Kardecja."
+          },
+          {
+            "scene": 10,
+            "cer": 0.014,
+            "length_ratio": 1.0,
+            "heard": "Still tender the six-faced child rooted the demons and the gods anointed him commander"
+          },
+          {
+            "scene": 11,
+            "cer": 0.054,
+            "length_ratio": 1.0,
+            "heard": "That, said the sage, was the Gunga's tail, and Kardikeya's blessed birth."
+          }
+        ],
+        "transcripts": [
+          "whisper small"
+        ]
+      },
+      "note": "digits vs number-words and Whisper spelling quirks inflate CER; review flagged scenes by ear"
+    },
+    {
+      "name": "speech_rate",
+      "family": "audio",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "reference_letters_per_s": 12.04,
+        "scenes": [
+          {
+            "scene": 1,
+            "seconds": 2.92,
+            "letters_per_s": 10.94,
+            "deviation": -0.091
+          },
+          {
+            "scene": 2,
+            "seconds": 4.1,
+            "letters_per_s": 11.22,
+            "deviation": -0.068
+          },
+          {
+            "scene": 3,
+            "seconds": 4.38,
+            "letters_per_s": 12.57,
+            "deviation": 0.044
+          },
+          {
+            "scene": 4,
+            "seconds": 5.03,
+            "letters_per_s": 10.95,
+            "deviation": -0.091
+          },
+          {
+            "scene": 5,
+            "seconds": 4.25,
+            "letters_per_s": 12.71,
+            "deviation": 0.056
+          },
+          {
+            "scene": 6,
+            "seconds": 4.5,
+            "letters_per_s": 12.0,
+            "deviation": -0.003
+          },
+          {
+            "scene": 7,
+            "seconds": 5.08,
+            "letters_per_s": 11.63,
+            "deviation": -0.034
+          },
+          {
+            "scene": 8,
+            "seconds": 4.55,
+            "letters_per_s": 12.09,
+            "deviation": 0.004
+          },
+          {
+            "scene": 9,
+            "seconds": 4.58,
+            "letters_per_s": 11.8,
+            "deviation": -0.02
+          },
+          {
+            "scene": 10,
+            "seconds": 5.67,
+            "letters_per_s": 12.69,
+            "deviation": 0.054
+          },
+          {
+            "scene": 11,
+            "seconds": 4.33,
+            "letters_per_s": 12.95,
+            "deviation": 0.076
+          }
+        ]
+      }
+    },
+    {
+      "name": "speaker_consistency",
+      "family": "audio",
+      "class": "reject",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "windows": 24,
+        "window_median": 0.753,
+        "window_min": 0.605,
+        "scene_min": 0.784,
+        "median_f0": 194,
+        "calibration": "2026-11-16: 2.5s windows — consistent voice min 0.61 / known-mixed median 0.46 (50% < 0.5); 1s clips are unreliable (same voice down to 0.57)"
+      }
+    }
+  ],
+  "contact_sheet": null,
+  "manual_review_required": [
+    "character consistency",
+    "visual defects / wrong illustrations",
+    "storytelling quality",
+    "native-speaker listen for non-English"
+  ],
+  "created_at": "2026-11-24T21:09:39+0530",
+  "id": 149
+}

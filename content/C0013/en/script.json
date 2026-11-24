@@ -1,0 +1,448 @@
+{
+  "title": "The Newborn Commander | Ramayana Ep 12",
+  "topic": "Vishvamitra tells the birth of Kartikeya: while Rudra does tapas, the gods led by Agni ask Brahma for a commander; Brahma says Uma's curse stands but Agni and the Ganga will bring one; on Kailasa the gods bid Agni entrust Rudra's radiance to the Ganga; her streams blaze and she cannot hold it, so at Agni's word she sets it on Himavat's slope; gold, silver, copper, iron, tin and lead arise and the forest turns golden; the child is born, the six Krittika stars nurture him, the gods name him Kartikeya; six-faced and still tender, he routs the demon hosts and the gods anoint him their commander (Valmiki Ramayana 1.37.1–31; Next card 1.38.2)",
+  "style": "chalk",
+  "language": "en",
+  "character": "",
+  "engine_version": 3,
+  "edition": "vulgate (southern recension), sa.wikisource; verse numbers cross-checked on valmikiramayan.net (Internet Archive copy)",
+  "scenes": [
+    {
+      "narration": "The gods' commander was a newborn child.",
+      "keywords": [
+        "commander",
+        "newborn"
+      ],
+      "emphasis": "",
+      "pause": 0.18,
+      "sfx": [
+        {
+          "name": "impact"
+        },
+        {
+          "name": "fire"
+        }
+      ],
+      "melody": "intro",
+      "swell": true,
+      "visual": "the whole top third of the frame left as plain empty dark chalkboard, symbolic scene, {shvetaparvata_sharavana} at night, the reed forest glowing gold, {kumara_light} drawn large in the lower right foreground, about a third of the frame height, seated cross-legged on a broad flat rock among the reeds in three-quarter side view facing left, his halo with open dark board all around it, on the left side of the frame {devas_light} hovering low at the height of his head, drawn small, each orb with open dark board around it, a wide band of plain dark board between the orbs and the child, the reed tops standing apart against open board below his shoulders, the white mountain's peak staying below the top third of the frame, vertical composition, subject in the center of the frame, open dark chalkboard space at the top, lower quarter of the frame plain dark chalkboard",
+      "shot": "WS",
+      "move": "push",
+      "accent": "divine",
+      "overlay": [
+        "embers"
+      ],
+      "seed": 13001
+    },
+    {
+      "narration": "As Rudra did tapas, the gods asked Brahma for a commander.",
+      "tts": "As Roodra did tuppus, the gods asked Brahma for a commander.",
+      "keywords": [
+        "tapas,",
+        "commander."
+      ],
+      "emphasis": "Seeking a commander",
+      "pause": 0.18,
+      "sfx": [
+        {
+          "name": "wind"
+        }
+      ],
+      "melody": "calm",
+      "visual": "the whole top third of the frame left as plain empty dark chalkboard, symbolic scene, high in the dark night sky above the snowy Himalayan ranges, {brahma_light} floating on the right at mid height, on the left {agni_light} drawn at the front of {devas_light} that follow behind it in a loose line, the flame and each orb with open dark board around them, a wide band of open dark board between the flame and the lotus, far below a single snowy summit under the stars, the ranges staying in the lower half of the frame, lights and landscape only, vertical composition, subject in the center of the frame, open dark chalkboard space at the top, lower quarter of the frame plain dark chalkboard",
+      "shot": "EWS",
+      "move": "pull",
+      "transition": "erase",
+      "accent": "divine",
+      "seed": 13002
+    },
+    {
+      "narration": "Brahma said Uma's curse stood, but Agni and the Ganga would bring one.",
+      "tts": "Brahma said Oomaa's curse stood, but Agni and the Ganga would bring one.",
+      "keywords": [
+        "curse",
+        "Ganga"
+      ],
+      "emphasis": "",
+      "pause": 0.18,
+      "sfx": [
+        {
+          "name": "bell"
+        }
+      ],
+      "melody": "rise",
+      "quote_src": "VR 1.37.5–8 (vulgate)",
+      "visual": "the whole top third of the frame left as plain empty dark chalkboard, symbolic scene, {brahma_light} glowing large on the right at mid height, across the dark sky on the left {ganga_light} flowing as a broad band of starlit light like the river of the sky, a small {agni_light} resting beside the near bank of that river of light, a wide band of open dark board between the lotus, the flame and the river, a few faint stars, lights only, vertical composition, subject in the center of the frame, open dark chalkboard space at the top, lower quarter of the frame plain dark chalkboard",
+      "shot": "WS",
+      "move": {
+        "type": "truck",
+        "dir": "left"
+      },
+      "transition": "cut",
+      "accent": "divine",
+      "overlay": [
+        "godrays"
+      ],
+      "seed": 13003
+    },
+    {
+      "narration": "On Kailasa, the gods bade Agni entrust Rudra's radiance to the Ganga.",
+      "tts": "On Kailaasa, the gods bade Agni entrust Roodra's radiance to the Ganga.",
+      "keywords": [
+        "Kailasa,",
+        "radiance"
+      ],
+      "emphasis": "",
+      "pause": 0.5,
+      "sfx": [
+        {
+          "name": "wind"
+        },
+        {
+          "name": "fire"
+        }
+      ],
+      "melody": "rise",
+      "swell": true,
+      "quote_src": "VR 1.37.10–11 (vulgate)",
+      "visual": "the whole top third of the frame left as plain empty dark chalkboard, symbolic scene, the snowy summit of Mount Kailasa at night, its rocks streaked with glittering veins of ore in gold, copper red and silver, the peak staying below the top third of the frame, in the centre foreground {agni_light}, a small bright white star of radiance glowing at the heart of the flame, a wide ring of open dark board around the flame and its halo, {devas_light} hovering on the left at a distance, each orb with open dark board around it, landscape and lights only, vertical composition, subject in the center of the frame, open dark chalkboard space at the top, lower quarter of the frame plain dark chalkboard",
+      "shot": "WS",
+      "move": "push",
+      "transition": "dust",
+      "accent": "divine",
+      "seed": 13004
+    },
+    {
+      "narration": "Her streams blazed, and the Ganga said she could not hold such fire.",
+      "keywords": [
+        "streams",
+        "fire."
+      ],
+      "emphasis": "",
+      "pause": 0.5,
+      "sfx": [],
+      "quote_src": "VR 1.37.15 (vulgate)",
+      "visual": "the verse written in chalk",
+      "kind": "verse",
+      "tone": "awe",
+      "pacing": "slow",
+      "devanagari": [
+        "तमुवाच ततो गङ्गा",
+        "सर्वदेवपुरोगमम्।",
+        "अशक्ता धारणे देव",
+        "तेजस्तव समुद्धतम्॥"
+      ],
+      "source": "Valmiki Ramayana 1.37.15 (vulgate)",
+      "edition": "vulgate (sa.wikisource)"
+    },
+    {
+      "narration": "Agni bade her place it on Himavan's slope, and she set the blaze down.",
+      "tts": "Agni bade her place it on Himavaan's slope, and she set the blaze down.",
+      "keywords": [
+        "Himavan's",
+        "blaze"
+      ],
+      "emphasis": "",
+      "pause": 0.18,
+      "sfx": [
+        {
+          "name": "river"
+        }
+      ],
+      "melody": "rise",
+      "quote_src": "VR 1.37.16–17 (vulgate)",
+      "visual": "the whole top third of the frame left as plain empty dark chalkboard, symbolic scene, high angle view of a broad snowy Himalayan mountainside at dusk, {ganga_light} entering from the left edge just below the top third of the frame and flowing down the slope in a wide gentle curve, at the river's edge on the slope a bright blaze of white and gold light resting gently on the rocks with a soft round glow around it, the river curving away from the blaze, a small {agni_light} on the far right with open dark board around its halo, landscape and light only, vertical composition, subject in the center of the frame, open dark chalkboard space at the top, lower quarter of the frame plain dark chalkboard",
+      "shot": "EWS",
+      "angle": "high",
+      "move": "tilt",
+      "transition": "erase",
+      "accent": "divine",
+      "seed": 13106
+    },
+    {
+      "narration": "Where it touched the earth rose gold and silver, copper, iron, tin and lead.",
+      "keywords": [
+        "gold",
+        "silver,"
+      ],
+      "emphasis": "Gold is born",
+      "pause": 0.18,
+      "sfx": [
+        {
+          "name": "rumble"
+        },
+        {
+          "name": "fire"
+        }
+      ],
+      "melody": "rise",
+      "swell": true,
+      "visual": "the whole top third of the frame left as plain empty dark chalkboard, symbolic scene, close view of a Himalayan mountainside at night where a soft blaze of white and gold light rests on the rocks, from it branching seams of glowing metal spreading outward through the rock like the roots of a tree, seams of bright gold, pale silver, copper red, dark iron grey and dull pale grey, small nuggets glittering along each seam, open dark board around the blaze, landscape and light only, vertical composition, subject in the center of the frame, open dark chalkboard space at the top, lower quarter of the frame plain dark chalkboard",
+      "shot": "MS",
+      "move": "push",
+      "transition": "cut",
+      "accent": "divine",
+      "overlay": [
+        "embers"
+      ],
+      "seed": 13007
+    },
+    {
+      "narration": "Reeds and trees turned gold; there the child was born, bright as fire.",
+      "keywords": [
+        "gold,",
+        "born,"
+      ],
+      "emphasis": "",
+      "pause": 0.18,
+      "sfx": [
+        {
+          "name": "fire"
+        },
+        {
+          "name": "birds"
+        }
+      ],
+      "melody": "rise",
+      "visual": "the whole top third of the frame left as plain empty dark chalkboard, symbolic scene, {shvetaparvata_sharavana} with every reed, tree, creeper and shrub on its slopes turned to shining gold, in the centre among the golden reeds a small round burst of firelight with {kumara_light} drawn small, seated cross-legged at its heart, open dark board around the burst of light, the reed tops standing apart against open board, the white mountain's peak staying below the top third of the frame, landscape and light only, vertical composition, subject in the center of the frame, open dark chalkboard space at the top, lower quarter of the frame plain dark chalkboard",
+      "shot": "WS",
+      "move": "pull",
+      "transition": "flash",
+      "accent": "divine",
+      "overlay": [
+        "embers"
+      ],
+      "seed": 13108
+    },
+    {
+      "narration": "Six Krittika stars nurtured him, and the gods named him Kartikeya.",
+      "tts": "Six Krittikaa stars nurtured him, and the gods named him Kaartikeya.",
+      "keywords": [
+        "Krittika",
+        "Kartikeya."
+      ],
+      "emphasis": "Kartikeya",
+      "pause": 0.3,
+      "sfx": [
+        {
+          "name": "wind"
+        }
+      ],
+      "melody": "love",
+      "visual": "the whole top third of the frame left as plain empty dark chalkboard, symbolic scene, a quiet night in a golden reed forest, {kumara_light} in the centre of the frame, shown full-figure, seated cross-legged on the flat rock in three-quarter side view facing left, his crossed legs and both hands resting on the knees fully visible, open board below the rock, above him {krittika_stars} in a wide gentle arc, each star well apart from the others and from his halo, soft beams of pale warm white starlight falling gently toward him, open dark board around his head, his halo and each star, vertical composition, subject in the center of the frame, open dark chalkboard space at the top, lower quarter of the frame plain dark chalkboard",
+      "shot": "MS",
+      "move": "static",
+      "transition": "dust",
+      "accent": "divine",
+      "seed": 13109
+    },
+    {
+      "narration": "Still tender, the six-faced child routed the demons, and the gods anointed him commander.",
+      "keywords": [
+        "six-faced",
+        "commander."
+      ],
+      "emphasis": "Which metals did the fire make?",
+      "pause": 0.18,
+      "sfx": [
+        {
+          "name": "conch"
+        },
+        {
+          "name": "wind"
+        }
+      ],
+      "melody": "rise",
+      "swell": true,
+      "visual": "the whole top third of the frame left as plain empty dark chalkboard, symbolic scene, low angle view of a high flat rock above a golden reed forest at dawn, {kumara_light} seated cross-legged on the rock in the centre in three-quarter side view facing left, a gentle column of golden light falling from above and fading out just above his halo, a band of open dark board between the light and the halo, {agni_light} at the front of {devas_light} in a wide arc to the left and upper left, the flame and each orb with open dark board around it, far below on the right a few dark storm clouds drifting away toward the horizon, lights and landscape only, vertical composition, subject in the center of the frame, open dark chalkboard space at the top, lower quarter of the frame plain dark chalkboard",
+      "shot": "WS",
+      "angle": "low",
+      "move": "push",
+      "transition": "cut",
+      "accent": "divine",
+      "overlay": [
+        "godrays"
+      ],
+      "seed": 13110
+    },
+    {
+      "narration": "That, said the sage, was the Ganga's tale, and Kartikeya's blessed birth.",
+      "tts": "That, said the sage, was the Ganga's tale, and Kaartikeya's blessed birth.",
+      "keywords": [
+        "sage,",
+        "Kartikeya's"
+      ],
+      "emphasis": "Next: The Childless King",
+      "pause": 0.18,
+      "sfx": [
+        {
+          "name": "river"
+        },
+        {
+          "name": "birds"
+        }
+      ],
+      "melody": "calm",
+      "quote_src": "VR 1.37.31 (vulgate)",
+      "visual": "the whole top third of the frame left as plain empty dark chalkboard, the same framing as the opening: {shvetaparvata_sharavana} at first light, the reed forest glowing gold, {kumara_light} drawn large in the lower right foreground, about a third of the frame height, seated cross-legged on the broad flat rock among the reeds in three-quarter side view facing left, his halo with open dark board all around it, on the left side of the frame, where the lights of the gods hovered before, {krittika_stars} in a gentle arc at the height of his head, each star with open dark board around it, far in the background {ganga_light} winding past the foot of the mountain, the reed tops standing apart below his shoulders, the white mountain's peak staying below the top third of the frame, vertical composition, subject in the center of the frame, open dark chalkboard space at the top, lower quarter of the frame plain dark chalkboard",
+      "shot": "WS",
+      "move": "push",
+      "transition": "black",
+      "accent": "divine",
+      "seed": 13011
+    }
+  ],
+  "description": "",
+  "hashtags": [],
+  "thumbnail": {
+    "scene": 0,
+    "devanagari": "",
+    "title": "THE NEWBORN COMMANDER",
+    "series": "The Epic in Chalk",
+    "episode": "Episode 12",
+    "subtitle": ""
+  },
+  "sources": [
+    {
+      "ref": "VR 1.37.1",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "while the god did tapas, the gods with Indra, led by Agni (साग्निपुरोगमाः), seeking a commander (सेनापतिमभीप्सन्तः), went to Brahma (pays off the Ep11 card 'The Gods' Commander')"
+    },
+    {
+      "ref": "VR 1.37.2–4",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "they bowed and said: he who once gave us a commander does supreme tapas with Uma; order what must be done for the good of the worlds, you are our refuge"
+    },
+    {
+      "ref": "VR 1.37.5–6",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "Brahma, soothing them with sweet words: what the mountain's daughter said, no offspring by your own wives, is true beyond doubt"
+    },
+    {
+      "ref": "VR 1.37.7",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "here is the sky-Ganga (आकाशगङ्गा), in whom Agni will bring forth the gods' foe-taming commander; narrated only as 'Agni and the Ganga would bring one'"
+    },
+    {
+      "ref": "VR 1.37.8–9",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "the elder mountain daughter will honour that son, to Uma's joy; the gods, content, worshipped Brahma (not narrated)"
+    },
+    {
+      "ref": "VR 1.37.10",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "the gods went to supreme Kailasa, adorned with metals (धातुमण्डितम्), and charged Agni"
+    },
+    {
+      "ref": "VR 1.37.11",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "fulfil this task of the gods, Agni: release the radiance (तेज उत्सृज) into the Ganga, the mountain's daughter"
+    },
+    {
+      "ref": "VR 1.37.12–14",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "Agni promised and approached the Ganga; she took a divine form; he poured it over her on every side (अभ्यषिञ्चत) and all her streams were filled (सर्वस्रोतांसि पूर्णानि); the गर्भ wording and 1.37.13 are not rendered"
+    },
+    {
+      "ref": "VR 1.37.15",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "then the Ganga said to him, leader of all the gods: O god, I cannot hold your risen radiance (अशक्ता धारणे देव तेजस्तव समुद्धतम्) (verse card)"
+    },
+    {
+      "ref": "VR 1.37.16–18a",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "burning with that fire and deeply pained, she heard Agni: set it down here on Himavat's side (हैमवते पार्श्वे); she released the exceedingly bright one from her streams"
+    },
+    {
+      "ref": "VR 1.37.18b–20",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "what came forth shone like molten gold; reaching the earth it became gold and silver (काञ्चनं… हिरण्यम्), copper and iron from its sharpness, and from its dross tin and lead (त्रपु सीसकम्); on earth it grew into many metals"
+    },
+    {
+      "ref": "VR 1.37.21–22",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "as soon as it was laid down the whole forest on the mountain turned golden; from then gold is called जातरूप; grass, trees, creepers and shrubs all become gold"
+    },
+    {
+      "ref": "VR 1.37.23–24",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "the child born there; the gods with Indra and the Maruts engaged the Krittikas to nurture him; they resolved 'he is the son of us all' (narrated as 'nurtured'; feeding not rendered)"
+    },
+    {
+      "ref": "VR 1.37.25",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "all the gods called him Kartikeya, to be famed in the three worlds"
+    },
+    {
+      "ref": "VR 1.37.26–27",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "radiant like fire (यथानलम्, ज्वलनोपमम्); the gods also named him Skanda (the gloss is not narrated)"
+    },
+    {
+      "ref": "VR 1.37.28",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "he became six-faced (षडाननः); narrated only as 'six-faced', the nursing half of the verse is not rendered"
+    },
+    {
+      "ref": "VR 1.37.29",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "in one day (एकाह्ना), still tender of body (सुकुमारवपुः), the lord conquered the daitya hosts by his own valour; narrated as 'still tender' (review F2), एकाह्ना not narrated"
+    },
+    {
+      "ref": "VR 1.37.30",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "then all the immortals, led by Agni, anointed the radiant one commander of the gods' armies (सुरसेनागणपतिमभ्यषिञ्चन्)"
+    },
+    {
+      "ref": "VR 1.37.31",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "this, Rama, is the Ganga's account told by me, and the birth of Kumara (कुमारसम्भवः), blessed and holy (teaser line)"
+    },
+    {
+      "ref": "VR 1.38.1–2",
+      "edition": "vulgate (sa.wikisource)",
+      "note": "Kaushika then told of Sagara, king of Ayodhya, righteous, longing for children and childless (प्रजाकामः स चाप्रजः) (Next card only, not narrated)"
+    },
+    "https://sa.wikisource.org/wiki/रामायणम्/बालकाण्डम्/सर्गः_३७ (accessed 2026-11-23)",
+    "https://www.valmikiramayan.net/utf8/baala/sarga37/balasans37.htm (live site returned HTTP 500 on 2026-11-23; read via the Internet Archive copy, accessed 2026-11-23)",
+    "https://sa.wikisource.org/wiki/रामायणम्/बालकाण्डम्/सर्गः_३८ (Next-card label only, accessed 2026-11-23)"
+  ],
+  "style_overrides": {
+    "caption_font": "/System/Library/Fonts/Supplemental/ChalkboardSE.ttc",
+    "caption_font_index": 2,
+    "caption_size": 76,
+    "caption_max_chars": 24
+  },
+  "loop": "composition",
+  "learnings": [
+    {
+      "action": "A1",
+      "tier": "anecdote",
+      "n": 25,
+      "finding": "F1",
+      "how": "Applied. The stakes are in the first sentence (the gods' commander was a newborn child, 1.37.23–30), and the turn, the verse card where the Ganga says she cannot hold the radiance (1.37.15), starts at about 17.3 s, just before or at the opening of the 18–25 s window A1 names (en, hi and gu start just before 18 s; te and mr at about 18 s or later), so the stakes turn early. The 55 s two-beat shape is used because sarga 37 carries the gods' plea, Brahma's answer, the radiance entrusted, the Ganga's refusal, the metals, the golden forest, the birth, the Krittikas, the naming and the anointing; the 35 s shape would drop beats the owner listed. This script is about 53.06 s by lint."
+    },
+    {
+      "action": "A2",
+      "tier": "anecdote",
+      "n": 1,
+      "finding": "F2",
+      "how": "Applied. The hook is 2.66 s, under the 3.0 s limit, with the stake in the first sentence, written natively short in each language (hi: देवों का सेनापति एक नवजात बालक था। gu: દેવોનો સેનાપતિ નવજાત બાળક હતો. te: దేవతల సేనాపతి ఓ పసిబిడ్డ.). Frame 0 is the radiant child in the golden reed forest with the gods' orbs before him, which the engine draws at least 70% by frame 0 (O5)."
+    },
+    {
+      "action": "A3",
+      "tier": "anecdote",
+      "n": 25,
+      "finding": "F7",
+      "how": "Partly applied. The density of sarga 37 needs the 55 s shape, so the lower half of 35–55 s is not reachable without dropping beats. Every language was cut to the owner's 50–53 s target instead: this script is 53.06 s by lint (hi and gu are planned about 1.5 s under their render, en tracks its estimate, mr renders shorter)."
+    },
+    {
+      "action": "A4",
+      "tier": "anecdote",
+      "n": 25,
+      "finding": "F8",
+      "how": "Applied on screen. Scene 10 carries the share prompt 'Which metals did the fire make?' (6 words or fewer) as its title card. It is answered in scene 7 (1.37.18–20): gold, silver, copper, iron, tin and lead. It is a wonder question with a safe answer and does not invite replies about the sensitive verses. It is not spoken, because no language has seconds to spare. The same line is suggested as the pinned comment so shares/reach can be compared with Ep11."
+    }
+  ],
+  "estimated_seconds": 53
+}

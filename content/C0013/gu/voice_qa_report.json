@@ -1,0 +1,307 @@
+{
+  "video": null,
+  "kind": "audio",
+  "mp4_sha256": null,
+  "verdict": "warn",
+  "families": {
+    "story": {
+      "score": 91,
+      "pass": true,
+      "rejects": [],
+      "warns": [
+        "lint_hook"
+      ],
+      "checks": 11
+    },
+    "audio": {
+      "score": 75,
+      "pass": false,
+      "rejects": [],
+      "warns": [
+        "narration_asr"
+      ],
+      "checks": 3
+    }
+  },
+  "checks": [
+    {
+      "name": "lint_duration",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "estimate_s": 51.93,
+        "basis": "letters"
+      }
+    },
+    {
+      "name": "lint_hook",
+      "family": "story",
+      "class": "warn",
+      "ok": false,
+      "issues": [
+        "hook scene spoken 2.8 s > 2.2 s"
+      ],
+      "data": {}
+    },
+    {
+      "name": "lint_scene_count",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_scene_length",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_keywords",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_digits",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_quote_src",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_sources",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_edition",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_silences",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_visual_parity",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "narration_asr",
+      "family": "audio",
+      "class": "warn",
+      "ok": false,
+      "issues": [
+        "scene 6: CER 0.269 length ratio 0.88 (warn) — listen and regenerate if mispronounced",
+        "scene 11: CER 0.167 length ratio 0.92 (warn) — listen and regenerate if mispronounced"
+      ],
+      "data": {
+        "scenes": [
+          {
+            "scene": 1,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "દેવોનો સેનાપતી નવજાત બાળક હતો."
+          },
+          {
+            "scene": 2,
+            "cer": 0.04,
+            "length_ratio": 0.96,
+            "heard": "રુદ્ર તપમાહતા દેવો સેનાપતી માગવા બ્રમા પાસે ગયા."
+          },
+          {
+            "scene": 3,
+            "cer": 0.071,
+            "length_ratio": 0.93,
+            "heard": "બ્રમા બોલ્યા ઉમાનો શા પટલ છે પણ ગંગાથી સેના પતી મળશે"
+          },
+          {
+            "scene": 4,
+            "cer": 0.125,
+            "length_ratio": 1.04,
+            "heard": "પ્રઈલા સે દેવોએ અગણીને કહું રુદ્રનુ તેજ ગંગાને સંપો"
+          },
+          {
+            "scene": 5,
+            "cer": 0.115,
+            "length_ratio": 1.0,
+            "heard": "ગંગાની દરેક ધારા જળહળી ને તે બોલ્યા કે આ તેજ નહી છિલાઈ"
+          },
+          {
+            "scene": 6,
+            "cer": 0.269,
+            "length_ratio": 0.88,
+            "heard": "અગનીના કહવાથી ગંગાયે એ જાળા હિંબાના ધોડાવે ઉતારી"
+          },
+          {
+            "scene": 7,
+            "cer": 0.111,
+            "length_ratio": 1.0,
+            "heard": "ધર્તિને અડતાંજ, સોનું ચાંદી, તામું લોધુ, કલાઈને સીસું પ્રકટ્યા."
+          },
+          {
+            "scene": 8,
+            "cer": 0.04,
+            "length_ratio": 1.04,
+            "heard": "બરું ને વરુક્ષો સોનાના થયા ત્યાં અગની જેવો બાળક ચનમ્યો"
+          },
+          {
+            "scene": 9,
+            "cer": 0.071,
+            "length_ratio": 0.93,
+            "heard": "છ કૃત્તિકા તારાઓએ તેને ઉછેર્યો દેવોએ નામ પાડિં કારતિકે"
+          },
+          {
+            "scene": 10,
+            "cer": 0.133,
+            "length_ratio": 1.0,
+            "heard": "કોમળ બાર શડાને દઈત્ય સેના જીતી ને દેવોય તેને સેના પતી બનાવ્યો."
+          },
+          {
+            "scene": 11,
+            "cer": 0.167,
+            "length_ratio": 0.92,
+            "heard": "રુશી બોલ્યા આ ગંગાની કથાં ને કાર્તિકેનું પાવં જન્માં"
+          }
+        ],
+        "transcripts": [
+          "whisper large-v3-turbo"
+        ]
+      },
+      "note": "CER is warn-only for this language until Indic ASR is validated"
+    },
+    {
+      "name": "speech_rate",
+      "family": "audio",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "reference_letters_per_s": 5.808,
+        "scenes": [
+          {
+            "scene": 1,
+            "seconds": 3.04,
+            "letters_per_s": 5.26,
+            "deviation": -0.094
+          },
+          {
+            "scene": 2,
+            "seconds": 4.16,
+            "letters_per_s": 6.01,
+            "deviation": 0.035
+          },
+          {
+            "scene": 3,
+            "seconds": 4.56,
+            "letters_per_s": 6.14,
+            "deviation": 0.057
+          },
+          {
+            "scene": 4,
+            "seconds": 5.04,
+            "letters_per_s": 4.76,
+            "deviation": -0.18
+          },
+          {
+            "scene": 5,
+            "seconds": 5.04,
+            "letters_per_s": 5.16,
+            "deviation": -0.112
+          },
+          {
+            "scene": 6,
+            "seconds": 4.72,
+            "letters_per_s": 5.51,
+            "deviation": -0.051
+          },
+          {
+            "scene": 7,
+            "seconds": 5.44,
+            "letters_per_s": 4.96,
+            "deviation": -0.146
+          },
+          {
+            "scene": 8,
+            "seconds": 4.96,
+            "letters_per_s": 5.04,
+            "deviation": -0.132
+          },
+          {
+            "scene": 9,
+            "seconds": 4.72,
+            "letters_per_s": 5.93,
+            "deviation": 0.021
+          },
+          {
+            "scene": 10,
+            "seconds": 4.8,
+            "letters_per_s": 6.25,
+            "deviation": 0.076
+          },
+          {
+            "scene": 11,
+            "seconds": 5.12,
+            "letters_per_s": 4.69,
+            "deviation": -0.192
+          }
+        ]
+      }
+    },
+    {
+      "name": "speaker_consistency",
+      "family": "audio",
+      "class": "reject",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "windows": 25,
+        "window_median": 0.668,
+        "window_min": 0.57,
+        "scene_min": 0.689,
+        "median_f0": 183,
+        "calibration": "2026-11-16: 2.5s windows — consistent voice min 0.61 / known-mixed median 0.46 (50% < 0.5); 1s clips are unreliable (same voice down to 0.57)"
+      }
+    }
+  ],
+  "contact_sheet": null,
+  "manual_review_required": [
+    "character consistency",
+    "visual defects / wrong illustrations",
+    "storytelling quality",
+    "native-speaker listen for non-English"
+  ],
+  "created_at": "2026-11-24T21:16:18+0530",
+  "id": 151
+}

@@ -1,0 +1,579 @@
+{
+  "video": "/Users/ayushman/Desktop/work/shorts-studio/content/C0013/en/C0013-en.mp4",
+  "kind": "automated",
+  "mp4_sha256": "6ae37dc37f3a755a3bec9a4eef2182383ec300bf320acd5ae6ef43401935e46a",
+  "verdict": "warn",
+  "families": {
+    "story": {
+      "score": 91,
+      "pass": true,
+      "rejects": [],
+      "warns": [
+        "lint_hook"
+      ],
+      "checks": 11
+    },
+    "visual": {
+      "score": 33,
+      "pass": false,
+      "rejects": [],
+      "warns": [
+        "chalk_density",
+        "safe_zones"
+      ],
+      "checks": 3
+    },
+    "audio": {
+      "score": 80,
+      "pass": true,
+      "rejects": [],
+      "warns": [
+        "music_under_speech"
+      ],
+      "checks": 4
+    },
+    "final": {
+      "score": 100,
+      "pass": true,
+      "rejects": [],
+      "warns": [],
+      "checks": 10
+    }
+  },
+  "checks": [
+    {
+      "name": "lint_duration",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "estimate_s": 53.06,
+        "basis": "letters"
+      }
+    },
+    {
+      "name": "lint_hook",
+      "family": "story",
+      "class": "warn",
+      "ok": false,
+      "issues": [
+        "hook scene spoken 2.7 s > 2.2 s"
+      ],
+      "data": {}
+    },
+    {
+      "name": "lint_scene_count",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_scene_length",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_keywords",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_digits",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_quote_src",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_sources",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_edition",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_silences",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_visual_parity",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "format",
+      "family": "final",
+      "class": "reject",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "video": "h264",
+        "audio": "aac",
+        "fps": 30.0,
+        "seconds": 53.03
+      }
+    },
+    {
+      "name": "duration",
+      "family": "final",
+      "class": "reject",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "seconds": 53.03
+      }
+    },
+    {
+      "name": "duration_target",
+      "family": "final",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "seconds": 53.03
+      }
+    },
+    {
+      "name": "loudness",
+      "family": "final",
+      "class": "reject",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "lufs": -14.0,
+        "true_peak_dbfs": -1.7,
+        "lra": 2.9
+      }
+    },
+    {
+      "name": "black_freeze",
+      "family": "final",
+      "class": "reject",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "black": 0,
+        "freeze": 0
+      }
+    },
+    {
+      "name": "silence",
+      "family": "final",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "gaps": 0
+      }
+    },
+    {
+      "name": "first_frame",
+      "family": "final",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "t0.0": 0.282,
+        "t0.5": 0.3268
+      },
+      "note": "style decision: warn only"
+    },
+    {
+      "name": "narration_asr",
+      "family": "audio",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "scenes": [
+          {
+            "scene": 1,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "The God's commander was a newborn child."
+          },
+          {
+            "scene": 2,
+            "cer": 0.022,
+            "length_ratio": 1.0,
+            "heard": "As Rudra did Tupas, the gods asked Brahma for a commander."
+          },
+          {
+            "scene": 3,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "Brahma said Uma's curse stood, but Agni and the Ganga would bring one."
+          },
+          {
+            "scene": 4,
+            "cer": 0.018,
+            "length_ratio": 1.02,
+            "heard": "On Kailasa, the gods bade Agni and trust Rudra's radiance to the Ganga."
+          },
+          {
+            "scene": 5,
+            "cer": 0.019,
+            "length_ratio": 1.0,
+            "heard": "Her streams blazed, and the gunga said she could not hold such fire."
+          },
+          {
+            "scene": 6,
+            "cer": 0.056,
+            "length_ratio": 1.04,
+            "heard": "Agni baited her place it on Hemavon's slope and she set the blaze down."
+          },
+          {
+            "scene": 7,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "Where it touched the earth rose gold and silver, copper, iron, tin and lead."
+          },
+          {
+            "scene": 8,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "Reeds and trees turned gold. There the child was born, bright as fire."
+          },
+          {
+            "scene": 9,
+            "cer": 0.13,
+            "length_ratio": 0.98,
+            "heard": "Six critical stars nurtured him, and the gods named him Kardecja."
+          },
+          {
+            "scene": 10,
+            "cer": 0.014,
+            "length_ratio": 1.0,
+            "heard": "Still tender the six-faced child rooted the demons and the gods anointed him commander"
+          },
+          {
+            "scene": 11,
+            "cer": 0.054,
+            "length_ratio": 1.0,
+            "heard": "That, said the sage, was the Gunga's tail, and Kardikeya's blessed birth."
+          }
+        ],
+        "transcripts": [
+          "render-time transcript (heard.json)"
+        ]
+      },
+      "note": "digits vs number-words and Whisper spelling quirks inflate CER; review flagged scenes by ear"
+    },
+    {
+      "name": "speech_rate",
+      "family": "audio",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "reference_letters_per_s": 12.04,
+        "scenes": [
+          {
+            "scene": 1,
+            "seconds": 2.92,
+            "letters_per_s": 10.94,
+            "deviation": -0.091
+          },
+          {
+            "scene": 2,
+            "seconds": 4.1,
+            "letters_per_s": 11.22,
+            "deviation": -0.068
+          },
+          {
+            "scene": 3,
+            "seconds": 4.38,
+            "letters_per_s": 12.57,
+            "deviation": 0.044
+          },
+          {
+            "scene": 4,
+            "seconds": 5.03,
+            "letters_per_s": 10.95,
+            "deviation": -0.091
+          },
+          {
+            "scene": 5,
+            "seconds": 4.25,
+            "letters_per_s": 12.71,
+            "deviation": 0.056
+          },
+          {
+            "scene": 6,
+            "seconds": 4.5,
+            "letters_per_s": 12.0,
+            "deviation": -0.003
+          },
+          {
+            "scene": 7,
+            "seconds": 5.08,
+            "letters_per_s": 11.63,
+            "deviation": -0.034
+          },
+          {
+            "scene": 8,
+            "seconds": 4.55,
+            "letters_per_s": 12.09,
+            "deviation": 0.004
+          },
+          {
+            "scene": 9,
+            "seconds": 4.58,
+            "letters_per_s": 11.8,
+            "deviation": -0.02
+          },
+          {
+            "scene": 10,
+            "seconds": 5.67,
+            "letters_per_s": 12.69,
+            "deviation": 0.054
+          },
+          {
+            "scene": 11,
+            "seconds": 4.33,
+            "letters_per_s": 12.95,
+            "deviation": 0.076
+          }
+        ]
+      }
+    },
+    {
+      "name": "speaker_consistency",
+      "family": "audio",
+      "class": "reject",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "windows": 24,
+        "window_median": 0.753,
+        "window_min": 0.605,
+        "scene_min": 0.784,
+        "median_f0": 194,
+        "calibration": "2026-11-16: 2.5s windows — consistent voice min 0.61 / known-mixed median 0.46 (50% < 0.5); 1s clips are unreliable (same voice down to 0.57)"
+      }
+    },
+    {
+      "name": "music_under_speech",
+      "family": "audio",
+      "class": "warn",
+      "ok": false,
+      "issues": [
+        "speech-band narration only 10.2 dB above the bed (target ≥12 dB)"
+      ],
+      "data": {
+        "median_db": 10.2,
+        "p10_db": -0.4,
+        "voice_gain": 3.652,
+        "frames": 92
+      }
+    },
+    {
+      "name": "captions",
+      "family": "final",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "groups": 47,
+        "timing": "timeline.json",
+        "engine_version": 3
+      }
+    },
+    {
+      "name": "caption_overflow",
+      "family": "final",
+      "class": "reject",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "widest_px": 897,
+        "limit_px": 1020
+      }
+    },
+    {
+      "name": "glyph_coverage",
+      "family": "final",
+      "class": "reject",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "texts": 21,
+        "fontset": "mac"
+      }
+    },
+    {
+      "name": "text_artifacts",
+      "family": "visual",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {},
+      "skipped": true,
+      "note": "tesseract binary not installed (brew install tesseract, Apache-2.0); skipped"
+    },
+    {
+      "name": "near_duplicates",
+      "family": "visual",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "images": 11
+      }
+    },
+    {
+      "name": "chalk_density",
+      "family": "visual",
+      "class": "warn",
+      "ok": false,
+      "issues": [
+        "scene 8: chalk density 47.6% outside 3%–45%",
+        "scene 11: chalk density 47.4% outside 3%–45%"
+      ],
+      "data": {
+        "scenes": [
+          {
+            "scene": 1,
+            "density": 0.372,
+            "top": 0.034,
+            "bottom": 1.514
+          },
+          {
+            "scene": 2,
+            "density": 0.159,
+            "top": 0.062,
+            "bottom": 0.127
+          },
+          {
+            "scene": 3,
+            "density": 0.155,
+            "top": 0.132,
+            "bottom": 0.513
+          },
+          {
+            "scene": 4,
+            "density": 0.204,
+            "top": 0.064,
+            "bottom": 0.128
+          },
+          {
+            "scene": 5,
+            "density": 0.031,
+            "top": 0.0,
+            "bottom": 0.0
+          },
+          {
+            "scene": 6,
+            "density": 0.338,
+            "top": 0.023,
+            "bottom": 1.352
+          },
+          {
+            "scene": 7,
+            "density": 0.236,
+            "top": 0.015,
+            "bottom": 0.104
+          },
+          {
+            "scene": 8,
+            "density": 0.476,
+            "top": 0.159,
+            "bottom": 0.974
+          },
+          {
+            "scene": 9,
+            "density": 0.203,
+            "top": 0.076,
+            "bottom": 0.922
+          },
+          {
+            "scene": 10,
+            "density": 0.334,
+            "top": 0.402,
+            "bottom": 2.228
+          },
+          {
+            "scene": 11,
+            "density": 0.474,
+            "top": 0.023,
+            "bottom": 1.212
+          }
+        ]
+      }
+    },
+    {
+      "name": "safe_zones",
+      "family": "visual",
+      "class": "warn",
+      "ok": false,
+      "issues": [
+        "scene 3: stroke energy in the title zone (top 12%) 0.13 > p90 0.111",
+        "scene 8: stroke energy in the title zone (top 12%) 0.16 > p90 0.111",
+        "scene 10: stroke energy in the title zone (top 12%) 0.40 > p90 0.111",
+        "scene 10: stroke energy in the caption zone (bottom 25%) 2.23 > p90 1.519"
+      ],
+      "data": {
+        "calibration": {
+          "top_p90": 0.111,
+          "bottom_p90": 1.519,
+          "n": 243
+        }
+      }
+    },
+    {
+      "name": "character_similarity",
+      "family": "visual",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "model_present": false
+      },
+      "skipped": true,
+      "note": "DINOv2 similarity is a human flag only; model not present locally and not downloaded"
+    }
+  ],
+  "contact_sheet": "/Users/ayushman/Desktop/work/shorts-studio/content/C0013/en/C0013-en.qa.png",
+  "manual_review_required": [
+    "character consistency",
+    "visual defects / wrong illustrations",
+    "storytelling quality",
+    "native-speaker listen for non-English"
+  ],
+  "created_at": "2026-11-24T21:58:38+0530",
+  "id": 155
+}

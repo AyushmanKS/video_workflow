@@ -1,0 +1,138 @@
+{
+ "pass": true,
+ "counts": {},
+ "checklist": [
+  {
+   "check": "joint_gap",
+   "what": "a body part pulls away from its pivot (for example a head sliding off the neck)",
+   "found": 0
+  },
+  {
+   "check": "unpivoted_motion",
+   "what": "a part slides instead of turning about its pivot (only hips and torso may shift, and only a few px)",
+   "found": 0
+  },
+  {
+   "check": "object_without_pivot",
+   "what": "a moving object has no declared pivot (flag pole, hinge, chain point, axle, holding hand)",
+   "found": 0
+  },
+  {
+   "check": "line_captured",
+   "what": "a straight scenery line (pole, rail, pillar edge) belongs to a moving character's cut-out",
+   "found": 0
+  },
+  {
+   "check": "body_gap",
+   "what": "while moving, a gap or crack opens inside a character's silhouette",
+   "found": 0
+  },
+  {
+   "check": "object_captured",
+   "what": "a character's cut-out contains pixels of another object (that object would move with the character)",
+   "found": 0
+  },
+  {
+   "check": "split_surface",
+   "what": "one continuous drawn surface is split between two moving characters",
+   "found": 0
+  },
+  {
+   "check": "rest_fidelity",
+   "what": "before anything moves, the frame does not reproduce the original drawing",
+   "found": 0
+  },
+  {
+   "check": "torn_stroke",
+   "what": "a chalk line crosses from a moving piece into a still one (object cut in two)",
+   "found": 0
+  },
+  {
+   "check": "orphan_fragment",
+   "what": "a small piece of a moving object stays behind",
+   "found": 0
+  },
+  {
+   "check": "fold",
+   "what": "the mesh folds over or is crushed / stretched beyond what cloth and skin allow",
+   "found": 0
+  },
+  {
+   "check": "exposed_patch",
+   "what": "a filled background patch becomes visible",
+   "found": 0
+  },
+  {
+   "check": "joint_limit",
+   "what": "a joint turns further than a body can",
+   "found": 0
+  },
+  {
+   "check": "pop",
+   "what": "something jumps between two frames",
+   "found": 0
+  },
+  {
+   "check": "contact_drift",
+   "what": "a resting hand, planted foot or seated body slides",
+   "found": 0
+  },
+  {
+   "check": "double_owner",
+   "what": "one drawn pixel belongs to two moving objects",
+   "found": 0
+  },
+  {
+   "check": "lost_ink",
+   "what": "a moving object loses part of its drawing while it moves (shredded or hollowed)",
+   "found": 0
+  },
+  {
+   "check": "background_seam",
+   "what": "an uncovered area does not continue the drawing around it (wrong or mismatched background)",
+   "found": 0
+  }
+ ],
+ "issues": [],
+ "waived": [
+  {
+   "check": "orphan_fragment",
+   "box": [
+    843,
+    976,
+    856,
+    986
+   ],
+   "pixels": 48,
+   "t": 5.4,
+   "who": "drift#6",
+   "reason": "verified 2026-11-24 on the QA sheet and a rest vs t=5.3 motion map: three 33-48 px grains of the halo's outer yellow glow under the storm cloud's lower-left lobe; the cloud is matted by saturation (grey only), so the halo glow correctly stays with the halo while the cloud drifts right; nothing is torn from the cloud and the grains match their surroundings in both tiles"
+  },
+  {
+   "check": "orphan_fragment",
+   "box": [
+    856,
+    994,
+    862,
+    1008
+   ],
+   "pixels": 33,
+   "t": 5.4,
+   "who": "drift#6",
+   "reason": "verified 2026-11-24 on the QA sheet and a rest vs t=5.3 motion map: three 33-48 px grains of the halo's outer yellow glow under the storm cloud's lower-left lobe; the cloud is matted by saturation (grey only), so the halo glow correctly stays with the halo while the cloud drifts right; nothing is torn from the cloud and the grains match their surroundings in both tiles"
+  },
+  {
+   "check": "orphan_fragment",
+   "box": [
+    862,
+    1007,
+    875,
+    1017
+   ],
+   "pixels": 42,
+   "t": 5.4,
+   "who": "drift#6",
+   "reason": "verified 2026-11-24 on the QA sheet and a rest vs t=5.3 motion map: three 33-48 px grains of the halo's outer yellow glow under the storm cloud's lower-left lobe; the cloud is matted by saturation (grey only), so the halo glow correctly stays with the halo while the cloud drifts right; nothing is torn from the cloud and the grains match their surroundings in both tiles"
+  }
+ ]
+}
