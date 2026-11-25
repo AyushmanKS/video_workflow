@@ -1,0 +1,291 @@
+{
+ "scene": 3,
+ "camera": {
+  "z0": 1.0,
+  "z1": 1.035,
+  "fx": 0.0,
+  "fy": -0.03
+ },
+ "puppets": [
+  {
+   "name": "groom",
+   "template": "marionette",
+   "use_fg": true,
+   "part_grow": 4,
+   "fg_grow": 3,
+   "joints": {
+    "neck": [
+     0.2533,
+     0.452
+    ],
+    "head_top": [
+     0.22,
+     0.29
+    ],
+    "shoulder_r": [
+     0.31,
+     0.53
+    ],
+    "elbow_r": [
+     0.36,
+     0.6
+    ],
+    "wrist_r": [
+     0.446,
+     0.596
+    ],
+    "hand_r": [
+     0.5,
+     0.585
+    ],
+    "ankle_mid": [
+     0.2695,
+     0.98
+    ],
+    "waist": [
+     0.2695,
+     0.7
+    ]
+   },
+   "parts": {
+    "head": [
+     [
+      0.11,
+      0.33
+     ],
+     [
+      0.14,
+      0.3
+     ],
+     [
+      0.22,
+      0.285
+     ],
+     [
+      0.31,
+      0.29
+     ],
+     [
+      0.33,
+      0.33
+     ],
+     [
+      0.342,
+      0.38
+     ],
+     [
+      0.33,
+      0.42
+     ],
+     [
+      0.3,
+      0.45
+     ],
+     [
+      0.26,
+      0.452
+     ],
+     [
+      0.2,
+      0.452
+     ],
+     [
+      0.17,
+      0.44
+     ],
+     [
+      0.14,
+      0.4
+     ]
+    ],
+    "hips": [
+     [
+      0.04,
+      0.27
+     ],
+     [
+      0.499,
+      0.27
+     ],
+     [
+      0.499,
+      1.06
+     ],
+     [
+      0.04,
+      1.06
+     ]
+    ]
+   },
+   "strings": [
+    "head",
+    "hand_r"
+   ],
+   "idle": {
+    "sway": 0.8,
+    "sway_hz": 0.5,
+    "breath": 4.5,
+    "breath_hz": 1.05,
+    "bones": {},
+    "dangle": {
+     "head": 2.0
+    },
+    "lag": 0.22,
+    "phase": 0.4
+   },
+   "actions": [
+    {
+     "line": 3,
+     "frac": 0.15,
+     "dur": 1.4,
+     "bone": "head",
+     "deg": 2.5
+    }
+   ],
+   "remainder": [
+    "hips"
+   ],
+   "root_motion": true,
+   "string": [
+    0.5,
+    -0.4
+   ]
+  },
+  {
+   "name": "bride",
+   "template": "marionette",
+   "use_fg": true,
+   "part_grow": 4,
+   "fg_grow": 3,
+   "joints": {
+    "neck": [
+     0.74,
+     0.5
+    ],
+    "head_top": [
+     0.73,
+     0.33
+    ],
+    "shoulder_r": [
+     0.68,
+     0.54
+    ],
+    "elbow_r": [
+     0.63,
+     0.6
+    ],
+    "wrist_r": [
+     0.578,
+     0.61
+    ],
+    "hand_r": [
+     0.51,
+     0.58
+    ],
+    "ankle_mid": [
+     0.7525,
+     0.98
+    ],
+    "waist": [
+     0.7525,
+     0.7
+    ]
+   },
+   "parts": {
+    "hand_r": [
+     [
+      0.573,
+      0.57
+     ],
+     [
+      0.545,
+      0.565
+     ],
+     [
+      0.515,
+      0.567
+     ],
+     [
+      0.51,
+      0.58
+     ],
+     [
+      0.52,
+      0.605
+     ],
+     [
+      0.55,
+      0.62
+     ],
+     [
+      0.574,
+      0.612
+     ]
+    ],
+    "hips": [
+     [
+      0.505,
+      0.31
+     ],
+     [
+      1.0,
+      0.31
+     ],
+     [
+      1.0,
+      1.06
+     ],
+     [
+      0.505,
+      1.06
+     ]
+    ]
+   },
+   "strings": [
+    "head",
+    "hand_r"
+   ],
+   "idle": {
+    "sway": 0.8,
+    "sway_hz": 0.5,
+    "breath": 4.5,
+    "breath_hz": 1.05,
+    "bones": {},
+    "dangle": {
+     "hand_r": 5.0
+    },
+    "lag": 0.22,
+    "phase": 0.4
+   },
+   "actions": [
+    {
+     "line": 3,
+     "frac": 0.5,
+     "dur": 1.3,
+     "bone": "hand_r",
+     "deg": 4
+    }
+   ],
+   "remainder": [
+    "hips"
+   ],
+   "root_motion": true,
+   "string": [
+    0.5,
+    -0.4
+   ]
+  }
+ ],
+ "qa_waive": [
+  {
+   "check": "orphan_fragment",
+   "box": [
+    0.059,
+    0.808,
+    0.081,
+    0.82
+   ],
+   "reason": "18 px speck from whole-body marionette swing; checked by eye on the QA sheet 2026-11-25, not visible at full size"
+  }
+ ]
+}

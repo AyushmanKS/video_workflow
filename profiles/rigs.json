@@ -214,6 +214,115 @@
      "width": 2.0
     }
    }
+  },
+  "marionette": {
+   "contact": [],
+   "bones": {
+    "hips": {
+     "from": "ankle_mid",
+     "to": "waist",
+     "limit": 6
+    },
+    "torso": {
+     "from": "waist",
+     "to": "neck",
+     "parent": "hips",
+     "limit": 8,
+     "blend": 0.035
+    },
+    "head": {
+     "from": "neck",
+     "to": "head_top",
+     "parent": "torso",
+     "limit": 15,
+     "blend": 0.05,
+     "width": 2.6
+    },
+    "upper_r": {
+     "from": "shoulder_r",
+     "to": "elbow_r",
+     "parent": "torso",
+     "limit": 8,
+     "blend": 0.035
+    },
+    "fore_r": {
+     "from": "elbow_r",
+     "to": "wrist_r",
+     "parent": "upper_r",
+     "limit": 20,
+     "blend": 0.025
+    },
+    "hand_r": {
+     "from": "wrist_r",
+     "to": "hand_r",
+     "parent": "fore_r",
+     "limit": 15,
+     "blend": 0.015
+    },
+    "upper_l": {
+     "from": "shoulder_l",
+     "to": "elbow_l",
+     "parent": "torso",
+     "limit": 8,
+     "blend": 0.035
+    },
+    "fore_l": {
+     "from": "elbow_l",
+     "to": "wrist_l",
+     "parent": "upper_l",
+     "limit": 20,
+     "blend": 0.025
+    },
+    "hand_l": {
+     "from": "wrist_l",
+     "to": "hand_l",
+     "parent": "fore_l",
+     "limit": 15,
+     "blend": 0.015
+    },
+    "thigh_r": {
+     "from": "hip_r",
+     "to": "knee_r",
+     "parent": "hips",
+     "limit": 6,
+     "blend": 0.03
+    },
+    "shin_r": {
+     "from": "knee_r",
+     "to": "ankle_r",
+     "parent": "thigh_r",
+     "limit": 6,
+     "blend": 0.025
+    },
+    "foot_r": {
+     "from": "ankle_r",
+     "to": "toe_r",
+     "parent": "shin_r",
+     "limit": 4,
+     "blend": 0.015
+    },
+    "thigh_l": {
+     "from": "hip_l",
+     "to": "knee_l",
+     "parent": "hips",
+     "limit": 6,
+     "blend": 0.03
+    },
+    "shin_l": {
+     "from": "knee_l",
+     "to": "ankle_l",
+     "parent": "thigh_l",
+     "limit": 6,
+     "blend": 0.025
+    },
+    "foot_l": {
+     "from": "ankle_l",
+     "to": "toe_l",
+     "parent": "shin_l",
+     "limit": 4,
+     "blend": 0.015
+    }
+   }
   }
  },
  "rules": {

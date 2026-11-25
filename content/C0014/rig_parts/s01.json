@@ -1,0 +1,122 @@
+{
+ "scene": 1,
+ "camera": {
+  "z0": 1.0,
+  "z1": 1.035,
+  "fx": 0.02,
+  "fy": -0.02
+ },
+ "elements": [
+  {
+   "kind": "flame",
+   "poly": [
+    [
+     0.74,
+     0.68
+    ],
+    [
+     0.88,
+     0.68
+    ],
+    [
+     0.88,
+     0.872
+    ],
+    [
+     0.74,
+     0.872
+    ]
+   ],
+   "amp": 1.5,
+   "flicker": 0.25,
+   "saturation_min": 0.3,
+   "edge": 3,
+   "snap": 4
+  }
+ ],
+ "puppets": [
+  {
+   "name": "couple",
+   "template": "marionette",
+   "use_fg": true,
+   "part_grow": 4,
+   "fg_grow": 3,
+   "remainder": [
+    "hips"
+   ],
+   "root_motion": true,
+   "joints": {
+    "ankle_mid": [
+     0.32,
+     0.98
+    ],
+    "waist": [
+     0.32,
+     0.7
+    ]
+   },
+   "parts": {
+    "hips": [
+     [
+      0.0,
+      0.44
+     ],
+     [
+      0.64,
+      0.44
+     ],
+     [
+      0.64,
+      1.06
+     ],
+     [
+      0.0,
+      1.06
+     ]
+    ]
+   },
+   "string": [
+    0.32,
+    -0.4
+   ],
+   "string_points": [
+    [
+     0.21,
+     0.515
+    ],
+    [
+     0.28,
+     0.7
+    ],
+    [
+     0.4,
+     0.47
+    ],
+    [
+     0.62,
+     0.685
+    ]
+   ],
+   "idle": {
+    "sway": 0.8,
+    "sway_hz": 0.5,
+    "breath": 4.5,
+    "breath_hz": 1.05,
+    "bones": {},
+    "dangle": {},
+    "lag": 0.22,
+    "phase": 0.5
+   },
+   "actions": [
+    {
+     "line": 1,
+     "frac": 0.05,
+     "dur": 3.2,
+     "dx": 0.025,
+     "hop": 0.012,
+     "steps": 3
+    }
+   ]
+  }
+ ]
+}

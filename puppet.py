@@ -128,6 +128,16 @@ class Puppet:
                 self.core[k] = np.maximum(self.core[k], disc)
                 self.grown[k] = np.maximum(self.grown[k], disc)
             self.alphas[k] = self.grown[k]
+        for k in spec.get("remainder", []):
+            if k in self.z:
+                others = sum((self.core[o] for o in self.z if o != k), np.zeros((h, w), np.float32)).clip(0, 1)
+                if self.keep is not None:
+                    self.core[k] = self.core[k] * (self.fgraw > 0)
+                    self.grown[k] = self.grown[k] * self.keep
+                self.core[k] = self.core[k] * (1 - others)
+                self.grown[k] = self.grown[k] * (1 - others)
+                self.alphas[k] = self.grown[k]
+        for k in self.z:
             hole = np.maximum(hole, self.grown[k])
         self.hole = cv2.GaussianBlur(cv2.dilate(hole, np.ones((3, 3), np.uint8)), (0, 0), 1.2)
         self.alpha = self.hole
@@ -150,7 +160,7 @@ class Puppet:
         kk = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (41, 41))
         closed = cv2.morphologyEx((fig > 0.3).astype(np.uint8), cv2.MORPH_CLOSE, kk).astype(np.float32)
         if self.keep is not None:
-            closed = np.maximum(snap(self.layer, closed, int(self.spec.get("snap", 24))) * self.keep, sum(self.core[k] for k in self.z).clip(0, 1))
+            closed = np.maximum(snap(self.layer, closed, int(self.spec.get("snap", 24))) * self.keep, sum((self.core[k] for k in self.z), np.zeros((self.h, self.w), np.float32)).clip(0, 1))
         hull = np.zeros((self.h, self.w), np.uint8)
         for k in self.z:
             hull = np.maximum(hull, (self.grown[k] > 0.5).astype(np.uint8))
@@ -188,16 +198,16 @@ class Puppet:
             yy, xx = np.nonzero(dil)
             x0, y0, x1, y1 = int(xx.min()), int(yy.min()), int(xx.max()) + 1, int(yy.max()) + 1
             gy, gx = np.mgrid[y0 - sp:y1 + 2 * sp:sp, x0 - sp:x1 + 2 * sp:sp]
-            gx = np.clip(gx, 0, self.w - 1)
-            gy = np.clip(gy, 0, self.h - 1)
-            keep = dil[gy, gx]
+            gx = np.clip(gx, 0, self.w)
+            gy = np.clip(gy, 0, self.h)
+            keep = dil[np.minimum(gy, self.h - 1), np.minimum(gx, self.w - 1)]
             pts = np.unique(np.stack([gx[keep], gy[keep]], 1), axis=0).astype(np.float64)
             if len(pts) < 3:
                 continue
             tri = Delaunay(pts).simplices
             cen = pts[tri].mean(1)
-            tri = tri[dil[cen[:, 1].astype(int), cen[:, 0].astype(int)]]
-            vl = labf[pts[:, 1].astype(int), pts[:, 0].astype(int)]
+            tri = tri[dil[np.minimum(cen[:, 1].astype(int), self.h - 1), np.minimum(cen[:, 0].astype(int), self.w - 1)]]
+            vl = labf[np.minimum(pts[:, 1].astype(int), self.h - 1), np.minimum(pts[:, 0].astype(int), self.w - 1)]
             names = []
             for (px_, py_), l in zip(pts, vl):
                 nm = self.z[l] if l >= 0 else k
@@ -361,14 +371,17 @@ class Puppet:
                 root["dy"] += a["dy"] * self.h * e
         idle = self.spec.get("idle", {})
         ph = idle.get("phase", 0.0)
-        root["sway"] += idle.get("sway", 0.4) * math.sin(2 * math.pi * 0.23 * t + ph)
-        br = idle.get("breath", 1.0) * math.sin(2 * math.pi * 0.27 * t + ph)
+        root["sway"] += idle.get("sway", 0.4) * math.sin(2 * math.pi * idle.get("sway_hz", 0.23) * t + ph)
+        br = idle.get("breath", 1.0) * math.sin(2 * math.pi * idle.get("breath_hz", 0.27) * t + ph)
         if idle.get("breath_bone") in shift:
             shift[idle["breath_bone"]][1] += br
         else:
             root["dy"] += br
         for k, amp in idle.get("bones", {}).items():
             ang[k] += amp * math.sin(2 * math.pi * 0.31 * t + ph + len(k))
+        for k, amp in idle.get("dangle", {}).items():
+            if k in ang:
+                ang[k] -= amp * math.sin(2 * math.pi * idle.get("sway_hz", 0.23) * (t - idle.get("lag", 0.35)) + ph)
         return ang, root, shift
 
     def matrices(self, t):
@@ -377,7 +390,8 @@ class Puppet:
         M = {}
         for k in self.order:
             bn = self.bones[k]
-            base = M[bn["parent"]] if bn["parent"] and not self.spec["bones"][k].get("pin") else np.eye(3)
+            top = R if self.spec.get("root_motion") else np.eye(3)
+            base = M[bn["parent"]] if bn["parent"] and not self.spec["bones"][k].get("pin") else top
             M[k] = base @ translate(*shift[k]) @ rot_about(bn["a"][0], bn["a"][1], ang[k])
         return M
 
@@ -880,6 +894,9 @@ def reconcile(layer, plate, telea, A, obj):
     return out
 
 
+FILL_GRAIN = {"on": True}
+
+
 def fill_holes(layer, hole, seed=0, gain=0.5):
     h, w = hole.shape
     m = (hole > 0.05).astype(np.uint8)
@@ -887,6 +904,14 @@ def fill_holes(layer, hole, seed=0, gain=0.5):
         return np.zeros_like(layer)
     m = cv2.dilate(m, np.ones((5, 5), np.uint8))
     u8 = (np.clip(layer, 0, 1) * 255).astype(np.uint8)
+    if not FILL_GRAIN["on"]:
+        q = 4
+        small = cv2.resize(u8, (w // q, h // q), interpolation=cv2.INTER_AREA)
+        ms = (cv2.resize(m, (w // q, h // q), interpolation=cv2.INTER_NEAREST) | cv2.resize(m, (w // q, h // q), interpolation=cv2.INTER_AREA)) > 0
+        fs = cv2.inpaint(small, cv2.dilate(ms.astype(np.uint8), np.ones((3, 3), np.uint8)), 5, cv2.INPAINT_TELEA)
+        up = cv2.resize(fs, (w, h), interpolation=cv2.INTER_CUBIC).astype(np.float32) / 255
+        keep = (m == 0)[..., None]
+        return np.where(keep, u8.astype(np.float32) / 255, up) * gain
     filled = cv2.inpaint(u8, m, 9, cv2.INPAINT_TELEA).astype(np.float32) / 255
     soft = cv2.GaussianBlur(filled, (0, 0), 2.0)
     grain = np.random.default_rng(seed).uniform(0.6, 1.0, (h, w)).astype(np.float32)

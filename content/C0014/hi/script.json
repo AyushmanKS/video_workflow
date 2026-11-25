@@ -1,0 +1,306 @@
+{
+  "title": "छह धर्मों में शादी का मतलब | कठपुतली कहानियाँ",
+  "topic": "What marriage means in the world's religions: Hindu vivaha as samskara and saptapadi; Islamic nikah as a contract with mahr and Qur'an 30:21; Christian 'one flesh' (Genesis 2:24) and the sacrament in Catholic and Orthodox teaching; Jewish kiddushin and the chuppah; Sikh Anand Karaj and the four laavan around the Guru Granth Sahib; Buddhist marriage as a civil and social bond and the Sigalovada Sutta (DN 31)",
+  "style": "marionette",
+  "language": "hi",
+  "character": "",
+  "engine_version": 3,
+  "format": "short",
+  "edition": "comparative religion: scripture in named translations (Qur'an: Saheeh International / A. Yusuf Ali; Bible: NRSVUE / KJV; DN 31: Narada Thera) and reference works, all URLs accessed 2026-11-24 (research/report.md)",
+  "scenes": [
+    {
+      "narration": "फेरे, निकाह या लावां, शादी का मतलब क्या है?",
+      "keywords": [
+        "शादी",
+        "मतलब"
+      ],
+      "emphasis": "",
+      "pause": 0.18,
+      "sfx": [
+        {
+          "name": "impact"
+        }
+      ],
+      "melody": "intro",
+      "swell": true,
+      "visual": "Two wooden marionettes at centre stage under a single warm spotlight, a bride and a groom in simple universal festive clothes, the bride in a long cream dress with a gold sash, the groom in a long cream coat with a gold sash, both with carved wooden faces hand-painted in folk marionette style, large almond eyes, arched black brows, rosy cheeks and small red lips, standing apart in three-quarter view facing each other, each reaching one open hand forward at chest height toward the other, fingers spread, a clear gap of black velvet between the two hands, both marionettes shown full figure from head to feet in the middle band of the frame, plain black velvet above their heads, open wooden stage floor below their feet, a clear gap of black velvet between the two figures, every hand, arm and held prop out in open space clear of the bodies",
+      "shot": "WS",
+      "move": "static",
+      "tier": "A",
+      "seed": 14001,
+      "moves": "Both heads tilt toward each other; the groom's reaching forearm rises a little from the elbow; the bride's open hand lifts slightly."
+    },
+    {
+      "narration": "हिंदुओं में विवाह संस्कार है, जो परंपरा से अग्नि के सामने सप्तपदी से पूरा होता है।",
+      "keywords": [
+        "संस्कार",
+        "सप्तपदी"
+      ],
+      "emphasis": "हिंदू धर्म · विवाह",
+      "pause": 0.18,
+      "sfx": [
+        {
+          "name": "fire"
+        }
+      ],
+      "melody": "calm",
+      "swell": false,
+      "visual": "A Hindu bride and groom marionette in side view walking one behind the other toward a small fire burning in a low square brass fire bowl standing on the floor at right of centre, the groom leading in a cream sherwani with a saffron turban and a marigold garland, the bride a step behind in a red bridal saree with a gold border and a red veil over her head, a marigold garland and gold bangles, both with carved wooden faces hand-painted in folk marionette style, large almond eyes, arched black brows, rosy cheeks and small red lips, the groom's near hand held out forward and the bride's hands held together in front of her, the fire bowl with open black velvet all around it and its flame rising freely, both barefoot, bare carved wooden feet visible on the stage floor, both marionettes shown full figure from head to feet in the middle band of the frame, plain black velvet above their heads, open wooden stage floor below their feet, a clear gap of black velvet between the two figures, every hand, arm and held prop out in open space clear of the bodies",
+      "shot": "WS",
+      "move": "push",
+      "tier": "A",
+      "seed": 14002,
+      "moves": "Both take one small step forward (hip and knee swing); heads bow slightly toward the fire; the flame flickers."
+    },
+    {
+      "narration": "इस्लाम में निकाह एक अनुबंध और पक्का अहद है, जिसमें दुल्हन का मेहर तय होता है।",
+      "keywords": [
+        "अनुबंध",
+        "मेहर"
+      ],
+      "emphasis": "इस्लाम · निकाह",
+      "pause": 0.4,
+      "sfx": [],
+      "melody": "calm",
+      "swell": false,
+      "visual": "A Muslim bride and groom marionette seated on two low embroidered floor cushions at a respectful distance in three-quarter view facing each other, the groom in a cream sherwani and a white cap, the bride in a modest deep-red embroidered long dress with a red dupatta covering her hair and shoulders, both with carved wooden faces hand-painted in folk marionette style, large almond eyes, arched black brows, rosy cheeks and small red lips, a small low wooden table on the floor between them holding an unrolled cream marriage contract laid sideways so it faces both of them and a small closed carved wooden gift box, the groom holding a slim reed pen raised in his near hand above the contract, the bride's near hand resting flat on the contract's edge, her other hand in her lap, both marionettes shown full figure from head to feet in the middle band of the frame, plain black velvet above their heads, open wooden stage floor below their feet, a clear gap of black velvet between the two figures, every hand, arm and held prop out in open space clear of the bodies",
+      "shot": "MS",
+      "move": "pull",
+      "tier": "A",
+      "seed": 14003,
+      "moves": "The groom's pen hand lowers a little toward the scroll from the elbow and returns; the bride's head nods once.",
+      "quote_src": "Qur'an 4:21 (mithaqan ghalizan; Saheeh International and A. Yusuf Ali: 'a solemn covenant'); Qur'an 4:4 (mahr); quran.com, accessed 2026-11-24. Reported, not quoted."
+    },
+    {
+      "narration": "और क़ुरआन मियाँ-बीवी में सुकून, मोहब्बत और रहमत की बात करता है।",
+      "keywords": [
+        "सुकून",
+        "रहमत"
+      ],
+      "emphasis": "क़ुरआन 30:21",
+      "pause": 0.3,
+      "sfx": [],
+      "melody": "love",
+      "swell": false,
+      "quote_src": "Qur'an 30:21. Saheeh International: 'that you may find tranquility in them; and He placed between you affection and mercy'; A. Yusuf Ali: 'that ye may dwell in tranquillity with them, and He has put love and mercy between your (hearts)' (quran.com/30/21, accessed 2026-11-24). Meaning reported, not quoted. Hindi 'सुकून, मोहब्बत और रहमत' renders the meaning; it is not a quoted Hindi translation.",
+      "visual": "Medium shot of the same Muslim bride and groom marionette now standing a little apart in three-quarter view turned toward each other, the groom in a cream sherwani and a white cap, the bride in the deep-red embroidered dress with the red dupatta covering her hair, both with carved wooden faces hand-painted in folk marionette style, large almond eyes, arched black brows, rosy cheeks and small red lips, the groom's near hand held out palm up at waist height and the bride's near hand held out toward it, a small gap of black velvet between the two hands, a soft warm glow on their calm faces, both marionettes shown full figure from head to feet in the middle band of the frame, plain black velvet above their heads, open wooden stage floor below their feet, a clear gap of black velvet between the two figures, every hand, arm and held prop out in open space clear of the bodies",
+      "shot": "CU",
+      "move": "push",
+      "tier": "A",
+      "seed": 14004,
+      "moves": "Both heads turn gently toward each other; the open hands rise slightly from the elbow toward each other, keeping the gap."
+    },
+    {
+      "narration": "ईसाई कहते हैं, दो एक तन होते हैं, और कैथोलिक और ऑर्थोडॉक्स इसे संस्कार मानते हैं।",
+      "keywords": [
+        "तन",
+        "संस्कार"
+      ],
+      "emphasis": "ईसाई धर्म",
+      "pause": 0.18,
+      "sfx": [
+        {
+          "name": "bell"
+        }
+      ],
+      "melody": "calm",
+      "swell": false,
+      "quote_src": "Genesis 2:24 (NRSVUE: 'and they become one flesh'; KJV: 'they shall be one flesh') and Matthew 19:5-6 (NRSVUE: 'and the two shall become one flesh'... 'So they are no longer two but one flesh'), biblegateway.com, accessed 2026-11-24; Catechism of the Catholic Church 1601 (vatican.va); Orthodox Church in America, 'Marriage' (oca.org, 'the sacrament of marriage'). Reported, not quoted.",
+      "visual": "A Christian bride and groom marionette standing in three-quarter view facing each other, the bride in a white wedding gown and a short white veil holding a small white bouquet out in her far hand, the groom in a dark suit with a white shirt, both with carved wooden faces hand-painted in folk marionette style, large almond eyes, arched black brows, rosy cheeks and small red lips, the groom holding a small gold ring out toward the bride's raised left hand with a clear gap between ring and finger, a small plain wooden cross on a slim wooden stand standing on the floor at the right of the stage with open black velvet around it, both marionettes shown full figure from head to feet in the middle band of the frame, plain black velvet above their heads, open wooden stage floor below their feet, a clear gap of black velvet between the two figures, every hand, arm and held prop out in open space clear of the bodies",
+      "shot": "MS",
+      "move": "static",
+      "tier": "A",
+      "seed": 14005,
+      "moves": "The groom's ring forearm moves a little toward the bride's hand; the bride's head lifts toward him."
+    },
+    {
+      "narration": "यहूदी इसे किदुशिन यानी पवित्र करना कहते हैं, और चँदोवा नए घर का प्रतीक है।",
+      "keywords": [
+        "पवित्र",
+        "घर"
+      ],
+      "emphasis": "यहूदी धर्म · किदुशिन",
+      "pause": 0.18,
+      "sfx": [],
+      "melody": "calm",
+      "swell": false,
+      "visual": "A Jewish bride and groom marionette standing beneath a small chuppah at centre stage, a white cloth canopy on four slim wooden poles, the canopy top hanging well below the top of the frame with black velvet above it, the poles standing wide apart and clear of the figures, the groom in a dark suit with a white kippah and a white prayer shawl with blue stripes over his shoulders, the bride in a white gown with a long veil, both with carved wooden faces hand-painted in folk marionette style, large almond eyes, arched black brows, rosy cheeks and small red lips, facing each other in three-quarter view, the groom holding a plain gold ring out toward the bride's raised hand with a small gap between them, a small side table at the left holding a rolled ketubah scroll and a silver wine cup, a drinking glass wrapped in a white cloth resting on the floor near the groom's feet, both marionettes shown full figure from head to feet in the middle band of the frame, plain black velvet above their heads, open wooden stage floor below their feet, a clear gap of black velvet between the two figures, every hand, arm and held prop out in open space clear of the bodies",
+      "shot": "WS",
+      "move": "pull",
+      "tier": "B",
+      "seed": 14006,
+      "moves": "The chuppah cloth sways gently; the puppets hold still."
+    },
+    {
+      "narration": "सिख इसे आनंद कारज कहते हैं, जहाँ जोड़ा गुरु ग्रंथ साहिब की चार परिक्रमा करता है।",
+      "keywords": [
+        "आनंद",
+        "परिक्रमा"
+      ],
+      "emphasis": "सिख धर्म · आनंद कारज",
+      "pause": 0.18,
+      "sfx": [],
+      "melody": "rise",
+      "swell": false,
+      "visual": "A Sikh groom and bride marionette walking in side view toward the left past a palki sahib at stage right, the palki sahib a stationary carved wooden platform standing on four short carved legs set firmly on the stage floor, with a small domed canopy held up by four slim carved posts with a fringed golden edge, on the platform a soft rounded bundle completely wrapped in rich embroidered maroon and gold rumala cloth with only cloth visible, the groom leading in a cream achkan, a red turban and a neat black beard, the bride following a step behind in a red embroidered lehenga with a red dupatta over her head, both with carved wooden faces hand-painted in folk marionette style, large almond eyes, arched black brows, rosy cheeks and small red lips, the bride holding the end of a long pink sash whose other end rests over the groom's shoulder, the sash hanging in a clear curve through the open gap between them, both barefoot, bare carved wooden feet visible on the stage floor, both marionettes shown full figure from head to feet in the middle band of the frame, plain black velvet above their heads, open wooden stage floor below their feet, a clear gap of black velvet between the two figures, every hand, arm and held prop out in open space clear of the bodies",
+      "shot": "WS",
+      "move": "push",
+      "tier": "A",
+      "seed": 14007,
+      "moves": "Heads bow slightly toward the palki; small torso lean and knee bend for the walk (feet planted, the sash stays still); the palki canopy fringe stirs."
+    },
+    {
+      "narration": "कई बौद्ध इसे सामाजिक बंधन मानते हैं, पर बुद्ध ने पति-पत्नी को वफ़ादारी सिखाई।",
+      "keywords": [
+        "सामाजिक",
+        "वफ़ादारी"
+      ],
+      "emphasis": "बौद्ध धर्म",
+      "pause": 0.5,
+      "sfx": [],
+      "melody": "calm",
+      "swell": false,
+      "quote_src": "Sigalovada Sutta, DN 31, tr. Narada Thera: the husband ministers to his wife 'by being faithful to her'; the wife 'is faithful' (accesstoinsight.org, accessed 2026-11-24). Reported, not quoted.",
+      "visual": "A Buddhist bride and groom marionette standing face to face in three-quarter view on a low wooden platform decorated with white flowers along its edges, the bride in a white and gold draped saree with a white flower in her hair, the groom in a white and gold traditional jacket over a white wrapped cloth, both with carved wooden faces hand-painted in folk marionette style, large almond eyes, arched black brows, rosy cheeks and small red lips, each with palms pressed together in a respectful greeting held out in front of the chest clear of the body, a small brass oil lamp with one flame burning on the floor in front of the platform with open black velvet around it, both marionettes shown full figure from head to feet in the middle band of the frame, plain black velvet above their heads, open wooden stage floor below their feet, a clear gap of black velvet between the two figures, every hand, arm and held prop out in open space clear of the bodies",
+      "shot": "MS",
+      "move": "static",
+      "tier": "A",
+      "seed": 14008,
+      "moves": "Both heads and shoulders bow gently toward each other and return; the lamp flame flickers."
+    },
+    {
+      "narration": "तो मतलब अलग हैं, पर हर परंपरा वचन निभाने और घर बसाने को कहती है।",
+      "keywords": [
+        "वचन",
+        "घर"
+      ],
+      "emphasis": "किस धर्म में ग्रंथ की परिक्रमा होती है?",
+      "pause": 0.18,
+      "sfx": [],
+      "melody": "love",
+      "swell": true,
+      "visual": "Two wooden marionettes at centre stage under a single warm spotlight, the bride in a long cream dress with a gold sash and the groom in a long cream coat with a gold sash, both with carved wooden faces hand-painted in folk marionette style, large almond eyes, arched black brows, rosy cheeks and small red lips, standing in three-quarter view facing each other, their near hands joined between them at chest height, the joined hands out in open space clear of both bodies, the same framing as the opening scene, both marionettes shown full figure from head to feet in the middle band of the frame, plain black velvet above their heads, open wooden stage floor below their feet, a clear gap of black velvet between the two figures, every hand, arm and held prop out in open space clear of the bodies",
+      "shot": "WS",
+      "move": "pull",
+      "tier": "A",
+      "seed": 14001,
+      "moves": "Both heads lift toward the spotlight; chests breathe; the joined hands stay pinned together."
+    }
+  ],
+  "description": "हिंदू, इस्लाम, ईसाई, यहूदी, सिख और बौद्ध परंपराओं में शादी का मतलब, लकड़ी की कठपुतलियों के साथ, हर परंपरा अपने ही शब्दों में।",
+  "hashtags": [],
+  "thumbnail": {
+    "scene": 0,
+    "devanagari": "शादी का मतलब",
+    "title": "शादी है क्या?",
+    "series": "Chalk Tales · Puppet Explainers",
+    "episode": "",
+    "subtitle": ""
+  },
+  "sources": [
+    {
+      "ref": "Hindu American Foundation, What's a Hindu wedding like? (vivaha as samskara; seven steps; Agni as witness)",
+      "edition": "web, hinduamerican.org/?p=9588, accessed 2026-11-24"
+    },
+    {
+      "ref": "Hindu Marriage Act 1955, s. 7(2) (saptapadi: marriage complete at the seventh step)",
+      "edition": "statute text as reproduced at devgan.in/hma/section/7/, accessed 2026-11-24"
+    },
+    {
+      "ref": "Wikipedia, Saptapadi; Hindu wedding",
+      "edition": "en.wikipedia.org, accessed 2026-11-24"
+    },
+    {
+      "ref": "Wikipedia, Nikah (Marriage in Islam): contract, mahr",
+      "edition": "en.wikipedia.org, accessed 2026-11-24"
+    },
+    {
+      "ref": "Qur'an 4:4 (mahr), 4:21 (a solemn covenant) and 30:21 (tranquillity, love and mercy)",
+      "edition": "Saheeh International and A. Yusuf Ali translations, quran.com, accessed 2026-11-24"
+    },
+    {
+      "ref": "Genesis 2:24 and Matthew 19:5-6 (one flesh)",
+      "edition": "NRSVUE and KJV, biblegateway.com, accessed 2026-11-24"
+    },
+    {
+      "ref": "Catechism of the Catholic Church 1601 (covenant raised to a sacrament)",
+      "edition": "vatican.va English text, accessed 2026-11-24"
+    },
+    {
+      "ref": "Wikipedia, Sacred mysteries (Orthodox: Holy Matrimony among the mysteries)",
+      "edition": "en.wikipedia.org, accessed 2026-11-24"
+    },
+    {
+      "ref": "Orthodox Church in America, Marriage ('the sacrament of marriage'; crowning)",
+      "edition": "oca.org/orthodoxy/the-orthodox-faith/worship/the-sacraments/marriage, accessed 2026-11-24"
+    },
+    {
+      "ref": "Church of England, Thirty-nine Articles, Art. XXV (Protestant diversity)",
+      "edition": "Book of Common Prayer 1662, churchofengland.org, accessed 2026-11-24"
+    },
+    {
+      "ref": "Chabad.org, Kiddushin (root k-d-sh, sanctified; ketubah)",
+      "edition": "chabad.org aid 465163, accessed 2026-11-24"
+    },
+    {
+      "ref": "My Jewish Learning, The Chuppah, or Wedding Canopy (symbol of the new home)",
+      "edition": "myjewishlearning.com, accessed 2026-11-24"
+    },
+    {
+      "ref": "Wikipedia, Anand Karaj; Laavan (Guru Ram Das, ang 773-774)",
+      "edition": "en.wikipedia.org, accessed 2026-11-24"
+    },
+    {
+      "ref": "Sikh Rehat Maryada (SGPC), Art. XVIII(j): four circumambulations of the Guru Granth Sahib",
+      "edition": "English text, sikhs.org/reht4.htm, accessed 2026-11-24"
+    },
+    {
+      "ref": "K. Sri Dhammananda, A Happy Married Life: A Buddhist Perspective (not a religious duty or sacrament)",
+      "edition": "accesstoinsight.org, accessed 2026-11-24"
+    },
+    {
+      "ref": "Sigalovada Sutta, DN 31 (duties of husband and wife; faithful)",
+      "edition": "tr. Narada Thera, accesstoinsight.org, accessed 2026-11-24"
+    },
+    {
+      "ref": "Sikh Rehat Maryada, Art. V(j): shoes are taken off on entering the gurdwara (barefoot couple, visual)",
+      "edition": "English text, sikhs.org/reht3.htm, accessed 2026-11-24"
+    }
+  ],
+  "loop": {
+    "type": "composition",
+    "note": "scene 9 reuses frame 0's framing; the gap between the hands is closed"
+  },
+  "learnings": [
+    {
+      "action": "A1",
+      "tier": "anecdote",
+      "finding": "F1",
+      "how": "Six traditions need more than the 35 s anecdote shape, so the script uses a compact 50-55 s shape; the stakes (is marriage the same everywhere?) are stated in the first line and the turn (the contract that speaks of love and mercy) lands at about 17-23 s."
+    },
+    {
+      "action": "A2",
+      "tier": "anecdote",
+      "finding": "F2",
+      "how": "Hook is one short native question per language (en 2.4 s, hi 2.9 s lint estimate), frame 0 is a fully drawn pair of puppets reaching toward each other."
+    },
+    {
+      "action": "A3",
+      "tier": "anecdote",
+      "finding": "F9",
+      "how": "Estimate kept inside 35-55 s (en 53.5 s, hi 54.3 s after the reviewer's accuracy additions) by trimming scenes; no faith dropped. Not in the lower half: six traditions need the length."
+    },
+    {
+      "action": "A4",
+      "tier": "anecdote",
+      "finding": "F10",
+      "how": "Engagement line as a share prompt on the last scene's title card ('Which faith circles its scripture?' / 'किस धर्म में ग्रंथ की परिक्रमा होती है?'; answer in scene 7); suggested also as the pinned comment."
+    }
+  ],
+  "style_overrides": {
+    "caption_font": "/System/Library/Fonts/Kohinoor.ttc",
+    "caption_font_index": 2,
+    "caption_size": 80,
+    "caption_max_chars": 24
+  }
+}

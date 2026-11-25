@@ -1,0 +1,135 @@
+[
+ {
+  "text": "फेरे, निकाह या लावां, शादी का मतलब क्या है?",
+  "type": "contrast / question (names the audience already knows)",
+  "spoken_s": 2.94,
+  "scores": {
+   "curiosity": 4,
+   "emotion": 3,
+   "specificity": 5,
+   "speed": 4,
+   "resonance": 5,
+   "accuracy": 4
+  },
+  "total": 25,
+  "selected": true,
+  "visual_hook": true,
+  "hook_to_payoff": "Main loop (what does marriage mean?) is answered tradition by tradition in scenes 2-8 and closed in scene 9 ('तो मतलब अलग हैं, पर हर परंपरा वचन निभाने और घर बसाने की बात करती है'), starting at about 87% of runtime; composition loop to frame 0.",
+  "reasoning": "Selected: highest total (25). Written natively for a Hindi audience, who already know फेरे, निकाह and लावां as wedding words; one spoken sentence (list into a question), not a headline. Accuracy 4: फेरे is the popular word for the Hindu fire rite while the body uses the correct term सप्तपदी (research row 2). Risk: 2.94 s is close to the 3.0 s hard limit; backup is hook 2 (2.62 s). Frame 0 reads muted as 'a marriage, not yet joined'.",
+  "speed_rule": "speed score from the lint estimate: >3.0 s = 1 (fails the hard limit), 2.8-3.0 s = 4, <=2.8 s = 5"
+ },
+ {
+  "text": "क्या हर धर्म में शादी एक-सी होती है?",
+  "type": "question",
+  "spoken_s": 2.62,
+  "scores": {
+   "curiosity": 4,
+   "emotion": 2,
+   "specificity": 3,
+   "speed": 5,
+   "resonance": 4,
+   "accuracy": 5
+  },
+  "total": 23,
+  "selected": false,
+  "visual_hook": false,
+  "hook_to_payoff": "",
+  "reasoning": "Safe backup (faster, accuracy 5). Less resonant than naming the rites the audience knows. Use it if the Malini render pushes hook 1 past 3.0 s; the last line would then read 'तो एक-सी नहीं, पर हर परंपरा…'.",
+  "speed_rule": "speed score from the lint estimate: >3.0 s = 1 (fails the hard limit), 2.8-3.0 s = 4, <=2.8 s = 5"
+ },
+ {
+  "text": "अग्नि, चँदोवा या ग्रंथ?",
+  "type": "sensory",
+  "spoken_s": 1.64,
+  "scores": {
+   "curiosity": 3,
+   "emotion": 2,
+   "specificity": 4,
+   "speed": 5,
+   "resonance": 3,
+   "accuracy": 4
+  },
+  "total": 21,
+  "selected": false,
+  "visual_hook": false,
+  "hook_to_payoff": "",
+  "reasoning": "Verbless fragment (narration-style rule); unclear without the visuals.",
+  "speed_rule": "speed score from the lint estimate: >3.0 s = 1 (fails the hard limit), 2.8-3.0 s = 4, <=2.8 s = 5"
+ },
+ {
+  "text": "एक शादी, जहाँ फेरे ग्रंथ के चारों ओर होते हैं।",
+  "type": "forbidden / unknown detail",
+  "spoken_s": 3.11,
+  "scores": {
+   "curiosity": 4,
+   "emotion": 3,
+   "specificity": 4,
+   "speed": 1,
+   "resonance": 4,
+   "accuracy": 4
+  },
+  "total": 20,
+  "selected": false,
+  "visual_hook": false,
+  "hook_to_payoff": "",
+  "reasoning": "Over the 3.0 s hard limit; also singles out one tradition.",
+  "speed_rule": "speed score from the lint estimate: >3.0 s = 1 (fails the hard limit), 2.8-3.0 s = 4, <=2.8 s = 5"
+ },
+ {
+  "text": "शादी: संस्कार या अनुबंध?",
+  "type": "contrast",
+  "spoken_s": 1.8,
+  "scores": {
+   "curiosity": 4,
+   "emotion": 3,
+   "specificity": 3,
+   "speed": 5,
+   "resonance": 4,
+   "accuracy": 2
+  },
+  "total": 21,
+  "selected": false,
+  "visual_hook": false,
+  "hook_to_payoff": "",
+  "reasoning": "False dichotomy that sets traditions against each other; rejected.",
+  "speed_rule": "speed score from the lint estimate: >3.0 s = 1 (fails the hard limit), 2.8-3.0 s = 4, <=2.8 s = 5"
+ },
+ {
+  "text": "छह धर्म, शादी के छह मतलब।",
+  "type": "number",
+  "spoken_s": 2.29,
+  "scores": {
+   "curiosity": 3,
+   "emotion": 2,
+   "specificity": 4,
+   "speed": 5,
+   "resonance": 3,
+   "accuracy": 5
+  },
+  "total": 22,
+  "selected": false,
+  "visual_hook": false,
+  "hook_to_payoff": "",
+  "reasoning": "Headline fragment; low curiosity.",
+  "speed_rule": "speed score from the lint estimate: >3.0 s = 1 (fails the hard limit), 2.8-3.0 s = 4, <=2.8 s = 5"
+ },
+ {
+  "text": "शादी का असली मतलब क्या है?",
+  "type": "question",
+  "spoken_s": 2.13,
+  "scores": {
+   "curiosity": 3,
+   "emotion": 2,
+   "specificity": 1,
+   "speed": 5,
+   "resonance": 4,
+   "accuracy": 4
+  },
+  "total": 19,
+  "selected": false,
+  "visual_hook": false,
+  "hook_to_payoff": "",
+  "reasoning": "Generic, and 'असली' implies one true meaning, which the episode avoids.",
+  "speed_rule": "speed score from the lint estimate: >3.0 s = 1 (fails the hard limit), 2.8-3.0 s = 4, <=2.8 s = 5"
+ }
+]

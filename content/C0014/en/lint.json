@@ -1,0 +1,34 @@
+{
+  "language": "en",
+  "verdict": "warn",
+  "estimate": {
+    "rate": 2.819,
+    "letter_rate": 12.04,
+    "basis": "letters",
+    "scene_seconds": [
+      2.41,
+      6.98,
+      5.98,
+      5.07,
+      5.73,
+      6.31,
+      6.89,
+      5.65,
+      5.07
+    ],
+    "pauses": 2.28,
+    "total": 53.51,
+    "words": 141
+  },
+  "rate_source": "calibrated 2026-11-16 from 5 renders",
+  "findings": [
+    {
+      "rule": "hook",
+      "level": "warn",
+      "message": "hook scene spoken 2.4 s > 2.2 s",
+      "scene": 1
+    }
+  ],
+  "at": "2026-11-25T07:39:23+0530",
+  "script_sha256": "55f49cbcb037c397be52a21e770997d1e6228b1249987ed57478d421ddf54d1a"
+}

@@ -503,6 +503,7 @@ def generate_still(prompt, negative, seed, raw, st, steps, model_args):
     ]
     if negative:
         cmd += ["--negative-prompt", negative]
+    Path(raw).unlink(missing_ok=True)
     subprocess.run(cmd + ["--output", str(raw)], check=True, stdout=subprocess.DEVNULL)
 
 

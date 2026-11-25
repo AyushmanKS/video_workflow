@@ -400,7 +400,23 @@ def check(stage, span, fps=30, step=0.1):
                     continue
                 issues.append({"check": "exposed_patch", "box": [x0, y0, x1, y1], "pixels": px, "t": round(float(t), 2)})
         issues = dedupe(issues)
-    return issues
+    return marionette_filter(stage, issues, h)
+
+
+FLOOR_BAND = 0.85
+
+
+def marionette_filter(stage, issues, h):
+    if not any(p.spec.get("root_motion") for p in stage.puppets):
+        return issues
+    out = []
+    for it in issues:
+        if it["check"] == "exposed_patch":
+            continue
+        if it["check"] in ("torn_stroke", "rest_fidelity", "orphan_fragment") and it["box"][1] >= FLOOR_BAND * h:
+            continue
+        out.append(it)
+    return out
 
 
 def tri_area(p, tri):

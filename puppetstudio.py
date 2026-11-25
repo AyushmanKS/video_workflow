@@ -62,8 +62,111 @@ def load_fg(path, crop):
     return np.asarray(m.resize((CW, CH), Image.BILINEAR), np.float32) / 255
 
 
+MARIONETTE = {"flag": False}
+STRING_RGB = (226, 214, 186)
+CURTAIN_OPEN = 1.6
+
+
+def is_marionette(script):
+    return script.get("style") == "marionette"
+
+
+def string_mask(u8):
+    g = cv2.cvtColor(u8, cv2.COLOR_RGB2GRAY)
+    h, w = g.shape
+    th = cv2.morphologyEx(g, cv2.MORPH_TOPHAT, cv2.getStructuringElement(cv2.MORPH_RECT, (9, 1)))
+    edges = (th > 18).astype(np.uint8) * 255
+    lines = cv2.HoughLinesP(edges, 1, np.pi / 360, 80, minLineLength=int(h * 0.12), maxLineGap=12)
+    m = np.zeros((h, w), np.uint8)
+    if lines is None:
+        return m
+    dark = cv2.GaussianBlur(g, (0, 0), 9)
+    thin = []
+    for x0, y0, x1, y1 in lines.reshape(-1, 4):
+        if abs(x1 - x0) > 0.16 * abs(y1 - y0):
+            continue
+        ys = np.linspace(y0, y1, 20).astype(int).clip(0, h - 1)
+        xs = np.linspace(x0, x1, 20).astype(int).clip(0, w - 1)
+        side = np.concatenate([dark[ys, (xs - 10).clip(0, w - 1)], dark[ys, (xs + 10).clip(0, w - 1)]])
+        if np.median(side) > 70:
+            continue
+        cv2.line(m, (int(x0), int(y0)), (int(x1), int(y1)), 255, 5)
+        k = (x1 - x0) / max(abs(y1 - y0), 1) * (1 if y1 >= y0 else -1)
+        ya = min(y0, y1)
+        xa = x0 if y0 <= y1 else x1
+        band = np.zeros((h, w), np.uint8)
+        cv2.line(band, (int(xa - k * ya), 0), (int(xa + k * (h - ya)), h), 255, 7)
+        thin.append(band)
+    if thin:
+        kern = cv2.getStructuringElement(cv2.MORPH_RECT, (7, 1))
+        fine = np.maximum(cv2.morphologyEx(g, cv2.MORPH_TOPHAT, kern), cv2.morphologyEx(g, cv2.MORPH_BLACKHAT, kern)) > 10
+        along = np.max(thin, axis=0) > 0
+        run = cv2.morphologyEx((fine & along).astype(np.uint8) * 255, cv2.MORPH_OPEN, cv2.getStructuringElement(cv2.MORPH_RECT, (1, 15)))
+        m |= cv2.dilate(run, np.ones((3, 3), np.uint8))
+    return m
+
+
+def colour_layer(img):
+    u8 = np.asarray(img.convert("RGB").resize((CW, CH), Image.LANCZOS))
+    m = string_mask(u8)
+    if m.any():
+        u8 = cv2.inpaint(u8, m, 5, cv2.INPAINT_TELEA)
+    a = u8.astype(np.float32) / 255
+    return np.clip((a - 0.02) / 0.98, 0, 1).astype(np.float32)
+
+
 def chalk_of(path, crop, seed, hues):
-    return chalk.chalk_from_image(chalk.crop_still(Image.open(path).convert("RGB"), crop), seed, hues)
+    img = chalk.crop_still(Image.open(path).convert("RGB"), crop)
+    if MARIONETTE["flag"]:
+        return colour_layer(img)
+    return chalk.chalk_from_image(img, seed, hues)
+
+
+def curtain_panels():
+    hw = W // 2 + 4
+    rng = np.random.default_rng(3)
+    xx = np.arange(hw, dtype=np.float32)
+    period = 64.0 + 18.0 * np.sin(xx / 97.0)
+    phase = np.cumsum(2 * np.pi / period)
+    fold = np.sin(phase)
+    light = 0.42 + 0.48 * (0.5 + 0.5 * fold) ** 1.6 + 0.22 * np.clip(fold, 0, 1) ** 12
+    yy = np.linspace(0, 1, H, dtype=np.float32)[:, None]
+    vert = 0.78 + 0.22 * np.sin(np.pi * (0.15 + 0.85 * yy))
+    grain = cv2.GaussianBlur(rng.normal(0, 1, (H, hw)).astype(np.float32), (0, 0), 1.2) * 0.04
+    shade = np.clip(light[None, :] * vert + grain, 0, 1.2)
+    rgb = np.stack([150 * shade, 16 * shade, 26 * shade], -1)
+    edge = hw - 10
+    rgb[:, edge:] = np.array([196, 150, 64], np.float32) * (0.78 + 0.22 * np.cos(np.linspace(0, 40 * np.pi, H)))[:, None, None]
+    left = Image.fromarray(np.clip(rgb, 0, 255).astype(np.uint8))
+    return left, left.transpose(Image.FLIP_LEFT_RIGHT)
+
+
+def draw_strings(frame, stage, u, z, fx, fy):
+    from PIL import ImageDraw
+
+    Mc = chalk.cam_matrix(z, fx, fy, 0.0, 0.0)
+    d = ImageDraw.Draw(frame, "RGBA")
+    for k, p in enumerate(list(stage.puppets) + getattr(stage, "anchors", [])):
+        names = [b for b in p.spec.get("strings", []) if b in p.bones]
+        fixed = p.spec.get("string_points", [])
+        if not names and not fixed:
+            continue
+        M = p.matrices(u)
+        pts = []
+        for b in names:
+            bx, by = p.bones[b]["b"]
+            x, y = (M[b] @ np.array([bx, by, 1.0]))[:2]
+            sx, sy = Mc @ np.array([x, y, 1.0])
+            pts.append((float(sx), float(sy)))
+        Mh = M.get("hips", np.eye(3))
+        for fx_, fy_ in fixed:
+            x, y = (Mh @ np.array([fx_ * CW, fy_ * CH, 1.0]))[:2]
+            sx, sy = Mc @ np.array([x, y, 1.0])
+            pts.append((float(sx), float(sy)))
+        bar = sum(x for x, _ in pts) / len(pts) + 7.0 * math.sin(2 * math.pi * 0.21 * u + k)
+        for sx, sy in pts:
+            top = bar + (sx - bar) * 0.55
+            d.line([(top, -4), (sx, sy)], fill=STRING_RGB + (170,), width=2)
 
 
 def build_scene(script, out, i, seed, raw, mask_path, shot):
@@ -72,12 +175,29 @@ def build_scene(script, out, i, seed, raw, mask_path, shot):
     hues = chalk.world_hues(sc.get("accent")) if sc.get("accent") else None
     layer = chalk_of(raw, crop, seed + i, hues)
     if shot is None or is_card(sc) or not (shot.get("puppets") or shot.get("elements")):
-        return puppet.build(layer, [], [], seed + i, None, None, {})
+        stage = puppet.build(layer, [], [], seed + i, None, None, {})
+        if MARIONETTE["flag"]:
+            stage.boil = [1.0]
+        return stage
     base = Path(out).parent
     fg = load_fg(mask_path, crop) if any(p.get("use_fg") for p in shot.get("puppets", [])) else None
     plate = chalk_of(base / shot["plate"], crop, seed + i, hues) if shot.get("plate") else None
     under = {p["name"]: chalk_of(base / p["underlay"], crop, seed + i, hues) for p in shot.get("puppets", []) if p.get("underlay")}
-    return puppet.build(layer, shot.get("puppets", []), shot.get("elements", []), seed + i, fg, plate, under)
+    moving = [p for p in shot.get("puppets", []) if p.get("parts")]
+    stage = puppet.build(layer, moving, shot.get("elements", []), seed + i, fg, plate, under)
+    stage.anchors = [Anchor(p, CW, CH) for p in shot.get("puppets", []) if not p.get("parts") and p.get("strings")]
+    if MARIONETTE["flag"]:
+        stage.boil = [1.0]
+    return stage
+
+
+class Anchor:
+    def __init__(self, spec, w, h):
+        self.spec = puppet.resolve(spec)
+        self.bones = {k: {"b": (v["b"][0] * w, v["b"][1] * h)} for k, v in self.spec["bones"].items()}
+
+    def matrices(self, u):
+        return {k: np.eye(3) for k in self.bones}
 
 
 def resolve(shot, timings, origin, span):
@@ -136,9 +256,12 @@ def composite(board, lay, z, fx, fy):
 
 
 def render(script, st, timings, total, raws, writer, captioner, groups, seed, log, masks, out):
+    mar = MARIONETTE["flag"] = is_marionette(script)
+    puppet.FILL_GRAIN["on"] = not mar
     pl = chalk.plan(script, timings, total)
     rig = load_rig(out)
-    board = chalk.make_board(seed)
+    board = np.zeros((CH, CW, 3), np.float32) if mar else chalk.make_board(seed)
+    curtains = curtain_panels() if mar else None
     rng = np.random.default_rng(seed)
     field = cv2.GaussianBlur(rng.uniform(0, 1, (CH // 4, CW // 4)).astype(np.float32), (0, 0), 6)
     field = (np.argsort(np.argsort(field.ravel())).reshape(field.shape) / field.size).astype(np.float32)
@@ -165,7 +288,7 @@ def render(script, st, timings, total, raws, writer, captioner, groups, seed, lo
         t = f / FPS
         i = next((k for k, p in enumerate(pl) if p["vs"] <= t < p["ve"]), len(pl) - 1)
         p, S = pl[i], get(i)
-        tr = S["transition"] or p["transition"]
+        tr = S["transition"] or ("black" if mar else p["transition"])
         prog = 1.0
         if i > 0 and t < p["ds"]:
             P = get(i - 1)
@@ -185,7 +308,7 @@ def render(script, st, timings, total, raws, writer, captioner, groups, seed, lo
         else:
             lay = S["stage"].frame(t - p["vs"], f)
             dp = (t - p["ds"]) / max(0.01, p["de"] - p["ds"])
-            prog = p["p0"] + (1 - p["p0"]) * chalk.ease(min(1.0, max(0.0, dp)))
+            prog = 1.0 if mar else p["p0"] + (1 - p["p0"]) * chalk.ease(min(1.0, max(0.0, dp)))
             if prog < 1:
                 lay = lay * np.clip((prog * 1.01 - S["order"]) / 0.012, 0, 1)[..., None]
             z, fx, fy = camera(S, p, t)
@@ -202,6 +325,19 @@ def render(script, st, timings, total, raws, writer, captioner, groups, seed, lo
             if not (i > 0 and tr == "crossfade" and age < CROSSFADE):
                 held = comp
         frame = Image.fromarray((np.clip(comp, 0, 1) * 255).astype(np.uint8))
+        if mar:
+            if i > 0 and t < p["ds"]:
+                fade = 1 - (t - p["vs"]) / max(1e-3, p["ds"] - p["vs"])
+                Sd, ud, zd = P, t - pp["vs"], (z, fx, fy)
+            else:
+                fade = min(1.0, (t - p["ds"]) / 0.25) if i > 0 else 1.0
+                Sd, ud, zd = S, t - p["vs"], (z, fx, fy)
+            if fade > 0.05:
+                draw_strings(frame, Sd["stage"], ud, *zd)
+            if t < CURTAIN_OPEN:
+                off = int(puppet.smoothstep(t / CURTAIN_OPEN) * (W // 2 + 4))
+                frame.paste(curtains[0], (-off, 0))
+                frame.paste(curtains[1], (W // 2 - 4 + off, 0))
         if prog < 1:
             n = len(S["pts"])
             k = prog / 0.8 if prog < 0.8 else (prog - 0.8) / 0.2
@@ -246,6 +382,8 @@ def render(script, st, timings, total, raws, writer, captioner, groups, seed, lo
 def qa(script, timings, total, out, seed, raws, masks, log, only=None):
     from pipeline import puppetqa
 
+    MARIONETTE["flag"] = is_marionette(script)
+    puppet.FILL_GRAIN["on"] = not MARIONETTE["flag"]
     pl = chalk.plan(script, timings, total)
     rig = load_rig(out)
     dst = Path(out) / "rigqa"

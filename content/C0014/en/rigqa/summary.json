@@ -1,0 +1,15 @@
+{
+ "pass": true,
+ "scenes": {
+  "0": true,
+  "1": true,
+  "2": true,
+  "3": true,
+  "4": true,
+  "5": true,
+  "6": true,
+  "7": true,
+  "8": true
+ },
+ "rig_sha": "f558bdfceb2be1b8a1383df77c83be92adc93135865c55159e155269ce738138"
+}

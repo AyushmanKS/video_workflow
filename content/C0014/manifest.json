@@ -1,0 +1,152 @@
+{
+  "id": "C0014",
+  "series": "Chalk Tales · Puppet Explainers",
+  "episode": null,
+  "topic": "What marriage means in the world's religions",
+  "category": "culture",
+  "style": "marionette",
+  "languages": [
+    "en",
+    "hi"
+  ],
+  "primary_language": "en",
+  "engine_version": 3,
+  "format": "short",
+  "stages": {
+    "script:en": {
+      "status": "done",
+      "at": "2026-11-24T21:27:01+0530"
+    },
+    "script:hi": {
+      "status": "done",
+      "at": "2026-11-24T21:27:01+0530"
+    },
+    "gate:script": {
+      "status": "approved",
+      "langs": [
+        "en",
+        "hi"
+      ],
+      "entries": {
+        "en": {
+          "status": "approved",
+          "at": "2026-11-24T22:07:24+0530",
+          "by": "owner",
+          "channel": "chat",
+          "note": "scene 7 palki redrawn: stationary, scripture wrapped",
+          "sha256": "55f49cbcb037c397be52a21e770997d1e6228b1249987ed57478d421ddf54d1a",
+          "file": "content/C0014/en/script.json"
+        },
+        "hi": {
+          "status": "approved",
+          "at": "2026-11-24T22:07:24+0530",
+          "by": "owner",
+          "channel": "chat",
+          "note": "scene 7 palki redrawn: stationary, scripture wrapped",
+          "sha256": "af35428c29e560ea75dccde68a9c8e286f0be149295623518284af9a08b3f5fa",
+          "file": "content/C0014/hi/script.json"
+        }
+      },
+      "history": [
+        {
+          "lang": "en",
+          "status": "approved",
+          "at": "2026-11-24T21:35:07+0530",
+          "by": "owner",
+          "channel": "chat",
+          "note": "owner in chat 2026-11-24: \"approved all\"",
+          "sha256": "06a438e5ce97b0b03001f7e9904601ecb6b576fd02c7bebba5265669f6de8312",
+          "file": "content/C0014/en/script.json"
+        },
+        {
+          "lang": "hi",
+          "status": "approved",
+          "at": "2026-11-24T21:35:07+0530",
+          "by": "owner",
+          "channel": "chat",
+          "note": "owner in chat 2026-11-24: \"approved all\"",
+          "sha256": "67044f1ca01e35a49d2d33801edc1ba0bef1312cafe55a2e2ed3778c994d650b",
+          "file": "content/C0014/hi/script.json"
+        }
+      ],
+      "at": "2026-11-24T22:07:24+0530",
+      "note": "scene 7 palki redrawn: stationary, scripture wrapped"
+    },
+    "voice:en": {
+      "status": "done",
+      "at": "2026-11-24T21:35:30+0530"
+    },
+    "images:en": {
+      "status": "done",
+      "at": "2026-11-24T22:10:53+0530"
+    },
+    "voice:hi": {
+      "status": "done",
+      "at": "2026-11-24T22:02:17+0530"
+    },
+    "images:hi": {
+      "status": "done",
+      "at": "2026-11-24T22:02:18+0530"
+    },
+    "voice_qa:en": {
+      "status": "done",
+      "at": "2026-11-24T22:02:39+0530",
+      "note": "warn (report #156)"
+    },
+    "voice_qa:hi": {
+      "status": "done",
+      "at": "2026-11-24T22:04:46+0530",
+      "note": "warn (report #157)"
+    },
+    "render:en": {
+      "status": "done",
+      "at": "2026-11-25T07:45:33+0530"
+    },
+    "render:hi": {
+      "status": "done",
+      "at": "2026-11-25T07:51:48+0530"
+    },
+    "video_qa:en": {
+      "status": "done",
+      "at": "2026-11-25T07:51:57+0530",
+      "note": "warn (report #173)"
+    },
+    "video_qa:hi": {
+      "status": "done",
+      "at": "2026-11-25T07:52:06+0530",
+      "note": "warn (report #174)"
+    },
+    "gate:final": {
+      "status": "approved",
+      "langs": [
+        "en",
+        "hi"
+      ],
+      "entries": {
+        "en": {
+          "status": "approved",
+          "at": "2026-11-25T07:54:55+0530",
+          "by": "owner",
+          "channel": "chat",
+          "note": "",
+          "sha256": "382cb69d9245e95ba41acb1425c18bbd215b8c93dd6a84d7c13dccbace2bd5b5",
+          "file": "content/C0014/en/C0014-en.mp4",
+          "qa_report_id": 173
+        },
+        "hi": {
+          "status": "approved",
+          "at": "2026-11-25T07:54:55+0530",
+          "by": "owner",
+          "channel": "chat",
+          "note": "",
+          "sha256": "51c93d603c191f9c029b7c2e781a025b1ae3a16b0e73b2ea7c2d4d28894d4650",
+          "file": "content/C0014/hi/C0014-hi.mp4",
+          "qa_report_id": 174
+        }
+      },
+      "history": [],
+      "at": "2026-11-25T07:54:55+0530",
+      "note": ""
+    }
+  }
+}

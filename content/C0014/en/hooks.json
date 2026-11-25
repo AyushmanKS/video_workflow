@@ -1,0 +1,135 @@
+[
+ {
+  "text": "Is marriage the same in every faith?",
+  "type": "question",
+  "spoken_s": 2.41,
+  "scores": {
+   "curiosity": 4,
+   "emotion": 2,
+   "specificity": 3,
+   "speed": 5,
+   "resonance": 4,
+   "accuracy": 5
+  },
+  "total": 23,
+  "selected": true,
+  "visual_hook": true,
+  "hook_to_payoff": "Main loop (same or not?) is answered one tradition at a time in scenes 2-8 and closed explicitly in scene 9 ('So no, not the same, yet each asks two people to keep a promise and build a home'), which starts at about 88% of runtime; the composition loop (scene 9 reuses frame 0 with the gap between the hands closed) completes it. No next-episode teaser is counted.",
+  "reasoning": "Selected. Ties at 23 with hooks 2 and 4; the tie-break (accuracy, then resonance) picks it: it makes no claim that needs qualifying, frames every tradition equally, and its answer is the episode's thesis. It is a full spoken question (owner narration-style rule) and the fastest safe line (2.41 s). Frame 0 (two puppets reaching toward each other with a gap between their hands) reads muted as 'a marriage, not yet joined'. hookscore.py (English-only second opinion, run 2026-11-24): all seven WEAK, 30-40/100; highest 'Before a fire, under a canopy, around a book.' (40), selected hook 33; weakest property STAKES for every line. Not used to override accuracy, the rubric or the narration-style rule.",
+  "speed_rule": "speed score from the lint estimate: >3.0 s = 1 (fails the hard limit), 2.8-3.0 s = 4, <=2.8 s = 5"
+ },
+ {
+  "text": "Seven steps, or a contract? What is marriage?",
+  "type": "contrast",
+  "spoken_s": 2.91,
+  "scores": {
+   "curiosity": 4,
+   "emotion": 2,
+   "specificity": 5,
+   "speed": 4,
+   "resonance": 4,
+   "accuracy": 4
+  },
+  "total": 23,
+  "selected": false,
+  "visual_hook": false,
+  "hook_to_payoff": "",
+  "reasoning": "Concrete and the owner's suggested shape, but 2.91 s sits at the edge of the hard limit and the either/or frame implies the viewer must choose between two traditions; accuracy 4 for that framing. Tie lost on accuracy.",
+  "speed_rule": "speed score from the lint estimate: >3.0 s = 1 (fails the hard limit), 2.8-3.0 s = 4, <=2.8 s = 5"
+ },
+ {
+  "text": "Six faiths, six meanings of marriage.",
+  "type": "number",
+  "spoken_s": 2.49,
+  "scores": {
+   "curiosity": 3,
+   "emotion": 2,
+   "specificity": 4,
+   "speed": 5,
+   "resonance": 3,
+   "accuracy": 5
+  },
+  "total": 22,
+  "selected": false,
+  "visual_hook": false,
+  "hook_to_payoff": "",
+  "reasoning": "True, but a verbless headline fragment, the kind the owner rejected at Ep08 G2; low curiosity.",
+  "speed_rule": "speed score from the lint estimate: >3.0 s = 1 (fails the hard limit), 2.8-3.0 s = 4, <=2.8 s = 5"
+ },
+ {
+  "text": "One wedding circles a holy book.",
+  "type": "forbidden / unknown detail",
+  "spoken_s": 2.16,
+  "scores": {
+   "curiosity": 4,
+   "emotion": 3,
+   "specificity": 4,
+   "speed": 5,
+   "resonance": 3,
+   "accuracy": 4
+  },
+  "total": 23,
+  "selected": false,
+  "visual_hook": false,
+  "hook_to_payoff": "",
+  "reasoning": "Strong gap, but it singles out one tradition as bait in a comparative piece and calls the Guru Granth Sahib 'a holy book' without its name; accuracy/sensitivity 4. Reused instead as the engagement line, where the answer (Sikhs, Anand Karaj) is in the text.",
+  "speed_rule": "speed score from the lint estimate: >3.0 s = 1 (fails the hard limit), 2.8-3.0 s = 4, <=2.8 s = 5"
+ },
+ {
+  "text": "Is marriage holy, or a contract?",
+  "type": "bold claim / contrast",
+  "spoken_s": 2.08,
+  "scores": {
+   "curiosity": 4,
+   "emotion": 3,
+   "specificity": 3,
+   "speed": 5,
+   "resonance": 4,
+   "accuracy": 2
+  },
+  "total": 21,
+  "selected": false,
+  "visual_hook": false,
+  "hook_to_payoff": "",
+  "reasoning": "Rejected: a false dichotomy that sets traditions against each other (the nikah is a contract and is also framed by the Qur'an in terms of tranquillity, love and mercy).",
+  "speed_rule": "speed score from the lint estimate: >3.0 s = 1 (fails the hard limit), 2.8-3.0 s = 4, <=2.8 s = 5"
+ },
+ {
+  "text": "Before a fire, under a canopy, around a book.",
+  "type": "sensory in medias res",
+  "spoken_s": 2.82,
+  "scores": {
+   "curiosity": 4,
+   "emotion": 3,
+   "specificity": 5,
+   "speed": 4,
+   "resonance": 4,
+   "accuracy": 5
+  },
+  "total": 25,
+  "selected": false,
+  "visual_hook": false,
+  "hook_to_payoff": "",
+  "reasoning": "Highest rubric total (25) and hookscore winner, but not selected: three verbless fragments, which the owner's approved narration-style rule forbids (Ep08 G2 rejection); approved rules win over the rubric. Frame 0 also cannot show fire, canopy and book with at most two puppets.",
+  "speed_rule": "speed score from the lint estimate: >3.0 s = 1 (fails the hard limit), 2.8-3.0 s = 4, <=2.8 s = 5"
+ },
+ {
+  "text": "What does marriage really mean?",
+  "type": "question",
+  "spoken_s": 2.16,
+  "scores": {
+   "curiosity": 3,
+   "emotion": 2,
+   "specificity": 1,
+   "speed": 5,
+   "resonance": 3,
+   "accuracy": 5
+  },
+  "total": 19,
+  "selected": false,
+  "visual_hook": false,
+  "hook_to_payoff": "",
+  "reasoning": "Generic; no concrete image or contrast.",
+  "speed_rule": "speed score from the lint estimate: >3.0 s = 1 (fails the hard limit), 2.8-3.0 s = 4, <=2.8 s = 5"
+ }
+]

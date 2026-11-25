@@ -1,0 +1,322 @@
+{
+ "scene": 7,
+ "camera": {
+  "z0": 1.0,
+  "z1": 1.03,
+  "fx": 0.0,
+  "fy": -0.02
+ },
+ "elements": [
+  {
+   "kind": "flame",
+   "poly": [
+    [
+     0.495,
+     0.725
+    ],
+    [
+     0.54,
+     0.725
+    ],
+    [
+     0.54,
+     0.785
+    ],
+    [
+     0.495,
+     0.785
+    ]
+   ],
+   "amp": 1.0,
+   "flicker": 0.25,
+   "saturation_min": 0.3,
+   "edge": 3,
+   "snap": 4
+  }
+ ],
+ "puppets": [
+  {
+   "name": "bride",
+   "template": "marionette",
+   "use_fg": true,
+   "part_grow": 4,
+   "fg_grow": 3,
+   "joints": {
+    "neck": [
+     0.3,
+     0.49
+    ],
+    "head_top": [
+     0.29,
+     0.39
+    ],
+    "shoulder_r": [
+     0.3,
+     0.52
+    ],
+    "elbow_r": [
+     0.33,
+     0.55
+    ],
+    "wrist_r": [
+     0.43,
+     0.49
+    ],
+    "hand_r": [
+     0.47,
+     0.46
+    ],
+    "ankle_mid": [
+     0.34833333333333333,
+     0.98
+    ],
+    "waist": [
+     0.34833333333333333,
+     0.7
+    ]
+   },
+   "parts": {
+    "hips": [
+     [
+      0.1,
+      0.32
+     ],
+     [
+      0.49,
+      0.32
+     ],
+     [
+      0.49,
+      0.72
+     ],
+     [
+      0.455,
+      0.72
+     ],
+     [
+      0.455,
+      0.815
+     ],
+     [
+      0.1,
+      0.815
+     ]
+    ]
+   },
+   "strings": [
+    "head",
+    "hand_r"
+   ],
+   "idle": {
+    "sway": 0.8,
+    "sway_hz": 0.5,
+    "breath": 4.5,
+    "breath_hz": 1.05,
+    "bones": {},
+    "dangle": {},
+    "lag": 0.22,
+    "phase": 0.6
+   },
+   "actions": [],
+   "remainder": [
+    "hips"
+   ],
+   "root_motion": true,
+   "string": [
+    0.3,
+    -0.4
+   ]
+  },
+  {
+   "name": "groom",
+   "template": "marionette",
+   "use_fg": true,
+   "part_grow": 4,
+   "fg_grow": 3,
+   "joints": {
+    "neck": [
+     0.7425,
+     0.424
+    ],
+    "head_top": [
+     0.75,
+     0.345
+    ],
+    "shoulder_r": [
+     0.66,
+     0.5
+    ],
+    "elbow_r": [
+     0.62,
+     0.53
+    ],
+    "wrist_r": [
+     0.58,
+     0.5
+    ],
+    "hand_r": [
+     0.55,
+     0.46
+    ],
+    "ankle_mid": [
+     0.6583333333333333,
+     0.98
+    ],
+    "waist": [
+     0.6583333333333333,
+     0.7
+    ]
+   },
+   "parts": {
+    "head": [
+     [
+      0.67,
+      0.35
+     ],
+     [
+      0.7,
+      0.33
+     ],
+     [
+      0.76,
+      0.325
+     ],
+     [
+      0.81,
+      0.34
+     ],
+     [
+      0.822,
+      0.38
+     ],
+     [
+      0.81,
+      0.421
+     ],
+     [
+      0.79,
+      0.421
+     ],
+     [
+      0.76,
+      0.424
+     ],
+     [
+      0.72,
+      0.421
+     ],
+     [
+      0.7,
+      0.421
+     ],
+     [
+      0.67,
+      0.42
+     ],
+     [
+      0.665,
+      0.37
+     ]
+    ],
+    "hips": [
+     [
+      0.53,
+      0.3
+     ],
+     [
+      0.86,
+      0.3
+     ],
+     [
+      0.86,
+      0.815
+     ],
+     [
+      0.585,
+      0.815
+     ],
+     [
+      0.585,
+      0.72
+     ],
+     [
+      0.53,
+      0.72
+     ]
+    ]
+   },
+   "strings": [
+    "head",
+    "hand_r"
+   ],
+   "idle": {
+    "sway": 0.8,
+    "sway_hz": 0.5,
+    "breath": 4.5,
+    "breath_hz": 1.05,
+    "bones": {},
+    "dangle": {
+     "head": 2.0
+    },
+    "lag": 0.22,
+    "phase": 2.4
+   },
+   "actions": [
+    {
+     "line": 7,
+     "frac": 0.25,
+     "dur": 1.4,
+     "bone": "head",
+     "deg": -3
+    },
+    {
+     "line": 7,
+     "frac": 0.7,
+     "dur": 1.2,
+     "bone": "head",
+     "deg": 2
+    }
+   ],
+   "remainder": [
+    "hips"
+   ],
+   "root_motion": true,
+   "string": [
+    0.7,
+    -0.4
+   ]
+  }
+ ],
+ "qa_waive": [
+  {
+   "check": "orphan_fragment",
+   "box": [
+    0.665,
+    0.472,
+    0.683,
+    0.486
+   ],
+   "reason": "15 px speck from whole-body marionette swing; checked by eye on the QA sheet 2026-11-25, not visible at full size"
+  },
+  {
+   "check": "orphan_fragment",
+   "box": [
+    0.75,
+    0.802,
+    0.774,
+    0.816
+   ],
+   "reason": "23 px speck from whole-body marionette swing; checked by eye on the QA sheet 2026-11-25, not visible at full size"
+  },
+  {
+   "check": "orphan_fragment",
+   "box": [
+    0.187,
+    0.801,
+    0.21,
+    0.813
+   ],
+   "reason": "18 px speck from whole-body marionette swing; checked by eye 2026-11-25, not visible at full size"
+  }
+ ]
+}

@@ -1,0 +1,197 @@
+{
+ "scene": 6,
+ "camera": {
+  "z0": 1.0,
+  "z1": 1.03,
+  "fx": -0.02,
+  "fy": -0.02
+ },
+ "puppets": [
+  {
+   "name": "couple",
+   "template": "marionette",
+   "use_fg": true,
+   "part_grow": 4,
+   "fg_grow": 3,
+   "remainder": [
+    "hips"
+   ],
+   "root_motion": true,
+   "joints": {
+    "ankle_mid": [
+     0.26,
+     0.98
+    ],
+    "waist": [
+     0.26,
+     0.7
+    ],
+    "neck": [
+     0.16,
+     0.59
+    ],
+    "head_top": [
+     0.16,
+     0.5
+    ]
+   },
+   "parts": {
+    "hips": [
+     [
+      0.0,
+      0.48
+     ],
+     [
+      0.52,
+      0.48
+     ],
+     [
+      0.52,
+      1.06
+     ],
+     [
+      0.0,
+      1.06
+     ]
+    ],
+    "head": [
+     [
+      0.093,
+      0.555
+     ],
+     [
+      0.11,
+      0.53
+     ],
+     [
+      0.14,
+      0.508
+     ],
+     [
+      0.2,
+      0.498
+     ],
+     [
+      0.23,
+      0.52
+     ],
+     [
+      0.235,
+      0.56
+     ],
+     [
+      0.237,
+      0.58
+     ],
+     [
+      0.222,
+      0.596
+     ],
+     [
+      0.18,
+      0.597
+     ],
+     [
+      0.165,
+      0.588
+     ],
+     [
+      0.15,
+      0.585
+     ],
+     [
+      0.12,
+      0.586
+     ],
+     [
+      0.093,
+      0.577
+     ]
+    ]
+   },
+   "string": [
+    0.25,
+    -0.4
+   ],
+   "string_points": [
+    [
+     0.16,
+     0.5
+    ],
+    [
+     0.35,
+     0.53
+    ],
+    [
+     0.47,
+     0.655
+    ],
+    [
+     0.33,
+     0.7
+    ]
+   ],
+   "idle": {
+    "sway": 0.8,
+    "sway_hz": 0.5,
+    "breath": 4.5,
+    "breath_hz": 1.05,
+    "bones": {},
+    "dangle": {
+     "head": 2.0
+    },
+    "lag": 0.22,
+    "phase": 0.2
+   },
+   "actions": [
+    {
+     "line": 6,
+     "frac": 0.55,
+     "dur": 1.4,
+     "bone": "head",
+     "deg": 2.5
+    },
+    {
+     "line": 6,
+     "frac": 0.05,
+     "dur": 3.0,
+     "dx": 0.018,
+     "hop": 0.012,
+     "steps": 3
+    }
+   ]
+  }
+ ],
+ "qa_waive": [
+  {
+   "check": "torn_stroke",
+   "box": [
+    0.054,
+    0.831,
+    0.083,
+    0.846
+   ],
+   "reason": "19 px speck from whole-body marionette swing; checked by eye on the QA sheet 2026-11-25, not visible at full size"
+  },
+  {
+   "check": "orphan_fragment",
+   "box": [
+    0.494,
+    0.615,
+    0.514,
+    0.63
+   ],
+   "reason": "21 px speck from whole-body marionette swing; checked by eye on the QA sheet 2026-11-25, not visible at full size"
+  },
+  {
+   "check": "orphan_fragment",
+   "box": [
+    0.478,
+    0.642,
+    0.498,
+    0.655
+   ],
+   "reason": "16 px speck from whole-body marionette swing; checked by eye on the QA sheet 2026-11-25, not visible at full size"
+  }
+ ]
+}

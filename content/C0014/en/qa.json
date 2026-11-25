@@ -1,0 +1,550 @@
+{
+  "video": "/Users/ayushman/Desktop/work/shorts-studio/content/C0014/en/C0014-en.mp4",
+  "kind": "automated",
+  "mp4_sha256": "382cb69d9245e95ba41acb1425c18bbd215b8c93dd6a84d7c13dccbace2bd5b5",
+  "verdict": "warn",
+  "families": {
+    "story": {
+      "score": 91,
+      "pass": true,
+      "rejects": [],
+      "warns": [
+        "lint_hook"
+      ],
+      "checks": 11
+    },
+    "visual": {
+      "score": 33,
+      "pass": false,
+      "rejects": [],
+      "warns": [
+        "near_duplicates",
+        "safe_zones"
+      ],
+      "checks": 3
+    },
+    "audio": {
+      "score": 80,
+      "pass": true,
+      "rejects": [],
+      "warns": [
+        "music_under_speech"
+      ],
+      "checks": 4
+    },
+    "final": {
+      "score": 100,
+      "pass": true,
+      "rejects": [],
+      "warns": [],
+      "checks": 10
+    }
+  },
+  "checks": [
+    {
+      "name": "lint_duration",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "estimate_s": 53.51,
+        "basis": "letters"
+      }
+    },
+    {
+      "name": "lint_hook",
+      "family": "story",
+      "class": "warn",
+      "ok": false,
+      "issues": [
+        "hook scene spoken 2.4 s > 2.2 s"
+      ],
+      "data": {}
+    },
+    {
+      "name": "lint_scene_count",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_scene_length",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_keywords",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_digits",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_quote_src",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_sources",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_edition",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_silences",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "lint_visual_parity",
+      "family": "story",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {}
+    },
+    {
+      "name": "format",
+      "family": "final",
+      "class": "reject",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "video": "h264",
+        "audio": "aac",
+        "fps": 30.0,
+        "seconds": 52.3
+      }
+    },
+    {
+      "name": "duration",
+      "family": "final",
+      "class": "reject",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "seconds": 52.3
+      }
+    },
+    {
+      "name": "duration_target",
+      "family": "final",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "seconds": 52.3
+      }
+    },
+    {
+      "name": "loudness",
+      "family": "final",
+      "class": "reject",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "lufs": -13.9,
+        "true_peak_dbfs": -1.6,
+        "lra": 2.0
+      }
+    },
+    {
+      "name": "black_freeze",
+      "family": "final",
+      "class": "reject",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "black": 0,
+        "freeze": 0
+      }
+    },
+    {
+      "name": "silence",
+      "family": "final",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "gaps": 0
+      }
+    },
+    {
+      "name": "first_frame",
+      "family": "final",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "t0.0": 0.1732,
+        "t0.5": 0.2151
+      },
+      "note": "style decision: warn only"
+    },
+    {
+      "name": "narration_asr",
+      "family": "audio",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "scenes": [
+          {
+            "scene": 1,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "Is marriage the same in every faith?"
+          },
+          {
+            "scene": 2,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "For Hindus, Vivaha is a samskara, a rite of passage, traditionally sealed by seven steps around the fire."
+          },
+          {
+            "scene": 3,
+            "cer": 0.014,
+            "length_ratio": 1.03,
+            "heard": "In Islam, the Nikkah is a contract and a solemn pledge with a gift for the bride called Meher."
+          },
+          {
+            "scene": 4,
+            "cer": 0.016,
+            "length_ratio": 0.98,
+            "heard": "And the Quran speaks of tranquility and of love and mercy between the two."
+          },
+          {
+            "scene": 5,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "For Christians, two become one flesh, and Catholics and Orthodox call it a sacrament."
+          },
+          {
+            "scene": 6,
+            "cer": 0.013,
+            "length_ratio": 0.99,
+            "heard": "Jews call it Kidushin, sanctification, and wed beneath a canopy that stands for the new home."
+          },
+          {
+            "scene": 7,
+            "cer": 0.036,
+            "length_ratio": 0.99,
+            "heard": "Sikhs call it Anand Karaj, the ceremony of bliss, as the couple circle the Giru grunt sahib four times."
+          },
+          {
+            "scene": 8,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "Many Buddhists see it as a social bond, and the Buddha taught spouses to be faithful."
+          },
+          {
+            "scene": 9,
+            "cer": 0.0,
+            "length_ratio": 1.0,
+            "heard": "So no, not the same. Yet each asks two people to keep a promise and build a home."
+          }
+        ],
+        "transcripts": [
+          "render-time transcript (heard.json)"
+        ]
+      },
+      "note": "digits vs number-words and Whisper spelling quirks inflate CER; review flagged scenes by ear"
+    },
+    {
+      "name": "speech_rate",
+      "family": "audio",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "reference_letters_per_s": 12.04,
+        "scenes": [
+          {
+            "scene": 1,
+            "seconds": 2.48,
+            "letters_per_s": 11.72,
+            "deviation": -0.027
+          },
+          {
+            "scene": 2,
+            "seconds": 7.25,
+            "letters_per_s": 11.59,
+            "deviation": -0.037
+          },
+          {
+            "scene": 3,
+            "seconds": 5.75,
+            "letters_per_s": 12.52,
+            "deviation": 0.04
+          },
+          {
+            "scene": 4,
+            "seconds": 4.7,
+            "letters_per_s": 12.98,
+            "deviation": 0.078
+          },
+          {
+            "scene": 5,
+            "seconds": 5.58,
+            "letters_per_s": 12.38,
+            "deviation": 0.028
+          },
+          {
+            "scene": 6,
+            "seconds": 6.05,
+            "letters_per_s": 12.56,
+            "deviation": 0.043
+          },
+          {
+            "scene": 7,
+            "seconds": 6.9,
+            "letters_per_s": 12.03,
+            "deviation": -0.001
+          },
+          {
+            "scene": 8,
+            "seconds": 5.2,
+            "letters_per_s": 13.08,
+            "deviation": 0.086
+          },
+          {
+            "scene": 9,
+            "seconds": 5.2,
+            "letters_per_s": 11.73,
+            "deviation": -0.026
+          }
+        ]
+      }
+    },
+    {
+      "name": "speaker_consistency",
+      "family": "audio",
+      "class": "reject",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "windows": 25,
+        "window_median": 0.757,
+        "window_min": 0.661,
+        "scene_min": 0.747,
+        "median_f0": 198,
+        "calibration": "2026-11-16: 2.5s windows — consistent voice min 0.61 / known-mixed median 0.46 (50% < 0.5); 1s clips are unreliable (same voice down to 0.57)"
+      }
+    },
+    {
+      "name": "music_under_speech",
+      "family": "audio",
+      "class": "warn",
+      "ok": false,
+      "issues": [
+        "speech-band narration only 10.9 dB above the bed (target ≥12 dB)"
+      ],
+      "data": {
+        "median_db": 10.9,
+        "p10_db": 2.6,
+        "voice_gain": 3.88,
+        "frames": 89
+      }
+    },
+    {
+      "name": "captions",
+      "family": "final",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "groups": 45,
+        "timing": "timeline.json",
+        "engine_version": 3
+      }
+    },
+    {
+      "name": "caption_overflow",
+      "family": "final",
+      "class": "reject",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "widest_px": 861,
+        "limit_px": 1020
+      }
+    },
+    {
+      "name": "glyph_coverage",
+      "family": "final",
+      "class": "reject",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "texts": 19,
+        "fontset": "mac"
+      }
+    },
+    {
+      "name": "text_artifacts",
+      "family": "visual",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {},
+      "skipped": true,
+      "note": "tesseract binary not installed (brew install tesseract, Apache-2.0); skipped"
+    },
+    {
+      "name": "near_duplicates",
+      "family": "visual",
+      "class": "warn",
+      "ok": false,
+      "issues": [
+        "scenes 1 and 9: perceptual hash distance 6 bits (< 8)"
+      ],
+      "data": {
+        "images": 9
+      }
+    },
+    {
+      "name": "chalk_density",
+      "family": "visual",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "scenes": [
+          {
+            "scene": 1,
+            "density": 0.223,
+            "top": 0.981,
+            "bottom": 1.254
+          },
+          {
+            "scene": 2,
+            "density": 0.285,
+            "top": 0.974,
+            "bottom": 1.979
+          },
+          {
+            "scene": 3,
+            "density": 0.326,
+            "top": 0.173,
+            "bottom": 1.925
+          },
+          {
+            "scene": 4,
+            "density": 0.344,
+            "top": 0.863,
+            "bottom": 1.346
+          },
+          {
+            "scene": 5,
+            "density": 0.252,
+            "top": 0.857,
+            "bottom": 1.297
+          },
+          {
+            "scene": 6,
+            "density": 0.289,
+            "top": 0.531,
+            "bottom": 1.068
+          },
+          {
+            "scene": 7,
+            "density": 0.293,
+            "top": 0.118,
+            "bottom": 1.667
+          },
+          {
+            "scene": 8,
+            "density": 0.318,
+            "top": 1.14,
+            "bottom": 1.368
+          },
+          {
+            "scene": 9,
+            "density": 0.251,
+            "top": 0.859,
+            "bottom": 1.36
+          }
+        ]
+      }
+    },
+    {
+      "name": "safe_zones",
+      "family": "visual",
+      "class": "warn",
+      "ok": false,
+      "issues": [
+        "scene 1: stroke energy in the title zone (top 12%) 0.98 > p90 0.111",
+        "scene 2: stroke energy in the title zone (top 12%) 0.97 > p90 0.111",
+        "scene 2: stroke energy in the caption zone (bottom 25%) 1.98 > p90 1.519",
+        "scene 3: stroke energy in the title zone (top 12%) 0.17 > p90 0.111",
+        "scene 3: stroke energy in the caption zone (bottom 25%) 1.93 > p90 1.519",
+        "scene 4: stroke energy in the title zone (top 12%) 0.86 > p90 0.111",
+        "scene 5: stroke energy in the title zone (top 12%) 0.86 > p90 0.111",
+        "scene 6: stroke energy in the title zone (top 12%) 0.53 > p90 0.111",
+        "scene 7: stroke energy in the title zone (top 12%) 0.12 > p90 0.111",
+        "scene 7: stroke energy in the caption zone (bottom 25%) 1.67 > p90 1.519",
+        "scene 8: stroke energy in the title zone (top 12%) 1.14 > p90 0.111",
+        "scene 9: stroke energy in the title zone (top 12%) 0.86 > p90 0.111"
+      ],
+      "data": {
+        "calibration": {
+          "top_p90": 0.111,
+          "bottom_p90": 1.519,
+          "n": 243
+        }
+      }
+    },
+    {
+      "name": "character_similarity",
+      "family": "visual",
+      "class": "warn",
+      "ok": true,
+      "issues": [],
+      "data": {
+        "model_present": false
+      },
+      "skipped": true,
+      "note": "DINOv2 similarity is a human flag only; model not present locally and not downloaded"
+    }
+  ],
+  "contact_sheet": "/Users/ayushman/Desktop/work/shorts-studio/content/C0014/en/C0014-en.qa.png",
+  "manual_review_required": [
+    "character consistency",
+    "visual defects / wrong illustrations",
+    "storytelling quality",
+    "native-speaker listen for non-English"
+  ],
+  "created_at": "2026-11-25T07:51:57+0530",
+  "id": 173
+}

@@ -1278,7 +1278,7 @@ def sound(script, timings, total, pl, word_times, seed):
         if e > s0:
             out[s0:e] += x[: e - s0]
 
-    chalk_scale = PUPPET_CHALK_SFX_SCALE if engine_version(script) >= 3 else 1.0
+    chalk_scale = 0.0 if script.get("style") == "marionette" else (PUPPET_CHALK_SFX_SCALE if engine_version(script) >= 3 else 1.0)
     for i, p in enumerate(pl):
         if p["de"] - p["ds"] > 0.02:
             put(sfx_chalk(p["de"] - p["ds"], rng) * chalk_scale, p["ds"])
